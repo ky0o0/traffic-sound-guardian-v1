@@ -1,0 +1,54 @@
+{
+  "checked": "2026-10-28",
+  "mediapipeVersion": "0.10.21",
+  "assets": {
+    "audio_bundle.mjs": {
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-audio@0.10.21/audio_bundle.mjs",
+      "size": 51989,
+      "sha256": "ea4cc2b0f41e915901e1a904eb99d79b3e238c19b3f9fb43e94e7f1586260f1c",
+      "contentType": null
+    },
+    "audio_wasm_internal.js": {
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-audio@0.10.21/wasm/audio_wasm_internal.js",
+      "size": 161733,
+      "sha256": "9f8d59a241abaa0d3b69dad5a094b843e9f0fdf6d2b7349d3d40541e9679725e",
+      "contentType": null
+    },
+    "audio_wasm_internal.wasm": {
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-audio@0.10.21/wasm/audio_wasm_internal.wasm",
+      "size": 6004523,
+      "sha256": "a57c300fa8fe6756396c1718ddbe4d134e1361e973087ce192bcdab3eea528d1",
+      "contentType": null
+    },
+    "audio_wasm_nosimd_internal.js": {
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-audio@0.10.21/wasm/audio_wasm_nosimd_internal.js",
+      "size": 161586,
+      "sha256": "b9cd5366d4b460d58f151b02ce0ec5784e13130ffb67396cbb532a52ad14c966",
+      "contentType": null
+    },
+    "audio_wasm_nosimd_internal.wasm": {
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-audio@0.10.21/wasm/audio_wasm_nosimd_internal.wasm",
+      "size": 5877856,
+      "sha256": "cdd5c603a5225d85dbb30944fa1e66c46a76790ec246682c4f3d88c571b5a3a6",
+      "contentType": null
+    },
+    "yamnet.tflite": {
+      "url": "https://storage.googleapis.com/mediapipe-models/audio_classifier/yamnet/float32/1/yamnet.tflite",
+      "size": 4126810,
+      "sha256": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+      "contentType": null
+    },
+    "yamnet_class_map.csv": {
+      "url": "https://raw.githubusercontent.com/tensorflow/models/master/research/audioset/yamnet/yamnet_class_map.csv",
+      "size": 14096,
+      "sha256": "cdf24d193e196d9e95912a2667051ae203e92a2ba09449218ccb40ef787c6df2",
+      "contentType": null
+    },
+    "APACHE-2.0.txt": {
+      "url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/LICENSE",
+      "size": 12331,
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8",
+      "contentType": null
+    }
+  }
+}
