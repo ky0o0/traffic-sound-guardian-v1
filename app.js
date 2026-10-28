@@ -1,10 +1,42 @@
-import { WarningGate } from './detection.js';
+import { WarningGate, TARGETS } from './detection.js';
 import { AudioWindowBuffer } from './audio-window.js';
+import { debugCategoryName } from './debug.js';
 
 // V1.1 configuration: paste the real Google Forms responder URL between the quotes.
 // Leave empty until the form is ready. No audio or scores are appended to this URL.
 const FEEDBACK_FORM_URL = '';
 const EN = Object.freeze({
+  "AIデバッグモード": "AI Debug Mode",
+  "識別の詳細を表示": "Show recognition details",
+  "AIモデル": "AI model",
+  "マイク入力": "Microphone input",
+  "直近の推論": "Latest inference",
+  "推論時間": "Inference time",
+  "最終更新": "Last update",
+  "上位5種類の音": "Top 5 sounds",
+  "対象の交通警告音（6種類）": "Target traffic sounds (6 categories)",
+  "音の種類": "Sound category",
+  "生の識別スコア": "Raw score",
+  "最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。": "Only the latest result is shown. No recordings or history are saved. A score is not accuracy.",
+  "結果はまだありません。": "No results yet.",
+  "未読み込み": "Not loaded",
+  "読み込み中": "Loading",
+  "読み込み成功": "Loaded successfully",
+  "読み込み成功・解放済み": "Loaded successfully; now released",
+  "読み込み中止": "Loading cancelled",
+  "失敗": "Failed",
+  "許可を確認中": "Requesting permission",
+  "許可済み・音声データ待ち": "Permission granted; waiting for audio",
+  "音声データ受信中": "Receiving audio data",
+  "マイクの許可なし": "Microphone permission denied",
+  "入力エラー": "Input error",
+  "音声入力が中断": "Audio input interrupted",
+  "未実行": "Not run yet",
+  "成功": "Successful",
+  "更新が停止": "Updates stalled",
+  "利用不可（HTTPSが必要）": "Unavailable (HTTPS required)",
+  "詳細結果を待っています。": "Waiting for detailed results.",
+  "推論時間はモデルの実行時間です。音声収集・再サンプリング・待ち時間は含みません。": "Inference time measures the model call only. It excludes capture, resampling and queue time.",
   "検知を停止しました": "Detection stopped",
   "停止中": "Stopped",
   "開始すると、周囲の交通警告音を\nこの端末で識別します。": "Start to identify nearby traffic warning\nsounds on this device.",
@@ -68,10 +100,96 @@ const t = text => language === 'en' ? (EN[text] ?? text) : text;
 const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'action', 'button-label', 'button-icon', 'cancel', 'theme-color', 'visual', 'waveform',
-  'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'page-description'].map(id => [id, $(id)]));
+  'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'page-description',
+  'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
+  'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
+  'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
+  'debug-top-heading', 'debug-target-heading', 'debug-top-name', 'debug-top-score', 'debug-target-name',
+  'debug-target-score', 'debug-top', 'debug-target', 'debug-empty'].map(id => [id, $(id)]));
 let session = null;
 let nextSession = 0;
 let view = 'stopped';
+
+let debugEnabled = false;
+// One current status/snapshot only; no collection, storage, audio or result history.
+let diagnostics = { model: '未読み込み', microphone: '停止中', inference: '未実行',
+  inferenceMs: null, updatedAt: null, scores: null };
+
+function renderDebugRows(container, rows) {
+  const fragment = document.createDocumentFragment();
+  for (const category of rows) {
+    const row = document.createElement('tr');
+    const label = document.createElement('td');
+    const name = document.createElement('span');
+    name.textContent = debugCategoryName(category, language);
+    label.append(name);
+    if (language === 'ja') {
+      const original = document.createElement('small');
+      original.textContent = category.categoryName; // Official label for cross-checking.
+      original.lang = 'en';
+      label.append(original);
+    }
+    const score = document.createElement('td');
+    score.className = 'debug-score';
+    // No percent conversion, normalization, rounding or invented zero.
+    score.textContent = Number.isFinite(category.score) ? String(category.score) : '—';
+    row.append(label, score);
+    fragment.append(row);
+  }
+  container.replaceChildren(fragment);
+}
+function renderDebug() {
+  for (const [id, text] of Object.entries({
+    'debug-toggle-label': 'AIデバッグモード', 'debug-summary': '識別の詳細を表示',
+    'debug-model-label': 'AIモデル', 'debug-mic-label': 'マイク入力', 'debug-inference-label': '直近の推論',
+    'debug-time-label': '推論時間', 'debug-updated-label': '最終更新',
+    'debug-top-heading': '上位5種類の音', 'debug-target-heading': '対象の交通警告音（6種類）',
+    'debug-top-name': '音の種類', 'debug-target-name': '音の種類',
+    'debug-top-score': '生の識別スコア', 'debug-target-score': '生の識別スコア',
+    'debug-note': '最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。',
+    'debug-timing-note': '推論時間はモデルの実行時間です。音声収集・再サンプリング・待ち時間は含みません。'
+  })) ui[id].textContent = t(text);
+  ui['debug-panel'].hidden = !debugEnabled;
+  if (!debugEnabled) return;
+  ui['debug-model'].textContent = t(diagnostics.model);
+  ui['debug-mic'].textContent = t(diagnostics.microphone);
+  ui['debug-inference'].textContent = t(diagnostics.inference);
+  ui['debug-time'].textContent = Number.isFinite(diagnostics.inferenceMs) ? diagnostics.inferenceMs.toFixed(2) + ' ms' : '—';
+  ui['debug-updated'].textContent = diagnostics.updatedAt == null ? '—' :
+    new Date(diagnostics.updatedAt).toLocaleTimeString(language === 'ja' ? 'ja-JP' : 'en-GB', { hour12: false });
+  ui['debug-empty'].hidden = !!diagnostics.scores;
+  ui['debug-empty'].textContent = t(session ? '詳細結果を待っています。' : '結果はまだありません。');
+  renderDebugRows(ui['debug-top'], diagnostics.scores?.top5 ?? []);
+  renderDebugRows(ui['debug-target'], diagnostics.scores?.targets ??
+    Object.entries(TARGETS).map(([categoryName, info]) => ({ categoryName, index: info.index, score: null })));
+}
+function setDebug(enabled) {
+  debugEnabled = !!enabled;
+  ui['debug-toggle'].checked = debugEnabled;
+  diagnostics.scores = null;
+  ui['debug-top'].replaceChildren();
+  ui['debug-target'].replaceChildren();
+  ui['debug-panel'].open = debugEnabled;
+  renderDebug(); // No initialization, new microphone, worker or inference loop.
+}
+function stopDebug(s) {
+  diagnostics.scores = null;
+  if (s) {
+    if (diagnostics.model === '読み込み成功') diagnostics.model = '読み込み成功・解放済み';
+    else if (diagnostics.model === '読み込み中') diagnostics.model = '読み込み中止';
+    if (!['マイクの許可なし', '入力エラー', '音声入力が中断'].includes(diagnostics.microphone)) {
+      const interrupted = s.connected && (s.context?.state !== 'running' ||
+        s.stream?.getAudioTracks().some(track => track.readyState !== 'live' || track.muted));
+      diagnostics.microphone = interrupted ? '音声入力が中断' : '停止中';
+    }
+    if (!['失敗', '更新が停止'].includes(diagnostics.inference)) {
+      diagnostics.inference = '停止中';
+      diagnostics.inferenceMs = null;
+      diagnostics.updatedAt = null;
+    }
+  }
+}
+
 
 function render(state, description = '') {
   view = state;
@@ -96,6 +214,7 @@ function render(state, description = '') {
     ui.score.textContent = session.gate.target.score.toFixed(2);
   }
   updateButtons();
+  renderDebug();
 }
 
 function updateButtons() {
@@ -198,6 +317,7 @@ function startVisuals(s) {
 
 function stop(message = '') {
   const old = session;
+  stopDebug(old);
   session = null; // Invalidate all pending permissions, frames and model results first.
   if (old) {
     clearTimeout(old.startTimeout);
@@ -259,6 +379,7 @@ function scheduleWarningEnd(s) {
   s.warningTimeout = setTimeout(() => {
     if (!isCurrent(s)) return;
     if (performance.now() - s.lastResult >= 3000) {
+      diagnostics.inference = '更新が停止';
       stop('AIの解析が中断しました。もう一度開始してください。');
       return;
     }
@@ -276,7 +397,7 @@ function sendFrame(s, frame) {
   }
   s.flight = frame;
   s.worker.postMessage({ type: 'classify', sequence: frame.sequence, samples: frame.samples,
-    sampleRate: s.context.sampleRate }, [frame.samples.buffer]);
+    sampleRate: s.context.sampleRate, debug: debugEnabled }, [frame.samples.buffer]);
 }
 function receiveFrame(s, frame) {
   if (!isCurrent(s) || !s.connected) return;
@@ -286,6 +407,10 @@ function receiveFrame(s, frame) {
     return;
   }
   s.lastCapture = performance.now();
+  if (diagnostics.microphone !== '音声データ受信中') {
+    diagnostics.microphone = '音声データ受信中';
+    renderDebug();
+  }
   frame.receivedAt = s.lastCapture - ageMs;
   if (s.flight) s.pending = frame; // At most one outstanding + one latest window.
   else sendFrame(s, frame);
@@ -294,6 +419,7 @@ function receiveResult(s, data) {
   if (!isCurrent(s) || !s.connected || !s.flight || s.flight.sequence !== data.sequence) return;
   const now = performance.now();
   if (now - s.flight.receivedAt > 2500) {
+    diagnostics.inference = '更新が停止';
     stop('AIの解析が遅れています。ほかのアプリを閉じて、もう一度開始してください。');
     return;
   }
@@ -302,11 +428,16 @@ function receiveResult(s, data) {
   s.flight = null;
   s.lastResult = now;
   s.hasResult = true;
+  diagnostics.inference = '成功';
+  diagnostics.inferenceMs = Number.isFinite(data.inferenceMs) ? data.inferenceMs : null;
+  diagnostics.updatedAt = Date.now();
+  diagnostics.scores = debugEnabled ? (data.debug ?? null) : null;
   clearTimeout(s.startTimeout);
   s.gate.observe(data.target, now);
   const state = s.gate.active ? 'warning' : 'listening';
   if (view !== state || s.gate.active) render(state);
   scheduleWarningEnd(s);
+  renderDebug();
   if (s.pending) {
     const pending = s.pending;
     s.pending = null;
@@ -367,8 +498,11 @@ async function connectCapture(s) {
     const now = performance.now();
     const limit = s.hasResult ? 3000 : 8000;
     if (context.state !== 'running' || s.stream.getAudioTracks().some(t => t.readyState !== 'live' || t.muted)) {
+      diagnostics.microphone = '音声入力が中断';
       stop('マイクまたは音声処理が中断しました。もう一度開始してください。');
     } else if (now - s.lastCapture > limit || now - s.lastResult > limit) {
+      if (now - s.lastCapture > limit) diagnostics.microphone = '音声入力が中断';
+      if (now - s.lastResult > limit) diagnostics.inference = '更新が停止';
       stop('音声またはAIの解析が途切れました。もう一度開始してください。');
     }
   }, 250);
@@ -381,7 +515,10 @@ async function start() {
     current.context?.resume().then(() => { if (isCurrent(current)) updateButtons(); }).catch(error => fail(current, error));
     return;
   }
+  diagnostics = { model: '未読み込み', microphone: '停止中', inference: '未実行',
+    inferenceMs: null, updatedAt: null, scores: null };
   if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
+    diagnostics.microphone = '利用不可（HTTPSが必要）';
     stop('マイクを使用するには、HTTPSのサイトをSafariで直接開いてください。');
     return;
   }
@@ -393,6 +530,9 @@ async function start() {
   const s = { id: ++nextSession, gate: new WarningGate(), connected: false, hasResult: false,
     lastSequence: 0, pending: null, flight: null };
   session = s;
+  diagnostics.model = '読み込み中';
+  diagnostics.microphone = '許可を確認中';
+  renderDebug();
   try {
     s.context = new AudioContextType({ latencyHint: 'interactive' });
     // Run resume and getUserMedia before any await, preserving a button's activation.
@@ -402,6 +542,8 @@ async function start() {
     } }).then(stream => {
       if (!isCurrent(s)) { stream.getTracks().forEach(t => t.stop()); throw new DOMException('Stopped', 'AbortError'); }
       s.stream = stream;
+      diagnostics.microphone = '許可済み・音声データ待ち';
+      renderDebug();
       for (const track of stream.getAudioTracks()) {
         track.onended = () => { if (isCurrent(s)) stop('マイクとの接続が切れました。もう一度開始してください。'); };
         track.onmute = () => { if (isCurrent(s) && s.connected) stop('マイクが一時停止しました。もう一度開始してください。'); };
@@ -409,15 +551,24 @@ async function start() {
       return stream;
     });
     // Attach rejection handler immediately even if Worker construction fails.
-    microphone.catch(error => fail(s, error));
-    s.worker = new Worker(new URL('./classifier-worker.js', import.meta.url));
+    microphone.catch(error => {
+      if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
+      fail(s, error);
+    });
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.1-debug1', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
         if (!isCurrent(s)) return;
-        if (data.type === 'ready') resolve();
+        if (data.type === 'ready') { diagnostics.model = '読み込み成功'; renderDebug(); resolve(); }
         else if (data.type === 'result') receiveResult(s, data);
         else if (data.type === 'error') {
+          if (data.operation === 'init' || !s.connected) diagnostics.model = '失敗';
+          else {
+            diagnostics.inference = '失敗';
+            diagnostics.inferenceMs = Number.isFinite(data.inferenceMs) ? data.inferenceMs : null;
+            diagnostics.updatedAt = Date.now();
+          }
           const error = publicError(s.connected
             ? 'AIの解析に失敗しました。もう一度開始してください。'
             : 'AIモデルを読み込めませんでした。通信とアップロードしたファイルを確認して、再読み込みしてください。');
@@ -427,6 +578,9 @@ async function start() {
         }
       };
       s.worker.onerror = event => {
+        if (!isCurrent(s)) return;
+        if (s.connected) { diagnostics.inference = '失敗'; diagnostics.inferenceMs = null; diagnostics.updatedAt = Date.now(); }
+        else diagnostics.model = '失敗';
         const error = publicError('AIの実行に失敗しました。必要なファイルをすべてアップロードして、Safariで開き直してください。');
         console.error('[Traffic Sound Guardian] Worker load:', event.message);
         reject(error);
@@ -458,6 +612,8 @@ async function start() {
     await connectCapture(s);
   } catch (error) { fail(s, error); }
 }
+
+ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
 ui['language-ja'].addEventListener('click', () => setLanguage('ja'));
 ui['language-en'].addEventListener('click', () => setLanguage('en'));

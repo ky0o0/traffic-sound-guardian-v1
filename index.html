@@ -11,7 +11,7 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./style.css?v=1.1">
+  <link rel="stylesheet" href="./style.css?v=1.1-debug1">
   <title>Traffic Sound Guardian V1.1</title>
 </head>
 <body data-state="stopped">
@@ -57,6 +57,28 @@
     </footer>
     <noscript>JavaScriptを有効にして、Safariで開き直してください。 / Enable JavaScript and reopen this page in Safari.</noscript>
   </div>
-  <script type="module" src="./app.js?v=1.1"></script>
+  <section class="debug-section" aria-labelledby="debug-toggle-label">
+    <label class="debug-switch"><input id="debug-toggle" type="checkbox" role="switch" aria-controls="debug-panel"><span id="debug-toggle-label">AIデバッグモード</span></label>
+    <details id="debug-panel" class="debug-panel" hidden>
+      <summary id="debug-summary">識別の詳細を表示</summary>
+      <div class="debug-content">
+        <p id="debug-note" class="debug-note"></p>
+        <dl class="debug-status">
+          <dt id="debug-model-label"></dt><dd id="debug-model"></dd>
+          <dt id="debug-mic-label"></dt><dd id="debug-mic"></dd>
+          <dt id="debug-inference-label"></dt><dd id="debug-inference"></dd>
+          <dt id="debug-time-label"></dt><dd id="debug-time"></dd>
+          <dt id="debug-updated-label"></dt><dd id="debug-updated"></dd>
+        </dl>
+        <p id="debug-timing-note" class="debug-note"></p>
+        <p id="debug-empty" class="debug-note"></p>
+        <h2 id="debug-top-heading"></h2>
+        <table><thead><tr><th id="debug-top-name" scope="col"></th><th id="debug-top-score" scope="col"></th></tr></thead><tbody id="debug-top"></tbody></table>
+        <h2 id="debug-target-heading"></h2>
+        <table><thead><tr><th id="debug-target-name" scope="col"></th><th id="debug-target-score" scope="col"></th></tr></thead><tbody id="debug-target"></tbody></table>
+      </div>
+    </details>
+  </section>
+  <script type="module" src="./app.js?v=1.1-debug1"></script>
 </body>
 </html>

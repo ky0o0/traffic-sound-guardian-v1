@@ -30,3 +30,22 @@ html[lang="en"] #sound-type{font-size:25px}
 @media(max-height:740px){main{padding-top:15px;padding-bottom:12px}.language-switch{margin-top:8px}.visual{margin:12px 0}.message{min-height:88px}.wave{height:40px;margin:8px 0}.feedback{min-height:38px}}
 @media(prefers-reduced-motion:reduce){.visual .icon-disc,.visual .orbit{transform:none!important}}
 @media(max-height:740px){body[data-state="warning"] .visual{width:136px;height:136px;margin:10px 0}body[data-state="warning"] .wave{height:0;margin:0}}
+
+/* Debug Mode stays below the original full-height app in normal document flow. */
+.debug-section{width:100%;max-width:480px;margin:0 auto;padding:0 26px calc(20px + env(safe-area-inset-bottom));overflow-wrap:anywhere}
+.debug-switch{display:flex;align-items:center;gap:10px;min-height:48px;font-size:13px;color:#c6d4e6;cursor:pointer}
+.debug-switch input{width:21px;height:21px;margin:0;accent-color:#b5e4d6;flex:none}
+.debug-panel{border:1px solid #637e9b70;border-radius:14px;background:#0b142588}
+.debug-panel summary{cursor:pointer;min-height:48px;padding:15px;font-size:13px;font-weight:600}
+.debug-panel summary:focus-visible,.debug-switch input:focus-visible{outline:2px solid #d4f1e9;outline-offset:3px}
+.debug-content{padding:0 14px 16px}.debug-note{font-size:11px;line-height:1.65;color:#b8c7db;margin:0 0 14px}
+.debug-status{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px 14px;font-size:12px;line-height:1.6;margin:14px 0}
+.debug-status dt{color:#b8c7db}.debug-status dd{margin:0;color:#f6f8fc;font-variant-numeric:tabular-nums}
+.debug-panel h2{font-size:14px;line-height:1.5;margin:22px 0 10px}.debug-panel table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12px}
+.debug-panel th,.debug-panel td{padding:9px 5px;text-align:left;border-bottom:1px solid #637e9b50;vertical-align:top;overflow-wrap:anywhere}
+.debug-panel th{font-size:10px;color:#b8c7db;font-weight:500}.debug-panel th:last-child{width:47%}
+.debug-panel small{display:block;margin-top:4px;font-size:10px;line-height:1.5;color:#acbfd5}
+.debug-score{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:11px}
+body[data-state="warning"] .debug-section{color:white}body[data-state="warning"] .debug-panel{background:#650d1a30;border-color:#ffffff66}
+body[data-state="warning"] .debug-section :is(.debug-switch,.debug-note,dt,th,small){color:#fff}
+body[data-state="warning"] .debug-panel :is(th,td){border-color:#ffffff40}

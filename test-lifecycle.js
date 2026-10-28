@@ -4,16 +4,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { WarningGate } from './detection.js';
+import { WarningGate, TARGETS } from './detection.js';
+import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
  .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({deny=false,deferMic=false,suspended=false,worklet=false,formURL=''}={}) {
+async function harness({deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
-  if(!elements.has(id))elements.set(id,{hidden:false,textContent:'',attributes:{},clientWidth:300,clientHeight:48,
+  if(!elements.has(id))elements.set(id,{hidden:false,textContent:'',attributes:{},children:[],clientWidth:300,clientHeight:48,
+   append(...nodes){for(const node of nodes)this.children.push(...(node.fragment ? node.children : [node]));},
+   replaceChildren(...nodes){this.children=[];this.append(...nodes);},
    style:{values:{},setProperty(key,value){this.values[key]=value;}},
    setAttribute(key,value){this.attributes[key]=value;},removeAttribute(key){delete this.attributes[key];},
    getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
@@ -40,12 +43,15 @@ async function harness({deny=false,deferMic=false,suspended=false,worklet=false,
  }
  class ModelWorker {
   constructor(){workers.push(this);this.sent=[];}
-  postMessage(data){this.sent.push(data);if(data.type==='init')queueMicrotask(()=>this.onmessage?.({data:{type:'ready'}}));}
+  postMessage(data){this.sent.push(data);if(data.type==='init'&&!deferModel)queueMicrotask(()=>this.onmessage?.({data:{type:'ready'}}));}
   terminate(){this.terminated=true;}
   emit(data){this.onmessage?.({data});}
  }
  const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:element,addEventListener(name,fn){events[name]=fn;}};
- const context=vm.createContext({WarningGate,AudioWindowBuffer,Float32Array,URL,DOMException,console:{error(){},warn(){}},
+ let nextElement=0;
+ document.createElement=()=>element('created-'+(++nextElement));
+ document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
+ const context=vm.createContext({WarningGate,TARGETS,debugCategoryName,AudioWindowBuffer,Float32Array,URL,DOMException,console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
@@ -58,6 +64,7 @@ async function harness({deny=false,deferMic=false,suspended=false,worklet=false,
  return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
   language:lang=>element('language-'+lang).click(),
+  debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
   calls:()=>micCalls,allow:()=>denied=false,resolveMic:()=>resolveMic(),now:n=>now=n,
   run:code=>vm.runInContext(code,context),click:()=>element('action').click(),stop:()=>vm.runInContext('stop()',context),
   emit:(sequence,target=null)=>workers.at(-1).emit({type:'result',sequence,target}),
@@ -204,4 +211,83 @@ test('configured Google Forms link is exact, opens a new tab and adds no microph
  const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
  assert.match(html,/<a id="feedback"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
  assert.ok(!html.includes('id="targets"'));assert.ok(!html.includes('<i></i>'));h.stop();
+});
+
+const diagnosticFixture=()=>({
+ top5:[{categoryName:'Speech',index:0,score:.931234567890123},{categoryName:'Music',index:132,score:.3},{categoryName:'Bell',index:195,score:.2},{categoryName:'Bicycle bell',index:198,score:.123456789012345},{categoryName:'Car',index:301,score:.1}],
+ targets:Object.entries(TARGETS).map(([categoryName,target])=>({categoryName,index:target.index,score:target.index===198?.123456789012345:0}))
+});
+test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
+ const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
+ h.frame(1);h.emit(1,{score:.8,label:'車のクラクション'});const timer=h.run('session.warningTimeout');
+ h.debug(true);assert.equal(h.elements.get('debug-panel').open,true);assert.equal(h.elements.get('debug-panel').hidden,false);
+ assert.equal(h.run('session.warningTimeout'),timer);assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.frames.size,1);
+ h.elements.get('debug-panel').open=false;
+ assert.equal(h.run('debugEnabled'),true);h.debug(false);assert.equal(h.run('session.warningTimeout'),timer);
+ const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');assert.ok(html.indexOf('class="debug-section"')>html.indexOf('</footer>'));h.stop();
+});
+test('debug displays real-result low and zero raw scores while original rules do not warn',async()=>{
+ const h=await harness();h.debug(true);h.frame(1);
+ assert.equal(h.workers[0].sent.at(-1).debug,true);
+ h.workers[0].emit({type:'result',sequence:1,target:{score:.123456789012345,label:'自転車のベル'},inferenceMs:12.3456,debug:diagnosticFixture()});
+ assert.equal(h.document.body.dataset.state,'listening');
+ assert.equal(h.elements.get('debug-top').children.length,5);assert.equal(h.elements.get('debug-target').children.length,6);
+ assert.equal(h.elements.get('debug-top').children[0].children[1].textContent,'0.931234567890123');
+ assert.equal(h.elements.get('debug-target').children[0].children[1].textContent,'0.123456789012345');
+ assert.equal(h.elements.get('debug-target').children[1].children[1].textContent,'0');
+ assert.equal(h.elements.get('debug-time').textContent,'12.35 ms');h.stop();
+});
+test('debug separates loaded model, microphone permission, captured audio and completed inference',async()=>{
+ const h=await harness();h.debug(true);
+ assert.equal(h.elements.get('debug-model').textContent,'読み込み成功');
+ assert.equal(h.elements.get('debug-mic').textContent,'許可済み・音声データ待ち');
+ assert.equal(h.elements.get('debug-inference').textContent,'未実行');
+ h.frame();assert.equal(h.elements.get('debug-mic').textContent,'音声データ受信中');
+ h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:15,debug:diagnosticFixture()});
+ assert.equal(h.elements.get('debug-inference').textContent,'成功');h.stop();
+ assert.equal(h.elements.get('debug-model').textContent,'読み込み成功・解放済み');
+ assert.equal(h.run('diagnostics.scores'),null);
+});
+test('debug replaces a single snapshot and disabling clears it even with an in-flight result',async()=>{
+ const h=await harness();h.debug(true);h.frame(1);
+ h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:1,debug:diagnosticFixture()});
+ h.frame(2);h.debug(false);
+ h.workers[0].emit({type:'result',sequence:2,target:null,inferenceMs:2,debug:diagnosticFixture()});
+ assert.equal(h.run('diagnostics.scores'),null);assert.equal(h.elements.get('debug-top').children.length,0);
+ h.frame(3);assert.equal(h.workers[0].sent.at(-1).debug,false);h.debug(true);
+ h.workers[0].emit({type:'result',sequence:3,target:null,inferenceMs:3});
+ assert.equal(h.run('diagnostics.scores'),null);
+ h.frame(4);const fresh=diagnosticFixture();fresh.top5[0].score=.99;
+ h.workers[0].emit({type:'result',sequence:4,target:null,inferenceMs:4,debug:fresh});
+ assert.equal(h.elements.get('debug-top').children.length,5);assert.equal(h.elements.get('debug-top').children[0].children[1].textContent,'0.99');h.stop();
+});
+test('debug Japanese and English include statuses, category names and original unrounded scores',async()=>{
+ const h=await harness();h.debug(true);h.frame();h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:2,debug:diagnosticFixture()});
+ assert.equal(h.elements.get('debug-top').children[0].children[0].children[0].textContent,'話し声');
+ h.language('en');assert.equal(h.elements.get('debug-inference').textContent,'Successful');
+ assert.equal(h.elements.get('debug-top').children[0].children[0].children[0].textContent,'Speech');
+ assert.equal(h.elements.get('debug-top').children[0].children[1].textContent,'0.931234567890123');
+ for(const [id,el] of h.elements)if(id.startsWith('debug-'))assert.doesNotMatch(el.textContent,/[\u3040-\u30ff\u4e00-\u9fff]/,id);
+ assert.equal(h.calls(),1);h.stop();
+});
+test('debug retains explicit model or microphone failure status after cleanup',async()=>{
+ const denied=await harness({deny:true});denied.debug(true);assert.equal(denied.elements.get('debug-mic').textContent,'マイクの許可なし');denied.stop();
+ const h=await harness({deferModel:true});h.debug(true);
+ h.workers[0].emit({type:'error',operation:'init',inferenceMs:null,message:'test model failure'});
+ assert.equal(h.document.body.dataset.state,'stopped');assert.equal(h.elements.get('debug-model').textContent,'失敗');assert.equal(h.elements.get('debug-inference').textContent,'停止中');
+ assert.equal(h.run('diagnostics.scores'),null);
+});
+test('debug shows inference failure and elapsed time, and ignores late results/errors after stop',async()=>{
+ const h=await harness();h.debug(true);h.frame();
+ h.workers[0].emit({type:'error',operation:'classify',sequence:1,inferenceMs:7.5,message:'test inference failure'});
+ assert.equal(h.elements.get('debug-inference').textContent,'失敗');assert.equal(h.elements.get('debug-time').textContent,'7.50 ms');
+ h.click();await flush();const before=h.run('JSON.stringify(diagnostics)');
+ h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:1,debug:diagnosticFixture()});
+ h.workers[0].onerror({message:'late worker error'});
+ assert.equal(h.run('JSON.stringify(diagnostics)'),before);h.stop();
+});
+test('debug marks stalled inference and clears old scores when the unchanged watchdog stops it',async()=>{
+ const h=await harness();h.debug(true);h.frame();h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:2,debug:diagnosticFixture()});
+ h.now(3100);[...h.timers.values()].find(t=>t.interval).fn();
+ assert.equal(h.document.body.dataset.state,'stopped');assert.equal(h.elements.get('debug-inference').textContent,'更新が停止');assert.equal(h.run('diagnostics.scores'),null);
 });
