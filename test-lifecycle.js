@@ -9,24 +9,29 @@ import { AudioWindowBuffer } from './audio-window.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
  .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({deny=false,deferMic=false,suspended=false,worklet=false}={}) {
- const elements=new Map();
+async function harness({deny=false,deferMic=false,suspended=false,worklet=false,formURL=''}={}) {
+ const elements=new Map(),drawing=[];
+ const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
-  if(!elements.has(id))elements.set(id,{hidden:false,textContent:'',setAttribute(){},addEventListener(name,fn){this[name]=fn;}});
+  if(!elements.has(id))elements.set(id,{hidden:false,textContent:'',attributes:{},clientWidth:300,clientHeight:48,
+   style:{values:{},setProperty(key,value){this.values[key]=value;}},
+   setAttribute(key,value){this.attributes[key]=value;},removeAttribute(key){delete this.attributes[key];},
+   getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
   return elements.get(id);
  };
- const tracks=[],workers=[],contexts=[],nodes=[],timers=new Map(),events={};
+ const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],timers=new Map(),frames=new Map(),events={};
  let now=0,nextTimer=0,micCalls=0,resolveMic,denied=deny;
  const makeStream=()=>{
   const track={readyState:'live',muted:false,stop(){this.readyState='ended';this.stopped=true;}};tracks.push(track);
   return {getTracks:()=>[track],getAudioTracks:()=>[track]};
  };
- const baseNode=()=>({connect(){},disconnect(){this.disconnected=true;}});
+ const baseNode=()=>({connections:[],connect(node){this.connections.push(node);},disconnect(){this.disconnected=true;}});
  class Context {
   constructor(){this.state='suspended';this.sampleRate=48000;this.currentTime=0;this.destination={};contexts.push(this);if(worklet)this.audioWorklet={addModule:async()=>{}};}
   resume(){if(!suspended)this.state='running';return Promise.resolve();}
   close(){this.state='closed';return Promise.resolve();}
-  createMediaStreamSource(){return baseNode();}
+  createMediaStreamSource(){const node=baseNode();sources.push(node);return node;}
+  createAnalyser(){const node={...baseNode(),fftSize:2048,pcm:new Float32Array(2048),getFloatTimeDomainData(out){out.set(this.pcm);}};analysers.push(node);return node;}
   createGain(){return {...baseNode(),gain:{value:1}};}
   createScriptProcessor(){const node=baseNode();nodes.push(node);return node;}
  }
@@ -39,17 +44,20 @@ async function harness({deny=false,deferMic=false,suspended=false,worklet=false}
   terminate(){this.terminated=true;}
   emit(data){this.onmessage?.({data});}
  }
- const document={hidden:false,body:{dataset:{}},getElementById:element,addEventListener(name,fn){events[name]=fn;}};
+ const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:element,addEventListener(name,fn){events[name]=fn;}};
  const context=vm.createContext({WarningGate,AudioWindowBuffer,Float32Array,URL,DOMException,console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
+  requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   performance:{now:()=>now},document,Worker:ModelWorker,...(worklet?{AudioWorkletNode:WorkletNode}:{}),
   window:{isSecureContext:true,AudioContext:Context,addEventListener(name,fn){events[name]=fn;}},
   navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
- vm.runInContext(source,context);await flush();await flush();
- return {document,elements,tracks,workers,contexts,nodes,timers,events,context,
+ vm.runInContext(source.replace("const FEEDBACK_FORM_URL = '';", "const FEEDBACK_FORM_URL = "+JSON.stringify(formURL)+";"),context);await flush();await flush();
+ return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,
+  animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
+  language:lang=>element('language-'+lang).click(),
   calls:()=>micCalls,allow:()=>denied=false,resolveMic:()=>resolveMic(),now:n=>now=n,
   run:code=>vm.runInContext(code,context),click:()=>element('action').click(),stop:()=>vm.runInContext('stop()',context),
   emit:(sequence,target=null)=>workers.at(-1).emit({type:'result',sequence,target}),
@@ -115,4 +123,85 @@ test('real controller warning timer returns to listening 3 seconds after last qu
  h.now(2000);h.frame(2);h.emit(2);
  h.now(3000);[...h.timers.values()].find(t=>!t.interval).fn();
  assert.equal(h.document.body.dataset.state,'listening');h.stop();
+});
+
+// V1.1 regressions. Controlled PCM/device fixtures only; not loaded by the website.
+test('visualizer observes the original source without changing the AI capture route',async()=>{
+ const h=await harness();
+ assert.equal(h.sources.length,1);assert.equal(h.analysers.length,1);
+ assert.deepEqual(h.sources[0].connections,[h.nodes[0],h.analysers[0]]);
+ assert.equal(h.analysers[0].connections.length,0);
+ h.frame();assert.equal(h.workers[0].sent.at(-1).samples.length,46800);
+ assert.equal(h.workers[0].sent.at(-1).sampleRate,48000);h.stop();
+});
+test('zero PCM gives a flat waveform and zero glow; louder PCM gives larger response',async()=>{
+ const h=await harness();h.animate(0);
+ assert.equal(h.drawing.length,2048);assert.ok(h.drawing.every(([,y])=>y===24));
+ assert.equal(Number(h.elements.get('visual').style.values['--audio-level']),0);
+ const pcm=h.analysers[0].pcm;
+ for(let i=0;i<pcm.length;i++)pcm[i]=i%2 ? .01 : -.01;
+ h.animate(100);const quiet=Number(h.elements.get('visual').style.values['--audio-level']);
+ const smallRange=Math.max(...h.drawing.map(p=>p[1]))-Math.min(...h.drawing.map(p=>p[1]));
+ for(let i=0;i<pcm.length;i++)pcm[i]=i%2 ? .2 : -.2;
+ const original=pcm.slice();h.animate(200);
+ assert.ok(Number(h.elements.get('visual').style.values['--audio-level'])>quiet);
+ assert.ok(Math.max(...h.drawing.map(p=>p[1]))-Math.min(...h.drawing.map(p=>p[1]))>smallRange);
+ assert.deepEqual(pcm,original,'display scaling never mutates source samples');h.stop();
+});
+test('stop cancels visual frames, disconnects analyser, clears waveform; restart adds one loop',async()=>{
+ const h=await harness();h.analysers[0].pcm.fill(.3);h.animate(0);
+ assert.equal(h.frames.size,1);const late=[...h.frames.values()][0];h.stop();
+ assert.equal(h.frames.size,0);assert.ok(h.analysers[0].disconnected);
+ assert.equal(h.elements.get('visual').style.values['--audio-level'],'0');assert.equal(h.drawing.length,2);
+ late(100);assert.equal(h.frames.size,0);
+ h.click();await flush();assert.equal(h.frames.size,1);h.stop();
+});
+test('switching languages keeps the active microphone, worker, score streak and warning expiry',async()=>{
+ const h=await harness();assert.equal(h.document.documentElement.lang,'ja');
+ h.frame(1);h.emit(1,{score:.6,label:'自転車のベル'});
+ h.language('en');assert.equal(h.document.documentElement.lang,'en');
+ assert.equal(h.elements.get('heading').textContent,'Listening to your surroundings...');
+ assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.frames.size,1);
+ h.now(500);h.frame(2);h.emit(2,{score:.6,label:'車のクラクション'});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.elements.get('sound-type').textContent,'Car horn');assert.equal(h.elements.get('score').textContent,'0.60');
+ const deadline=h.run('session.warningTimeout');h.language('ja');
+ assert.equal(h.run('session.warningTimeout'),deadline);assert.equal(h.elements.get('sound-type').textContent,'車のクラクション');
+ assert.equal(h.elements.get('heading').textContent,'警告音を検知しました');h.stop();
+});
+test('language switch translates an existing permission error without starting a session',async()=>{
+ const h=await harness({deny:true});h.language('en');
+ assert.match(h.elements.get('description').textContent,/Microphone access is not allowed/);
+ assert.equal(h.elements.get('button-label').textContent,'Start detection');assert.equal(h.calls(),1);
+ h.language('ja');assert.match(h.elements.get('description').textContent,/マイクの使用が許可/);h.stop();
+});
+test('English covers every Japanese UI string in the controller including errors and six labels',async()=>{
+ const h=await harness();h.language('en');
+ // Catalog keys use double quotes; these single-quoted literals are all UI callers.
+ const literals=[...source.matchAll(/'([^'\n]*[\u3040-\u30ff\u4e00-\u9fff][^'\n]*)'/g)].map(match=>match[0]);
+ for(const literal of literals)assert.doesNotMatch(h.run('t('+literal+')'),/[\u3040-\u30ff\u4e00-\u9fff]/,literal);
+ for(const label of ['自転車のベル','車のクラクション','サイレン','サイレン（パトカー）','サイレン（救急車）','サイレン（消防車）'])
+  assert.doesNotMatch(h.run('t('+JSON.stringify(label)+')'),/[\u3040-\u30ff\u4e00-\u9fff]/);
+ for(const id of ['privacy','research','score-label','cancel','feedback'])
+  assert.doesNotMatch(h.elements.get(id).textContent,/[\u3040-\u30ff\u4e00-\u9fff]/);
+ assert.equal(h.elements.get('language-en').attributes['aria-pressed'],'true');h.stop();
+});
+test('empty or invalid feedback config has no destination and cannot open a tab',async()=>{
+ for(const url of ['', 'javascript:alert(1)', 'https://example.test/form', 'https://docs.google.com.evil.test/forms/test']){
+  const h=await harness({formURL:url});let prevented=false;
+  assert.equal(h.elements.get('feedback').attributes.href,undefined);
+  h.elements.get('feedback').click({preventDefault(){prevented=true;}});assert.ok(prevented);
+  h.language('en');assert.equal(h.elements.get('feedback').textContent,'Feedback (coming soon)');h.stop();
+ }
+});
+test('configured Google Forms link is exact, opens a new tab and adds no microphone data',async()=>{
+ // This is a non-production URL fixture, never shipped as a configured form.
+ const url='https://docs.google.com/forms/d/e/test-fixture/viewform';
+ const h=await harness({formURL:url});h.language('en');
+ assert.equal(h.elements.get('feedback').attributes.href,url);
+ assert.equal(h.elements.get('feedback').attributes['aria-disabled'],'false');
+ let prevented=false;h.elements.get('feedback').click({preventDefault(){prevented=true;}});assert.equal(prevented,false);
+ const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
+ assert.match(html,/<a id="feedback"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
+ assert.ok(!html.includes('id="targets"'));assert.ok(!html.includes('<i></i>'));h.stop();
 });

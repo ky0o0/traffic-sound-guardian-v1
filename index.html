@@ -4,27 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#101a2c" id="theme-color">
-  <meta name="description" content="イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。">
+  <meta id="page-description" name="description" content="イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Sound Guardian">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./style.css">
-  <title>Traffic Sound Guardian V1</title>
+  <link rel="stylesheet" href="./style.css?v=1.1">
+  <title>Traffic Sound Guardian V1.1</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1</span>
+      <span class="version">V1.1</span>
     </header>
+
+    <div id="language-switch" class="language-switch" role="group" aria-label="言語">
+      <button id="language-ja" type="button" lang="ja" aria-pressed="true">日本語</button>
+      <button id="language-en" type="button" lang="en" aria-pressed="false">English</button>
+    </div>
 
     <main>
       <div id="status" class="status"><span class="status-dot"></span><span id="status-label">待機中</span></div>
-      <div class="visual" aria-hidden="true">
+      <div id="visual" class="visual" aria-hidden="true">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
         <div class="icon-disc">
           <svg class="mic-icon" viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="24" rx="6"/><path d="M12 22v3a12 12 0 0 0 24 0v-3M24 37v7M17 44h14"/></svg>
@@ -37,21 +42,21 @@
         <p id="description">開始すると、周囲の交通警告音を<br>この端末で識別します。</p>
         <div id="warning-details" hidden>
           <p id="sound-type"></p>
-          <p class="score">識別スコア：<strong id="score"></strong></p>
+          <p class="score"><span id="score-label">識別スコア：</span><strong id="score"></strong></p>
         </div>
       </section>
-      <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <p class="targets" id="targets">自転車のベル<span>・</span>クラクション<span>・</span>サイレン</p>
+      <canvas id="waveform" class="wave" aria-hidden="true"></canvas>
     </main>
 
     <footer>
       <button id="action" type="button"><span id="button-icon" aria-hidden="true">▶</span><span id="button-label">検知を開始</span></button>
       <button id="cancel" type="button" hidden>読み込みを中止</button>
-      <p class="privacy">音声は保存・送信されません</p>
-      <p class="research">研究用プロトタイプ · 安全を保証するものではありません</p>
+      <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="true">ご意見・ご感想（準備中）</a>
+      <p id="privacy" class="privacy">音声は保存・送信されません</p>
+      <p id="research" class="research">研究用プロトタイプ · 安全を保証するものではありません</p>
     </footer>
-    <noscript>JavaScriptを有効にして、Safariで開き直してください。</noscript>
+    <noscript>JavaScriptを有効にして、Safariで開き直してください。 / Enable JavaScript and reopen this page in Safari.</noscript>
   </div>
-  <script type="module" src="./app.js"></script>
+  <script type="module" src="./app.js?v=1.1"></script>
 </body>
 </html>
