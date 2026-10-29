@@ -99,7 +99,7 @@ const t = text => language === 'en' ? (EN[text] ?? text) : text;
 
 const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
-  'score', 'action', 'button-label', 'button-icon', 'cancel', 'theme-color', 'visual', 'waveform',
+  'score', 'action', 'button-label', 'button-icon', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
@@ -109,6 +109,7 @@ const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warnin
 let session = null;
 let nextSession = 0;
 let view = 'stopped';
+let fallbackStart = false; // Independent fallback only when automatic startup needs interaction.
 
 let debugEnabled = false;
 // One current status/snapshot only; no collection, storage, audio or result history.
@@ -221,11 +222,18 @@ function render(state, description = '') {
 }
 
 function updateButtons() {
-  const needsTap = session && !session.connected && session.context?.state !== 'running';
-  const start = !session || needsTap;
-  ui['button-label'].textContent = t(start ? '検知を開始' : '検知を停止');
-  ui['button-icon'].textContent = start ? '▶' : '■';
-  ui.cancel.hidden = !(session && needsTap);
+  const starting = !!session && !session.connected;
+  const command = session ? '検知を停止' : '検知を開始';
+  ui['mic-control'].disabled = starting;
+  ui['mic-control'].setAttribute('aria-label', t(command));
+  ui['mic-control'].setAttribute('title', t(command));
+  ui['mic-control'].setAttribute('aria-pressed', String(!!session && session.connected));
+  // Use the microphone circle as the regular control. The footer is a fallback
+  // only after Safari blocks automatic startup or requires a user gesture.
+  ui.action.hidden = !(view === 'stopped' && fallbackStart);
+  ui['button-label'].textContent = t('検知を開始');
+  ui['button-icon'].textContent = '▶';
+  ui.cancel.hidden = !starting;
 }
 
 // A blank or invalid form URL leaves a visible, inactive feedback entry.
@@ -278,7 +286,7 @@ function drawWaveform(samples) {
   if (!samples) { ctx.moveTo(0, height / 2); ctx.lineTo(width, height / 2); }
   else for (let i = 0; i < samples.length; i++) {
     // Fixed display gain only. The waveform follows actual PCM; AI input is untouched.
-    const sample = Math.max(-1, Math.min(1, samples[i] * 4));
+    const sample = Math.max(-1, Math.min(1, samples[i] * 6));
     const x = i * width / (samples.length - 1);
     const y = height / 2 - sample * height * 0.44;
     if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
@@ -319,6 +327,7 @@ function startVisuals(s) {
 }
 
 function stop(message = '') {
+  fallbackStart = false;
   const old = session;
   stopDebug(old);
   session = null; // Invalidate all pending permissions, frames and model results first.
@@ -370,7 +379,9 @@ function errorMessage(error) {
 function fail(s, error) {
   if (session !== s) return;
   console.error('[Traffic Sound Guardian]', error);
+  const showFallback = !!s.autoStart && !s.connected;
   stop(errorMessage(error));
+  if (showFallback) { fallbackStart = true; updateButtons(); }
 }
 function publicError(message) { return Object.assign(new Error(message), { publicMessage: message }); }
 function isCurrent(s) { return session === s; }
@@ -511,13 +522,14 @@ async function connectCapture(s) {
   }, 250);
 }
 
-async function start() {
+async function start(autoStart = false) {
   if (session) {
     // A tap during automatic startup unlocks the SAME context, never a second loop.
     const current = session;
     current.context?.resume().then(() => { if (isCurrent(current)) updateButtons(); }).catch(error => fail(current, error));
     return;
   }
+  fallbackStart = false;
   diagnostics = { model: '未読み込み', microphone: '停止中', inference: '未実行',
     inferenceMs: null, updatedAt: null, scores: null };
   if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
@@ -530,7 +542,7 @@ async function start() {
     stop('このブラウザは必要な音声機能に対応していません。iOSのSafariで開いてください。');
     return;
   }
-  const s = { id: ++nextSession, gate: new WarningGate(), connected: false, hasResult: false,
+  const s = { id: ++nextSession, autoStart, gate: new WarningGate(), connected: false, hasResult: false,
     lastSequence: 0, pending: null, flight: null };
   session = s;
   diagnostics.model = '読み込み中';
@@ -558,7 +570,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.2', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.3', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -609,6 +621,8 @@ async function start() {
       if (!isCurrent(s)) return;
       if (s.context.state !== 'running') {
         stop('Safariで音声を開始するには、下の「検知を開始」をタップしてください。');
+        fallbackStart = true;
+        updateButtons();
         return;
       }
     }
@@ -626,6 +640,11 @@ ui.feedback.addEventListener('click', event => {
 setLanguage('ja');
 resetVisuals();
 
+ui['mic-control'].addEventListener('click', () => {
+  if (session) {
+    if (session.connected) stop(); // Ignore duplicate taps during initialization.
+  } else start();
+});
 ui.action.addEventListener('click', () => {
   if (!session || (!session.connected && session.context?.state !== 'running')) start();
   else stop();
@@ -636,4 +655,4 @@ document.addEventListener('visibilitychange', () => {
 });
 window.addEventListener('pagehide', () => stop());
 // No background or lock-screen operation. Autostart is attempted only in front.
-if (!document.hidden) start();
+if (!document.hidden) start(true);
