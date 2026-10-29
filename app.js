@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.4';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.5';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
@@ -94,6 +94,7 @@ const EN = Object.freeze({
   "言語": "Language",
   "音声は保存・送信されません": "Audio is not saved or transmitted",
   "研究用プロトタイプ · 安全を保証するものではありません": "Research prototype · Does not guarantee safety",
+  "AIテストモード（オフライン研究） ↗": "AI Test Mode (offline research) ↗",
   "ご意見・ご感想 ↗": "Send feedback ↗",
   "ご意見・ご感想（準備中）": "Feedback (coming soon)",
   "Googleフォームを新しいタブで開く": "Open Google Forms in a new tab",
@@ -108,7 +109,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'page-description',
+  'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -315,6 +316,7 @@ function setLanguage(next) {
   ui['language-ja'].setAttribute('aria-pressed', String(language === 'ja'));
   ui['language-en'].setAttribute('aria-pressed', String(language === 'en'));
   for (const [id, text] of Object.entries({
+    'ai-test-link': 'AIテストモード（オフライン研究） ↗',
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
     'sensitivity-heading': '交通警告音の感度設定',
     'sensitivity-note': '1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。',
@@ -638,7 +640,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.4', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {

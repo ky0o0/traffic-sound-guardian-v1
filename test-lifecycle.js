@@ -254,14 +254,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.4.4 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.4\.4<\/title>/);
- assert.match(page, /class="version">V1\.4\.4<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.4\.4"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.4\.4"/);
- assert.match(source, /classifier-worker\.js\?v=1\.4\.4/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.4');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.4');
+test('V1.5 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.5<\/title>/);
+ assert.match(page, /class="version">V1\.5<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.5"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.5"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.5/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.5');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.5.0');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
