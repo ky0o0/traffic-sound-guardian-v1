@@ -48,11 +48,11 @@ const clip = (id, labels, values = {}, extra = {}) => ({
   ...extra
 });
 const cfg = defaults();
-test('V1.5.3 all six offline test defaults are 0.10',()=>{
+test('V1.5.4 all six offline test defaults are 0.10',()=>{
  assert.equal(Object.keys(cfg).length,6);
  assert.ok(Object.values(cfg).every(v=>v===.10));
 });
-test('V1.5.3 offline test defaults missing classes but retains old user-chosen 0.01-step settings',()=>{
+test('V1.5.4 offline test defaults missing classes but retains old user-chosen 0.01-step settings',()=>{
  const restored=validThresholds({[NAMES[0]]:.03,[NAMES[1]]:.12});
  assert.equal(restored[NAMES[0]],.03);
  assert.equal(restored[NAMES[1]],.12);
@@ -61,7 +61,7 @@ test('V1.5.3 offline test defaults missing classes but retains old user-chosen 0
  assert.equal(invalid[NAMES[0]],.10);
  assert.equal(invalid[NAMES[1]],.10);
 });
-test('V1.5.3 special minimum 0.01 and 0.05-spaced stops are available in offline test',()=>{
+test('V1.5.4 special minimum 0.01 and 0.05-spaced stops are available in offline test',()=>{
  assert.deepEqual(THRESHOLD_CHOICES,[.01,.05,.10,.15,.20,.25,.30,.35,.40,.45,.50]);
  assert.equal(snapThreshold(.01),.01);
  assert.equal(snapThreshold(.015),.01);
@@ -396,7 +396,7 @@ test(
       }
     };
     const d = exportData([a, b], cfg, split, false, null, 'balanced');
-    assert.equal(d.config.version,'1.5.3');
+    assert.equal(d.config.version,'1.5.4');
     assert.equal(d.config.warningHoldMs,1000);
     assert.equal(d.config.defaultThreshold,.10);
     assert.equal(d.config.uiThresholdStep,.05);

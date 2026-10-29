@@ -14,7 +14,7 @@ self.onmessage = async ({ data }) => {
     if (data.type === 'init') {
       initializing ??= (async () => {
         const [{ AudioClassifier, FilesetResolver }, { bestTarget, targetScores }, { toModelAudio }, debug] = await Promise.all([
-          import('./audio_bundle.mjs'), import('./detection.js?v=1.5.3'), import('./resample.js'), import('./debug.js')
+          import('./audio_bundle.mjs'), import('./detection.js?v=1.5.4'), import('./resample.js'), import('./debug.js')
         ]);
         selectTarget = bestTarget;
         selectTrafficScores = targetScores;

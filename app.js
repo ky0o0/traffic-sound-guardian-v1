@@ -1,6 +1,6 @@
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.5.3';
+import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.5.4';
 import { AudioWindowBuffer } from './audio-window.js';
-import { debugCategoryName } from './debug.js?v=1.5.3';
+import { debugCategoryName } from './debug.js?v=1.5.4';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -10,6 +10,7 @@ const FEEDBACK_FORM_URLS = Object.freeze({
 });
 const EN = Object.freeze({
   "AIデバッグモード": "AI Debug Mode",
+  "マイク接続テスト（イヤホン入力） ↗": "Microphone Test Mode (headset input) ↗",
   "交通警告音の感度設定": "Traffic warning sound sensitivity",
   "1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。": "A single AI result at or above the set threshold triggers an alert immediately. Lower thresholds can increase false alarms.",
   "0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度": "0.01: highest sensitivity / 0.10: default / 0.50: low sensitivity",
@@ -103,6 +104,7 @@ const EN = Object.freeze({
 });
 const ZH = Object.freeze({
   "AIデバッグモード": "AI 调试模式",
+  "マイク接続テスト（イヤホン入力） ↗": "麦克风测试模式（耳机输入） ↗",
   "交通警告音の感度設定": "交通警告音灵敏度设置",
   "1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。": "任意一次 AI 识别分数达到设定阈值，就会立即发出警告。阈值越低，误报可能越多。",
   "0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度": "0.01：最高灵敏度 / 0.10：默认 / 0.50：低灵敏度",
@@ -210,7 +212,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -429,9 +431,11 @@ function setLanguage(next) {
   ui['language-select-label'].textContent = t('言語');
   ui['language-select'].setAttribute('aria-label', t('言語'));
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
-  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.3&lang=' + language);
+  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.4&lang=' + language);
+  ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.5.4&lang=' + language);
   for (const [id, text] of Object.entries({
     'ai-test-link': 'AIテストモード（オフライン研究） ↗',
+    'microphone-test-link': 'マイク接続テスト（イヤホン入力） ↗',
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
     'sensitivity-heading': '交通警告音の感度設定',
     'sensitivity-note': '1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。',
@@ -755,7 +759,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.3', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.4', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
