@@ -1,4 +1,7 @@
 // Exact labels from the official YAMNet 521-class map. No generic traffic classes.
+// Legacy saved thresholds below 0.05 remain valid; new UI selections use 0.05 steps.
+export const DEFAULT_THRESHOLD = 0.10;
+export const WARNING_HOLD_MS = 1000;
 export const TARGETS = Object.freeze({
   'Bicycle bell': { index: 198, label: '自転車のベル' },
   'Vehicle horn, car horn, honking': { index: 302, label: '車のクラクション' },
@@ -48,7 +51,7 @@ export function chooseTarget(scores, thresholds = {}) {
   let best = null;
   for (const [name, target] of Object.entries(TARGETS)) {
     const score = scores?.[name];
-    const threshold = thresholds?.[name] ?? 0.50;
+    const threshold = thresholds?.[name] ?? DEFAULT_THRESHOLD;
     if (!Number.isFinite(score) || score < 0 || score > 1 ||
         !Number.isFinite(threshold) || threshold < 0.01 || threshold > 0.50 ||
         score < threshold) continue;
@@ -63,7 +66,7 @@ export class WarningGate {
   // Each valid YAMNet result is sufficient. A missing/dropped frame does
   // not qualify, and there is no longer a consecutive-frame streak to reset.
   breakSequence() {}
-  observe(target, now, minScore = 0.50) {
+  observe(target, now, minScore = DEFAULT_THRESHOLD) {
     this.expire(now);
     if (target && Number.isFinite(target.score) && Number.isFinite(minScore) &&
         minScore >= 0.01 && minScore <= 0.50 && target.score >= minScore) {
@@ -74,7 +77,7 @@ export class WarningGate {
     return this.active;
   }
   expire(now) {
-    if (this.active && now - this.lastPositive >= 3000) {
+    if (this.active && now - this.lastPositive >= WARNING_HOLD_MS) {
       this.active = false;
       this.target = null;
     }
