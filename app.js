@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.5';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.5.1';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
@@ -101,15 +101,116 @@ const EN = Object.freeze({
   "フィードバックフォームは準備中です。": "The feedback form is coming soon.",
   "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "A research prototype for real-time traffic warning sound recognition, studying headphone use and traffic safety."
 });
-let language = 'ja'; // Default Japanese on each page load; no new storage dependency.
+const ZH = Object.freeze({
+  "AIデバッグモード": "AI 调试模式",
+  "交通警告音の感度設定": "交通警告音灵敏度设置",
+  "1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。": "任意一次 AI 识别分数达到设定阈值，就会立即发出警告。阈值越低，误报可能越多。",
+  "0.01：高感度 ／ 0.50：標準": "0.01：高灵敏度 / 0.50：默认",
+  "すべて標準に戻す": "全部恢复默认",
+  "識別の詳細を表示": "显示识别详情",
+  "AIモデル": "AI 模型",
+  "マイク入力": "麦克风输入",
+  "直近の推論": "最近一次识别",
+  "推論時間": "推理耗时",
+  "最終更新": "最后更新",
+  "上位5種類の音": "分数最高的 5 种声音",
+  "対象の交通警告音（6種類）": "目标交通警告音（6 类）",
+  "音の種類": "声音类别",
+  "生の識別スコア": "原始识别分数",
+  "最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。": "只显示最新识别结果，不保存录音或历史记录。分数不代表准确率。",
+  "結果はまだありません。": "暂无结果。",
+  "未読み込み": "尚未加载",
+  "読み込み中": "加载中",
+  "読み込み成功": "加载成功",
+  "読み込み成功・解放済み": "已加载，现已释放",
+  "読み込み中止": "已取消加载",
+  "失敗": "失败",
+  "許可を確認中": "正在请求权限",
+  "許可済み・音声データ待ち": "已获麦克风权限，等待音频",
+  "音声データ受信中": "正在接收音频数据",
+  "マイクの許可なし": "未获得麦克风权限",
+  "入力エラー": "输入错误",
+  "音声入力が中断": "音频输入中断",
+  "未実行": "尚未运行",
+  "成功": "成功",
+  "更新が停止": "更新已停止",
+  "利用不可（HTTPSが必要）": "不可用（需要 HTTPS）",
+  "詳細結果を待っています。": "正在等待详细结果。",
+  "推論時間はモデルの実行時間です。音声収集・再サンプリング・待ち時間は含みません。": "推理耗时仅指模型计算时间，不包括录音采集、重采样和排队时间。",
+  "検知を停止しました": "检测已停止",
+  "停止中": "已停止",
+  "開始すると、周囲の交通警告音を\nこの端末で識別します。": "点击开始后，将在本设备上\n识别周围的交通警告音。",
+  "AIモデルを読み込み中...": "正在加载 AI 模型...",
+  "準備中": "准备中",
+  "初回は読み込みに時間がかかることがあります。\nマイクの使用を許可してください。": "首次加载可能需要一些时间。\n请允许使用麦克风。",
+  "マイクの音を確認中...": "正在检查麦克风音频...",
+  "最初の音声をAIで解析しています。": "AI 正在分析第一段音频。",
+  "周囲の音を検知中...": "正在检测周围的声音...",
+  "検知中": "检测中",
+  "交通警告音を検知すると、\n画面が赤く変わります。": "检测到交通警告音时，\n屏幕会变成红色。",
+  "警告音を検知しました": "检测到警告音",
+  "周囲を確認してください": "请注意周围环境",
+  "検知を開始": "开始检测",
+  "検知を停止": "停止检测",
+  "読み込みを中止": "取消加载",
+  "識別スコア：": "识别分数：",
+  "自転車のベル": "自行车铃",
+  "車のクラクション": "汽车喇叭",
+  "サイレン": "警笛",
+  "サイレン（パトカー）": "警车警笛",
+  "サイレン（救急車）": "救护车警笛",
+  "サイレン（消防車）": "消防车警笛",
+  "マイクの使用が許可されていません。Safariのページメニュー → Webサイトの設定で「マイク」を許可し、もう一度開始してください。": "麦克风权限未开启。请在 Safari 的页面菜单 → 网站设置中允许麦克风，然后重新开始。",
+  "マイクが見つかりません。接続を確認して、もう一度開始してください。": "未找到麦克风，请检查连接后重试。",
+  "マイクを使用できません。通話や他の録音アプリを終了し、もう一度開始してください。": "无法使用麦克风。请结束通话或其他录音应用后重试。",
+  "マイクを使用できるHTTPSのページをSafariで直接開いてください。": "请在 Safari 中直接打开 HTTPS 网页，以便使用麦克风。",
+  "音声の解析を開始できませんでした。ページを再読み込みして、もう一度開始してください。": "无法开始音频分析，请刷新页面后重试。",
+  "AIの解析が中断しました。もう一度開始してください。": "AI 分析已中断，请重新开始。",
+  "音声の解析が遅れています。ほかのアプリを閉じて、もう一度開始してください。": "音频分析速度跟不上，请关闭其他应用后重试。",
+  "音声の取得が遅れています。もう一度開始してください。": "音频采集出现延迟，请重新开始。",
+  "AIの解析が遅れています。ほかのアプリを閉じて、もう一度開始してください。": "AI 分析速度跟不上，请关闭其他应用后重试。",
+  "マイクの音声処理が停止しました。もう一度開始してください。": "麦克风音频处理已停止，请重新开始。",
+  "このSafariでは音声を取得できません。iOSを更新してください。": "当前 Safari 无法获取音频，请更新 iOS。",
+  "マイクまたは音声処理が中断しました。もう一度開始してください。": "麦克风或音频处理被中断，请重新开始。",
+  "音声またはAIの解析が途切れました。もう一度開始してください。": "音频或 AI 分析中断，请重新开始。",
+  "マイクを使用するには、HTTPSのサイトをSafariで直接開いてください。": "请在 Safari 中直接打开 HTTPS 网站以使用麦克风。",
+  "このブラウザは必要な音声機能に対応していません。iOSのSafariで開いてください。": "该浏览器不支持所需的音频功能，请使用 iOS Safari。",
+  "マイクとの接続が切れました。もう一度開始してください。": "麦克风连接已断开，请重新开始。",
+  "マイクが一時停止しました。もう一度開始してください。": "麦克风已暂停，请重新开始。",
+  "AIの解析に失敗しました。もう一度開始してください。": "AI 分析失败，请重新开始。",
+  "AIモデルを読み込めませんでした。通信とアップロードしたファイルを確認して、再読み込みしてください。": "AI 模型加载失败，请检查网络和所需文件，然后刷新重试。",
+  "AIの実行に失敗しました。必要なファイルをすべてアップロードして、Safariで開き直してください。": "AI 运行失败，请确认所有必要文件已上传，并用 Safari 重新打开。",
+  "音声処理が中断しました。もう一度開始してください。": "音频处理已中断，请重新开始。",
+  "準備に時間がかかっています。マイクの許可と通信を確認して、もう一度開始してください。": "准备时间过长，请检查麦克风权限和网络后重试。",
+  "Safariで音声を開始するには、中央のマイクをタップしてください。": "请点击中央麦克风按钮，在 Safari 中启动音频。",
+  "画面が非表示になったため停止しました。再開するには中央のマイクをタップしてください。": "页面进入后台，检测已停止。点击中央麦克风可重新开始。",
+  "言語": "语言",
+  "音声は保存・送信されません": "音频不会被保存或上传",
+  "研究用プロトタイプ · 安全を保証するものではありません": "研究原型 · 不保证安全",
+  "AIテストモード（オフライン研究） ↗": "AI 测试模式（离线研究） ↗",
+  "ご意見・ご感想 ↗": "意见与反馈 ↗",
+  "ご意見・ご感想（準備中）": "意见与反馈（准备中）",
+  "Googleフォームを新しいタブで開く": "在新标签页打开 Google 问卷",
+  "フィードバックフォームは準備中です。": "反馈问卷尚未开放。",
+  "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "本研究原型围绕耳机使用与交通安全，在本设备上实时识别交通警告音。"
+});
+const LANGUAGE_STORAGE_KEY = 'trafficSoundGuardian.language';
+const allowedLanguage = code => ['ja', 'en', 'zh-CN'].includes(code) ? code : 'ja';
+function initialLanguage() {
+  const query = /(?:^|[?&])lang=(ja|en|zh-CN)(?:&|$)/.exec(window.location?.search || '')?.[1];
+  if (query) return query;
+  try { return allowedLanguage(window.sessionStorage?.getItem(LANGUAGE_STORAGE_KEY)); }
+  catch { return 'ja'; }
+}
+let language = initialLanguage(); // Japanese by default; language preference only, never audio.
 let viewDescription = '';
-const t = text => language === 'en' ? (EN[text] ?? text) : text;
+const t = text => language === 'en' ? (EN[text] ?? text) : language === 'zh-CN' ? (ZH[text] ?? text) : text;
 
 const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -310,11 +411,13 @@ function feedbackURL(value) {
   } catch { return ''; }
 }
 function setLanguage(next) {
-  language = next === 'en' ? 'en' : 'ja';
+  language = allowedLanguage(next);
   document.documentElement.lang = language;
-  ui['language-switch'].setAttribute('aria-label', t('言語'));
-  ui['language-ja'].setAttribute('aria-pressed', String(language === 'ja'));
-  ui['language-en'].setAttribute('aria-pressed', String(language === 'en'));
+  ui['language-select'].value = language;
+  ui['language-select-label'].textContent = t('言語');
+  ui['language-select'].setAttribute('aria-label', t('言語'));
+  try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
+  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.1&lang=' + language);
   for (const [id, text] of Object.entries({
     'ai-test-link': 'AIテストモード（オフライン研究） ↗',
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
@@ -325,7 +428,7 @@ function setLanguage(next) {
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
   })) ui[id].textContent = t(text);
   ui['page-description'].setAttribute('content', t('イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。'));
-  const url = feedbackURL(FEEDBACK_FORM_URLS[language]);
+  const url = feedbackURL(FEEDBACK_FORM_URLS[language === 'ja' ? 'ja' : 'en']);
   if (url) ui.feedback.setAttribute('href', url);
   else ui.feedback.removeAttribute('href');
   ui.feedback.setAttribute('aria-disabled', String(!url));
@@ -640,7 +743,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.1', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -704,12 +807,11 @@ for (const row of thresholdRows) {
 ui['threshold-reset'].addEventListener('click', resetThresholds);
 ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
-ui['language-ja'].addEventListener('click', () => setLanguage('ja'));
-ui['language-en'].addEventListener('click', () => setLanguage('en'));
+ui['language-select'].addEventListener('change', () => setLanguage(ui['language-select'].value));
 ui.feedback.addEventListener('click', event => {
-  if (!feedbackURL(FEEDBACK_FORM_URLS[language])) event.preventDefault();
+  if (!feedbackURL(FEEDBACK_FORM_URLS[language === 'ja' ? 'ja' : 'en'])) event.preventDefault();
 });
-setLanguage('ja');
+setLanguage(language);
 renderThresholds();
 resetVisuals();
 setDebug(true); // Default ON; changes the diagnostics view only, never starts the microphone.
