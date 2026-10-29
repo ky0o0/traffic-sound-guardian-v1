@@ -2,7 +2,7 @@ import {
   TARGETS,
   chooseTarget,
   WarningGate
-} from './detection.js?v=1.5.2';
+} from './detection.js?v=1.5.3';
 
 export const IDS = ['bell', 'horn', 'siren', 'police', 'ambulance', 'fire'];
 export const NAMES = Object.keys(TARGETS);
@@ -14,13 +14,14 @@ export const MODEL = {
   runtime: 'MediaPipe 0.10.21'
 };
 export const CONFIG = {
-  version: '1.5.2',
+  version: '1.5.3',
   warningHoldMs: 1000,
   defaultThreshold: 0.10,
-  uiThresholdMin: 0.05,
+  uiThresholdMin: 0.01,
   uiThresholdMax: 0.50,
   uiThresholdStep: 0.05,
-  legacyThresholdMin: 0.01,
+  specialMinThreshold: 0.01,
+  firstStep: 0.04, // 0.01 -> 0.05, then increments of 0.05
   windowSeconds: .975,
   hopSeconds: .480,
   modelRate: 16000,
@@ -28,6 +29,11 @@ export const CONFIG = {
   mono: 'arithmetic channel mean',
   tail: 'incomplete final window omitted; no padding'
 };
+export const THRESHOLD_CHOICES = Object.freeze([0.01, ...Array.from({length: 10}, (_, i) => (i + 1) / 20)]);
+export function snapThreshold(value) {
+  return THRESHOLD_CHOICES.reduce((best, choice) =>
+    Math.abs(choice - value) < Math.abs(best - value) ? choice : best, THRESHOLD_CHOICES[0]);
+}
 export const defaults = () => Object.fromEntries(NAMES.map(n => [n, .1]));
 export function validThresholds(values) {
   return Object.fromEntries(NAMES.map(n => [n, typeof values?.[n] === 'number' && Number.isFinite(values[
@@ -294,11 +300,8 @@ export function optimize(clips, thresholds, goal = 'balanced') {
       truth: c.labels.includes(id),
       score: Math.max(...c.result.windows.map(w => w.scores[NAMES[i]]))
     }));
-    const curve = Array.from({
-      length: 10
-    }, (_, j) => {
-      const threshold = (j + 1) / 20,
-        c = {
+    const curve = THRESHOLD_CHOICES.map(threshold => {
+      const c = {
           tp: 0,
           fp: 0,
           fn: 0,
