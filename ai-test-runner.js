@@ -3,7 +3,7 @@ import {
 } from './audio-window.js';
 import {
   NAMES
-} from './ai-test-analysis.js?v=1.5.2';
+} from './ai-test-analysis.js?v=1.5.3';
 export const LIMITS = Object.freeze({
   files: 50,
   fileBytes: 20 * 1024 * 1024,
@@ -79,7 +79,7 @@ export class ModelClient {
     });
   }
   async init() {
-    this.worker = new Worker(new URL('./classifier-worker.js?v=1.5.2', import.meta.url));
+    this.worker = new Worker(new URL('./classifier-worker.js?v=1.5.3', import.meta.url));
     this.worker.onmessage = ({
       data
     }) => {
