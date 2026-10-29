@@ -12,6 +12,8 @@ LABELS = ("alarm_clock","baby_cry","birds_chirping","cat","car_horn",
           "gunshot","hammer","music","ocean","door_knock","singing",
           "siren","speech","thunderstorm","toilet_flush")
 TARGETS = ("car_horn", "siren")
+# Official author-hosted 39.pt, verified on GitHub Actions 2026-10-29.
+OFFICIAL_CHECKPOINT_SHA256 = "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21"
 
 def label_vector(target):
     if target not in TARGETS:
@@ -47,11 +49,14 @@ def run(args):
     if not args.checkpoint.is_file():
         raise FileNotFoundError(args.checkpoint)
     info = inspect_audio(args.input)
+    checkpoint_hash = sha256(args.checkpoint)
+    if checkpoint_hash != OFFICIAL_CHECKPOINT_SHA256:
+        raise ValueError("Checkpoint SHA-256 differs from the verified upstream 39.pt; refusing to deserialize")
     record = dict(status="preflight_only" if args.dry_run else "processed",
                   source_file=args.input.name, source_sha256=sha256(args.input),
                   output_file=args.output.name, target=args.target,
                   group_id=args.group_id, duration=info.duration,
-                  checkpoint_sha256=sha256(args.checkpoint),
+                  checkpoint_sha256=checkpoint_hash,
                   checkpoint=args.checkpoint.name,
                   stereo_only=True, realtime=False)
     if not args.dry_run:
