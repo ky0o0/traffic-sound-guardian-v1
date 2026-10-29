@@ -5,6 +5,7 @@ import {
   IDS,
   NAMES,
   defaults,
+  validThresholds,
   setTruth,
   known,
   grouped,
@@ -48,6 +49,15 @@ const cfg = defaults();
 test('V1.5.2 all six offline test defaults are 0.10',()=>{
  assert.equal(Object.keys(cfg).length,6);
  assert.ok(Object.values(cfg).every(v=>v===.10));
+});
+test('V1.5.2 offline test defaults missing classes but retains old user-chosen 0.01-step settings',()=>{
+ const restored=validThresholds({[NAMES[0]]:.03,[NAMES[1]]:.12});
+ assert.equal(restored[NAMES[0]],.03);
+ assert.equal(restored[NAMES[1]],.12);
+ for(const name of NAMES.slice(2))assert.equal(restored[name],.10);
+ const invalid=validThresholds({[NAMES[0]]:0,[NAMES[1]]:.51});
+ assert.equal(invalid[NAMES[0]],.10);
+ assert.equal(invalid[NAMES[1]],.10);
 });
 test('multi-label selection and exclusive none/unknown', () => {
   assert.deepEqual(setTruth(['unknown'], 'bell', true), ['bell']);
