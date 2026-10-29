@@ -11,15 +11,15 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./style.css?v=1.3.1">
-  <title>Traffic Sound Guardian V1.3.1</title>
+  <link rel="stylesheet" href="./style.css?v=1.4">
+  <title>Traffic Sound Guardian V1.4</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1.3.1</span>
+      <span class="version">V1.4</span>
     </header>
 
     <div class="toolbar">
@@ -53,6 +53,15 @@
     </main>
 
     <footer>
+      <details id="sensitivity-panel" class="sensitivity">
+        <summary id="sensitivity-summary">自転車ベルの感度 <span class="sensitivity-current">Score <output id="bell-value" for="bell-threshold">0.50</output></span></summary>
+        <div class="sensitivity-content">
+          <label id="bell-label" for="bell-threshold">警告を出す最低スコア</label>
+          <input id="bell-threshold" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          <div class="sensitivity-ends"><span id="bell-sensitive">高感度 0.01</span><span id="bell-standard">標準 0.50</span></div>
+          <p id="sensitivity-note">数値を下げると小さなスコアでも反応しますが、誤検知が増える可能性があります。2回連続の検出が必要です。</p>
+        </div>
+      </details>
       <button id="cancel" type="button" hidden>読み込みを中止</button>
       <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="true">ご意見・ご感想（準備中）</a>
       <p id="privacy" class="privacy">音声は保存・送信されません</p>
@@ -81,6 +90,6 @@
       </div>
     </details>
   </section>
-  <script type="module" src="./app.js?v=1.3.1"></script>
+  <script type="module" src="./app.js?v=1.4"></script>
 </body>
 </html>
