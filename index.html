@@ -11,15 +11,15 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./style.css?v=1.2">
-  <title>Traffic Sound Guardian V1.2</title>
+  <link rel="stylesheet" href="./style.css?v=1.3">
+  <title>Traffic Sound Guardian V1.3</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1.2</span>
+      <span class="version">V1.3</span>
     </header>
 
     <div class="toolbar">
@@ -32,13 +32,14 @@
 
     <main>
       <div id="status" class="status"><span class="status-dot"></span><span id="status-label">待機中</span></div>
-      <div id="visual" class="visual" aria-hidden="true">
+      <div id="visual" class="visual">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="icon-disc">
+        <button id="mic-control" class="icon-disc" type="button" aria-label="検知を開始" aria-pressed="false" title="検知を開始">
+          <span class="listening-indicator" aria-hidden="true"></span>
           <svg class="mic-icon" viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="24" rx="6"/><path d="M12 22v3a12 12 0 0 0 24 0v-3M24 37v7M17 44h14"/></svg>
           <svg class="warning-icon" viewBox="0 0 64 64"><path d="M28 10a4.6 4.6 0 0 1 8 0l24 42a4.6 4.6 0 0 1-4 7H8a4.6 4.6 0 0 1-4-7Z"/><path d="M32 24v14"/><circle cx="32" cy="47" r="2.5"/></svg>
-          <span class="loader"></span>
-        </div>
+          <span class="loader" aria-hidden="true"></span>
+        </button>
       </div>
       <section class="message" aria-live="polite" aria-atomic="true">
         <h1 id="heading">検知を停止しました</h1>
@@ -52,7 +53,7 @@
     </main>
 
     <footer>
-      <button id="action" type="button"><span id="button-icon" aria-hidden="true">▶</span><span id="button-label">検知を開始</span></button>
+      <button id="action" type="button" hidden><span id="button-icon" aria-hidden="true">▶</span><span id="button-label">検知を開始</span></button>
       <button id="cancel" type="button" hidden>読み込みを中止</button>
       <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="true">ご意見・ご感想（準備中）</a>
       <p id="privacy" class="privacy">音声は保存・送信されません</p>
@@ -81,6 +82,6 @@
       </div>
     </details>
   </section>
-  <script type="module" src="./app.js?v=1.2"></script>
+  <script type="module" src="./app.js?v=1.3"></script>
 </body>
 </html>

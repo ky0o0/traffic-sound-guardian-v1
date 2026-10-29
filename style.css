@@ -53,3 +53,13 @@ body[data-state="warning"] .toolbar .debug-switch{color:#fff}
 body[data-state="warning"] .debug-section{color:white}body[data-state="warning"] .debug-panel{background:#650d1a30;border-color:#ffffff66}
 body[data-state="warning"] .debug-section :is(.debug-switch,.debug-note,dt,th,small){color:#fff}
 body[data-state="warning"] .debug-panel :is(th,td){border-color:#ffffff40}
+
+/* V1.3: interactive microphone with a genuine active-inference indicator. */
+.visual .icon-disc{position:relative;appearance:none;-webkit-appearance:none;padding:0;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.visual .icon-disc:disabled{cursor:progress}
+.visual .icon-disc:focus-visible{outline:3px solid #d4f1e9;outline-offset:6px}
+.visual .orbit{pointer-events:none}
+.listening-indicator{display:none;position:absolute;top:7px;right:7px;width:12px;height:12px;border-radius:50%;background:#f43f5e;border:2px solid #fff;box-shadow:0 0 12px #ff456c99;pointer-events:none}
+body[data-state="listening"] .listening-indicator,body[data-state="warning"] .listening-indicator{display:block;animation:listening-blink 1.45s ease-in-out infinite}
+@keyframes listening-blink{0%,100%{opacity:1;box-shadow:0 0 12px #ff456cbb}50%{opacity:.35;box-shadow:0 0 5px #ff456c77}}
+@media(prefers-reduced-motion:reduce){.listening-indicator{animation:none!important;opacity:1}}

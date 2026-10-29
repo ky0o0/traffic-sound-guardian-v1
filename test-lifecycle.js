@@ -236,14 +236,14 @@ test('debug switch is discoverable before the main visualization and reveals its
  h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
 });
-test('V1.2 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.2<\/title>/);
- assert.match(page, /class="version">V1\.2<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.2"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.2"/);
- assert.match(source, /classifier-worker\.js\?v=1\.2/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.2');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.2.0');
+test('V1.3 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.3<\/title>/);
+ assert.match(page, /class="version">V1\.3<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.3"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.3"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.3/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.3');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.3.0');
 });
 test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
@@ -318,4 +318,41 @@ test('debug marks stalled inference and clears old scores when the unchanged wat
  const h=await harness();h.debug(true);h.frame();h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:2,debug:diagnosticFixture()});
  h.now(3100);[...h.timers.values()].find(t=>t.interval).fn();
  assert.equal(h.document.body.dataset.state,'stopped');assert.equal(h.elements.get('debug-inference').textContent,'更新が停止');assert.equal(h.run('diagnostics.scores'),null);
+});
+
+// V1.3: live microphone button and visual-only gain regression checks.
+test('microphone button starts and stops a single session, regular footer stays hidden',async()=>{
+ const h=await harness();
+ assert.ok(page.includes('id="mic-control"'));
+ assert.ok(!page.includes('id="visual" class="visual" aria-hidden="true"'));
+ assert.equal(h.elements.get('action').hidden,true);
+ h.frame(1);h.emit(1);
+ assert.equal(h.elements.get('mic-control').attributes['aria-pressed'],'true');
+ assert.equal(h.elements.get('mic-control').attributes['aria-label'],'検知を停止');
+ h.elements.get('mic-control').click();
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.equal(h.elements.get('action').hidden,true);
+ assert.ok(h.tracks[0].stopped);
+ h.elements.get('mic-control').click();await flush();
+ assert.equal(h.calls(),2);assert.equal(h.workers.length,2);h.stop();
+});
+test('Safari rejected automatic start reveals the separate fallback',async()=>{
+ const h=await harness({suspended:true});
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.equal(h.elements.get('action').hidden,false);
+ assert.equal(h.elements.get('button-label').textContent,'検知を開始');
+ h.stop();
+});
+test('warning still allows stopping by tapping the circular control',async()=>{
+ const h=await harness();h.frame(1);h.emit(1,{score:.8,label:'サイレン'});
+ assert.equal(h.document.body.dataset.state,'warning');
+ h.elements.get('mic-control').click();
+ assert.equal(h.document.body.dataset.state,'stopped');h.stop();
+});
+test('waveform uses a 50 percent higher display gain without mutating captured frames',async()=>{
+ assert.match(source,/samples\[i\] \* 6/);
+ const h=await harness();h.analysers[0].pcm.fill(.08);h.animate(0);
+ assert.ok(h.drawing.some(([,y])=>y!==24));
+ h.frame(1);assert.equal(h.workers[0].sent.at(-1).sampleRate,48000);
+ assert.equal(h.workers[0].sent.at(-1).samples.length,46800);h.stop();
 });
