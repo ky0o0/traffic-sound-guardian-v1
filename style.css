@@ -86,3 +86,8 @@ body[data-state="listening"] .listening-indicator,body[data-state="warning"] .li
 .sensitivity-footer button:focus-visible{outline:2px solid #d4f1e9;outline-offset:2px}
 body[data-state="warning"] .sensitivity{border-color:#ffffff70}
 body[data-state="warning"] .sensitivity :is(.sensitivity-line output,.sensitivity-footer span,#sensitivity-note){color:white}
+
+/* V1.4.3: leave a glimpse of the open Debug panel at the bottom of the first viewport.
+   Keep normal document flow: no scripted scrolling, jumps, or fixed overlays.
+   Very short screens may need normal scrolling to reach the panel. */
+body[data-debug="on"] .app{min-height:calc(100vh - 84px);min-height:calc(100dvh - 84px)}

@@ -1,10 +1,13 @@
-import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.2';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.3';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
-// V1.1 configuration: paste the real Google Forms responder URL between the quotes.
-// Leave empty until the form is ready. No audio or scores are appended to this URL.
-const FEEDBACK_FORM_URL = '';
+// Published, anonymous Google Forms copied from the user's Apps Script log.
+// Navigation sends neither microphone samples nor recognition scores.
+const FEEDBACK_FORM_URLS = Object.freeze({
+  ja: 'https://docs.google.com/forms/d/e/1FAIpQLSd1wNA9-1_kHM1djILs9RvGzE_PrpplpePye1ENGIHSNIBpew/viewform',
+  en: 'https://docs.google.com/forms/d/e/1FAIpQLScMHLvROwpUdEjlqCKtOCtEG1WqF3G6KKcGJswQ7oWw8lo5Pg/viewform'
+});
 const EN = Object.freeze({
   "AIデバッグモード": "AI Debug Mode",
   "交通警告音の感度設定": "Traffic warning sound sensitivity",
@@ -235,9 +238,9 @@ function setDebug(enabled) {
   ui['debug-target'].replaceChildren();
   ui['debug-panel'].open = debugEnabled;
   renderDebug(); // No initialization, new microphone, worker or inference loop.
-  // The switch is visible in the toolbar; reveal the panel below the main UI.
-  // Only a user's enable action scrolls, never an inference or language update.
-  if (debugEnabled) ui['debug-panel'].scrollIntoView({ block: 'start', behavior: 'auto' });
+  document.body.dataset.debug = debugEnabled ? 'on' : 'off';
+  // Keep the current scroll position. The panel peeks below the main UI
+  // and the user can scroll down naturally to see full diagnostics.
 }
 function stopDebug(s) {
   diagnostics.scores = null;
@@ -320,7 +323,7 @@ function setLanguage(next) {
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
   })) ui[id].textContent = t(text);
   ui['page-description'].setAttribute('content', t('イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。'));
-  const url = feedbackURL(FEEDBACK_FORM_URL);
+  const url = feedbackURL(FEEDBACK_FORM_URLS[language]);
   if (url) ui.feedback.setAttribute('href', url);
   else ui.feedback.removeAttribute('href');
   ui.feedback.setAttribute('aria-disabled', String(!url));
@@ -635,7 +638,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.2', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.3', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -702,11 +705,12 @@ ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].
 ui['language-ja'].addEventListener('click', () => setLanguage('ja'));
 ui['language-en'].addEventListener('click', () => setLanguage('en'));
 ui.feedback.addEventListener('click', event => {
-  if (!feedbackURL(FEEDBACK_FORM_URL)) event.preventDefault();
+  if (!feedbackURL(FEEDBACK_FORM_URLS[language])) event.preventDefault();
 });
 setLanguage('ja');
 renderThresholds();
 resetVisuals();
+setDebug(true); // Default ON; changes the diagnostics view only, never starts the microphone.
 
 ui['mic-control'].addEventListener('click', () => {
   // Same callback as the original footer button, moved without changing its logic.

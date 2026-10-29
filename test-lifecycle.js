@@ -12,7 +12,7 @@ const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false,storedThreshold=null,storedSettings=null}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -64,7 +64,11 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
- vm.runInContext(source.replace("const FEEDBACK_FORM_URL = '';", "const FEEDBACK_FORM_URL = "+JSON.stringify(formURL)+";"),context);
+ // Production links are tested by default; fixtures can replace both for validation.
+ const controllerSource=formURL===null?source:source.replace(
+   /const FEEDBACK_FORM_URLS = Object.freeze\(\{[\s\S]*?\}\);/,
+   "const FEEDBACK_FORM_URLS = Object.freeze("+JSON.stringify({ja:formURL,en:formURL})+");");
+ vm.runInContext(controllerSource,context);
  // The test harness simulates the user's tap; production never starts itself.
  if(autoStart)element('mic-control').click();
  await flush();await flush();
@@ -227,32 +231,40 @@ const diagnosticFixture=()=>({
  top5:[{categoryName:'Speech',index:0,score:.931234567890123},{categoryName:'Music',index:132,score:.3},{categoryName:'Bell',index:195,score:.2},{categoryName:'Bicycle bell',index:198,score:.123456789012345},{categoryName:'Car',index:301,score:.1}],
  targets:Object.entries(TARGETS).map(([categoryName,target])=>({categoryName,index:target.index,score:target.index===198?.123456789012345:0}))
 });
-test('debug switch is discoverable before the main visualization and reveals its connected panel only on enable',async()=>{
+test('Debug Mode is checked by default and never auto-scrolls when switched',async()=>{
  assert.equal([...page.matchAll(/id="debug-toggle"/g)].length,1);
  assert.ok(page.indexOf('id="debug-toggle"')>page.indexOf('class="toolbar"'));
  assert.ok(page.indexOf('id="debug-toggle"')<page.indexOf('<main>'));
- assert.match(page, /id="debug-toggle"[^>]*aria-controls="debug-panel"/);
- const h=await harness();const panel=h.elements.get('debug-panel');
- assert.equal(panel.scrolls.length,0);h.debug(true);
- assert.equal(panel.scrolls.length,1);assert.equal(panel.scrolls[0].block,'start');
+ assert.match(page,/id="debug-toggle"[^>]*aria-controls="debug-panel" checked/);
+ assert.match(page,/id="debug-panel" class="debug-panel" open/);
+ const h=await harness({autoStart:false}),panel=h.elements.get('debug-panel');
+ assert.equal(h.calls(),0,'Debug Mode must never request microphone permission');
+ assert.equal(h.run('debugEnabled'),true);
+ assert.equal(h.elements.get('debug-toggle').checked,true);
+ assert.equal(h.document.body.dataset.debug,'on');
+ assert.equal(panel.scrolls.length,0);
  assert.equal(panel.hidden,false);assert.equal(panel.open,true);
- h.frame(1);h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:4,debug:diagnosticFixture()});
- h.language('en');assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,false);
+ h.debug(false);
+ assert.equal(panel.scrolls.length,0);assert.equal(panel.hidden,true);
+ assert.equal(h.document.body.dataset.debug,'off');
+ h.debug(true);
+ assert.equal(panel.scrolls.length,0);assert.equal(panel.hidden,false);assert.equal(panel.open,true);
+ h.language('en');
+ assert.equal(panel.scrolls.length,0);
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
- h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
- assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
+ h.stop();
 });
-test('V1.4.2 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.4\.2<\/title>/);
- assert.match(page, /class="version">V1\.4\.2<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.4\.2"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.4\.2"/);
- assert.match(source, /classifier-worker\.js\?v=1\.4\.2/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.2');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.2');
+test('V1.4.3 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.4\.3<\/title>/);
+ assert.match(page, /class="version">V1\.4\.3<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.4\.3"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.4\.3"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.4\.3/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.3');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.3');
 });
-test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
- const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
+test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
+ const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
  h.frame(1);h.emit(1,{score:.8,label:'車のクラクション'});const timer=h.run('session.warningTimeout');
  h.debug(true);assert.equal(h.elements.get('debug-panel').open,true);assert.equal(h.elements.get('debug-panel').hidden,false);
  assert.equal(h.run('session.warningTimeout'),timer);assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.frames.size,1);
@@ -414,7 +426,7 @@ test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder s
 });
 
 
-test('V1.4.1 all six sliders are inside Debug Mode and not the main page',async()=>{
+test('V1.4.3 six independent sliders stay inside the initially expanded Debug Mode',async()=>{
  const pos=page.indexOf('id="sensitivity-panel"');
  assert.ok(pos>page.indexOf('</footer>'));
  assert.ok(pos>page.indexOf('id="debug-panel"'));
@@ -422,8 +434,9 @@ test('V1.4.1 all six sliders are inside Debug Mode and not the main page',async(
  assert.ok(!page.includes('id="bell-threshold"'));
  const h=await harness({autoStart:false});
  assert.equal(h.calls(),0);
- assert.equal(h.elements.get('debug-panel').hidden,true);
+ assert.equal(h.elements.get('debug-panel').hidden,false);
  for(let i=0;i<6;i++)assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.50');
+ h.debug(false);assert.equal(h.elements.get('debug-panel').hidden,true);
  h.debug(true);assert.equal(h.elements.get('debug-panel').hidden,false);h.stop();
 });
 test('V1.4.1 siren threshold changes live without recreating microphone or worker',async()=>{
@@ -506,5 +519,39 @@ test('V1.4.2 Debug Mode explains a single result is enough in Japanese and Engli
  assert.match(note.textContent,/1回のAI識別/);
  h.language('en');
  assert.match(note.textContent,/single AI result/);
+ h.stop();
+});
+
+test('V1.4.3 website routes feedback to matching Japanese and English Google Forms',async()=>{
+ const h=await harness({autoStart:false});
+ const ja=h.elements.get('feedback').attributes.href;
+ assert.match(ja,/^https:\/\/docs\.google\.com\/forms\/d\/e\/[^/]+\/viewform$/);
+ assert.equal(h.elements.get('feedback').textContent,'ご意見・ご感想 ↗');
+ assert.equal(h.elements.get('feedback').attributes['aria-disabled'],'false');
+ h.language('en');
+ const en=h.elements.get('feedback').attributes.href;
+ assert.match(en,/^https:\/\/docs\.google\.com\/forms\/d\/e\/[^/]+\/viewform$/);
+ assert.notEqual(en,ja);
+ assert.equal(h.elements.get('feedback').textContent,'Send feedback ↗');
+ let prevented=false;
+ h.elements.get('feedback').click({preventDefault(){prevented=true;}});
+ assert.equal(prevented,false);
+ h.language('ja');
+ assert.equal(h.elements.get('feedback').attributes.href,ja);
+ assert.equal(h.calls(),0);
+ h.stop();
+});
+test('V1.4.3 first viewport previews Debug panel without scrolling or hiding microphone controls',async()=>{
+ const css=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
+ assert.match(css,/body\[data-debug="on"\] \.app\{min-height:calc\(100vh - 84px\)/);
+ assert.doesNotMatch(source,/scrollIntoView\(/);
+ const h=await harness({autoStart:false});
+ assert.equal(h.elements.get('debug-panel').scrolls.length,0);
+ assert.equal(h.elements.get('debug-panel').hidden,false);
+ assert.equal(h.elements.get('mic-control').disabled,false);
+ assert.equal(h.calls(),0);
+ h.click();await flush();
+ assert.equal(h.calls(),1);
+ assert.equal(h.elements.get('debug-panel').scrolls.length,0);
  h.stop();
 });
