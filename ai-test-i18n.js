@@ -162,7 +162,7 @@ export const TEXT = {
   balanced: ['F1を最大化（均衡）', 'Maximize F1 (balanced)'],
   recall: ['Recallを優先（見逃し低減）', 'Prioritize recall (fewer misses)'],
   precision: ['Precisionを優先（誤報低減）', 'Prioritize precision (fewer false alarms)'],
-  compare: ['10通りのしきい値を比較', 'Compare 10 thresholds'],
+  compare: ['11通りのしきい値を比較', 'Compare 11 thresholds'],
   recommendation: ['推奨しきい値', 'Recommended threshold'],
   fewClassExamples: ['正例・負例が各2件以上必要です。', 'At least two positive and two negative clips are required.'],
   negative: ['負例数', 'Negative support'],
@@ -201,8 +201,8 @@ export const TEXT = {
   histogram: ['推論時間の分布（ms）', 'Inference time distribution (ms)'],
   finalUnavailable: ['録音グループ分割としきい値比較を先に行ってください。',
     'Split by recording group and compare thresholds first.'],
-  thresholdsNote: ['テスト用の値です。変更してもリアルタイム設定は書き換えません。',
-    'These are test settings. Editing them does not change live settings.'
+  thresholdsNote: ['テスト用の値です（0.01、0.05、0.10～0.50、0.05刻み）。変更してもリアルタイム設定は書き換えません。',
+    'These are test settings (0.01, then 0.05 to 0.50 in 0.05 steps). Editing them does not change live settings.'
   ]
 };
 export const ZH = Object.freeze({
@@ -332,7 +332,7 @@ export const ZH = Object.freeze({
   "balanced": "最大化 F1（平衡）",
   "recall": "优先提高召回率（减少漏检）",
   "precision": "优先提高精确率（减少误报）",
-  "compare": "比较 10 种阈值",
+  "compare": "比较 11 种阈值",
   "recommendation": "推荐阈值",
   "fewClassExamples": "至少需要两个正样本和两个负样本。",
   "negative": "负样本数",
@@ -355,6 +355,6 @@ export const ZH = Object.freeze({
   "allWindows": "所有窗口数据都包含在 JSON / CSV 导出中。",
   "histogram": "AI 推理耗时分布（毫秒）",
   "finalUnavailable": "请先按录音分组划分数据并比较阈值。",
-  "thresholdsNote": "这些阈值只用于离线测试。修改不会自动影响实时检测的设置。"
+  "thresholdsNote": "这些阈值只用于离线测试（0.01，以及 0.05～0.50 每档 0.05），修改不会自动影响实时检测。"
 });
 export const translate = (key, lang = 'ja') => lang === 'zh-CN' ? (ZH[key] ?? key) : (TEXT[key]?.[lang === 'en' ? 1 : 0] ?? key);
