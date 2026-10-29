@@ -4,7 +4,7 @@
 let classifier;
 let initializing;
 let selectTarget;
-let selectBellScore;
+let selectTrafficScores;
 let resample;
 let summarizeDebug;
 self.onmessage = async ({ data }) => {
@@ -13,11 +13,11 @@ self.onmessage = async ({ data }) => {
   try {
     if (data.type === 'init') {
       initializing ??= (async () => {
-        const [{ AudioClassifier, FilesetResolver }, { bestTarget, bicycleBellScore }, { toModelAudio }, debug] = await Promise.all([
+        const [{ AudioClassifier, FilesetResolver }, { bestTarget, targetScores }, { toModelAudio }, debug] = await Promise.all([
           import('./audio_bundle.mjs'), import('./detection.js'), import('./resample.js'), import('./debug.js')
         ]);
         selectTarget = bestTarget;
-        selectBellScore = bicycleBellScore;
+        selectTrafficScores = targetScores;
         resample = toModelAudio;
         summarizeDebug = debug.summarizeDebug;
         const files = await FilesetResolver.forAudioTasks(new URL('./', self.location.href).href.replace(/\/$/, ''));
@@ -38,7 +38,7 @@ self.onmessage = async ({ data }) => {
       const count = results.reduce((n, r) => n + r.classifications.reduce((m, h) => m + h.categories.length, 0), 0);
       if (count !== 521 || results.length !== 1) throw new Error('Incomplete YAMNet classification output');
       // Send only real model results. No audio, history or scores are persisted.
-      self.postMessage({ type: 'result', sequence: data.sequence, target: selectTarget(results), bellScore: selectBellScore(results),
+      self.postMessage({ type: 'result', sequence: data.sequence, target: selectTarget(results), trafficScores: selectTrafficScores(results),
         inferenceMs, categoryCount: count, frameCount: results.length,
         debug: data.debug ? summarizeDebug(results) : undefined });
     }
