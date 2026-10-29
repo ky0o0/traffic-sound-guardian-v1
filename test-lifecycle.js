@@ -548,7 +548,7 @@ test('V1.4.3 first viewport previews Debug panel without scrolling or hiding mic
  const h=await harness({autoStart:false});
  assert.equal(h.elements.get('debug-panel').scrolls.length,0);
  assert.equal(h.elements.get('debug-panel').hidden,false);
- assert.equal(h.elements.get('mic-control').disabled,undefined);
+ assert.equal(h.elements.get('mic-control').disabled,false);
  assert.equal(h.calls(),0);
  h.click();await flush();
  assert.equal(h.calls(),1);
