@@ -205,7 +205,7 @@ test('English covers every Japanese UI string in the controller including errors
   assert.doesNotMatch(h.run('t('+JSON.stringify(label)+')'),/[\u3040-\u30ff\u4e00-\u9fff]/);
  for(const id of ['privacy','research','score-label','cancel','feedback'])
   assert.doesNotMatch(h.elements.get(id).textContent,/[\u3040-\u30ff\u4e00-\u9fff]/);
- assert.equal(h.elements.get('language-en').attributes['aria-pressed'],'true');h.stop();
+ assert.equal(h.elements.get('language-select').value,'en');h.stop();
 });
 test('empty or invalid feedback config has no destination and cannot open a tab',async()=>{
  for(const url of ['', 'javascript:alert(1)', 'https://example.test/form', 'https://docs.google.com.evil.test/forms/test']){
@@ -254,14 +254,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.5 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.5<\/title>/);
- assert.match(page, /class="version">V1\.5<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.5"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.5"/);
- assert.match(source, /classifier-worker\.js\?v=1\.5/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.5');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.5.0');
+test('V1.5.1 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.5\.1<\/title>/);
+ assert.match(page, /class="version">V1\.5\.1<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.5\.1"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.5\.1"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.5\.1/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.5.1');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.5.1');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -554,5 +554,53 @@ test('V1.4.3 first viewport previews Debug panel without scrolling or hiding mic
  h.click();await flush();
  assert.equal(h.calls(),1);
  assert.equal(h.elements.get('debug-panel').scrolls.length,0);
+ h.stop();
+});
+
+test('V1.5.1 single native selector routes simplified Chinese to English Google Form',async()=>{
+ assert.equal((page.match(/id="language-select"/g)||[]).length,1);
+ assert.ok(page.includes('<option value="ja">日本語</option>'));
+ assert.ok(page.includes('<option value="en">English</option>'));
+ assert.ok(page.includes('<option value="zh-CN">简体中文</option>'));
+ assert.ok(!page.includes('id="language-ja"')&&!page.includes('id="language-en"'));
+ const h=await harness({autoStart:false});
+ const picker=h.elements.get('language-select');
+ assert.equal(picker.value,'ja');
+ picker.value='zh-CN';picker.change();
+ assert.equal(h.document.documentElement.lang,'zh-CN');
+ assert.equal(h.elements.get('heading').textContent,'检测已停止');
+ assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/AkXuRHWwi9Kp95GfA');
+ assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.5.1&lang=zh-CN');
+ assert.equal(h.elements.get('debug-toggle-label').textContent,'AI 调试模式');
+ assert.equal(h.elements.get('sensitivity-heading').textContent,'交通警告音灵敏度设置');
+ assert.equal(h.elements.get('threshold-label-0').textContent,'自行车铃');
+ assert.equal(h.elements.get('threshold-label-5').textContent,'消防车警笛');
+ assert.equal(h.calls(),0);
+ picker.value='en';picker.change();
+ assert.equal(h.elements.get('heading').textContent,'Detection stopped');
+ assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/AkXuRHWwi9Kp95GfA');
+ picker.value='ja';picker.change();
+ assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/vRzgiJxNCfJeb5K1A');
+ h.stop();
+});
+test('V1.5.1 Chinese switch preserves ongoing warning and score',async()=>{
+ const h=await harness();h.frame(1);h.emit(1,{score:.83,label:'自転車のベル'});
+ const warningTimer=h.run('session.warningTimeout');
+ h.language('zh-CN');
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.run('session.warningTimeout'),warningTimer);
+ assert.equal(h.elements.get('heading').textContent,'检测到警告音');
+ assert.equal(h.elements.get('sound-type').textContent,'自行车铃');
+ assert.equal(h.elements.get('score').textContent,'0.83');
+ assert.equal(h.calls(),1);
+ assert.equal(h.workers.length,1);
+ h.stop();
+});
+test('V1.5.1 Chinese debug labels preserve original raw model scores',async()=>{
+ const h=await harness();h.language('zh-CN');h.frame(1);
+ h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:5,debug:diagnosticFixture()});
+ assert.equal(h.elements.get('debug-top').children[0].children[0].children[0].textContent,'人声');
+ assert.equal(h.elements.get('debug-target').children[0].children[0].children[0].textContent,'自行车铃');
+ assert.equal(h.elements.get('debug-top').children[0].children[1].textContent,'0.931234567890123');
  h.stop();
 });
