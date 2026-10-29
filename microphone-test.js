@@ -141,13 +141,15 @@ const state = key => { el('status').textContent = t(key); el('status').dataset.s
 function translate() {
   document.documentElement.lang=lang;
   el('language').value=lang;
+  el('language').setAttribute('aria-label',t('language'));
+  el('meter').setAttribute('aria-label',t('level'));
   document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent=t(node.dataset.i18n); });
   const suffix='?v=1.5.4&lang='+encodeURIComponent(lang);
   el('home-link').setAttribute('href','./index.html'+suffix);
   el('ai-link').setAttribute('href','./ai-test.html'+suffix);
   const key=el('status').dataset.status||'idle';
   state(key);
-  renderDevices(false);
+  renderDevices();
   if(active?.stream) showTrack(active);
 }
 function controls() {
