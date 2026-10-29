@@ -5,12 +5,12 @@ import { TARGETS, bestTarget, targetScores, chooseTarget, WarningGate } from './
 const t = (score, name = 'Bicycle bell') => ({ score, name, label: TARGETS[name].label });
 const result = categories => [{ classifications: [{ categories }] }];
 
-test('a single result at the default 0.50 threshold warns immediately', () => {
+test('a single result at the default 0.10 threshold warns immediately', () => {
  const gate = new WarningGate();
- assert.equal(gate.observe(t(.50), 0), true);
+ assert.equal(gate.observe(t(.10), 0), true);
  assert.equal(gate.target.name, 'Bicycle bell');
  gate.reset();
- assert.equal(gate.observe(t(.499999), 0), false);
+ assert.equal(gate.observe(t(.099999), 0), false);
  assert.equal(gate.observe(t(.75), 480), true);
 });
 test('a single result at any of six category-specific thresholds warns immediately', () => {
@@ -31,21 +31,21 @@ test('a frame gap never postpones a valid new alert', () => {
  gate.observe(null,0);gate.breakSequence();
  assert.equal(gate.observe(t(.50,'Siren'),480),true);
 });
-test('warning persists three seconds after last qualifying inference', () => {
+test('warning persists one second from last qualifying inference; lower scores do not extend it', () => {
  const gate=new WarningGate();
- assert.equal(gate.observe(t(.50),0),true);
- assert.equal(gate.observe(t(.50,'Siren'),1000),true);
- assert.equal(gate.observe(t(.49),1480),true);
- assert.equal(gate.expire(3999),true);
- assert.equal(gate.expire(4000),false);
+ assert.equal(gate.observe(t(.10),0),true);
+ assert.equal(gate.observe(t(.15,'Siren'),1000),true);
+ assert.equal(gate.observe(t(.09),1480),true);
+ assert.equal(gate.expire(1999),true);
+ assert.equal(gate.expire(2000),false);
  assert.equal(gate.target,null);
- assert.equal(gate.observe(t(.60),4001),true);
+ assert.equal(gate.observe(t(.10),2001),true);
 });
 test('below-threshold scores do not prolong an active warning', () => {
  const gate=new WarningGate();
- gate.observe(t(.50),0);
- gate.observe(t(.499),2900);
- assert.equal(gate.expire(3000),false);
+ gate.observe(t(.10),0);
+ gate.observe(t(.099),900);
+ assert.equal(gate.expire(1000),false);
 });
 test('null/invalid output cannot trigger a fresh alert', () => {
  for(const target of [null,{score:NaN},{score:Infinity},{score:-1}]) {
@@ -97,17 +97,24 @@ test('higher ineligible score never hides another eligible class',()=>{
  const chosen=chooseTarget({[bell]:.10,[horn]:.25,[siren]:.09},{[bell]:.11,[horn]:.30,[siren]:.08});
  assert.equal(chosen.name,siren);
 });
-test('default 0.50 settings retain sensitivity and three-second expiry',()=>{
- const names=Object.keys(TARGETS),limits=Object.fromEntries(names.map(n=>[n,.50]));
- assert.equal(chooseTarget(Object.fromEntries(names.map(n=>[n,.12])),limits),null);
- const selected=chooseTarget({[names[0]]:.6,[names[1]]:.7},limits);
+test('default 0.10 settings detect low-score bells and expire after one second',()=>{
+ const names=Object.keys(TARGETS),limits=Object.fromEntries(names.map(n=>[n,.10]));
+ assert.equal(chooseTarget(Object.fromEntries(names.map(n=>[n,.09])),limits),null);
+ assert.equal(chooseTarget({[names[0]]:.099999}),null);
+ assert.equal(chooseTarget({[names[0]]:.10}).name,names[0]);
+ const selected=chooseTarget({[names[0]]:.10,[names[1]]:.20},limits);
  assert.equal(selected.name,names[1]);
  const gate=new WarningGate();
- assert.equal(gate.observe(selected,0,.5),true);
- assert.equal(gate.expire(2999),true);
- assert.equal(gate.expire(3000),false);
+ assert.equal(gate.observe(selected,0,.10),true);
+ assert.equal(gate.expire(999),true);
+ assert.equal(gate.expire(1000),false);
  gate.reset();
- assert.equal(gate.observe(chooseTarget({[names[2]]:.75},limits),0,.5),true);
+ assert.equal(gate.observe(chooseTarget({[names[2]]:.11},limits),0,.10),true);
+});
+test('old stored 0.01-step custom values remain valid for detection',()=>{
+ const bell='Bicycle bell';
+ assert.equal(chooseTarget({[bell]:.07},{[bell]:.07})?.name,bell);
+ assert.equal(chooseTarget({[bell]:.03},{[bell]:.03})?.name,bell);
 });
 test('invalid scores and unrelated sound classes cannot trigger alerts',()=>{
  assert.equal(Object.keys(targetScores(result([{categoryName:'Bell',score:.95}]))).length,0);
