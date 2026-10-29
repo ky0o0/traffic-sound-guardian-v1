@@ -1,6 +1,6 @@
 # Research integration feasibility: Semantic Hearing + PAWS
 
-**Experimental only.** This branch does not alter production V1.5.4, YAMNet, the realtime microphone pipeline, or warning rules. No pretrained-model inference or real-device test was completed.
+**Experimental only.** This branch does not alter production V1.5.4, YAMNet, the realtime microphone pipeline, or warning rules. Official pretrained-model inference has now completed on GitHub Actions using **synthetic stereo tones**. This is a successful technical smoke test, **not** evidence that traffic-sound extraction improves accuracy or that an iPhone can provide binaural input. No real-device or traffic-sound accuracy test has been completed.
 
 ## Verified upstream sources
 
@@ -24,7 +24,10 @@ Before adapting its classifiers, establish the exact front-end feature calculati
 ## Status / limitations
 
 * Inspected model architecture, labels, config and PAWS front-end README / Android feature code.
-* Implemented and locally tested a stand-alone trial adapter (available as a downloadable prototype in the development conversation); four small tests passed, with synthetic stereo preflight and mono rejection. **The model checkpoint has not been downloaded or executed**, so there are no real extraction outputs or accuracy measurements.
+* 2026-10-29: [GitHub Actions run 40895434760](https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895434760) completed both contract tests and actual official checkpoint inference. It generated a 44.1 kHz, stereo, 1-second output WAV from synthetic two-tone input; this is only a shape/interface smoke test.
+* Verified official model SHA-256: `f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21`. Future checkpoint loads require that digest to match before PyTorch deserialization.
+* Added `research/semantic_hearing/compare_exports.py`: pairs V1.5.4 JSON exports by original `sourceGroup` and reports paired clip-level Precision/Recall/F1 at identical fixed thresholds; it rejects mismatched truth, groups or thresholds. No real paired evaluation has been run.
+* Real headphone-microphone input, real-world accuracy and end-to-end latency remain untested in this research branch.
 * No production file changes, no deployed site change. Do not claim this is a safety device or validated hearing enhancement.
 
 This document is for review before any production integration.
