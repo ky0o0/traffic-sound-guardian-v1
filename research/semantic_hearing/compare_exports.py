@@ -18,7 +18,7 @@ def load_export(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     if data.get("schema") != "traffic-sound-guardian-test/1":
         raise ValueError(f"{path}: unsupported AI Test export schema")
-    if data.get("split", {}).get("mode") == "heldout" and not data.get("heldoutRevealed"):
+    if (data.get("split") or {}).get("mode") == "heldout" and not data.get("heldoutRevealed"):
         raise ValueError(f"{path}: test-set results are still withheld; do not bypass the evaluation lock")
     return data
 
