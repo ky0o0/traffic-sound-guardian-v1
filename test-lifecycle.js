@@ -4,7 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { WarningGate, TARGETS } from './detection.js';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
@@ -12,7 +12,7 @@ const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false,storedThreshold=null}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -25,7 +25,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
    getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
   return elements.get(id);
  };
- const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],timers=new Map(),frames=new Map(),events={};
+ const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],timers=new Map(),frames=new Map(),events={},storageWrites=[];
  let now=0,nextTimer=0,micCalls=0,resolveMic,denied=deny;
  const makeStream=()=>{
   const track={readyState:'live',muted:false,stop(){this.readyState='ended';this.stopped=true;}};tracks.push(track);
@@ -60,7 +60,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   performance:{now:()=>now},document,Worker:ModelWorker,...(worklet?{AudioWorkletNode:WorkletNode}:{}),
-  window:{isSecureContext:true,AudioContext:Context,addEventListener(name,fn){events[name]=fn;}},
+  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(){return storedThreshold;},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
   navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
@@ -68,7 +68,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  // The test harness simulates the user's tap; production never starts itself.
  if(autoStart)element('mic-control').click();
  await flush();await flush();
- return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,
+ return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,storageWrites,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
   language:lang=>element('language-'+lang).click(),
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
@@ -239,14 +239,14 @@ test('debug switch is discoverable before the main visualization and reveals its
  h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
 });
-test('V1.3.1 page, manifest and cache URLs agree',()=>{
+test('V1.4 page, manifest and cache URLs agree',()=>{
  assert.match(page, /<title>Traffic Sound Guardian V1\.3\.1<\/title>/);
  assert.match(page, /class="version">V1\.3\.1<\/span>/);
  assert.match(page, /src="\.\/app\.js\?v=1\.3\.1"/);
  assert.match(page, /href="\.\/style\.css\?v=1\.3\.1"/);
  assert.match(source, /classifier-worker\.js\?v=1\.3\.1/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.3.1');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.3.1');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.0');
 });
 test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
@@ -407,5 +407,46 @@ test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder s
  assert.ok(loudSpan>smallSpan,'louder real input causes larger visible waveform');
  assert.ok(h.drawing.every(([,y])=>y>=0&&y<=48),'limiter keeps waveform within canvas');
  assert.deepEqual(pcm,original,'visual display never changes microphone PCM');
+ h.stop();
+});
+
+test('V1.4 bicycle-bell slider changes threshold live without restarting any audio resources',async()=>{
+ const h=await harness();
+ assert.equal(h.elements.get('bell-value').textContent,'0.50');
+ assert.equal(h.calls(),1);
+ const slider=h.elements.get('bell-threshold');
+ slider.value='0.08';slider.input();
+ assert.equal(h.run('bellThreshold'),.08);
+ assert.equal(h.elements.get('bell-value').textContent,'0.08');
+ assert.equal(h.storageWrites.at(-1)[1],'0.08');
+ assert.equal(h.workers.length,1);
+ h.frame(1);
+ h.workers[0].emit({type:'result',sequence:1,target:{name:'Vehicle horn, car horn, honking',label:'車のクラクション',score:.14},bellScore:.1});
+ assert.equal(h.document.body.dataset.state,'listening');
+ h.frame(2);
+ h.workers[0].emit({type:'result',sequence:2,target:{name:'Vehicle horn, car horn, honking',label:'車のクラクション',score:.14},bellScore:.1});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.elements.get('sound-type').textContent,'自転車のベル');
+ assert.equal(h.elements.get('score').textContent,'0.10');
+ h.stop();
+});
+test('V1.4 new setting is a preference only; can load stored value and translate both languages',async()=>{
+ const h=await harness({autoStart:false,storedThreshold:'0.12'});
+ assert.equal(h.calls(),0);
+ assert.equal(h.elements.get('bell-threshold').value,'0.12');
+ h.language('en');
+ assert.equal(h.elements.get('sensitivity-summary').textContent,'Bicycle bell sensitivity');
+ assert.match(h.elements.get('sensitivity-note').textContent,/false alarms/);
+ h.language('ja');assert.equal(h.elements.get('bell-value').textContent,'0.12');
+ h.stop();
+});
+test('V1.4 adjustment breaks incomplete streak without changing model, capture or privacy',async()=>{
+ const h=await harness();
+ h.frame(1);h.emit(1,{name:'Bicycle bell',label:'自転車のベル',score:.6});
+ assert.equal(h.document.body.dataset.state,'listening');
+ h.elements.get('bell-threshold').value='.20';h.elements.get('bell-threshold').input();
+ h.frame(2);h.emit(2,{name:'Bicycle bell',label:'自転車のベル',score:.6});
+ assert.equal(h.document.body.dataset.state,'listening');
+ assert.equal(h.calls(),1);assert.equal(h.workers.length,1);
  h.stop();
 });
