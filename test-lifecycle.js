@@ -354,8 +354,8 @@ test('warning still allows stopping by tapping the circular control',async()=>{
  h.elements.get('mic-control').click();
  assert.equal(h.document.body.dataset.state,'stopped');h.stop();
 });
-test('waveform uses a 50 percent higher display gain without mutating captured frames',async()=>{
- assert.match(source,/samples\[i\] \* 6/);
+test('waveform uses soft-limited display amplification without mutating captured frames',async()=>{
+ assert.match(source,/Math\.tanh\(samples\[i\] \* 18\)/);
  const h=await harness();h.analysers[0].pcm.fill(.08);h.animate(0);
  assert.ok(h.drawing.some(([,y])=>y!==24));
  h.frame(1);assert.equal(h.workers[0].sent.at(-1).sampleRate,48000);
@@ -387,4 +387,25 @@ test('V1.3.1 denied permission after manual click can be retried',async()=>{
  h.allow();h.click();await flush();
  assert.equal(h.calls(),2);
  assert.equal(h.document.body.dataset.state,'priming');h.stop();
+});
+
+test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder sounds',async()=>{
+ const css=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
+ assert.match(css,/\.wave\{max-width:360px;height:76px/);
+ const h=await harness();
+ const pcm=h.analysers[0].pcm;
+ pcm.fill(0);h.animate(0);
+ assert.ok(h.drawing.every(([,y])=>y===24),'true silence remains flat');
+ for(let i=0;i<pcm.length;i++)pcm[i]=i%2 ? .01 : -.01;
+ h.animate(100);
+ const smallSpan=Math.max(...h.drawing.map(p=>p[1]))-Math.min(...h.drawing.map(p=>p[1]));
+ assert.ok(smallSpan>7,'quiet nonzero signal becomes clearly visible');
+ for(let i=0;i<pcm.length;i++)pcm[i]=i%2 ? .4 : -.4;
+ const original=pcm.slice();
+ h.animate(200);
+ const loudSpan=Math.max(...h.drawing.map(p=>p[1]))-Math.min(...h.drawing.map(p=>p[1]));
+ assert.ok(loudSpan>smallSpan,'louder real input causes larger visible waveform');
+ assert.ok(h.drawing.every(([,y])=>y>=0&&y<=48),'limiter keeps waveform within canvas');
+ assert.deepEqual(pcm,original,'visual display never changes microphone PCM');
+ h.stop();
 });
