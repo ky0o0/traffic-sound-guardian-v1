@@ -15,19 +15,27 @@ import {
   optimize,
   exportData,
   csv
-} from './ai-test-analysis.js?v=1.5';
+} from './ai-test-analysis.js?v=1.5.1';
 import {
   BatchRunner,
   LIMITS,
   checkFile
-} from './ai-test-runner.js?v=1.5';
+} from './ai-test-runner.js?v=1.5.1';
 import {
   translate
-} from './ai-test-i18n.js?v=1.5';
+} from './ai-test-i18n.js?v=1.5.1';
 
 const root = document.getElementById('test-app'),
   runner = new BatchRunner();
-let language = 'ja',
+const LANGUAGE_STORAGE_KEY = 'trafficSoundGuardian.language';
+const allowedLanguage = code => ['ja', 'en', 'zh-CN'].includes(code) ? code : 'ja';
+function initialLanguage() {
+  const query = /(?:^|[?&])lang=(ja|en|zh-CN)(?:&|$)/.exec(window.location?.search || '')?.[1];
+  if (query) return query;
+  try { return allowedLanguage(window.sessionStorage?.getItem(LANGUAGE_STORAGE_KEY)); }
+  catch { return 'ja'; }
+}
+let language = initialLanguage(),
   tab = 'upload',
   clips = [],
   nextId = 0,
@@ -783,34 +791,30 @@ function exportView() {
 function render() {
   const openIds = new Set([...root.querySelectorAll('details[open][id]')].map(x => x.id));
   document.documentElement.lang = language;
-  document.title = t('title') + ' · Traffic Sound Guardian V1.5';
+  document.title = t('title') + ' · Traffic Sound Guardian V1.5.1';
   root.replaceChildren();
   const top = el('div', null, {
     class: 'top'
   });
   top.append(el('a', t('back'), {
-    href: './index.html?v=1.5'
+    href: './index.html?v=1.5.1&lang=' + language
   }));
-  const langs = el('div', null, {
-    class: 'actions'
-  });
+  const langs = el('div', null, { class: 'language-switch' });
+  const picker = el('select', null, { id: 'language-select' });
+  picker.setAttribute('aria-label', t('language'));
   for (const [code, name] of [
-      ['ja', '日本語'],
-      ['en', 'English']
-    ]) {
-    const b = el('button', name, {
-      type: 'button',
-      lang: code
-    });
-    b.setAttribute('aria-pressed', String(language === code));
-    b.onclick = () => {
-      language = code;
-      render();
-    };
-    langs.append(b);
-  }
+    ['ja', '日本語'],
+    ['en', 'English'],
+    ['zh-CN', '简体中文']
+  ]) picker.append(el('option', name, { value: code, selected: language === code }));
+  picker.onchange = () => {
+    language = allowedLanguage(picker.value);
+    try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
+    render();
+  };
+  langs.append(picker);
   top.append(langs);
-  root.append(top, el('h1', t('title') + ' · V1.5'), el('p', t('subtitle'), {
+  root.append(top, el('h1', t('title') + ' · V1.5.1'), el('p', t('subtitle'), {
     class: 'notice'
   }), note('privacy'));
   const tabs = el('nav', null, {
@@ -835,7 +839,7 @@ function render() {
   root.append(thresholdPanel());
   root.append(tab === 'upload' ? uploadView(openIds) : tab === 'results' ? resultsView() : tab ===
     'analysis' ? metricsView() : tab === 'optimize' ? optimizeView() : exportView());
-  root.append(el('footer', 'Traffic Sound Guardian V1.5 · YAMNet / MediaPipe · ' + t('scoreNote')));
+  root.append(el('footer', 'Traffic Sound Guardian V1.5.1 · YAMNet / MediaPipe · ' + t('scoreNote')));
 }
 window.addEventListener('pagehide', () => {
   runner.cancel();
