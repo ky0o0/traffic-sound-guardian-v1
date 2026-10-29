@@ -274,11 +274,11 @@ test('Debug Mode defaults open below the app and never changes the active sessio
  assert.equal(h.run('debugEnabled'),true);h.debug(false);assert.equal(h.run('session.warningTimeout'),timer);
  const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');assert.ok(html.indexOf('class="debug-section"')>html.indexOf('</footer>'));h.stop();
 });
-test('debug displays real-result low and zero raw scores while original rules do not warn',async()=>{
+test('debug shows unrounded model scores while the new 0.10 default triggers an alert',async()=>{
  const h=await harness();h.debug(true);h.frame(1);
  assert.equal(h.workers[0].sent.at(-1).debug,true);
  h.workers[0].emit({type:'result',sequence:1,target:{score:.123456789012345,label:'自転車のベル'},inferenceMs:12.3456,debug:diagnosticFixture()});
- assert.equal(h.document.body.dataset.state,'listening');
+ assert.equal(h.document.body.dataset.state,'warning');
  assert.equal(h.elements.get('debug-top').children.length,5);assert.equal(h.elements.get('debug-target').children.length,6);
  assert.equal(h.elements.get('debug-top').children[0].children[1].textContent,'0.931234567890123');
  assert.equal(h.elements.get('debug-target').children[0].children[1].textContent,'0.123456789012345');
