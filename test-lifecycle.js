@@ -256,14 +256,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.5.2 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.5\.2<\/title>/);
- assert.match(page, /class="version">V1\.5\.2<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.5\.2"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.5\.2"/);
- assert.match(source, /classifier-worker\.js\?v=1\.5\.2/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.5.2');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.5.2');
+test('V1.5.3 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.5\.3<\/title>/);
+ assert.match(page, /class="version">V1\.5\.3<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.5\.3"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.5\.3"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.5\.3/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.5.3');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.5.3');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -559,7 +559,7 @@ test('V1.4.3 first viewport previews Debug panel without scrolling or hiding mic
  h.stop();
 });
 
-test('V1.5.2 single native selector routes simplified Chinese to English Google Form',async()=>{
+test('V1.5.3 single native selector routes simplified Chinese to English Google Form',async()=>{
  assert.equal((page.match(/id="language-select"/g)||[]).length,1);
  assert.ok(page.includes('<option value="ja">日本語</option>'));
  assert.ok(page.includes('<option value="en">English</option>'));
@@ -572,7 +572,7 @@ test('V1.5.2 single native selector routes simplified Chinese to English Google 
  assert.equal(h.document.documentElement.lang,'zh-CN');
  assert.equal(h.elements.get('heading').textContent,'检测已停止');
  assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/AkXuRHWwi9Kp95GfA');
- assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.5.2&lang=zh-CN');
+ assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.5.3&lang=zh-CN');
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI 调试模式');
  assert.equal(h.elements.get('sensitivity-heading').textContent,'交通警告音灵敏度设置');
  assert.equal(h.elements.get('threshold-label-0').textContent,'自行车铃');
@@ -585,7 +585,7 @@ test('V1.5.2 single native selector routes simplified Chinese to English Google 
  assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/vRzgiJxNCfJeb5K1A');
  h.stop();
 });
-test('V1.5.2 Chinese switch preserves ongoing warning and score',async()=>{
+test('V1.5.3 Chinese switch preserves ongoing warning and score',async()=>{
  const h=await harness();h.frame(1);h.emit(1,{score:.83,label:'自転車のベル'});
  const warningTimer=h.run('session.warningTimeout');
  h.language('zh-CN');
@@ -598,7 +598,7 @@ test('V1.5.2 Chinese switch preserves ongoing warning and score',async()=>{
  assert.equal(h.workers.length,1);
  h.stop();
 });
-test('V1.5.2 Chinese debug labels preserve original raw model scores',async()=>{
+test('V1.5.3 Chinese debug labels preserve original raw model scores',async()=>{
  const h=await harness();h.language('zh-CN');h.frame(1);
  h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:5,debug:diagnosticFixture()});
  assert.equal(h.elements.get('debug-top').children[0].children[0].children[0].textContent,'人声');
@@ -607,36 +607,49 @@ test('V1.5.2 Chinese debug labels preserve original raw model scores',async()=>{
  h.stop();
 });
 
-test('V1.5.2 new sliders have 0.05 to 0.50 range and 0.05 step with default 0.10',async()=>{
+test('V1.5.3 includes a special .01 minimum plus .05 step choices with default .10',async()=>{
  const html=page;
- assert.equal((html.match(/min="0.05" max="0.50" step="0.05" value="0.10"/g)||[]).length,6);
+ assert.equal((html.match(/min="0.01" max="0.50" step="any" value="0.10"/g)||[]).length,6);
  const h=await harness({autoStart:false});
  for (const [i,name] of Object.keys(TARGETS).entries()){
   assert.equal(h.run('soundThresholds')[name],.10);
-  assert.equal(h.elements.get('threshold-input-'+i).step,'0.05');
+  assert.equal(h.elements.get('threshold-input-'+i).step,'any');
+  assert.equal(h.elements.get('threshold-input-'+i).min,'0.01');
   assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.10');
  }
  const slider=h.elements.get('threshold-input-0');slider.value='.23';slider.input();
  assert.equal(h.elements.get('threshold-value-0').textContent,'0.25');
  assert.equal(h.run('soundThresholds')['Bicycle bell'],.25);
  assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.soundThresholds');
+ // The user must be able to select .01, not just keep a legacy .01 value.
+ slider.value='.01';slider.input();
+ assert.equal(h.elements.get('threshold-value-0').textContent,'0.01');
+ assert.equal(h.run('soundThresholds')['Bicycle bell'],.01);
+ let prevented=0;
+ const arrow=key=>slider.keydown({key,preventDefault(){prevented++}});
+ arrow('ArrowRight');assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
+ arrow('ArrowRight');assert.equal(h.elements.get('threshold-value-0').textContent,'0.10');
+ arrow('ArrowLeft');assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
+ arrow('Home');assert.equal(h.elements.get('threshold-value-0').textContent,'0.01');
+ arrow('End');assert.equal(h.elements.get('threshold-value-0').textContent,'0.50');
+ assert.equal(prevented,5);
  h.stop();
 });
-test('V1.5.2 legacy 0.01-step values are preserved until user adjusts a slider',async()=>{
+test('V1.5.3 legacy 0.01-step values are preserved until user adjusts a slider',async()=>{
  const h=await harness({autoStart:false,storedSettings:JSON.stringify({
   'Bicycle bell':.03,'Siren':.12
  })});
  assert.equal(h.elements.get('threshold-value-0').textContent,'0.03');
  assert.equal(h.elements.get('threshold-input-0').value,'0.03');
  assert.equal(h.elements.get('threshold-input-0').step,'any');
- assert.equal(h.elements.get('threshold-input-0').min,'0.03');
+ assert.equal(h.elements.get('threshold-input-0').min,'0.01');
  assert.equal(h.elements.get('threshold-value-2').textContent,'0.12');
  assert.equal(h.elements.get('threshold-input-2').step,'any');
  assert.equal(h.storageWrites.length,0);
  h.language('zh-CN');assert.equal(h.elements.get('threshold-value-2').textContent,'0.12');
  const slider=h.elements.get('threshold-input-0');slider.value='.04';slider.input();
  assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
- assert.equal(h.elements.get('threshold-input-0').step,'0.05');
+ assert.equal(h.elements.get('threshold-input-0').step,'any');
  assert.equal(h.run('soundThresholds').Siren,.12);
  h.stop();
 });
