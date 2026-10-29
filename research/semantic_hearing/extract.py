@@ -60,6 +60,19 @@ def run(args):
         import torch
         # Only load checkpoints obtained from the official, trusted research authors.
         sys.path.insert(0, str(args.semantic_repo.resolve()))
+        # Upstream's *evaluation-only* metrics import matplotlib and
+        # pyroomacoustics even when we only call Net.forward(). Those
+        # modules are NOT involved in the neural-network inference path.
+        # Install strict fail-closed placeholders for the two unused
+        # evaluation functions; original model classes/weights stay intact.
+        import types
+        if "src.helpers.eval_utils" not in sys.modules:
+            eval_stub = types.ModuleType("src.helpers.eval_utils")
+            def _no_evaluation_metrics(*_args, **_kwargs):
+                raise RuntimeError("Evaluation-only ITD/ILD functions are not available in the extraction adapter")
+            eval_stub.itd_diff = _no_evaluation_metrics
+            eval_stub.ild_diff = _no_evaluation_metrics
+            sys.modules["src.helpers.eval_utils"] = eval_stub
         module = importlib.import_module(config["model"])
         model = module.Net(**config["model_params"])
         state = torch.load(str(args.checkpoint), map_location="cpu")
