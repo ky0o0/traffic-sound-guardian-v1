@@ -254,14 +254,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.4.3 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.4\.3<\/title>/);
- assert.match(page, /class="version">V1\.4\.3<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.4\.3"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.4\.3"/);
- assert.match(source, /classifier-worker\.js\?v=1\.4\.3/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.3');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.3');
+test('V1.4.4 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.4\.4<\/title>/);
+ assert.match(page, /class="version">V1\.4\.4<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.4\.4"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.4\.4"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.4\.4/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.4');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.4');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -522,17 +522,18 @@ test('V1.4.2 Debug Mode explains a single result is enough in Japanese and Engli
  h.stop();
 });
 
-test('V1.4.3 website routes feedback to matching Japanese and English Google Forms',async()=>{
+test('V1.4.4 website routes feedback to the two owner-confirmed short links',async()=>{
  const h=await harness({autoStart:false});
  const ja=h.elements.get('feedback').attributes.href;
- assert.match(ja,/^https:\/\/docs\.google\.com\/forms\/d\/e\/[^/]+\/viewform$/);
+ assert.equal(ja,'https://forms.gle/vRzgiJxNCfJeb5K1A');
  assert.equal(h.elements.get('feedback').textContent,'ご意見・ご感想 ↗');
  assert.equal(h.elements.get('feedback').attributes['aria-disabled'],'false');
  h.language('en');
  const en=h.elements.get('feedback').attributes.href;
- assert.match(en,/^https:\/\/docs\.google\.com\/forms\/d\/e\/[^/]+\/viewform$/);
+ assert.equal(en,'https://forms.gle/AkXuRHWwi9Kp95GfA');
  assert.notEqual(en,ja);
  assert.equal(h.elements.get('feedback').textContent,'Send feedback ↗');
+ assert.equal(h.elements.get('feedback').attributes['aria-disabled'],'false');
  let prevented=false;
  h.elements.get('feedback').click({preventDefault(){prevented=true;}});
  assert.equal(prevented,false);
