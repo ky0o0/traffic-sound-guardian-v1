@@ -30,7 +30,7 @@ jobs:
   upstream-smoke:
     # Run a single isolated actual-weight smoke test on branch push.
     # A generated sound is only an input/output contract test, never accuracy evidence.
-    if: github.event_name == 'push'
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'research/semantic-hearing-prototype-20261029'
     runs-on: ubuntu-22.04
     timeout-minutes: 18
     steps:
