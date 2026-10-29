@@ -1,0 +1,85 @@
+name: Research Semantic Hearing trial
+
+on:
+  push:
+    branches:
+      - research/semantic-hearing-prototype-20261029
+    paths:
+      - "research/semantic_hearing/**"
+      - ".github/workflows/research-semantic-hearing.yml"
+  pull_request:
+    paths:
+      - "research/semantic_hearing/**"
+      - ".github/workflows/research-semantic-hearing.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  contract-tests:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Validate research adapter + paired-comparison contracts
+        run: python -m unittest discover -s research/semantic_hearing -p 'test_*.py' -v
+
+  upstream-smoke:
+    # Run a single isolated actual-weight smoke test on branch push.
+    # A generated sound is only an input/output contract test, never accuracy evidence.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'research/semantic-hearing-prototype-20261029'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Pin original Semantic Hearing source
+        run: |
+          git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+          git -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50
+      - name: Install pinned CPU ML dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch==1.13.1+cpu" "torchaudio==0.13.1+cpu" --extra-index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "numpy<2" "soundfile" "torchmetrics==0.10.0" "speechbrain==0.5.16" "huggingface_hub<0.26" "scipy<2"
+      - name: Fetch original official author-hosted weights
+        run: |
+          curl --fail --location --retry 2 --max-time 240 --silent --show-error \
+            https://semantichearing.cs.washington.edu/39.pt -o /tmp/39.pt
+          test "$(stat -c %s /tmp/39.pt)" -gt 4096
+          sha256sum /tmp/39.pt
+      - name: Create non-semantic synthetic stereo audio for pipeline check
+        run: |
+          python - <<'PY'
+          import math, struct, wave
+          samples=44100
+          with wave.open('/tmp/synthetic_stereo.wav','wb') as out:
+              out.setnchannels(2)
+              out.setsampwidth(2)
+              out.setframerate(44100)
+              for i in range(samples):
+                  t=i/44100
+                  left=int(8000*math.sin(2*math.pi*440*t))
+                  right=int(6000*math.sin(2*math.pi*523*t))
+                  out.writeframesraw(struct.pack('<hh',left,right))
+          PY
+      - name: Execute real checkpoint inference for interface verification only
+        run: |
+          python research/semantic_hearing/extract.py \
+            --semantic-repo /tmp/SemanticHearing \
+            --checkpoint /tmp/39.pt \
+            --input /tmp/synthetic_stereo.wav \
+            --output /tmp/extracted.wav \
+            --target car_horn \
+            --group-id synthetic-not-research-data
+          python - <<'PY'
+          import soundfile as sf
+          x,rate=sf.read('/tmp/extracted.wav',always_2d=True)
+          assert rate==44100 and x.shape==(44100,2), (rate,x.shape)
+          print('Smoke test PASSED: official model ran; no accuracy claim')
+          PY
