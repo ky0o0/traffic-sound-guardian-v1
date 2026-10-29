@@ -19,12 +19,12 @@ test('all AI Test Mode labels, help text and errors have simplified Chinese',()=
 test('AI Test Mode offers one dropdown for Japanese, English and Chinese',()=>{
  const src=fs.readFileSync(new URL('./ai-test.js',import.meta.url),'utf8');
  const html=fs.readFileSync(new URL('./ai-test.html',import.meta.url),'utf8');
- assert.match(src,/\\['zh-CN', '简体中文'\\]/);
- assert.match(src,/const picker = el\\('select'/);
- assert.doesNotMatch(src,/aria-pressed/);
- assert.match(src,/index\\.html\\?v=1\\.5\\.1&lang=/);
- assert.match(src,/sessionStorage/);
- assert.match(html,/ai-test\\.js\\?v=1\\.5\\.1/);
+ assert.ok(src.includes("['zh-CN', '简体中文']"));
+ assert.ok(src.includes("const picker = el('select'"));
+ assert.ok(!src.includes('aria-pressed'));
+ assert.ok(src.includes("index.html?v=1.5.1&lang="));
+ assert.ok(src.includes('sessionStorage'));
+ assert.ok(html.includes('ai-test.js?v=1.5.1'));
 });
 test('Chinese model debug names cover all six safety targets',()=>{
  const names=['Bicycle bell','Vehicle horn, car horn, honking','Siren',
