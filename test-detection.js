@@ -5,43 +5,53 @@ import { TARGETS, bestTarget, targetScores, chooseTarget, WarningGate } from './
 const t = (score, name = 'Bicycle bell') => ({ score, name, label: TARGETS[name].label });
 const result = categories => [{ classifications: [{ categories }] }];
 
-test('0.75 triggers immediately; 0.749999 requires a second result', () => {
+test('a single result at the default 0.50 threshold warns immediately', () => {
  const gate = new WarningGate();
- assert.equal(gate.observe(t(.75), 0), true);
+ assert.equal(gate.observe(t(.50), 0), true);
+ assert.equal(gate.target.name, 'Bicycle bell');
  gate.reset();
- assert.equal(gate.observe(t(.749999), 0), false);
- assert.equal(gate.observe(t(.749999), 480), true);
+ assert.equal(gate.observe(t(.499999), 0), false);
+ assert.equal(gate.observe(t(.75), 480), true);
 });
-test('0.50 boundary and two different traffic sounds qualify', () => {
- const gate = new WarningGate();
- assert.equal(gate.observe(t(.5), 0), false);
- assert.equal(gate.observe(t(.5, 'Siren'), 480), true);
- assert.equal(gate.target.name, 'Siren');
+test('a single result at any of six category-specific thresholds warns immediately', () => {
+ for(const name of Object.keys(TARGETS)) {
+  const gate = new WarningGate();
+  assert.equal(gate.observe(t(.08,name), 0, .08), true);
+  assert.equal(gate.target.name, name);
+ }
 });
-test('a below-threshold result resets consecutive count', () => {
- const gate = new WarningGate();
- for (const score of [.7,.49999,.7,0,.7]) assert.equal(gate.observe(t(score), 0), false);
- assert.equal(gate.observe(t(.5), 480), true);
+test('a single result below its configured threshold never triggers warning', () => {
+ for(const score of [0, .001, .049999]) {
+  const gate=new WarningGate();
+  assert.equal(gate.observe(t(score), 0, .05), false);
+ }
 });
-test('missing target and dropped audio break consecutive count', () => {
- const gate = new WarningGate();
- gate.observe(t(.6), 0); gate.observe(null, 480);
- assert.equal(gate.observe(t(.6), 960), false);
- gate.breakSequence();
- assert.equal(gate.observe(t(.6), 1920), false);
+test('a frame gap never postpones a valid new alert', () => {
+ const gate=new WarningGate();
+ gate.observe(null,0);gate.breakSequence();
+ assert.equal(gate.observe(t(.50,'Siren'),480),true);
 });
-test('active warning persists at 0.50 and expires at exactly 3000 ms', () => {
- const gate = new WarningGate();
- gate.observe(t(.9), 0); gate.observe(t(.5, 'Siren'), 1000); gate.observe(t(.49), 1480);
- assert.equal(gate.expire(3999), true);
- assert.equal(gate.expire(4000), false);
- assert.equal(gate.target, null);
- assert.equal(gate.observe(t(.6), 4001), false);
+test('warning persists three seconds after last qualifying inference', () => {
+ const gate=new WarningGate();
+ assert.equal(gate.observe(t(.50),0),true);
+ assert.equal(gate.observe(t(.50,'Siren'),1000),true);
+ assert.equal(gate.observe(t(.49),1480),true);
+ assert.equal(gate.expire(3999),true);
+ assert.equal(gate.expire(4000),false);
+ assert.equal(gate.target,null);
+ assert.equal(gate.observe(t(.60),4001),true);
 });
-test('below-threshold sounds do not extend the red warning', () => {
- const gate = new WarningGate(); gate.observe(t(.9), 0);
- gate.observe(t(.499), 2900);
- assert.equal(gate.expire(3000), false);
+test('below-threshold scores do not prolong an active warning', () => {
+ const gate=new WarningGate();
+ gate.observe(t(.50),0);
+ gate.observe(t(.499),2900);
+ assert.equal(gate.expire(3000),false);
+});
+test('null/invalid output cannot trigger a fresh alert', () => {
+ for(const target of [null,{score:NaN},{score:Infinity},{score:-1}]) {
+  const gate=new WarningGate();
+  assert.equal(gate.observe(target,0,.01),false);
+ }
 });
 test('all categories and heads are scanned, not just top one', () => {
  const results = result([{ categoryName:'Speech', score:.99 },{ categoryName:'Bicycle bell',score:.81 },{ categoryName:'Siren',score:.91 }]);
@@ -72,8 +82,7 @@ test('six target sounds each have an independently adjustable detection threshol
   const chosen=chooseTarget(scores,limits);
   assert.equal(chosen.name,names[j]);
   const gate=new WarningGate();
-  assert.equal(gate.observe(chosen,0,limits[names[j]]),false);
-  assert.equal(gate.observe(chosen,480,limits[names[j]]),true);
+  assert.equal(gate.observe(chosen,0,limits[names[j]]),true);
  }
 });
 test('target extraction preserves real scores for all six, not just the highest',()=>{
@@ -88,16 +97,15 @@ test('higher ineligible score never hides another eligible class',()=>{
  const chosen=chooseTarget({[bell]:.10,[horn]:.25,[siren]:.09},{[bell]:.11,[horn]:.30,[siren]:.08});
  assert.equal(chosen.name,siren);
 });
-test('default 0.50 settings preserve original 0.50, 0.75 and 3-second rules',()=>{
+test('default 0.50 settings retain sensitivity and three-second expiry',()=>{
  const names=Object.keys(TARGETS),limits=Object.fromEntries(names.map(n=>[n,.50]));
  assert.equal(chooseTarget(Object.fromEntries(names.map(n=>[n,.12])),limits),null);
  const selected=chooseTarget({[names[0]]:.6,[names[1]]:.7},limits);
  assert.equal(selected.name,names[1]);
  const gate=new WarningGate();
- assert.equal(gate.observe(selected,0,.5),false);
- assert.equal(gate.observe(selected,480,.5),true);
- assert.equal(gate.expire(3479),true);
- assert.equal(gate.expire(3480),false);
+ assert.equal(gate.observe(selected,0,.5),true);
+ assert.equal(gate.expire(2999),true);
+ assert.equal(gate.expire(3000),false);
  gate.reset();
  assert.equal(gate.observe(chooseTarget({[names[2]]:.75},limits),0,.5),true);
 });
