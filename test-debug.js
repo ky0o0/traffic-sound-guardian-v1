@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { summarizeDebug, JAPANESE_LABELS, debugCategoryName } from './debug.js';
-import { TARGETS, bestTarget } from './detection.js';
+import { TARGETS, bestTarget, targetScores } from './detection.js';
 const names=fs.readFileSync(new URL('./yamnet_class_map.csv',import.meta.url),'utf8').trim().split(/\r?\n/).slice(1).map(line=>{
  const value=line.slice(line.indexOf(',',line.indexOf(',')+1)+1);return value.startsWith('"')?JSON.parse(value):value;
 });
@@ -45,11 +45,11 @@ async function workerHarness({failInit=false,failInference=false}={}){
  const classifier={classify(audio,rate){calls++;assert.equal(rate,16000);assert.equal(audio.length,15600);now+=12.3456789;if(failInference)throw Error('test inference failure');return data;}};
  const modules={
   './audio_bundle.mjs':{FilesetResolver:{forAudioTasks:async()=>({})},AudioClassifier:{createFromOptions:async(files,value)=>{creates++;options=value;if(failInit)throw Error('test model failure');return classifier;}}},
-  './detection.js':{bestTarget},'./resample.js':{toModelAudio:samples=>{now+=40;return samples;}},'./debug.js':{summarizeDebug}
+  './detection.js':{bestTarget,targetScores},'./resample.js':{toModelAudio:samples=>{now+=40;return samples;}},'./debug.js':{summarizeDebug}
  };
  const self={location:{href:'https://example.test/project/classifier-worker.js'},postMessage:value=>sent.push(value)};
  const code=fs.readFileSync(new URL('./classifier-worker.js',import.meta.url),'utf8').replaceAll('import(', 'load(');
- vm.runInNewContext(code,{self,URL,performance:{now:()=>now},load:async path=>modules[path]});
+ vm.runInNewContext(code,{self,URL,performance:{now:()=>now},load:async path=>modules[path.split('?')[0]]});
  const send=async message=>{await self.onmessage({data:message});return sent.at(-1);};
  return {send,sent,calls:()=>calls,creates:()=>creates,options:()=>options,data};
 }
