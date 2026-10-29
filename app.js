@@ -238,7 +238,7 @@ function setDebug(enabled) {
   ui['debug-target'].replaceChildren();
   ui['debug-panel'].open = debugEnabled;
   renderDebug(); // No initialization, new microphone, worker or inference loop.
-  document.body.classList.toggle('debug-enabled', debugEnabled);
+  document.body.dataset.debug = debugEnabled ? 'on' : 'off';
   // Keep the current scroll position. The panel peeks below the main UI
   // and the user can scroll down naturally to see full diagnostics.
 }
