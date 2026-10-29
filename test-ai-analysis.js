@@ -6,6 +6,8 @@ import {
   NAMES,
   defaults,
   validThresholds,
+  THRESHOLD_CHOICES,
+  snapThreshold,
   setTruth,
   known,
   grouped,
@@ -46,11 +48,11 @@ const clip = (id, labels, values = {}, extra = {}) => ({
   ...extra
 });
 const cfg = defaults();
-test('V1.5.2 all six offline test defaults are 0.10',()=>{
+test('V1.5.3 all six offline test defaults are 0.10',()=>{
  assert.equal(Object.keys(cfg).length,6);
  assert.ok(Object.values(cfg).every(v=>v===.10));
 });
-test('V1.5.2 offline test defaults missing classes but retains old user-chosen 0.01-step settings',()=>{
+test('V1.5.3 offline test defaults missing classes but retains old user-chosen 0.01-step settings',()=>{
  const restored=validThresholds({[NAMES[0]]:.03,[NAMES[1]]:.12});
  assert.equal(restored[NAMES[0]],.03);
  assert.equal(restored[NAMES[1]],.12);
@@ -58,6 +60,23 @@ test('V1.5.2 offline test defaults missing classes but retains old user-chosen 0
  const invalid=validThresholds({[NAMES[0]]:0,[NAMES[1]]:.51});
  assert.equal(invalid[NAMES[0]],.10);
  assert.equal(invalid[NAMES[1]],.10);
+});
+test('V1.5.3 special minimum 0.01 and 0.05-spaced stops are available in offline test',()=>{
+ assert.deepEqual(THRESHOLD_CHOICES,[.01,.05,.10,.15,.20,.25,.30,.35,.40,.45,.50]);
+ assert.equal(snapThreshold(.01),.01);
+ assert.equal(snapThreshold(.015),.01);
+ assert.equal(snapThreshold(.04),.05);
+ assert.equal(snapThreshold(.08),.10);
+ assert.equal(snapThreshold(.10),.10);
+ assert.equal(snapThreshold(.23),.25);
+ assert.equal(snapThreshold(.51),.50);
+ const cfg={...defaults(),[NAMES[0]]:.01};
+ assert.deepEqual(predict(window({bell:.01}),cfg),['bell']);
+ const samples=[clip('p1',['bell'],{bell:.02}),clip('p2',['bell'],{bell:.025}),
+  clip('n1',['none'],{bell:0}),clip('n2',['none'],{bell:0})];
+ const curve=optimize(samples,cfg).bell;
+ assert.equal(curve.recommended,.01,'A low-scoring bell must be identifiable as best at .01');
+ assert.equal(curve.curve.length,11);
 });
 test('multi-label selection and exclusive none/unknown', () => {
   assert.deepEqual(setTruth(['unknown'], 'bell', true), ['bell']);
@@ -322,10 +341,10 @@ test(
       bell: 1
     })];
     const r = optimize(data, cfg);
-    assert.equal(r.bell.curve.length, 10);
-    assert.equal(r.bell.curve[0].threshold, .05);
+    assert.equal(r.bell.curve.length, 11);
+    assert.equal(r.bell.curve[0].threshold, .01);
     assert.equal(r.bell.curve.at(-1).threshold, .5);
-    assert.deepEqual(r.bell.curve.map(x=>x.threshold),[.05,.1,.15,.2,.25,.3,.35,.4,.45,.5]);
+    assert.deepEqual(r.bell.curve.map(x=>x.threshold),[.01,.05,.1,.15,.2,.25,.3,.35,.4,.45,.5]);
     assert.equal(r.bell.recommended, .15);
     assert.equal(r.bell.support, 2);
     assert.equal(r.horn.recommended, null);
@@ -377,10 +396,12 @@ test(
       }
     };
     const d = exportData([a, b], cfg, split, false, null, 'balanced');
-    assert.equal(d.config.version,'1.5.2');
+    assert.equal(d.config.version,'1.5.3');
     assert.equal(d.config.warningHoldMs,1000);
     assert.equal(d.config.defaultThreshold,.10);
     assert.equal(d.config.uiThresholdStep,.05);
+    assert.equal(d.config.uiThresholdMin,.01);
+    assert.equal(d.config.firstStep,.04);
     assert.ok(!JSON.stringify(d).includes('secretAudio'));
     assert.equal(d.clips[1].result, null);
     assert.equal(d.clips[1].withheld, true);
