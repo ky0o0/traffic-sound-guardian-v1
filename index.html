@@ -11,15 +11,15 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./style.css?v=1.4">
-  <title>Traffic Sound Guardian V1.4</title>
+  <link rel="stylesheet" href="./style.css?v=1.4.1">
+  <title>Traffic Sound Guardian V1.4.1</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1.4</span>
+      <span class="version">V1.4.1</span>
     </header>
 
     <div class="toolbar">
@@ -53,15 +53,6 @@
     </main>
 
     <footer>
-      <details id="sensitivity-panel" class="sensitivity">
-        <summary><span id="sensitivity-summary">自転車ベルの感度</span><span class="sensitivity-current">Score <output id="bell-value" for="bell-threshold">0.50</output></span></summary>
-        <div class="sensitivity-content">
-          <label id="bell-label" for="bell-threshold">警告を出す最低スコア</label>
-          <input id="bell-threshold" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
-          <div class="sensitivity-ends"><span id="bell-sensitive">高感度 0.01</span><span id="bell-standard">標準 0.50</span></div>
-          <p id="sensitivity-note">数値を下げると小さなスコアでも反応しますが、誤検知が増える可能性があります。2回連続の検出が必要です。</p>
-        </div>
-      </details>
       <button id="cancel" type="button" hidden>読み込みを中止</button>
       <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="true">ご意見・ご感想（準備中）</a>
       <p id="privacy" class="privacy">音声は保存・送信されません</p>
@@ -87,9 +78,40 @@
         <table><thead><tr><th id="debug-top-name" scope="col"></th><th id="debug-top-score" scope="col"></th></tr></thead><tbody id="debug-top"></tbody></table>
         <h2 id="debug-target-heading"></h2>
         <table><thead><tr><th id="debug-target-name" scope="col"></th><th id="debug-target-score" scope="col"></th></tr></thead><tbody id="debug-target"></tbody></table>
+        <section id="sensitivity-panel" class="sensitivity" aria-labelledby="sensitivity-heading">
+          <h2 id="sensitivity-heading">交通警告音の感度設定</h2>
+          <p id="sensitivity-note">スコアを下げると反応しやすくなりますが、誤警告が増える可能性があります。通常は2回連続で検出すると警告します。</p>
+          <div class="sensitivity-list">
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-0" for="threshold-input-0">自転車のベル</label><output id="threshold-value-0" for="threshold-input-0">0.50</output></div>
+            <input id="threshold-input-0" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-1" for="threshold-input-1">車のクラクション</label><output id="threshold-value-1" for="threshold-input-1">0.50</output></div>
+            <input id="threshold-input-1" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-2" for="threshold-input-2">サイレン</label><output id="threshold-value-2" for="threshold-input-2">0.50</output></div>
+            <input id="threshold-input-2" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-3" for="threshold-input-3">サイレン（パトカー）</label><output id="threshold-value-3" for="threshold-input-3">0.50</output></div>
+            <input id="threshold-input-3" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-4" for="threshold-input-4">サイレン（救急車）</label><output id="threshold-value-4" for="threshold-input-4">0.50</output></div>
+            <input id="threshold-input-4" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-5" for="threshold-input-5">サイレン（消防車）</label><output id="threshold-value-5" for="threshold-input-5">0.50</output></div>
+            <input id="threshold-input-5" type="range" min="0.01" max="0.50" step="0.01" value="0.50" aria-describedby="sensitivity-note">
+          </div>
+          </div>
+          <div class="sensitivity-footer"><span id="sensitivity-scale">0.01：高感度 ／ 0.50：標準</span><button id="threshold-reset" type="button">すべて標準に戻す</button></div>
+        </section>
       </div>
     </details>
   </section>
-  <script type="module" src="./app.js?v=1.4"></script>
+  <script type="module" src="./app.js?v=1.4.1"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { TARGETS, bestTarget, bicycleBellScore, chooseTarget, WarningGate } from './detection.js';
+import { TARGETS, bestTarget, targetScores, chooseTarget, WarningGate } from './detection.js';
 const t = (score, name = 'Bicycle bell') => ({ score, name, label: TARGETS[name].label });
 const result = categories => [{ classifications: [{ categories }] }];
 
@@ -63,28 +63,49 @@ test('target names and indices agree with bundled official CSV', () => {
  }
 });
 
-test('independent bell score is detected even when other traffic class scores higher',()=>{
- const r=result([{categoryName:'Vehicle horn, car horn, honking',score:.2},{categoryName:'Bicycle bell',score:.09}]);
- assert.equal(bestTarget(r).name,'Vehicle horn, car horn, honking');
- assert.equal(bicycleBellScore(r),.09);
- assert.equal(chooseTarget(bestTarget(r),bicycleBellScore(r),.08).name,'Bicycle bell');
- assert.equal(chooseTarget(bestTarget(r),bicycleBellScore(r),.10).name,'Vehicle horn, car horn, honking');
+
+test('six target sounds each have an independently adjustable detection threshold',()=>{
+ const names=Object.keys(TARGETS);
+ for(let j=0;j<names.length;j++){
+  const scores=Object.fromEntries(names.map((n,i)=>[n,i===j?.08:.002]));
+  const limits=Object.fromEntries(names.map((n,i)=>[n,i===j?.07:.50]));
+  const chosen=chooseTarget(scores,limits);
+  assert.equal(chosen.name,names[j]);
+  const gate=new WarningGate();
+  assert.equal(gate.observe(chosen,0,limits[names[j]]),false);
+  assert.equal(gate.observe(chosen,480,limits[names[j]]),true);
+ }
 });
-test('normal qualifying horns and sirens take priority over weaker bell scores',()=>{
- const horn={name:'Vehicle horn, car horn, honking',label:'車のクラクション',score:.7};
- assert.equal(chooseTarget(horn,.08,.01),horn);
+test('target extraction preserves real scores for all six, not just the highest',()=>{
+ const names=Object.keys(TARGETS);
+ const categories=names.map((categoryName,i)=>({categoryName,score:(i+1)/100}));
+ const scores=targetScores(result(categories));
+ assert.equal(Object.keys(scores).length,6);
+ names.forEach((n,i)=>assert.equal(scores[n],(i+1)/100));
 });
-test('low bicycle bell threshold requires two consecutive inference results',()=>{
- const gate=new WarningGate(), lowBell=t(.08);
- assert.equal(gate.observe(lowBell,0,.08),false);
- assert.equal(gate.observe(lowBell,480,.08),true);
- assert.equal(gate.target.name,'Bicycle bell');
+test('higher ineligible score never hides another eligible class',()=>{
+ const [bell,horn,siren]=Object.keys(TARGETS);
+ const chosen=chooseTarget({[bell]:.10,[horn]:.25,[siren]:.09},{[bell]:.11,[horn]:.30,[siren]:.08});
+ assert.equal(chosen.name,siren);
+});
+test('default 0.50 settings preserve original 0.50, 0.75 and 3-second rules',()=>{
+ const names=Object.keys(TARGETS),limits=Object.fromEntries(names.map(n=>[n,.50]));
+ assert.equal(chooseTarget(Object.fromEntries(names.map(n=>[n,.12])),limits),null);
+ const selected=chooseTarget({[names[0]]:.6,[names[1]]:.7},limits);
+ assert.equal(selected.name,names[1]);
+ const gate=new WarningGate();
+ assert.equal(gate.observe(selected,0,.5),false);
+ assert.equal(gate.observe(selected,480,.5),true);
+ assert.equal(gate.expire(3479),true);
+ assert.equal(gate.expire(3480),false);
  gate.reset();
- assert.equal(gate.observe(lowBell,0,.09),false);
- assert.equal(gate.observe(lowBell,480,.09),false);
+ assert.equal(gate.observe(chooseTarget({[names[2]]:.75},limits),0,.5),true);
 });
-test('invalid or merely generic bell results never create a bicycle score',()=>{
- assert.equal(bicycleBellScore(result([{categoryName:'Bell',score:.99}])),null);
- for(const score of [NaN,Infinity,-.1,1.1])assert.equal(bicycleBellScore(result([{categoryName:'Bicycle bell',score}])),null);
- assert.equal(chooseTarget(null,0,.01),null);
+test('invalid scores and unrelated sound classes cannot trigger alerts',()=>{
+ assert.equal(Object.keys(targetScores(result([{categoryName:'Bell',score:.95}]))).length,0);
+ for(const score of [NaN,Infinity,-.2,1.2]){
+  assert.equal(Object.keys(targetScores(result([{categoryName:'Bicycle bell',score}]))).length,0);
+ }
+ assert.equal(chooseTarget({'Bicycle bell':0},{'Bicycle bell':.01}),null);
+ assert.equal(chooseTarget({'Bicycle bell':.8},{'Bicycle bell':0}),null);
 });

@@ -12,7 +12,7 @@ const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false,storedThreshold=null}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false,storedThreshold=null,storedSettings=null}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -55,12 +55,12 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,debugCategoryName,AudioWindowBuffer,Float32Array,URL,DOMException,console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,chooseTarget,debugCategoryName,AudioWindowBuffer,Float32Array,URL,DOMException,console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   performance:{now:()=>now},document,Worker:ModelWorker,...(worklet?{AudioWorkletNode:WorkletNode}:{}),
-  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(){return storedThreshold;},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
+  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(k){return k==='trafficSoundGuardian.bicycleBellThreshold' ? storedThreshold : (k==='trafficSoundGuardian.soundThresholds' ? storedSettings : null);},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
   navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
@@ -239,14 +239,14 @@ test('debug switch is discoverable before the main visualization and reveals its
  h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
 });
-test('V1.4 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.3\.1<\/title>/);
- assert.match(page, /class="version">V1\.3\.1<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.3\.1"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.3\.1"/);
- assert.match(source, /classifier-worker\.js\?v=1\.3\.1/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.0');
+test('V1.4.1 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.4\.1<\/title>/);
+ assert.match(page, /class="version">V1\.4\.1<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.4\.1"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.4\.1"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.4\.1/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.1');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.1');
 });
 test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
@@ -410,43 +410,75 @@ test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder s
  h.stop();
 });
 
-test('V1.4 bicycle-bell slider changes threshold live without restarting any audio resources',async()=>{
- const h=await harness();
- assert.equal(h.elements.get('bell-value').textContent,'0.50');
- assert.equal(h.calls(),1);
- const slider=h.elements.get('bell-threshold');
- slider.value='0.08';slider.input();
- assert.equal(h.run('bellThreshold'),.08);
- assert.equal(h.elements.get('bell-value').textContent,'0.08');
- assert.equal(h.storageWrites.at(-1)[1],'0.08');
- assert.equal(h.workers.length,1);
- h.frame(1);
- h.workers[0].emit({type:'result',sequence:1,target:{name:'Vehicle horn, car horn, honking',label:'車のクラクション',score:.14},bellScore:.1});
- assert.equal(h.document.body.dataset.state,'listening');
- h.frame(2);
- h.workers[0].emit({type:'result',sequence:2,target:{name:'Vehicle horn, car horn, honking',label:'車のクラクション',score:.14},bellScore:.1});
- assert.equal(h.document.body.dataset.state,'warning');
- assert.equal(h.elements.get('sound-type').textContent,'自転車のベル');
- assert.equal(h.elements.get('score').textContent,'0.10');
- h.stop();
-});
-test('V1.4 new setting is a preference only; can load stored value and translate both languages',async()=>{
- const h=await harness({autoStart:false,storedThreshold:'0.12'});
+
+test('V1.4.1 all six sliders are inside Debug Mode and not the main page',async()=>{
+ const pos=page.indexOf('id="sensitivity-panel"');
+ assert.ok(pos>page.indexOf('</footer>'));
+ assert.ok(pos>page.indexOf('id="debug-panel"'));
+ assert.equal((page.match(/id="threshold-input-[0-5]"/g)||[]).length,6);
+ assert.ok(!page.includes('id="bell-threshold"'));
+ const h=await harness({autoStart:false});
  assert.equal(h.calls(),0);
- assert.equal(h.elements.get('bell-threshold').value,'0.12');
- h.language('en');
- assert.equal(h.elements.get('sensitivity-summary').textContent,'Bicycle bell sensitivity');
- assert.match(h.elements.get('sensitivity-note').textContent,/false alarms/);
- h.language('ja');assert.equal(h.elements.get('bell-value').textContent,'0.12');
- h.stop();
+ assert.equal(h.elements.get('debug-panel').hidden,true);
+ for(let i=0;i<6;i++)assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.50');
+ h.debug(true);assert.equal(h.elements.get('debug-panel').hidden,false);h.stop();
 });
-test('V1.4 adjustment breaks incomplete streak without changing model, capture or privacy',async()=>{
+test('V1.4.1 siren threshold changes live without recreating microphone or worker',async()=>{
+ const h=await harness();const siren=Object.keys(TARGETS)[2];
+ const slider=h.elements.get('threshold-input-2');
+ slider.value='.08';slider.input();
+ assert.equal(h.run('soundThresholds')[siren],.08);
+ assert.equal(h.elements.get('threshold-value-2').textContent,'0.08');
+ assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.soundThresholds');
+ assert.equal(JSON.parse(h.storageWrites.at(-1)[1])[siren],.08);
+ const scores={[siren]:.10,'Vehicle horn, car horn, honking':.14};
+ h.frame(1);h.workers[0].emit({type:'result',sequence:1,target:null,trafficScores:scores});
+ assert.equal(h.document.body.dataset.state,'listening');
+ h.frame(2);h.workers[0].emit({type:'result',sequence:2,target:null,trafficScores:scores});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.elements.get('sound-type').textContent,'サイレン');
+ assert.equal(h.elements.get('score').textContent,'0.10');
+ assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
+});
+test('V1.4.1 six independent sliders reset together to original thresholds',async()=>{
+ const h=await harness({autoStart:false}),names=Object.keys(TARGETS);
+ for(let i=0;i<6;i++){
+  const slider=h.elements.get('threshold-input-'+i);
+  slider.value=(.05+i*.01).toFixed(2);slider.input();
+  assert.equal(h.elements.get('threshold-value-'+i).textContent,(.05+i*.01).toFixed(2));
+ }
+ for(let i=0;i<6;i++)assert.equal(h.run('soundThresholds')[names[i]],Math.round((.05+i*.01)*100)/100);
+ h.elements.get('threshold-reset').click();
+ for(let i=0;i<6;i++)assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.50');
+ assert.ok(Object.values(JSON.parse(h.storageWrites.at(-1)[1])).every(x=>x===.50));
+ assert.equal(h.calls(),0);h.stop();
+});
+test('V1.4.1 language switch translates labels but keeps thresholds',async()=>{
+ const h=await harness({autoStart:false,storedThreshold:'0.12'});
+ assert.equal(h.elements.get('threshold-value-0').textContent,'0.12');
+ h.language('en');
+ assert.equal(h.elements.get('sensitivity-heading').textContent,'Traffic warning sound sensitivity');
+ assert.equal(h.elements.get('threshold-label-0').textContent,'Bicycle bell');
+ assert.equal(h.elements.get('threshold-label-1').textContent,'Car horn');
+ assert.equal(h.elements.get('threshold-reset').textContent,'Reset all to default');
+ assert.match(h.elements.get('sensitivity-note').textContent,/false alarms/);
+ assert.equal(h.elements.get('threshold-value-0').textContent,'0.12');
+ h.language('ja');
+ assert.equal(h.elements.get('threshold-label-0').textContent,'自転車のベル');h.stop();
+});
+test('V1.4.1 saved per-category values override legacy bell preference',async()=>{
+ const storedSettings=JSON.stringify({'Bicycle bell':.23,'Police car (siren)':.07});
+ const h=await harness({autoStart:false,storedThreshold:'0.10',storedSettings});
+ assert.equal(h.elements.get('threshold-value-0').textContent,'0.23');
+ assert.equal(h.elements.get('threshold-value-3').textContent,'0.07');
+ assert.equal(h.elements.get('threshold-value-5').textContent,'0.50');h.stop();
+});
+test('V1.4.1 setting changes break incomplete warning streaks only',async()=>{
  const h=await harness();
  h.frame(1);h.emit(1,{name:'Bicycle bell',label:'自転車のベル',score:.6});
  assert.equal(h.document.body.dataset.state,'listening');
- h.elements.get('bell-threshold').value='.20';h.elements.get('bell-threshold').input();
+ const slider=h.elements.get('threshold-input-3');slider.value='.20';slider.input();
  h.frame(2);h.emit(2,{name:'Bicycle bell',label:'自転車のベル',score:.6});
  assert.equal(h.document.body.dataset.state,'listening');
- assert.equal(h.calls(),1);assert.equal(h.workers.length,1);
- h.stop();
+ assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
 });

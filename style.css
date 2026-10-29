@@ -70,15 +70,19 @@ body[data-state="listening"] .listening-indicator,body[data-state="warning"] .li
   .wave{height:58px;margin:9px 0}
   body[data-state="warning"] .wave{height:0;margin:0}
 }
-/* V1.4: user-adjustable bicycle bell threshold; collapsed by default. */
-.sensitivity{margin:0 auto 12px;max-width:360px;width:100%;border:1px solid #607f9970;border-radius:14px;background:#0b172744;text-align:left;color:#d6e9eb}
-.sensitivity summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:9px;min-height:44px;padding:10px 12px;font-size:12px;font-weight:600}
-.sensitivity summary:focus-visible{outline:2px solid #d4f1e9;outline-offset:3px;border-radius:14px}
-.sensitivity-current{white-space:nowrap;font-variant-numeric:tabular-nums;color:#a6e2d1}
-.sensitivity-content{padding:0 14px 12px}
-.sensitivity-content label{display:block;color:#c6d4e6;font-size:12px;margin:5px 0 9px}
-.sensitivity input[type="range"]{display:block;width:100%;height:34px;margin:0;accent-color:#95dccc;touch-action:pan-y}
-.sensitivity-ends{display:flex;justify-content:space-between;gap:8px;color:#b6c4d8;font-size:10px}
-.sensitivity-content p{font-size:11px;line-height:1.55;color:#b6c4d8;margin:10px 0 0}
-body[data-state="warning"] .sensitivity{border-color:#ffffff70;background:#79112233;color:white}
-body[data-state="warning"] .sensitivity :is(.sensitivity-current,.sensitivity-ends,.sensitivity-content p,.sensitivity-content label){color:white}
+/* V1.4.1: six independent thresholds, displayed INSIDE Debug Mode only. */
+.debug-content .sensitivity{margin-top:24px;padding:14px 12px;border:1px solid #607f9970;border-radius:14px;background:#0b172744;color:#d6e9eb}
+.debug-content .sensitivity h2{margin:0 0 8px;font-size:14px}
+.sensitivity #sensitivity-note{font-size:11px;line-height:1.6;color:#b6c4d8;margin:0 0 15px}
+.sensitivity-list{display:grid;gap:15px}
+.sensitivity-item{min-width:0}
+.sensitivity-line{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:5px}
+.sensitivity-line label{font-size:12px;line-height:1.45;overflow-wrap:anywhere}
+.sensitivity-line output{font-size:12px;font-variant-numeric:tabular-nums;color:#a6e2d1;white-space:nowrap}
+.sensitivity input[type="range"]{display:block;width:100%;height:29px;margin:0;accent-color:#95dccc;touch-action:pan-y}
+.sensitivity-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+.sensitivity-footer span{font-size:10px;color:#b6c4d8}
+.sensitivity-footer button{min-height:38px;padding:7px 11px;border:1px solid #8faabb88;border-radius:10px;background:#ffffff12;color:#e4f4ef;font-size:11px;cursor:pointer}
+.sensitivity-footer button:focus-visible{outline:2px solid #d4f1e9;outline-offset:2px}
+body[data-state="warning"] .sensitivity{border-color:#ffffff70}
+body[data-state="warning"] .sensitivity :is(.sensitivity-line output,.sensitivity-footer span,#sensitivity-note){color:white}
