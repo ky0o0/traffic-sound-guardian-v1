@@ -1,1 +1,1 @@
-{"name":"traffic-sound-guardian-v1","version":"1.5.2","private":true,"type":"module","scripts":{"test":"node --test test-*.js"}}
+{"name":"traffic-sound-guardian-v1","version":"1.5.3","private":true,"type":"module","scripts":{"test":"node --test test-*.js"}}
