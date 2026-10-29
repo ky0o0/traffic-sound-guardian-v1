@@ -276,15 +276,17 @@ function drawWaveform(samples) {
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
   ctx.clearRect(0, 0, width, height);
   ctx.strokeStyle = view === 'warning' ? '#ffffff' : '#98dacc';
-  ctx.lineWidth = 1.7;
+  ctx.lineWidth = 2.1;
   ctx.lineJoin = 'round';
   ctx.beginPath();
   if (!samples) { ctx.moveTo(0, height / 2); ctx.lineTo(width, height / 2); }
   else for (let i = 0; i < samples.length; i++) {
-    // Fixed display gain only. The waveform follows actual PCM; AI input is untouched.
-    const sample = Math.max(-1, Math.min(1, samples[i] * 6));
+    // V1.3.1: visual-only soft-knee amplification. True PCM controls the
+    // waveform; tanh makes quiet sounds visible without harsh clipping.
+    // Never modify PCM, capture buffers, YAMNet inputs or detection scores.
+    const displaySample = Math.tanh(samples[i] * 18);
     const x = i * width / (samples.length - 1);
-    const y = height / 2 - sample * height * 0.44;
+    const y = height / 2 - displaySample * height * 0.46;
     if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
   ctx.stroke();
