@@ -1,6 +1,6 @@
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.5.2';
+import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.5.3';
 import { AudioWindowBuffer } from './audio-window.js';
-import { debugCategoryName } from './debug.js?v=1.5.2';
+import { debugCategoryName } from './debug.js?v=1.5.3';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -12,7 +12,7 @@ const EN = Object.freeze({
   "AIデバッグモード": "AI Debug Mode",
   "交通警告音の感度設定": "Traffic warning sound sensitivity",
   "1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。": "A single AI result at or above the set threshold triggers an alert immediately. Lower thresholds can increase false alarms.",
-  "0.05：高感度 ／ 0.10：初期値 ／ 0.50：低感度": "0.05: high sensitivity / 0.10: default / 0.50: low sensitivity",
+  "0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度": "0.01: highest sensitivity / 0.10: default / 0.50: low sensitivity",
   "すべて標準に戻す": "Reset all to default",
   "識別の詳細を表示": "Show recognition details",
   "AIモデル": "AI model",
@@ -105,7 +105,7 @@ const ZH = Object.freeze({
   "AIデバッグモード": "AI 调试模式",
   "交通警告音の感度設定": "交通警告音灵敏度设置",
   "1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。": "任意一次 AI 识别分数达到设定阈值，就会立即发出警告。阈值越低，误报可能越多。",
-  "0.05：高感度 ／ 0.10：初期値 ／ 0.50：低感度": "0.05：高灵敏度 / 0.10：默认 / 0.50：低灵敏度",
+  "0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度": "0.01：最高灵敏度 / 0.10：默认 / 0.50：低灵敏度",
   "すべて標準に戻す": "全部恢复默认",
   "識別の詳細を表示": "显示识别详情",
   "AIモデル": "AI 模型",
@@ -253,16 +253,24 @@ function loadThresholds() {
   return initial;
 }
 let soundThresholds = loadThresholds();
+// A separate 0.01 minimum followed by 0.05-spaced choices. Using native
+// range step=0.05 with min=0.01 would incorrectly yield 0.01, 0.06, 0.11...
+const THRESHOLD_STOPS = Object.freeze([0.01, ...Array.from({length: 10}, (_, i) => (i + 1) / 20)]);
+function nearestThreshold(value) {
+  return THRESHOLD_STOPS.reduce((best, step) =>
+    Math.abs(step - value) < Math.abs(best - value) ? step : best, THRESHOLD_STOPS[0]);
+}
 function renderThresholds() {
   for (const row of thresholdRows) {
     const value = soundThresholds[row.name].toFixed(2);
     row.label.textContent = t(row.info.label);
-    // Keep previously saved 0.01-step values exactly, even when not on the new
-    // 0.05-step grid. New user adjustments are always snapped to 0.05 steps.
-    const legacy = Math.abs(soundThresholds[row.name] * 20 - Math.round(soundThresholds[row.name] * 20)) > 1e-6;
-    row.input.min = soundThresholds[row.name] < 0.05 ? value : '0.05';
-    row.input.step = legacy ? 'any' : '0.05';
+    // step='any' permits the special 0.01 stop. We snap user input
+    // manually, preserving legacy stored 0.01-step values exactly.
+    row.input.min = '0.01';
+    row.input.max = '0.50';
+    row.input.step = 'any';
     row.input.value = value;
+    row.input.setAttribute('aria-valuetext', value);
     row.output.textContent = value;
   }
 }
@@ -272,7 +280,7 @@ function saveThresholds() {
 function changeThreshold(name, inputValue) {
   const parsed = Number(inputValue);
   if (!Object.prototype.hasOwnProperty.call(TARGETS, name) || !Number.isFinite(parsed)) return;
-  const next = Math.round(Math.max(0.05, Math.min(0.50, Math.round(parsed / 0.05) * 0.05)) * 100) / 100;
+  const next = nearestThreshold(parsed);
   soundThresholds[name] = next;
   renderThresholds();
   saveThresholds();
@@ -421,13 +429,13 @@ function setLanguage(next) {
   ui['language-select-label'].textContent = t('言語');
   ui['language-select'].setAttribute('aria-label', t('言語'));
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
-  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.2&lang=' + language);
+  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.3&lang=' + language);
   for (const [id, text] of Object.entries({
     'ai-test-link': 'AIテストモード（オフライン研究） ↗',
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
     'sensitivity-heading': '交通警告音の感度設定',
     'sensitivity-note': '1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。',
-    'sensitivity-scale': '0.05：高感度 ／ 0.10：初期値 ／ 0.50：低感度',
+    'sensitivity-scale': '0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度',
     'threshold-reset': 'すべて標準に戻す',
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
   })) ui[id].textContent = t(text);
@@ -747,7 +755,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.2', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.3', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -807,6 +815,21 @@ async function start() {
 
 for (const row of thresholdRows) {
   row.input.addEventListener('input', () => changeThreshold(row.name, row.input.value));
+  // Native range inputs with step='any' have browser-dependent keyboard
+  // increments. Force the documented discrete stops for accessibility.
+  row.input.addEventListener('keydown', event => {
+    const old = soundThresholds[row.name];
+    let next;
+    if (event.key === 'Home') next = THRESHOLD_STOPS[0];
+    else if (event.key === 'End') next = THRESHOLD_STOPS.at(-1);
+    else if (event.key === 'ArrowRight' || event.key === 'ArrowUp')
+      next = THRESHOLD_STOPS.find(value => value > old + 1e-8) ?? THRESHOLD_STOPS.at(-1);
+    else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown')
+      next = [...THRESHOLD_STOPS].reverse().find(value => value < old - 1e-8) ?? THRESHOLD_STOPS[0];
+    else return;
+    event.preventDefault();
+    changeThreshold(row.name, next);
+  });
 }
 ui['threshold-reset'].addEventListener('click', resetThresholds);
 ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
