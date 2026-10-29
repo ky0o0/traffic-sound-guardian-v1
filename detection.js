@@ -24,28 +24,35 @@ export function bestTarget(results) {
   return best;
 }
 
-/** Return the bicycle bell's raw YAMNet score independently of other classes. */
-export function bicycleBellScore(results) {
-  let score = null;
+/** Read the six official target classes from genuine YAMNet output.
+ * All scores remain raw model scores; no normalization or calibration. */
+export function targetScores(results) {
+  const scores = {};
   for (const result of results) {
     for (const head of result.classifications ?? []) {
       for (const item of head.categories ?? []) {
-        if (item.categoryName === 'Bicycle bell' && Number.isFinite(item.score) &&
-            item.score >= 0 && item.score <= 1 && (score == null || item.score > score)) score = item.score;
+        if (!Object.prototype.hasOwnProperty.call(TARGETS, item.categoryName)) continue;
+        if (!Number.isFinite(item.score) || item.score < 0 || item.score > 1) continue;
+        if (!(item.categoryName in scores) || item.score > scores[item.categoryName]) {
+          scores[item.categoryName] = item.score;
+        }
       }
     }
   }
-  return score;
+  return scores;
 }
 
-/** Preserve normal traffic priority; permit a weaker bell signal to qualify
- * independently when no OTHER traffic target reaches the unchanged 0.50 floor. */
-export function chooseTarget(best, bellScore, bellThreshold = 0.50) {
-  if (best && best.score >= 0.50) return best;
-  if (Number.isFinite(bellScore) && bellScore >= 0 && bellScore <= 1 &&
-      Number.isFinite(bellThreshold) && bellThreshold >= 0.01 && bellThreshold <= 0.50 &&
-      bellScore >= bellThreshold) {
-    return { name: 'Bicycle bell', label: TARGETS['Bicycle bell'].label, score: bellScore };
+/** Choose the highest raw-scoring class that meets ITS OWN threshold.
+ * No single high-scoring but below-threshold class can hide another valid alert. */
+export function chooseTarget(scores, thresholds = {}) {
+  let best = null;
+  for (const [name, target] of Object.entries(TARGETS)) {
+    const score = scores?.[name];
+    const threshold = thresholds?.[name] ?? 0.50;
+    if (!Number.isFinite(score) || score < 0 || score > 1 ||
+        !Number.isFinite(threshold) || threshold < 0.01 || threshold > 0.50 ||
+        score < threshold) continue;
+    if (!best || score > best.score) best = { name, label: target.label, score };
   }
   return best;
 }
