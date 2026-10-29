@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS, chooseTarget } from './detection.js';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.2';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
