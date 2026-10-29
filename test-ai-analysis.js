@@ -45,6 +45,10 @@ const clip = (id, labels, values = {}, extra = {}) => ({
   ...extra
 });
 const cfg = defaults();
+test('V1.5.2 all six offline test defaults are 0.10',()=>{
+ assert.equal(Object.keys(cfg).length,6);
+ assert.ok(Object.values(cfg).every(v=>v===.10));
+});
 test('multi-label selection and exclusive none/unknown', () => {
   assert.deepEqual(setTruth(['unknown'], 'bell', true), ['bell']);
   assert.deepEqual(setTruth(['bell'], 'horn', true), ['bell', 'horn']);
@@ -126,7 +130,7 @@ test('threshold equality inclusive and each class independent from highest ineli
   assert.deepEqual(predict(window({
     bell: .01,
     horn: .299999,
-    siren: .49
+    siren: .09
   }), t), ['bell']);
   assert.deepEqual(predict(window({
     bell: .009999,
@@ -145,6 +149,10 @@ test('one threshold crossing triggers immediately; warning hold never becomes a 
   assert.equal(rows[1].warningActive, true);
   assert.deepEqual(rows[1].labels, []);
   assert.equal(rows[2].warningActive, false);
+  const boundary=replay([window({bell:.10},0),window({},.96),window({},1.02)],cfg);
+  assert.equal(boundary[0].warningActive,true);
+  assert.equal(boundary[1].warningActive,true);
+  assert.equal(boundary[2].warningActive,false);
 });
 test('timestamps required for window/event units and bounded by clip duration', () => {
   const c = clip('bell', ['bell'], {
@@ -304,9 +312,10 @@ test(
       bell: 1
     })];
     const r = optimize(data, cfg);
-    assert.equal(r.bell.curve.length, 50);
-    assert.equal(r.bell.curve[0].threshold, .01);
+    assert.equal(r.bell.curve.length, 10);
+    assert.equal(r.bell.curve[0].threshold, .05);
     assert.equal(r.bell.curve.at(-1).threshold, .5);
+    assert.deepEqual(r.bell.curve.map(x=>x.threshold),[.05,.1,.15,.2,.25,.3,.35,.4,.45,.5]);
     assert.equal(r.bell.recommended, .15);
     assert.equal(r.bell.support, 2);
     assert.equal(r.horn.recommended, null);
@@ -358,6 +367,10 @@ test(
       }
     };
     const d = exportData([a, b], cfg, split, false, null, 'balanced');
+    assert.equal(d.config.version,'1.5.2');
+    assert.equal(d.config.warningHoldMs,1000);
+    assert.equal(d.config.defaultThreshold,.10);
+    assert.equal(d.config.uiThresholdStep,.05);
     assert.ok(!JSON.stringify(d).includes('secretAudio'));
     assert.equal(d.clips[1].result, null);
     assert.equal(d.clips[1].withheld, true);
