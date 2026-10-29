@@ -32,6 +32,10 @@ html[lang="en"] #sound-type{font-size:25px}
 @media(max-height:740px){body[data-state="warning"] .visual{width:136px;height:136px;margin:10px 0}body[data-state="warning"] .wave{height:0;margin:0}}
 
 /* Debug Mode stays below the original full-height app in normal document flow. */
+.toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 8px;margin-top:12px}
+.toolbar .language-switch{margin-top:0}
+.toolbar .debug-switch{font-size:12px}
+body[data-state="warning"] .toolbar .debug-switch{color:#fff}
 .debug-section{width:100%;max-width:480px;margin:0 auto;padding:0 26px calc(20px + env(safe-area-inset-bottom));overflow-wrap:anywhere}
 .debug-switch{display:flex;align-items:center;gap:10px;min-height:48px;font-size:13px;color:#c6d4e6;cursor:pointer}
 .debug-switch input{width:21px;height:21px;margin:0;accent-color:#b5e4d6;flex:none}

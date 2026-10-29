@@ -9,6 +9,8 @@ import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
  .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
+const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
+const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
 async function harness({deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false}={}) {
  const elements=new Map(),drawing=[];
@@ -17,6 +19,7 @@ async function harness({deny=false,deferMic=false,suspended=false,worklet=false,
   if(!elements.has(id))elements.set(id,{hidden:false,textContent:'',attributes:{},children:[],clientWidth:300,clientHeight:48,
    append(...nodes){for(const node of nodes)this.children.push(...(node.fragment ? node.children : [node]));},
    replaceChildren(...nodes){this.children=[];this.append(...nodes);},
+   scrolls:[],scrollIntoView(options){this.scrolls.push(options);},
    style:{values:{},setProperty(key,value){this.values[key]=value;}},
    setAttribute(key,value){this.attributes[key]=value;},removeAttribute(key){delete this.attributes[key];},
    getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
@@ -47,7 +50,8 @@ async function harness({deny=false,deferMic=false,suspended=false,worklet=false,
   terminate(){this.terminated=true;}
   emit(data){this.onmessage?.({data});}
  }
- const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:element,addEventListener(name,fn){events[name]=fn;}};
+ // Match the real page: missing HTML IDs must fail instead of being fabricated.
+ const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:id=>pageIds.has(id)?element(id):null,addEventListener(name,fn){events[name]=fn;}};
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
@@ -216,6 +220,30 @@ test('configured Google Forms link is exact, opens a new tab and adds no microph
 const diagnosticFixture=()=>({
  top5:[{categoryName:'Speech',index:0,score:.931234567890123},{categoryName:'Music',index:132,score:.3},{categoryName:'Bell',index:195,score:.2},{categoryName:'Bicycle bell',index:198,score:.123456789012345},{categoryName:'Car',index:301,score:.1}],
  targets:Object.entries(TARGETS).map(([categoryName,target])=>({categoryName,index:target.index,score:target.index===198?.123456789012345:0}))
+});
+test('debug switch is discoverable before the main visualization and reveals its connected panel only on enable',async()=>{
+ assert.equal([...page.matchAll(/id="debug-toggle"/g)].length,1);
+ assert.ok(page.indexOf('id="debug-toggle"')>page.indexOf('class="toolbar"'));
+ assert.ok(page.indexOf('id="debug-toggle"')<page.indexOf('<main>'));
+ assert.match(page, /id="debug-toggle"[^>]*aria-controls="debug-panel"/);
+ const h=await harness();const panel=h.elements.get('debug-panel');
+ assert.equal(panel.scrolls.length,0);h.debug(true);
+ assert.equal(panel.scrolls.length,1);assert.equal(panel.scrolls[0].block,'start');
+ assert.equal(panel.hidden,false);assert.equal(panel.open,true);
+ h.frame(1);h.workers[0].emit({type:'result',sequence:1,target:null,inferenceMs:4,debug:diagnosticFixture()});
+ h.language('en');assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,false);
+ assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
+ h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
+ assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
+});
+test('V1.2 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.2<\/title>/);
+ assert.match(page, /class="version">V1\.2<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.2"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.2"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.2/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.2');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.2.0');
 });
 test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);

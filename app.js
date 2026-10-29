@@ -171,6 +171,9 @@ function setDebug(enabled) {
   ui['debug-target'].replaceChildren();
   ui['debug-panel'].open = debugEnabled;
   renderDebug(); // No initialization, new microphone, worker or inference loop.
+  // The switch is visible in the toolbar; reveal the panel below the main UI.
+  // Only a user's enable action scrolls, never an inference or language update.
+  if (debugEnabled) ui['debug-panel'].scrollIntoView({ block: 'start', behavior: 'auto' });
 }
 function stopDebug(s) {
   diagnostics.scores = null;
@@ -555,7 +558,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.1-debug1', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.2', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
