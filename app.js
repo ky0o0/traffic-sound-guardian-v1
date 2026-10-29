@@ -1,12 +1,12 @@
-import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.3';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.4';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
-// Published, anonymous Google Forms copied from the user's Apps Script log.
+// Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
 const FEEDBACK_FORM_URLS = Object.freeze({
-  ja: 'https://docs.google.com/forms/d/e/1FAIpQLSd1wNA9-1_kHM1djILs9RvGzE_PrpplpePye1ENGIHSNIBpew/viewform',
-  en: 'https://docs.google.com/forms/d/e/1FAIpQLScMHLvROwpUdEjlqCKtOCtEG1WqF3G6KKcGJswQ7oWw8lo5Pg/viewform'
+  ja: 'https://forms.gle/vRzgiJxNCfJeb5K1A',
+  en: 'https://forms.gle/AkXuRHWwi9Kp95GfA'
 });
 const EN = Object.freeze({
   "AIデバッグモード": "AI Debug Mode",
@@ -638,7 +638,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.3', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.4', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
