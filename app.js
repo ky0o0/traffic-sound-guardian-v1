@@ -1,6 +1,6 @@
 import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.5.1';
 import { AudioWindowBuffer } from './audio-window.js';
-import { debugCategoryName } from './debug.js';
+import { debugCategoryName } from './debug.js?v=1.5.1';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
