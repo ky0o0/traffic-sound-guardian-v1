@@ -59,19 +59,17 @@ export function chooseTarget(scores, thresholds = {}) {
 
 export class WarningGate {
   constructor() { this.reset(); }
-  reset() { this.streak = 0; this.active = false; this.lastPositive = -Infinity; this.target = null; }
-  breakSequence() { this.streak = 0; }
+  reset() { this.active = false; this.lastPositive = -Infinity; this.target = null; }
+  // Each valid YAMNet result is sufficient. A missing/dropped frame does
+  // not qualify, and there is no longer a consecutive-frame streak to reset.
+  breakSequence() {}
   observe(target, now, minScore = 0.50) {
     this.expire(now);
-    if (target && target.score >= minScore) {
-      this.streak += 1;
+    if (target && Number.isFinite(target.score) && Number.isFinite(minScore) &&
+        minScore >= 0.01 && minScore <= 0.50 && target.score >= minScore) {
+      this.active = true;
       this.lastPositive = now;
-      if (this.active || target.score >= 0.75 || this.streak >= 2) {
-        this.active = true;
-        this.target = target;
-      }
-    } else {
-      this.streak = 0;
+      this.target = target;
     }
     return this.active;
   }
@@ -79,7 +77,6 @@ export class WarningGate {
     if (this.active && now - this.lastPositive >= 3000) {
       this.active = false;
       this.target = null;
-      this.streak = 0;
     }
     return this.active;
   }

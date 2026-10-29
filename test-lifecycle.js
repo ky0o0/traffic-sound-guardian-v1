@@ -120,12 +120,14 @@ test('late worker results cannot restore a stopped UI',async()=>{
  const h=await harness();h.frame();h.stop();h.emit(1,{score:.99,label:'サイレン'});
  assert.equal(h.document.body.dataset.state,'stopped');
 });
-test('one pending frame only; dropped sequence breaks medium-score streak',async()=>{
+test('one pending frame only; a qualifying single result warns despite dropped intermediate frames',async()=>{
  const h=await harness();h.frame(1);h.frame(2);h.frame(3);
  assert.equal(h.workers[0].sent.filter(x=>x.type==='classify').length,1);
  h.emit(1,{score:.6,label:'自転車のベル'});
+ assert.equal(h.document.body.dataset.state,'warning');
  assert.equal(h.workers[0].sent.at(-1).sequence,3);
- h.emit(3,{score:.6,label:'サイレン'});assert.equal(h.document.body.dataset.state,'listening');h.stop();
+ h.emit(3,{score:.6,label:'サイレン'});
+ assert.equal(h.document.body.dataset.state,'warning');h.stop();
 });
 test('worklet branch closes its port on stop',async()=>{
  const h=await harness({worklet:true});assert.equal(h.document.body.dataset.state,'priming');
@@ -170,11 +172,12 @@ test('stop cancels visual frames, disconnects analyser, clears waveform; restart
  late(100);assert.equal(h.frames.size,0);
  h.click();await flush();assert.equal(h.frames.size,1);h.stop();
 });
-test('switching languages keeps the active microphone, worker, score streak and warning expiry',async()=>{
+test('switching languages preserves immediate warning and expiry without restarting microphone',async()=>{
  const h=await harness();assert.equal(h.document.documentElement.lang,'ja');
  h.frame(1);h.emit(1,{score:.6,label:'自転車のベル'});
+ assert.equal(h.document.body.dataset.state,'warning');
  h.language('en');assert.equal(h.document.documentElement.lang,'en');
- assert.equal(h.elements.get('heading').textContent,'Listening to your surroundings...');
+ assert.equal(h.elements.get('heading').textContent,'Warning sound detected');
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.frames.size,1);
  h.now(500);h.frame(2);h.emit(2,{score:.6,label:'車のクラクション'});
  assert.equal(h.document.body.dataset.state,'warning');
@@ -239,14 +242,14 @@ test('debug switch is discoverable before the main visualization and reveals its
  h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
 });
-test('V1.4.1 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.4\.1<\/title>/);
- assert.match(page, /class="version">V1\.4\.1<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.4\.1"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.4\.1"/);
- assert.match(source, /classifier-worker\.js\?v=1\.4\.1/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.1');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.1');
+test('V1.4.2 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.4\.2<\/title>/);
+ assert.match(page, /class="version">V1\.4\.2<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.4\.2"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.4\.2"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.4\.2/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.4.2');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.4.2');
 });
 test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
@@ -433,8 +436,6 @@ test('V1.4.1 siren threshold changes live without recreating microphone or worke
  assert.equal(JSON.parse(h.storageWrites.at(-1)[1])[siren],.08);
  const scores={[siren]:.10,'Vehicle horn, car horn, honking':.14};
  h.frame(1);h.workers[0].emit({type:'result',sequence:1,target:null,trafficScores:scores});
- assert.equal(h.document.body.dataset.state,'listening');
- h.frame(2);h.workers[0].emit({type:'result',sequence:2,target:null,trafficScores:scores});
  assert.equal(h.document.body.dataset.state,'warning');
  assert.equal(h.elements.get('sound-type').textContent,'サイレン');
  assert.equal(h.elements.get('score').textContent,'0.10');
@@ -473,12 +474,37 @@ test('V1.4.1 saved per-category values override legacy bell preference',async()=
  assert.equal(h.elements.get('threshold-value-3').textContent,'0.07');
  assert.equal(h.elements.get('threshold-value-5').textContent,'0.50');h.stop();
 });
-test('V1.4.1 setting changes break incomplete warning streaks only',async()=>{
+test('V1.4.2 live threshold changes apply on the very next single inference',async()=>{
  const h=await harness();
- h.frame(1);h.emit(1,{name:'Bicycle bell',label:'自転車のベル',score:.6});
+ const siren=Object.keys(TARGETS)[2];
+ h.frame(1);
+ h.workers[0].emit({type:'result',sequence:1,trafficScores:{[siren]:.20},target:null});
  assert.equal(h.document.body.dataset.state,'listening');
- const slider=h.elements.get('threshold-input-3');slider.value='.20';slider.input();
- h.frame(2);h.emit(2,{name:'Bicycle bell',label:'自転車のベル',score:.6});
- assert.equal(h.document.body.dataset.state,'listening');
+ const slider=h.elements.get('threshold-input-2');slider.value='.15';slider.input();
+ h.frame(2);
+ h.workers[0].emit({type:'result',sequence:2,trafficScores:{[siren]:.20},target:null});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.elements.get('sound-type').textContent,'サイレン');
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
+});
+
+test('V1.4.2 first eligible low-score result triggers immediate red warning for all six categories',async()=>{
+ for(let index=0;index<6;index++){
+  const h=await harness();
+  const input=h.elements.get('threshold-input-'+index);input.value='0.09';input.input();
+  const name=Object.keys(TARGETS)[index];
+  h.frame(1);
+  h.workers[0].emit({type:'result',sequence:1,target:null,trafficScores:{[name]:.10}});
+  assert.equal(h.document.body.dataset.state,'warning',name);
+  assert.equal(h.elements.get('score').textContent,'0.10');
+  h.stop();
+ }
+});
+test('V1.4.2 Debug Mode explains a single result is enough in Japanese and English',async()=>{
+ const h=await harness({autoStart:false});
+ const note=h.elements.get('sensitivity-note');
+ assert.match(note.textContent,/1回のAI識別/);
+ h.language('en');
+ assert.match(note.textContent,/single AI result/);
+ h.stop();
 });

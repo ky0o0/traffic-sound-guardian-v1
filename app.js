@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS, chooseTarget } from './detection.js';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js?v=1.4.2';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
@@ -8,7 +8,7 @@ const FEEDBACK_FORM_URL = '';
 const EN = Object.freeze({
   "AIデバッグモード": "AI Debug Mode",
   "交通警告音の感度設定": "Traffic warning sound sensitivity",
-  "スコアを下げると反応しやすくなりますが、誤警告が増える可能性があります。通常は2回連続で検出すると警告します。": "Lower thresholds make alerts more sensitive but can increase false alarms. Normally, two consecutive detections are required.",
+  "1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。": "A single AI result at or above the set threshold triggers an alert immediately. Lower thresholds can increase false alarms.",
   "0.01：高感度 ／ 0.50：標準": "0.01: sensitive / 0.50: default",
   "すべて標準に戻す": "Reset all to default",
   "識別の詳細を表示": "Show recognition details",
@@ -164,15 +164,12 @@ function changeThreshold(name, inputValue) {
   const parsed = Number(inputValue);
   if (!Object.prototype.hasOwnProperty.call(TARGETS, name) || !Number.isFinite(parsed)) return;
   const next = Math.round(Math.max(0.01, Math.min(0.50, parsed)) * 100) / 100;
-  if (soundThresholds[name] !== next) session?.gate.breakSequence(); // Avoid mixed-threshold streaks.
   soundThresholds[name] = next;
   renderThresholds();
   saveThresholds();
 }
 function resetThresholds() {
-  const changed = Object.values(soundThresholds).some(score => score !== DEFAULT_THRESHOLD);
   for (const name of Object.keys(TARGETS)) soundThresholds[name] = DEFAULT_THRESHOLD;
-  if (changed) session?.gate.breakSequence();
   renderThresholds();
   saveThresholds();
 }
@@ -317,7 +314,7 @@ function setLanguage(next) {
   for (const [id, text] of Object.entries({
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
     'sensitivity-heading': '交通警告音の感度設定',
-    'sensitivity-note': 'スコアを下げると反応しやすくなりますが、誤警告が増える可能性があります。通常は2回連続で検出すると警告します。',
+    'sensitivity-note': '1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。',
     'sensitivity-scale': '0.01：高感度 ／ 0.50：標準',
     'threshold-reset': 'すべて標準に戻す',
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
@@ -504,8 +501,6 @@ function receiveResult(s, data) {
     stop('AIの解析が遅れています。ほかのアプリを閉じて、もう一度開始してください。');
     return;
   }
-  if (s.lastSequence && data.sequence !== s.lastSequence + 1) s.gate.breakSequence();
-  s.lastSequence = data.sequence;
   s.flight = null;
   s.lastResult = now;
   s.hasResult = true;
@@ -613,7 +608,7 @@ async function start() {
     return;
   }
   const s = { id: ++nextSession, gate: new WarningGate(), connected: false, hasResult: false,
-    lastSequence: 0, pending: null, flight: null };
+    pending: null, flight: null };
   session = s;
   diagnostics.model = '読み込み中';
   diagnostics.microphone = '許可を確認中';
@@ -640,7 +635,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.1', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4.2', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {

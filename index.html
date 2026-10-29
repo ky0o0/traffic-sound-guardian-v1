@@ -11,15 +11,15 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./style.css?v=1.4.1">
-  <title>Traffic Sound Guardian V1.4.1</title>
+  <link rel="stylesheet" href="./style.css?v=1.4.2">
+  <title>Traffic Sound Guardian V1.4.2</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1.4.1</span>
+      <span class="version">V1.4.2</span>
     </header>
 
     <div class="toolbar">
@@ -80,7 +80,7 @@
         <table><thead><tr><th id="debug-target-name" scope="col"></th><th id="debug-target-score" scope="col"></th></tr></thead><tbody id="debug-target"></tbody></table>
         <section id="sensitivity-panel" class="sensitivity" aria-labelledby="sensitivity-heading">
           <h2 id="sensitivity-heading">交通警告音の感度設定</h2>
-          <p id="sensitivity-note">スコアを下げると反応しやすくなりますが、誤警告が増える可能性があります。通常は2回連続で検出すると警告します。</p>
+          <p id="sensitivity-note">1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。</p>
           <div class="sensitivity-list">
           <div class="sensitivity-item">
             <div class="sensitivity-line"><label id="threshold-label-0" for="threshold-input-0">自転車のベル</label><output id="threshold-value-0" for="threshold-input-0">0.50</output></div>
@@ -112,6 +112,6 @@
       </div>
     </details>
   </section>
-  <script type="module" src="./app.js?v=1.4.1"></script>
+  <script type="module" src="./app.js?v=1.4.2"></script>
 </body>
 </html>
