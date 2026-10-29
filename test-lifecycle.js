@@ -74,7 +74,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  await flush();await flush();
  return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,storageWrites,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
-  language:lang=>element('language-'+lang).click(),
+  language:lang=>{const picker=element('language-select');picker.value=lang;picker.change();},
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
   calls:()=>micCalls,allow:()=>denied=false,resolveMic:()=>resolveMic(),now:n=>now=n,
   run:code=>vm.runInContext(code,context),click:()=>element('mic-control').click(),stop:()=>vm.runInContext('stop()',context),
