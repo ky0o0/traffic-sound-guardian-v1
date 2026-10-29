@@ -15,15 +15,15 @@ import {
   optimize,
   exportData,
   csv
-} from './ai-test-analysis.js?v=1.5.1';
+} from './ai-test-analysis.js?v=1.5.2';
 import {
   BatchRunner,
   LIMITS,
   checkFile
-} from './ai-test-runner.js?v=1.5.1';
+} from './ai-test-runner.js?v=1.5.2';
 import {
   translate
-} from './ai-test-i18n.js?v=1.5.1';
+} from './ai-test-i18n.js?v=1.5.2';
 
 const root = document.getElementById('test-app'),
   runner = new BatchRunner();
@@ -285,16 +285,16 @@ function thresholdPanel() {
     const label = el('label', t(id)),
       input = el('input', null, {
         type: 'number',
-        min: '.01',
+        min: thresholds[NAMES[i]] < 0.05 ? thresholds[NAMES[i]].toFixed(2) : '.05',
         max: '.50',
-        step: '.01',
+        step: Math.abs(thresholds[NAMES[i]] * 20 - Math.round(thresholds[NAMES[i]] * 20)) > 1e-6 ? 'any' : '.05',
         value: thresholds[NAMES[i]].toFixed(2),
         disabled: locked()
       });
     input.onchange = () => {
       const v = Number(input.value);
-      if (Number.isFinite(v) && v >= .01 && v <= .5) {
-        thresholds[NAMES[i]] = Math.round(v * 100) / 100;
+      if (Number.isFinite(v) && v >= .05 && v <= .5) {
+        thresholds[NAMES[i]] = Math.round(Math.min(.5, Math.max(.05, Math.round(v / .05) * .05)) * 100) / 100;
         recommendations = null;
         render();
       } else input.value = thresholds[NAMES[i]].toFixed(2);
@@ -718,7 +718,7 @@ function optimizeView() {
           name: t(k + 'Metric'),
           values: r.curve.map(v => v[k])
         })), {
-          xLabel: t('threshold') + ' 0.01 → 0.50'
+          xLabel: t('threshold') + ' 0.05 → 0.50'
         }), table([t('threshold'), t('precisionMetric'), t('recallMetric'), t('f1Metric'), 'FN', 'FP'], r
           .curve.map(v => [v.threshold.toFixed(2), pct(v.precision), pct(v.recall), pct(v.f1), v.fn, v.fp])
           ));
@@ -791,13 +791,13 @@ function exportView() {
 function render() {
   const openIds = new Set([...root.querySelectorAll('details[open][id]')].map(x => x.id));
   document.documentElement.lang = language;
-  document.title = t('title') + ' · Traffic Sound Guardian V1.5.1';
+  document.title = t('title') + ' · Traffic Sound Guardian V1.5.2';
   root.replaceChildren();
   const top = el('div', null, {
     class: 'top'
   });
   top.append(el('a', t('back'), {
-    href: './index.html?v=1.5.1&lang=' + language
+    href: './index.html?v=1.5.2&lang=' + language
   }));
   const langs = el('div', null, { class: 'language-switch' });
   const picker = el('select', null, { id: 'language-select' });
@@ -814,7 +814,7 @@ function render() {
   };
   langs.append(picker);
   top.append(langs);
-  root.append(top, el('h1', t('title') + ' · V1.5.1'), el('p', t('subtitle'), {
+  root.append(top, el('h1', t('title') + ' · V1.5.2'), el('p', t('subtitle'), {
     class: 'notice'
   }), note('privacy'));
   const tabs = el('nav', null, {
@@ -839,7 +839,7 @@ function render() {
   root.append(thresholdPanel());
   root.append(tab === 'upload' ? uploadView(openIds) : tab === 'results' ? resultsView() : tab ===
     'analysis' ? metricsView() : tab === 'optimize' ? optimizeView() : exportView());
-  root.append(el('footer', 'Traffic Sound Guardian V1.5.1 · YAMNet / MediaPipe · ' + t('scoreNote')));
+  root.append(el('footer', 'Traffic Sound Guardian V1.5.2 · YAMNet / MediaPipe · ' + t('scoreNote')));
 }
 window.addEventListener('pagehide', () => {
   runner.cancel();

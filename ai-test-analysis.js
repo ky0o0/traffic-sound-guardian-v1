@@ -2,7 +2,7 @@ import {
   TARGETS,
   chooseTarget,
   WarningGate
-} from './detection.js?v=1.5';
+} from './detection.js?v=1.5.2';
 
 export const IDS = ['bell', 'horn', 'siren', 'police', 'ambulance', 'fire'];
 export const NAMES = Object.keys(TARGETS);
@@ -14,7 +14,13 @@ export const MODEL = {
   runtime: 'MediaPipe 0.10.21'
 };
 export const CONFIG = {
-  version: '1.5',
+  version: '1.5.2',
+  warningHoldMs: 1000,
+  defaultThreshold: 0.10,
+  uiThresholdMin: 0.05,
+  uiThresholdMax: 0.50,
+  uiThresholdStep: 0.05,
+  legacyThresholdMin: 0.01,
   windowSeconds: .975,
   hopSeconds: .480,
   modelRate: 16000,
@@ -22,10 +28,10 @@ export const CONFIG = {
   mono: 'arithmetic channel mean',
   tail: 'incomplete final window omitted; no padding'
 };
-export const defaults = () => Object.fromEntries(NAMES.map(n => [n, .5]));
+export const defaults = () => Object.fromEntries(NAMES.map(n => [n, .1]));
 export function validThresholds(values) {
   return Object.fromEntries(NAMES.map(n => [n, typeof values?.[n] === 'number' && Number.isFinite(values[
-    n]) && values[n] >= .01 && values[n] <= .5 ? Math.round(values[n] * 100) / 100 : .5
+    n]) && values[n] >= .01 && values[n] <= .5 ? Math.round(values[n] * 100) / 100 : .1
   ]));
 }
 export function setTruth(labels, value, checked) {
@@ -65,7 +71,7 @@ export function replay(windows, thresholds) {
     const target = chooseTarget(w.scores, thresholds);
     // Sequential virtual real-time scheduling, using measured worker round trips.
     ready = Math.max(ready, w.end) + w.roundTripMs / 1000;
-    const active = gate.observe(target, ready * 1000, target ? thresholds[target.name] : .5);
+    const active = gate.observe(target, ready * 1000, target ? thresholds[target.name] : .1);
     return {
       ...w,
       labels: predict(w, thresholds),
@@ -289,9 +295,9 @@ export function optimize(clips, thresholds, goal = 'balanced') {
       score: Math.max(...c.result.windows.map(w => w.scores[NAMES[i]]))
     }));
     const curve = Array.from({
-      length: 50
+      length: 10
     }, (_, j) => {
-      const threshold = (j + 1) / 100,
+      const threshold = (j + 1) / 20,
         c = {
           tp: 0,
           fp: 0,
