@@ -12,7 +12,7 @@ const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL='',deferModel=false}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -64,13 +64,16 @@ async function harness({deny=false,deferMic=false,suspended=false,worklet=false,
   navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
- vm.runInContext(source.replace("const FEEDBACK_FORM_URL = '';", "const FEEDBACK_FORM_URL = "+JSON.stringify(formURL)+";"),context);await flush();await flush();
+ vm.runInContext(source.replace("const FEEDBACK_FORM_URL = '';", "const FEEDBACK_FORM_URL = "+JSON.stringify(formURL)+";"),context);
+ // The test harness simulates the user's tap; production never starts itself.
+ if(autoStart)element('mic-control').click();
+ await flush();await flush();
  return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
   language:lang=>element('language-'+lang).click(),
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
   calls:()=>micCalls,allow:()=>denied=false,resolveMic:()=>resolveMic(),now:n=>now=n,
-  run:code=>vm.runInContext(code,context),click:()=>element('action').click(),stop:()=>vm.runInContext('stop()',context),
+  run:code=>vm.runInContext(code,context),click:()=>element('mic-control').click(),stop:()=>vm.runInContext('stop()',context),
   emit:(sequence,target=null)=>workers.at(-1).emit({type:'result',sequence,target}),
   frame(sequence=1){context.frameData={sequence,samples:new Float32Array(46800),endTime:contexts.at(-1).currentTime};vm.runInContext('receiveFrame(session, frameData)',context);}
  };
@@ -95,7 +98,7 @@ test('late microphone permission after cancel immediately stops its track',async
  const h=await harness({deferMic:true});h.stop();h.resolveMic();await flush();
  assert.equal(h.tracks[0].stopped,true);assert.equal(h.document.body.dataset.state,'stopped');
 });
-test('repeated taps during pending auto startup resume one context and one worker',async()=>{
+test('repeated taps during pending manual startup resume one context and one worker',async()=>{
  const h=await harness({deferMic:true,suspended:true});
  h.click();h.click();assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.contexts.length,1);
  h.stop();h.resolveMic();await flush();
@@ -183,7 +186,7 @@ test('switching languages keeps the active microphone, worker, score streak and 
 test('language switch translates an existing permission error without starting a session',async()=>{
  const h=await harness({deny:true});h.language('en');
  assert.match(h.elements.get('description').textContent,/Microphone access is not allowed/);
- assert.equal(h.elements.get('button-label').textContent,'Start detection');assert.equal(h.calls(),1);
+ assert.equal(h.elements.get('mic-control').attributes['aria-label'],'Start detection');assert.equal(h.calls(),1);
  h.language('ja');assert.match(h.elements.get('description').textContent,/マイクの使用が許可/);h.stop();
 });
 test('English covers every Japanese UI string in the controller including errors and six labels',async()=>{
@@ -236,14 +239,14 @@ test('debug switch is discoverable before the main visualization and reveals its
  h.debug(false);assert.equal(panel.scrolls.length,1);assert.equal(panel.hidden,true);
  assert.equal(h.calls(),1);assert.equal(h.workers.length,1);h.stop();
 });
-test('V1.3 page, manifest and cache URLs agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.3<\/title>/);
- assert.match(page, /class="version">V1\.3<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.3"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.3"/);
- assert.match(source, /classifier-worker\.js\?v=1\.3/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.3');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.3.0');
+test('V1.3.1 page, manifest and cache URLs agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.3\.1<\/title>/);
+ assert.match(page, /class="version">V1\.3\.1<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.3\.1"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.3\.1"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.3\.1/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.3.1');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.3.1');
 });
 test('debug mode is opt-in, expands below the app, and changes neither session nor warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),false);assert.ok(h.elements.get('debug-panel').hidden);
@@ -325,22 +328,24 @@ test('microphone button starts and stops a single session, regular footer stays 
  const h=await harness();
  assert.ok(page.includes('id="mic-control"'));
  assert.ok(!page.includes('id="visual" class="visual" aria-hidden="true"'));
- assert.equal(h.elements.get('action').hidden,true);
+ assert.ok(!page.includes('id="action"'));
  h.frame(1);h.emit(1);
  assert.equal(h.elements.get('mic-control').attributes['aria-pressed'],'true');
  assert.equal(h.elements.get('mic-control').attributes['aria-label'],'検知を停止');
  h.elements.get('mic-control').click();
  assert.equal(h.document.body.dataset.state,'stopped');
- assert.equal(h.elements.get('action').hidden,true);
+ assert.ok(!page.includes('id="action"'));
  assert.ok(h.tracks[0].stopped);
  h.elements.get('mic-control').click();await flush();
  assert.equal(h.calls(),2);assert.equal(h.workers.length,2);h.stop();
 });
-test('Safari rejected automatic start reveals the separate fallback',async()=>{
+test('suspended Safari context stays stopped and the microphone circle can retry',async()=>{
  const h=await harness({suspended:true});
  assert.equal(h.document.body.dataset.state,'stopped');
- assert.equal(h.elements.get('action').hidden,false);
- assert.equal(h.elements.get('button-label').textContent,'検知を開始');
+ assert.equal(h.elements.get('mic-control').attributes['aria-label'],'検知を開始');
+ assert.ok(!page.includes('id="action"'));
+ h.click();await flush();
+ assert.equal(h.calls(),2);
  h.stop();
 });
 test('warning still allows stopping by tapping the circular control',async()=>{
@@ -349,10 +354,58 @@ test('warning still allows stopping by tapping the circular control',async()=>{
  h.elements.get('mic-control').click();
  assert.equal(h.document.body.dataset.state,'stopped');h.stop();
 });
-test('waveform uses a 50 percent higher display gain without mutating captured frames',async()=>{
- assert.match(source,/samples\[i\] \* 6/);
+test('waveform uses soft-limited display amplification without mutating captured frames',async()=>{
+ assert.match(source,/Math\.tanh\(samples\[i\] \* 18\)/);
  const h=await harness();h.analysers[0].pcm.fill(.08);h.animate(0);
  assert.ok(h.drawing.some(([,y])=>y!==24));
  h.frame(1);assert.equal(h.workers[0].sent.at(-1).sampleRate,48000);
  assert.equal(h.workers[0].sent.at(-1).samples.length,46800);h.stop();
+});
+
+test('V1.3.1 never requests mic on page load; circle directly starts and stops',async()=>{
+ const h=await harness({autoStart:false});
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.equal(h.calls(),0);
+ assert.equal(h.contexts.length,0);
+ assert.equal(h.workers.length,0);
+ assert.equal(h.elements.get('mic-control').attributes['aria-label'],'検知を開始');
+ h.click();await flush();
+ assert.equal(h.calls(),1);
+ assert.equal(h.document.body.dataset.state,'priming');
+ h.frame(1);h.emit(1);
+ assert.equal(h.document.body.dataset.state,'listening');
+ h.click();
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.ok(h.tracks[0].stopped);
+});
+test('V1.3.1 denied permission after manual click can be retried',async()=>{
+ const h=await harness({autoStart:false,deny:true});
+ assert.equal(h.calls(),0);
+ h.click();await flush();
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.match(h.elements.get('description').textContent,/マイクの使用が許可/);
+ h.allow();h.click();await flush();
+ assert.equal(h.calls(),2);
+ assert.equal(h.document.body.dataset.state,'priming');h.stop();
+});
+
+test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder sounds',async()=>{
+ const css=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
+ assert.match(css,/\.wave\{max-width:360px;height:76px/);
+ const h=await harness();
+ const pcm=h.analysers[0].pcm;
+ pcm.fill(0);h.animate(0);
+ assert.ok(h.drawing.every(([,y])=>y===24),'true silence remains flat');
+ for(let i=0;i<pcm.length;i++)pcm[i]=i%2 ? .01 : -.01;
+ h.animate(100);
+ const smallSpan=Math.max(...h.drawing.map(p=>p[1]))-Math.min(...h.drawing.map(p=>p[1]));
+ assert.ok(smallSpan>7,'quiet nonzero signal becomes clearly visible');
+ for(let i=0;i<pcm.length;i++)pcm[i]=i%2 ? .4 : -.4;
+ const original=pcm.slice();
+ h.animate(200);
+ const loudSpan=Math.max(...h.drawing.map(p=>p[1]))-Math.min(...h.drawing.map(p=>p[1]));
+ assert.ok(loudSpan>smallSpan,'louder real input causes larger visible waveform');
+ assert.ok(h.drawing.every(([,y])=>y>=0&&y<=48),'limiter keeps waveform within canvas');
+ assert.deepEqual(pcm,original,'visual display never changes microphone PCM');
+ h.stop();
 });

@@ -63,3 +63,10 @@ body[data-state="warning"] .debug-panel :is(th,td){border-color:#ffffff40}
 body[data-state="listening"] .listening-indicator,body[data-state="warning"] .listening-indicator{display:block;animation:listening-blink 1.45s ease-in-out infinite}
 @keyframes listening-blink{0%,100%{opacity:1;box-shadow:0 0 12px #ff456cbb}50%{opacity:.35;box-shadow:0 0 5px #ff456c77}}
 @media(prefers-reduced-motion:reduce){.listening-indicator{animation:none!important;opacity:1}}
+
+/* V1.3.1: larger REAL microphone waveform without changing the AI signal. */
+.wave{max-width:360px;height:76px;margin:16px 0 12px}
+@media(max-height:740px){
+  .wave{height:58px;margin:9px 0}
+  body[data-state="warning"] .wave{height:0;margin:0}
+}
