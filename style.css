@@ -90,4 +90,4 @@ body[data-state="warning"] .sensitivity :is(.sensitivity-line output,.sensitivit
 /* V1.4.3: leave a glimpse of the open Debug panel at the bottom of the first viewport.
    Keep normal document flow: no scripted scrolling, jumps, or fixed overlays.
    Very short screens may need normal scrolling to reach the panel. */
-body.debug-enabled .app{min-height:calc(100vh - 84px);min-height:calc(100dvh - 84px)}
+body[data-debug="on"] .app{min-height:calc(100vh - 84px);min-height:calc(100dvh - 84px)}
