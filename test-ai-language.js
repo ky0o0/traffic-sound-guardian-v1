@@ -22,9 +22,9 @@ test('AI Test Mode offers one dropdown for Japanese, English and Chinese',()=>{
  assert.ok(src.includes("['zh-CN', '简体中文']"));
  assert.ok(src.includes("const picker = el('select'"));
  assert.ok(!src.includes('aria-pressed'));
- assert.ok(src.includes("index.html?v=1.5.1&lang="));
+ assert.ok(src.includes("index.html?v=1.5.2&lang="));
  assert.ok(src.includes('sessionStorage'));
- assert.ok(html.includes('ai-test.js?v=1.5.1'));
+ assert.ok(html.includes('ai-test.js?v=1.5.2'));
 });
 test('Chinese model debug names cover all six safety targets',()=>{
  const names=['Bicycle bell','Vehicle horn, car horn, honking','Siren',
