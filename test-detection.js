@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { TARGETS, bestTarget, WarningGate } from './detection.js';
+import { TARGETS, bestTarget, bicycleBellScore, chooseTarget, WarningGate } from './detection.js';
 const t = (score, name = 'Bicycle bell') => ({ score, name, label: TARGETS[name].label });
 const result = categories => [{ classifications: [{ categories }] }];
 
@@ -61,4 +61,30 @@ test('target names and indices agree with bundled official CSV', () => {
  for (const [name,{index}] of Object.entries(TARGETS)) {
   assert.equal(rows[index].split(',').slice(2).join(',').replace(/^"|"$/g,''),name);
  }
+});
+
+test('independent bell score is detected even when other traffic class scores higher',()=>{
+ const r=result([{categoryName:'Vehicle horn, car horn, honking',score:.2},{categoryName:'Bicycle bell',score:.09}]);
+ assert.equal(bestTarget(r).name,'Vehicle horn, car horn, honking');
+ assert.equal(bicycleBellScore(r),.09);
+ assert.equal(chooseTarget(bestTarget(r),bicycleBellScore(r),.08).name,'Bicycle bell');
+ assert.equal(chooseTarget(bestTarget(r),bicycleBellScore(r),.10).name,'Vehicle horn, car horn, honking');
+});
+test('normal qualifying horns and sirens take priority over weaker bell scores',()=>{
+ const horn={name:'Vehicle horn, car horn, honking',label:'車のクラクション',score:.7};
+ assert.equal(chooseTarget(horn,.08,.01),horn);
+});
+test('low bicycle bell threshold requires two consecutive inference results',()=>{
+ const gate=new WarningGate(), lowBell=t(.08);
+ assert.equal(gate.observe(lowBell,0,.08),false);
+ assert.equal(gate.observe(lowBell,480,.08),true);
+ assert.equal(gate.target.name,'Bicycle bell');
+ gate.reset();
+ assert.equal(gate.observe(lowBell,0,.09),false);
+ assert.equal(gate.observe(lowBell,480,.09),false);
+});
+test('invalid or merely generic bell results never create a bicycle score',()=>{
+ assert.equal(bicycleBellScore(result([{categoryName:'Bell',score:.99}])),null);
+ for(const score of [NaN,Infinity,-.1,1.1])assert.equal(bicycleBellScore(result([{categoryName:'Bicycle bell',score}])),null);
+ assert.equal(chooseTarget(null,0,.01),null);
 });

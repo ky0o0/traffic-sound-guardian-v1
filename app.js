@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS } from './detection.js';
+import { WarningGate, TARGETS, chooseTarget } from './detection.js';
 import { AudioWindowBuffer } from './audio-window.js';
 import { debugCategoryName } from './debug.js';
 
@@ -7,6 +7,11 @@ import { debugCategoryName } from './debug.js';
 const FEEDBACK_FORM_URL = '';
 const EN = Object.freeze({
   "AIデバッグモード": "AI Debug Mode",
+  "自転車ベルの感度": "Bicycle bell sensitivity",
+  "警告を出す最低スコア": "Minimum warning score",
+  "高感度 0.01": "High sensitivity 0.01",
+  "標準 0.50": "Default 0.50",
+  "数値を下げると小さなスコアでも反応しますが、誤検知が増える可能性があります。2回連続の検出が必要です。": "Lower scores make alerts more sensitive but can increase false alarms. Two consecutive detections are required.",
   "識別の詳細を表示": "Show recognition details",
   "AIモデル": "AI model",
   "マイク入力": "Microphone input",
@@ -100,6 +105,7 @@ const t = text => language === 'en' ? (EN[text] ?? text) : text;
 const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
+  'sensitivity-summary', 'bell-label', 'bell-threshold', 'bell-value', 'bell-sensitive', 'bell-standard', 'sensitivity-note',
   'language-switch', 'language-ja', 'language-en', 'score-label', 'privacy', 'research', 'feedback', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
@@ -109,6 +115,30 @@ const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warnin
 let session = null;
 let nextSession = 0;
 let view = 'stopped';
+// Only a numeric UI preference is stored; never audio or recognition history.
+const BELL_THRESHOLD_KEY = 'trafficSoundGuardian.bicycleBellThreshold';
+const DEFAULT_BELL_THRESHOLD = 0.50;
+function savedBellThreshold() {
+  try {
+    const stored = window.localStorage?.getItem(BELL_THRESHOLD_KEY);
+    if (stored == null) return DEFAULT_BELL_THRESHOLD;
+    const parsed = Number(stored);
+    return Number.isFinite(parsed) && parsed >= 0.01 && parsed <= 0.50
+      ? Math.round(parsed * 100) / 100 : DEFAULT_BELL_THRESHOLD;
+  } catch { return DEFAULT_BELL_THRESHOLD; }
+}
+let bellThreshold = savedBellThreshold();
+function updateBellThreshold(value) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return;
+  const next = Math.round(Math.min(0.50, Math.max(0.01, parsed)) * 100) / 100;
+  if (bellThreshold !== next) session?.gate.breakSequence(); // No mixed-threshold streaks.
+  bellThreshold = next;
+  ui['bell-threshold'].value = next.toFixed(2);
+  ui['bell-value'].textContent = next.toFixed(2);
+  try { window.localStorage?.setItem(BELL_THRESHOLD_KEY, next.toFixed(2)); } catch {}
+}
+
 
 let debugEnabled = false;
 // One current status/snapshot only; no collection, storage, audio or result history.
@@ -249,6 +279,9 @@ function setLanguage(next) {
   ui['language-en'].setAttribute('aria-pressed', String(language === 'en'));
   for (const [id, text] of Object.entries({
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
+    'sensitivity-summary': '自転車ベルの感度', 'bell-label': '警告を出す最低スコア',
+    'bell-sensitive': '高感度 0.01', 'bell-standard': '標準 0.50',
+    'sensitivity-note': '数値を下げると小さなスコアでも反応しますが、誤検知が増える可能性があります。2回連続の検出が必要です。',
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
   })) ui[id].textContent = t(text);
   ui['page-description'].setAttribute('content', t('イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。'));
@@ -442,7 +475,10 @@ function receiveResult(s, data) {
   diagnostics.updatedAt = Date.now();
   diagnostics.scores = debugEnabled ? (data.debug ?? null) : null;
   clearTimeout(s.startTimeout);
-  s.gate.observe(data.target, now);
+  // The raw bicycle-bell score is checked independently; do not confuse it
+  // with the highest-scoring traffic class or a calibrated probability.
+  const target = chooseTarget(data.target, data.bellScore, bellThreshold);
+  s.gate.observe(target, now, target?.name === 'Bicycle bell' ? bellThreshold : 0.50);
   const state = s.gate.active ? 'warning' : 'listening';
   if (view !== state || s.gate.active) render(state);
   scheduleWarningEnd(s);
@@ -564,7 +600,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.3.1', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.4', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -622,6 +658,7 @@ async function start() {
   } catch (error) { fail(s, error); }
 }
 
+ui['bell-threshold'].addEventListener('input', () => updateBellThreshold(ui['bell-threshold'].value));
 ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
 ui['language-ja'].addEventListener('click', () => setLanguage('ja'));
@@ -630,6 +667,8 @@ ui.feedback.addEventListener('click', event => {
   if (!feedbackURL(FEEDBACK_FORM_URL)) event.preventDefault();
 });
 setLanguage('ja');
+ui['bell-threshold'].value = bellThreshold.toFixed(2);
+ui['bell-value'].textContent = bellThreshold.toFixed(2);
 resetVisuals();
 
 ui['mic-control'].addEventListener('click', () => {
