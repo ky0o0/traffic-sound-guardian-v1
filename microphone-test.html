@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101a2c">
+  <meta name="description" content="Traffic Sound Guardian microphone routing diagnostic. Audio stays on your device.">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./microphone-test.css?v=1.5.4">
+  <title>Microphone Test Mode · Traffic Sound Guardian V1.5.4</title>
+</head>
+<body>
+<div class="shell">
+  <header class="brand">
+    <div class="logo" aria-hidden="true">◉</div>
+    <div><div class="eyebrow">TRAFFIC SOUND</div><strong>Guardian</strong></div>
+    <span class="version">V1.5.4</span>
+  </header>
+  <div class="toolbar">
+    <a id="home-link" href="./index.html?v=1.5.4" data-i18n="home">← リアルタイム検知</a>
+    <label for="language" class="sr-only" data-i18n="language">言語</label>
+    <select id="language" aria-label="Language">
+      <option value="ja">日本語</option><option value="en">English</option><option value="zh-CN">简体中文</option>
+    </select>
+  </div>
+  <main>
+    <h1 data-i18n="title">マイク接続テスト</h1>
+    <p class="lead" data-i18n="intro">iPhoneのSafariから見える入力機器を確認します。接続しているイヤホンのマイクが使用されているとは限りません。</p>
+    <section class="panel" aria-labelledby="capture-heading">
+      <h2 id="capture-heading" data-i18n="capture">音声入力</h2>
+      <label for="device-select" data-i18n="selection">ブラウザーに表示されたマイク</label>
+      <select id="device-select"><option value="" data-i18n="automatic">自動選択（既定の入力）</option></select>
+      <p class="hint" id="device-hint" aria-live="polite"></p>
+      <div class="controls">
+        <button type="button" id="start" class="primary" data-i18n="start">マイクをテスト</button>
+        <button type="button" id="stop" disabled data-i18n="stop">停止</button>
+        <button type="button" id="refresh" data-i18n="refresh">機器一覧を更新</button>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div class="meter-wrap">
+        <div class="meter-head"><span data-i18n="level">入力レベル（デジタル相対値）</span><strong id="level">—</strong></div>
+        <div class="meter" role="meter" aria-label="Microphone input level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="meter"><div id="meter-fill"></div></div>
+        <p class="hint" data-i18n="meterNote">dBFSは録音信号の相対レベルで、実際の騒音のdB値や安全距離ではありません。</p>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="diagnostics-heading">
+      <h2 id="diagnostics-heading" data-i18n="diagnostics">実際の入力情報（ブラウザーの報告）</h2>
+      <dl>
+        <dt data-i18n="trackLabel">利用中の音声トラック</dt><dd id="track-label">—</dd>
+        <dt data-i18n="deviceMatch">選択した機器との一致</dt><dd id="device-match">—</dd>
+        <dt data-i18n="sampleRate">入力のサンプルレート</dt><dd id="sample-rate">—</dd>
+        <dt data-i18n="channels">チャンネル数</dt><dd id="channels">—</dd>
+        <dt data-i18n="contextRate">音声処理レート</dt><dd id="context-rate">—</dd>
+        <dt data-i18n="trackState">音声トラックの状態</dt><dd id="track-state">—</dd>
+        <dt data-i18n="available">一覧に表示された入力</dt><dd id="device-count">—</dd>
+      </dl>
+      <p class="hint important" data-i18n="routeWarning">ブラウザーが示す名前やdeviceIdが一致しても、物理的にイヤホンのどのマイクが録音されているか、ANC用マイクを使っているかは確認できません。</p>
+    </section>
+    <section class="panel">
+      <h2 data-i18n="instructions">実験手順</h2>
+      <ol>
+        <li data-i18n="instruction1">イヤホンをiPhoneに接続し、Safariでこのページを開きます。</li>
+        <li data-i18n="instruction2">「マイクをテスト」を押して権限を許可します。取得後に機器名が表示される場合があります。</li>
+        <li data-i18n="instruction3">機器が複数表示されたら選択して、再び「マイクをテスト」を押します。</li>
+        <li data-i18n="instruction4">室内で軽く話してレベルが変わるか確認します。AirPodsとSonyを別々に試してください。</li>
+      </ol>
+    </section>
+  </main>
+  <footer>
+    <a id="ai-link" href="./ai-test.html?v=1.5.4" data-i18n="ai">AIテストモード（オフライン） ↗</a>
+    <p data-i18n="privacy">音声の録音・保存・送信は行いません。音声はこのページでレベル計測のみに使用します。</p>
+    <p class="disclaimer" data-i18n="disclaimer">研究用診断機能です。交通安全を保証するものではありません。</p>
+  </footer>
+</div>
+<noscript>Please enable JavaScript to test your microphone. / JavaScriptを有効にしてください。</noscript>
+<script type="module" src="./microphone-test.js?v=1.5.4"></script>
+</body>
+</html>
