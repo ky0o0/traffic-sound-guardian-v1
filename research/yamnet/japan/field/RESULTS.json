@@ -1,0 +1,338 @@
+{
+  "kind": "Japan-sirens controlled-reference pilot",
+  "status": "exploratory_not_real_world_road_recognition",
+  "sourceFileCount": 10,
+  "groupCounts": {
+    "police": 10,
+    "ambulance": 0,
+    "fire": 0
+  },
+  "realJapanPoliceRecordedCases": 1,
+  "sampleWindows": 171,
+  "sourceTierCounts": {
+    "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL": 8,
+    "JAPAN_POLICE_SOUND_EFFECT_CAPTURE_UNVERIFIED": 2
+  },
+  "model": "TSG V1.6 exact website YAMNet MediaPipe 0.10.21",
+  "noAuditedRoadsideEventOnsets": true,
+  "noIndependentRealPoliceRecording": false,
+  "classTypeTruth": "publisher-supplied class of demo or a modeled control; no field truth guarantee",
+  "notes": [
+    "DO NOT report threshold accuracy on these as natural field recordings",
+    "Municipality samples may be electronically generated demos, not real street scenes",
+    "OtoLogic Japanese police is explicitly synthesizer-generated and its variations are correlated",
+    "Fire siren may use identical tonal pattern to Japanese police: class confusion expected",
+    "Only file-level maxima tested; no event timing or vehicle real-world detection metrics",
+    "Only ONE independent actual Tokyo recorded source (Freesound 34952); 8 UrbanSound excerpts are correlated.",
+    "Source says distant Tokyo police; a commenter thinks the sound resembles a fire engine; vehicle subtype truth is not confirmed.",
+    "Do not interpret clip counts or per-window positives as event recall. Other two sources are effect clips without confirmed live-recording provenance."
+  ],
+  "files": [
+    {
+      "id": "tokyo34952_34952-8-0-0",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "e1aba03b4c1aa59e4713e7f20db6da458d1f06ca5112a7946c8895073bd71230",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.00390625,
+        "Siren": 0.33203125,
+        "Police car (siren)": 0.19921875,
+        "Ambulance (siren)": 0.08203125,
+        "Fire engine, fire truck (siren)": 0.26171875
+      },
+      "dominantClass": "Siren",
+      "dominantRawScore": 0.33203125,
+      "intendedScore": 0.19921875,
+      "intendedThreshold01Reached": true,
+      "genericSirenScore": 0.33203125,
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "none": 4,
+        "Siren": 3
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "tokyo34952_34952-8-0-1",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "1a34f4e3fbcff4629ace5bc91dc4cae7fdcc6f227d09f3935ecc71096e361b71",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.00390625,
+        "Siren": 0.19921875,
+        "Police car (siren)": 0.19921875,
+        "Ambulance (siren)": 0.05859375,
+        "Fire engine, fire truck (siren)": 0.08203125
+      },
+      "dominantClass": "Siren",
+      "dominantRawScore": 0.19921875,
+      "intendedScore": 0.19921875,
+      "intendedThreshold01Reached": true,
+      "genericSirenScore": 0.19921875,
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "Siren": 3,
+        "Police car (siren)": 1,
+        "none": 3
+      },
+      "actualChosenCorrectSubtypeWindowCount": 1,
+      "actualAnySubtypeChosenWindowCount": 1
+    },
+    {
+      "id": "tokyo34952_34952-8-0-2",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "64bf71147401738366bb2e53e6157687514219dd7697633c6e3b5130599ea871",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.01171875,
+        "Siren": 0.01953125,
+        "Police car (siren)": 0.03125,
+        "Ambulance (siren)": 0.01171875,
+        "Fire engine, fire truck (siren)": 0.01953125
+      },
+      "dominantClass": "Police car (siren)",
+      "dominantRawScore": 0.03125,
+      "intendedScore": 0.03125,
+      "intendedThreshold01Reached": false,
+      "genericSirenScore": 0.01953125,
+      "genericSirenThreshold01Reached": false,
+      "actualChosenWindowLabels": {
+        "none": 7
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "tokyo34952_34952-8-0-3",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "0b575b98fd8e2b4c660c5e484f42515e5177b0fff0b996d9f07f1435b2560c6f",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.01171875,
+        "Siren": 0.00390625,
+        "Police car (siren)": 0.0078125,
+        "Ambulance (siren)": 0,
+        "Fire engine, fire truck (siren)": 0
+      },
+      "dominantClass": "Vehicle horn, car horn, honking",
+      "dominantRawScore": 0.01171875,
+      "intendedScore": 0.0078125,
+      "intendedThreshold01Reached": false,
+      "genericSirenScore": 0.00390625,
+      "genericSirenThreshold01Reached": false,
+      "actualChosenWindowLabels": {
+        "none": 7
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "tokyo34952_34952-8-0-4",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "aecc9faeee61ac4d9aa0f99b23e02cce2ed48cc22c684d4ec5d5389d3afbc43c",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.015625,
+        "Siren": 0.01953125,
+        "Police car (siren)": 0.01953125,
+        "Ambulance (siren)": 0.00390625,
+        "Fire engine, fire truck (siren)": 0.0078125
+      },
+      "dominantClass": "Siren",
+      "dominantRawScore": 0.01953125,
+      "intendedScore": 0.01953125,
+      "intendedThreshold01Reached": false,
+      "genericSirenScore": 0.01953125,
+      "genericSirenThreshold01Reached": false,
+      "actualChosenWindowLabels": {
+        "none": 7
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "tokyo34952_34952-8-0-5",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "aa44756689c20d1e6d9b720da7d92e3a4c8404ace707fe68c75e6150b063fade",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.01171875,
+        "Siren": 0.04296875,
+        "Police car (siren)": 0.03125,
+        "Ambulance (siren)": 0.00390625,
+        "Fire engine, fire truck (siren)": 0.01171875
+      },
+      "dominantClass": "Siren",
+      "dominantRawScore": 0.04296875,
+      "intendedScore": 0.03125,
+      "intendedThreshold01Reached": false,
+      "genericSirenScore": 0.04296875,
+      "genericSirenThreshold01Reached": false,
+      "actualChosenWindowLabels": {
+        "none": 7
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "tokyo34952_34952-8-0-6",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "4a2227816780195b0cb18e4d1d94a33c36756d2eca90d54a64e60bb3c0ec522d",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.00390625,
+        "Siren": 0.015625,
+        "Police car (siren)": 0.01171875,
+        "Ambulance (siren)": 0,
+        "Fire engine, fire truck (siren)": 0.00390625
+      },
+      "dominantClass": "Siren",
+      "dominantRawScore": 0.015625,
+      "intendedScore": 0.01171875,
+      "intendedThreshold01Reached": false,
+      "genericSirenScore": 0.015625,
+      "genericSirenThreshold01Reached": false,
+      "actualChosenWindowLabels": {
+        "none": 7
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "tokyo34952_34952-8-0-7",
+      "sourcePage": "https://freesound.org/people/eyecandyuk/sounds/34952/",
+      "fileSha256": "971ab76b2a615e7ba9f4740658d20123ea14968343bf2dafe355f49c9daa6046",
+      "originalSourceGroup": "Freesound:34952",
+      "label": "police",
+      "tier": "REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL",
+      "windows": 7,
+      "durationSeconds": 4,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.00390625,
+        "Siren": 0,
+        "Police car (siren)": 0,
+        "Ambulance (siren)": 0,
+        "Fire engine, fire truck (siren)": 0
+      },
+      "dominantClass": "Vehicle horn, car horn, honking",
+      "dominantRawScore": 0.00390625,
+      "intendedScore": 0,
+      "intendedThreshold01Reached": false,
+      "genericSirenScore": 0,
+      "genericSirenThreshold01Reached": false,
+      "actualChosenWindowLabels": {
+        "none": 7
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
+    },
+    {
+      "id": "esffects_japanese_patrol",
+      "sourcePage": "https://esffects.net/124.html",
+      "fileSha256": "26e34f3aa2401f446d08c79e379b5f2f6cd2bd2ee23ef07f89c826c8c2aa788f",
+      "originalSourceGroup": "esffects:124",
+      "label": "police",
+      "tier": "JAPAN_POLICE_SOUND_EFFECT_CAPTURE_UNVERIFIED",
+      "windows": 80,
+      "durationSeconds": 39.04798185941043,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.01953125,
+        "Siren": 0.91796875,
+        "Police car (siren)": 0.890625,
+        "Ambulance (siren)": 0.19921875,
+        "Fire engine, fire truck (siren)": 0.05859375
+      },
+      "dominantClass": "Siren",
+      "dominantRawScore": 0.91796875,
+      "intendedScore": 0.890625,
+      "intendedThreshold01Reached": true,
+      "genericSirenScore": 0.91796875,
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "Siren": 30,
+        "Police car (siren)": 36,
+        "none": 14
+      },
+      "actualChosenCorrectSubtypeWindowCount": 36,
+      "actualAnySubtypeChosenWindowCount": 36
+    },
+    {
+      "id": "pocket_se_distant_patrol",
+      "sourcePage": "https://pocket-se.info/archives/708/",
+      "fileSha256": "620636fd256628b491caf656fcdbbf1f06053a1e03a53469be5c9db29901301d",
+      "originalSourceGroup": "pocket-se:708",
+      "label": "police",
+      "tier": "JAPAN_POLICE_SOUND_EFFECT_CAPTURE_UNVERIFIED",
+      "windows": 35,
+      "durationSeconds": 17.368707482993198,
+      "peak": {
+        "Bicycle bell": 0,
+        "Vehicle horn, car horn, honking": 0.015625,
+        "Siren": 0.26171875,
+        "Police car (siren)": 0.33203125,
+        "Ambulance (siren)": 0.19921875,
+        "Fire engine, fire truck (siren)": 0.26171875
+      },
+      "dominantClass": "Police car (siren)",
+      "dominantRawScore": 0.33203125,
+      "intendedScore": 0.33203125,
+      "intendedThreshold01Reached": true,
+      "genericSirenScore": 0.26171875,
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "none": 24,
+        "Police car (siren)": 7,
+        "Fire engine, fire truck (siren)": 2,
+        "Ambulance (siren)": 1,
+        "Siren": 1
+      },
+      "actualChosenCorrectSubtypeWindowCount": 7,
+      "actualAnySubtypeChosenWindowCount": 10
+    }
+  ],
+  "uniqueFieldRecordingGroups": 1,
+  "fieldRecordingSlices": 8,
+  "fieldRecordingWindows": 56,
+  "fieldChosenAnySirenWindows": 7,
+  "fieldChosenCorrectSubtypeWindows": 1,
+  "sourceLabelDisputed": true,
+  "hasHumanAuditedVehicleTruth": false
+}

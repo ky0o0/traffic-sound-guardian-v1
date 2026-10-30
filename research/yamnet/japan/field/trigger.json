@@ -1,0 +1,5 @@
+{
+  "revision": 3,
+  "reason": "After actual YAMNet inference succeeded, fix relative analysis-module import and retain Tokyo real recording metrics",
+  "date": "2026-10-30"
+}

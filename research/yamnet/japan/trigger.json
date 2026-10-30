@@ -1,0 +1,5 @@
+{
+  "rerun": 1,
+  "purpose": "verify actual on-screen single-class winner per YAMNet window at threshold 0.10",
+  "sources": "municipality demo, field effects and independently named police-synth control"
+}
