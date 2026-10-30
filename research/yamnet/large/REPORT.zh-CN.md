@@ -1,0 +1,52 @@
+# YAMNet 扩展真实环境录音试验：六类原始分数完整保存
+
+**这是实际网站模型推理结果，不是已验证的道路安全识别准确率。公开数据集的主要类别标签尚未逐段人工复核；“无目标”不一定真的没有任何其他警告声音。**
+
+## 已实际运行
+
+- 不同原始来源录音组：215；总识别窗口：1734；每窗口记录六个YAMNet原始分数（即使低于0.01或0.10）。
+- 使用网站相同的MediaPipe YAMNet TFLite、JS AudioWindowBuffer、resample.js与classifier-worker.js；没有换Python分类器。
+- 数据集（网站/镜像）：ESC-50 136条，UrbanSound8K 70条，Commons bell (GitHub mirror) 8条，R6500 university teaching example 1条。
+- 类别主要标签：bell 9条，horn 47条，siren 49条，none 110条。
+- UrbanSound8K原始meta中foreground/background salience原样保留，**不把未审核的噪声程度称为事实**。
+
+## 为什么不再只用0.10
+
+每段每个0.975秒窗口，六类分别保存原始Score。这不是环境分贝，也不是校准过的概率。例如喇叭0.04表示模型对该类别的原始分数0.04。以后对阈值0.01、0.02……0.50可以重新评估，不必重复运行YAMNet。
+
+## 基准0.10与验证集建议阈值的对照
+
+**阈值只从原始录音分组的70%验证部分选择；另一部分保持未参与调参，专用于本轮最终评估。** 仍然只是未经人工复核的暂定结果。
+
+| 有对应源标签的声音 | 建议阈值（探索性） | 验证集默认召回 | 验证集新阈值召回 | 独立测试默认召回 | 独立测试新阈值召回 | 独立测试默认精确率 | 独立测试新精确率 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 自行车铃 | 0.50 | 100.0% | 100.0% | 100.0% | 75.0% | 100.0% | 100.0% |
+| 汽车喇叭 | 0.04 | 68.8% | 90.6% | 66.7% | 73.3% | 100.0% | 78.6% |
+| 通用警笛 | 0.26 | 90.9% | 87.9% | 87.5% | 68.8% | 82.4% | 84.6% |
+
+## 警车、救护车、消防车警笛：已运行模型，但不能虚报准确率
+
+三个独立类别同样逐窗口输出了真实Score，并记录在WINDOW_SCORES.csv / SCORES.json.gz中；但当前ESC-50和UrbanSound8K只标明笼统siren，没有可核实的三种车型细分标签。
+因此这三类的单独Precision、Recall和“最佳阈值”必须显示**N/A**；其阈值仍为0.10，不能仅凭泛指警笛的正确率决定删除或调整。
+下一批应补入可合法复现且没有数据泄漏的警车、救护车和消防车标注音频。
+
+## CI浏览器环境计算开销
+
+- 每次分类调用内平均计算耗时：5.13ms；平均Worker往返：7.81ms。
+- 480ms内完成窗口的比例：100.0%。不包括麦克风、浏览器采集、蓝牙或提示音播放延迟。
+
+## 保存方式与下一步
+
+- WINDOW_SCORES.csv.gz：每段每个窗口每类真实Score与起止时间；无需重新跑模型即可分析更多阈值。
+- SCORES.json.gz：原始模型结果与来源 SHA-256 / 录音分组；RESULTS.json：本轮计算指标和每文件六类分数峰值。
+- 以上都在**独立研究分支**，不会修改正式网站阈值，旧版SH资料继续保留。
+- 下一阶段必须补充人工核对的起止时间和声音类型，优先选择有真实路噪、风噪、人声、以及远处或短促警告声的录音；然后做事件级回放和设备级延迟测试。
+
+## 数据来源
+
+- ESC-50（GitHub 原版、Freesound录音；CC BY-NC 3.0）：https://github.com/karolpiczak/ESC-50
+- UrbanSound8K（Hugging Face镜像，原始数据具有salience元信息；原版CC BY-NC 3.0）：https://huggingface.co/datasets/MahiA/UrbanSound8K
+- 自行车铃（GitHub镜像，源自Wikimedia Commons，每文件必须核对原始许可）：https://github.com/Jmxxp/Agenda_Otica/tree/main/assets/sounds
+- 一个额外自行车铃录音（大学教学代码库，原始音频许可未核验，仅做研究）：https://github.com/R6500/Python-bits/tree/master/Colaboratory/Sounds
+
+样本具体来源、下载URL、哈希和真实分数以RESULTS.json及实验归档为准。
