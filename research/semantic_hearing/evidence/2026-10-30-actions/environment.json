@@ -1,0 +1,15 @@
+{
+  "date_utc": "2026-10-30T00:23:50.802804+00:00",
+  "python": "3.10.22 (main, Oct  1 2026, 14:31:30) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "logical_cpu_count": 4,
+  "torch_threads": 2,
+  "upstream_revision": "07e9786c7a741f0a7c722dcde66a2679ca068c50",
+  "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+  "source_manifest_sha256": "1150525afd54872df4ad7364042f7351503d5d1118932adf848c1de2e924d12d",
+  "runner_sha256": "123e69eed41a0f5f2f7f8900ccb90f2f5707f971cd575aef48572dbb5700bc13",
+  "adapter_sha256": "bdeed8f476ec8f06d7efd7c3293ec98b2206a45d1c122f1c52b45b7d3e4ecdcc",
+  "package_freeze": "certifi==2026.10.23\ncffi==2.1.1\ncharset-normalizer==3.5.2\ncloudpickle==3.1.2\nfilelock==4.1.0\nfsspec==2026.9.0\nhuggingface-hub==0.25.2\nHyperPyYAML==1.2.3\nidna==3.20\njoblib==1.6.0\nnumpy==1.26.4\npackaging==26.3\npycparser==3.11\nPyYAML==6.0.3\nrequests==2.34.2\nruamel.yaml==0.18.17\nruamel.yaml.clib==0.2.15\nscipy==1.14.1\nsentencepiece==0.2.2\nsoundfile==0.13.1\nspeechbrain==0.5.16\ntorch==1.13.1+cpu\ntorchaudio==0.13.1+cpu\ntorchmetrics==0.10.0\ntqdm==4.70.1\ntyping_extensions==4.16.0\nurllib3==2.8.0\n",
+  "cpu_info": "processor\t: 0\nvendor_id\t: AuthenticAMD\ncpu family\t: 25\nmodel\t\t: 17\nmodel name\t: AMD EPYC 9V74 80-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2596.135\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso tsa\nbogomips\t: 5192.27\nTLB size\t: 3584 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:"
+}

@@ -54,3 +54,5 @@ The GitHub workflow `SH real recorded audio` executes the entire experiment and 
 - [BigSoundBank licensing](https://bigsoundbank.com/licenses.html); individual evidence in `real_sources.json`.
 
 See `REAL_AUDIO_REPORT.md` for completed results and the precise verification boundary.
+
+Verification note: FLOAT WAV PEAK chunks contain write-time timestamps. The two completed runs had exactly equal decoded input samples but different container-byte hashes. The checked-in evidence includes decoded little-endian float32 sample hashes and measured cross-run output tolerances.

@@ -1,0 +1,48 @@
+{
+  "bsb_0258": {
+    "metric_kind": "isolated_recording_metrics",
+    "n": 6,
+    "mean_si_sdri_db": -0.9850309328998402,
+    "median_si_sdri_db": -0.36445346235994597,
+    "min_si_sdri_db": -4.031123440166352,
+    "max_si_sdri_db": 2.366367423344868,
+    "positive_cases": 3
+  },
+  "bsb_0260": {
+    "metric_kind": "isolated_recording_metrics",
+    "n": 6,
+    "mean_si_sdri_db": -34.857071563917465,
+    "median_si_sdri_db": -35.448336379138546,
+    "min_si_sdri_db": -38.89573563306521,
+    "max_si_sdri_db": -29.5019913572235,
+    "positive_cases": 0
+  },
+  "bsb_2731": {
+    "metric_kind": "contaminated_stem_diagnostics",
+    "n": 6,
+    "mean_si_sdri_db": 3.654569906114704,
+    "median_si_sdri_db": 3.0324591435211494,
+    "min_si_sdri_db": -0.5126298074385556,
+    "max_si_sdri_db": 7.754125820564012,
+    "positive_cases": 5
+  },
+  "bsb_2760": {
+    "metric_kind": "contaminated_stem_diagnostics",
+    "n": 6,
+    "mean_si_sdri_db": -6.298734031929854,
+    "median_si_sdri_db": -6.949319974704069,
+    "min_si_sdri_db": -10.399272177979302,
+    "max_si_sdri_db": -1.6517734939262754,
+    "positive_cases": 0
+  },
+  "timing": {
+    "median_inference_seconds": 1.170093339999994,
+    "min_inference_seconds": 0.6772987960000592,
+    "max_inference_seconds": 2.3991131979998954,
+    "sum_inference_seconds": 44.36429539999949,
+    "median_rtf": 0.2340186679999988,
+    "median_case_wall_seconds": 4.487437843499947,
+    "max_case_wall_seconds": 27.76653873700002,
+    "total_run_wall_seconds": 199.6677106310001
+  }
+}

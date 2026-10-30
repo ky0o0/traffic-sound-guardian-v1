@@ -1,0 +1,12 @@
+{
+  "unit_tests": 16,
+  "unit_tests_passed": 16,
+  "metric_crosscheck": "Random seeded stereo signal, torchmetrics.scale_invariant_signal_distortion_ratio(zero_mean=True)",
+  "metric_max_abs_difference_db": 6.661338147750939e-14,
+  "shape_finite_checks_passed": 36,
+  "input_and_output_format": "44100 Hz / 2 channels / 220500 frames / FLOAT WAV",
+  "source_hashes_verified": 6,
+  "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+  "peak_input_limit": 0.8,
+  "output_out_of_range_samples": 0
+}
