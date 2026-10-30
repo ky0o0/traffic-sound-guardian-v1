@@ -12,7 +12,7 @@ const names = {
  'zh-CN':['自行车铃','汽车喇叭','警笛','警车警笛','救护车警笛','消防车警笛']
 };
 const create = (tag,cls='',text='') => {const e=document.createElement(tag);if(cls)e.className=cls;if(text)e.textContent=text;return e;};
-export async function mountAnnotationEditor(host, clip, {lang='ja',onSave}) {
+export async function mountAnnotationEditor(host, clip, {lang='ja',onSave,predictions=[]}) {
   const t = dict[lang]||dict.ja, name = names[lang]||names.ja;
   const pane = create('section','annotation-editor');
   const heading = create('h3','',t.title);
@@ -84,6 +84,8 @@ export async function mountAnnotationEditor(host, clip, {lang='ja',onSave}) {
         if(right<=left)return;
         context.fillStyle=color;context.fillRect(left,0,right-left,height);
       };
+      // AI-positive windows are visual predictions, never ground-truth labels.
+      for(const item of predictions)paint(item.start,item.end,light?'#ff47573c':'#ff475744');
       for(const item of events)paint(item.start,item.end,light?'#14a69a44':'#2dd4bf44');
       paint(a,b,light?'#ffa72644':'#ffb45c44');
       if(audio){
@@ -124,6 +126,7 @@ export async function mountAnnotationEditor(host, clip, {lang='ja',onSave}) {
     canvas.addEventListener('pointermove',e=>{if(down===null)return;const x=pointerTime(e);a=Math.min(down,x);b=Math.max(down,x);syncInputs();draw();});
     canvas.addEventListener('pointerup',e=>{if(down===null)return;const x=pointerTime(e);a=Math.min(down,x);b=Math.max(down,x);down=null;syncInputs();draw();});
     canvas.addEventListener('pointercancel',()=>{down=null;});
+    pane.append(create('p','annotation-legend',lang==='en'?'Teal = manual truth · Red = YAMNet-positive window (not exact sound boundaries)':lang==='zh-CN'?'青色＝人工标注 · 红色＝YAMNet检测窗口（非精确声源边界）':'青＝手動の正解 · 赤＝YAMNet検知窓（音の厳密な境界ではありません）'));
     pane.append(inputs);
     const rows=create('div','annotation-rows');
     const completed=create('label','annotation-check');
