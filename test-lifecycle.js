@@ -259,9 +259,9 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
 test('V1.6.0 page, manifest and cache URLs agree',()=>{
  assert.match(page, /<title>Traffic Sound Guardian V1\.6\.0<\/title>/);
  assert.match(page, /class="version">V1\.6\.0<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.5\.4"/);
- assert.match(page, /href="\.\/style\.css\?v=1\.5\.4"/);
- assert.match(source, /classifier-worker\.js\?v=1\.5\.4/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.0"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.0"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
  assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.0');
  assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.0');
 });
