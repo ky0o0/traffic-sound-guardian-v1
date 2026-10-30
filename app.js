@@ -382,7 +382,7 @@ function render(state, description = '') {
   viewDescription = description;
   document.body.dataset.state = state;
   const warning = state === 'warning';
-  ui['theme-color'].setAttribute('content', warning ? '#c7263a' : '#101a2c');
+  ui['theme-color'].setAttribute('content', warning ? '#c7263a' : document.documentElement.dataset.theme === 'light' ? '#f5f7fb' : '#101a2c');
   ui['warning-details'].hidden = !warning;
   ui.description.hidden = warning;
   const texts = {
@@ -509,6 +509,8 @@ function startVisuals(s) {
       const target = Math.min(1, Math.sqrt(rms) * 2.4);
       level += (target - level) * (1 - Math.exp(-elapsed / (target > level ? 55 : 160)));
       if (level < 0.001) level = 0;
+      // Read-only 10-second amplitude visualization; never forwards or stores PCM.
+      window.dispatchEvent?.(new CustomEvent('tsg:visual', { detail: { time: s.context.currentTime, rms } }));
       drawWaveform(samples);
       ui.visual.style.setProperty('--audio-level', level.toFixed(4));
     }
@@ -549,6 +551,7 @@ function stop(message = '') {
     old.gate.reset();
   }
   resetVisuals();
+  window.dispatchEvent?.(new Event('tsg:reset'));
   render('stopped', message);
 }
 
@@ -625,6 +628,7 @@ function receiveResult(s, data) {
     stop('AIの解析が遅れています。ほかのアプリを閉じて、もう一度開始してください。');
     return;
   }
+  const completedFrame = s.flight;
   s.flight = null;
   s.lastResult = now;
   s.hasResult = true;
@@ -638,6 +642,13 @@ function receiveResult(s, data) {
   const target = data.trafficScores ? chooseTarget(data.trafficScores, soundThresholds) : data.target;
   const threshold = target?.name ? (soundThresholds[target.name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
   s.gate.observe(target, now, threshold);
+  // The red interval represents a positive YAMNet analysis window, not exact event boundaries.
+  // Use capture timestamps rather than delayed Worker response time.
+  if (target && Number.isFinite(completedFrame?.endTime)) {
+    window.dispatchEvent?.(new CustomEvent('tsg:warning', { detail: {
+      start: completedFrame.endTime - 0.975, end: completedFrame.endTime, label: target.name
+    } }));
+  }
   const state = s.gate.active ? 'warning' : 'listening';
   if (view !== state || s.gate.active) render(state);
   scheduleWarningEnd(s);
