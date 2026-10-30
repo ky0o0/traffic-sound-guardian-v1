@@ -1,6 +1,6 @@
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.5.4';
+import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.0';
 import { AudioWindowBuffer } from './audio-window.js';
-import { debugCategoryName } from './debug.js?v=1.5.4';
+import { debugCategoryName } from './debug.js?v=1.6.0';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -382,7 +382,7 @@ function render(state, description = '') {
   viewDescription = description;
   document.body.dataset.state = state;
   const warning = state === 'warning';
-  ui['theme-color'].setAttribute('content', warning ? '#c7263a' : '#101a2c');
+  ui['theme-color'].setAttribute('content', warning ? '#c7263a' : document.documentElement.dataset?.theme === 'light' ? '#f5f7fb' : '#101a2c');
   ui['warning-details'].hidden = !warning;
   ui.description.hidden = warning;
   const texts = {
@@ -431,8 +431,8 @@ function setLanguage(next) {
   ui['language-select-label'].textContent = t('言語');
   ui['language-select'].setAttribute('aria-label', t('言語'));
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
-  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.4&lang=' + language);
-  ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.5.4&lang=' + language);
+  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.6.0&lang=' + language);
+  ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.6.0&lang=' + language);
   for (const [id, text] of Object.entries({
     'ai-test-link': 'AIテストモード（オフライン研究） ↗',
     'microphone-test-link': 'マイク接続テスト（イヤホン入力） ↗',
@@ -509,6 +509,8 @@ function startVisuals(s) {
       const target = Math.min(1, Math.sqrt(rms) * 2.4);
       level += (target - level) * (1 - Math.exp(-elapsed / (target > level ? 55 : 160)));
       if (level < 0.001) level = 0;
+      // Read-only 10-second amplitude visualization; never forwards or stores PCM.
+      window.dispatchEvent?.(new CustomEvent('tsg:visual', { detail: { time: s.context.currentTime, rms } }));
       drawWaveform(samples);
       ui.visual.style.setProperty('--audio-level', level.toFixed(4));
     }
@@ -549,6 +551,7 @@ function stop(message = '') {
     old.gate.reset();
   }
   resetVisuals();
+  window.dispatchEvent?.(new Event('tsg:reset'));
   render('stopped', message);
 }
 
@@ -625,6 +628,7 @@ function receiveResult(s, data) {
     stop('AIの解析が遅れています。ほかのアプリを閉じて、もう一度開始してください。');
     return;
   }
+  const completedFrame = s.flight;
   s.flight = null;
   s.lastResult = now;
   s.hasResult = true;
@@ -638,6 +642,13 @@ function receiveResult(s, data) {
   const target = data.trafficScores ? chooseTarget(data.trafficScores, soundThresholds) : data.target;
   const threshold = target?.name ? (soundThresholds[target.name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
   s.gate.observe(target, now, threshold);
+  // The red interval represents a positive YAMNet analysis window, not exact event boundaries.
+  // Use capture timestamps rather than delayed Worker response time.
+  if (target && Number.isFinite(completedFrame?.endTime)) {
+    window.dispatchEvent?.(new CustomEvent('tsg:warning', { detail: {
+      start: completedFrame.endTime - 0.975, end: completedFrame.endTime, label: target.name
+    } }));
+  }
   const state = s.gate.active ? 'warning' : 'listening';
   if (view !== state || s.gate.active) render(state);
   scheduleWarningEnd(s);
@@ -759,7 +770,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.4', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.0', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {

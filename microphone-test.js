@@ -1,4 +1,4 @@
-import { microphoneMatch, browserTrackInfo, meterReading, micErrorCode } from './microphone-test-core.js?v=1.5.4';
+import { microphoneMatch, browserTrackInfo, meterReading, micErrorCode } from './microphone-test-core.js?v=1.6.0';
 
 const WORDS = Object.freeze({
   ja: {
@@ -144,7 +144,7 @@ function translate() {
   el('language').setAttribute('aria-label',t('language'));
   el('meter').setAttribute('aria-label',t('level'));
   document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent=t(node.dataset.i18n); });
-  const suffix='?v=1.5.4&lang='+encodeURIComponent(lang);
+  const suffix='?v=1.6.0&lang='+encodeURIComponent(lang);
   el('home-link').setAttribute('href','./index.html'+suffix);
   el('ai-link').setAttribute('href','./ai-test.html'+suffix);
   const key=el('status').dataset.status||'idle';

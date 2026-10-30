@@ -1,3 +1,4 @@
+import { mountAnnotationEditor } from './annotation-editor.js?v=1.6.0';
 import {
   IDS,
   NAMES,
@@ -16,15 +17,15 @@ import {
   optimize,
   exportData,
   csv
-} from './ai-test-analysis.js?v=1.5.4';
+} from './ai-test-analysis.js?v=1.6.0';
 import {
   BatchRunner,
   LIMITS,
   checkFile
-} from './ai-test-runner.js?v=1.5.4';
+} from './ai-test-runner.js?v=1.6.0';
 import {
   translate
-} from './ai-test-i18n.js?v=1.5.4';
+} from './ai-test-i18n.js?v=1.6.0';
 
 const root = document.getElementById('test-app'),
   runner = new BatchRunner();
@@ -50,7 +51,8 @@ let language = initialLanguage(),
   level = 'clip',
   groups = false,
   message = '',
-  progress = [0, 0];
+  progress = [0, 0],
+  activeAnnotationEditor = null;
 try {
   const saved = localStorage.getItem('trafficSoundGuardian.soundThresholds');
   if (saved) thresholds = validThresholds(JSON.parse(saved));
@@ -410,6 +412,37 @@ function fileCard(c, openIds) {
     }
   }, locked()));
   field.append(advanced);
+  // The human-ground-truth editor reuses the existing events model.
+  const editorMount = el('div', null, { class: 'annotation-mount' });
+  const editorLabel = ({ ja: '波形で標注', en: 'Visual waveform annotations', 'zh-CN': '波形标注' })[language];
+  const editorOpen = el('button', editorLabel, { type: 'button', disabled: locked() });
+  editorOpen.onclick = async () => {
+    if (activeAnnotationEditor) {
+      activeAnnotationEditor.close();
+      activeAnnotationEditor = null;
+    }
+    const allowed = !split || split.mode !== 'heldout' ||
+      selectionClips(clips, split, revealed ? 'test' : 'validation').some(x => x.id === c.id);
+    const predictions = allowed && c.result?.windows ?
+      replay(c.result.windows, thresholds).flatMap(w => w.labels.map(label => ({
+        label, start: w.start, end: w.end
+      }))) : [];
+    const instance = await mountAnnotationEditor(editorMount, c, {
+      lang: language, predictions,
+      onSave: ({ events, complete, duration }) => {
+        c.events = events;
+        c.eventText = events.map(e => [e.label, e.start, e.end].join(',')).join('\n');
+        c.complete = complete;
+        c.duration = duration;
+        c.labels = events.length ? [...new Set(events.map(e => e.label))] : complete ? ['none'] : ['unknown'];
+        invalidate();
+        render();
+      }
+    });
+    if (editorMount.isConnected) activeAnnotationEditor = instance;
+    else instance?.close();
+  };
+  field.append(editorOpen, editorMount);
   card.append(field);
   if (c.complete && c.duration != null && !validateEvents(c)) card.append(note('annotationPending'));
   card.append(button('remove', () => {
@@ -792,15 +825,17 @@ function exportView() {
 }
 
 function render() {
+  activeAnnotationEditor?.close();
+  activeAnnotationEditor = null;
   const openIds = new Set([...root.querySelectorAll('details[open][id]')].map(x => x.id));
   document.documentElement.lang = language;
-  document.title = t('title') + ' · Traffic Sound Guardian V1.5.4';
+  document.title = t('title') + ' · Traffic Sound Guardian V1.6.0';
   root.replaceChildren();
   const top = el('div', null, {
     class: 'top'
   });
   top.append(el('a', t('back'), {
-    href: './index.html?v=1.5.4&lang=' + language
+    href: './index.html?v=1.6.0&lang=' + language
   }));
   const langs = el('div', null, { class: 'language-switch' });
   const picker = el('select', null, { id: 'language-select' });
@@ -817,7 +852,7 @@ function render() {
   };
   langs.append(picker);
   top.append(langs);
-  root.append(top, el('h1', t('title') + ' · V1.5.4'), el('p', t('subtitle'), {
+  root.append(top, el('h1', t('title') + ' · V1.6.0'), el('p', t('subtitle'), {
     class: 'notice'
   }), note('privacy'));
   const tabs = el('nav', null, {
@@ -842,9 +877,11 @@ function render() {
   root.append(thresholdPanel());
   root.append(tab === 'upload' ? uploadView(openIds) : tab === 'results' ? resultsView() : tab ===
     'analysis' ? metricsView() : tab === 'optimize' ? optimizeView() : exportView());
-  root.append(el('footer', 'Traffic Sound Guardian V1.5.4 · YAMNet / MediaPipe · ' + t('scoreNote')));
+  root.append(el('footer', 'Traffic Sound Guardian V1.6.0 · YAMNet / MediaPipe · ' + t('scoreNote')));
 }
 window.addEventListener('pagehide', () => {
+  activeAnnotationEditor?.close();
+  activeAnnotationEditor = null;
   runner.cancel();
   clips = [];
   split = recommendations = selected = null;
