@@ -1,0 +1,76 @@
+name: YAMNet real Tokyo police field audio original-source-group test
+on:
+  push:
+    branches: [research/yamnet-jp-emergency-types-pilot-20261030]
+    paths:
+      - '.github/workflows/research-yamnet-japan-field.yml'
+      - 'research/yamnet/japan/field/trigger.json'
+permissions:
+  contents: write
+jobs:
+  real-tokyo-police-raw-six-class-scores:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Confirm unchanged deployment classifier and run existing tests
+        run: |
+          test "$(sha256sum yamnet.tflite | awk '{print $1}')" = "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf"
+          node --test test-*.js
+      - name: Install browser controller without changing the classifier
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          if command -v google-chrome >/dev/null; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          else
+            npx playwright install --with-deps chromium
+          fi
+      - name: Download Osaka/Tokyo field candidate? Only verified Tokyo 34952 UrbanSound fragments and independent effects
+        run: python -u research/yamnet/japan/field/prepare.py
+      - name: Run unchanged website YAMNet six-class 0.975s windows for every real file
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/yamnet-field-http.log 2>&1 &
+          for i in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8765/research/yamnet/japan/field/harness.html >/dev/null && break || sleep 2; done
+          node research/yamnet/japan/field/run-browser.mjs
+      - name: Produce raw score rows and research report
+        run: |
+          node research/yamnet/japan/field/analyse.mjs
+          python - <<'PY'
+          from pathlib import Path
+          import gzip,json
+          p=Path('research/yamnet/japan/field')
+          x=json.loads((p/'RESULTS.json').read_text())
+          assert x['sourceFileCount']>=1 and x['sampleWindows']>=1
+          with (p/'SIX_SCORES.csv').open('rb') as f,gzip.open(p/'SIX_SCORES.csv.gz','wb') as z:z.write(f.read())
+          PY
+      - name: Artifact exact provenance and all six scores, excluding copyrighted actual audio
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yamnet-tokyo-police-source-group-scores
+          path: |
+            research/yamnet/japan/field/RESULTS.json
+            research/yamnet/japan/field/REPORT.zh-CN.md
+            research/yamnet/japan/field/SIX_SCORES.csv
+            research/yamnet/japan/field/SIX_SCORES.csv.gz
+            research/yamnet/japan/field/.working/manifest.json
+            research/yamnet/japan/field/.working/raw-results.json
+            /tmp/yamnet-field-http.log
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Commit actual field source and separated SFX results only
+        if: success()
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name 'TSG Japan police research'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/yamnet/japan/field/RESULTS.json research/yamnet/japan/field/REPORT.zh-CN.md research/yamnet/japan/field/SIX_SCORES.csv.gz
+          git commit -m 'research(yamnet): retain real Tokyo distant police field study and provenance'
+          git push origin HEAD:refs/heads/research/yamnet-jp-emergency-types-pilot-20261030
