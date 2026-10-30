@@ -1,0 +1,7 @@
+{
+  "action": "start scale100 six scores baseline",
+  "revision": 2,
+  "date": "2026-10-30",
+  "source": "FSD50K + UrbanSound8K",
+  "strict_grouping": true
+}
