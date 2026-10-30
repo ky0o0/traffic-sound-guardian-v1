@@ -105,7 +105,11 @@ def selection(fsd,us):
     # Choose 100 from FSD for each label if possible; add Urban remainder
     # only if insufficient. Mixed sources can share Freesound IDs.
     for label in ("bell","horn","siren"):
-        subset=[r for r in fsd if r["label"]==label]+[r for r in us if r["label"]==label]
+        fst=[r for r in fsd if r["label"]==label]
+        ust=[r for r in us if r["label"]==label]
+        # For horn and siren deliberately sample 30 UrbanSound8K originals
+        # in addition to FSD50K, not only mirror sites of one dataset.
+        subset=(fst[:70]+ust+fst[70:]) if label!="bell" else fst
         n=0
         for r in subset:
             if r["source_group"] in used:continue
