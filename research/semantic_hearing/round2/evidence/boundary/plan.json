@@ -1,0 +1,3922 @@
+[
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 416
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 1664
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 6656
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 26624
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 88192
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "3766bb808e8d77634cb2609757c1d0ef57b9c7b476a21b5fbce9c46fd1a2b0f7",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4769478549999917,
+        "inference_seconds": 0.37583480799997915,
+        "output_peak": 0.1950942426919937,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8a795000d5c6b7c9e8a7d3d7d94cfda23e349eeccf5a7b0ee00ff39568607e44",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07516696159999584,
+      "output_to_input_energy_db": -2.922065949902799,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          0.8158022090722366,
+          1.4306022162097678
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 3.6286712308302,
+        "output_to_reference_energy_db": -2.922065949902799,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": 1.1232022126410022,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5230611893472696,
+          0.5482175745187711
+        ],
+        "projected_gain_db": [
+          -5.628950060457834,
+          -5.220940923023326
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.922065620312966,
+        "active_output_snr_db": 3.6286716449407224,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          0.8173962102867873,
+          1.430557834363597
+        ],
+        "inactive_output_energy_fraction": 2.564748891063246e-11
+      },
+      "wall_seconds": 1.7389568049999866
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 416
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 1664
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 6656
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 26624
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 88192
+  },
+  {
+    "baseline": {
+      "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "family": "position",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": null,
+      "background_type": "quiet",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "activity_definition": "20ms RMS >= peak -35dB with 20ms dilation; energy proxy",
+      "duration_seconds": 5.0,
+      "snr_mode": "active",
+      "nominal_snr_db": null,
+      "noise_gain": 0.0,
+      "common_gain": 1.0,
+      "event_gain_scale": 1.0,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4805854150000073,
+        "inference_seconds": 0.3542711740000186,
+        "output_peak": 0.007859833538532257,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "bb33c232b5f18914c171ebc2c9d842b0daf7e39af0e561d91f553aed6a0a2422",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07085423480000372,
+      "output_to_input_energy_db": -38.11255925099502,
+      "metrics": {
+        "input_si_sdr_db": null,
+        "output_si_sdr_db": [
+          -2.7225495787862357,
+          -13.574551193446332
+        ],
+        "si_sdri_db": null,
+        "output_snr_db": 0.04679612696725642,
+        "output_to_reference_energy_db": -38.11255925099502,
+        "input_si_sdr_mean_db": null,
+        "output_si_sdr_mean_db": -8.148550386116284,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.008935965820663926,
+          0.0017936213878381937
+        ],
+        "projected_gain_db": [
+          -40.97717002060061,
+          -54.92538452044228
+        ],
+        "residual_suppression_db": null,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.11243144929491,
+        "active_output_snr_db": 0.04679628573465881,
+        "active_input_snr_db": null,
+        "whole_input_snr_db": null,
+        "active_input_si_sdr_db": null,
+        "active_output_si_sdr_db": [
+          -2.717160411216591,
+          -13.563683166811582
+        ],
+        "inactive_output_energy_fraction": 2.9688633501516213e-05
+      },
+      "wall_seconds": 1.7221586789999606
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 7.370501941294027,
+      "common_gain": 0.5964789105449586,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "2acdf4af65e6505c06458dba782d5036023c7a29ed03381263f66a70deba1553",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4756646459999274,
+        "inference_seconds": 0.3555952750000415,
+        "output_peak": 0.2495417594909668,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "9e38134a82f195216357fdd9ec25813a6f6cf1525011caaa21c3f579eccfc47c",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.0711190550000083,
+      "output_to_input_energy_db": -11.476235670236807,
+      "metrics": {
+        "input_si_sdr_db": [
+          -6.139522777045167,
+          -4.134835609927924
+        ],
+        "output_si_sdr_db": [
+          -3.4577154690032614,
+          -2.083908071280094
+        ],
+        "si_sdri_db": 2.366367423344868,
+        "output_snr_db": 1.8726303783473326,
+        "output_to_reference_energy_db": -5.29179415728613,
+        "input_si_sdr_mean_db": -5.137179193486546,
+        "output_si_sdr_mean_db": -2.7708117701416777,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.3083676168180113,
+          0.3324287822296079
+        ],
+        "projected_gain_db": [
+          -10.218624712011383,
+          -9.566027626618563
+        ],
+        "residual_suppression_db": 12.184543037278523,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -5.810889331415123,
+        "active_output_snr_db": 2.1011957056549297,
+        "active_input_snr_db": 0.6115677568287845,
+        "whole_input_snr_db": -5.00000006600192,
+        "active_input_si_sdr_db": [
+          -0.6934000433690919,
+          1.651834676594429
+        ],
+        "active_output_si_sdr_db": [
+          -2.6003880340389003,
+          -1.2738339468635353
+        ],
+        "inactive_output_energy_fraction": 0.11265920256542897
+      },
+      "wall_seconds": 1.7217211140000472
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 7.370501941294027,
+      "common_gain": 0.5964789105449586,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "2acdf4af65e6505c06458dba782d5036023c7a29ed03381263f66a70deba1553",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4756646459999274,
+        "inference_seconds": 0.3555952750000415,
+        "output_peak": 0.2495417594909668,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "9e38134a82f195216357fdd9ec25813a6f6cf1525011caaa21c3f579eccfc47c",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.0711190550000083,
+      "output_to_input_energy_db": -11.476235670236807,
+      "metrics": {
+        "input_si_sdr_db": [
+          -6.139522777045167,
+          -4.134835609927924
+        ],
+        "output_si_sdr_db": [
+          -3.4577154690032614,
+          -2.083908071280094
+        ],
+        "si_sdri_db": 2.366367423344868,
+        "output_snr_db": 1.8726303783473326,
+        "output_to_reference_energy_db": -5.29179415728613,
+        "input_si_sdr_mean_db": -5.137179193486546,
+        "output_si_sdr_mean_db": -2.7708117701416777,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.3083676168180113,
+          0.3324287822296079
+        ],
+        "projected_gain_db": [
+          -10.218624712011383,
+          -9.566027626618563
+        ],
+        "residual_suppression_db": 12.184543037278523,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -5.810889331415123,
+        "active_output_snr_db": 2.1011957056549297,
+        "active_input_snr_db": 0.6115677568287845,
+        "whole_input_snr_db": -5.00000006600192,
+        "active_input_si_sdr_db": [
+          -0.6934000433690919,
+          1.651834676594429
+        ],
+        "active_output_si_sdr_db": [
+          -2.6003880340389003,
+          -1.2738339468635353
+        ],
+        "inactive_output_energy_fraction": 0.11265920256542897
+      },
+      "wall_seconds": 1.7217211140000472
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 4.144737828985323,
+      "common_gain": 0.9686900255644094,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "9a08d82661354f25372209a7ed4fa1e200030203290b793d2c3a8d8e7ed7c10f",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4858909179999955,
+        "inference_seconds": 0.3439287559999684,
+        "output_peak": 0.42070722579956055,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "c19807fbcaf2edd280ecefb3b369a9388aacb9556708c09dcf0a5c085d55abb3",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.06878575119999368,
+      "output_to_input_energy_db": -6.255322431666661,
+      "metrics": {
+        "input_si_sdr_db": [
+          -1.1269395505085311,
+          0.8837159253727522
+        ],
+        "output_si_sdr_db": [
+          -0.6357303258754238,
+          0.5673638825949693
+        ],
+        "si_sdri_db": 0.0874285909276622,
+        "output_snr_db": 3.0500994229455674,
+        "output_to_reference_energy_db": -3.2554038965612335,
+        "input_si_sdr_mean_db": -0.12161181256788944,
+        "output_si_sdr_mean_db": -0.034183221640227246,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.46341093479823575,
+          0.5048650712156991
+        ],
+        "projected_gain_db": [
+          -6.680674453367757,
+          -5.936493493319883
+        ],
+        "residual_suppression_db": 6.317963302053721,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -3.360042092661179,
+        "active_output_snr_db": 3.149849581108187,
+        "active_input_snr_db": 5.611568049558063,
+        "whole_input_snr_db": 2.2647040374739378e-07,
+        "active_input_si_sdr_db": [
+          4.319649029404344,
+          6.670323186926171
+        ],
+        "active_output_si_sdr_db": [
+          -0.4047475039053776,
+          0.7699347898810233
+        ],
+        "inactive_output_energy_fraction": 0.02380596987151389
+      },
+      "wall_seconds": 1.7223084039999321
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 4.144737828985323,
+      "common_gain": 0.9686900255644094,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "9a08d82661354f25372209a7ed4fa1e200030203290b793d2c3a8d8e7ed7c10f",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4858909179999955,
+        "inference_seconds": 0.3439287559999684,
+        "output_peak": 0.42070722579956055,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "c19807fbcaf2edd280ecefb3b369a9388aacb9556708c09dcf0a5c085d55abb3",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.06878575119999368,
+      "output_to_input_energy_db": -6.255322431666661,
+      "metrics": {
+        "input_si_sdr_db": [
+          -1.1269395505085311,
+          0.8837159253727522
+        ],
+        "output_si_sdr_db": [
+          -0.6357303258754238,
+          0.5673638825949693
+        ],
+        "si_sdri_db": 0.0874285909276622,
+        "output_snr_db": 3.0500994229455674,
+        "output_to_reference_energy_db": -3.2554038965612335,
+        "input_si_sdr_mean_db": -0.12161181256788944,
+        "output_si_sdr_mean_db": -0.034183221640227246,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.46341093479823575,
+          0.5048650712156991
+        ],
+        "projected_gain_db": [
+          -6.680674453367757,
+          -5.936493493319883
+        ],
+        "residual_suppression_db": 6.317963302053721,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -3.360042092661179,
+        "active_output_snr_db": 3.149849581108187,
+        "active_input_snr_db": 5.611568049558063,
+        "whole_input_snr_db": 2.2647040374739378e-07,
+        "active_input_si_sdr_db": [
+          4.319649029404344,
+          6.670323186926171
+        ],
+        "active_output_si_sdr_db": [
+          -0.4047475039053776,
+          0.7699347898810233
+        ],
+        "inactive_output_energy_fraction": 0.02380596987151389
+      },
+      "wall_seconds": 1.7223084039999321
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 4.144737828985323,
+      "common_gain": 0.9686900255644094,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "9a08d82661354f25372209a7ed4fa1e200030203290b793d2c3a8d8e7ed7c10f",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4858909179999955,
+        "inference_seconds": 0.3439287559999684,
+        "output_peak": 0.42070722579956055,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "c19807fbcaf2edd280ecefb3b369a9388aacb9556708c09dcf0a5c085d55abb3",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.06878575119999368,
+      "output_to_input_energy_db": -6.255322431666661,
+      "metrics": {
+        "input_si_sdr_db": [
+          -1.1269395505085311,
+          0.8837159253727522
+        ],
+        "output_si_sdr_db": [
+          -0.6357303258754238,
+          0.5673638825949693
+        ],
+        "si_sdri_db": 0.0874285909276622,
+        "output_snr_db": 3.0500994229455674,
+        "output_to_reference_energy_db": -3.2554038965612335,
+        "input_si_sdr_mean_db": -0.12161181256788944,
+        "output_si_sdr_mean_db": -0.034183221640227246,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.46341093479823575,
+          0.5048650712156991
+        ],
+        "projected_gain_db": [
+          -6.680674453367757,
+          -5.936493493319883
+        ],
+        "residual_suppression_db": 6.317963302053721,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -3.360042092661179,
+        "active_output_snr_db": 3.149849581108187,
+        "active_input_snr_db": 5.611568049558063,
+        "whole_input_snr_db": 2.2647040374739378e-07,
+        "active_input_si_sdr_db": [
+          4.319649029404344,
+          6.670323186926171
+        ],
+        "active_output_si_sdr_db": [
+          -0.4047475039053776,
+          0.7699347898810233
+        ],
+        "inactive_output_energy_fraction": 0.02380596987151389
+      },
+      "wall_seconds": 1.7223084039999321
+    },
+    "mode": "noise_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 2.330757363318177,
+      "common_gain": 1.4873551945667953,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "ca1d457b617c6fe4f3c8909582b2de0fce5974f249648aa4a164ad7440167ab5",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4733821180000177,
+        "inference_seconds": 0.3652682330000516,
+        "output_peak": 0.5601511001586914,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "02d3a0412163a5e81bbdab6425860e370cb8c80c521591593b91cdd72ac2b21e",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07305364660001032,
+      "output_to_input_energy_db": -4.0979274418493885,
+      "metrics": {
+        "input_si_sdr_db": [
+          3.8801280696525,
+          5.894130391278627
+        ],
+        "output_si_sdr_db": [
+          0.7150550802045093,
+          1.6419734965155863
+        ],
+        "si_sdri_db": -3.7086149421055152,
+        "output_snr_db": 3.672502050424895,
+        "output_to_reference_energy_db": -2.913485965382751,
+        "input_si_sdr_mean_db": 4.887129230465563,
+        "output_si_sdr_mean_db": 1.1785142883600477,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5281963834268613,
+          0.5493142410356519
+        ],
+        "projected_gain_db": [
+          -5.544091534870223,
+          -5.20358283395372
+        ],
+        "residual_suppression_db": 1.6058599118775128,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.9471476655413795,
+        "active_output_snr_db": 3.7126215382548153,
+        "active_input_snr_db": 10.611567762622684,
+        "whole_input_snr_db": 4.99999993901043,
+        "active_input_si_sdr_db": [
+          9.326978028582936,
+          11.680702341747097
+        ],
+        "active_output_si_sdr_db": [
+          0.8018692367143131,
+          1.7167369122511589
+        ],
+        "inactive_output_energy_fraction": 0.007721007516401442
+      },
+      "wall_seconds": 1.7377208010000231
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_0124_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 2.330757363318177,
+      "common_gain": 1.4873551945667953,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "ca1d457b617c6fe4f3c8909582b2de0fce5974f249648aa4a164ad7440167ab5",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4733821180000177,
+        "inference_seconds": 0.3652682330000516,
+        "output_peak": 0.5601511001586914,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "02d3a0412163a5e81bbdab6425860e370cb8c80c521591593b91cdd72ac2b21e",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07305364660001032,
+      "output_to_input_energy_db": -4.0979274418493885,
+      "metrics": {
+        "input_si_sdr_db": [
+          3.8801280696525,
+          5.894130391278627
+        ],
+        "output_si_sdr_db": [
+          0.7150550802045093,
+          1.6419734965155863
+        ],
+        "si_sdri_db": -3.7086149421055152,
+        "output_snr_db": 3.672502050424895,
+        "output_to_reference_energy_db": -2.913485965382751,
+        "input_si_sdr_mean_db": 4.887129230465563,
+        "output_si_sdr_mean_db": 1.1785142883600477,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5281963834268613,
+          0.5493142410356519
+        ],
+        "projected_gain_db": [
+          -5.544091534870223,
+          -5.20358283395372
+        ],
+        "residual_suppression_db": 1.6058599118775128,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.9471476655413795,
+        "active_output_snr_db": 3.7126215382548153,
+        "active_input_snr_db": 10.611567762622684,
+        "whole_input_snr_db": 4.99999993901043,
+        "active_input_si_sdr_db": [
+          9.326978028582936,
+          11.680702341747097
+        ],
+        "active_output_si_sdr_db": [
+          0.8018692367143131,
+          1.7167369122511589
+        ],
+        "inactive_output_energy_fraction": 0.007721007516401442
+      },
+      "wall_seconds": 1.7377208010000231
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 26.94359764034695,
+      "common_gain": 0.6389062912056788,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "5960902a8e9431c416f3d03a6e2d75b124e15f3d6946a53320c171889b612fb2",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48089143599997897,
+        "inference_seconds": 0.35444774899997356,
+        "output_peak": 0.35672926902770996,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8e8cabb17c2479e53d4946a2ee461ac1ab70160ac3fcfc335ee62b4e1b8dbc34",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.0708895497999947,
+      "output_to_input_energy_db": -7.069556972500058,
+      "metrics": {
+        "input_si_sdr_db": [
+          -5.798056910880404,
+          -4.595177577650118
+        ],
+        "output_si_sdr_db": [
+          -6.152828522422213,
+          -3.856221393612608
+        ],
+        "si_sdri_db": 0.19209228624785002,
+        "output_snr_db": 0.4055867899808163,
+        "output_to_reference_energy_db": -0.9029359486123292,
+        "input_si_sdr_mean_db": -5.19661724426526,
+        "output_si_sdr_mean_db": -5.00452495801741,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.40976891261164317,
+          0.4772477610586255
+        ],
+        "projected_gain_db": [
+          -7.749219854437883,
+          -6.425122007231333
+        ],
+        "residual_suppression_db": 7.160676625192109,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.6115602594585203,
+        "active_output_snr_db": 1.8933921293868394,
+        "active_input_snr_db": 1.1815463194751876,
+        "whole_input_snr_db": -5.000000048258496,
+        "active_input_si_sdr_db": [
+          0.49300542466035213,
+          1.4942218047464093
+        ],
+        "active_output_si_sdr_db": [
+          -3.2606116411989334,
+          -1.6901360955416136
+        ],
+        "inactive_output_energy_fraction": 0.3252583233952035
+      },
+      "wall_seconds": 1.7366972999999462
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 26.94359764034695,
+      "common_gain": 0.6389062912056788,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "5960902a8e9431c416f3d03a6e2d75b124e15f3d6946a53320c171889b612fb2",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48089143599997897,
+        "inference_seconds": 0.35444774899997356,
+        "output_peak": 0.35672926902770996,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8e8cabb17c2479e53d4946a2ee461ac1ab70160ac3fcfc335ee62b4e1b8dbc34",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.0708895497999947,
+      "output_to_input_energy_db": -7.069556972500058,
+      "metrics": {
+        "input_si_sdr_db": [
+          -5.798056910880404,
+          -4.595177577650118
+        ],
+        "output_si_sdr_db": [
+          -6.152828522422213,
+          -3.856221393612608
+        ],
+        "si_sdri_db": 0.19209228624785002,
+        "output_snr_db": 0.4055867899808163,
+        "output_to_reference_energy_db": -0.9029359486123292,
+        "input_si_sdr_mean_db": -5.19661724426526,
+        "output_si_sdr_mean_db": -5.00452495801741,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.40976891261164317,
+          0.4772477610586255
+        ],
+        "projected_gain_db": [
+          -7.749219854437883,
+          -6.425122007231333
+        ],
+        "residual_suppression_db": 7.160676625192109,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.6115602594585203,
+        "active_output_snr_db": 1.8933921293868394,
+        "active_input_snr_db": 1.1815463194751876,
+        "whole_input_snr_db": -5.000000048258496,
+        "active_input_si_sdr_db": [
+          0.49300542466035213,
+          1.4942218047464093
+        ],
+        "active_output_si_sdr_db": [
+          -3.2606116411989334,
+          -1.6901360955416136
+        ],
+        "inactive_output_energy_fraction": 0.3252583233952035
+      },
+      "wall_seconds": 1.7366972999999462
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 15.151498402468267,
+      "common_gain": 1.0837144242231633,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "ef73bd1571e39e9fbd9939bdc7e4d0c6c233a975ec876ee977bd295270e2da12",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48363847799998894,
+        "inference_seconds": 0.3740098929999931,
+        "output_peak": 0.5313132405281067,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "42f242bcb29fe6bb1010f9544071177b08c69fe901f69ee0a8713d8a37c68f46",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07480197859999863,
+      "output_to_input_energy_db": -4.709173446545458,
+      "metrics": {
+        "input_si_sdr_db": [
+          -0.7616280193837415,
+          0.46189933753810536
+        ],
+        "output_si_sdr_db": [
+          -1.6763457424765538,
+          -0.25605397066419056
+        ],
+        "si_sdri_db": -0.8163355156475541,
+        "output_snr_db": 2.4487575233653462,
+        "output_to_reference_energy_db": -1.7301247618054216,
+        "input_si_sdr_mean_db": -0.14986434092281806,
+        "output_si_sdr_mean_db": -0.9661998565703722,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5245155065764128,
+          0.568502480387194
+        ],
+        "projected_gain_db": [
+          -5.604833359283724,
+          -4.905352722739656
+        ],
+        "residual_suppression_db": 4.351895302253864,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.294789782898738,
+        "active_output_snr_db": 3.1233137411020118,
+        "active_input_snr_db": 6.181546142985821,
+        "whole_input_snr_db": -2.228699391782541e-07,
+        "active_input_si_sdr_db": [
+          5.52944084846322,
+          6.551295124102763
+        ],
+        "active_output_si_sdr_db": [
+          -0.37788973088622385,
+          0.6917661324040157
+        ],
+        "inactive_output_energy_fraction": 0.12192125442616483
+      },
+      "wall_seconds": 1.7586009909999802
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 15.151498402468267,
+      "common_gain": 1.0837144242231633,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "ef73bd1571e39e9fbd9939bdc7e4d0c6c233a975ec876ee977bd295270e2da12",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48363847799998894,
+        "inference_seconds": 0.3740098929999931,
+        "output_peak": 0.5313132405281067,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "42f242bcb29fe6bb1010f9544071177b08c69fe901f69ee0a8713d8a37c68f46",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07480197859999863,
+      "output_to_input_energy_db": -4.709173446545458,
+      "metrics": {
+        "input_si_sdr_db": [
+          -0.7616280193837415,
+          0.46189933753810536
+        ],
+        "output_si_sdr_db": [
+          -1.6763457424765538,
+          -0.25605397066419056
+        ],
+        "si_sdri_db": -0.8163355156475541,
+        "output_snr_db": 2.4487575233653462,
+        "output_to_reference_energy_db": -1.7301247618054216,
+        "input_si_sdr_mean_db": -0.14986434092281806,
+        "output_si_sdr_mean_db": -0.9661998565703722,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5245155065764128,
+          0.568502480387194
+        ],
+        "projected_gain_db": [
+          -5.604833359283724,
+          -4.905352722739656
+        ],
+        "residual_suppression_db": 4.351895302253864,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.294789782898738,
+        "active_output_snr_db": 3.1233137411020118,
+        "active_input_snr_db": 6.181546142985821,
+        "whole_input_snr_db": -2.228699391782541e-07,
+        "active_input_si_sdr_db": [
+          5.52944084846322,
+          6.551295124102763
+        ],
+        "active_output_si_sdr_db": [
+          -0.37788973088622385,
+          0.6917661324040157
+        ],
+        "inactive_output_energy_fraction": 0.12192125442616483
+      },
+      "wall_seconds": 1.7586009909999802
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 15.151498402468267,
+      "common_gain": 1.0837144242231633,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "ef73bd1571e39e9fbd9939bdc7e4d0c6c233a975ec876ee977bd295270e2da12",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48363847799998894,
+        "inference_seconds": 0.3740098929999931,
+        "output_peak": 0.5313132405281067,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "42f242bcb29fe6bb1010f9544071177b08c69fe901f69ee0a8713d8a37c68f46",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07480197859999863,
+      "output_to_input_energy_db": -4.709173446545458,
+      "metrics": {
+        "input_si_sdr_db": [
+          -0.7616280193837415,
+          0.46189933753810536
+        ],
+        "output_si_sdr_db": [
+          -1.6763457424765538,
+          -0.25605397066419056
+        ],
+        "si_sdri_db": -0.8163355156475541,
+        "output_snr_db": 2.4487575233653462,
+        "output_to_reference_energy_db": -1.7301247618054216,
+        "input_si_sdr_mean_db": -0.14986434092281806,
+        "output_si_sdr_mean_db": -0.9661998565703722,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5245155065764128,
+          0.568502480387194
+        ],
+        "projected_gain_db": [
+          -5.604833359283724,
+          -4.905352722739656
+        ],
+        "residual_suppression_db": 4.351895302253864,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.294789782898738,
+        "active_output_snr_db": 3.1233137411020118,
+        "active_input_snr_db": 6.181546142985821,
+        "whole_input_snr_db": -2.228699391782541e-07,
+        "active_input_si_sdr_db": [
+          5.52944084846322,
+          6.551295124102763
+        ],
+        "active_output_si_sdr_db": [
+          -0.37788973088622385,
+          0.6917661324040157
+        ],
+        "inactive_output_energy_fraction": 0.12192125442616483
+      },
+      "wall_seconds": 1.7586009909999802
+    },
+    "mode": "noise_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 8.520313690263462,
+      "common_gain": 1.6013368322654193,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "b656391053c2712063ed0a6ac98df63d9b051ba190a48bf85b7cbbf4187b3f09",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4795814889999974,
+        "inference_seconds": 0.3861358060000839,
+        "output_peak": 0.637920081615448,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "272ec5217de30c3e21df347a89b43ff686bc532cb56a23c1e935df105ee4fcb8",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07722716120001678,
+      "output_to_input_energy_db": -3.5656665620934547,
+      "metrics": {
+        "input_si_sdr_db": [
+          4.258791282258815,
+          5.49383281022335
+        ],
+        "output_si_sdr_db": [
+          0.33917962836694315,
+          1.3511975837825172
+        ],
+        "si_sdri_db": -4.031123440166352,
+        "output_snr_db": 3.503613839385796,
+        "output_to_reference_energy_db": -2.3990456828532096,
+        "input_si_sdr_mean_db": 4.8763120462410825,
+        "output_si_sdr_mean_db": 0.8451886060747302,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5515567536309132,
+          0.573137512514284
+        ],
+        "projected_gain_db": [
+          -5.168195864998163,
+          -4.834823310698572
+        ],
+        "residual_suppression_db": 0.9068309885627255,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.59276443281516,
+        "active_output_snr_db": 3.7550873365643875,
+        "active_input_snr_db": 11.181546801706357,
+        "whole_input_snr_db": 5.000000435201308,
+        "active_input_si_sdr_db": [
+          10.549863799528792,
+          11.583226597756402
+        ],
+        "active_output_si_sdr_db": [
+          0.8711073723796808,
+          1.7374746320120176
+        ],
+        "inactive_output_energy_fraction": 0.04362527072674475
+      },
+      "wall_seconds": 1.7690784220000069
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0258_bsb_2717_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 70873,
+      "active_samples": 70560,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 8.520313690263462,
+      "common_gain": 1.6013368322654193,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "b656391053c2712063ed0a6ac98df63d9b051ba190a48bf85b7cbbf4187b3f09",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0258",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4795814889999974,
+        "inference_seconds": 0.3861358060000839,
+        "output_peak": 0.637920081615448,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "272ec5217de30c3e21df347a89b43ff686bc532cb56a23c1e935df105ee4fcb8",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07722716120001678,
+      "output_to_input_energy_db": -3.5656665620934547,
+      "metrics": {
+        "input_si_sdr_db": [
+          4.258791282258815,
+          5.49383281022335
+        ],
+        "output_si_sdr_db": [
+          0.33917962836694315,
+          1.3511975837825172
+        ],
+        "si_sdri_db": -4.031123440166352,
+        "output_snr_db": 3.503613839385796,
+        "output_to_reference_energy_db": -2.3990456828532096,
+        "input_si_sdr_mean_db": 4.8763120462410825,
+        "output_si_sdr_mean_db": 0.8451886060747302,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.5515567536309132,
+          0.573137512514284
+        ],
+        "projected_gain_db": [
+          -5.168195864998163,
+          -4.834823310698572
+        ],
+        "residual_suppression_db": 0.9068309885627255,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -2.59276443281516,
+        "active_output_snr_db": 3.7550873365643875,
+        "active_input_snr_db": 11.181546801706357,
+        "whole_input_snr_db": 5.000000435201308,
+        "active_input_si_sdr_db": [
+          10.549863799528792,
+          11.583226597756402
+        ],
+        "active_output_si_sdr_db": [
+          0.8711073723796808,
+          1.7374746320120176
+        ],
+        "inactive_output_energy_fraction": 0.04362527072674475
+      },
+      "wall_seconds": 1.7690784220000069
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 12.2954693263748,
+      "common_gain": 0.4073355880517728,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "436f03d7804f27d54af9594a6fafb7f9294cd55e25ebdf96d901dfed321c58c6",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48109876799992435,
+        "inference_seconds": 0.3547483290000173,
+        "output_peak": 0.08083818107843399,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "eb0f940894add6c1698ec4aaaa258d534adfec5a0992d2a1308d2d41e0151692",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07094966580000346,
+      "output_to_input_energy_db": -20.50316023376717,
+      "metrics": {
+        "input_si_sdr_db": [
+          -4.975523077381392,
+          -5.020529699376366
+        ],
+        "output_si_sdr_db": [
+          -32.30409489776419,
+          -36.695940593440575
+        ],
+        "si_sdri_db": -29.5019913572235,
+        "output_snr_db": -0.1516776547326409,
+        "output_to_reference_energy_db": -14.309281167006212,
+        "input_si_sdr_mean_db": -4.998026388378879,
+        "output_si_sdr_mean_db": -34.50001774560238,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.004374607248328899,
+          -0.0029893500393629656
+        ],
+        "projected_gain_db": [
+          -47.18121863587409,
+          -50.48846456128865
+        ],
+        "residual_suppression_db": 19.311809028621006,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.923111391501955,
+        "active_output_snr_db": 0.006097919864906589,
+        "active_input_snr_db": 9.131336550292433,
+        "whole_input_snr_db": -4.999999972074701,
+        "active_input_si_sdr_db": [
+          9.03904362788759,
+          9.256858881288188
+        ],
+        "active_output_si_sdr_db": [
+          -8.875901648658614,
+          -9.433571500359466
+        ],
+        "inactive_output_energy_fraction": 0.9965438601815938
+      },
+      "wall_seconds": 1.7186063840000543
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 12.2954693263748,
+      "common_gain": 0.4073355880517728,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "436f03d7804f27d54af9594a6fafb7f9294cd55e25ebdf96d901dfed321c58c6",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48109876799992435,
+        "inference_seconds": 0.3547483290000173,
+        "output_peak": 0.08083818107843399,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "eb0f940894add6c1698ec4aaaa258d534adfec5a0992d2a1308d2d41e0151692",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07094966580000346,
+      "output_to_input_energy_db": -20.50316023376717,
+      "metrics": {
+        "input_si_sdr_db": [
+          -4.975523077381392,
+          -5.020529699376366
+        ],
+        "output_si_sdr_db": [
+          -32.30409489776419,
+          -36.695940593440575
+        ],
+        "si_sdri_db": -29.5019913572235,
+        "output_snr_db": -0.1516776547326409,
+        "output_to_reference_energy_db": -14.309281167006212,
+        "input_si_sdr_mean_db": -4.998026388378879,
+        "output_si_sdr_mean_db": -34.50001774560238,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.004374607248328899,
+          -0.0029893500393629656
+        ],
+        "projected_gain_db": [
+          -47.18121863587409,
+          -50.48846456128865
+        ],
+        "residual_suppression_db": 19.311809028621006,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.923111391501955,
+        "active_output_snr_db": 0.006097919864906589,
+        "active_input_snr_db": 9.131336550292433,
+        "whole_input_snr_db": -4.999999972074701,
+        "active_input_si_sdr_db": [
+          9.03904362788759,
+          9.256858881288188
+        ],
+        "active_output_si_sdr_db": [
+          -8.875901648658614,
+          -9.433571500359466
+        ],
+        "inactive_output_energy_fraction": 0.9965438601815938
+      },
+      "wall_seconds": 1.7186063840000543
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 6.914250514830894,
+      "common_gain": 0.6208855711929384,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "333c1b950bdac557d5c27758eaae18f2715dda017fdf8c314cb1577564b284e1",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4837268659999836,
+        "inference_seconds": 0.3452852890000031,
+        "output_peak": 0.0767231285572052,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "c2b0a6ad4105e176aedff77f5dafe8cdfa9662156c062746c7bb44bb6b33986a",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.06905705780000063,
+      "output_to_input_energy_db": -21.589163223915328,
+      "metrics": {
+        "input_si_sdr_db": [
+          0.02315579485119703,
+          -0.021267870320312375
+        ],
+        "output_si_sdr_db": [
+          -34.051193246497405,
+          -28.146797791057043
+        ],
+        "si_sdri_db": -31.099939481042664,
+        "output_snr_db": -0.07067114990306587,
+        "output_to_reference_energy_db": -18.57819791922436,
+        "input_si_sdr_mean_db": 0.0009439622654423274,
+        "output_si_sdr_mean_db": -31.098995518777222,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0021985232840266013,
+          -0.00487188417751453
+        ],
+        "projected_gain_db": [
+          -53.15737861024896,
+          -46.246060900378154
+        ],
+        "residual_suppression_db": 18.583598789413752,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.658684599731956,
+        "active_output_snr_db": -0.011457345189955483,
+        "active_input_snr_db": 14.131336701935087,
+        "whole_input_snr_db": 1.7892383231759423e-07,
+        "active_input_si_sdr_db": [
+          14.037182074681416,
+          14.256559036494618
+        ],
+        "active_output_si_sdr_db": [
+          -14.11236829029901,
+          -4.172901361439999
+        ],
+        "inactive_output_energy_fraction": 0.9922030336845856
+      },
+      "wall_seconds": 1.7146138130000281
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 6.914250514830894,
+      "common_gain": 0.6208855711929384,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "333c1b950bdac557d5c27758eaae18f2715dda017fdf8c314cb1577564b284e1",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4837268659999836,
+        "inference_seconds": 0.3452852890000031,
+        "output_peak": 0.0767231285572052,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "c2b0a6ad4105e176aedff77f5dafe8cdfa9662156c062746c7bb44bb6b33986a",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.06905705780000063,
+      "output_to_input_energy_db": -21.589163223915328,
+      "metrics": {
+        "input_si_sdr_db": [
+          0.02315579485119703,
+          -0.021267870320312375
+        ],
+        "output_si_sdr_db": [
+          -34.051193246497405,
+          -28.146797791057043
+        ],
+        "si_sdri_db": -31.099939481042664,
+        "output_snr_db": -0.07067114990306587,
+        "output_to_reference_energy_db": -18.57819791922436,
+        "input_si_sdr_mean_db": 0.0009439622654423274,
+        "output_si_sdr_mean_db": -31.098995518777222,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0021985232840266013,
+          -0.00487188417751453
+        ],
+        "projected_gain_db": [
+          -53.15737861024896,
+          -46.246060900378154
+        ],
+        "residual_suppression_db": 18.583598789413752,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.658684599731956,
+        "active_output_snr_db": -0.011457345189955483,
+        "active_input_snr_db": 14.131336701935087,
+        "whole_input_snr_db": 1.7892383231759423e-07,
+        "active_input_si_sdr_db": [
+          14.037182074681416,
+          14.256559036494618
+        ],
+        "active_output_si_sdr_db": [
+          -14.11236829029901,
+          -4.172901361439999
+        ],
+        "inactive_output_energy_fraction": 0.9922030336845856
+      },
+      "wall_seconds": 1.7146138130000281
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 6.914250514830894,
+      "common_gain": 0.6208855711929384,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "333c1b950bdac557d5c27758eaae18f2715dda017fdf8c314cb1577564b284e1",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4837268659999836,
+        "inference_seconds": 0.3452852890000031,
+        "output_peak": 0.0767231285572052,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "c2b0a6ad4105e176aedff77f5dafe8cdfa9662156c062746c7bb44bb6b33986a",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.06905705780000063,
+      "output_to_input_energy_db": -21.589163223915328,
+      "metrics": {
+        "input_si_sdr_db": [
+          0.02315579485119703,
+          -0.021267870320312375
+        ],
+        "output_si_sdr_db": [
+          -34.051193246497405,
+          -28.146797791057043
+        ],
+        "si_sdri_db": -31.099939481042664,
+        "output_snr_db": -0.07067114990306587,
+        "output_to_reference_energy_db": -18.57819791922436,
+        "input_si_sdr_mean_db": 0.0009439622654423274,
+        "output_si_sdr_mean_db": -31.098995518777222,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0021985232840266013,
+          -0.00487188417751453
+        ],
+        "projected_gain_db": [
+          -53.15737861024896,
+          -46.246060900378154
+        ],
+        "residual_suppression_db": 18.583598789413752,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.658684599731956,
+        "active_output_snr_db": -0.011457345189955483,
+        "active_input_snr_db": 14.131336701935087,
+        "whole_input_snr_db": 1.7892383231759423e-07,
+        "active_input_si_sdr_db": [
+          14.037182074681416,
+          14.256559036494618
+        ],
+        "active_output_si_sdr_db": [
+          -14.11236829029901,
+          -4.172901361439999
+        ],
+        "inactive_output_energy_fraction": 0.9922030336845856
+      },
+      "wall_seconds": 1.7146138130000281
+    },
+    "mode": "noise_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 3.888168797208058,
+      "common_gain": 0.7028794560703902,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "465f5a80586c622523bf31a6b7f01102f4aaeacada7ef91ec59b39fc34832cf2",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48169395200000054,
+        "inference_seconds": 0.35216549400001895,
+        "output_peak": 0.058452073484659195,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "4276760878ae2b6094bf0d053ad28d6d3e489c508473b82c0f19306b63697375",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07043309880000378,
+      "output_to_input_energy_db": -23.723294027586128,
+      "metrics": {
+        "input_si_sdr_db": [
+          5.022412491975585,
+          4.97831671220981
+        ],
+        "output_si_sdr_db": [
+          -31.582564760217803,
+          -23.66439924537452
+        ],
+        "si_sdri_db": -32.623846604888854,
+        "output_snr_db": -0.03721579503357869,
+        "output_to_reference_energy_db": -22.529414932664764,
+        "input_si_sdr_mean_db": 5.000364602092697,
+        "output_si_sdr_mean_db": -27.62348200279616,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0019008638533592958,
+          -0.005060173521763756
+        ],
+        "projected_gain_db": [
+          -54.42097975477117,
+          -45.91669180449899
+        ],
+        "residual_suppression_db": 17.541303978809623,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.86373758069197,
+        "active_output_snr_db": -0.013549995511435185,
+        "active_input_snr_db": 19.131336497732136,
+        "whole_input_snr_db": 4.999999968274396,
+        "active_input_si_sdr_db": [
+          19.0361348345128,
+          19.25639013880258
+        ],
+        "active_output_si_sdr_db": [
+          -15.188177208902282,
+          -3.4627491302069306
+        ],
+        "inactive_output_energy_fraction": 0.9815268030166717
+      },
+      "wall_seconds": 1.7169303560000344
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_0124_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_0124",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 3.888168797208058,
+      "common_gain": 0.7028794560703902,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "465f5a80586c622523bf31a6b7f01102f4aaeacada7ef91ec59b39fc34832cf2",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48169395200000054,
+        "inference_seconds": 0.35216549400001895,
+        "output_peak": 0.058452073484659195,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "4276760878ae2b6094bf0d053ad28d6d3e489c508473b82c0f19306b63697375",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07043309880000378,
+      "output_to_input_energy_db": -23.723294027586128,
+      "metrics": {
+        "input_si_sdr_db": [
+          5.022412491975585,
+          4.97831671220981
+        ],
+        "output_si_sdr_db": [
+          -31.582564760217803,
+          -23.66439924537452
+        ],
+        "si_sdri_db": -32.623846604888854,
+        "output_snr_db": -0.03721579503357869,
+        "output_to_reference_energy_db": -22.529414932664764,
+        "input_si_sdr_mean_db": 5.000364602092697,
+        "output_si_sdr_mean_db": -27.62348200279616,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0019008638533592958,
+          -0.005060173521763756
+        ],
+        "projected_gain_db": [
+          -54.42097975477117,
+          -45.91669180449899
+        ],
+        "residual_suppression_db": 17.541303978809623,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.86373758069197,
+        "active_output_snr_db": -0.013549995511435185,
+        "active_input_snr_db": 19.131336497732136,
+        "whole_input_snr_db": 4.999999968274396,
+        "active_input_si_sdr_db": [
+          19.0361348345128,
+          19.25639013880258
+        ],
+        "active_output_si_sdr_db": [
+          -15.188177208902282,
+          -3.4627491302069306
+        ],
+        "inactive_output_energy_fraction": 0.9815268030166717
+      },
+      "wall_seconds": 1.7169303560000344
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 44.947302228226185,
+      "common_gain": 0.35568339857397746,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "1f6a135160b105c2dd91b0b56876178bbdad237b219283f6aa139c1dbbd22e63",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4816812619999382,
+        "inference_seconds": 0.3588362899999993,
+        "output_peak": 0.2362932711839676,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "2cabf774474e4a7a71b541ca806a52bea3e3d2c2ca55960d3bd55a0fa80c648b",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07176725799999986,
+      "output_to_input_energy_db": -11.958317850438608,
+      "metrics": {
+        "input_si_sdr_db": [
+          -4.621544197869849,
+          -5.3889308685619675
+        ],
+        "output_si_sdr_db": [
+          -41.1202749171511,
+          -45.4358524560572
+        ],
+        "si_sdri_db": -38.27282615338824,
+        "output_snr_db": -1.014229645831423,
+        "output_to_reference_energy_db": -5.768986334458991,
+        "input_si_sdr_mean_db": -5.005237533215908,
+        "output_si_sdr_mean_db": -43.27806368660415,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.00448641944761319,
+          -0.0027762205408890126
+        ],
+        "projected_gain_db": [
+          -46.9620025095412,
+          -51.13092073634151
+        ],
+        "residual_suppression_db": 10.769239458046343,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.914285935908744,
+        "active_output_snr_db": 0.007497740882214195,
+        "active_input_snr_db": 8.072042452942378,
+        "whole_input_snr_db": -5.000000297251894,
+        "active_input_si_sdr_db": [
+          8.431106386507155,
+          7.699030633669568
+        ],
+        "active_output_si_sdr_db": [
+          -8.688761786458679,
+          -10.058197917949602
+        ],
+        "inactive_output_energy_fraction": 0.999515331978434
+      },
+      "wall_seconds": 1.7259664549999343
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr-5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": -5,
+      "noise_gain": 44.947302228226185,
+      "common_gain": 0.35568339857397746,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "1f6a135160b105c2dd91b0b56876178bbdad237b219283f6aa139c1dbbd22e63",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.4816812619999382,
+        "inference_seconds": 0.3588362899999993,
+        "output_peak": 0.2362932711839676,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "2cabf774474e4a7a71b541ca806a52bea3e3d2c2ca55960d3bd55a0fa80c648b",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07176725799999986,
+      "output_to_input_energy_db": -11.958317850438608,
+      "metrics": {
+        "input_si_sdr_db": [
+          -4.621544197869849,
+          -5.3889308685619675
+        ],
+        "output_si_sdr_db": [
+          -41.1202749171511,
+          -45.4358524560572
+        ],
+        "si_sdri_db": -38.27282615338824,
+        "output_snr_db": -1.014229645831423,
+        "output_to_reference_energy_db": -5.768986334458991,
+        "input_si_sdr_mean_db": -5.005237533215908,
+        "output_si_sdr_mean_db": -43.27806368660415,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.00448641944761319,
+          -0.0027762205408890126
+        ],
+        "projected_gain_db": [
+          -46.9620025095412,
+          -51.13092073634151
+        ],
+        "residual_suppression_db": 10.769239458046343,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -38.914285935908744,
+        "active_output_snr_db": 0.007497740882214195,
+        "active_input_snr_db": 8.072042452942378,
+        "whole_input_snr_db": -5.000000297251894,
+        "active_input_si_sdr_db": [
+          8.431106386507155,
+          7.699030633669568
+        ],
+        "active_output_si_sdr_db": [
+          -8.688761786458679,
+          -10.058197917949602
+        ],
+        "inactive_output_energy_fraction": 0.999515331978434
+      },
+      "wall_seconds": 1.7259664549999343
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 25.27572549875184,
+      "common_gain": 0.6003457570599074,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "1c0b03748b29f875fefa312327fcaca87622b18e323377ad12cad1e79d4492cc",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.47910157799992703,
+        "inference_seconds": 0.3528215449999834,
+        "output_peak": 0.22495371103286743,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8f9a2a88f8e7b78ffc6c709bcc08326f64f3ebe928d16ab7c386074851b0787d",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07056430899999669,
+      "output_to_input_energy_db": -13.782246706882455,
+      "metrics": {
+        "input_si_sdr_db": [
+          0.39541114283300605,
+          -0.391727247361515
+        ],
+        "output_si_sdr_db": [
+          -41.91657938050931,
+          -35.871207990149614
+        ],
+        "si_sdri_db": -38.89573563306521,
+        "output_snr_db": -0.35777780473079357,
+        "output_to_reference_energy_db": -10.77660385959681,
+        "input_si_sdr_mean_db": 0.0018419477357455305,
+        "output_si_sdr_mean_db": -38.89389368532946,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0023024008649477085,
+          -0.0046857296509589036
+        ],
+        "projected_gain_db": [
+          -52.75638120510261,
+          -46.584455443606394
+        ],
+        "residual_suppression_db": 10.777324053292489,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.65447320066288,
+        "active_output_snr_db": -0.010210655725481493,
+        "active_input_snr_db": 13.072042472513953,
+        "whole_input_snr_db": -2.8129576939787823e-07,
+        "active_input_si_sdr_db": [
+          13.448334501750862,
+          12.6966153426279
+        ],
+        "active_output_si_sdr_db": [
+          -13.762740078537705,
+          -4.5103854396215235
+        ],
+        "inactive_output_energy_fraction": 0.9987052456108665
+      },
+      "wall_seconds": 1.7140192300000763
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 25.27572549875184,
+      "common_gain": 0.6003457570599074,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "1c0b03748b29f875fefa312327fcaca87622b18e323377ad12cad1e79d4492cc",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.47910157799992703,
+        "inference_seconds": 0.3528215449999834,
+        "output_peak": 0.22495371103286743,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8f9a2a88f8e7b78ffc6c709bcc08326f64f3ebe928d16ab7c386074851b0787d",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07056430899999669,
+      "output_to_input_energy_db": -13.782246706882455,
+      "metrics": {
+        "input_si_sdr_db": [
+          0.39541114283300605,
+          -0.391727247361515
+        ],
+        "output_si_sdr_db": [
+          -41.91657938050931,
+          -35.871207990149614
+        ],
+        "si_sdri_db": -38.89573563306521,
+        "output_snr_db": -0.35777780473079357,
+        "output_to_reference_energy_db": -10.77660385959681,
+        "input_si_sdr_mean_db": 0.0018419477357455305,
+        "output_si_sdr_mean_db": -38.89389368532946,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0023024008649477085,
+          -0.0046857296509589036
+        ],
+        "projected_gain_db": [
+          -52.75638120510261,
+          -46.584455443606394
+        ],
+        "residual_suppression_db": 10.777324053292489,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.65447320066288,
+        "active_output_snr_db": -0.010210655725481493,
+        "active_input_snr_db": 13.072042472513953,
+        "whole_input_snr_db": -2.8129576939787823e-07,
+        "active_input_si_sdr_db": [
+          13.448334501750862,
+          12.6966153426279
+        ],
+        "active_output_si_sdr_db": [
+          -13.762740078537705,
+          -4.5103854396215235
+        ],
+        "inactive_output_energy_fraction": 0.9987052456108665
+      },
+      "wall_seconds": 1.7140192300000763
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr+0",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 0,
+      "noise_gain": 25.27572549875184,
+      "common_gain": 0.6003457570599074,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "1c0b03748b29f875fefa312327fcaca87622b18e323377ad12cad1e79d4492cc",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.47910157799992703,
+        "inference_seconds": 0.3528215449999834,
+        "output_peak": 0.22495371103286743,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "8f9a2a88f8e7b78ffc6c709bcc08326f64f3ebe928d16ab7c386074851b0787d",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07056430899999669,
+      "output_to_input_energy_db": -13.782246706882455,
+      "metrics": {
+        "input_si_sdr_db": [
+          0.39541114283300605,
+          -0.391727247361515
+        ],
+        "output_si_sdr_db": [
+          -41.91657938050931,
+          -35.871207990149614
+        ],
+        "si_sdri_db": -38.89573563306521,
+        "output_snr_db": -0.35777780473079357,
+        "output_to_reference_energy_db": -10.77660385959681,
+        "input_si_sdr_mean_db": 0.0018419477357455305,
+        "output_si_sdr_mean_db": -38.89389368532946,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0023024008649477085,
+          -0.0046857296509589036
+        ],
+        "projected_gain_db": [
+          -52.75638120510261,
+          -46.584455443606394
+        ],
+        "residual_suppression_db": 10.777324053292489,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.65447320066288,
+        "active_output_snr_db": -0.010210655725481493,
+        "active_input_snr_db": 13.072042472513953,
+        "whole_input_snr_db": -2.8129576939787823e-07,
+        "active_input_si_sdr_db": [
+          13.448334501750862,
+          12.6966153426279
+        ],
+        "active_output_si_sdr_db": [
+          -13.762740078537705,
+          -4.5103854396215235
+        ],
+        "inactive_output_energy_fraction": 0.9987052456108665
+      },
+      "wall_seconds": 1.7140192300000763
+    },
+    "mode": "noise_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 14.213584972115607,
+      "common_gain": 0.678079367042461,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "bc9e610d17c5c99dc2ee7e40c76a68dd8c5d334eafea97ce6b51d2d6aec765e2",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48120685800006413,
+        "inference_seconds": 0.3697404800000186,
+        "output_peak": 0.14393708109855652,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "21499268481a8c5a717555f87e3e319e4cda2ca843ac767441406758c58c81d2",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07394809600000371,
+      "output_to_input_energy_db": -17.426329595333737,
+      "metrics": {
+        "input_si_sdr_db": [
+          5.4049316345744955,
+          4.6067001437239385
+        ],
+        "output_si_sdr_db": [
+          -37.38625494873942,
+          -30.09829358075482
+        ],
+        "si_sdri_db": -38.74809015389634,
+        "output_snr_db": -0.11318540976393202,
+        "output_to_reference_energy_db": -16.23699831746556,
+        "input_si_sdr_mean_db": 5.005815889149217,
+        "output_si_sdr_mean_db": -33.742274264747124,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0020773230474833812,
+          -0.004834588373904285
+        ],
+        "projected_gain_db": [
+          -53.649919209115936,
+          -46.31280993338605
+        ],
+        "residual_suppression_db": 11.239510099909431,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.84431902389716,
+        "active_output_snr_db": -0.011816062893941373,
+        "active_input_snr_db": 18.072042800978153,
+        "whole_input_snr_db": 5.00000004619282,
+        "active_input_si_sdr_db": [
+          18.458007970449252,
+          17.695257109272433
+        ],
+        "active_output_si_sdr_db": [
+          -14.486855180128632,
+          -3.892633702426149
+        ],
+        "inactive_output_energy_fraction": 0.9956424512408202
+      },
+      "wall_seconds": 1.729595904000007
+    },
+    "mode": "zero_prefix",
+    "padding_samples": 66560
+  },
+  {
+    "baseline": {
+      "id": "round1_bsb_0260_bsb_2717_snr+5",
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "recording_group": "DenisChardonnet_horn_session_unknown",
+      "target": "car_horn",
+      "background_id": "bsb_2717",
+      "background_type": "rain",
+      "variant": "original",
+      "position": "start",
+      "onset_sample": 0,
+      "event_samples": 21784,
+      "active_samples": 14112,
+      "duration_seconds": 5.0,
+      "snr_mode": "whole",
+      "nominal_snr_db": 5,
+      "noise_gain": 14.213584972115607,
+      "common_gain": 0.678079367042461,
+      "event_gain_scale": null,
+      "spatial": "original",
+      "input_mode": "recorded_stereo",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "has_reference": true,
+      "status": "processed",
+      "inference": {
+        "status": "processed",
+        "source_file": "input.wav",
+        "source_sha256": "bc9e610d17c5c99dc2ee7e40c76a68dd8c5d334eafea97ce6b51d2d6aec765e2",
+        "output_file": "output.wav",
+        "target": "car_horn",
+        "group_id": "bsb_0260",
+        "duration": 5.0,
+        "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+        "checkpoint": "39.pt",
+        "realtime": false,
+        "model_setup_seconds": 0.48120685800006413,
+        "inference_seconds": 0.3697404800000186,
+        "output_peak": 0.14393708109855652,
+        "output_out_of_range_samples": 0,
+        "output_subtype": "FLOAT",
+        "output_sha256": "21499268481a8c5a717555f87e3e319e4cda2ca843ac767441406758c58c81d2",
+        "input_mode": "recorded_stereo",
+        "input_channels": 2,
+        "genuine_binaural_validated": false,
+        "seed": 20261030,
+        "adapter": "unchanged ../extract.py run()",
+        "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+      },
+      "rtf": 0.07394809600000371,
+      "output_to_input_energy_db": -17.426329595333737,
+      "metrics": {
+        "input_si_sdr_db": [
+          5.4049316345744955,
+          4.6067001437239385
+        ],
+        "output_si_sdr_db": [
+          -37.38625494873942,
+          -30.09829358075482
+        ],
+        "si_sdri_db": -38.74809015389634,
+        "output_snr_db": -0.11318540976393202,
+        "output_to_reference_energy_db": -16.23699831746556,
+        "input_si_sdr_mean_db": 5.005815889149217,
+        "output_si_sdr_mean_db": -33.742274264747124,
+        "si_sdr_status": "defined",
+        "projected_gain_signed": [
+          0.0020773230474833812,
+          -0.004834588373904285
+        ],
+        "projected_gain_db": [
+          -53.649919209115936,
+          -46.31280993338605
+        ],
+        "residual_suppression_db": 11.239510099909431,
+        "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+        "active_output_to_reference_energy_db": -39.84431902389716,
+        "active_output_snr_db": -0.011816062893941373,
+        "active_input_snr_db": 18.072042800978153,
+        "whole_input_snr_db": 5.00000004619282,
+        "active_input_si_sdr_db": [
+          18.458007970449252,
+          17.695257109272433
+        ],
+        "active_output_si_sdr_db": [
+          -14.486855180128632,
+          -3.892633702426149
+        ],
+        "inactive_output_energy_fraction": 0.9956424512408202
+      },
+      "wall_seconds": 1.729595904000007
+    },
+    "mode": "zero_suffix",
+    "padding_samples": 66560
+  }
+]

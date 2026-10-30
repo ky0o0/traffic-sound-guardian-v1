@@ -1,0 +1,4874 @@
+[
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_prefix_416",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 416,
+    "padding_seconds": 0.00943310657596372,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8956293751653549,
+        1.5151140956367097
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6771939290726303,
+      "output_to_reference_energy_db": -2.8599294375101803,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.2053717354010323,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5287432302160286,
+        0.5545640964237573
+      ],
+      "projected_gain_db": [
+        -5.5351036017430015,
+        -5.120965018631727
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.8599291079187648,
+      "active_output_snr_db": 3.6771943515401926,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8971877867303546,
+        1.5150644719746316
+      ],
+      "inactive_output_energy_fraction": 2.5283132539737615e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "069c94187ee7c508b525575531998f51b092e9adc489c48c4765fbc635a8f88d",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.009433106575964,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.7020587659999933,
+      "inference_seconds": 0.5928479549999963,
+      "output_peak": 0.19513709843158722,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "ad136196ccbc9e22e25d9a02527bbc4fac41ce1e98ae150ee1d1aaf10948a04f",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 5.009433106575964,
+    "crop_start_sample": 416,
+    "output_si_sdr_delta_from_baseline_db": 0.08216952276003009,
+    "wall_seconds": 2.50655691099999
+  },
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_prefix_1664",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 1664,
+    "padding_seconds": 0.03773242630385488,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        1.4714402533963564,
+        2.1068106647842884
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 4.020853603417148,
+      "output_to_reference_energy_db": -2.6002900307207213,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.7891254590903225,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5607641220281698,
+        0.5869753684057529
+      ],
+      "projected_gain_db": [
+        -5.024395610658075,
+        -4.627602458519901
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.6002897011229327,
+      "active_output_snr_db": 4.020854087822528,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        1.4730413554744235,
+        2.106752670268161
+      ],
+      "inactive_output_energy_fraction": 2.3815896850298683e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "16064b78ada7c07dd64c5c724fa5b8a189adedbc523a61af80afb28b1184893d",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0377324263038545,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6389273909999815,
+      "inference_seconds": 0.6031214129999967,
+      "output_peak": 0.19673843681812286,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "35e8f4a558d4233816984521c3a97336792b7f7872e6eaa3a7a1bb22c3a35bdb",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 5.0377324263038545,
+    "crop_start_sample": 1664,
+    "output_si_sdr_delta_from_baseline_db": 0.6659232464493203,
+    "wall_seconds": 2.3820393500000137
+  },
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_prefix_6656",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 6656,
+    "padding_seconds": 0.1509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        3.367068829940718,
+        4.316653208933742
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 5.380657643624489,
+      "output_to_reference_energy_db": -1.9159994490732126,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 3.8418610194372302,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.6562743387051153,
+        0.6901214494837647
+      ],
+      "projected_gain_db": [
+        -3.6582915393213393,
+        -3.2214894838269172
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -1.9159991194603465,
+      "active_output_snr_db": 5.38065842735013,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        3.369006201947926,
+        4.316585598707643
+      ],
+      "inactive_output_energy_fraction": 2.0344071920583936e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "d12df683f2c005d00accf0229d4a3bccb2ec47118536be71de95443f8363f61a",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.15092970521542,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6391884150000067,
+      "inference_seconds": 0.6212027839999905,
+      "output_peak": 0.19751161336898804,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "790d477ff0a891a02b8c38673e208883023960343d23c9ed91b8a22aaf7739c4",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 5.15092970521542,
+    "crop_start_sample": 6656,
+    "output_si_sdr_delta_from_baseline_db": 2.718658806796228,
+    "wall_seconds": 2.4073822010000185
+  },
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_prefix_26624",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 26624,
+    "padding_seconds": 0.603718820861678,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        19.97293729182109,
+        25.36077049159911
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 22.116046097555323,
+      "output_to_reference_energy_db": 0.12800708408342434,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 22.666853891710097,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        1.021503652513909,
+        1.0057269341970914
+      ],
+      "projected_gain_db": [
+        0.1847984769082371,
+        0.049601620972481344
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.12800741372945904,
+      "active_output_snr_db": 22.116098273149845,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        20.042358161509384,
+        25.36214299877189
+      ],
+      "inactive_output_energy_fraction": 1.2706830277440292e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "6dcfa34dbac237d72e4cb9fcebbcd1971ddefe8fd96ca421f40c167adbfc384f",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.603718820861678,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6467610109999953,
+      "inference_seconds": 0.6722241979999808,
+      "output_peak": 0.25239047408103943,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "f51c31cb96f3d9780296b84ac59e47f816da4b7f2fd27804b71f65640acb5b43",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 5.603718820861678,
+    "crop_start_sample": 26624,
+    "output_si_sdr_delta_from_baseline_db": 21.543651679069097,
+    "wall_seconds": 2.487606612999997
+  },
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        19.915381690476984,
+        25.279288334336666
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 22.056461724363295,
+      "output_to_reference_energy_db": 0.12226519511457956,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 22.597335012406823,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        1.0218436218084574,
+        1.0043175401151108
+      ],
+      "projected_gain_db": [
+        0.18768876955416622,
+        0.03742095172332232
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.12226552476054062,
+      "active_output_snr_db": 22.05651318451002,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        19.98630013663782,
+        25.281024090795697
+      ],
+      "inactive_output_energy_fraction": 1.2723641327222613e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "88278278b807f225f2736f2f1d81441b8cd8a22f936ed717f540db1840026a15",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6563933990000237,
+      "inference_seconds": 0.8491520770000136,
+      "output_peak": 0.2521427273750305,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "c5b526f8be977852d36f2f123824ebeea7ce62b2e2dd636b7055bfe4514be015",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 21.474132799765822,
+    "wall_seconds": 3.2703277660000083
+  },
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_prefix_88192",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 88192,
+    "padding_seconds": 1.9998185941043083,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        19.915381690398984,
+        25.27928833429688
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 22.056461724300398,
+      "output_to_reference_energy_db": 0.12226519511455236,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 22.597335012347934,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        1.0218436218083609,
+        1.0043175401150959
+      ],
+      "projected_gain_db": [
+        0.18768876955334518,
+        0.03742095172319366
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.12226552476051436,
+      "active_output_snr_db": 22.056513184447123,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        19.98630013655953,
+        25.281024090755736
+      ],
+      "inactive_output_energy_fraction": 1.2723641327222693e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "ae20b94eb720923c194a79dcb5b839d074e86b7ba7d3da9650adfeadff293d26",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.999818594104308,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6471327270000131,
+      "inference_seconds": 0.8899872579999908,
+      "output_peak": 0.2521427273750305,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "0f12cdb96d8d80ae5c2aead181aa191e9555363c215fe512d7f9fdf85532a444",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 6.999818594104308,
+    "crop_start_sample": 88192,
+    "output_si_sdr_delta_from_baseline_db": 21.474132799706933,
+    "wall_seconds": 2.7176065509999887
+  },
+  {
+    "id": "position_bsb_0258_original_quiet_active+0_start_original_gain1_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "position_bsb_0258_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158022090722366,
+        1.4306022162097678
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.6286712308302,
+      "output_to_reference_energy_db": -2.922065949902799,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232022126410022,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611893472696,
+        0.5482175745187711
+      ],
+      "projected_gain_db": [
+        -5.628950060457834,
+        -5.220940923023326
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922065620312966,
+      "active_output_snr_db": 3.6286716449407224,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173962102867873,
+        1.430557834363597
+      ],
+      "inactive_output_energy_fraction": 2.564748891063246e-11
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.8158013730645365,
+        1.4306012431807733
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 3.628670688616917,
+      "output_to_reference_energy_db": -2.922066721769418,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 1.1232013081226548,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5230611226319062,
+        0.5482174984155932
+      ],
+      "projected_gain_db": [
+        -5.628951168325006,
+        -5.220942128792496
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.922066392179585,
+      "active_output_snr_db": 3.6286711027273535,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.8173953747775657,
+        1.4305568615367235
+      ],
+      "inactive_output_energy_fraction": 2.5647474681393977e-11
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "25c6a960751b4112ea3b344f89a9d7088496d090aefaaa3c432592fd5ad99af8",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6389212659999828,
+      "inference_seconds": 0.7817787099999975,
+      "output_peak": 0.19509421288967133,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "5313f1beeb8c6da96132796dfa45a4068b743d67cf60675baf3d5e1abf90ceb8",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2a020055d9090df7c21e091ba9c7bc7c0837b24fd983c4f9822425ac7e87a3a7",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": -9.045183473332941e-07,
+    "wall_seconds": 2.591900414999998
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_prefix_416",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 416,
+    "padding_seconds": 0.00943310657596372,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.1999138807400747,
+        -11.030500866442363
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.05106565877807846,
+      "output_to_reference_energy_db": -38.07489612316074,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -6.615207373591219,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.009350767572224585,
+        0.0023551690385516582
+      ],
+      "projected_gain_db": [
+        -40.58305475859381,
+        -52.55955833226758
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.074764905618146,
+      "active_output_snr_db": 0.05106612819778772,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.1938494718165984,
+        -11.017685053447128
+      ],
+      "inactive_output_energy_fraction": 2.8902129744569257e-05
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "298d987b7fe0915535c6e4bac85b6fdbea6a798660a870efe24178131824d5f9",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.009433106575964,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6371379269999977,
+      "inference_seconds": 0.6076621729999943,
+      "output_peak": 0.0072251190431416035,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "95e7afb19ebcc5c2232953ba19b47e226c0bcabf99341a669dc9e816312317d1",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 5.009433106575964,
+    "crop_start_sample": 416,
+    "output_si_sdr_delta_from_baseline_db": 1.5333430125250649,
+    "wall_seconds": 2.3757885019999776
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_prefix_1664",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 1664,
+    "padding_seconds": 0.03773242630385488,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        0.7372922925529988,
+        -2.227405209038294
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.11262091499999444,
+      "output_to_reference_energy_db": -34.3348394539758,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -0.7450564582426475,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.016262374217768303,
+        0.009571554549464333
+      ],
+      "projected_gain_db": [
+        -35.77632098984054,
+        -40.380350424346204
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -34.334633464098864,
+      "active_output_snr_db": 0.11262523662268684,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        0.742316407784151,
+        -2.2175932488219154
+      ],
+      "inactive_output_energy_fraction": 1.1685512900258226e-05
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "308c79aabb32404b27920cc7159386eeb038170b23b05163dcbe2fb2ae92c31e",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0377324263038545,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6457822560000182,
+      "inference_seconds": 0.6449130340000124,
+      "output_peak": 0.011340838856995106,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "fc643b93ef8a5d095a4efe7b676e29b6c572b1919811ee3481c37722891c898e",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 5.0377324263038545,
+    "crop_start_sample": 1664,
+    "output_si_sdr_delta_from_baseline_db": 7.403493927873637,
+    "wall_seconds": 2.4369084399999963
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_prefix_6656",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 6656,
+    "padding_seconds": 0.1509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -1.955332228634664,
+        -3.763930343835622
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.2134607158446466,
+      "output_to_reference_energy_db": -27.441814426696574,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -2.859631286235143,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.028030347549405178,
+        0.021606800630894145
+      ],
+      "projected_gain_db": [
+        -31.047430347432087,
+        -33.30819070695717
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -27.441568751946438,
+      "active_output_snr_db": 0.21347101015415826,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -1.9541113384641375,
+        -3.761692949704416
+      ],
+      "inactive_output_energy_fraction": 2.5477981853450495e-06
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "4e21e7e4e041acbe59ab421351489fad2debc52a793b57c323ce00af2695a110",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.15092970521542,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6399883240000008,
+      "inference_seconds": 0.6195679850000033,
+      "output_peak": 0.0588802695274353,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "7deb15c5d6400d1919e44897306fb7a24badd96cff65a8672185b6cdaf13bc57",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 5.15092970521542,
+    "crop_start_sample": 6656,
+    "output_si_sdr_delta_from_baseline_db": 5.2889190998811415,
+    "wall_seconds": 2.408734052
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_prefix_26624",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 26624,
+    "padding_seconds": 0.603718820861678,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        16.305226877401648,
+        16.905188080961846
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 16.475158540071785,
+      "output_to_reference_energy_db": 0.18637125970485696,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 16.605207479181747,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        1.0088542391971305,
+        1.012551431430527
+      ],
+      "projected_gain_db": [
+        0.07656846477371035,
+        0.10834183910081284
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.18659750221468294,
+      "active_output_snr_db": 16.481873717487137,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        16.311351910346392,
+        16.914043205217858
+      ],
+      "inactive_output_energy_fraction": 7.022215461616213e-06
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "ae06156b96e96a75e719e31fabe6476afa437b28bdae08a1f7c3763ef38b62c1",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.603718820861678,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6464767219999885,
+      "inference_seconds": 0.6705482030000098,
+      "output_peak": 0.265262246131897,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "d4eb4f69d64afddb26ceab74e407f344ca416620984033cdea3f4011769fcf48",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 5.603718820861678,
+    "crop_start_sample": 26624,
+    "output_si_sdr_delta_from_baseline_db": 24.75375786529803,
+    "wall_seconds": 2.4791936149999856
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        16.14760236867394,
+        16.674760806844567
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 16.29944061780669,
+      "output_to_reference_energy_db": 0.1805119321855582,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 16.411181587759252,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        1.0079010622968299,
+        1.0111588242649794
+      ],
+      "projected_gain_db": [
+        0.06835805871017421,
+        0.09638752496476607
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.18072724630073048,
+      "active_output_snr_db": 16.304926542282494,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        16.15273076513034,
+        16.682091450390892
+      ],
+      "inactive_output_energy_fraction": 9.53855048769047e-06
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "aa7cbf92963f1485b1a7704e1d23bf3c79ad5baabd1de7d4abe3f21b0487c2c7",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6367950679999979,
+      "inference_seconds": 0.7633843039999988,
+      "output_peak": 0.2655829191207886,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "2814bc5bf2968bdcbc6e9e44eb32e06d98c1356fc684b6c668364d32618e8d72",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 24.559731973875536,
+    "wall_seconds": 2.551100649999995
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_prefix_88192",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_prefix",
+    "padding_samples": 88192,
+    "padding_seconds": 1.9998185941043083,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        16.14760236867394,
+        16.674760806844567
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 16.29944061780669,
+      "output_to_reference_energy_db": 0.1805119321855582,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": 16.411181587759252,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        1.0079010622968299,
+        1.0111588242649794
+      ],
+      "projected_gain_db": [
+        0.06835805871017421,
+        0.09638752496476607
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.18072724630073048,
+      "active_output_snr_db": 16.304926542282494,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        16.15273076513034,
+        16.682091450390892
+      ],
+      "inactive_output_energy_fraction": 9.53855048769047e-06
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "f718d36a4e087e9c5a50df4fd74bd34586ef8a77607498cb07a13d683b246a5b",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.999818594104308,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6429210370000078,
+      "inference_seconds": 0.831660286000016,
+      "output_peak": 0.2655829191207886,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "0ada801b0279261309d27b5a5320dc514a146c322cc579cd3ec1a3ad6b74cc16",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 6.999818594104308,
+    "crop_start_sample": 88192,
+    "output_si_sdr_delta_from_baseline_db": 24.559731973875536,
+    "wall_seconds": 2.636028613999997
+  },
+  {
+    "id": "position_bsb_0260_original_quiet_active+0_start_original_gain1_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "baseline_family": "position",
+    "background_id": null,
+    "nominal_snr_db": null,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225495787862357,
+        -13.574551193446332
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679612696725642,
+      "output_to_reference_energy_db": -38.11255925099502,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.148550386116284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935965820663926,
+        0.0017936213878381937
+      ],
+      "projected_gain_db": [
+        -40.97717002060061,
+        -54.92538452044228
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243144929491,
+      "active_output_snr_db": 0.04679628573465881,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.717160411216591,
+        -13.563683166811582
+      ],
+      "inactive_output_energy_fraction": 2.9688633501516213e-05
+    },
+    "metrics": {
+      "input_si_sdr_db": null,
+      "output_si_sdr_db": [
+        -2.7225497085173473,
+        -13.574554262991612
+      ],
+      "si_sdri_db": null,
+      "output_snr_db": 0.04679611530421444,
+      "output_to_reference_energy_db": -38.11256104434759,
+      "input_si_sdr_mean_db": null,
+      "output_si_sdr_mean_db": -8.14855198575448,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.008935964401561297,
+        0.0017936200888281997
+      ],
+      "projected_gain_db": [
+        -40.977171399989246,
+        -54.925390811101835
+      ],
+      "residual_suppression_db": null,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.11243324268506,
+      "active_output_snr_db": 0.046796274072100935,
+      "active_input_snr_db": null,
+      "whole_input_snr_db": null,
+      "active_input_si_sdr_db": null,
+      "active_output_si_sdr_db": [
+        -2.7171605383635526,
+        -13.56368621810849
+      ],
+      "inactive_output_energy_fraction": 2.968864215130089e-05
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "1237b79a78610785ea8e85220a8fe745e73a56ad6e72da1a3bd143eb1734d0c3",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6390941310000073,
+      "inference_seconds": 0.8248165349999965,
+      "output_peak": 0.00785982608795166,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "2e4834d578b5ce789536aa9cbe4fd6a189d5516969a5da83cf0d172a7ff3ae93",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "23593d1d1fd4ca254d4676b70cdff241223ca0b2f67f85e39fbbf405e14ab45a",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": -1.5996381961258521e-06,
+    "wall_seconds": 2.6162601980000204
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr-5_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": -5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -6.139522777045167,
+        -4.134835609927924
+      ],
+      "output_si_sdr_db": [
+        -3.4577154690032614,
+        -2.083908071280094
+      ],
+      "si_sdri_db": 2.366367423344868,
+      "output_snr_db": 1.8726303783473326,
+      "output_to_reference_energy_db": -5.29179415728613,
+      "input_si_sdr_mean_db": -5.137179193486546,
+      "output_si_sdr_mean_db": -2.7708117701416777,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.3083676168180113,
+        0.3324287822296079
+      ],
+      "projected_gain_db": [
+        -10.218624712011383,
+        -9.566027626618563
+      ],
+      "residual_suppression_db": 12.184543037278523,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -5.810889331415123,
+      "active_output_snr_db": 2.1011957056549297,
+      "active_input_snr_db": 0.6115677568287845,
+      "whole_input_snr_db": -5.00000006600192,
+      "active_input_si_sdr_db": [
+        -0.6934000433690919,
+        1.651834676594429
+      ],
+      "active_output_si_sdr_db": [
+        -2.6003880340389003,
+        -1.2738339468635353
+      ],
+      "inactive_output_energy_fraction": 0.11265920256542897
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -6.139522777045167,
+        -4.134835609927924
+      ],
+      "output_si_sdr_db": [
+        2.772449326239995,
+        4.294210906737799
+      ],
+      "si_sdri_db": 8.670509309975444,
+      "output_snr_db": 4.99590109461252,
+      "output_to_reference_energy_db": -0.38030696562106775,
+      "input_si_sdr_mean_db": -5.137179193486546,
+      "output_si_sdr_mean_db": 3.533330116488897,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7912914690038114,
+        0.8053369466964159
+      ],
+      "projected_gain_db": [
+        -2.0332703284307723,
+        -1.8804475237194591
+      ],
+      "residual_suppression_db": 10.584570059073556,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.5411562241406587,
+      "active_output_snr_db": 5.4788290005952565,
+      "active_input_snr_db": 0.6115677568287844,
+      "whole_input_snr_db": -5.00000006600192,
+      "active_input_si_sdr_db": [
+        -0.6934000433690919,
+        1.651834676594429
+      ],
+      "active_output_si_sdr_db": [
+        3.2992638587939638,
+        4.880232528308515
+      ],
+      "inactive_output_energy_fraction": 0.036359506907774085
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "8276bdc94e7c35f546efc236e0430f9f4458e5631447aece2563adf2c295341c",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6408337189999997,
+      "inference_seconds": 0.8011766969999883,
+      "output_peak": 0.32114166021347046,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "6120f0c81c0f207b1579c8df40ee3b966f4b915b9fef87d14837ef2d5192629c",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "44f55da21163c7843c85fc49e952f1f7425ab057702af540a731752003583320",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 6.304141886630575,
+    "wall_seconds": 2.620400641999993
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr-5_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": -5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -6.139522777045167,
+        -4.134835609927924
+      ],
+      "output_si_sdr_db": [
+        -3.4577154690032614,
+        -2.083908071280094
+      ],
+      "si_sdri_db": 2.366367423344868,
+      "output_snr_db": 1.8726303783473326,
+      "output_to_reference_energy_db": -5.29179415728613,
+      "input_si_sdr_mean_db": -5.137179193486546,
+      "output_si_sdr_mean_db": -2.7708117701416777,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.3083676168180113,
+        0.3324287822296079
+      ],
+      "projected_gain_db": [
+        -10.218624712011383,
+        -9.566027626618563
+      ],
+      "residual_suppression_db": 12.184543037278523,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -5.810889331415123,
+      "active_output_snr_db": 2.1011957056549297,
+      "active_input_snr_db": 0.6115677568287845,
+      "whole_input_snr_db": -5.00000006600192,
+      "active_input_si_sdr_db": [
+        -0.6934000433690919,
+        1.651834676594429
+      ],
+      "active_output_si_sdr_db": [
+        -2.6003880340389003,
+        -1.2738339468635353
+      ],
+      "inactive_output_energy_fraction": 0.11265920256542897
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -6.139522777045167,
+        -4.134835609927924
+      ],
+      "output_si_sdr_db": [
+        -3.4576532872925196,
+        -2.0838367940716602
+      ],
+      "si_sdri_db": 2.3664341528044557,
+      "output_snr_db": 1.8726504091435083,
+      "output_to_reference_energy_db": -5.291839065652039,
+      "input_si_sdr_mean_db": -5.137179193486546,
+      "output_si_sdr_mean_db": -2.77074504068209,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.3083675636012806,
+        0.33242872947695734
+      ],
+      "projected_gain_db": [
+        -10.218626210984247,
+        -9.566029004970142
+      ],
+      "residual_suppression_db": 12.184611805087124,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -5.810889905308776,
+      "active_output_snr_db": 2.1011955221374046,
+      "active_input_snr_db": 0.6115677568287844,
+      "whole_input_snr_db": -5.00000006600192,
+      "active_input_si_sdr_db": [
+        -0.6934000433690919,
+        1.651834676594429
+      ],
+      "active_output_si_sdr_db": [
+        -2.600388110107202,
+        -1.2738345406673413
+      ],
+      "inactive_output_energy_fraction": 0.11265014419872113
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "ec29c6cf533785b5184c44cf8e01f1852dc4cf048af4c83babd2c0c985b59d3c",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6327404970000146,
+      "inference_seconds": 0.8004606810000041,
+      "output_peak": 0.24954181909561157,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "e61b707be90de6521f959cdaa8722f3d44bb7002349d24c384e7dd7f48897587",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "44f55da21163c7843c85fc49e952f1f7425ab057702af540a731752003583320",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 6.672945958774434e-05,
+    "wall_seconds": 2.6085513749999905
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr+0_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 0,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        -0.6357303258754238,
+        0.5673638825949693
+      ],
+      "si_sdri_db": 0.0874285909276622,
+      "output_snr_db": 3.0500994229455674,
+      "output_to_reference_energy_db": -3.2554038965612335,
+      "input_si_sdr_mean_db": -0.12161181256788944,
+      "output_si_sdr_mean_db": -0.034183221640227246,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.46341093479823575,
+        0.5048650712156991
+      ],
+      "projected_gain_db": [
+        -6.680674453367757,
+        -5.936493493319883
+      ],
+      "residual_suppression_db": 6.317963302053721,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -3.360042092661179,
+      "active_output_snr_db": 3.149849581108187,
+      "active_input_snr_db": 5.611568049558063,
+      "whole_input_snr_db": 2.2647040374739378e-07,
+      "active_input_si_sdr_db": [
+        4.319649029404344,
+        6.670323186926171
+      ],
+      "active_output_si_sdr_db": [
+        -0.4047475039053776,
+        0.7699347898810233
+      ],
+      "inactive_output_energy_fraction": 0.02380596987151389
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        7.391907157247267,
+        9.283761467188992
+      ],
+      "si_sdri_db": 8.45944612478602,
+      "output_snr_db": 8.883271880672725,
+      "output_to_reference_energy_db": -0.01715066447512429,
+      "input_si_sdr_mean_db": -0.12161181256788944,
+      "output_si_sdr_mean_db": 8.33783431221813,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9354632177031017,
+        0.932042195522806
+      ],
+      "projected_gain_db": [
+        -0.5794656846610446,
+        -0.6112885154118484
+      ],
+      "residual_suppression_db": 9.035336241492816,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.06648009660733184,
+      "active_output_snr_db": 9.278516828696542,
+      "active_input_snr_db": 5.611568049558063,
+      "whole_input_snr_db": 2.2647040374739378e-07,
+      "active_input_si_sdr_db": [
+        4.319649029404344,
+        6.670323186926171
+      ],
+      "active_output_si_sdr_db": [
+        7.75856356947045,
+        9.740274045360334
+      ],
+      "inactive_output_energy_fraction": 0.0112943321075659
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "bbd591293acd9ee5841d975b22ecb1acce90159cfda3fcf4e290431db7a4db18",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6385515779999764,
+      "inference_seconds": 0.7778512839999792,
+      "output_peak": 0.4749501645565033,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "ffd1713b6f7d123f27803790cc33b9c7561e872d012fe61a86ade9a0a7117d5f",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "c4152aa237135becf3f8a6383c26c122fce883f6b11420677e72a6e88f179dd6",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 8.372017533858356,
+    "wall_seconds": 2.590352139999993
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr+0_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 0,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        -0.6357303258754238,
+        0.5673638825949693
+      ],
+      "si_sdri_db": 0.0874285909276622,
+      "output_snr_db": 3.0500994229455674,
+      "output_to_reference_energy_db": -3.2554038965612335,
+      "input_si_sdr_mean_db": -0.12161181256788944,
+      "output_si_sdr_mean_db": -0.034183221640227246,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.46341093479823575,
+        0.5048650712156991
+      ],
+      "projected_gain_db": [
+        -6.680674453367757,
+        -5.936493493319883
+      ],
+      "residual_suppression_db": 6.317963302053721,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -3.360042092661179,
+      "active_output_snr_db": 3.149849581108187,
+      "active_input_snr_db": 5.611568049558063,
+      "whole_input_snr_db": 2.2647040374739378e-07,
+      "active_input_si_sdr_db": [
+        4.319649029404344,
+        6.670323186926171
+      ],
+      "active_output_si_sdr_db": [
+        -0.4047475039053776,
+        0.7699347898810233
+      ],
+      "inactive_output_energy_fraction": 0.02380596987151389
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        -0.6357170446900217,
+        0.5673778048945635
+      ],
+      "si_sdri_db": 0.08744219267016035,
+      "output_snr_db": 3.0501060036371683,
+      "output_to_reference_energy_db": -3.255411060584661,
+      "input_si_sdr_mean_db": -0.12161181256788944,
+      "output_si_sdr_mean_db": -0.0341696198977291,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.46341090732294815,
+        0.5048650473976941
+      ],
+      "projected_gain_db": [
+        -6.68067496834767,
+        -5.93649390309386
+      ],
+      "residual_suppression_db": 6.317977409913186,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -3.3600422384906055,
+      "active_output_snr_db": 3.1498494616325075,
+      "active_input_snr_db": 5.611568049558063,
+      "whole_input_snr_db": 2.2647040374739378e-07,
+      "active_input_si_sdr_db": [
+        4.319649029404344,
+        6.670323186926171
+      ],
+      "active_output_si_sdr_db": [
+        -0.40474768076656287,
+        0.7699345311735656
+      ],
+      "inactive_output_energy_fraction": 0.02380439234177098
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "a845f41baab05ee8396749ada02bf8f85da46791ce85e42c00d9c0a5adb3c77f",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6451071919999833,
+      "inference_seconds": 0.8338284440000052,
+      "output_peak": 0.42070719599723816,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "aae8376e04c0b165839add42a8a3f95e433d43906654257a10782a5398ba9831",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "c4152aa237135becf3f8a6383c26c122fce883f6b11420677e72a6e88f179dd6",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 1.3601742498148273e-05,
+    "wall_seconds": 2.668842490000003
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr+0_noise_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 0,
+    "mode": "noise_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        -0.6357303258754238,
+        0.5673638825949693
+      ],
+      "si_sdri_db": 0.0874285909276622,
+      "output_snr_db": 3.0500994229455674,
+      "output_to_reference_energy_db": -3.2554038965612335,
+      "input_si_sdr_mean_db": -0.12161181256788944,
+      "output_si_sdr_mean_db": -0.034183221640227246,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.46341093479823575,
+        0.5048650712156991
+      ],
+      "projected_gain_db": [
+        -6.680674453367757,
+        -5.936493493319883
+      ],
+      "residual_suppression_db": 6.317963302053721,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -3.360042092661179,
+      "active_output_snr_db": 3.149849581108187,
+      "active_input_snr_db": 5.611568049558063,
+      "whole_input_snr_db": 2.2647040374739378e-07,
+      "active_input_si_sdr_db": [
+        4.319649029404344,
+        6.670323186926171
+      ],
+      "active_output_si_sdr_db": [
+        -0.4047475039053776,
+        0.7699347898810233
+      ],
+      "inactive_output_energy_fraction": 0.02380596987151389
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        7.119663422741191,
+        9.31933480994875
+      ],
+      "si_sdri_db": 8.34111092891286,
+      "output_snr_db": 8.910493526925428,
+      "output_to_reference_energy_db": -0.33953796368381217,
+      "input_si_sdr_mean_db": -0.12161181256788944,
+      "output_si_sdr_mean_db": 8.21949911634497,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.8817091372207196,
+        0.9088400235929075
+      ],
+      "projected_gain_db": [
+        -1.0934931711347249,
+        -0.830251114113497
+      ],
+      "residual_suppression_db": 9.283465924485037,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.3926919581492813,
+      "active_output_snr_db": 9.308341035309898,
+      "active_input_snr_db": 5.611568049558063,
+      "whole_input_snr_db": 2.2647040374739378e-07,
+      "active_input_si_sdr_db": [
+        4.319649029404344,
+        6.670323186926171
+      ],
+      "active_output_si_sdr_db": [
+        7.510945123785868,
+        9.803896871724323
+      ],
+      "inactive_output_energy_fraction": 0.012164640641225072
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "bd28b4fc3500f24dbb77bdae4217557933e57ff40e65b90c7a1f52c5924e11ae",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6319374329999903,
+      "inference_seconds": 0.8097246680000012,
+      "output_peak": 0.4463096559047699,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "5c67e1c8a5ae3d633189581c2cb9a1235e45c6aed6ee54ac9e7b27ac02af87e9",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "c4152aa237135becf3f8a6383c26c122fce883f6b11420677e72a6e88f179dd6",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 8.253682337985197,
+    "wall_seconds": 2.6185938190000115
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr+5_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        3.8801280696525,
+        5.894130391278627
+      ],
+      "output_si_sdr_db": [
+        0.7150550802045093,
+        1.6419734965155863
+      ],
+      "si_sdri_db": -3.7086149421055152,
+      "output_snr_db": 3.672502050424895,
+      "output_to_reference_energy_db": -2.913485965382751,
+      "input_si_sdr_mean_db": 4.887129230465563,
+      "output_si_sdr_mean_db": 1.1785142883600477,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5281963834268613,
+        0.5493142410356519
+      ],
+      "projected_gain_db": [
+        -5.544091534870223,
+        -5.20358283395372
+      ],
+      "residual_suppression_db": 1.6058599118775128,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.9471476655413795,
+      "active_output_snr_db": 3.7126215382548153,
+      "active_input_snr_db": 10.611567762622684,
+      "whole_input_snr_db": 4.99999993901043,
+      "active_input_si_sdr_db": [
+        9.326978028582936,
+        11.680702341747097
+      ],
+      "active_output_si_sdr_db": [
+        0.8018692367143131,
+        1.7167369122511589
+      ],
+      "inactive_output_energy_fraction": 0.007721007516401442
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        3.8801280696525,
+        5.894130391278627
+      ],
+      "output_si_sdr_db": [
+        11.28262690406816,
+        12.946726700665312
+      ],
+      "si_sdri_db": 7.227547571901173,
+      "output_snr_db": 12.376646834887078,
+      "output_to_reference_energy_db": -0.3712791062318069,
+      "input_si_sdr_mean_db": 4.887129230465563,
+      "output_si_sdr_mean_db": 12.114676802366736,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9578395135163728,
+        0.912197971677939
+      ],
+      "projected_gain_db": [
+        -0.3741450216218775,
+        -0.7982179554306158
+      ],
+      "residual_suppression_db": 7.801875972066638,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.3899930494431048,
+      "active_output_snr_db": 12.683566065200349,
+      "active_input_snr_db": 10.611567762622684,
+      "whole_input_snr_db": 4.99999993901043,
+      "active_input_si_sdr_db": [
+        9.326978028582936,
+        11.680702341747097
+      ],
+      "active_output_si_sdr_db": [
+        11.591809418131236,
+        13.32507136899643
+      ],
+      "inactive_output_energy_fraction": 0.004299849644666413
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "f149f73ed583a4df2410e65ce3d41276bb017a98fe80e515048de02c6db4e5f1",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6357935629999929,
+      "inference_seconds": 0.8220255040000097,
+      "output_peak": 0.6130541563034058,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "dc4ada58c5c5679524a7846c1a0cc9b0e571174ed537e274a6158a8ee7707fa6",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2799fa1609d889a77fe3e5ff2c964b6fbb3a7ccb29d103ed1c69109e22aee040",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 10.93616251400669,
+    "wall_seconds": 2.644768239000001
+  },
+  {
+    "id": "round1_bsb_0258_bsb_0124_snr+5_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_0124_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        3.8801280696525,
+        5.894130391278627
+      ],
+      "output_si_sdr_db": [
+        0.7150550802045093,
+        1.6419734965155863
+      ],
+      "si_sdri_db": -3.7086149421055152,
+      "output_snr_db": 3.672502050424895,
+      "output_to_reference_energy_db": -2.913485965382751,
+      "input_si_sdr_mean_db": 4.887129230465563,
+      "output_si_sdr_mean_db": 1.1785142883600477,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5281963834268613,
+        0.5493142410356519
+      ],
+      "projected_gain_db": [
+        -5.544091534870223,
+        -5.20358283395372
+      ],
+      "residual_suppression_db": 1.6058599118775128,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.9471476655413795,
+      "active_output_snr_db": 3.7126215382548153,
+      "active_input_snr_db": 10.611567762622684,
+      "whole_input_snr_db": 4.99999993901043,
+      "active_input_si_sdr_db": [
+        9.326978028582936,
+        11.680702341747097
+      ],
+      "active_output_si_sdr_db": [
+        0.8018692367143131,
+        1.7167369122511589
+      ],
+      "inactive_output_energy_fraction": 0.007721007516401442
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        3.8801280696525,
+        5.894130391278627
+      ],
+      "output_si_sdr_db": [
+        0.7150576298197714,
+        1.641976252356957
+      ],
+      "si_sdri_db": -3.7086122893771987,
+      "output_snr_db": 3.672503457143489,
+      "output_to_reference_energy_db": -2.9134877482853057,
+      "input_si_sdr_mean_db": 4.887129230465563,
+      "output_si_sdr_mean_db": 1.1785169410883642,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5281963438887666,
+        0.549314200428779
+      ],
+      "projected_gain_db": [
+        -5.544092185051765,
+        -5.203583476039439
+      ],
+      "residual_suppression_db": 1.6058632254568925,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.9471479853874354,
+      "active_output_snr_db": 3.7126211964308786,
+      "active_input_snr_db": 10.611567762622684,
+      "whole_input_snr_db": 4.99999993901043,
+      "active_input_si_sdr_db": [
+        9.326978028582936,
+        11.680702341747097
+      ],
+      "active_output_si_sdr_db": [
+        0.8018686970294389,
+        1.7167362927899708
+      ],
+      "inactive_output_energy_fraction": 0.007720673236198719
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "6c9789f599e165d40e67e2215defac8039066247cc5354e6b8f0ef58865e16d4",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.639446405000001,
+      "inference_seconds": 0.8437774359999821,
+      "output_peak": 0.5601509213447571,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "91b18cc847e2c350d4debf27780d69e5482e093ba66baded10a389f5ce8cf10a",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2799fa1609d889a77fe3e5ff2c964b6fbb3a7ccb29d103ed1c69109e22aee040",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 2.6527283165656e-06,
+    "wall_seconds": 2.6722350929999834
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr-5_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": -5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -5.798056910880404,
+        -4.595177577650118
+      ],
+      "output_si_sdr_db": [
+        -6.152828522422213,
+        -3.856221393612608
+      ],
+      "si_sdri_db": 0.19209228624785002,
+      "output_snr_db": 0.4055867899808163,
+      "output_to_reference_energy_db": -0.9029359486123292,
+      "input_si_sdr_mean_db": -5.19661724426526,
+      "output_si_sdr_mean_db": -5.00452495801741,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.40976891261164317,
+        0.4772477610586255
+      ],
+      "projected_gain_db": [
+        -7.749219854437883,
+        -6.425122007231333
+      ],
+      "residual_suppression_db": 7.160676625192109,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.6115602594585203,
+      "active_output_snr_db": 1.8933921293868394,
+      "active_input_snr_db": 1.1815463194751876,
+      "whole_input_snr_db": -5.000000048258496,
+      "active_input_si_sdr_db": [
+        0.49300542466035213,
+        1.4942218047464093
+      ],
+      "active_output_si_sdr_db": [
+        -3.2606116411989334,
+        -1.6901360955416136
+      ],
+      "inactive_output_energy_fraction": 0.3252583233952035
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -5.798056910880403,
+        -4.595177577650118
+      ],
+      "output_si_sdr_db": [
+        -1.2495363201701735,
+        0.8488907656797535
+      ],
+      "si_sdri_db": 4.99629446702005,
+      "output_snr_db": 1.565553386779392,
+      "output_to_reference_energy_db": 1.1947150844699828,
+      "input_si_sdr_mean_db": -5.19661724426526,
+      "output_si_sdr_mean_db": -0.20032277724520997,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7748697362263783,
+        0.8321917048456706
+      ],
+      "projected_gain_db": [
+        -2.215426016791334,
+        -1.5955323499940064
+      ],
+      "residual_suppression_db": 6.802469568881218,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.2220246749257907,
+      "active_output_snr_db": 3.6337259465279277,
+      "active_input_snr_db": 1.1815463194751876,
+      "whole_input_snr_db": -5.000000048258496,
+      "active_input_si_sdr_db": [
+        0.49300542466035213,
+        1.4942218047464093
+      ],
+      "active_output_si_sdr_db": [
+        1.1194878646045363,
+        2.936226038656548
+      ],
+      "inactive_output_energy_fraction": 0.2006611413080153
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "879dce0c8648f3243d80f0d2d7fcb13eb04cc7958f8b13096d2952b94805eef2",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6430325169999946,
+      "inference_seconds": 0.839378044,
+      "output_peak": 0.38514071702957153,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "79ccee4bb19143ca355b75b6965c7c4de13949d9b0c7743a7eaf625829ef27f2",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "85d407892d48d1fd67c6f1ea11817b0d88957e75aadd5d30d98bb12e14eb15bd",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 4.8042021807722,
+    "wall_seconds": 2.667869465999985
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr-5_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": -5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -5.798056910880404,
+        -4.595177577650118
+      ],
+      "output_si_sdr_db": [
+        -6.152828522422213,
+        -3.856221393612608
+      ],
+      "si_sdri_db": 0.19209228624785002,
+      "output_snr_db": 0.4055867899808163,
+      "output_to_reference_energy_db": -0.9029359486123292,
+      "input_si_sdr_mean_db": -5.19661724426526,
+      "output_si_sdr_mean_db": -5.00452495801741,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.40976891261164317,
+        0.4772477610586255
+      ],
+      "projected_gain_db": [
+        -7.749219854437883,
+        -6.425122007231333
+      ],
+      "residual_suppression_db": 7.160676625192109,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.6115602594585203,
+      "active_output_snr_db": 1.8933921293868394,
+      "active_input_snr_db": 1.1815463194751876,
+      "whole_input_snr_db": -5.000000048258496,
+      "active_input_si_sdr_db": [
+        0.49300542466035213,
+        1.4942218047464093
+      ],
+      "active_output_si_sdr_db": [
+        -3.2606116411989334,
+        -1.6901360955416136
+      ],
+      "inactive_output_energy_fraction": 0.3252583233952035
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -5.798056910880403,
+        -4.595177577650118
+      ],
+      "output_si_sdr_db": [
+        -6.152828259489823,
+        -3.8562177671368985
+      ],
+      "si_sdri_db": 0.19209423095189937,
+      "output_snr_db": 0.4055887920857141,
+      "output_to_reference_energy_db": -0.9029389253109531,
+      "input_si_sdr_mean_db": -5.19661724426526,
+      "output_si_sdr_mean_db": -5.004523013313361,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.4097688437597857,
+        0.4772476850366581
+      ],
+      "projected_gain_db": [
+        -7.749221313893853,
+        -6.425123390828125
+      ],
+      "residual_suppression_db": 7.160680164220774,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.6115612628992606,
+      "active_output_snr_db": 1.8933920607923218,
+      "active_input_snr_db": 1.1815463194751876,
+      "whole_input_snr_db": -5.000000048258496,
+      "active_input_si_sdr_db": [
+        0.49300542466035213,
+        1.4942218047464093
+      ],
+      "active_output_si_sdr_db": [
+        -3.2606121308692955,
+        -1.6901366062747631
+      ],
+      "inactive_output_energy_fraction": 0.3252580168198974
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "4fdca00bf304e8946076e0e51d6d64b535db558f367505cc0519c117a415f909",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6361051330000009,
+      "inference_seconds": 0.8043271549999815,
+      "output_peak": 0.356729120016098,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "8fea917124da74236ba866e77522ca4474995f2f4f27c545bcd1b76a0a164d9a",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "85d407892d48d1fd67c6f1ea11817b0d88957e75aadd5d30d98bb12e14eb15bd",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 1.944704049350321e-06,
+    "wall_seconds": 2.6384230839999816
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr+0_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 0,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837415,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        -1.6763457424765538,
+        -0.25605397066419056
+      ],
+      "si_sdri_db": -0.8163355156475541,
+      "output_snr_db": 2.4487575233653462,
+      "output_to_reference_energy_db": -1.7301247618054216,
+      "input_si_sdr_mean_db": -0.14986434092281806,
+      "output_si_sdr_mean_db": -0.9661998565703722,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5245155065764128,
+        0.568502480387194
+      ],
+      "projected_gain_db": [
+        -5.604833359283724,
+        -4.905352722739656
+      ],
+      "residual_suppression_db": 4.351895302253864,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.294789782898738,
+      "active_output_snr_db": 3.1233137411020118,
+      "active_input_snr_db": 6.181546142985821,
+      "whole_input_snr_db": -2.228699391782541e-07,
+      "active_input_si_sdr_db": [
+        5.52944084846322,
+        6.551295124102763
+      ],
+      "active_output_si_sdr_db": [
+        -0.37788973088622385,
+        0.6917661324040157
+      ],
+      "inactive_output_energy_fraction": 0.12192125442616483
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837413,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        4.825454915880881,
+        6.200030696611668
+      ],
+      "si_sdri_db": 5.662607147169092,
+      "output_snr_db": 6.029321208944336,
+      "output_to_reference_energy_db": 0.5720969590791252,
+      "input_si_sdr_mean_db": -0.14986434092281795,
+      "output_si_sdr_mean_db": 5.512742806246274,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9543106777593836,
+        0.9400857206001041
+      ],
+      "projected_gain_db": [
+        -0.40620433670403994,
+        -0.5366508793621052
+      ],
+      "residual_suppression_db": 6.082088965574714,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": 0.2487196386636611,
+      "active_output_snr_db": 7.756238878425691,
+      "active_input_snr_db": 6.181546142985821,
+      "whole_input_snr_db": -2.2286993917825403e-07,
+      "active_input_si_sdr_db": [
+        5.52944084846322,
+        6.551295124102763
+      ],
+      "active_output_si_sdr_db": [
+        6.688433549436352,
+        7.856048692979818
+      ],
+      "inactive_output_energy_fraction": 0.07175581986017118
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "8a0a338a363ec7988b57540e21e1ebe83b723d7ea36d8723bc1124d085848012",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6446098929999948,
+      "inference_seconds": 0.8501740179999899,
+      "output_peak": 0.5371298789978027,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "22dacdde08d94e57322c4788d73f5874a3c9d7545a1b5c44fe83d38bae65a6dc",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "6b00a78b49afa1f4b6ae272527c635032de4dc33c927d94648e6d185d9f20cf0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 6.478942662816647,
+    "wall_seconds": 2.662234880000028
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr+0_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 0,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837415,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        -1.6763457424765538,
+        -0.25605397066419056
+      ],
+      "si_sdri_db": -0.8163355156475541,
+      "output_snr_db": 2.4487575233653462,
+      "output_to_reference_energy_db": -1.7301247618054216,
+      "input_si_sdr_mean_db": -0.14986434092281806,
+      "output_si_sdr_mean_db": -0.9661998565703722,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5245155065764128,
+        0.568502480387194
+      ],
+      "projected_gain_db": [
+        -5.604833359283724,
+        -4.905352722739656
+      ],
+      "residual_suppression_db": 4.351895302253864,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.294789782898738,
+      "active_output_snr_db": 3.1233137411020118,
+      "active_input_snr_db": 6.181546142985821,
+      "whole_input_snr_db": -2.228699391782541e-07,
+      "active_input_si_sdr_db": [
+        5.52944084846322,
+        6.551295124102763
+      ],
+      "active_output_si_sdr_db": [
+        -0.37788973088622385,
+        0.6917661324040157
+      ],
+      "inactive_output_energy_fraction": 0.12192125442616483
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837413,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        -1.676345149724964,
+        -0.25605198504477455
+      ],
+      "si_sdri_db": -0.8163342264620512,
+      "output_snr_db": 2.4487585163060066,
+      "output_to_reference_energy_db": -1.7301258720942378,
+      "input_si_sdr_mean_db": -0.14986434092281795,
+      "output_si_sdr_mean_db": -0.9661985673848692,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5245154907328071,
+        0.5685024521130722
+      ],
+      "projected_gain_db": [
+        -5.6048336216512045,
+        -4.905353154727055
+      ],
+      "residual_suppression_db": 4.351897043043848,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.2947899804281384,
+      "active_output_snr_db": 3.123313609712848,
+      "active_input_snr_db": 6.181546142985821,
+      "whole_input_snr_db": -2.2286993917825403e-07,
+      "active_input_si_sdr_db": [
+        5.52944084846322,
+        6.551295124102763
+      ],
+      "active_output_si_sdr_db": [
+        -0.3778899511971311,
+        0.6917658385677917
+      ],
+      "inactive_output_energy_fraction": 0.12192106987978911
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "fef243cff63f706d362b6ae13f5660c86d4f32053c90f6bdc8a8d43d8dec5afe",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6295001500000126,
+      "inference_seconds": 0.8185697289999894,
+      "output_peak": 0.5313133597373962,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "180f5b1d5537322baf0238edff1bdce847a6a64eec2db6c8f264db820499487a",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "6b00a78b49afa1f4b6ae272527c635032de4dc33c927d94648e6d185d9f20cf0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 1.289185503017265e-06,
+    "wall_seconds": 2.623626984999987
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr+0_noise_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 0,
+    "mode": "noise_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837415,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        -1.6763457424765538,
+        -0.25605397066419056
+      ],
+      "si_sdri_db": -0.8163355156475541,
+      "output_snr_db": 2.4487575233653462,
+      "output_to_reference_energy_db": -1.7301247618054216,
+      "input_si_sdr_mean_db": -0.14986434092281806,
+      "output_si_sdr_mean_db": -0.9661998565703722,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5245155065764128,
+        0.568502480387194
+      ],
+      "projected_gain_db": [
+        -5.604833359283724,
+        -4.905352722739656
+      ],
+      "residual_suppression_db": 4.351895302253864,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.294789782898738,
+      "active_output_snr_db": 3.1233137411020118,
+      "active_input_snr_db": 6.181546142985821,
+      "whole_input_snr_db": -2.228699391782541e-07,
+      "active_input_si_sdr_db": [
+        5.52944084846322,
+        6.551295124102763
+      ],
+      "active_output_si_sdr_db": [
+        -0.37788973088622385,
+        0.6917661324040157
+      ],
+      "inactive_output_energy_fraction": 0.12192125442616483
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837413,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        4.705179546574746,
+        6.471347282013209
+      ],
+      "si_sdri_db": 5.738127755216795,
+      "output_snr_db": 6.321104764363865,
+      "output_to_reference_energy_db": 0.2931710969452237,
+      "input_si_sdr_mean_db": -0.14986434092281795,
+      "output_si_sdr_mean_db": 5.588263414293977,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9052948092584763,
+        0.9267415615519473
+      ],
+      "projected_gain_db": [
+        -0.8641993952381432,
+        -0.6608271950019071
+      ],
+      "residual_suppression_db": 6.449875397241589,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.0525327138132095,
+      "active_output_snr_db": 8.197955526014935,
+      "active_input_snr_db": 6.181546142985821,
+      "whole_input_snr_db": -2.2286993917825403e-07,
+      "active_input_si_sdr_db": [
+        5.52944084846322,
+        6.551295124102763
+      ],
+      "active_output_si_sdr_db": [
+        6.7630894340091245,
+        8.324354611134773
+      ],
+      "inactive_output_energy_fraction": 0.07651555225367246
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "d5a5f47aef80253b79fc9c3372cb73290fb46961b5f6c4e3389a5f5b6a4bb2e1",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6347693429999879,
+      "inference_seconds": 0.8609792610000113,
+      "output_peak": 0.5341291427612305,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "a3d62e354a33bcd7dc3aff0028048cc4abbaca676e38dae322e7c169560e9498",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "6b00a78b49afa1f4b6ae272527c635032de4dc33c927d94648e6d185d9f20cf0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 6.55446327086435,
+    "wall_seconds": 2.669419263000009
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr+5_zero_prefix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        4.258791282258815,
+        5.49383281022335
+      ],
+      "output_si_sdr_db": [
+        0.33917962836694315,
+        1.3511975837825172
+      ],
+      "si_sdri_db": -4.031123440166352,
+      "output_snr_db": 3.503613839385796,
+      "output_to_reference_energy_db": -2.3990456828532096,
+      "input_si_sdr_mean_db": 4.8763120462410825,
+      "output_si_sdr_mean_db": 0.8451886060747302,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5515567536309132,
+        0.573137512514284
+      ],
+      "projected_gain_db": [
+        -5.168195864998163,
+        -4.834823310698572
+      ],
+      "residual_suppression_db": 0.9068309885627255,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.59276443281516,
+      "active_output_snr_db": 3.7550873365643875,
+      "active_input_snr_db": 11.181546801706357,
+      "whole_input_snr_db": 5.000000435201308,
+      "active_input_si_sdr_db": [
+        10.549863799528792,
+        11.583226597756402
+      ],
+      "active_output_si_sdr_db": [
+        0.8711073723796808,
+        1.7374746320120176
+      ],
+      "inactive_output_energy_fraction": 0.04362527072674475
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        4.258791282258815,
+        5.49383281022335
+      ],
+      "output_si_sdr_db": [
+        9.581364904955146,
+        10.635712221831186
+      ],
+      "si_sdri_db": 5.232226517152084,
+      "output_snr_db": 10.49534786340368,
+      "output_to_reference_energy_db": -0.14743327048011964,
+      "input_si_sdr_mean_db": 4.8763120462410825,
+      "output_si_sdr_mean_db": 10.108538563393166,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9676273987708184,
+        0.9200390260898127
+      ],
+      "projected_gain_db": [
+        -0.2858368581562115,
+        -0.723875008393578
+      ],
+      "residual_suppression_db": 5.711028693159317,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.2617375769727997,
+      "active_output_snr_db": 11.930650507311872,
+      "active_input_snr_db": 11.181546801706357,
+      "whole_input_snr_db": 5.000000435201308,
+      "active_input_si_sdr_db": [
+        10.549863799528792,
+        11.583226597756404
+      ],
+      "active_output_si_sdr_db": [
+        11.222169577677866,
+        12.062725847764614
+      ],
+      "inactive_output_energy_fraction": 0.025976272872710683
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "4990c3f0f3191fd6b34e1ebae995c015fac8dd86f17563a714bb84a9c872f531",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6365703120000035,
+      "inference_seconds": 0.8155346350000059,
+      "output_peak": 0.638165295124054,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "11ad11a2e9ea2e23104e7ff91ced2991c48053b08c5ace299f44132e1c6479da",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2212b6020158f6e06524da4678d6669cb52179cd47b874d8ab01f71fe35ba4f0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 9.263349957318436,
+    "wall_seconds": 2.63352199900001
+  },
+  {
+    "id": "round1_bsb_0258_bsb_2717_snr+5_zero_suffix_66560",
+    "source_id": "bsb_0258",
+    "baseline_id": "round1_bsb_0258_bsb_2717_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        4.258791282258815,
+        5.49383281022335
+      ],
+      "output_si_sdr_db": [
+        0.33917962836694315,
+        1.3511975837825172
+      ],
+      "si_sdri_db": -4.031123440166352,
+      "output_snr_db": 3.503613839385796,
+      "output_to_reference_energy_db": -2.3990456828532096,
+      "input_si_sdr_mean_db": 4.8763120462410825,
+      "output_si_sdr_mean_db": 0.8451886060747302,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5515567536309132,
+        0.573137512514284
+      ],
+      "projected_gain_db": [
+        -5.168195864998163,
+        -4.834823310698572
+      ],
+      "residual_suppression_db": 0.9068309885627255,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.59276443281516,
+      "active_output_snr_db": 3.7550873365643875,
+      "active_input_snr_db": 11.181546801706357,
+      "whole_input_snr_db": 5.000000435201308,
+      "active_input_si_sdr_db": [
+        10.549863799528792,
+        11.583226597756402
+      ],
+      "active_output_si_sdr_db": [
+        0.8711073723796808,
+        1.7374746320120176
+      ],
+      "inactive_output_energy_fraction": 0.04362527072674475
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        4.258791282258815,
+        5.49383281022335
+      ],
+      "output_si_sdr_db": [
+        0.3391794302642207,
+        1.3511981707729852
+      ],
+      "si_sdri_db": -4.03112324572248,
+      "output_snr_db": 3.503614039194339,
+      "output_to_reference_energy_db": -2.39904640773283,
+      "input_si_sdr_mean_db": 4.8763120462410825,
+      "output_si_sdr_mean_db": 0.845188800518603,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.5515567136907976,
+        0.573137472810407
+      ],
+      "projected_gain_db": [
+        -5.168196493973234,
+        -4.834823912410201
+      ],
+      "residual_suppression_db": 0.9068318508247348,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.592764817485902,
+      "active_output_snr_db": 3.755087060464964,
+      "active_input_snr_db": 11.181546801706357,
+      "whole_input_snr_db": 5.000000435201308,
+      "active_input_si_sdr_db": [
+        10.549863799528792,
+        11.583226597756404
+      ],
+      "active_output_si_sdr_db": [
+        0.8711069337404538,
+        1.7374741431837457
+      ],
+      "inactive_output_energy_fraction": 0.043625195808181604
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "39c9cc201c9cc8eb4f905645377fc76411f9c87de1b708df4e2463f65e86ffbf",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6425723380000079,
+      "inference_seconds": 0.8250080079999975,
+      "output_peak": 0.6379201412200928,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "020d03a609f8102fa5cd55fdfa0d73721cc7025203f8b33a49ca1c109029443b",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "2212b6020158f6e06524da4678d6669cb52179cd47b874d8ab01f71fe35ba4f0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 1.9444387278078068e-07,
+    "wall_seconds": 2.656676933
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr-5_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": -5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -4.975523077381392,
+        -5.020529699376366
+      ],
+      "output_si_sdr_db": [
+        -32.30409489776419,
+        -36.695940593440575
+      ],
+      "si_sdri_db": -29.5019913572235,
+      "output_snr_db": -0.1516776547326409,
+      "output_to_reference_energy_db": -14.309281167006212,
+      "input_si_sdr_mean_db": -4.998026388378879,
+      "output_si_sdr_mean_db": -34.50001774560238,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.004374607248328899,
+        -0.0029893500393629656
+      ],
+      "projected_gain_db": [
+        -47.18121863587409,
+        -50.48846456128865
+      ],
+      "residual_suppression_db": 19.311809028621006,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.923111391501955,
+      "active_output_snr_db": 0.006097919864906589,
+      "active_input_snr_db": 9.131336550292433,
+      "whole_input_snr_db": -4.999999972074701,
+      "active_input_si_sdr_db": [
+        9.03904362788759,
+        9.256858881288188
+      ],
+      "active_output_si_sdr_db": [
+        -8.875901648658614,
+        -9.433571500359466
+      ],
+      "inactive_output_energy_fraction": 0.9965438601815938
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -4.975523077381392,
+        -5.020529699376366
+      ],
+      "output_si_sdr_db": [
+        7.868045929677594,
+        7.332416699171876
+      ],
+      "si_sdri_db": 12.598257702803615,
+      "output_snr_db": 8.082604911976292,
+      "output_to_reference_energy_db": 0.06116958868989316,
+      "input_si_sdr_mean_db": -4.998026388378879,
+      "output_si_sdr_mean_db": 7.600231314424735,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9196590045687493,
+        0.9394151890782284
+      ],
+      "projected_gain_db": [
+        -0.7274634506096234,
+        -0.542848442784353
+      ],
+      "residual_suppression_db": 13.227633730799154,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.26986250502918424,
+      "active_output_snr_db": 10.914086517309165,
+      "active_input_snr_db": 9.131336550292433,
+      "whole_input_snr_db": -4.999999972074701,
+      "active_input_si_sdr_db": [
+        9.03904362788759,
+        9.256858881288188
+      ],
+      "active_output_si_sdr_db": [
+        10.507672331042993,
+        10.628396643044962
+      ],
+      "inactive_output_energy_fraction": 0.07344518633852365
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "bf64267901d03a3571bea33fb7f1ecaf8db4ab98a64b8ca21e1cc0caebe3fa80",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6483394840000187,
+      "inference_seconds": 0.8139395469999897,
+      "output_peak": 0.5198844075202942,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "2f21de9c2081952aed12847cb2e8a41ce1fe70aa2dc55fbfb1c9a5b6e82a8779",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "4b1a8e03c50d67f1e33df4f5bd24e88a06fab32a292ccd1dfcc82b1c2a4b64ce",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 42.10024906002711,
+    "wall_seconds": 2.604761408999991
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr-5_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": -5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -4.975523077381392,
+        -5.020529699376366
+      ],
+      "output_si_sdr_db": [
+        -32.30409489776419,
+        -36.695940593440575
+      ],
+      "si_sdri_db": -29.5019913572235,
+      "output_snr_db": -0.1516776547326409,
+      "output_to_reference_energy_db": -14.309281167006212,
+      "input_si_sdr_mean_db": -4.998026388378879,
+      "output_si_sdr_mean_db": -34.50001774560238,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.004374607248328899,
+        -0.0029893500393629656
+      ],
+      "projected_gain_db": [
+        -47.18121863587409,
+        -50.48846456128865
+      ],
+      "residual_suppression_db": 19.311809028621006,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.923111391501955,
+      "active_output_snr_db": 0.006097919864906589,
+      "active_input_snr_db": 9.131336550292433,
+      "whole_input_snr_db": -4.999999972074701,
+      "active_input_si_sdr_db": [
+        9.03904362788759,
+        9.256858881288188
+      ],
+      "active_output_si_sdr_db": [
+        -8.875901648658614,
+        -9.433571500359466
+      ],
+      "inactive_output_energy_fraction": 0.9965438601815938
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -4.975523077381392,
+        -5.020529699376366
+      ],
+      "output_si_sdr_db": [
+        -32.30380215032543,
+        -36.69558775084391
+      ],
+      "si_sdri_db": -29.50166856220579,
+      "output_snr_db": -0.15166600204654326,
+      "output_to_reference_energy_db": -14.309607002324036,
+      "input_si_sdr_mean_db": -4.998026388378879,
+      "output_si_sdr_mean_db": -34.49969495058467,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.004374605582486875,
+        -0.0029893515377227235
+      ],
+      "projected_gain_db": [
+        -47.18122194344478,
+        -50.488460207638504
+      ],
+      "residual_suppression_db": 19.312134042050197,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.92311171877698,
+      "active_output_snr_db": 0.006097907078855961,
+      "active_input_snr_db": 9.131336550292433,
+      "whole_input_snr_db": -4.999999972074701,
+      "active_input_si_sdr_db": [
+        9.03904362788759,
+        9.256858881288188
+      ],
+      "active_output_si_sdr_db": [
+        -8.875903644132947,
+        -9.433567498001707
+      ],
+      "inactive_output_energy_fraction": 0.9965436011307616
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "2313482ec07b1e48d2b4b30483a178a37e2defe626d2f7b8ebe12fde2f16c281",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.638796023999987,
+      "inference_seconds": 0.7890158120000024,
+      "output_peak": 0.08083850890398026,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "bcc0bd24ab3bf91bb5b8b17935d0c38f4cf7b8c88972ae281ee054556dd37d75",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "4b1a8e03c50d67f1e33df4f5bd24e88a06fab32a292ccd1dfcc82b1c2a4b64ce",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 0.0003227950177091543,
+    "wall_seconds": 2.5797727639999835
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr+0_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 0,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.051193246497405,
+        -28.146797791057043
+      ],
+      "si_sdri_db": -31.099939481042664,
+      "output_snr_db": -0.07067114990306587,
+      "output_to_reference_energy_db": -18.57819791922436,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.098995518777222,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0021985232840266013,
+        -0.00487188417751453
+      ],
+      "projected_gain_db": [
+        -53.15737861024896,
+        -46.246060900378154
+      ],
+      "residual_suppression_db": 18.583598789413752,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.658684599731956,
+      "active_output_snr_db": -0.011457345189955483,
+      "active_input_snr_db": 14.131336701935087,
+      "whole_input_snr_db": 1.7892383231759423e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.11236829029901,
+        -4.172901361439999
+      ],
+      "inactive_output_energy_fraction": 0.9922030336845856
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        8.78915851546203,
+        8.72538440264041
+      ],
+      "si_sdri_db": 8.75632749678578,
+      "output_snr_db": 8.959666277463702,
+      "output_to_reference_energy_db": -1.4900370810798549,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": 8.757271459051221,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7809054345218407,
+        0.8020191883045907
+      ],
+      "projected_gain_db": [
+        -2.1480310958708877,
+        -1.9163048219697956
+      ],
+      "residual_suppression_db": 10.7898683295607,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -1.645852045087741,
+      "active_output_snr_db": 9.913247342106343,
+      "active_input_snr_db": 14.131336701935087,
+      "whole_input_snr_db": 1.7892383231759423e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        10.151221050791005,
+        10.471479379074998
+      ],
+      "inactive_output_energy_fraction": 0.03529877582963978
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "8c00a80b30c92ee0fe7b3ad389421bda998f9f0a7f9ea451d76c3c7fee3135e9",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6312618489999977,
+      "inference_seconds": 0.8217076350000241,
+      "output_peak": 0.6409410238265991,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "9a09ad147de85d21328ebce338d2bd1d102432bbdb297e4fbe336640a1f90617",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "50eddbaa0595d2bde135a287732c5f7142f9ef1875ac40a10be7206080d21d5e",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 39.85626697782844,
+    "wall_seconds": 2.6086694649999913
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr+0_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 0,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.051193246497405,
+        -28.146797791057043
+      ],
+      "si_sdri_db": -31.099939481042664,
+      "output_snr_db": -0.07067114990306587,
+      "output_to_reference_energy_db": -18.57819791922436,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.098995518777222,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0021985232840266013,
+        -0.00487188417751453
+      ],
+      "projected_gain_db": [
+        -53.15737861024896,
+        -46.246060900378154
+      ],
+      "residual_suppression_db": 18.583598789413752,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.658684599731956,
+      "active_output_snr_db": -0.011457345189955483,
+      "active_input_snr_db": 14.131336701935087,
+      "whole_input_snr_db": 1.7892383231759423e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.11236829029901,
+        -4.172901361439999
+      ],
+      "inactive_output_energy_fraction": 0.9922030336845856
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.0509417510936,
+        -28.14649559412896
+      ],
+      "si_sdri_db": -31.099662634876726,
+      "output_snr_db": -0.07066733123009668,
+      "output_to_reference_energy_db": -18.57847761911257,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.098718672611284,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0021985234227323716,
+        -0.004871884199646204
+      ],
+      "projected_gain_db": [
+        -53.1573780622525,
+        -46.246060860920466
+      ],
+      "residual_suppression_db": 18.583877792630354,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.6586844927215,
+      "active_output_snr_db": -0.011457344118139885,
+      "active_input_snr_db": 14.131336701935087,
+      "whole_input_snr_db": 1.7892383231759423e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.112366973852033,
+        -4.172901734349602
+      ],
+      "inactive_output_energy_fraction": 0.9922025313260856
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "ca5852c47e6795cccf6fba4abd5d034f3e0274544ca4d68e0ceb8375b1a41b24",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6357734610000136,
+      "inference_seconds": 0.8004229880000082,
+      "output_peak": 0.0767231360077858,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "6d0a2f5956db9187a3c1f4c346e6a03f5516d60a726bf08edcade6019589ad99",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "50eddbaa0595d2bde135a287732c5f7142f9ef1875ac40a10be7206080d21d5e",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 0.00027684616593859346,
+    "wall_seconds": 2.604601315999986
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr+0_noise_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 0,
+    "mode": "noise_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.051193246497405,
+        -28.146797791057043
+      ],
+      "si_sdri_db": -31.099939481042664,
+      "output_snr_db": -0.07067114990306587,
+      "output_to_reference_energy_db": -18.57819791922436,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.098995518777222,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0021985232840266013,
+        -0.00487188417751453
+      ],
+      "projected_gain_db": [
+        -53.15737861024896,
+        -46.246060900378154
+      ],
+      "residual_suppression_db": 18.583598789413752,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.658684599731956,
+      "active_output_snr_db": -0.011457345189955483,
+      "active_input_snr_db": 14.131336701935087,
+      "whole_input_snr_db": 1.7892383231759423e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.11236829029901,
+        -4.172901361439999
+      ],
+      "inactive_output_energy_fraction": 0.9922030336845856
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        5.818409701492966,
+        6.408736615578018
+      ],
+      "si_sdri_db": 6.11262919627005,
+      "output_snr_db": 6.398294192209781,
+      "output_to_reference_energy_db": -2.890262991197648,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": 6.113573158535492,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.628301573514839,
+        0.6571075902434234
+      ],
+      "projected_gain_db": [
+        -4.036637052762035,
+        -3.6472703249829768
+      ],
+      "residual_suppression_db": 9.952364477560359,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -3.0377592672432483,
+      "active_output_snr_db": 6.737588103745114,
+      "active_input_snr_db": 14.131336701935087,
+      "whole_input_snr_db": 1.7892383231759423e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        6.51907496107321,
+        7.344823501952025
+      ],
+      "inactive_output_energy_fraction": 0.03344916928631582
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "c2960da3a7f5d3ef1882142cfbb3fc0b6767f12f22a7d9cfc4790c7a6d3a5714",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6360545900000147,
+      "inference_seconds": 0.8349032370000202,
+      "output_peak": 0.6438915729522705,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "e7682fbad51d5568d08882a5249bbcd886b19186ef4644919db74386cc70c044",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "50eddbaa0595d2bde135a287732c5f7142f9ef1875ac40a10be7206080d21d5e",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 37.21256867731272,
+    "wall_seconds": 2.636280800999998
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr+5_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        5.022412491975585,
+        4.97831671220981
+      ],
+      "output_si_sdr_db": [
+        -31.582564760217803,
+        -23.66439924537452
+      ],
+      "si_sdri_db": -32.623846604888854,
+      "output_snr_db": -0.03721579503357869,
+      "output_to_reference_energy_db": -22.529414932664764,
+      "input_si_sdr_mean_db": 5.000364602092697,
+      "output_si_sdr_mean_db": -27.62348200279616,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0019008638533592958,
+        -0.005060173521763756
+      ],
+      "projected_gain_db": [
+        -54.42097975477117,
+        -45.91669180449899
+      ],
+      "residual_suppression_db": 17.541303978809623,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.86373758069197,
+      "active_output_snr_db": -0.013549995511435185,
+      "active_input_snr_db": 19.131336497732136,
+      "whole_input_snr_db": 4.999999968274396,
+      "active_input_si_sdr_db": [
+        19.0361348345128,
+        19.25639013880258
+      ],
+      "active_output_si_sdr_db": [
+        -15.188177208902282,
+        -3.4627491302069306
+      ],
+      "inactive_output_energy_fraction": 0.9815268030166717
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        5.022412491975585,
+        4.97831671220981
+      ],
+      "output_si_sdr_db": [
+        9.277922142145124,
+        9.506329542093763
+      ],
+      "si_sdri_db": 4.391761240026748,
+      "output_snr_db": 8.865701380264445,
+      "output_to_reference_energy_db": -2.1113946449970085,
+      "input_si_sdr_mean_db": 5.000364602092697,
+      "output_si_sdr_mean_db": 9.392125842119444,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7315400991069541,
+        0.7540406575678892
+      ],
+      "projected_gain_db": [
+        -2.715237263812994,
+        -2.4521047303144785
+      ],
+      "residual_suppression_db": 6.97610792393278,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.1704364957748092,
+      "active_output_snr_db": 9.154079338034887,
+      "active_input_snr_db": 19.131336497732136,
+      "whole_input_snr_db": 4.999999968274396,
+      "active_input_si_sdr_db": [
+        19.0361348345128,
+        19.25639013880258
+      ],
+      "active_output_si_sdr_db": [
+        9.831679133869638,
+        10.18036062993136
+      ],
+      "inactive_output_energy_fraction": 0.013561211934786264
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "14ac89c1c8a3fc016535401736cdb2eeb8b254e87129d861f9ccdd8c34d9e2df",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6420438030000071,
+      "inference_seconds": 0.7961341970000149,
+      "output_peak": 0.6769337058067322,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "7448032a2396208cff9d87b0075addf684a84311ba77735091c5831536d7b2b1",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "3d050872271ee6bebbe00b995783820b9264a8b16678c4413bd2b57359ca3035",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 37.01560784491561,
+    "wall_seconds": 2.6033925160000138
+  },
+  {
+    "id": "round1_bsb_0260_bsb_0124_snr+5_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_0124_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_0124",
+    "nominal_snr_db": 5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        5.022412491975585,
+        4.97831671220981
+      ],
+      "output_si_sdr_db": [
+        -31.582564760217803,
+        -23.66439924537452
+      ],
+      "si_sdri_db": -32.623846604888854,
+      "output_snr_db": -0.03721579503357869,
+      "output_to_reference_energy_db": -22.529414932664764,
+      "input_si_sdr_mean_db": 5.000364602092697,
+      "output_si_sdr_mean_db": -27.62348200279616,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0019008638533592958,
+        -0.005060173521763756
+      ],
+      "projected_gain_db": [
+        -54.42097975477117,
+        -45.91669180449899
+      ],
+      "residual_suppression_db": 17.541303978809623,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.86373758069197,
+      "active_output_snr_db": -0.013549995511435185,
+      "active_input_snr_db": 19.131336497732136,
+      "whole_input_snr_db": 4.999999968274396,
+      "active_input_si_sdr_db": [
+        19.0361348345128,
+        19.25639013880258
+      ],
+      "active_output_si_sdr_db": [
+        -15.188177208902282,
+        -3.4627491302069306
+      ],
+      "inactive_output_energy_fraction": 0.9815268030166717
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        5.022412491975585,
+        4.97831671220981
+      ],
+      "output_si_sdr_db": [
+        -31.582369169416143,
+        -23.664105944218278
+      ],
+      "si_sdri_db": -32.623602158909904,
+      "output_snr_db": -0.03721443012062647,
+      "output_to_reference_energy_db": -22.5296654307077,
+      "input_si_sdr_mean_db": 5.000364602092697,
+      "output_si_sdr_mean_db": -27.62323755681721,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0019008611399513947,
+        -0.005060176068471293
+      ],
+      "projected_gain_db": [
+        -54.42099215354362,
+        -45.91668743302537
+      ],
+      "residual_suppression_db": 17.541554361764994,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.863737812342144,
+      "active_output_snr_db": -0.013550017863785525,
+      "active_input_snr_db": 19.131336497732136,
+      "whole_input_snr_db": 4.999999968274396,
+      "active_input_si_sdr_db": [
+        19.0361348345128,
+        19.25639013880258
+      ],
+      "active_output_si_sdr_db": [
+        -15.188188518498931,
+        -3.462743787652935
+      ],
+      "inactive_output_energy_fraction": 0.9815257384501679
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "b8fed685178f9a5dbff5bd48fc0df41a035a6265947364f8fc2ba744e07d0fed",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6457384769999805,
+      "inference_seconds": 0.804629771000009,
+      "output_peak": 0.058452069759368896,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "b840fd4ff74b855ffcc498c04e9cfbabb1688bed742a2c68e30667cd50c59c42",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "3d050872271ee6bebbe00b995783820b9264a8b16678c4413bd2b57359ca3035",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 0.0002444459789501252,
+    "wall_seconds": 2.609844664999997
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr-5_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": -5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -4.621544197869849,
+        -5.3889308685619675
+      ],
+      "output_si_sdr_db": [
+        -41.1202749171511,
+        -45.4358524560572
+      ],
+      "si_sdri_db": -38.27282615338824,
+      "output_snr_db": -1.014229645831423,
+      "output_to_reference_energy_db": -5.768986334458991,
+      "input_si_sdr_mean_db": -5.005237533215908,
+      "output_si_sdr_mean_db": -43.27806368660415,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.00448641944761319,
+        -0.0027762205408890126
+      ],
+      "projected_gain_db": [
+        -46.9620025095412,
+        -51.13092073634151
+      ],
+      "residual_suppression_db": 10.769239458046343,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.914285935908744,
+      "active_output_snr_db": 0.007497740882214195,
+      "active_input_snr_db": 8.072042452942378,
+      "whole_input_snr_db": -5.000000297251894,
+      "active_input_si_sdr_db": [
+        8.431106386507155,
+        7.699030633669568
+      ],
+      "active_output_si_sdr_db": [
+        -8.688761786458679,
+        -10.058197917949602
+      ],
+      "inactive_output_energy_fraction": 0.999515331978434
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -4.621544197869849,
+        -5.3889308685619675
+      ],
+      "output_si_sdr_db": [
+        3.0491828976519058,
+        3.0178904944188254
+      ],
+      "si_sdri_db": 8.038774229251274,
+      "output_snr_db": 3.734078651330703,
+      "output_to_reference_energy_db": 0.9756405035922748,
+      "input_si_sdr_mean_db": -5.005237533215908,
+      "output_si_sdr_mean_db": 3.0335366960353656,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.9049239599272724,
+        0.9240963590507529
+      ],
+      "projected_gain_db": [
+        -0.8677582539386299,
+        -0.6856548175435002
+      ],
+      "residual_suppression_db": 8.811057665810912,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -0.09422938657654176,
+      "active_output_snr_db": 8.241865238981463,
+      "active_input_snr_db": 8.072042452942378,
+      "whole_input_snr_db": -5.000000297251894,
+      "active_input_si_sdr_db": [
+        8.431106386507155,
+        7.699030633669568
+      ],
+      "active_output_si_sdr_db": [
+        7.743530998180265,
+        7.627885659150584
+      ],
+      "inactive_output_energy_fraction": 0.21839498547558936
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "243f3beb46b6686edcfc88e83ee0bcf5e39e226a5118df1796976e586c7e227d",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6386152860000038,
+      "inference_seconds": 0.8626601900000139,
+      "output_peak": 0.513559877872467,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "143a39554f9233009adb9da27227c8d23f973a203db35489a505289efc55fc1c",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "29c57b937130f38cc2535dc5486c4ba31bd8083828b9b7ed737a86d8d77b6f15",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 46.31160038263951,
+    "wall_seconds": 2.6605525260000036
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr-5_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr-5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": -5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        -4.621544197869849,
+        -5.3889308685619675
+      ],
+      "output_si_sdr_db": [
+        -41.1202749171511,
+        -45.4358524560572
+      ],
+      "si_sdri_db": -38.27282615338824,
+      "output_snr_db": -1.014229645831423,
+      "output_to_reference_energy_db": -5.768986334458991,
+      "input_si_sdr_mean_db": -5.005237533215908,
+      "output_si_sdr_mean_db": -43.27806368660415,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.00448641944761319,
+        -0.0027762205408890126
+      ],
+      "projected_gain_db": [
+        -46.9620025095412,
+        -51.13092073634151
+      ],
+      "residual_suppression_db": 10.769239458046343,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.914285935908744,
+      "active_output_snr_db": 0.007497740882214195,
+      "active_input_snr_db": 8.072042452942378,
+      "whole_input_snr_db": -5.000000297251894,
+      "active_input_si_sdr_db": [
+        8.431106386507155,
+        7.699030633669568
+      ],
+      "active_output_si_sdr_db": [
+        -8.688761786458679,
+        -10.058197917949602
+      ],
+      "inactive_output_energy_fraction": 0.999515331978434
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        -4.621544197869849,
+        -5.3889308685619675
+      ],
+      "output_si_sdr_db": [
+        -41.12027074887732,
+        -45.43584655901506
+      ],
+      "si_sdri_db": -38.272821120730285,
+      "output_snr_db": -1.0142284693803578,
+      "output_to_reference_energy_db": -5.76899189996074,
+      "input_si_sdr_mean_db": -5.005237533215908,
+      "output_si_sdr_mean_db": -43.27805865394619,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.004486420843768072,
+        -0.0027762193061514253
+      ],
+      "projected_gain_db": [
+        -46.96199980652926,
+        -51.130924599434024
+      ],
+      "residual_suppression_db": 10.769245058175954,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -38.91428627129174,
+      "active_output_snr_db": 0.007497752518415161,
+      "active_input_snr_db": 8.072042452942378,
+      "whole_input_snr_db": -5.000000297251894,
+      "active_input_si_sdr_db": [
+        8.431106386507155,
+        7.699030633669568
+      ],
+      "active_output_si_sdr_db": [
+        -8.688758724282298,
+        -10.058200712753402
+      ],
+      "inactive_output_energy_fraction": 0.9995153313947573
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "3afc7f945c3e88a9cedcf196017aaf4dec4dc2e317efcbf2497843be03996195",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6267136969999854,
+      "inference_seconds": 0.8161749340000028,
+      "output_peak": 0.23629331588745117,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "33803906d25c6e8a66f744bbe025cdfba416b4a0402411ebe3fe7d066727d806",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "29c57b937130f38cc2535dc5486c4ba31bd8083828b9b7ed737a86d8d77b6f15",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 5.032657959702647e-06,
+    "wall_seconds": 2.6007302660000278
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr+0_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 0,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.391727247361515
+      ],
+      "output_si_sdr_db": [
+        -41.91657938050931,
+        -35.871207990149614
+      ],
+      "si_sdri_db": -38.89573563306521,
+      "output_snr_db": -0.35777780473079357,
+      "output_to_reference_energy_db": -10.77660385959681,
+      "input_si_sdr_mean_db": 0.0018419477357455305,
+      "output_si_sdr_mean_db": -38.89389368532946,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0023024008649477085,
+        -0.0046857296509589036
+      ],
+      "projected_gain_db": [
+        -52.75638120510261,
+        -46.584455443606394
+      ],
+      "residual_suppression_db": 10.777324053292489,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65447320066288,
+      "active_output_snr_db": -0.010210655725481493,
+      "active_input_snr_db": 13.072042472513953,
+      "whole_input_snr_db": -2.8129576939787823e-07,
+      "active_input_si_sdr_db": [
+        13.448334501750862,
+        12.6966153426279
+      ],
+      "active_output_si_sdr_db": [
+        -13.762740078537705,
+        -4.5103854396215235
+      ],
+      "inactive_output_energy_fraction": 0.9987052456108665
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.39172724736151493
+      ],
+      "output_si_sdr_db": [
+        5.514176369031155,
+        5.605243279180917
+      ],
+      "si_sdri_db": 5.557867876370291,
+      "output_snr_db": 6.6176005988336195,
+      "output_to_reference_energy_db": -1.2122668409063762,
+      "input_si_sdr_mean_db": 0.0018419477357455583,
+      "output_si_sdr_mean_db": 5.5597098241060365,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7586169167969052,
+        0.7803626178946446
+      ],
+      "projected_gain_db": [
+        -2.3995495392917485,
+        -2.154070860151224
+      ],
+      "residual_suppression_db": 7.837371544374349,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -1.7391430650756896,
+      "active_output_snr_db": 8.81222553717903,
+      "active_input_snr_db": 13.072042472513953,
+      "whole_input_snr_db": -2.8129576939787823e-07,
+      "active_input_si_sdr_db": [
+        13.448334501750862,
+        12.6966153426279
+      ],
+      "active_output_si_sdr_db": [
+        8.74918163839034,
+        8.843295599786993
+      ],
+      "inactive_output_energy_fraction": 0.1142998798092125
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "bc07e78ebb399421dbfa127762d328e611f7bf4ef076b5762155a30caea4d380",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6525774419999948,
+      "inference_seconds": 0.8372132009999973,
+      "output_peak": 0.6723009347915649,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "333d66f9bc3ef6ae70ce3f5dc1fd355acef3f30b041b4609df89e62318d09223",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "d4ff8c3a14d19b68ffdafd317574a86d4f844843c90f5b954cacfd11fd60d207",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 44.453603509435496,
+    "wall_seconds": 2.646724938999995
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr+0_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 0,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.391727247361515
+      ],
+      "output_si_sdr_db": [
+        -41.91657938050931,
+        -35.871207990149614
+      ],
+      "si_sdri_db": -38.89573563306521,
+      "output_snr_db": -0.35777780473079357,
+      "output_to_reference_energy_db": -10.77660385959681,
+      "input_si_sdr_mean_db": 0.0018419477357455305,
+      "output_si_sdr_mean_db": -38.89389368532946,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0023024008649477085,
+        -0.0046857296509589036
+      ],
+      "projected_gain_db": [
+        -52.75638120510261,
+        -46.584455443606394
+      ],
+      "residual_suppression_db": 10.777324053292489,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65447320066288,
+      "active_output_snr_db": -0.010210655725481493,
+      "active_input_snr_db": 13.072042472513953,
+      "whole_input_snr_db": -2.8129576939787823e-07,
+      "active_input_si_sdr_db": [
+        13.448334501750862,
+        12.6966153426279
+      ],
+      "active_output_si_sdr_db": [
+        -13.762740078537705,
+        -4.5103854396215235
+      ],
+      "inactive_output_energy_fraction": 0.9987052456108665
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.39172724736151493
+      ],
+      "output_si_sdr_db": [
+        -41.91657231777394,
+        -35.871199982900535
+      ],
+      "si_sdri_db": -38.895728098072986,
+      "output_snr_db": -0.3577772836326016,
+      "output_to_reference_energy_db": -10.776610474079355,
+      "input_si_sdr_mean_db": 0.0018419477357455583,
+      "output_si_sdr_mean_db": -38.89388615033724,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0023024021322080937,
+        -0.004685728001821046
+      ],
+      "projected_gain_db": [
+        -52.75637642431878,
+        -46.584458500597094
+      ],
+      "residual_suppression_db": 10.777330702917174,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65447339594809,
+      "active_output_snr_db": -0.01021064302892126,
+      "active_input_snr_db": 13.072042472513953,
+      "whole_input_snr_db": -2.8129576939787823e-07,
+      "active_input_si_sdr_db": [
+        13.448334501750862,
+        12.6966153426279
+      ],
+      "active_output_si_sdr_db": [
+        -13.762735302952692,
+        -4.510388143150906
+      ],
+      "inactive_output_energy_fraction": 0.9987052436971213
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "5275f485d3cce10030353d20a7cd982f99fa2b4204279b8e957adddbb2006090",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6416340869999999,
+      "inference_seconds": 0.8231223230000069,
+      "output_peak": 0.22495386004447937,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "6f2340a53f8326b64bbac9c1e9d87edac6d0887be02982df6f5b5095096e31db",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "d4ff8c3a14d19b68ffdafd317574a86d4f844843c90f5b954cacfd11fd60d207",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 7.534992221280845e-06,
+    "wall_seconds": 2.6311390550000056
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr+0_noise_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr+0",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 0,
+    "mode": "noise_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.391727247361515
+      ],
+      "output_si_sdr_db": [
+        -41.91657938050931,
+        -35.871207990149614
+      ],
+      "si_sdri_db": -38.89573563306521,
+      "output_snr_db": -0.35777780473079357,
+      "output_to_reference_energy_db": -10.77660385959681,
+      "input_si_sdr_mean_db": 0.0018419477357455305,
+      "output_si_sdr_mean_db": -38.89389368532946,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0023024008649477085,
+        -0.0046857296509589036
+      ],
+      "projected_gain_db": [
+        -52.75638120510261,
+        -46.584455443606394
+      ],
+      "residual_suppression_db": 10.777324053292489,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65447320066288,
+      "active_output_snr_db": -0.010210655725481493,
+      "active_input_snr_db": 13.072042472513953,
+      "whole_input_snr_db": -2.8129576939787823e-07,
+      "active_input_si_sdr_db": [
+        13.448334501750862,
+        12.6966153426279
+      ],
+      "active_output_si_sdr_db": [
+        -13.762740078537705,
+        -4.5103854396215235
+      ],
+      "inactive_output_energy_fraction": 0.9987052456108665
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.39172724736151493
+      ],
+      "output_si_sdr_db": [
+        0.2912707782334288,
+        0.6888749134861278
+      ],
+      "si_sdri_db": 0.48823089812403275,
+      "output_snr_db": 3.1911642151678343,
+      "output_to_reference_energy_db": -3.8780236168950006,
+      "input_si_sdr_mean_db": 0.0018419477357455583,
+      "output_si_sdr_mean_db": 0.4900728458597783,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.4517862604760087,
+        0.47858954362890876
+      ],
+      "projected_gain_db": [
+        -6.901339615731679,
+        -6.400735884358585
+      ],
+      "residual_suppression_db": 7.14183109739588,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -4.89247945815041,
+      "active_output_snr_db": 4.041627813383549,
+      "active_input_snr_db": 13.072042472513953,
+      "whole_input_snr_db": -2.8129576939787823e-07,
+      "active_input_si_sdr_db": [
+        13.448334501750862,
+        12.6966153426279
+      ],
+      "active_output_si_sdr_db": [
+        2.8087649073556324,
+        3.233943893381535
+      ],
+      "inactive_output_energy_fraction": 0.2083581557147809
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "f6315ddfb2faa743a911b7be1c8da34154d893cb73d655c71e47c9af175ad8d4",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6439292130000069,
+      "inference_seconds": 0.84327854,
+      "output_peak": 0.6169068217277527,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "73a9e9336cd1d2107442ee1fc0817b25ee6cd8857ddf013bd669825acc6f60db",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "d4ff8c3a14d19b68ffdafd317574a86d4f844843c90f5b954cacfd11fd60d207",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 39.38396653118924,
+    "wall_seconds": 2.6406970179999973
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr+5_zero_prefix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 5,
+    "mode": "zero_prefix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        5.4049316345744955,
+        4.6067001437239385
+      ],
+      "output_si_sdr_db": [
+        -37.38625494873942,
+        -30.09829358075482
+      ],
+      "si_sdri_db": -38.74809015389634,
+      "output_snr_db": -0.11318540976393202,
+      "output_to_reference_energy_db": -16.23699831746556,
+      "input_si_sdr_mean_db": 5.005815889149217,
+      "output_si_sdr_mean_db": -33.742274264747124,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0020773230474833812,
+        -0.004834588373904285
+      ],
+      "projected_gain_db": [
+        -53.649919209115936,
+        -46.31280993338605
+      ],
+      "residual_suppression_db": 11.239510099909431,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.84431902389716,
+      "active_output_snr_db": -0.011816062893941373,
+      "active_input_snr_db": 18.072042800978153,
+      "whole_input_snr_db": 5.00000004619282,
+      "active_input_si_sdr_db": [
+        18.458007970449252,
+        17.695257109272433
+      ],
+      "active_output_si_sdr_db": [
+        -14.486855180128632,
+        -3.892633702426149
+      ],
+      "inactive_output_energy_fraction": 0.9956424512408202
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        5.404931634574497,
+        4.6067001437239385
+      ],
+      "output_si_sdr_db": [
+        7.876666114635214,
+        8.179072885571937
+      ],
+      "si_sdri_db": 3.022053610954357,
+      "output_snr_db": 8.174243010986185,
+      "output_to_reference_energy_db": -1.905155969744333,
+      "input_si_sdr_mean_db": 5.005815889149218,
+      "output_si_sdr_mean_db": 8.027869500103575,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7342791451088428,
+        0.7588415386579231
+      ],
+      "projected_gain_db": [
+        -2.6827761277344644,
+        -2.3969780808082097
+      ],
+      "residual_suppression_db": 5.567573289094522,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -2.071846360290084,
+      "active_output_snr_db": 8.930283871771914,
+      "active_input_snr_db": 18.072042800978153,
+      "whole_input_snr_db": 5.00000004619282,
+      "active_input_si_sdr_db": [
+        18.458007970449252,
+        17.695257109272433
+      ],
+      "active_output_si_sdr_db": [
+        9.269531036353358,
+        9.607615589158506
+      ],
+      "inactive_output_energy_fraction": 0.03771151935906914
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "9485573adfa5efdeebaa5df4f98b298e356518acf1f4405457de3d70739f6e04",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6283303609999962,
+      "inference_seconds": 0.8512933680000003,
+      "output_peak": 0.689860999584198,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "3a3e6026754390ba001a14760bb710da6b45f0da02df355df33f0f6eaf92009c",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "74955792b4676dc4cfe4e763775059dd240e8319f544f3910e0b2f0717b25ec0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 66560,
+    "output_si_sdr_delta_from_baseline_db": 41.7701437648507,
+    "wall_seconds": 2.631680248000009
+  },
+  {
+    "id": "round1_bsb_0260_bsb_2717_snr+5_zero_suffix_66560",
+    "source_id": "bsb_0260",
+    "baseline_id": "round1_bsb_0260_bsb_2717_snr+5",
+    "baseline_family": "round1",
+    "background_id": "bsb_2717",
+    "nominal_snr_db": 5,
+    "mode": "zero_suffix",
+    "padding_samples": 66560,
+    "padding_seconds": 1.509297052154195,
+    "block_samples": 416,
+    "status": "processed",
+    "baseline_metrics": {
+      "input_si_sdr_db": [
+        5.4049316345744955,
+        4.6067001437239385
+      ],
+      "output_si_sdr_db": [
+        -37.38625494873942,
+        -30.09829358075482
+      ],
+      "si_sdri_db": -38.74809015389634,
+      "output_snr_db": -0.11318540976393202,
+      "output_to_reference_energy_db": -16.23699831746556,
+      "input_si_sdr_mean_db": 5.005815889149217,
+      "output_si_sdr_mean_db": -33.742274264747124,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0020773230474833812,
+        -0.004834588373904285
+      ],
+      "projected_gain_db": [
+        -53.649919209115936,
+        -46.31280993338605
+      ],
+      "residual_suppression_db": 11.239510099909431,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.84431902389716,
+      "active_output_snr_db": -0.011816062893941373,
+      "active_input_snr_db": 18.072042800978153,
+      "whole_input_snr_db": 5.00000004619282,
+      "active_input_si_sdr_db": [
+        18.458007970449252,
+        17.695257109272433
+      ],
+      "active_output_si_sdr_db": [
+        -14.486855180128632,
+        -3.892633702426149
+      ],
+      "inactive_output_energy_fraction": 0.9956424512408202
+    },
+    "metrics": {
+      "input_si_sdr_db": [
+        5.404931634574497,
+        4.6067001437239385
+      ],
+      "output_si_sdr_db": [
+        -37.38626004679966,
+        -30.098269819903905
+      ],
+      "si_sdri_db": -38.748080822501,
+      "output_snr_db": -0.11318512963000019,
+      "output_to_reference_energy_db": -16.23701123196823,
+      "input_si_sdr_mean_db": 5.005815889149218,
+      "output_si_sdr_mean_db": -33.742264933351784,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.002077320429884026,
+        -0.004834590283963062
+      ],
+      "projected_gain_db": [
+        -53.64993015406428,
+        -46.31280650174819
+      ],
+      "residual_suppression_db": 11.239523084728848,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.84431885817651,
+      "active_output_snr_db": -0.011816082497869487,
+      "active_input_snr_db": 18.072042800978153,
+      "whole_input_snr_db": 5.00000004619282,
+      "active_input_si_sdr_db": [
+        18.458007970449252,
+        17.695257109272433
+      ],
+      "active_output_si_sdr_db": [
+        -14.486865618919676,
+        -3.892631077073842
+      ],
+      "inactive_output_energy_fraction": 0.995642438116592
+    },
+    "inference": {
+      "status": "processed",
+      "source_file": "model_input.wav",
+      "source_sha256": "659b91cf9d64e3045c23d667cc1066b69afd7858c5e76975b4624078288794f0",
+      "output_file": "model_output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 6.509297052154195,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "realtime": false,
+      "model_setup_seconds": 0.6287556649999999,
+      "inference_seconds": 0.7875920860000178,
+      "output_peak": 0.14393702149391174,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "1d151f32df0b29e700666da66e521db7eccffcec605bdbc8eaa46186b504cb67",
+      "input_mode": "recorded_stereo_with_explicit_context_padding",
+      "input_channels": 2,
+      "genuine_binaural_validated": false,
+      "seed": 20261030,
+      "adapter": "unchanged ../extract.py run()",
+      "source_provenance": "See config.json; two input channels alone do not establish stereo or binaural recording"
+    },
+    "original_crop_pcm_sha256": "74955792b4676dc4cfe4e763775059dd240e8319f544f3910e0b2f0717b25ec0",
+    "model_input_seconds": 6.509297052154195,
+    "crop_start_sample": 0,
+    "output_si_sdr_delta_from_baseline_db": 9.331395339984283e-06,
+    "wall_seconds": 2.578656453000008
+  }
+]

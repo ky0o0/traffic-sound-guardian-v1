@@ -1,0 +1,8 @@
+{
+  "cases": 42,
+  "wavs_checked": 252,
+  "original_evaluated_input_samples_exactly_preserved": true,
+  "matched_suffix_control": true,
+  "decoder_block_samples": 416,
+  "exploratory": true
+}
