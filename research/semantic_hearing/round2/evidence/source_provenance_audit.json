@@ -1,0 +1,487 @@
+{
+  "sources": [
+    {
+      "id": "bsb_0257",
+      "riff_metadata": {
+        "bext": "Recent car horn 1BigSoundBank.com02572007-03-30A=PCM,F=44100,W=16,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"
+      },
+      "decoded_pcm_sha256": "708887cf57d26ee7a260a6547caaedd4bdf3314dfce67f1a19f9c32358a0d827",
+      "right_from_left_gain": 0.19721749984104442,
+      "right_from_left_residual_ratio": 0.9759699904655109
+    },
+    {
+      "id": "bsb_0258",
+      "riff_metadata": {
+        "bext": "Recent car horn 2BigSoundBank.com02582007-03-30A=PCM,F=44100,W=16,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"
+      },
+      "decoded_pcm_sha256": "84c9230349eb01be6f28f9073b774d6d657b48a28cd3424bada17f59e3f9b311",
+      "right_from_left_gain": 0.3115472448866149,
+      "right_from_left_residual_ratio": 0.9371888813411362
+    },
+    {
+      "id": "bsb_0259",
+      "riff_metadata": {
+        "bext": "Recent car horn 3BigSoundBank.com02592007-03-30A=PCM,F=44100,W=16,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"
+      },
+      "decoded_pcm_sha256": "0f69ea0c3498fe472417dfc0852e39ebad11c169e648f59dd86ea95c9fff45a7",
+      "right_from_left_gain": 0.338998226429279,
+      "right_from_left_residual_ratio": 0.8861646618346853
+    },
+    {
+      "id": "bsb_0260",
+      "riff_metadata": {
+        "bext": "Car horn 4BigSoundBank.com02602007-03-30A=PCM,F=44100,W=16,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"
+      },
+      "decoded_pcm_sha256": "9a7ba5cff6f86b2733502093f15db17f2f018e66e9ef1f6e6a1cc9bd8ee4b586",
+      "right_from_left_gain": 0.25201026451626424,
+      "right_from_left_residual_ratio": 0.9339102554083982
+    },
+    {
+      "id": "iusb_005",
+      "riff_metadata": {
+        "INAM": "120216_02",
+        "IART": "My Recording"
+      },
+      "decoded_pcm_sha256": "dc16ca02e039867d8c2de24112e17cf6524e96280512669bbdd9861effb6da9c",
+      "right_from_left_gain": 0.7869870638086796,
+      "right_from_left_residual_ratio": 0.2412247940611917
+    },
+    {
+      "id": "iusb_006",
+      "riff_metadata": {
+        "INAM": "120218_01",
+        "IART": "My Recording"
+      },
+      "decoded_pcm_sha256": "20b2450198d315f4b8117de50b4ab947fbb5a5418c36d9d1f7b21ca8f0ffd007",
+      "right_from_left_gain": 0.8896905414922015,
+      "right_from_left_residual_ratio": 0.1458952764912626
+    },
+    {
+      "id": "iusb_009",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "ce4ea58185281b92d0f737cf2088ea3fbcb9abfa828bd19fb9e4e4fec9d13925",
+      "right_from_left_gain": 1.0689849069578348,
+      "right_from_left_residual_ratio": 0.008595964973763892
+    },
+    {
+      "id": "iusb_010",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "e86b2d1dafa7ae9a497050ff52edd6f2fa78464199ddeeb2f25d58197c88dabd",
+      "right_from_left_gain": 0.9045602639702149,
+      "right_from_left_residual_ratio": 0.1840300837786012
+    },
+    {
+      "id": "commons_98066175",
+      "riff_metadata": {
+        "ICRD": "2019-02-27T23:34:50+01:00",
+        "ISFT": "Adobe Audition CC 2019.0 (Windows)",
+        "bext": "2019-02-2723:51:12\u0001",
+        "iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<BWFXML><SPEED><TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_LO>0</TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_LO><TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_HI>0</TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_HI></SPEED><BEXT><BWF_ORIGINATION_DATE>2019-02-27</BWF_ORIGINATION_DATE><BWF_ORIGINATION_TIME>23:51:12</BWF_ORIGINATION_TIME><BWF_TIME_REFERENCE_LOW>0</BWF_TIME_REFERENCE_LOW><BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH></BEXT></BWFXML>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         "
+      },
+      "decoded_pcm_sha256": "0a406ffdb0a85fcb51073ebf793dfb9704cb6f63d964ad9dbc234a163fe29bfd",
+      "right_from_left_gain": 0.6819119854644421,
+      "right_from_left_residual_ratio": 0.23531900946489803
+    },
+    {
+      "id": "iusb_014",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "0b4288d2339ae5125cc65867893c2c8ecdf0bbe4eadff0a2cee5a24ef85eef99",
+      "right_from_left_gain": 1.0179116515909263,
+      "right_from_left_residual_ratio": 0.30612588634660853
+    },
+    {
+      "id": "iusb_015",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "64b52a1290e299f5408521dda6898892bf05191bde78cfd60ffd4adbaccef15e",
+      "right_from_left_gain": 1.0117567737567115,
+      "right_from_left_residual_ratio": 0.07165870655971075
+    },
+    {
+      "id": "iusb_016",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "cc4f52d9f23d45048c68a9be1ab814e909fbae4d9a64530c3a85cbb7839c995d",
+      "right_from_left_gain": 0.4147953557721925,
+      "right_from_left_residual_ratio": 0.705489069234348
+    },
+    {
+      "id": "iusb_017",
+      "riff_metadata": {
+        "INAM": "http://www.freesound.org/samplesViewSingle.php?id=26711",
+        "IART": "Timbre",
+        "ICMT": "email: uvw111-fs@yahoo.co.uk",
+        "ICRD": "2009"
+      },
+      "decoded_pcm_sha256": "04568faecd839ca8a2233215df8223fd2115170679021c4e5e620c76ed41f069",
+      "right_from_left_gain": 0.17867258846882875,
+      "right_from_left_residual_ratio": 0.9614767385379345
+    },
+    {
+      "id": "iusb_018",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "7e06b6852ed1a04c88ff2e19f7ab1054a2e32a4bf5a1ca2ceaa0fbf099a88ea2",
+      "right_from_left_gain": 0.5772514860821836,
+      "right_from_left_residual_ratio": 0.5700161529768959
+    },
+    {
+      "id": "bsb_1463",
+      "riff_metadata": {
+        "bext": "Ambulance siren 1BigSoundBank.com14632019-07-09A=PCM,F=48000,W=24,M=mono",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "ambulance,ambulancier,siren,horn,french,francais,francaise,avertisseur,special,secours,sirene,urgence,urgent,vehicule,paramedic,emergency,vehicle,alarm,alarme,trois,ton,gyrophare,beacon,pin,pon,samu,intervention,intervenir,alert,alerte"
+      },
+      "decoded_pcm_sha256": "fe206103a5d31aa9cd2098c6d974fd5ed63bf7222f8a4e94d869048d5c6c7976"
+    },
+    {
+      "id": "bsb_1464",
+      "riff_metadata": {
+        "bext": "Ambulance siren 2BigSoundBank.com14642019-07-09A=PCM,F=48000,W=24,M=mono",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "ambulance,ambulancier,siren,horn,french,francais,francaise,avertisseur,special,secours,sirene,urgence,urgent,vehicule,paramedic,emergency,vehicle,alarm,alarme,deux,ton,gyrophare,beacon,pin,pon,pompier,samu,intervention,intervenir,alert,alerte"
+      },
+      "decoded_pcm_sha256": "b2168673fe39127f27e203b975564e2cbd34feb903e5183a39f92535b53aa5c8"
+    },
+    {
+      "id": "bsb_2731",
+      "riff_metadata": {
+        "iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2022-07-07</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>11:24:52</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>1225038</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>F7D3AC0B37B34D90A40B19D575F57EDC</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>MartoPiqueur</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<NAME>AudioSyncpoint</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>22962</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stéréo</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n ",
+        "bext": "Vehicle sirenBigSoundBank.com27312022-06-11A=PCM,F=48000,W=24,M=stereo",
+        "IARL": "48.3172301,0.8262362",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "ambulance,ambulancier,siren,horn,french,francais,francaise,avertisseur,special,secours,sirene,urgence,urgent,vehicule,paramedic,emergency,vehicle,alarm,alarme,deux,ton,gyrophare,beacon,pin,pon,pompier,samu,intervention,intervenir,two,passage,effect,effet,arriver,passer,partir,alert,alerte,prioritaire"
+      },
+      "decoded_pcm_sha256": "4b8dac366788671ddef5cbb23f4dbed0e758e6fc2f62454a9b1627110da45c7a",
+      "right_from_left_gain": 0.011698303880613742,
+      "right_from_left_residual_ratio": 0.9996552082681645
+    },
+    {
+      "id": "bsb_2760",
+      "riff_metadata": {
+        "iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2022-07-07</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>12:35:19</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>25885522</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>5EE6C7142D8846268378D7A4D7E5385D</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>Geofon</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<NAME>AudioSyncpoint</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>34478</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stereo Out</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n",
+        "bext": "Gendarmerie motorcycle crossingBigSoundBank.com27602022-07-07A=PCM,F=48000,W=24,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "moto,motorcycle,gendarmerie,gendarme,siren,sirene"
+      },
+      "decoded_pcm_sha256": "6120d6be14aaebd8e2f882e667ef53aef853a64c453a051d684d5077981e8d37",
+      "right_from_left_gain": 0.34124163121988954,
+      "right_from_left_residual_ratio": 0.926574912695033
+    },
+    {
+      "id": "bsb_0124",
+      "riff_metadata": {
+        "bext": "Rain and stormBigSoundBank.com01242006-09-30A=PCM,F=44100,W=16,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "orage,pluie,eau,pleut,foudre,tonnerre,coup,averse,rain,thunderstorm,thunder,ambiance,clash,atmosphere,soundscape,raining,kick,nature,grondement,gronder,tonner,eclair,grosse,gros,fort,forte,thunderstruck",
+        "IARL": "48.576346,1.876454"
+      },
+      "decoded_pcm_sha256": "1afdbf8d24231b9cc6ca8c813f1e1c885e98130b6b02e211ada3ccae5a60aa6e",
+      "right_from_left_gain": -0.041488113792673365,
+      "right_from_left_residual_ratio": 0.9988246228352532
+    },
+    {
+      "id": "bsb_2717",
+      "riff_metadata": {
+        "iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2022-06-04</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>13:00:28</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>0</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>102A6E0E215F494CB21EE418B056F954</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>MartoPiqueur</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stéréo</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n ",
+        "bext": "Storm and rain 3BigSoundBank.com27172022-06-04A=PCM,F=48000,W=24,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "orage,pluie,eau,pleut,foudre,tonnerre,coup,averse,rain,thunderstorm,thunder,raining,drop,water,ambiance,clash,atmosphere,soundscape,nature,grondement,gronder,tonner,eclair,grosse,gros,fort,forte,thunderstruck"
+      },
+      "decoded_pcm_sha256": "e20cfcf0d05e4512b560a2755b4e85d915e9302dda10167d9f9e9b84988c6d3b",
+      "right_from_left_gain": 0.7960995992460359,
+      "right_from_left_residual_ratio": 0.38757020980981494
+    },
+    {
+      "id": "bsb_0908",
+      "riff_metadata": {
+        "bext": "Wind in tall grassBigSoundBank.com09082015-04-19A=PCM,F=48000,W=16,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "vent,wind,grass,herbe,haute,ambiance,nature,atmosphere,soundscape,gust,blowing,blow,souffler,vegetal"
+      },
+      "decoded_pcm_sha256": "63c8cf14ad1a208b2140fe3a1b9ec1a4827837fdf3e4e74b749ea0ff023a4adf",
+      "right_from_left_gain": 0.5108330601380915,
+      "right_from_left_residual_ratio": 0.7704946069072308
+    },
+    {
+      "id": "bsb_2969",
+      "riff_metadata": {
+        "iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2023-05-30</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>17:31:27</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>0</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>F1814929D5C7489E8E3A57BE2DB10CE4</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>Sans titre</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stereo Out</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n ",
+        "bext": "Outside talks 2BigSoundBank.com29692023-06-01A=PCM,F=48000,W=24,M=stereo",
+        "ICOP": "CC0 / WTFPL / Public domain",
+        "IKEY": "walla,discussion,people,soiree,fete,personne,cocktail,vernissage,rhubarb,rhabarber,rabarber,gaya,group,groupe,ambiance,atmosphere,soundscape,talk,papotement,papoter,bavardage,bavarder,conversation,vacarme,voix,parler,gens,discuter,humain,speaking,adulte,adult,homme,femme,man,woman,talking,exterieur,outdoor,outside"
+      },
+      "decoded_pcm_sha256": "0c7071c91e5b294b5ea73854bf067c63dc3b5e89e351930acbe06900e4809690",
+      "right_from_left_gain": 0.07954758056050151,
+      "right_from_left_residual_ratio": 0.9909616985673102
+    },
+    {
+      "id": "iusb_road_00",
+      "riff_metadata": {},
+      "decoded_pcm_sha256": "f76161e260d37594538a43ffa9d196e00c50e460c9295bacb1b69eba40c4f678",
+      "right_from_left_gain": 0.6034490943277897,
+      "right_from_left_residual_ratio": 0.6191599632058726
+    }
+  ],
+  "horn_pairs": [
+    {
+      "a": "bsb_0257",
+      "b": "bsb_0258",
+      "max_abs_mono_subclip_correlation": 0.011033748756638415,
+      "long_clip_offset_seconds": 1.0836281179138323,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "bsb_0259",
+      "max_abs_mono_subclip_correlation": 0.008121985737052534,
+      "long_clip_offset_seconds": 0.006712018140589569,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "bsb_0260",
+      "max_abs_mono_subclip_correlation": 0.021096593451578157,
+      "long_clip_offset_seconds": 0.011156462585034013,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "commons_98066175",
+      "max_abs_mono_subclip_correlation": 0.03081555500111783,
+      "long_clip_offset_seconds": 2.8140589569161,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "iusb_005",
+      "max_abs_mono_subclip_correlation": 0.09960858741917816,
+      "long_clip_offset_seconds": 0.22975056689342405,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "iusb_006",
+      "max_abs_mono_subclip_correlation": 0.039810373327728604,
+      "long_clip_offset_seconds": 0.4964172335600907,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.07061681355478781,
+      "long_clip_offset_seconds": 0.00018140589569160998,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0257",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.021509084360893434,
+      "long_clip_offset_seconds": 0.41523809523809524,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "bsb_0259",
+      "max_abs_mono_subclip_correlation": 0.38227277182538383,
+      "long_clip_offset_seconds": 0.00399092970521542,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "bsb_0260",
+      "max_abs_mono_subclip_correlation": 0.036947644515594076,
+      "long_clip_offset_seconds": 0.9579138321995465,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "commons_98066175",
+      "max_abs_mono_subclip_correlation": 0.0023021350049458322,
+      "long_clip_offset_seconds": 1.8922448979591837,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "iusb_005",
+      "max_abs_mono_subclip_correlation": 0.01935642276098317,
+      "long_clip_offset_seconds": 0.4854421768707483,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "iusb_006",
+      "max_abs_mono_subclip_correlation": 0.04259495454891678,
+      "long_clip_offset_seconds": 0.5987301587301588,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.04779670905423625,
+      "long_clip_offset_seconds": 0.059319727891156464,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0258",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.011588853552624801,
+      "long_clip_offset_seconds": 0.1164625850340136,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0259",
+      "b": "bsb_0260",
+      "max_abs_mono_subclip_correlation": 0.011527078345923985,
+      "long_clip_offset_seconds": 0.06657596371882087,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0259",
+      "b": "commons_98066175",
+      "max_abs_mono_subclip_correlation": 0.04199410867640244,
+      "long_clip_offset_seconds": 2.312562358276644,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0259",
+      "b": "iusb_005",
+      "max_abs_mono_subclip_correlation": 0.04604757196752676,
+      "long_clip_offset_seconds": 0.49396825396825395,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0259",
+      "b": "iusb_006",
+      "max_abs_mono_subclip_correlation": 0.06618070502178156,
+      "long_clip_offset_seconds": 0.5063038548752834,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0259",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.11515109482727819,
+      "long_clip_offset_seconds": 0.4860770975056689,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0259",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.05169348350171052,
+      "long_clip_offset_seconds": 0.47147392290249435,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0260",
+      "b": "commons_98066175",
+      "max_abs_mono_subclip_correlation": 0.03972391491707738,
+      "long_clip_offset_seconds": 2.874920634920635,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0260",
+      "b": "iusb_005",
+      "max_abs_mono_subclip_correlation": 0.1173655777837246,
+      "long_clip_offset_seconds": 0.4797278911564626,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0260",
+      "b": "iusb_006",
+      "max_abs_mono_subclip_correlation": 0.20556060721574362,
+      "long_clip_offset_seconds": 0.6707482993197279,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0260",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.19433491492478344,
+      "long_clip_offset_seconds": 0.42149659863945577,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "bsb_0260",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.029270123164615233,
+      "long_clip_offset_seconds": 0.374421768707483,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "commons_98066175",
+      "b": "iusb_005",
+      "max_abs_mono_subclip_correlation": 0.00801655925920537,
+      "long_clip_offset_seconds": 0.13006802721088434,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "commons_98066175",
+      "b": "iusb_006",
+      "max_abs_mono_subclip_correlation": 0.005663748238164031,
+      "long_clip_offset_seconds": 0.3354195011337868,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "commons_98066175",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.017050257866779835,
+      "long_clip_offset_seconds": 2.3178231292517006,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "commons_98066175",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.0424398276101384,
+      "long_clip_offset_seconds": 0.41904761904761906,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "iusb_005",
+      "b": "iusb_006",
+      "max_abs_mono_subclip_correlation": 0.05028332619993059,
+      "long_clip_offset_seconds": 0.07691609977324262,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "iusb_005",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.05337736677984786,
+      "long_clip_offset_seconds": 0.3783219954648526,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "iusb_005",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.03173423127703953,
+      "long_clip_offset_seconds": 1.055328798185941,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "iusb_006",
+      "b": "iusb_009",
+      "max_abs_mono_subclip_correlation": 0.07195940079879015,
+      "long_clip_offset_seconds": 0.6263038548752834,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "iusb_006",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.03662547439109619,
+      "long_clip_offset_seconds": 1.0300226757369615,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    },
+    {
+      "a": "iusb_009",
+      "b": "iusb_010",
+      "max_abs_mono_subclip_correlation": 0.009118164128989052,
+      "long_clip_offset_seconds": 0.0016326530612244899,
+      "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."
+    }
+  ],
+  "method": "Original RIFF INFO/bext/iXML inspection, exact decoded hashes, channel linear-fit residual; all-pairs fixed-excerpt mono subclip correlation at 11025Hz",
+  "limitations": "No human listening/purity annotation. No SH raw-file training map. File uniqueness does not establish independent recording sessions."
+}
