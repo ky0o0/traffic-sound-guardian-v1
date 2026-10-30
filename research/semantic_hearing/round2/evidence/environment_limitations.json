@@ -1,0 +1,8 @@
+{
+  "local_official_checkpoint_download": "Observed HTTPS CONNECT 403 under enforced restricted policy",
+  "local_bigsoundbank_download": "Observed HTTPS CONNECT 403",
+  "local_file_service_download": "Observed HTTP/CONNECT 403; complete artifacts instead re-downloaded and verified inside fresh GitHub Actions jobs",
+  "freesound_originals": "Original download pages require login; no account supplied or access bypass used",
+  "commons": "HTTP 429 observed during supplemental discovery; subsequent run stops provider on rate limit",
+  "source_license": "IUSB corpus has explicit CC BY 4.0; original per-item collection chain not fully independently verified. Embedded source metadata preserved separately."
+}
