@@ -32,10 +32,11 @@ function display() {
   for (const option of select.options) option.textContent = t[option.value];
 }
 function initialize() {
-  const host = document.querySelector('.toolbar') || document.querySelector('.brand');
+  const host = document.querySelector('.toolbar') || document.body;
+  const standalone = host === document.body;
   if (!host || document.getElementById('theme-select')) return;
   const label = document.createElement('label');
-  label.className = 'theme-picker';
+  label.className = standalone ? 'theme-picker standalone' : 'theme-picker';
   const text = document.createElement('span');
   text.className = 'sr-only';
   const select = document.createElement('select');
@@ -52,7 +53,8 @@ function initialize() {
     apply(); display();
   });
   label.append(text, select);
-  host.append(label);
+  if (standalone) host.insertBefore(label,host.firstChild);
+  else host.append(label);
   display();
   // Other pages may update lang after initialization.
   new MutationObserver(display).observe(document.documentElement, {attributes:true,attributeFilter:['lang']});
