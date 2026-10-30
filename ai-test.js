@@ -17,15 +17,15 @@ import {
   optimize,
   exportData,
   csv
-} from './ai-test-analysis.js?v=1.5.4';
+} from './ai-test-analysis.js?v=1.6.0';
 import {
   BatchRunner,
   LIMITS,
   checkFile
-} from './ai-test-runner.js?v=1.5.4';
+} from './ai-test-runner.js?v=1.6.0';
 import {
   translate
-} from './ai-test-i18n.js?v=1.5.4';
+} from './ai-test-i18n.js?v=1.6.0';
 
 const root = document.getElementById('test-app'),
   runner = new BatchRunner();
@@ -835,7 +835,7 @@ function render() {
     class: 'top'
   });
   top.append(el('a', t('back'), {
-    href: './index.html?v=1.5.4&lang=' + language
+    href: './index.html?v=1.6.0&lang=' + language
   }));
   const langs = el('div', null, { class: 'language-switch' });
   const picker = el('select', null, { id: 'language-select' });
