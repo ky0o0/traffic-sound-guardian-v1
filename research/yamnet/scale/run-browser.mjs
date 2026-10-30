@@ -64,7 +64,7 @@ try{
                         roundTripMs:r.roundTripMs});
         }
         outputs.push({id:c.id,filename:c.filename,labels:c.label==='none'?['none']:[c.label],
-                      sourceGroup:c.group_id,status:'done',events:[],complete:false,
+                      sourceGroup:c.source_group,status:'done',events:[],complete:false,
                       duration:original.duration, paddedSilenceSeconds:paddedSeconds,
                       result:{sampleRate:audio.sampleRate,channels:audio.numberOfChannels,
                               windows,coveredUntil:windows.at(-1).end,
@@ -75,12 +75,12 @@ try{
     return {clips:outputs,config:CONFIG,browser:navigator.userAgent,
             architecture:'Actual TSG V1.6 ai-test-runner.js + classifier-worker.js + yamnet.tflite + original resample.js (no Python classifier)'};
   },manifest.clips);
-  const run={...results,provenance:{ESC50_commit:manifest.ESC50_pin,
-    ESC50_metadata_sha256:manifest.ESC50_metadata_sha256,
+  const run={...results,provenance:{source_metadata_sha256:manifest.source_metadata_sha256,
+    source_group_type:manifest.source_group_type,
     selected_before_classification:true,
     human_listening_audit:false,
     onset_times_audited:false,
-    all_files_sha256:manifest.clips.map(({id,sha256,size_bytes,source_url,license,original_category,group_id,attribution,background_noise_human_audited})=>({id,sha256,size_bytes,source_url,license,original_category,group_id,attribution,background_noise_human_audited}))},
+    all_files_sha256:manifest.clips.map(({id,sha256,size_bytes,url,license,source_label_all,source_group,dataset,source_exhaustively_labeled})=>({id,sha256,size_bytes,url,license,source_label_all,source_group,dataset,source_exhaustively_labeled}))},
     pageIssues:issues,ranAt:new Date().toISOString()};
   await fs.writeFile(new URL('raw-results.json',work),JSON.stringify(run,null,2)+'\n');
   if(issues.length)throw Error('Real asset/page runtime failures: '+issues.join('; '));
