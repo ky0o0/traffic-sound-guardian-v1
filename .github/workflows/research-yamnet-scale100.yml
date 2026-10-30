@@ -1,0 +1,86 @@
+name: YAMNet real-source 100 each bicycle bell horn generic siren
+on:
+  push:
+    branches: [research/yamnet-six-targets-scale-20261030]
+    paths:
+      - '.github/workflows/research-yamnet-scale100.yml'
+      - 'research/yamnet/scale/trigger.json'
+permissions:
+  contents: write
+jobs:
+  real-source-100-per-target:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 42
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify unchanged main-site YAMNet model and existing CI tests
+        run: |
+          test "$(sha256sum yamnet.tflite | awk '{print $1}')" = "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf"
+          node --test test-*.js
+          node --check research/yamnet/scale/run-browser.mjs
+          node --check research/yamnet/scale/analyse.mjs
+      - name: Install headless Chromium controller (no alternate classifier)
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          if command -v google-chrome >/dev/null; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          else
+            npx playwright install --with-deps chromium
+          fi
+      - name: Download independently sourced original Freesound recordings from FSD50K and UrbanSound8K
+        run: python -u research/yamnet/scale/prepare.py
+      - name: Run actual website MediaPipe TFLite six-target classifier on 100 recordings per labeled class
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/tsg-scale100-http.log 2>&1 &
+          for i in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8765/research/yamnet/scale/harness.html >/dev/null && break || sleep 2; done
+          node research/yamnet/scale/run-browser.mjs
+      - name: Calculate raw 6 scores for EVERY audio window and heldout metrics at thresholds 0.01 to 1.00
+        run: |
+          node research/yamnet/scale/analyse.mjs
+          python - <<'PY'
+          import json,gzip
+          from pathlib import Path
+          p=Path('research/yamnet/scale')
+          r=json.loads((p/'RESULTS.json').read_text())
+          assert r['sourceRecordings']==r['uniqueFreesoundGroups']
+          assert r['sourceLabelCounts']['bell']>=50
+          assert r['sourceLabelCounts']['horn']>=50
+          assert r['sourceLabelCounts']['siren']>=50
+          for src,dest in [('raw-results.json','SCORES.json.gz'),('WINDOW_SCORES.csv','WINDOW_SCORES.csv.gz'),('manifest.json','MANIFEST.json.gz')]:
+              with (p/'.working'/src).open('rb') as source,gzip.open(p/dest,'wb',compresslevel=9) as out:
+                  while chunk:=source.read(1048576):out.write(chunk)
+          print('DONE. SOURCE-COUNTS',r['sourceLabelCounts'],'WINDOWS',r['workerWindows'])
+          PY
+      - name: Retain exact downloaded provenance, raw 6-score per-frame evidence and full report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yamnet-scale100-six-scores
+          path: |
+            research/yamnet/scale/.working/manifest.json
+            research/yamnet/scale/.working/raw-results.json
+            research/yamnet/scale/.working/WINDOW_SCORES.csv
+            research/yamnet/scale/RESULTS.json
+            research/yamnet/scale/REPORT.zh-CN.md
+            research/yamnet/scale/MANIFEST.json.gz
+            research/yamnet/scale/SCORES.json.gz
+            research/yamnet/scale/WINDOW_SCORES.csv.gz
+            /tmp/tsg-scale100-http.log
+          if-no-files-found: warn
+          retention-days: 90
+          include-hidden-files: true
+      - name: Commit experiment report and lossless scores only to research branch
+        if: success()
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name 'TSG expanded YAMNet evidence'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/yamnet/scale/REPORT.zh-CN.md research/yamnet/scale/RESULTS.json research/yamnet/scale/MANIFEST.json.gz research/yamnet/scale/SCORES.json.gz research/yamnet/scale/WINDOW_SCORES.csv.gz
+          git commit -m 'research(yamnet): preserve >=50 independent bell horn siren real recordings with all six scores'
+          git push origin HEAD:refs/heads/research/yamnet-six-targets-scale-20261030
