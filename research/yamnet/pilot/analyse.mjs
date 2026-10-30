@@ -6,6 +6,9 @@ const clips=raw.clips, thresholds=Object.fromEntries(NAMES.map(n=>[n,0.10]));
 const clipResults=analyse(clips,thresholds,'clip',true);
 const sixResults=analyse(clips,thresholds,'clip',false);
 const times=timing(clips);
+// The standalone browser harness deliberately does not record BatchRunner.offlineMs;
+// report null rather than infer total file decode + processing time.
+if(!Number.isFinite(times.offlineMs))times.offlineMs=null;
 if(clips.length!==30||raw.provenance.all_files_sha256.length!==30)throw Error('Incomplete 30 files');
 if(clips.some(c=>c.result.windows.length===0))throw Error('Missing real inference');
 const sweep=[];
@@ -36,7 +39,7 @@ const lines=[
  '',
  '- 运行实际 TSG V1.6 的 MediaPipe 0.10.21 YAMNet TFLite 模型、classifier-worker、重采样、0.975秒窗口与0.480秒步进；Chromium浏览器离线文件推理。',
  '- 实际完整录音数：'+clips.length+'；独立原始来源组（按元数据去重，尚未复核跨数据集相同来源）：'+output.unique_source_groups+'；实际推理窗口：'+output.classification_windows+'。',
- '- 目标录音来源：ESC-50 原版真实录音及 Wikimedia Commons 自行车铃录音。部分音频可能背景干净，尚未人工确认环境复杂程度。',
+ '- 本次30条音频全部来自 ESC-50 原版真实录音：8段汽车喇叭、8段警笛、14段其他声音；没有自行车铃阳性录音。部分音频可能背景干净，尚未人工确认环境复杂程度。',
  '- 预先固定选择录音，不根据模型输出挑选样本；没有拼接人工交通音、没有合成测试声。',
  '- 采集来源和 SHA-256：见 RESULTS.json / 原始运行JSON的 provenance。',
  '',
@@ -58,7 +61,7 @@ lines.push('| 指标 | 值 |','|---|---:|',
  '','这些是本次CI电脑上的运行耗时，不是警告声出现后的真实检测延迟，更不是iPhone + 蓝牙耳机端到端延迟。',
  '','## 阈值探索（相同的30条录音，**不得当作最终测试结果**）','','| 阈值 | 自行车铃召回率 | 喇叭召回率 | 警笛召回率 |','|---|---:|---:|---:|');
 for(const r of sweep)lines.push('| '+r.threshold.toFixed(2)+' | '+['bell','horn','sirenGroup'].map(k=>percent(r.by_group[k].recall)).join(' | ')+' |');
-lines.push('','## 缺口与下一步','','1. **优先人工听辨**每条录音、确认背景噪声及真实目标声音，并标注目标声的起止时间。ESC-50是一类主标签，不能证明录音内没有其他警告音，尤其负例。','2. 加入更多真实复杂道路现场录音，不能把不同剪辑当作新的独立原始录音。','3. 在人工复核的数据上按来源分组，分开调整阈值的验证集与最终测试集，最后只查看一次测试成绩。','4. 用事件级真值测真实漏报、误报次数和模拟检测延迟；在手机设备上另测端到端提示音延迟。','5. 在第二轮以前**不修改正式网站的默认阈值**。','','## 原始来源和可复现性','','- [ESC-50 官方GitHub](https://github.com/karolpiczak/ESC-50)，CC BY-NC 3.0，Freesound field recordings（详情参阅原始署名文件）。','- [Wikimedia Commons 自行车铃类别](https://commons.wikimedia.org/wiki/Category:Audio_files_of_bicycle_bells)，各录音分别适用源文件页面标注的 Creative Commons 许可。','- 所有30条实际下载地址、文件哈希、人工复核状态和每窗6类原始分数保存在实验归档中；仅报告和结果统计保留在独立研究分支。','- 这是实际跑了模型的基准试运行，不是已经完成的最终验证。','');
+lines.push('','## 缺口与下一步','','1. **优先人工听辨**每条录音、确认背景噪声及真实目标声音，并标注目标声的起止时间。ESC-50是一类主标签，不能证明录音内没有其他警告音，尤其负例。','2. 加入更多真实复杂道路现场录音，不能把不同剪辑当作新的独立原始录音。','3. 在人工复核的数据上按来源分组，分开调整阈值的验证集与最终测试集，最后只查看一次测试成绩。','4. 用事件级真值测真实漏报、误报次数和模拟检测延迟；在手机设备上另测端到端提示音延迟。','5. 在第二轮以前**不修改正式网站的默认阈值**。','','## 原始来源和可复现性','','- [ESC-50 官方GitHub](https://github.com/karolpiczak/ESC-50)，CC BY-NC 3.0，Freesound field recordings（详情参阅原始署名文件）。','- 自行车铃尚未进入本次试运行：Wikimedia Commons 对 CI 下载请求返回 HTTP 429；不得把本次数据当作自行车铃的检出性能。','- 所有30条实际下载地址、文件哈希、人工复核状态和每窗6类原始分数保存在实验归档中；仅报告和结果统计保留在独立研究分支。','- 这是实际跑了模型的基准试运行，不是已经完成的最终验证。','');
 await fs.writeFile(new URL('REPORT.zh-CN.md',import.meta.url),lines.join('\n'));
 console.log('REPORT_WRITTEN clip_count='+clips.length+' windows='+output.classification_windows,
             'scores='+JSON.stringify(clipResults.byClass));
