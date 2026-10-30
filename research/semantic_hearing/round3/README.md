@@ -1,6 +1,6 @@
 # SH 第三轮：有状态连续处理与实时可行性
 
-已执行结果和限制见 [完整中文报告](REPORT.zh-CN.md)。官方状态API与本项目PCM适配分开说明；没有耳机、手机、蓝牙、网站、YAMNet、PAWS或训练集成。
+已执行结果和限制见 [完整中文报告](REPORT.zh-CN.md)，[Draft PR #18](https://github.com/ky0o0/traffic-sound-guardian-v1/pull/18)基于PR #16研究分支。官方状态API与本项目PCM适配分开说明；没有耳机、手机、蓝牙、网站、YAMNet、PAWS或训练集成。
 
 ## 固定起点
 

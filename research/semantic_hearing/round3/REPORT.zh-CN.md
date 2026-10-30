@@ -278,7 +278,7 @@ IUSB警笛录音在雨声/道路的冷启动整事件投影增益约−1.72/−1
 
 ## 14. GitHub、复现与音频保存
 
-- 分支：[research/sh-round3-stateful-20261030](https://github.com/ky0o0/traffic-sound-guardian-v1/tree/research/sh-round3-stateful-20261030)，从PR #16最新提交创建，新的Draft PR目标为第二轮研究分支；不合并。
+- 分支：[research/sh-round3-stateful-20261030](https://github.com/ky0o0/traffic-sound-guardian-v1/tree/research/sh-round3-stateful-20261030)，从PR #16最新提交创建；[Draft PR #18](https://github.com/ky0o0/traffic-sound-guardian-v1/pull/18)目标为第二轮研究分支，保持未合并。
 - [完整配置](config.json)、[模型输出前冻结的输入/来源哈希](frozen_inputs.json)、[复现命令](README.md)、[逐事件CSV](evidence/analysis/event_metrics.csv)、[逐块CSV](evidence/analysis/block_trace.csv)、[性能CSV](evidence/analysis/run_performance.csv)。
 - [永久精选试听ZIP](evidence/listening.zip)，约10.09MB，原幅度FLOAT WAV，内含来源许可和明确处理说明。四个短对照输入相同；另有原R1五秒冷启动、历史carry、encoder重置的相同输入对照。
 - [预训练门槛运行](https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/41021346346)，源码`1664e2d64a6e236bb6cd4d76156c5d2f61c6422a`；[连续实验及新worker验证](https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/41022306936)，源码`783b5755552b3a4b5a071eef47a5ad350657ae1a`。
