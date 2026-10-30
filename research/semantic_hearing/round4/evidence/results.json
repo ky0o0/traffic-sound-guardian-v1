@@ -1,0 +1,1731 @@
+{
+  "gate": {
+    "multihot_stream_vs_offline_max_abs_difference": 7.599592208862305e-07,
+    "multihot_is_syntactically_accepted": true,
+    "correct_neural_history": 2125824,
+    "verified_original_weights": true
+  },
+  "results": [
+    {
+      "plan": {
+        "id": "horn0260_rain",
+        "horn_source": "bsb_0260",
+        "siren_source": null,
+        "background_id": "bsb_0124",
+        "horn_event": {
+          "start_sample": 88192,
+          "end_sample": 109976,
+          "start_seconds": 1.9998185941043083,
+          "end_seconds": 2.4937868480725625
+        },
+        "siren_event": null,
+        "input_hash": "6b9ccd748d96f3639e3ad666c28159ae05835d2e145f29bc2157dec8a544b921",
+        "horn_reference_hash": "acd709d36e370c01aae9c682027733c8724369ff083c61797bdf68e155b49053",
+        "siren_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+        "noise_hash": "5ee1bc028fa1a566c395c52804b6720739f6840c4184a79a152af1a2a54551bb",
+        "input_peak": 0.8499999642372131,
+        "gain": 0.9297992101100283,
+        "length_samples": 352800,
+        "input_has_background_history_seconds": 1.9998185941043083
+      },
+      "methods": {
+        "horn_only": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 3.5142179259972752,
+              "gain_db": -8.40053790673522,
+              "gain_lr_db": [
+                -8.56369230395452,
+                -8.23738350951592
+              ],
+              "output_snr_db": 2.953302197369814,
+              "active_output_snr_db": 3.120747224838867,
+              "input_snr_db": 0.23460914464694305
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -1.6186050593795929,
+              "gain_db": -11.54026314880838,
+              "gain_lr_db": [
+                -11.58252042011415,
+                -11.49800587750261
+              ],
+              "output_snr_db": 2.214280395681228,
+              "active_output_snr_db": 2.214280395681228,
+              "input_snr_db": 2.3604896516156564
+            }
+          },
+          "siren": null,
+          "combined": {
+            "si_sdri_db": 3.5142179259972752,
+            "gain_db": -8.40053790673522,
+            "gain_lr_db": [
+              -8.56369230395452,
+              -8.23738350951592
+            ],
+            "output_snr_db": 2.953302197369814,
+            "active_output_snr_db": 3.120747224838867,
+            "input_snr_db": 0.23460913487733176
+          },
+          "output_peak": 0.24408091604709625,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.014143834191276681,
+          "background_only_ratio_db": null
+        },
+        "siren_only": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 0.28564026887065674,
+              "gain_db": -14.985681953325702,
+              "gain_lr_db": [
+                -15.756717359788455,
+                -14.214646546862951
+              ],
+              "output_snr_db": 1.3576116372832052,
+              "active_output_snr_db": 1.4455183269170475,
+              "input_snr_db": 0.23460914464694305
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -4.188866123643304,
+              "gain_db": -18.681562901757868,
+              "gain_lr_db": [
+                -19.177574403945094,
+                -18.18555139957064
+              ],
+              "output_snr_db": 0.9591708039169832,
+              "active_output_snr_db": 0.9591708039169832,
+              "input_snr_db": 2.3604896516156564
+            }
+          },
+          "siren": null,
+          "combined": {
+            "si_sdri_db": 0.28564026887065674,
+            "gain_db": -14.985681953325702,
+            "gain_lr_db": [
+              -15.756717359788455,
+              -14.214646546862951
+            ],
+            "output_snr_db": 1.3576116372832052,
+            "active_output_snr_db": 1.4455183269170475,
+            "input_snr_db": 0.23460913487733176
+          },
+          "output_peak": 0.15825854241847992,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.012857381454116128,
+          "background_only_ratio_db": null
+        },
+        "two_hot": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 1.9418196395954102,
+              "gain_db": -12.111986675260699,
+              "gain_lr_db": [
+                -12.52313564495478,
+                -11.700837705566618
+              ],
+              "output_snr_db": 1.9364727873964824,
+              "active_output_snr_db": 2.032755286636991,
+              "input_snr_db": 0.23460914464694305
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -1.6472311026458415,
+              "gain_db": -18.537091408137464,
+              "gain_lr_db": [
+                -18.96202555139539,
+                -18.11215726487954
+              ],
+              "output_snr_db": 1.0265494146192438,
+              "active_output_snr_db": 1.0265494146192438,
+              "input_snr_db": 2.3604896516156564
+            }
+          },
+          "siren": null,
+          "combined": {
+            "si_sdri_db": 1.9418196395954102,
+            "gain_db": -12.111986675260699,
+            "gain_lr_db": [
+              -12.52313564495478,
+              -11.700837705566618
+            ],
+            "output_snr_db": 1.9364727873964824,
+            "active_output_snr_db": 2.032755286636991,
+            "input_snr_db": 0.23460913487733176
+          },
+          "output_peak": 0.2063027024269104,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.011869086098267553,
+          "background_only_ratio_db": null
+        },
+        "two_pass_sum": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 3.380213374237086,
+              "gain_db": -5.058226275177386,
+              "gain_lr_db": [
+                -5.415363884075325,
+                -4.701088666279448
+              ],
+              "output_snr_db": 3.3032742279754923,
+              "active_output_snr_db": 3.8800918938792135,
+              "input_snr_db": 0.23460914464694305
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -1.1992394432363997,
+              "gain_db": -8.373661894966352,
+              "gain_lr_db": [
+                -8.554468588533428,
+                -8.192855201399276
+              ],
+              "output_snr_db": 3.0445365269097033,
+              "active_output_snr_db": 3.0445365269097033,
+              "input_snr_db": 2.3604896516156564
+            }
+          },
+          "siren": null,
+          "combined": {
+            "si_sdri_db": 3.380213374237086,
+            "gain_db": -5.058226275177386,
+            "gain_lr_db": [
+              -5.415363884075325,
+              -4.701088666279448
+            ],
+            "output_snr_db": 3.3032742279754923,
+            "active_output_snr_db": 3.8800918938792135,
+            "input_snr_db": 0.23460913487733176
+          },
+          "output_peak": 0.34557658433914185,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.024751924619055815,
+          "background_only_ratio_db": null
+        }
+      },
+      "performance": {
+        "horn_only": {
+          "forward_rtf": 0.45389924737500564,
+          "loop_wall_rtf": 0.47141779949999574,
+          "wall_seconds": 3.772882346000017,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 5.587731999980861,
+          "max_step_ms": 6.532462999985
+        },
+        "siren_only": {
+          "forward_rtf": 0.44807442199994796,
+          "loop_wall_rtf": 0.46533420587499563,
+          "wall_seconds": 3.7244980469999973,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.41652899996825,
+          "max_step_ms": 6.003728999985469
+        },
+        "two_hot": {
+          "forward_rtf": 0.4537509863747715,
+          "loop_wall_rtf": 0.47128403100000327,
+          "wall_seconds": 3.7721998920000033,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.5292330000279435,
+          "max_step_ms": 6.896341000015127
+        },
+        "two_pass_sum": {
+          "forward_rtf": 0.9019736693749536,
+          "loop_wall_rtf": 0.9367520053749914,
+          "estimated_sequential_two_pass": true,
+          "simultaneous_parallel_not_measured": true,
+          "note": "Sum of independent outputs with unmodified amplitudes; 2 separate model histories"
+        }
+      }
+    },
+    {
+      "plan": {
+        "id": "siren_road",
+        "horn_source": null,
+        "siren_source": "iusb_014",
+        "background_id": "iusb_road_00",
+        "horn_event": null,
+        "siren_event": {
+          "start_sample": 88192,
+          "end_sample": 176392,
+          "start_seconds": 1.9998185941043083,
+          "end_seconds": 3.9998185941043083
+        },
+        "input_hash": "09ec7a4ffc8a6c6b7e949f8fb7e4a1159061956ca59268faff3a607aa12f66f3",
+        "horn_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+        "siren_reference_hash": "84968c091e1de637666407daf46158827fd6e3a61447c8f0c9f928f35a8eff61",
+        "noise_hash": "41345ed81914cdbc7e4f4aef29d156fba8910729e7e92005b006b5c932a17896",
+        "input_peak": 0.2890591323375702,
+        "gain": 1.0,
+        "length_samples": 352800,
+        "input_has_background_history_seconds": 1.9998185941043083
+      },
+      "methods": {
+        "horn_only": {
+          "horn": null,
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": -13.030267966688868,
+              "gain_db": -34.92209428258276,
+              "gain_lr_db": [
+                -32.872502441103855,
+                -36.97168612406168
+              ],
+              "output_snr_db": 0.12824601865242258,
+              "active_output_snr_db": 0.12885154526364817,
+              "input_snr_db": 0.06620477637869379
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 2.4426303041033863,
+              "gain_db": -20.77327042104899,
+              "gain_lr_db": [
+                -20.019889224447365,
+                -21.526651617650614
+              ],
+              "output_snr_db": 0.7705487253203174,
+              "active_output_snr_db": 0.7705487253203174,
+              "input_snr_db": -5.174394006649269
+            }
+          },
+          "combined": {
+            "si_sdri_db": -13.030267966688868,
+            "gain_db": -34.92209428258276,
+            "gain_lr_db": [
+              -32.872502441103855,
+              -36.97168612406168
+            ],
+            "output_snr_db": 0.12824601865242258,
+            "active_output_snr_db": 0.12885154526364817,
+            "input_snr_db": 0.0662047808397363
+          },
+          "output_peak": 0.08306396007537842,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.0072582504821793094,
+          "background_only_ratio_db": null
+        },
+        "siren_only": {
+          "horn": null,
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 6.755397686273567,
+              "gain_db": -0.5366748563341456,
+              "gain_lr_db": [
+                -0.5132640957992047,
+                -0.5600856168690864
+              ],
+              "output_snr_db": 6.990368716875301,
+              "active_output_snr_db": 7.081953350566518,
+              "input_snr_db": 0.06620477637869379
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 4.289987367746833,
+              "gain_db": -5.149762456279751,
+              "gain_lr_db": [
+                -4.61880244226487,
+                -5.680722470294631
+              ],
+              "output_snr_db": 2.6043478261119803,
+              "active_output_snr_db": 2.6043478261119803,
+              "input_snr_db": -5.174394006649269
+            }
+          },
+          "combined": {
+            "si_sdri_db": 6.755397686273567,
+            "gain_db": -0.5366748563341456,
+            "gain_lr_db": [
+              -0.5132640957992047,
+              -0.5600856168690864
+            ],
+            "output_snr_db": 6.990368716875301,
+            "active_output_snr_db": 7.081953350566518,
+            "input_snr_db": 0.0662047808397363
+          },
+          "output_peak": 0.23558315634727478,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.024578652346803856,
+          "background_only_ratio_db": null
+        },
+        "two_hot": {
+          "horn": null,
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": -0.4147287227232429,
+              "gain_db": -11.47170871383888,
+              "gain_lr_db": [
+                -11.321278184690783,
+                -11.622139242986977
+              ],
+              "output_snr_db": 2.0737817407583865,
+              "active_output_snr_db": 2.083916214388938,
+              "input_snr_db": 0.06620477637869379
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 3.3998230439078876,
+              "gain_db": -11.186828782586273,
+              "gain_lr_db": [
+                -10.501086173115544,
+                -11.872571392057003
+              ],
+              "output_snr_db": 2.0292003302425288,
+              "active_output_snr_db": 2.0292003302425288,
+              "input_snr_db": -5.174394006649269
+            }
+          },
+          "combined": {
+            "si_sdri_db": -0.4147287227232429,
+            "gain_db": -11.47170871383888,
+            "gain_lr_db": [
+              -11.321278184690783,
+              -11.622139242986977
+            ],
+            "output_snr_db": 2.0737817407583865,
+            "active_output_snr_db": 2.083916214388938,
+            "input_snr_db": 0.0662047808397363
+          },
+          "output_peak": 0.08793316781520844,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.01165678621105591,
+          "background_only_ratio_db": null
+        },
+        "two_pass_sum": {
+          "horn": null,
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 6.406992378905922,
+              "gain_db": -0.36809203044452177,
+              "gain_lr_db": [
+                -0.30640686981978144,
+                -0.42977719106926204
+              ],
+              "output_snr_db": 6.513046065769066,
+              "active_output_snr_db": 6.6187377918076145,
+              "input_snr_db": 0.06620477637869379
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 4.308315712533295,
+              "gain_db": -3.8190943578719976,
+              "gain_lr_db": [
+                -3.256546948733581,
+                -4.3816417670104135
+              ],
+              "output_snr_db": 2.2207479409052144,
+              "active_output_snr_db": 2.2207479409052144,
+              "input_snr_db": -5.174394006649269
+            }
+          },
+          "combined": {
+            "si_sdri_db": 6.406992378905922,
+            "gain_db": -0.36809203044452177,
+            "gain_lr_db": [
+              -0.30640686981978144,
+              -0.42977719106926204
+            ],
+            "output_snr_db": 6.513046065769066,
+            "active_output_snr_db": 6.6187377918076145,
+            "input_snr_db": 0.0662047808397363
+          },
+          "output_peak": 0.23254746198654175,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.028042790234185332,
+          "background_only_ratio_db": null
+        }
+      },
+      "performance": {
+        "horn_only": {
+          "forward_rtf": 0.4506249239998823,
+          "loop_wall_rtf": 0.4681213009999965,
+          "wall_seconds": 3.746633279999969,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 5.2913189999799215,
+          "max_step_ms": 7.6355749999947875
+        },
+        "siren_only": {
+          "forward_rtf": 0.45027815275003036,
+          "loop_wall_rtf": 0.46760265049999816,
+          "wall_seconds": 3.742606405999993,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.777848999992784,
+          "max_step_ms": 6.65719299996681
+        },
+        "two_hot": {
+          "forward_rtf": 0.44385507850005723,
+          "loop_wall_rtf": 0.4609712693749941,
+          "wall_seconds": 3.6897228849999806,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.782299999988027,
+          "max_step_ms": 5.8380440000291856
+        },
+        "two_pass_sum": {
+          "forward_rtf": 0.9009030767499127,
+          "loop_wall_rtf": 0.9357239514999947,
+          "estimated_sequential_two_pass": true,
+          "simultaneous_parallel_not_measured": true,
+          "note": "Sum of independent outputs with unmodified amplitudes; 2 separate model histories"
+        }
+      }
+    },
+    {
+      "plan": {
+        "id": "sequential_rain",
+        "horn_source": "bsb_0260",
+        "siren_source": "iusb_014",
+        "background_id": "bsb_0124",
+        "horn_event": {
+          "start_sample": 88192,
+          "end_sample": 109976,
+          "start_seconds": 1.9998185941043083,
+          "end_seconds": 2.4937868480725625
+        },
+        "siren_event": {
+          "start_sample": 185120,
+          "end_sample": 273320,
+          "start_seconds": 4.197732426303855,
+          "end_seconds": 6.197732426303855
+        },
+        "input_hash": "ab5c318f6e18f1494f7c969af418363fedb605cc51210e03ff2ba79041e208ab",
+        "horn_reference_hash": "924d6a339530327353146e3e9cd2e2df5ee2705c0ddc901d788b380ecb52f7de",
+        "siren_reference_hash": "6edc0f6d863c3c99f43aedaec9c092e414c7bd28a410eb4d7d11f782b0affc1c",
+        "noise_hash": "c5509dc94c1420d7f626259a8d92338a653012519c25ed81c192c311668be319",
+        "input_peak": 0.6036547422409058,
+        "gain": 1.0,
+        "length_samples": 352800,
+        "input_has_background_history_seconds": 1.9998185941043083
+      },
+      "methods": {
+        "horn_only": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 5.527670091760514,
+              "gain_db": -0.9685881690844349,
+              "gain_lr_db": [
+                -1.0641616256998292,
+                -0.8730147124690406
+              ],
+              "output_snr_db": 8.288447258430589,
+              "active_output_snr_db": 8.452786624773474,
+              "input_snr_db": 5.088738629102676
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 0.028841839978751338,
+              "gain_db": -1.349483549581547,
+              "gain_lr_db": [
+                -1.4012374252848132,
+                -1.2977296738782806
+              ],
+              "output_snr_db": 7.941973718981513,
+              "active_output_snr_db": 7.941973718981513,
+              "input_snr_db": 7.214619105043719
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 185120,
+              "end_sample": 273320,
+              "start_seconds": 4.197732426303855,
+              "end_seconds": 6.197732426303855
+            },
+            "full": {
+              "si_sdri_db": -7.240061182418007,
+              "gain_db": -24.817202536145132,
+              "gain_lr_db": [
+                -24.04232709747976,
+                -25.5920779748105
+              ],
+              "output_snr_db": 0.3701935132406297,
+              "active_output_snr_db": 0.3749268706068459,
+              "input_snr_db": -2.0814450275825047
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 2.020323220956544,
+              "gain_db": -17.797531506711422,
+              "gain_lr_db": [
+                -17.272935920613985,
+                -18.322127092808863
+              ],
+              "output_snr_db": 0.8346882016062075,
+              "active_output_snr_db": 0.8346882016062075,
+              "input_snr_db": -7.949248508674222
+            }
+          },
+          "combined": {
+            "si_sdri_db": 1.9840162504406962,
+            "gain_db": -6.604706326527383,
+            "gain_lr_db": [
+              -6.2919434027726675,
+              -6.917469250282099
+            ],
+            "output_snr_db": 2.5159679736349156,
+            "active_output_snr_db": 2.6876199421500764,
+            "input_snr_db": 0.07184235950242157
+          },
+          "output_peak": 0.38198477029800415,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.022161480257436958,
+          "background_only_ratio_db": null
+        },
+        "siren_only": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": -0.6419334871245739,
+              "gain_db": -13.679996535553563,
+              "gain_lr_db": [
+                -13.86554299991148,
+                -13.494450071195645
+              ],
+              "output_snr_db": 1.8100452620499052,
+              "active_output_snr_db": 1.8471525276350236,
+              "input_snr_db": 5.088738629102676
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -5.33710622341808,
+              "gain_db": -17.79038091812448,
+              "gain_lr_db": [
+                -17.742409605765378,
+                -17.838352230483583
+              ],
+              "output_snr_db": 1.1379045701557444,
+              "active_output_snr_db": 1.1379045701557444,
+              "input_snr_db": 7.214619105043719
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 185120,
+              "end_sample": 273320,
+              "start_seconds": 4.197732426303855,
+              "end_seconds": 6.197732426303855
+            },
+            "full": {
+              "si_sdri_db": 7.8583236690680724,
+              "gain_db": -1.2832392443549299,
+              "gain_lr_db": [
+                -1.250553216146646,
+                -1.3159252725632138
+              ],
+              "output_snr_db": 6.472280013826338,
+              "active_output_snr_db": 6.546662802359152,
+              "input_snr_db": -2.0814450275825047
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 2.000742037422887,
+              "gain_db": -13.972164463245573,
+              "gain_lr_db": [
+                -13.976625481234192,
+                -13.967703445256953
+              ],
+              "output_snr_db": 0.9421607828560764,
+              "active_output_snr_db": 0.9421607828560764,
+              "input_snr_db": -7.949248508674222
+            }
+          },
+          "combined": {
+            "si_sdri_db": 3.4542976189237806,
+            "gain_db": -5.341122743217985,
+            "gain_lr_db": [
+              -5.5890111127647755,
+              -5.093234373671195
+            ],
+            "output_snr_db": 3.2410412105959168,
+            "active_output_snr_db": 3.6298343354187734,
+            "input_snr_db": 0.07184235950242157
+          },
+          "output_peak": 0.2431316077709198,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.02356664178850553,
+          "background_only_ratio_db": null
+        },
+        "two_hot": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 4.197001626859308,
+              "gain_db": -2.4769040450726054,
+              "gain_lr_db": [
+                -2.5756348401113973,
+                -2.3781732500338135
+              ],
+              "output_snr_db": 7.144850604369815,
+              "active_output_snr_db": 7.260298346167437,
+              "input_snr_db": 5.088738629102676
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -1.9728187792756255,
+              "gain_db": -3.62443545966627,
+              "gain_lr_db": [
+                -3.655091311864841,
+                -3.593779607467699
+              ],
+              "output_snr_db": 6.070842340569033,
+              "active_output_snr_db": 6.070842340569033,
+              "input_snr_db": 7.214619105043719
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 185120,
+              "end_sample": 273320,
+              "start_seconds": 4.197732426303855,
+              "end_seconds": 6.197732426303855
+            },
+            "full": {
+              "si_sdri_db": 0.46205615178270776,
+              "gain_db": -11.713623631680909,
+              "gain_lr_db": [
+                -11.391468880890619,
+                -12.035778382471198
+              ],
+              "output_snr_db": 1.8605412473421976,
+              "active_output_snr_db": 1.871737792888647,
+              "input_snr_db": -2.0814450275825047
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 2.524650763145943,
+              "gain_db": -16.847189463439243,
+              "gain_lr_db": [
+                -16.607764602070485,
+                -17.086614324808004
+              ],
+              "output_snr_db": 0.928122343645212,
+              "active_output_snr_db": 0.928122343645212,
+              "input_snr_db": -7.949248508674222
+            }
+          },
+          "combined": {
+            "si_sdri_db": 3.9610346646376984,
+            "gain_db": -6.009994945148591,
+            "gain_lr_db": [
+              -5.80324108562012,
+              -6.216748804677064
+            ],
+            "output_snr_db": 3.461975192079793,
+            "active_output_snr_db": 3.7247845286847037,
+            "input_snr_db": 0.07184235950242157
+          },
+          "output_peak": 0.3512278199195862,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.02115766379928498,
+          "background_only_ratio_db": null
+        },
+        "two_pass_sum": {
+          "horn": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 109976,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 2.4937868480725625
+            },
+            "full": {
+              "si_sdri_db": 4.910675465080137,
+              "gain_db": 0.839714852781066,
+              "gain_lr_db": [
+                0.7272317645610855,
+                0.9521979410010464
+              ],
+              "output_snr_db": 6.0260149934092055,
+              "active_output_snr_db": 6.395500563028404,
+              "input_snr_db": 5.088738629102676
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 0.06550924058352514,
+              "gain_db": -0.13059024845277564,
+              "gain_lr_db": [
+                -0.1692876910838506,
+                -0.09189280582170069
+              ],
+              "output_snr_db": 7.3567056848720025,
+              "active_output_snr_db": 7.3567056848720025,
+              "input_snr_db": 7.214619105043719
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 185120,
+              "end_sample": 273320,
+              "start_seconds": 4.197732426303855,
+              "end_seconds": 6.197732426303855
+            },
+            "full": {
+              "si_sdri_db": 7.30224259845876,
+              "gain_db": -0.721566484545941,
+              "gain_lr_db": [
+                -0.6425080908411174,
+                -0.8006248782507646
+              ],
+              "output_snr_db": 5.630915721135999,
+              "active_output_snr_db": 5.748230465357215,
+              "input_snr_db": -2.0814450275825047
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 2.483658497929193,
+              "gain_db": -9.651497899268778,
+              "gain_lr_db": [
+                -9.448740773151568,
+                -9.854255025385987
+              ],
+              "output_snr_db": 0.7149099610352249,
+              "active_output_snr_db": 0.7149099610352249,
+              "input_snr_db": -7.949248508674222
+            }
+          },
+          "combined": {
+            "si_sdri_db": 7.5103635983003905,
+            "gain_db": 0.07514164486149175,
+            "gain_lr_db": [
+              0.08723158557419353,
+              0.06305170414878997
+            ],
+            "output_snr_db": 4.429278492900943,
+            "active_output_snr_db": 6.018838020204594,
+            "input_snr_db": 0.07184235950242157
+          },
+          "output_peak": 0.4422212243080139,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.0372533789461753,
+          "background_only_ratio_db": null
+        }
+      },
+      "performance": {
+        "horn_only": {
+          "forward_rtf": 0.4467851506249687,
+          "loop_wall_rtf": 0.4638165022499976,
+          "wall_seconds": 3.7120982900000286,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 5.283292999990863,
+          "max_step_ms": 8.039500999984739
+        },
+        "siren_only": {
+          "forward_rtf": 0.4469903915000515,
+          "loop_wall_rtf": 0.4640230764999984,
+          "wall_seconds": 3.714214436999953,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.38909600001125,
+          "max_step_ms": 6.112632999986545
+        },
+        "two_hot": {
+          "forward_rtf": 0.4467760237500471,
+          "loop_wall_rtf": 0.46417591087499943,
+          "wall_seconds": 3.7154079430000024,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.891793000012967,
+          "max_step_ms": 4.891793000012967
+        },
+        "two_pass_sum": {
+          "forward_rtf": 0.8937755421250202,
+          "loop_wall_rtf": 0.927839578749996,
+          "estimated_sequential_two_pass": true,
+          "simultaneous_parallel_not_measured": true,
+          "note": "Sum of independent outputs with unmodified amplitudes; 2 separate model histories"
+        }
+      }
+    },
+    {
+      "plan": {
+        "id": "overlap_rain",
+        "horn_source": "bsb_0260",
+        "siren_source": "iusb_014",
+        "background_id": "bsb_0124",
+        "horn_event": {
+          "start_sample": 132288,
+          "end_sample": 154072,
+          "start_seconds": 2.9997278911564624,
+          "end_seconds": 3.4936961451247166
+        },
+        "siren_event": {
+          "start_sample": 88192,
+          "end_sample": 176392,
+          "start_seconds": 1.9998185941043083,
+          "end_seconds": 3.9998185941043083
+        },
+        "input_hash": "fdc7917779119328b3195115afab4b800df81405dc91adf4c2aba56088986c4a",
+        "horn_reference_hash": "8e90fcceb803b19dba15939fc0edd3e8cf1720056827dab5cdfec705a3557dd9",
+        "siren_reference_hash": "84968c091e1de637666407daf46158827fd6e3a61447c8f0c9f928f35a8eff61",
+        "noise_hash": "757baeec888c5e8b6529cc1795fa36d6ac0e97f751ad6bb24ee3921dc2963c32",
+        "input_peak": 0.5265277624130249,
+        "gain": 1.0,
+        "length_samples": 352800,
+        "input_has_background_history_seconds": 1.9998185941043083
+      },
+      "methods": {
+        "horn_only": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 154072,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.4936961451247166
+            },
+            "full": {
+              "si_sdri_db": 0.9266607098562929,
+              "gain_db": -3.259760634886284,
+              "gain_lr_db": [
+                -3.578143545568704,
+                -2.9413777242038646
+              ],
+              "output_snr_db": 2.96663508743571,
+              "active_output_snr_db": 3.313016506910169,
+              "input_snr_db": 1.1040572569388882
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -0.8508974883124052,
+              "gain_db": -2.7255449331991635,
+              "gain_lr_db": [
+                -2.8674057128897186,
+                -2.5836841535086084
+              ],
+              "output_snr_db": 1.826636754092878,
+              "active_output_snr_db": 1.826636754092878,
+              "input_snr_db": 0.3607596217924259
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": -1.6693028357437365,
+              "gain_db": -7.660571489635427,
+              "gain_lr_db": [
+                -8.05139787251685,
+                -7.269745106754005
+              ],
+              "output_snr_db": -0.2830088791210165,
+              "active_output_snr_db": -0.2747248495020208,
+              "input_snr_db": -4.637042684085749
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 1.8550858635691148,
+              "gain_db": -17.42063036286723,
+              "gain_lr_db": [
+                -18.713454407679684,
+                -16.127806318054777
+              ],
+              "output_snr_db": 0.9139856486198933,
+              "active_output_snr_db": 0.9139856486198933,
+              "input_snr_db": -7.37173494784029
+            }
+          },
+          "combined": {
+            "si_sdri_db": 2.8187020035474553,
+            "gain_db": -5.292927524311033,
+            "gain_lr_db": [
+              -5.484597416121021,
+              -5.101257632501046
+            ],
+            "output_snr_db": 4.360758554575891,
+            "active_output_snr_db": 4.372976334828546,
+            "input_snr_db": 0.03552932597057231
+          },
+          "output_peak": 0.42493870854377747,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.021685541736878304,
+          "background_only_ratio_db": null
+        },
+        "siren_only": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 154072,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.4936961451247166
+            },
+            "full": {
+              "si_sdri_db": -1.1183757420344136,
+              "gain_db": -5.3933874189682,
+              "gain_lr_db": [
+                -6.020298244040249,
+                -4.766476593896152
+              ],
+              "output_snr_db": 2.124101653911045,
+              "active_output_snr_db": 2.745124563270915,
+              "input_snr_db": 1.1040572569388882
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -2.7115318123145378,
+              "gain_db": -5.508313303614811,
+              "gain_lr_db": [
+                -6.058532349481122,
+                -4.958094257748499
+              ],
+              "output_snr_db": 1.5988559448863628,
+              "active_output_snr_db": 1.5988559448863628,
+              "input_snr_db": 0.3607596217924259
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 4.8154068043882345,
+              "gain_db": -2.352691350850271,
+              "gain_lr_db": [
+                -2.4047593596579784,
+                -2.300623342042564
+              ],
+              "output_snr_db": 2.150632692557389,
+              "active_output_snr_db": 2.1838372379512783,
+              "input_snr_db": -4.637042684085749
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 3.8350980444729155,
+              "gain_db": -10.28368759647585,
+              "gain_lr_db": [
+                -11.056372905784087,
+                -9.511002287167614
+              ],
+              "output_snr_db": 1.6999207867079913,
+              "active_output_snr_db": 1.6999207867079913,
+              "input_snr_db": -7.37173494784029
+            }
+          },
+          "combined": {
+            "si_sdri_db": 4.422791534062492,
+            "gain_db": -3.788908065219312,
+            "gain_lr_db": [
+              -4.085540134495146,
+              -3.492275995943478
+            ],
+            "output_snr_db": 5.536912721521714,
+            "active_output_snr_db": 5.573571274966763,
+            "input_snr_db": 0.03552932597057231
+          },
+          "output_peak": 0.35195693373680115,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.024264239797375294,
+          "background_only_ratio_db": null
+        },
+        "two_hot": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 154072,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.4936961451247166
+            },
+            "full": {
+              "si_sdri_db": 0.5896493626010808,
+              "gain_db": -3.484683353943291,
+              "gain_lr_db": [
+                -3.8369649833831114,
+                -3.1324017245034703
+              ],
+              "output_snr_db": 2.7870534046214575,
+              "active_output_snr_db": 3.3244317319218935,
+              "input_snr_db": 1.1040572569388882
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -1.0686297612391604,
+              "gain_db": -3.1494183802135396,
+              "gain_lr_db": [
+                -3.3277992029311725,
+                -2.971037557495907
+              ],
+              "output_snr_db": 1.8840961352915375,
+              "active_output_snr_db": 1.8840961352915375,
+              "input_snr_db": 0.3607596217924259
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 2.2141800868404524,
+              "gain_db": -4.150266737983482,
+              "gain_lr_db": [
+                -4.346296614317264,
+                -3.954236861649699
+              ],
+              "output_snr_db": 0.9212014779071878,
+              "active_output_snr_db": 0.9378821944149096,
+              "input_snr_db": -4.637042684085749
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 2.991539730642038,
+              "gain_db": -14.319990525391166,
+              "gain_lr_db": [
+                -15.37490249667254,
+                -13.26507855410979
+              ],
+              "output_snr_db": 1.2646931192398205,
+              "active_output_snr_db": 1.2646931192398205,
+              "input_snr_db": -7.37173494784029
+            }
+          },
+          "combined": {
+            "si_sdri_db": 5.330823173891294,
+            "gain_db": -3.8891867273220493,
+            "gain_lr_db": [
+              -4.093607369518379,
+              -3.684766085125719
+            ],
+            "output_snr_db": 5.975594213143285,
+            "active_output_snr_db": 6.002655589765814,
+            "input_snr_db": 0.03552932597057231
+          },
+          "output_peak": 0.40000423789024353,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.023243005739820577,
+          "background_only_ratio_db": null
+        },
+        "two_pass_sum": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 154072,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.4936961451247166
+            },
+            "full": {
+              "si_sdri_db": 0.5533595831487855,
+              "gain_db": 1.7607249625535868,
+              "gain_lr_db": [
+                1.306928360776371,
+                2.2145215643308025
+              ],
+              "output_snr_db": -1.6469814671250926,
+              "active_output_snr_db": -0.9408525453055993,
+              "input_snr_db": 1.1040572569388882
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -1.0852895393002506,
+              "gain_db": 2.0169787290212824,
+              "gain_lr_db": [
+                1.703363329402089,
+                2.3305941286404757
+              ],
+              "output_snr_db": -2.791679973438196,
+              "active_output_snr_db": -2.791679973438196,
+              "input_snr_db": 0.3607596217924259
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 2.732084062852482,
+              "gain_db": 1.4147694498488543,
+              "gain_lr_db": [
+                1.243517029709139,
+                1.58602186998857
+              ],
+              "output_snr_db": -3.344533455695058,
+              "active_output_snr_db": -3.321122413788879,
+              "input_snr_db": -4.637042684085749
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 3.5942365896223096,
+              "gain_db": -7.114966055553058,
+              "gain_lr_db": [
+                -8.046532120567107,
+                -6.183399990539009
+              ],
+              "output_snr_db": 1.3249778067823441,
+              "active_output_snr_db": 1.3249778067823441,
+              "input_snr_db": -7.37173494784029
+            }
+          },
+          "combined": {
+            "si_sdri_db": 6.0714575641397355,
+            "gain_db": 1.512352762013978,
+            "gain_lr_db": [
+              1.2636694306511398,
+              1.7610360933768165
+            ],
+            "output_snr_db": 4.0188891020902675,
+            "active_output_snr_db": 4.083753963038507,
+            "input_snr_db": 0.03552932597057231
+          },
+          "output_peak": 0.7082716226577759,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.04284337161996394,
+          "background_only_ratio_db": null
+        }
+      },
+      "performance": {
+        "horn_only": {
+          "forward_rtf": 0.4456793723750039,
+          "loop_wall_rtf": 0.4625491801250021,
+          "wall_seconds": 3.7020479669999986,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 5.31477999999197,
+          "max_step_ms": 5.31477999999197
+        },
+        "siren_only": {
+          "forward_rtf": 0.4485737006250332,
+          "loop_wall_rtf": 0.4656274368749962,
+          "wall_seconds": 3.726947955000014,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.28500400005305,
+          "max_step_ms": 5.598914000017885
+        },
+        "two_hot": {
+          "forward_rtf": 0.4433251821250508,
+          "loop_wall_rtf": 0.4603626616250054,
+          "wall_seconds": 3.684857908999959,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.531589999999142,
+          "max_step_ms": 4.861548999997467
+        },
+        "two_pass_sum": {
+          "forward_rtf": 0.8942530730000371,
+          "loop_wall_rtf": 0.9281766169999983,
+          "estimated_sequential_two_pass": true,
+          "simultaneous_parallel_not_measured": true,
+          "note": "Sum of independent outputs with unmodified amplitudes; 2 separate model histories"
+        }
+      }
+    },
+    {
+      "plan": {
+        "id": "overlap_road",
+        "horn_source": "bsb_0257",
+        "siren_source": "iusb_014",
+        "background_id": "iusb_road_00",
+        "horn_event": {
+          "start_sample": 132288,
+          "end_sample": 153554,
+          "start_seconds": 2.9997278911564624,
+          "end_seconds": 3.481950113378685
+        },
+        "siren_event": {
+          "start_sample": 88192,
+          "end_sample": 176392,
+          "start_seconds": 1.9998185941043083,
+          "end_seconds": 3.9998185941043083
+        },
+        "input_hash": "8036f52043bfce2bc60576cecd4ef1a2a6904d9959f7a793530ff856208bc194",
+        "horn_reference_hash": "7b010ed1b7a84373c86ae23506d0bc2a9d6b1e47b366d301c3200a62f4a3ba53",
+        "siren_reference_hash": "84968c091e1de637666407daf46158827fd6e3a61447c8f0c9f928f35a8eff61",
+        "noise_hash": "497f974a3e7ca532f772bb351e0c855ad6075b2a7ea684b9ab9cb7fb72ececcc",
+        "input_peak": 0.4301711320877075,
+        "gain": 1.0,
+        "length_samples": 352800,
+        "input_has_background_history_seconds": 1.9998185941043083
+      },
+      "methods": {
+        "horn_only": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 153554,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.481950113378685
+            },
+            "full": {
+              "si_sdri_db": 2.371391802237282,
+              "gain_db": -4.315434574214994,
+              "gain_lr_db": [
+                -2.7661055678189754,
+                -5.864763580611013
+              ],
+              "output_snr_db": 2.2315726220027186,
+              "active_output_snr_db": 2.4351683500579426,
+              "input_snr_db": -1.894259910942127
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -7.033524814628458,
+              "gain_db": -18.918514861361007,
+              "gain_lr_db": [
+                -14.501322276016735,
+                -23.335707446705282
+              ],
+              "output_snr_db": -0.666966208050761,
+              "active_output_snr_db": -0.666966208050761,
+              "input_snr_db": -6.106622798794957
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": -7.9498474876132805,
+              "gain_db": -15.428852107241037,
+              "gain_lr_db": [
+                -15.33766912543928,
+                -15.520035089042793
+              ],
+              "output_snr_db": -0.3026963349238567,
+              "active_output_snr_db": -0.2954051425517184,
+              "input_snr_db": -2.809861660140824
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 1.585195554461606,
+              "gain_db": -19.327377467934102,
+              "gain_lr_db": [
+                -18.425579044683438,
+                -20.229175891184767
+              ],
+              "output_snr_db": 0.8232996756086695,
+              "active_output_snr_db": 0.8232996756086695,
+              "input_snr_db": -6.764838932902543
+            }
+          },
+          "combined": {
+            "si_sdri_db": -2.1761299286149036,
+            "gain_db": -9.825945543519744,
+            "gain_lr_db": [
+              -9.457089200829305,
+              -10.19480188621018
+            ],
+            "output_snr_db": 1.9273395360571068,
+            "active_output_snr_db": 1.9357887340777526,
+            "input_snr_db": 0.06620522947025878
+          },
+          "output_peak": 0.25446635484695435,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.016377489761185755,
+          "background_only_ratio_db": null
+        },
+        "siren_only": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 153554,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.481950113378685
+            },
+            "full": {
+              "si_sdri_db": -3.5875538421758564,
+              "gain_db": -6.787870027630927,
+              "gain_lr_db": [
+                -6.334255162103956,
+                -7.241484893157898
+              ],
+              "output_snr_db": -0.933054202507201,
+              "active_output_snr_db": -0.7112147143617096,
+              "input_snr_db": -1.894259910942127
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -8.455607718040223,
+              "gain_db": -11.193912354857344,
+              "gain_lr_db": [
+                -8.660337283383303,
+                -13.727487426331386
+              ],
+              "output_snr_db": -5.613211127056906,
+              "active_output_snr_db": -5.613211127056906,
+              "input_snr_db": -6.106622798794957
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 5.958012749881279,
+              "gain_db": -1.412856258901341,
+              "gain_lr_db": [
+                -1.18869571708636,
+                -1.6370168007163222
+              ],
+              "output_snr_db": 3.8059021771156045,
+              "active_output_snr_db": 3.8788685858226355,
+              "input_snr_db": -2.809861660140824
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 4.300227486014686,
+              "gain_db": -6.057384677184799,
+              "gain_lr_db": [
+                -5.425583372864513,
+                -6.6891859815050845
+              ],
+              "output_snr_db": 1.8450600549427012,
+              "active_output_snr_db": 1.8450600549427012,
+              "input_snr_db": -6.764838932902543
+            }
+          },
+          "combined": {
+            "si_sdri_db": 4.315510258969811,
+            "gain_db": -2.541038903910543,
+            "gain_lr_db": [
+              -2.2877597068522952,
+              -2.7943181009687916
+            ],
+            "output_snr_db": 5.479754425070132,
+            "active_output_snr_db": 5.5541478938724955,
+            "input_snr_db": 0.06620522947025878
+          },
+          "output_peak": 0.3103561997413635,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.025747093632379797,
+          "background_only_ratio_db": null
+        },
+        "two_hot": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 153554,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.481950113378685
+            },
+            "full": {
+              "si_sdri_db": 0.06612002922380844,
+              "gain_db": -4.611176549014315,
+              "gain_lr_db": [
+                -3.4535327936532463,
+                -5.768820304375385
+              ],
+              "output_snr_db": 0.6744713295924494,
+              "active_output_snr_db": 0.9715237993104868,
+              "input_snr_db": -1.894259910942127
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -7.532668102437621,
+              "gain_db": -13.737394562082844,
+              "gain_lr_db": [
+                -9.812474116359498,
+                -17.662315007806193
+              ],
+              "output_snr_db": -3.0892126115381844,
+              "active_output_snr_db": -3.0892126115381844,
+              "input_snr_db": -6.106622798794957
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 1.302457635024024,
+              "gain_db": -5.98058681394783,
+              "gain_lr_db": [
+                -5.816492103383233,
+                -6.144681524512427
+              ],
+              "output_snr_db": 1.8834203927036242,
+              "active_output_snr_db": 1.9158447788215676,
+              "input_snr_db": -2.809861660140824
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 3.0900035334609974,
+              "gain_db": -11.295753336032405,
+              "gain_lr_db": [
+                -10.459149120788416,
+                -12.132357551276394
+              ],
+              "output_snr_db": 1.6539861092573571,
+              "active_output_snr_db": 1.6539861092573571,
+              "input_snr_db": -6.764838932902543
+            }
+          },
+          "combined": {
+            "si_sdri_db": 3.140190585404061,
+            "gain_db": -5.231789874252565,
+            "gain_lr_db": [
+              -4.954302784403388,
+              -5.5092769641017405
+            ],
+            "output_snr_db": 4.440114727475234,
+            "active_output_snr_db": 4.480656427436594,
+            "input_snr_db": 0.06620522947025878
+          },
+          "output_peak": 0.24770396947860718,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.020293895457557467,
+          "background_only_ratio_db": null
+        },
+        "two_pass_sum": {
+          "horn": {
+            "event": {
+              "start_sample": 132288,
+              "end_sample": 153554,
+              "start_seconds": 2.9997278911564624,
+              "end_seconds": 3.481950113378685
+            },
+            "full": {
+              "si_sdri_db": 0.23030947985758,
+              "gain_db": 0.5735464537965225,
+              "gain_lr_db": [
+                1.6523692924715536,
+                -0.5052763848785086
+              ],
+              "output_snr_db": -3.315675190414304,
+              "active_output_snr_db": -2.9767568293832563,
+              "input_snr_db": -1.894259910942127
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": -6.9725134114394764,
+              "gain_db": -8.161670820573907,
+              "gain_lr_db": [
+                -5.078226834966598,
+                -11.245114806181217
+              ],
+              "output_snr_db": -6.836685696418194,
+              "active_output_snr_db": -6.836685696418194,
+              "input_snr_db": -6.106622798794957
+            }
+          },
+          "siren": {
+            "event": {
+              "start_sample": 88192,
+              "end_sample": 176392,
+              "start_seconds": 1.9998185941043083,
+              "end_seconds": 3.9998185941043083
+            },
+            "full": {
+              "si_sdri_db": 2.583150848913952,
+              "gain_db": 0.1648210468306744,
+              "gain_lr_db": [
+                0.3668958889109003,
+                -0.03725379524955151
+              ],
+              "output_snr_db": -0.8861963348870561,
+              "active_output_snr_db": -0.8343201491908879,
+              "input_snr_db": -2.809861660140824
+            },
+            "onset_first_100ms": {
+              "si_sdri_db": 4.058118529403606,
+              "gain_db": -4.350813357717876,
+              "gain_lr_db": [
+                -3.67086179952554,
+                -5.030764915910213
+              ],
+              "output_snr_db": 1.04233218016941,
+              "active_output_snr_db": 1.04233218016941,
+              "input_snr_db": -6.764838932902543
+            }
+          },
+          "combined": {
+            "si_sdri_db": 4.464307691183449,
+            "gain_db": 0.5796184518730214,
+            "gain_lr_db": [
+              0.8677799741117082,
+              0.2914569296343347
+            ],
+            "output_snr_db": 3.601471356321313,
+            "active_output_snr_db": 3.703136571521683,
+            "input_snr_db": 0.06620522947025878
+          },
+          "output_peak": 0.44201868772506714,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.0380478681384635,
+          "background_only_ratio_db": null
+        }
+      },
+      "performance": {
+        "horn_only": {
+          "forward_rtf": 0.4478711700000062,
+          "loop_wall_rtf": 0.4651522453750019,
+          "wall_seconds": 3.722912208999958,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 5.1312340000322365,
+          "max_step_ms": 5.697093000037512
+        },
+        "siren_only": {
+          "forward_rtf": 0.4653184913749513,
+          "loop_wall_rtf": 0.48373353550000076,
+          "wall_seconds": 3.871889232000001,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.706819999967138,
+          "max_step_ms": 6.513580999978785
+        },
+        "two_hot": {
+          "forward_rtf": 0.4513159549999912,
+          "loop_wall_rtf": 0.4691274272499939,
+          "wall_seconds": 3.7549572709999666,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.35273400000824,
+          "max_step_ms": 5.244712000035179
+        },
+        "two_pass_sum": {
+          "forward_rtf": 0.9131896613749575,
+          "loop_wall_rtf": 0.9488857808750026,
+          "estimated_sequential_two_pass": true,
+          "simultaneous_parallel_not_measured": true,
+          "note": "Sum of independent outputs with unmodified amplitudes; 2 separate model histories"
+        }
+      }
+    },
+    {
+      "plan": {
+        "id": "background_road",
+        "horn_source": null,
+        "siren_source": null,
+        "background_id": "iusb_road_00",
+        "horn_event": null,
+        "siren_event": null,
+        "input_hash": "0fd7d0c12ed6cf9f36092c5ab9c394b05ec58c492e0b993e6c504f62558c4280",
+        "horn_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+        "siren_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+        "noise_hash": "0fd7d0c12ed6cf9f36092c5ab9c394b05ec58c492e0b993e6c504f62558c4280",
+        "input_peak": 0.2199999988079071,
+        "gain": 1.0,
+        "length_samples": 352800,
+        "input_has_background_history_seconds": 8
+      },
+      "methods": {
+        "horn_only": {
+          "horn": null,
+          "siren": null,
+          "combined": null,
+          "output_peak": 0.0702308639883995,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.008212600699629952,
+          "background_only_ratio_db": -15.41231270656552
+        },
+        "siren_only": {
+          "horn": null,
+          "siren": null,
+          "combined": null,
+          "output_peak": 0.06820867955684662,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.011643265685391403,
+          "background_only_ratio_db": -12.380430708421578
+        },
+        "two_hot": {
+          "horn": null,
+          "siren": null,
+          "combined": null,
+          "output_peak": 0.06991585344076157,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.01015531928494408,
+          "background_only_ratio_db": -13.56805521654642
+        },
+        "two_pass_sum": {
+          "horn": null,
+          "siren": null,
+          "combined": null,
+          "output_peak": 0.1369771957397461,
+          "out_of_range_samples": 0,
+          "all_signal_output_rms": 0.0192277178283049,
+          "background_only_ratio_db": -8.023372059077836
+        }
+      },
+      "performance": {
+        "horn_only": {
+          "forward_rtf": 0.4501232901250418,
+          "loop_wall_rtf": 0.46754060774999573,
+          "wall_seconds": 3.741984727999977,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 5.1771750000284555,
+          "max_step_ms": 5.610040000021854
+        },
+        "siren_only": {
+          "forward_rtf": 0.4610561937499469,
+          "loop_wall_rtf": 0.478952505499997,
+          "wall_seconds": 3.833533864000003,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.54195599996865,
+          "max_step_ms": 7.553853999979765
+        },
+        "two_hot": {
+          "forward_rtf": 0.4633696638750706,
+          "loop_wall_rtf": 0.481901992625005,
+          "wall_seconds": 3.857172840999965,
+          "neural_state_bytes": 2125824,
+          "first_step_ms": 4.756617999987611,
+          "max_step_ms": 7.173968000017794
+        },
+        "two_pass_sum": {
+          "forward_rtf": 0.9111794838749887,
+          "loop_wall_rtf": 0.9464931132499927,
+          "estimated_sequential_two_pass": true,
+          "simultaneous_parallel_not_measured": true,
+          "note": "Sum of independent outputs with unmodified amplitudes; 2 separate model histories"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+    "official_source_commit": "07e9786c7a741f0a7c722dcde66a2679ca068c50",
+    "model_load_seconds": 0.36379109000000653,
+    "python": "3.10.22",
+    "torch_version": "1.13.1+cpu",
+    "environment": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.35",
+    "cpu": "x86_64",
+    "process_peak_rss_kib": 598588,
+    "all_audio_from_existing_verified_archives": true,
+    "no_training_or_weights_update": true,
+    "reference_disclaimer": "Edited and inserted ordinary stereo recording components; no independently verified binaural or semantic pure target",
+    "run_unit": "six input scenes, three real stateful model passes per scene; two_pass_sum is arithmetic only",
+    "listening_zip": {
+      "path": "research/semantic_hearing/round4/evidence/listening.zip",
+      "sha256": "4c91bd0de8ba2c3314aad3f02d29fa5a740cad3296daf2f1c535b28924e9ffff",
+      "bytes": 14778691
+    }
+  }
+}
