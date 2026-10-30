@@ -57,7 +57,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: yamnet-real-browser-baseline-\${{ github.sha }}
+          name: yamnet-real-browser-baseline-${{ github.sha }}
           path: |
             research/yamnet/pilot/.working/manifest.json
             research/yamnet/pilot/.working/raw-results.json
