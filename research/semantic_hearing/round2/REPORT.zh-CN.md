@@ -288,7 +288,7 @@ IUSB siren01/02/04 的整录音成分有较好恢复，siren03 五个条件均�
 
 ## 代码、报告与试听归档
 
-- 研究分支：[research/sh-round2-controlled-20261030](https://github.com/ky0o0/traffic-sound-guardian-v1/tree/research/sh-round2-controlled-20261030)，从 PR #15 精确提交创建；新的 Draft PR 以 `research/sh-real-audio-recovery-20261030` 为目标，保持未合并。
+- 研究分支：[research/sh-round2-controlled-20261030](https://github.com/ky0o0/traffic-sound-guardian-v1/tree/research/sh-round2-controlled-20261030)，从 PR #15 精确提交创建；[Draft PR #16](https://github.com/ky0o0/traffic-sound-guardian-v1/pull/16) 以 `research/sh-real-audio-recovery-20261030` 为目标，保持未合并。
 
 - [复现命令和文件说明](README.md)、[冻结配置/来源清单](config.json)、[逐例主实验 CSV](evidence/full/analysis/results.csv)、[追加对照 CSV](evidence/boundary/results.csv)、[完整 artifact 元数据与 digest](evidence/artifact_registry.json)。
 
