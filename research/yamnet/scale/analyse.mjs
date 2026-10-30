@@ -213,7 +213,6 @@ text.push("","**注意**：Score不是分贝或校准概率。每段的最高分
 "| 类别 | 暂选阈值 | 0.10测试集Recall | 暂选阈值测试集Recall | 0.10测试集F1 | 暂选阈值测试集F1 |",
 "|---|---:|---:|---:|---:|---:|"
 );
-const pct=n=>n==null?"N/A":(100*n).toFixed(1)+"%";
 for(const [k,name] of [["bell","自行车铃"],["horn","汽车喇叭"],["siren","通用警笛"]]){
  const a=comparison[k];text.push("| "+name+" | "+a.candidate.threshold.toFixed(2)+" | "+
  pct(a.default01.heldout.recall)+" | "+pct(a.candidate.heldout.recall)+" | "+
