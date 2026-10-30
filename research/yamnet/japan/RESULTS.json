@@ -1,17 +1,16 @@
 {
   "kind": "Japan-sirens controlled-reference pilot",
   "status": "exploratory_not_real_world_road_recognition",
-  "sourceFileCount": 11,
+  "sourceFileCount": 6,
   "groupCounts": {
     "police": 3,
-    "ambulance": 3,
-    "fire": 5
+    "ambulance": 1,
+    "fire": 2
   },
   "realJapanPoliceRecordedCases": 0,
-  "sampleWindows": 550,
+  "sampleWindows": 212,
   "sourceTierCounts": {
     "municipality_demonstration": 3,
-    "field_effect_provenance_unverified": 5,
     "japan_style_SYNTH_control_ONLY": 3
   },
   "model": "TSG V1.6 exact website YAMNet MediaPipe 0.10.21",
@@ -49,7 +48,14 @@
       "intendedScore": 0.19921875,
       "intendedThreshold01Reached": true,
       "genericSirenScore": 0.890625,
-      "genericSirenThreshold01Reached": true
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "none": 12,
+        "Siren": 11,
+        "Police car (siren)": 6
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 6
     },
     {
       "id": "kisarazu_fire_rescue",
@@ -74,7 +80,14 @@
       "intendedScore": 0.33203125,
       "intendedThreshold01Reached": true,
       "genericSirenScore": 0.66796875,
-      "genericSirenThreshold01Reached": true
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "none": 4,
+        "Siren": 12,
+        "Police car (siren)": 12
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 12
     },
     {
       "id": "kisarazu_ambulance",
@@ -99,132 +112,13 @@
       "intendedScore": 0.4140625,
       "intendedThreshold01Reached": true,
       "genericSirenScore": 0.26171875,
-      "genericSirenThreshold01Reached": true
-    },
-    {
-      "id": "komori_ambulance_pass",
-      "sourcePage": "https://taira-komori.net/enviroment01.html",
-      "audioUrl": "https://taira-komori.net/sound/environment01/ambulance_pass.mp3",
-      "fileSha256": "2fce6861de44a847828ec4d62f1df19b4d2387b234c5cad16ba4880190c25bd5",
-      "originalSourceGroup": "komori_ambulance_pass",
-      "label": "ambulance",
-      "tier": "field_effect_provenance_unverified",
-      "windows": 33,
-      "durationSeconds": 16.440975056689343,
-      "peak": {
-        "Bicycle bell": 0,
-        "Vehicle horn, car horn, honking": 0.00390625,
-        "Siren": 0.5859375,
-        "Police car (siren)": 0.08203125,
-        "Ambulance (siren)": 0.66796875,
-        "Fire engine, fire truck (siren)": 0.01953125
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "none": 22,
+        "Ambulance (siren)": 2
       },
-      "dominantClass": "Ambulance (siren)",
-      "dominantRawScore": 0.66796875,
-      "intendedScore": 0.66796875,
-      "intendedThreshold01Reached": true,
-      "genericSirenScore": 0.5859375,
-      "genericSirenThreshold01Reached": true
-    },
-    {
-      "id": "komori_ambulance_loop",
-      "sourcePage": "https://taira-komori.net/enviroment01.html",
-      "audioUrl": "https://taira-komori.net/sound/environment01/ambulance_siren.mp3",
-      "fileSha256": "2ac1353a6315f2aa87a0003c5000cc4a158a637e5de8e533d54badc9804ee96e",
-      "originalSourceGroup": "komori_ambulance_loop",
-      "label": "ambulance",
-      "tier": "field_effect_provenance_unverified",
-      "windows": 4,
-      "durationSeconds": 2.424965986394558,
-      "peak": {
-        "Bicycle bell": 0,
-        "Vehicle horn, car horn, honking": 0.00390625,
-        "Siren": 0.4140625,
-        "Police car (siren)": 0.08203125,
-        "Ambulance (siren)": 0.5859375,
-        "Fire engine, fire truck (siren)": 0.04296875
-      },
-      "dominantClass": "Ambulance (siren)",
-      "dominantRawScore": 0.5859375,
-      "intendedScore": 0.5859375,
-      "intendedThreshold01Reached": true,
-      "genericSirenScore": 0.4140625,
-      "genericSirenThreshold01Reached": true
-    },
-    {
-      "id": "komori_fire_pass",
-      "sourcePage": "https://taira-komori.net/enviroment01.html",
-      "audioUrl": "https://taira-komori.net/sound/environment01/fire_engine_pass.mp3",
-      "fileSha256": "2915bcceda5ef80ad831c30afd9f08d520a7fb2fb834e15271bf3f4888bf02c8",
-      "originalSourceGroup": "komori_fire_pass",
-      "label": "fire",
-      "tier": "field_effect_provenance_unverified",
-      "windows": 82,
-      "durationSeconds": 39.983990929705215,
-      "peak": {
-        "Bicycle bell": 0,
-        "Vehicle horn, car horn, honking": 0.01171875,
-        "Siren": 0.96875,
-        "Police car (siren)": 0.73828125,
-        "Ambulance (siren)": 0.5,
-        "Fire engine, fire truck (siren)": 0.5859375
-      },
-      "dominantClass": "Siren",
-      "dominantRawScore": 0.96875,
-      "intendedScore": 0.5859375,
-      "intendedThreshold01Reached": true,
-      "genericSirenScore": 0.96875,
-      "genericSirenThreshold01Reached": true
-    },
-    {
-      "id": "komori_fire_start",
-      "sourcePage": "https://taira-komori.net/enviroment01.html",
-      "audioUrl": "https://taira-komori.net/sound/environment01/fire_engine_start.mp3",
-      "fileSha256": "c5d2c4720c2c21bec797015dbb27fe0c3f5c631d2e05aa0ef2cc4728bdb742b4",
-      "originalSourceGroup": "komori_fire_start",
-      "label": "fire",
-      "tier": "field_effect_provenance_unverified",
-      "windows": 121,
-      "durationSeconds": 58.88580498866213,
-      "peak": {
-        "Bicycle bell": 0,
-        "Vehicle horn, car horn, honking": 0.01953125,
-        "Siren": 0.96875,
-        "Police car (siren)": 0.73828125,
-        "Ambulance (siren)": 0.26171875,
-        "Fire engine, fire truck (siren)": 0.33203125
-      },
-      "dominantClass": "Siren",
-      "dominantRawScore": 0.96875,
-      "intendedScore": 0.33203125,
-      "intendedThreshold01Reached": true,
-      "genericSirenScore": 0.96875,
-      "genericSirenThreshold01Reached": true
-    },
-    {
-      "id": "komori_fire_engines",
-      "sourcePage": "https://taira-komori.net/enviroment01.html",
-      "audioUrl": "https://taira-komori.net/sound/environment01/fire_engines.mp3",
-      "fileSha256": "c06807e2482c44298ee8ca117bde8f7ed7714a9428c958a7147e5e420c5c984f",
-      "originalSourceGroup": "komori_fire_engines",
-      "label": "fire",
-      "tier": "field_effect_provenance_unverified",
-      "windows": 98,
-      "durationSeconds": 47.87469387755102,
-      "peak": {
-        "Bicycle bell": 0,
-        "Vehicle horn, car horn, honking": 0.00390625,
-        "Siren": 0.4140625,
-        "Police car (siren)": 0.05859375,
-        "Ambulance (siren)": 0.0078125,
-        "Fire engine, fire truck (siren)": 0.00390625
-      },
-      "dominantClass": "Siren",
-      "dominantRawScore": 0.4140625,
-      "intendedScore": 0.00390625,
-      "intendedThreshold01Reached": false,
-      "genericSirenScore": 0.4140625,
-      "genericSirenThreshold01Reached": true
+      "actualChosenCorrectSubtypeWindowCount": 2,
+      "actualAnySubtypeChosenWindowCount": 2
     },
     {
       "id": "otologic_japan_police_close",
@@ -249,7 +143,13 @@
       "intendedScore": 0.66796875,
       "intendedThreshold01Reached": true,
       "genericSirenScore": 0.98046875,
-      "genericSirenThreshold01Reached": true
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "Siren": 31,
+        "none": 5
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
     },
     {
       "id": "otologic_japan_police_close_b",
@@ -274,7 +174,13 @@
       "intendedScore": 0.5859375,
       "intendedThreshold01Reached": true,
       "genericSirenScore": 0.99609375,
-      "genericSirenThreshold01Reached": true
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "Siren": 56,
+        "none": 3
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
     },
     {
       "id": "otologic_japan_police_far",
@@ -299,7 +205,13 @@
       "intendedScore": 0.33203125,
       "intendedThreshold01Reached": true,
       "genericSirenScore": 0.9921875,
-      "genericSirenThreshold01Reached": true
+      "genericSirenThreshold01Reached": true,
+      "actualChosenWindowLabels": {
+        "Siren": 26,
+        "none": 10
+      },
+      "actualChosenCorrectSubtypeWindowCount": 0,
+      "actualAnySubtypeChosenWindowCount": 0
     }
   ]
 }
