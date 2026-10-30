@@ -1,0 +1,852 @@
+{
+  "state": "exploratory-unreviewed-clip-level-only",
+  "model": {
+    "name": "YAMNet",
+    "file": "yamnet.tflite",
+    "gitBlob": "4d46551d9f07b0971b7e9e04ed25568a703c8dbf",
+    "runtime": "MediaPipe 0.10.21"
+  },
+  "config": {
+    "version": "1.6.0",
+    "warningHoldMs": 1000,
+    "defaultThreshold": 0.1,
+    "uiThresholdMin": 0.01,
+    "uiThresholdMax": 0.5,
+    "uiThresholdStep": 0.05,
+    "specialMinThreshold": 0.01,
+    "firstStep": 0.04,
+    "windowSeconds": 0.975,
+    "hopSeconds": 0.48,
+    "modelRate": 16000,
+    "scoreMeaning": "Raw uncalibrated model score, not accuracy or probability",
+    "mono": "arithmetic channel mean",
+    "tail": "incomplete final window omitted; no padding"
+  },
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "total_files": 30,
+  "unique_source_groups": 30,
+  "classification_windows": 270,
+  "labels_from_dataset_not_independently_audited": true,
+  "no_proof_of_no_hidden_targets_in_negative_clips": true,
+  "no_onset_annotations": true,
+  "no_actual_mic_or_headset_latency": true,
+  "original_audio_noise_levels_not_reviewed": true,
+  "original_audio_not_modified": true,
+  "default_threshold": 0.1,
+  "group_results": {
+    "level": "clip",
+    "groups": true,
+    "totalFiles": 30,
+    "processedFiles": 30,
+    "labelledFiles": 30,
+    "eligibleFiles": 30,
+    "units": 30,
+    "byClass": {
+      "bell": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 30,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "fpr": 0,
+        "support": 0
+      },
+      "horn": {
+        "tp": 7,
+        "fp": 2,
+        "fn": 1,
+        "tn": 20,
+        "precision": 0.7777777777777778,
+        "recall": 0.875,
+        "f1": 0.8235294117647058,
+        "fpr": 0.09090909090909091,
+        "support": 8
+      },
+      "sirenGroup": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "tn": 22,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "fpr": 0,
+        "support": 8
+      }
+    },
+    "micro": {
+      "tp": 15,
+      "fp": 2,
+      "fn": 1,
+      "tn": 72,
+      "precision": 0.8823529411764706,
+      "recall": 0.9375,
+      "f1": 0.9090909090909091,
+      "fpr": 0.02702702702702703,
+      "support": 16
+    },
+    "clipCounts": {
+      "exact": 27,
+      "missed": 1,
+      "falseAlarm": 2
+    }
+  },
+  "six_class_results": {
+    "level": "clip",
+    "groups": false,
+    "totalFiles": 30,
+    "processedFiles": 30,
+    "labelledFiles": 30,
+    "eligibleFiles": 30,
+    "units": 30,
+    "byClass": {
+      "bell": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 30,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "fpr": 0,
+        "support": 0
+      },
+      "horn": {
+        "tp": 7,
+        "fp": 2,
+        "fn": 1,
+        "tn": 20,
+        "precision": 0.7777777777777778,
+        "recall": 0.875,
+        "f1": 0.8235294117647058,
+        "fpr": 0.09090909090909091,
+        "support": 8
+      },
+      "siren": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "tn": 22,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "fpr": 0,
+        "support": 8
+      },
+      "police": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 0,
+        "tn": 25,
+        "precision": 0,
+        "recall": null,
+        "f1": 0,
+        "fpr": 0.16666666666666666,
+        "support": 0
+      },
+      "ambulance": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 0,
+        "tn": 25,
+        "precision": 0,
+        "recall": null,
+        "f1": 0,
+        "fpr": 0.16666666666666666,
+        "support": 0
+      },
+      "fire": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 0,
+        "tn": 25,
+        "precision": 0,
+        "recall": null,
+        "f1": 0,
+        "fpr": 0.16666666666666666,
+        "support": 0
+      }
+    },
+    "micro": {
+      "tp": 15,
+      "fp": 17,
+      "fn": 1,
+      "tn": 147,
+      "precision": 0.46875,
+      "recall": 0.9375,
+      "f1": 0.625,
+      "fpr": 0.10365853658536585,
+      "support": 16
+    },
+    "clipCounts": {
+      "exact": 23,
+      "missed": 1,
+      "falseAlarm": 6
+    }
+  },
+  "cpu_timing": {
+    "inference": {
+      "n": 270,
+      "mean": 6.034444444444887,
+      "min": 5.2999999999883585,
+      "max": 85.39999999999418
+    },
+    "roundTrip": {
+      "n": 270,
+      "mean": 9.119629629629802,
+      "min": 7.899999999994179,
+      "max": 162.39999999999418
+    },
+    "offlineMs": null,
+    "withinHop": 1,
+    "sustainedEstimate": true,
+    "actualMicrophoneLatency": null
+  },
+  "exploratory_same_set_threshold_sweep": [
+    {
+      "threshold": 0.01,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 29,
+          "precision": 0,
+          "recall": null,
+          "f1": 0,
+          "fpr": 0.03333333333333333,
+          "support": 0
+        },
+        "horn": {
+          "tp": 8,
+          "fp": 8,
+          "fn": 0,
+          "tn": 14,
+          "precision": 0.5,
+          "recall": 1,
+          "f1": 0.6666666666666666,
+          "fpr": 0.36363636363636365,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 3,
+          "fn": 0,
+          "tn": 19,
+          "precision": 0.7272727272727273,
+          "recall": 1,
+          "f1": 0.8421052631578947,
+          "fpr": 0.13636363636363635,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.05,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 8,
+          "fp": 3,
+          "fn": 0,
+          "tn": 19,
+          "precision": 0.7272727272727273,
+          "recall": 1,
+          "f1": 0.8421052631578947,
+          "fpr": 0.13636363636363635,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.1,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 7,
+          "fp": 2,
+          "fn": 1,
+          "tn": 20,
+          "precision": 0.7777777777777778,
+          "recall": 0.875,
+          "f1": 0.8235294117647058,
+          "fpr": 0.09090909090909091,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.15,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 1,
+          "tn": 22,
+          "precision": 1,
+          "recall": 0.875,
+          "f1": 0.9333333333333333,
+          "fpr": 0,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.2,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 2,
+          "tn": 22,
+          "precision": 1,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "fpr": 0,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.3,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 2,
+          "tn": 22,
+          "precision": 1,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "fpr": 0,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.4,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 2,
+          "tn": 22,
+          "precision": 1,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "fpr": 0,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    },
+    {
+      "threshold": 0.5,
+      "by_group": {
+        "bell": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 30,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "fpr": 0,
+          "support": 0
+        },
+        "horn": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 2,
+          "tn": 22,
+          "precision": 1,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "fpr": 0,
+          "support": 8
+        },
+        "sirenGroup": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "fpr": 0,
+          "support": 8
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "ESC50_commit": "33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6",
+    "ESC50_metadata_sha256": "ca660da60191a97de289983a05821c9382d852a38a2ba8428980816b68cf6246",
+    "selected_before_classification": true,
+    "human_listening_audit": false,
+    "onset_times_audited": false,
+    "all_files_sha256": [
+      {
+        "id": "esc50_1-17124-A-43",
+        "sha256": "9d5e01e07a386ee36c2e73f40817d132a54d91c936eccc01414280abca5a4209",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-17124-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:17124",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-100648-A-43",
+        "sha256": "d52b04e2cd6fee1467d9faae0297b5eb2e3c7a68575bf6f982ca0c738f91df68",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-100648-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:100648",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_3-145577-A-43",
+        "sha256": "0cfe3103f197d1f8d23cb7afb5b81468f44a66ca86e7cc1b6051fc2892f9c4e3",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/3-145577-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:145577",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_4-175845-A-43",
+        "sha256": "aeaf26bd07b54964985f7c5726b2724f57b9912b6e70c0af2f8bf3758ca0f18c",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/4-175845-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:175845",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_5-179860-A-43",
+        "sha256": "9be96b2f8cd6a81053fea7e8be03a5936070490ce3b193b47936140536c0a3c2",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/5-179860-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:179860",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-19026-A-43",
+        "sha256": "67bb2fe5cf138930eb6a6a84bedeb7284093076738cd47ef73cc8b3b8393ff40",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-19026-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:19026",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-125520-A-43",
+        "sha256": "79e2335cf1fa4b0a6be7d2a93007f630acd89e178405ae2fabf45ee3af801fda",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-125520-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:125520",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_3-146697-A-43",
+        "sha256": "eecf11e6945781d89a689d5e691329935ca865a23827d4d57e79b6b84bd6b631",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/3-146697-A-43.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "car_horn",
+        "group_id": "ESC50:146697",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-31482-A-42",
+        "sha256": "e4c640a001c2abe808389c90b90ba7084fb1922d58235e3ec95c18c4afb4ef5c",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-31482-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:31482",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-43802-A-42",
+        "sha256": "ba6777f4ea87490953ec0fe89499368ce993afb99ba9eec60747cbb94785eb4f",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-43802-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:43802",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_3-51376-A-42",
+        "sha256": "de32c52b3f928f02ad8dd388f424bbe7c7e22dbe4614cfcd2a271946aec3325a",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/3-51376-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:51376",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_4-102871-A-42",
+        "sha256": "9dabae27ebcd55cc16ea57e813fc1984ec444159b62f246c0399cb4f920454ea",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/4-102871-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:102871",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_5-117118-A-42",
+        "sha256": "79cbdaf2156d7af410fe97a5c131ee6f46f2f7a99f4051fadd01e931ad8c9e14",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/5-117118-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:117118",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-54084-A-42",
+        "sha256": "b0ce84a3c012d144a1f97394cab2830512078d660e809eecb8abc4fa8ad0a9e1",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-54084-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:54084",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-43806-A-42",
+        "sha256": "376353be53fe9eff3dc25d6ff94fd685510a985ba11cdfea39ea5ae33bbd42c2",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-43806-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:43806",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_3-51731-A-42",
+        "sha256": "0268313151d1865b712d5556e6a0fc7fcf87807639c68de23d9951d38474208e",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/3-51731-A-42.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "siren",
+        "group_id": "ESC50:51731",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-18527-A-44",
+        "sha256": "83eb3e6065246fd87d1acbbe414aa5bfb7c2081a57c188713cdc017819ffc38f",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-18527-A-44.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "engine",
+        "group_id": "ESC50:18527",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-106014-A-44",
+        "sha256": "b996815242ac0a881ee3f7e5f57f1c11e2254ae0c502014045e44c625e43afc2",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-106014-A-44.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "engine",
+        "group_id": "ESC50:106014",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_3-115382-A-44",
+        "sha256": "4f51f65b566eef881caa7a2ed1462b48eded5873ccd2afbe8b623863adf606d5",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/3-115382-A-44.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "engine",
+        "group_id": "ESC50:115382",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-119125-A-45",
+        "sha256": "d78fe04767546d49b741d9d7df6173152e06dcb4224d70f350c3cb73768f265d",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-119125-A-45.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "train",
+        "group_id": "ESC50:119125",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-122066-A-45",
+        "sha256": "6e714ae789c1fd82370ef6c0fa38d17bd2b685632ddbc5129d88f828c7d6618f",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-122066-A-45.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "train",
+        "group_id": "ESC50:122066",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_3-135650-A-45",
+        "sha256": "bf3702813123d2fd8ab091d08a7a7a48af204e9d51fe902da019a45f1c22b979",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/3-135650-A-45.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "train",
+        "group_id": "ESC50:135650",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-17367-A-10",
+        "sha256": "d732acd2e0c7c40405968010f49f250740c86998fc416eff2ed5330fc8c89dea",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-17367-A-10.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "rain",
+        "group_id": "ESC50:17367",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-101676-A-10",
+        "sha256": "ef456a67e12d2e2c84513e9eb8bea769e343cd5e0bfe65a34dc96c526f260838",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-101676-A-10.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "rain",
+        "group_id": "ESC50:101676",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-137296-A-16",
+        "sha256": "73e2dd5e66dda29f76a54b53c3c8e33441d105fc35c1d231bfbd8f7a18442969",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-137296-A-16.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "wind",
+        "group_id": "ESC50:137296",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-104952-A-16",
+        "sha256": "d3f15c7eaac8332a48fb0aeb921d1b50ae8eba558928eaa4f7c30639018854df",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-104952-A-16.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "wind",
+        "group_id": "ESC50:104952",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-13571-A-46",
+        "sha256": "92baf64d0e246d513e7a94e3778459558dcc222ec7cd30b12c58092a3d903142",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-13571-A-46.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "church_bells",
+        "group_id": "ESC50:13571",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-56926-A-46",
+        "sha256": "1583d0be06e9869e2647770cc58c35018337157ca1652bfb7b911e6139e6cb03",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-56926-A-46.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "church_bells",
+        "group_id": "ESC50:56926",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_1-13613-A-37",
+        "sha256": "2e28b25e14611723cdcc0becfa36468a8d0329a0c141e4f1d894bd6bb5773f34",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/1-13613-A-37.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "clock_alarm",
+        "group_id": "ESC50:13613",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      },
+      {
+        "id": "esc50_2-102435-A-37",
+        "sha256": "6917ce398c3cb7cb426c65224f59e63794eeabd732ad2f399c23f5b091bbcd12",
+        "size_bytes": 441044,
+        "source_url": "https://github.com/karolpiczak/ESC-50/blob/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6/audio/2-102435-A-37.wav",
+        "license": "CC BY-NC 3.0 (ESC-50 subset)",
+        "original_category": "clock_alarm",
+        "group_id": "ESC50:102435",
+        "attribution": "K. J. Piczak, ESC-50; original Freesound authors in ESC-50 LICENSE",
+        "background_noise_human_audited": false
+      }
+    ]
+  }
+}
