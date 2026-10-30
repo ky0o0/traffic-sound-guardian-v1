@@ -1,0 +1,481 @@
+{
+  "sources": [
+    {
+      "id": "bsb_0260",
+      "prior_case": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+      "source_reference_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+      "event_samples": 21784,
+      "event_pcm_sha256": "0e4782c6a47ed5c7fd59c8744e5bd728575b59d65bb1ad6de9fcbc771ba90727",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "recording_geometry": "Ordinary two-channel source, not established binaural",
+      "edited": false
+    },
+    {
+      "id": "bsb_0257",
+      "prior_case": "position_bsb_0257_original_quiet_active+0_middle_original_gain1",
+      "source_reference_sha256": "a027f45161c4524dd058d8ff43d220361752d9e6c97bce39b6fdc93f260edb3e",
+      "event_samples": 21266,
+      "event_pcm_sha256": "697e2c6e1ce53d522156821dbcfe113e60ab8fc2c7385c1d6d38558a9acacc53",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "recording_geometry": "Ordinary two-channel source, not established binaural",
+      "edited": false
+    },
+    {
+      "id": "iusb_014",
+      "prior_case": "background_iusb_014_original_iusb_road_00_active+0_middle_original_gain1",
+      "source_reference_sha256": "6cedc1743daa6cf4a9cdd5ffe52139f646a72bc5a8b7d02c653f7af638b09500",
+      "event_samples": 88200,
+      "event_pcm_sha256": "2bb24ed9e1f6d49be71d579f7207eb2fb00e8e5f3b2ab6a5b457ab5029798d8a",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "recording_geometry": "Ordinary two-channel source, not established binaural",
+      "edited": true
+    },
+    {
+      "id": "bsb_0124",
+      "derived_stem_pcm_sha256": "7f9516b382a18a4555c8355aca4f16dbc969ebe762708f28d12d7a6bbf222646",
+      "derivation": "Prior FLOAT mixture minus synchronized recorded reference in float64, then float32; includes prior floating-point mixing roundoff, not a new original recording"
+    },
+    {
+      "id": "iusb_road_00",
+      "derived_stem_pcm_sha256": "74b58b225668d525df53e9b13cfd309d79db8fad9f3ab066b4d63fd29c72ad7a",
+      "derivation": "Prior FLOAT mixture minus synchronized recorded reference in float64, then float32; includes prior floating-point mixing roundoff, not a new original recording"
+    }
+  ],
+  "streams": [
+    {
+      "id": "bsb_0260_bsb_0124",
+      "source_id": "bsb_0260",
+      "background_id": "bsb_0124",
+      "samples": 1322880,
+      "duration_seconds": 29.997278911564624,
+      "period_samples": 220480,
+      "background_loop_seams_not_crossfaded": true,
+      "noise_gain": 2.048842358913992,
+      "common_gain": 0.5693220405845003,
+      "events": [
+        {
+          "index": 0,
+          "start_sample": 0,
+          "end_sample": 21784,
+          "onset_seconds": 0.0,
+          "end_seconds": 0.49396825396825395,
+          "onset_block": 0,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 1,
+          "start_sample": 220480,
+          "end_sample": 242264,
+          "onset_seconds": 4.999546485260771,
+          "end_seconds": 5.493514739229025,
+          "onset_block": 530,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 2,
+          "start_sample": 253760,
+          "end_sample": 275544,
+          "onset_seconds": 5.754195011337869,
+          "end_seconds": 6.248163265306123,
+          "onset_block": 610,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        },
+        {
+          "index": 3,
+          "start_sample": 661440,
+          "end_sample": 683224,
+          "onset_seconds": 14.998639455782312,
+          "end_seconds": 15.492607709750567,
+          "onset_block": 1590,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 4,
+          "start_sample": 1102400,
+          "end_sample": 1124184,
+          "onset_seconds": 24.997732426303855,
+          "end_seconds": 25.49170068027211,
+          "onset_block": 2650,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 5,
+          "start_sample": 1277120,
+          "end_sample": 1298904,
+          "onset_seconds": 28.959637188208617,
+          "end_seconds": 29.453605442176872,
+          "onset_block": 3070,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        }
+      ],
+      "input_pcm_sha256": "a176809d3ead726cbf3b880aaedfa66db6954838174add8c6955b9d5c8cd218f",
+      "reference_pcm_sha256": "09e747d63936fed86bfddd7490130a6598070b8c1fc0e28161611ade2c34024b"
+    },
+    {
+      "id": "bsb_0260_iusb_road_00",
+      "source_id": "bsb_0260",
+      "background_id": "iusb_road_00",
+      "samples": 1322880,
+      "duration_seconds": 29.997278911564624,
+      "period_samples": 220480,
+      "background_loop_seams_not_crossfaded": true,
+      "noise_gain": 1.800514008742761,
+      "common_gain": 1.0,
+      "events": [
+        {
+          "index": 0,
+          "start_sample": 0,
+          "end_sample": 21784,
+          "onset_seconds": 0.0,
+          "end_seconds": 0.49396825396825395,
+          "onset_block": 0,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 1,
+          "start_sample": 220480,
+          "end_sample": 242264,
+          "onset_seconds": 4.999546485260771,
+          "end_seconds": 5.493514739229025,
+          "onset_block": 530,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 2,
+          "start_sample": 253760,
+          "end_sample": 275544,
+          "onset_seconds": 5.754195011337869,
+          "end_seconds": 6.248163265306123,
+          "onset_block": 610,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        },
+        {
+          "index": 3,
+          "start_sample": 661440,
+          "end_sample": 683224,
+          "onset_seconds": 14.998639455782312,
+          "end_seconds": 15.492607709750567,
+          "onset_block": 1590,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 4,
+          "start_sample": 1102400,
+          "end_sample": 1124184,
+          "onset_seconds": 24.997732426303855,
+          "end_seconds": 25.49170068027211,
+          "onset_block": 2650,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 5,
+          "start_sample": 1277120,
+          "end_sample": 1298904,
+          "onset_seconds": 28.959637188208617,
+          "end_seconds": 29.453605442176872,
+          "onset_block": 3070,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        }
+      ],
+      "input_pcm_sha256": "ec9c49acc552741b027dc136e2481796b6b4cded6a1b460b95289c3c8f6c3c48",
+      "reference_pcm_sha256": "02bcdf284eaebe2d5573c1cb4cab8a17e57f832c61080b408b3db400a91fa737"
+    },
+    {
+      "id": "bsb_0257_bsb_0124",
+      "source_id": "bsb_0257",
+      "background_id": "bsb_0124",
+      "samples": 1322880,
+      "duration_seconds": 29.997278911564624,
+      "period_samples": 220480,
+      "background_loop_seams_not_crossfaded": true,
+      "noise_gain": 1.080043965417281,
+      "common_gain": 1.0,
+      "events": [
+        {
+          "index": 0,
+          "start_sample": 0,
+          "end_sample": 21266,
+          "onset_seconds": 0.0,
+          "end_seconds": 0.4822222222222222,
+          "onset_block": 0,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 1,
+          "start_sample": 220480,
+          "end_sample": 241746,
+          "onset_seconds": 4.999546485260771,
+          "end_seconds": 5.481768707482993,
+          "onset_block": 530,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 2,
+          "start_sample": 253760,
+          "end_sample": 275026,
+          "onset_seconds": 5.754195011337869,
+          "end_seconds": 6.236417233560091,
+          "onset_block": 610,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        },
+        {
+          "index": 3,
+          "start_sample": 661440,
+          "end_sample": 682706,
+          "onset_seconds": 14.998639455782312,
+          "end_seconds": 15.480861678004535,
+          "onset_block": 1590,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 4,
+          "start_sample": 1102400,
+          "end_sample": 1123666,
+          "onset_seconds": 24.997732426303855,
+          "end_seconds": 25.47995464852608,
+          "onset_block": 2650,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 5,
+          "start_sample": 1277120,
+          "end_sample": 1298386,
+          "onset_seconds": 28.959637188208617,
+          "end_seconds": 29.44185941043084,
+          "onset_block": 3070,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        }
+      ],
+      "input_pcm_sha256": "33516cde9210c15afe3d2d1bd3693d4965b71514422459c8f9979f59d7d0e2eb",
+      "reference_pcm_sha256": "9f815081e0dc96c1d55c7ad51745831768c925e62792423588bfab2faac65f6d"
+    },
+    {
+      "id": "bsb_0257_iusb_road_00",
+      "source_id": "bsb_0257",
+      "background_id": "iusb_road_00",
+      "samples": 1322880,
+      "duration_seconds": 29.997278911564624,
+      "period_samples": 220480,
+      "background_loop_seams_not_crossfaded": true,
+      "noise_gain": 1.0727991497168603,
+      "common_gain": 1.0,
+      "events": [
+        {
+          "index": 0,
+          "start_sample": 0,
+          "end_sample": 21266,
+          "onset_seconds": 0.0,
+          "end_seconds": 0.4822222222222222,
+          "onset_block": 0,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 1,
+          "start_sample": 220480,
+          "end_sample": 241746,
+          "onset_seconds": 4.999546485260771,
+          "end_seconds": 5.481768707482993,
+          "onset_block": 530,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 2,
+          "start_sample": 253760,
+          "end_sample": 275026,
+          "onset_seconds": 5.754195011337869,
+          "end_seconds": 6.236417233560091,
+          "onset_block": 610,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        },
+        {
+          "index": 3,
+          "start_sample": 661440,
+          "end_sample": 682706,
+          "onset_seconds": 14.998639455782312,
+          "end_seconds": 15.480861678004535,
+          "onset_block": 1590,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 4,
+          "start_sample": 1102400,
+          "end_sample": 1123666,
+          "onset_seconds": 24.997732426303855,
+          "end_seconds": 25.47995464852608,
+          "onset_block": 2650,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 5,
+          "start_sample": 1277120,
+          "end_sample": 1298386,
+          "onset_seconds": 28.959637188208617,
+          "end_seconds": 29.44185941043084,
+          "onset_block": 3070,
+          "reference_kind": "isolated_recording_with_unknown_noise_floor",
+          "same_background_phase_as_first": false
+        }
+      ],
+      "input_pcm_sha256": "e080f5deb8aca68c3c52c42bcb5b2a95d971afe73dbd3f4d341687fe38895fff",
+      "reference_pcm_sha256": "9f815081e0dc96c1d55c7ad51745831768c925e62792423588bfab2faac65f6d"
+    },
+    {
+      "id": "iusb_014_bsb_0124",
+      "source_id": "iusb_014",
+      "background_id": "bsb_0124",
+      "samples": 1322880,
+      "duration_seconds": 29.997278911564624,
+      "period_samples": 220480,
+      "background_loop_seams_not_crossfaded": true,
+      "noise_gain": 0.6892714018043757,
+      "common_gain": 1.0,
+      "events": [
+        {
+          "index": 0,
+          "start_sample": 0,
+          "end_sample": 88200,
+          "onset_seconds": 0.0,
+          "end_seconds": 2.0,
+          "onset_block": 0,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 1,
+          "start_sample": 220480,
+          "end_sample": 308680,
+          "onset_seconds": 4.999546485260771,
+          "end_seconds": 6.999546485260771,
+          "onset_block": 530,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 2,
+          "start_sample": 440960,
+          "end_sample": 529160,
+          "onset_seconds": 9.999092970521541,
+          "end_seconds": 11.999092970521541,
+          "onset_block": 1060,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 3,
+          "start_sample": 549120,
+          "end_sample": 637320,
+          "onset_seconds": 12.45170068027211,
+          "end_seconds": 14.45170068027211,
+          "onset_block": 1320,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": false
+        },
+        {
+          "index": 4,
+          "start_sample": 1102400,
+          "end_sample": 1190600,
+          "onset_seconds": 24.997732426303855,
+          "end_seconds": 26.997732426303855,
+          "onset_block": 2650,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        }
+      ],
+      "input_pcm_sha256": "169ae9b64d9519ad5107c342b2cf774cde25d3da77e1982d6f5d5358794c291b",
+      "reference_pcm_sha256": "cc750590b1dd57992166f86027a9c6aeede301d03e14f7359764026e23f2c02b"
+    },
+    {
+      "id": "iusb_014_iusb_road_00",
+      "source_id": "iusb_014",
+      "background_id": "iusb_road_00",
+      "samples": 1322880,
+      "duration_seconds": 29.997278911564624,
+      "period_samples": 220480,
+      "background_loop_seams_not_crossfaded": true,
+      "noise_gain": 0.7899500435047723,
+      "common_gain": 1.0,
+      "events": [
+        {
+          "index": 0,
+          "start_sample": 0,
+          "end_sample": 88200,
+          "onset_seconds": 0.0,
+          "end_seconds": 2.0,
+          "onset_block": 0,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 1,
+          "start_sample": 220480,
+          "end_sample": 308680,
+          "onset_seconds": 4.999546485260771,
+          "end_seconds": 6.999546485260771,
+          "onset_block": 530,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 2,
+          "start_sample": 440960,
+          "end_sample": 529160,
+          "onset_seconds": 9.999092970521541,
+          "end_seconds": 11.999092970521541,
+          "onset_block": 1060,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        },
+        {
+          "index": 3,
+          "start_sample": 549120,
+          "end_sample": 637320,
+          "onset_seconds": 12.45170068027211,
+          "end_seconds": 14.45170068027211,
+          "onset_block": 1320,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": false
+        },
+        {
+          "index": 4,
+          "start_sample": 1102400,
+          "end_sample": 1190600,
+          "onset_seconds": 24.997732426303855,
+          "end_seconds": 26.997732426303855,
+          "onset_block": 2650,
+          "reference_kind": "unreviewed_corpus_event_recording",
+          "same_background_phase_as_first": true
+        }
+      ],
+      "input_pcm_sha256": "0026aaa14ef2740ac9df0cf1cdf42736709b48b26c6552c60640bcceb51be15f",
+      "reference_pcm_sha256": "cc750590b1dd57992166f86027a9c6aeede301d03e14f7359764026e23f2c02b"
+    }
+  ],
+  "matched_event_target_and_local_background_max_sample_difference": 0.0,
+  "real_recording_files": 5,
+  "new_original_downloads": 0,
+  "unique_target_sources": 3,
+  "total_event_insertions": 34
+}
