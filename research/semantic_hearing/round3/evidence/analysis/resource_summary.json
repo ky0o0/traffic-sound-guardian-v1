@@ -1,0 +1,20 @@
+{
+  "main_cpu": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+  "torch_threads": 2,
+  "parameters": 1743872,
+  "parameter_float32_bytes": 6975488,
+  "neural_cache_bytes": 2125824,
+  "carry_rtf_range": [
+    0.45269623051592073,
+    0.46663667172169804
+  ],
+  "carry_forward_median_ms_range": [
+    4.091008500012094,
+    4.220996499995522
+  ],
+  "carry_max_step_ms": 8.580339999980424,
+  "carry_over_budget_blocks": 0,
+  "carry_blocks": 19080,
+  "recorded_process_peak_rss_kib": 1371924,
+  "interpretation": "RSS includes Python/PyTorch, file-array/logging/evaluation and backend allocations. Cache byte count is not total memory. Source of RSS growth not isolated. No multi-hour bounded-memory or mobile measurement."
+}

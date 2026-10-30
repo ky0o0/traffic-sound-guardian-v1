@@ -1,0 +1,8 @@
+{
+  "zip_sha256": "536c2f5d1f86c739386032c373826292bab1224741af4d8c3301336a9b6bc760",
+  "zip_crc_passed": true,
+  "matched_short_clip_inputs_sample_exact": true,
+  "critical_metric_recomputation_cases": 3,
+  "max_si_sdri_difference_db": 0.0,
+  "human_listening_or_detection_annotation_performed": false
+}

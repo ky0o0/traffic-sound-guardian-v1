@@ -1,0 +1,632 @@
+﻿2026-10-30T07:54:03.4668936Z Current runner version: '2.338.0'
+2026-10-30T07:54:03.4685937Z ##[group]Runner Image Provisioner
+2026-10-30T07:54:03.4686516Z Hosted Compute Agent
+2026-10-30T07:54:03.4686825Z Version: 20261021.618
+2026-10-30T07:54:03.4687432Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-30T07:54:03.4687823Z Build Date: 2026-10-21T00:45:21Z
+2026-10-30T07:54:03.4688190Z Worker ID: {8064a480-5c13-4fbf-8f57-aeddbafe71ce}
+2026-10-30T07:54:03.4688599Z Region: westus2
+2026-10-30T07:54:03.4688897Z Cloud: Azure
+2026-10-30T07:54:03.4689191Z ##[endgroup]
+2026-10-30T07:54:03.4690027Z ##[group]Operating System
+2026-10-30T07:54:03.4690349Z Ubuntu
+2026-10-30T07:54:03.4690650Z 22.04.5
+2026-10-30T07:54:03.4690919Z LTS
+2026-10-30T07:54:03.4691183Z ##[endgroup]
+2026-10-30T07:54:03.4691495Z ##[group]Runner Image
+2026-10-30T07:54:03.4691830Z Image: ubuntu-22.04
+2026-10-30T07:54:03.4692150Z Version: 20261025.340.1
+2026-10-30T07:54:03.4692828Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261025.340/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-30T07:54:03.4693786Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261025.340
+2026-10-30T07:54:03.4694319Z ##[endgroup]
+2026-10-30T07:54:03.4694960Z ##[group]GITHUB_TOKEN Permissions
+2026-10-30T07:54:03.4696195Z Actions: read
+2026-10-30T07:54:03.4696530Z Contents: write
+2026-10-30T07:54:03.4696843Z Metadata: read
+2026-10-30T07:54:03.4697140Z ##[endgroup]
+2026-10-30T07:54:03.4698496Z Secret source: Actions
+2026-10-30T07:54:03.4698974Z Cache mode: write
+2026-10-30T07:54:03.4699395Z Prepare workflow directory
+2026-10-30T07:54:03.4926194Z Prepare all required actions
+2026-10-30T07:54:03.4956335Z Getting action download info
+2026-10-30T07:54:03.8384106Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-30T07:54:04.5937492Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-30T07:54:04.7506961Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-30T07:54:04.9816195Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-10-30T07:54:05.1794922Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-30T07:54:05.3953098Z Complete job name: verify-and-key-replay
+2026-10-30T07:54:05.4480829Z ##[group]Run actions/checkout@v4
+2026-10-30T07:54:05.4481560Z with:
+2026-10-30T07:54:05.4482097Z   ref: research/sh-round3-stateful-20261030
+2026-10-30T07:54:05.4482822Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:54:05.4487961Z   token: ***
+2026-10-30T07:54:05.4488461Z   ssh-strict: true
+2026-10-30T07:54:05.4488974Z   ssh-user: git
+2026-10-30T07:54:05.4489504Z   persist-credentials: true
+2026-10-30T07:54:05.4490067Z   clean: true
+2026-10-30T07:54:05.4490591Z   sparse-checkout-cone-mode: true
+2026-10-30T07:54:05.4491204Z   fetch-depth: 1
+2026-10-30T07:54:05.4491703Z   fetch-tags: false
+2026-10-30T07:54:05.4492229Z   show-progress: true
+2026-10-30T07:54:05.4492743Z   lfs: false
+2026-10-30T07:54:05.4493214Z   submodules: false
+2026-10-30T07:54:05.4493885Z   set-safe-directory: true
+2026-10-30T07:54:05.4494469Z   allow-unsafe-pr-checkout: false
+2026-10-30T07:54:05.4495142Z env:
+2026-10-30T07:54:05.4495594Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:05.4496123Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:05.4496635Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:05.4497181Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:05.4497741Z ##[endgroup]
+2026-10-30T07:54:06.7344154Z Syncing repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:54:06.7345511Z ##[group]Getting Git version info
+2026-10-30T07:54:06.7346052Z Working directory is '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T07:54:06.7346720Z [command]/usr/bin/git version
+2026-10-30T07:54:06.7522981Z git version 2.56.0
+2026-10-30T07:54:06.7536281Z ##[endgroup]
+2026-10-30T07:54:06.7549269Z Temporarily overriding HOME='/home/runner/work/_temp/684649f6-98dd-4e9d-8400-c1b164ec6e38' before making global git config changes
+2026-10-30T07:54:06.7550687Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T07:54:06.7554215Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T07:54:06.7579805Z Deleting the contents of '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T07:54:06.7590030Z ##[group]Initializing the repository
+2026-10-30T07:54:06.7613948Z [command]/usr/bin/git init /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T07:54:06.7758588Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-30T07:54:06.7759841Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-30T07:54:06.7760373Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-30T07:54:06.7760852Z hint: call:
+2026-10-30T07:54:06.7761097Z hint:
+2026-10-30T07:54:06.7761441Z hint: 	git config --global init.defaultBranch <name>
+2026-10-30T07:54:06.7761766Z hint:
+2026-10-30T07:54:06.7762096Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-30T07:54:06.7762588Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-30T07:54:06.7762975Z hint:
+2026-10-30T07:54:06.7763168Z hint: 	git branch -m <name>
+2026-10-30T07:54:06.7763532Z hint:
+2026-10-30T07:54:06.7763775Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-30T07:54:06.7764188Z Initialized empty Git repository in /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1/.git/
+2026-10-30T07:54:06.7767232Z [command]/usr/bin/git remote add origin https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:54:06.7838345Z ##[endgroup]
+2026-10-30T07:54:06.7838707Z ##[group]Disabling automatic garbage collection
+2026-10-30T07:54:06.7841219Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-30T07:54:06.7859726Z ##[endgroup]
+2026-10-30T07:54:06.7860001Z ##[group]Setting up auth
+2026-10-30T07:54:06.7864418Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T07:54:06.7881350Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T07:54:06.8528075Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T07:54:06.8546330Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T07:54:06.8648815Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T07:54:06.8665929Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T07:54:06.8763714Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-30T07:54:06.8786736Z ##[endgroup]
+2026-10-30T07:54:06.8787200Z ##[group]Fetching the repository
+2026-10-30T07:54:06.8792879Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/research/sh-round3-stateful-20261030*:refs/remotes/origin/research/sh-round3-stateful-20261030* +refs/tags/research/sh-round3-stateful-20261030*:refs/tags/research/sh-round3-stateful-20261030*
+2026-10-30T07:54:07.9617282Z From https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:54:07.9617835Z  * [new branch]      research/sh-round3-stateful-20261030 -> origin/research/sh-round3-stateful-20261030
+2026-10-30T07:54:07.9620035Z ##[endgroup]
+2026-10-30T07:54:07.9620380Z ##[group]Determining the checkout info
+2026-10-30T07:54:07.9625749Z [command]/usr/bin/git branch --list --remote origin/research/sh-round3-stateful-20261030
+2026-10-30T07:54:07.9639397Z   origin/research/sh-round3-stateful-20261030
+2026-10-30T07:54:07.9640948Z ##[endgroup]
+2026-10-30T07:54:07.9643771Z [command]/usr/bin/git sparse-checkout disable
+2026-10-30T07:54:07.9682313Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-30T07:54:07.9702013Z ##[group]Checking out the ref
+2026-10-30T07:54:07.9705234Z [command]/usr/bin/git checkout --progress --force -B research/sh-round3-stateful-20261030 refs/remotes/origin/research/sh-round3-stateful-20261030
+2026-10-30T07:54:08.0638470Z Switched to a new branch 'research/sh-round3-stateful-20261030'
+2026-10-30T07:54:08.0639155Z branch 'research/sh-round3-stateful-20261030' set up to track 'origin/research/sh-round3-stateful-20261030'.
+2026-10-30T07:54:08.0645935Z ##[endgroup]
+2026-10-30T07:54:08.0669692Z [command]/usr/bin/git log -1 --format=%H
+2026-10-30T07:54:08.0682132Z 783b5755552b3a4b5a071eef47a5ad350657ae1a
+2026-10-30T07:54:08.0832004Z ##[group]Run actions/setup-python@v5
+2026-10-30T07:54:08.0832170Z with:
+2026-10-30T07:54:08.0832286Z   python-version: 3.10.22
+2026-10-30T07:54:08.0832411Z   cache: pip
+2026-10-30T07:54:08.0832592Z   cache-dependency-path: research/semantic_hearing/round2/dependency-lock.txt
+2026-10-30T07:54:08.0832808Z   check-latest: false
+2026-10-30T07:54:08.0834295Z   token: ***
+2026-10-30T07:54:08.0834407Z   update-environment: true
+2026-10-30T07:54:08.0834540Z   allow-prereleases: false
+2026-10-30T07:54:08.0834671Z   freethreaded: false
+2026-10-30T07:54:08.0834786Z env:
+2026-10-30T07:54:08.0834887Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:08.0835005Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:08.0835135Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:08.0835291Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:08.0835413Z ##[endgroup]
+2026-10-30T07:54:08.1583382Z ##[group]Installed versions
+2026-10-30T07:54:08.1685943Z Version 3.10.22 was not found in the local cache
+2026-10-30T07:54:08.1771193Z (node:2217) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:54:08.1771651Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:54:09.3325852Z Version 3.10.22 is available for downloading
+2026-10-30T07:54:09.3326255Z Download from "https://github.com/actions/python-versions/releases/download/3.10.22-36876129702/python-3.10.22-linux-22.04-x64.tar.gz"
+2026-10-30T07:54:10.1089301Z Extract downloaded archive
+2026-10-30T07:54:10.1156202Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/57afd46c-816e-4206-974f-896cc2dd1d5b -f /home/runner/work/_temp/a3f7daf7-32ba-4699-8b7c-88bb342bdf9f
+2026-10-30T07:54:11.0793912Z Execute installation script
+2026-10-30T07:54:11.0843036Z Check if Python hostedtoolcache folder exist...
+2026-10-30T07:54:11.0849106Z Create Python 3.10.22 folder
+2026-10-30T07:54:11.0849397Z Copy Python binaries to hostedtoolcache folder
+2026-10-30T07:54:11.2239164Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-30T07:54:11.2256520Z Upgrading pip...
+2026-10-30T07:54:12.7829223Z Collecting pip
+2026-10-30T07:54:12.8402320Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-30T07:54:12.9505940Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 16.7 MB/s eta 0:00:00
+2026-10-30T07:54:12.9506266Z 
+2026-10-30T07:54:12.9811863Z Installing collected packages: pip
+2026-10-30T07:54:12.9814084Z Attempting uninstall: pip
+2026-10-30T07:54:12.9816518Z Found existing installation: pip 23.0.1
+2026-10-30T07:54:13.0494746Z Uninstalling pip-23.0.1:
+2026-10-30T07:54:13.0527141Z Successfully uninstalled pip-23.0.1
+2026-10-30T07:54:13.4931959Z Successfully installed pip-26.2.2
+2026-10-30T07:54:13.5304448Z Create complete file
+2026-10-30T07:54:13.5328715Z Successfully set up CPython (3.10.22)
+2026-10-30T07:54:13.5329765Z ##[endgroup]
+2026-10-30T07:54:13.5557540Z [command]/opt/hostedtoolcache/Python/3.10.22/x64/bin/pip cache dir
+2026-10-30T07:54:13.6361838Z /home/runner/.cache/pip
+2026-10-30T07:54:13.8885475Z Cache hit for: setup-python-Linux-x64-22.04-Ubuntu-python-3.10.22-pip-d5bbe439e48def5729cea048cf631538dd051ad9df5b70da92c5de9718df81db
+2026-10-30T07:54:13.8952985Z (node:2217) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T07:54:15.1972830Z Received 37748736 of 294977522 (12.8%), 36.0 MBs/sec
+2026-10-30T07:54:16.1969523Z Received 184549376 of 294977522 (62.6%), 88.0 MBs/sec
+2026-10-30T07:54:16.9154960Z Received 294977522 of 294977522 (100.0%), 103.5 MBs/sec
+2026-10-30T07:54:16.9155682Z Cache Size: ~281 MB (294977522 B)
+2026-10-30T07:54:16.9199446Z [command]/usr/bin/tar -xf /home/runner/work/_temp/549433b5-4b97-4982-9d6e-1a236d55f00b/cache.tzst -P -C /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1 --use-compress-program unzstd
+2026-10-30T07:54:17.0812748Z Cache restored successfully
+2026-10-30T07:54:17.1032450Z Cache restored from key: setup-python-Linux-x64-22.04-Ubuntu-python-3.10.22-pip-d5bbe439e48def5729cea048cf631538dd051ad9df5b70da92c5de9718df81db
+2026-10-30T07:54:17.1139859Z ##[group]Run python -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+2026-10-30T07:54:17.1140452Z [36;1mpython -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu[0m
+2026-10-30T07:54:17.1178000Z shell: /usr/bin/bash -e {0}
+2026-10-30T07:54:17.1178158Z env:
+2026-10-30T07:54:17.1178274Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:17.1178396Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:17.1178518Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:17.1178654Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:17.1178822Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:17.1179079Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:54:17.1179310Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:17.1179515Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:17.1179759Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:17.1179969Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:54:17.1180149Z ##[endgroup]
+2026-10-30T07:54:17.8107195Z Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+2026-10-30T07:54:18.2279377Z Collecting certifi==2026.10.23 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 1))
+2026-10-30T07:54:18.2304037Z   Using cached certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-10-30T07:54:18.5530421Z Collecting cffi==2.1.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 2))
+2026-10-30T07:54:18.5540687Z   Using cached cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-10-30T07:54:18.6365627Z Collecting charset-normalizer==3.5.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 3))
+2026-10-30T07:54:18.6374448Z   Using cached charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-10-30T07:54:18.8944487Z Collecting cloudpickle==3.1.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 4))
+2026-10-30T07:54:18.8953688Z   Using cached cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+2026-10-30T07:54:19.0147208Z Collecting contourpy==1.3.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 5))
+2026-10-30T07:54:19.0156476Z   Using cached contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.5 kB)
+2026-10-30T07:54:19.1127833Z Collecting cycler==0.12.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 6))
+2026-10-30T07:54:19.1136178Z   Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2026-10-30T07:54:19.1493716Z Collecting filelock==4.1.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 7))
+2026-10-30T07:54:19.1501988Z   Using cached filelock-4.1.0-py3-none-any.whl.metadata (2.0 kB)
+2026-10-30T07:54:19.3371082Z Collecting fonttools==4.65.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 8))
+2026-10-30T07:54:19.3380691Z   Using cached fonttools-4.65.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (125 kB)
+2026-10-30T07:54:19.3733590Z Collecting fsspec==2026.9.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 9))
+2026-10-30T07:54:19.3741847Z   Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-10-30T07:54:19.5156023Z Collecting huggingface-hub==0.25.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 10))
+2026-10-30T07:54:19.5166092Z   Using cached huggingface_hub-0.25.2-py3-none-any.whl.metadata (13 kB)
+2026-10-30T07:54:19.6161828Z Collecting hyperpyyaml==1.2.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 11))
+2026-10-30T07:54:19.6171175Z   Using cached hyperpyyaml-1.2.3-py3-none-any.whl.metadata (8.1 kB)
+2026-10-30T07:54:19.6390808Z Collecting idna==3.20 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 12))
+2026-10-30T07:54:19.6398299Z   Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-10-30T07:54:19.7585852Z Collecting joblib==1.6.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 13))
+2026-10-30T07:54:19.7594972Z   Using cached joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+2026-10-30T07:54:19.8956584Z Collecting kiwisolver==1.5.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 14))
+2026-10-30T07:54:19.8965170Z   Using cached kiwisolver-1.5.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.2 kB)
+2026-10-30T07:54:20.1723949Z Collecting matplotlib==3.9.4 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 15))
+2026-10-30T07:54:20.1733195Z   Using cached matplotlib-3.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2026-10-30T07:54:20.4649966Z Collecting numpy==1.26.4 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 16))
+2026-10-30T07:54:20.4661500Z   Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2026-10-30T07:54:20.4911457Z Collecting packaging==26.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 17))
+2026-10-30T07:54:20.4919968Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-30T07:54:20.7479858Z Collecting pillow==12.3.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 18))
+2026-10-30T07:54:20.7491382Z   Using cached pillow-12.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-30T07:54:20.7517225Z Requirement already satisfied: pip==26.2.2 in /opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/site-packages (from -r research/semantic_hearing/round2/dependency-lock.txt (line 19)) (26.2.2)
+2026-10-30T07:54:20.8498548Z Collecting pycparser==3.11 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 20))
+2026-10-30T07:54:20.8507363Z   Using cached pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T07:54:20.9610422Z Collecting pyparsing==3.3.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 21))
+2026-10-30T07:54:20.9619162Z   Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+2026-10-30T07:54:21.0702082Z Collecting python-dateutil==3.0.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 22))
+2026-10-30T07:54:21.0711234Z   Using cached python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T07:54:21.2469530Z Collecting pyyaml==6.0.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 23))
+2026-10-30T07:54:21.2478353Z   Using cached PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2026-10-30T07:54:21.4719458Z Collecting remotezip==0.12.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 24))
+2026-10-30T07:54:21.4728383Z   Using cached remotezip-0.12.3-py3-none-any.whl.metadata (7.2 kB)
+2026-10-30T07:54:21.4993865Z Collecting requests==2.32.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 25))
+2026-10-30T07:54:21.5002041Z   Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+2026-10-30T07:54:21.6836318Z Collecting ruamel-yaml==0.18.17 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 26))
+2026-10-30T07:54:21.6845295Z   Using cached ruamel_yaml-0.18.17-py3-none-any.whl.metadata (27 kB)
+2026-10-30T07:54:21.7997553Z Collecting ruamel-yaml-clib==0.2.15 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 27))
+2026-10-30T07:54:21.8006056Z   Using cached ruamel_yaml_clib-0.2.15-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+2026-10-30T07:54:22.1026464Z Collecting scipy==1.14.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 28))
+2026-10-30T07:54:22.1036106Z   Using cached scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+2026-10-30T07:54:22.2202131Z Collecting sentencepiece==0.2.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 29))
+2026-10-30T07:54:22.2209896Z   Using cached sentencepiece-0.2.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+2026-10-30T07:54:22.2781235Z Collecting setuptools==69.5.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 30))
+2026-10-30T07:54:22.2790280Z   Using cached setuptools-69.5.1-py3-none-any.whl.metadata (6.2 kB)
+2026-10-30T07:54:22.3859904Z Collecting six==1.17.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 31))
+2026-10-30T07:54:22.3867855Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-10-30T07:54:22.4908769Z Collecting soundfile==0.13.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 32))
+2026-10-30T07:54:22.4917114Z   Using cached soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-10-30T07:54:22.6045345Z Collecting speechbrain==0.5.16 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 33))
+2026-10-30T07:54:22.6054103Z   Using cached speechbrain-0.5.16-py3-none-any.whl.metadata (23 kB)
+2026-10-30T07:54:22.7214695Z Collecting torch==1.13.1+cpu (from -r research/semantic_hearing/round2/dependency-lock.txt (line 34))
+2026-10-30T07:54:22.7222672Z   Using cached torch-1.13.1%2Bcpu-cp310-cp310-linux_x86_64.whl (199.1 MB)
+2026-10-30T07:54:22.9845648Z Collecting torchaudio==0.13.1+cpu (from -r research/semantic_hearing/round2/dependency-lock.txt (line 35))
+2026-10-30T07:54:22.9853995Z   Using cached torchaudio-0.13.1%2Bcpu-cp310-cp310-linux_x86_64.whl (4.0 MB)
+2026-10-30T07:54:23.0144663Z Collecting torchmetrics==0.10.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 36))
+2026-10-30T07:54:23.0152752Z   Using cached torchmetrics-0.10.0-py3-none-any.whl.metadata (15 kB)
+2026-10-30T07:54:23.0487628Z Collecting tqdm==4.70.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 37))
+2026-10-30T07:54:23.0498889Z   Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-10-30T07:54:23.0779735Z Collecting typing-extensions==4.16.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 38))
+2026-10-30T07:54:23.0788061Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-30T07:54:23.3011740Z Collecting tzdata==2026.6 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 39))
+2026-10-30T07:54:23.3019890Z   Using cached tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-10-30T07:54:23.3268067Z Collecting urllib3==2.8.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 40))
+2026-10-30T07:54:23.3275899Z   Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-10-30T07:54:23.3656919Z Using cached certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-10-30T07:54:23.3665102Z Using cached cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218 kB)
+2026-10-30T07:54:23.3673213Z Using cached charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (271 kB)
+2026-10-30T07:54:23.3681285Z Using cached cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+2026-10-30T07:54:23.3688766Z Using cached contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+2026-10-30T07:54:23.3696861Z Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2026-10-30T07:54:23.3703919Z Using cached filelock-4.1.0-py3-none-any.whl (133 kB)
+2026-10-30T07:54:23.3711386Z Using cached fonttools-4.65.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.3 MB)
+2026-10-30T07:54:23.3731108Z Using cached fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-10-30T07:54:23.3738823Z Using cached huggingface_hub-0.25.2-py3-none-any.whl (436 kB)
+2026-10-30T07:54:23.3746953Z Using cached hyperpyyaml-1.2.3-py3-none-any.whl (16 kB)
+2026-10-30T07:54:23.3753930Z Using cached ruamel_yaml-0.18.17-py3-none-any.whl (121 kB)
+2026-10-30T07:54:23.3760999Z Using cached idna-3.20-py3-none-any.whl (69 kB)
+2026-10-30T07:54:23.3768277Z Using cached joblib-1.6.0-py3-none-any.whl (306 kB)
+2026-10-30T07:54:23.3776102Z Using cached kiwisolver-1.5.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+2026-10-30T07:54:23.3787128Z Using cached matplotlib-3.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+2026-10-30T07:54:23.3814432Z Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+2026-10-30T07:54:23.3864220Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-30T07:54:23.3871649Z Using cached pillow-12.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+2026-10-30T07:54:23.3895013Z Using cached pycparser-3.11-py3-none-any.whl (51 kB)
+2026-10-30T07:54:23.3902059Z Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+2026-10-30T07:54:23.3909588Z Using cached python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+2026-10-30T07:54:23.3917044Z Using cached PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+2026-10-30T07:54:23.3925878Z Using cached remotezip-0.12.3-py3-none-any.whl (8.1 kB)
+2026-10-30T07:54:23.3932624Z Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+2026-10-30T07:54:23.3939743Z Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-10-30T07:54:23.3947250Z Using cached ruamel_yaml_clib-0.2.15-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (731 kB)
+2026-10-30T07:54:23.3956099Z Using cached scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+2026-10-30T07:54:23.4070153Z Using cached sentencepiece-0.2.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+2026-10-30T07:54:23.4081028Z Using cached setuptools-69.5.1-py3-none-any.whl (894 kB)
+2026-10-30T07:54:23.4090744Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-10-30T07:54:23.4098146Z Using cached soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+2026-10-30T07:54:23.4108543Z Using cached speechbrain-0.5.16-py3-none-any.whl (630 kB)
+2026-10-30T07:54:23.4117304Z Using cached torchmetrics-0.10.0-py3-none-any.whl (529 kB)
+2026-10-30T07:54:23.4125681Z Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-10-30T07:54:23.4154541Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-30T07:54:23.4155072Z Using cached tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+2026-10-30T07:54:23.7250244Z Installing collected packages: urllib3, tzdata, typing-extensions, tqdm, six, setuptools, sentencepiece, ruamel-yaml-clib, pyyaml, pyparsing, pycparser, pillow, packaging, numpy, kiwisolver, idna, fsspec, fonttools, filelock, cycler, cloudpickle, charset-normalizer, certifi, torch, scipy, ruamel-yaml, requests, python-dateutil, joblib, contourpy, cffi, torchmetrics, torchaudio, soundfile, remotezip, matplotlib, hyperpyyaml, huggingface-hub, speechbrain
+2026-10-30T07:54:23.8379921Z   Attempting uninstall: setuptools
+2026-10-30T07:54:23.8383917Z     Found existing installation: setuptools 79.0.1
+2026-10-30T07:54:23.8534355Z     Uninstalling setuptools-79.0.1:
+2026-10-30T07:54:23.8617665Z       Successfully uninstalled setuptools-79.0.1
+2026-10-30T07:54:33.6521527Z 
+2026-10-30T07:54:33.6546362Z Successfully installed certifi-2026.10.23 cffi-2.1.1 charset-normalizer-3.5.2 cloudpickle-3.1.2 contourpy-1.3.2 cycler-0.12.1 filelock-4.1.0 fonttools-4.65.0 fsspec-2026.9.0 huggingface-hub-0.25.2 hyperpyyaml-1.2.3 idna-3.20 joblib-1.6.0 kiwisolver-1.5.1 matplotlib-3.9.4 numpy-1.26.4 packaging-26.3 pillow-12.3.0 pycparser-3.11 pyparsing-3.3.3 python-dateutil-3.0.0 pyyaml-6.0.2 remotezip-0.12.3 requests-2.32.3 ruamel-yaml-0.18.17 ruamel-yaml-clib-0.2.15 scipy-1.14.1 sentencepiece-0.2.2 setuptools-69.5.1 six-1.17.0 soundfile-0.13.1 speechbrain-0.5.16 torch-1.13.1+cpu torchaudio-0.13.1+cpu torchmetrics-0.10.0 tqdm-4.70.1 typing-extensions-4.16.0 tzdata-2026.6 urllib3-2.8.0
+2026-10-30T07:54:33.7970983Z ##[group]Run git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+2026-10-30T07:54:33.7971368Z [36;1mgit clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing[0m
+2026-10-30T07:54:33.7971689Z [36;1mgit -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50[0m
+2026-10-30T07:54:33.7971993Z [36;1mpython -m unittest discover -s research/semantic_hearing -p 'test_*.py' -v[0m
+2026-10-30T07:54:33.7972288Z [36;1mpython -m unittest discover -s research/semantic_hearing/round2 -p 'test_*.py' -v[0m
+2026-10-30T07:54:33.7972584Z [36;1mpython -m unittest discover -s research/semantic_hearing/round3 -p 'test_*.py' -v[0m
+2026-10-30T07:54:33.7997916Z shell: /usr/bin/bash -e {0}
+2026-10-30T07:54:33.7998054Z env:
+2026-10-30T07:54:33.7998165Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:33.7998280Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:33.7998409Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:33.7998567Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:33.7998732Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:33.7998961Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:54:33.7999182Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:33.7999382Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:33.7999586Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:33.7999792Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:54:33.7999970Z   SH_REPO: /tmp/SemanticHearing
+2026-10-30T07:54:33.8000130Z ##[endgroup]
+2026-10-30T07:54:34.4567789Z test_counts_zero_denominators (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4568211Z test_identical_predictions (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4568648Z test_processed_improvement_is_measured_not_assumed (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4569162Z test_processed_regression_is_reported (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4569721Z test_reject_duplicate_group (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4570374Z test_reject_label_change (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4571131Z test_reject_missing_group (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4571594Z test_reject_threshold_mismatch (test_compare.PairedComparison) ... ok
+2026-10-30T07:54:34.4572049Z test_label_order (test_extract.ContractTests) ... ok
+2026-10-30T07:54:34.4572389Z test_one_hot (test_extract.ContractTests) ... ok
+2026-10-30T07:54:34.4572728Z test_reject_unsupported (test_extract.ContractTests) ... ok
+2026-10-30T07:54:34.4580032Z test_known_orthogonal_noise (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T07:54:34.4585107Z test_mix_ratio_and_no_clipping (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T07:54:34.4593581Z test_scale_invariance_does_not_mean_gain_preservation (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T07:54:34.4595415Z test_shape_mismatch_rejected (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T07:54:34.4598895Z test_silence_reference_rejected (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T07:54:34.4599151Z 
+2026-10-30T07:54:34.4599281Z ----------------------------------------------------------------------
+2026-10-30T07:54:34.4599598Z Ran 16 tests in 0.003s
+2026-10-30T07:54:34.4599718Z 
+2026-10-30T07:54:34.4599794Z OK
+2026-10-30T07:54:34.7247157Z test_active_snr_does_not_count_padded_silence (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:34.7300843Z test_gain_and_residual_have_analytic_meaning (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:35.1065510Z test_metric_crosscheck_against_torchmetrics (test_experiment.RoundTwoScientificTests) ... /opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:23: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+2026-10-30T07:54:35.1066267Z   from pkg_resources import DistributionNotFound, get_distribution
+2026-10-30T07:54:35.1290176Z ok
+2026-10-30T07:54:35.1292878Z test_placement_cannot_truncate_event (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:35.5870323Z test_placement_series_keeps_identical_gains_noise_and_samples (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:35.5888853Z test_silent_output_is_not_a_defined_si_sdr_score (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:35.5891274Z test_silent_source_mask_rejected (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:35.5909876Z test_target_only_does_not_publish_huge_improvement (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T07:54:35.5910194Z 
+2026-10-30T07:54:35.5910326Z ----------------------------------------------------------------------
+2026-10-30T07:54:35.5910612Z Ran 8 tests in 0.868s
+2026-10-30T07:54:35.5910754Z 
+2026-10-30T07:54:35.5910809Z OK
+2026-10-30T07:54:36.2281167Z /opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:23: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+2026-10-30T07:54:36.2282185Z   from pkg_resources import DistributionNotFound, get_distribution
+2026-10-30T07:54:36.5308561Z torchvision is not available - cannot save figures
+2026-10-30T07:54:36.5514123Z test_exact_lookahead_release_boundary (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.6488400Z test_full_chunk_and_partial_eof_match_official_forward (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.6864772Z test_future_after_declared_context_cannot_change_emitted_block (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.6886375Z test_out_of_order_packet_and_double_eof_rejected (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.8702148Z test_packetization_invariance (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.8879561Z test_per_block_reset_is_separate_ablation (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.8997645Z test_reset_schedule_is_aligned_and_components_recorded (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.9474366Z test_snapshot_restore_preserves_partial_raw_queue_and_states (test_streaming.StreamingContracts) ... ok
+2026-10-30T07:54:36.9474723Z 
+2026-10-30T07:54:36.9474852Z ----------------------------------------------------------------------
+2026-10-30T07:54:36.9475132Z Ran 8 tests in 0.783s
+2026-10-30T07:54:36.9475239Z 
+2026-10-30T07:54:36.9475324Z OK
+2026-10-30T07:54:37.2080672Z ##[group]Run actions/download-artifact@v4
+2026-10-30T07:54:37.2080832Z with:
+2026-10-30T07:54:37.2080995Z   name: sh-r3-continuous-783b5755552b3a4b5a071eef47a5ad350657ae1a
+2026-10-30T07:54:37.2081187Z   path: /tmp/sh-r3-full
+2026-10-30T07:54:37.2081311Z   merge-multiple: false
+2026-10-30T07:54:37.2081565Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:54:37.2081721Z   run-id: 41022306936
+2026-10-30T07:54:37.2081831Z env:
+2026-10-30T07:54:37.2081933Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:37.2082045Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:37.2082162Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:37.2082287Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:37.2082448Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:37.2082672Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:54:37.2082898Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:37.2083118Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:37.2083551Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:37.2083775Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:54:37.2083946Z ##[endgroup]
+2026-10-30T07:54:37.2919967Z Downloading single artifact
+2026-10-30T07:54:37.3006270Z (node:2309) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:54:37.3006865Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:54:37.5526141Z Preparing to download the following artifacts:
+2026-10-30T07:54:37.5526899Z - sh-r3-continuous-783b5755552b3a4b5a071eef47a5ad350657ae1a (ID: 12962073319, Size: 339935553, Expected Digest: sha256:57f72bb01e1edac7100be3b8e35f01dc9622e1ffe437a6b2e9eaff6e01e50d04)
+2026-10-30T07:54:37.8039490Z Redirecting to blob download url: https://productionresultssa3.blob.core.windows.net/actions-results/4938f0ce-9dcb-85af-ba88-b8b03fad2b39/workflow-job-run-e30b7819-8631-5d8d-ae25-71bc84460f86/artifacts/7cc88f3eeefc517fa7d32cdceef60c7addad2a5ce2b58499195af3cbafa15c9a.zip
+2026-10-30T07:54:37.8040211Z Starting download of artifact to: /tmp/sh-r3-full
+2026-10-30T07:54:38.1346679Z (node:2309) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T07:54:57.6259570Z SHA256 digest of downloaded artifact is 57f72bb01e1edac7100be3b8e35f01dc9622e1ffe437a6b2e9eaff6e01e50d04
+2026-10-30T07:54:57.6260110Z Artifact download completed successfully.
+2026-10-30T07:54:57.6260375Z Total of 1 artifact(s) downloaded
+2026-10-30T07:54:57.6264464Z Download artifact has finished successfully
+2026-10-30T07:54:57.6354326Z ##[group]Run actions/download-artifact@v4
+2026-10-30T07:54:57.6354496Z with:
+2026-10-30T07:54:57.6356156Z   github-token: ***
+2026-10-30T07:54:57.6356278Z   run-id: 41021346346
+2026-10-30T07:54:57.6356444Z   name: sh-r3-pilot-1664e2d64a6e236bb6cd4d76156c5d2f61c6422a
+2026-10-30T07:54:57.6356635Z   path: /tmp/sh-r3-pilot
+2026-10-30T07:54:57.6356768Z   merge-multiple: false
+2026-10-30T07:54:57.6356923Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:54:57.6357082Z env:
+2026-10-30T07:54:57.6357188Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:57.6357322Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:57.6357446Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:57.6357582Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:57.6357749Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:57.6357981Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:54:57.6358211Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:57.6358439Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:57.6358647Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:57.6358862Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:54:57.6359039Z ##[endgroup]
+2026-10-30T07:54:57.7298610Z Downloading single artifact
+2026-10-30T07:54:57.7339624Z (node:2325) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:54:57.7340281Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:54:57.7514088Z (node:2325) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T07:54:57.9383380Z Preparing to download the following artifacts:
+2026-10-30T07:54:57.9383958Z - sh-r3-pilot-1664e2d64a6e236bb6cd4d76156c5d2f61c6422a (ID: 12961283137, Size: 19080749, Expected Digest: sha256:08f9345a549eee3d2954da7a36eff00ca0ba3408cb924f9438b90bf64351773c)
+2026-10-30T07:54:57.9406095Z Downloading artifact '12961283137' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T07:54:58.1537349Z Redirecting to blob download url: https://productionresultssa10.blob.core.windows.net/actions-results/78bccb7f-a4bc-8653-ba6c-dc542b7b1393/workflow-job-run-191a3ab9-8f96-574b-8aef-bcefaafd33e5/artifacts/963cdcfdea47eaf6221a8531905a4cb66b5749f44d264e4cddd9a0e6a752acac.zip
+2026-10-30T07:54:58.1538441Z Starting download of artifact to: /tmp/sh-r3-pilot
+2026-10-30T07:54:58.4763655Z (node:2325) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T07:54:59.4791741Z SHA256 digest of downloaded artifact is 08f9345a549eee3d2954da7a36eff00ca0ba3408cb924f9438b90bf64351773c
+2026-10-30T07:54:59.4792151Z Artifact download completed successfully.
+2026-10-30T07:54:59.4792392Z Total of 1 artifact(s) downloaded
+2026-10-30T07:54:59.4795412Z Download artifact has finished successfully
+2026-10-30T07:54:59.4958348Z ##[group]Run actions/cache@v4
+2026-10-30T07:54:59.4958525Z with:
+2026-10-30T07:54:59.4958660Z   path: /tmp/39.pt
+2026-10-30T07:54:59.4958915Z   key: sh-official-39-f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21
+2026-10-30T07:54:59.4959210Z   enableCrossOsArchive: false
+2026-10-30T07:54:59.4959375Z   fail-on-cache-miss: false
+2026-10-30T07:54:59.4959525Z   lookup-only: false
+2026-10-30T07:54:59.4959676Z   save-always: false
+2026-10-30T07:54:59.4959808Z env:
+2026-10-30T07:54:59.4959927Z   OMP_NUM_THREADS: 2
+2026-10-30T07:54:59.4960060Z   MKL_NUM_THREADS: 2
+2026-10-30T07:54:59.4960192Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:54:59.4960346Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:54:59.4960539Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:59.4960817Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:54:59.4961088Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:59.4961360Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:59.4961607Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:54:59.4961855Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:54:59.4962066Z ##[endgroup]
+2026-10-30T07:54:59.5569545Z (node:2338) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:54:59.5569974Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:54:59.7989604Z Cache hit for: sh-official-39-f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21
+2026-10-30T07:54:59.8085717Z (node:2338) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T07:55:00.9998553Z Received 17766470 of 17766470 (100.0%), 19.0 MBs/sec
+2026-10-30T07:55:00.9998874Z Cache Size: ~17 MB (17766470 B)
+2026-10-30T07:55:01.0012579Z [command]/usr/bin/tar -xf /home/runner/work/_temp/51df97a1-e26a-4947-a2c2-2a312266bdb5/cache.tzst -P -C /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1 --use-compress-program unzstd
+2026-10-30T07:55:01.0237580Z Cache restored successfully
+2026-10-30T07:55:01.0300333Z Cache restored from key: sh-official-39-f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21
+2026-10-30T07:55:01.0919690Z ##[group]Run python - <<'PY'
+2026-10-30T07:55:01.0919983Z [36;1mpython - <<'PY'[0m
+2026-10-30T07:55:01.0920185Z [36;1mimport sys[0m
+2026-10-30T07:55:01.0920409Z [36;1mfrom pathlib import Path[0m
+2026-10-30T07:55:01.0920695Z [36;1msys.path.insert(0,'research/semantic_hearing')[0m
+2026-10-30T07:55:01.0921010Z [36;1mfrom real_audio import fetch_verified[0m
+2026-10-30T07:55:01.0921315Z [36;1mfrom extract import OFFICIAL_CHECKPOINT_SHA256[0m
+2026-10-30T07:55:01.0921830Z [36;1mfetch_verified('https://semantichearing.cs.washington.edu/39.pt',Path('/tmp/39.pt'),OFFICIAL_CHECKPOINT_SHA256)[0m
+2026-10-30T07:55:01.0922283Z [36;1mPY[0m
+2026-10-30T07:55:01.0950795Z shell: /usr/bin/bash -e {0}
+2026-10-30T07:55:01.0950961Z env:
+2026-10-30T07:55:01.0951084Z   OMP_NUM_THREADS: 2
+2026-10-30T07:55:01.0951215Z   MKL_NUM_THREADS: 2
+2026-10-30T07:55:01.0951343Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:55:01.0951487Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:55:01.0951707Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.0951966Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:55:01.0952205Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.0952427Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.0952648Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.0952862Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:55:01.0953052Z ##[endgroup]
+2026-10-30T07:55:01.3909767Z ##[group]Run python -u research/semantic_hearing/round3/verify.py --full /tmp/sh-r3-full --pilot /tmp/sh-r3-pilot --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt --output research/semantic_hearing/round3/evidence --rerun-output /tmp/sh-r3-independent
+2026-10-30T07:55:01.3910691Z [36;1mpython -u research/semantic_hearing/round3/verify.py --full /tmp/sh-r3-full --pilot /tmp/sh-r3-pilot --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt --output research/semantic_hearing/round3/evidence --rerun-output /tmp/sh-r3-independent[0m
+2026-10-30T07:55:01.3935797Z shell: /usr/bin/bash -e {0}
+2026-10-30T07:55:01.3935939Z env:
+2026-10-30T07:55:01.3936053Z   OMP_NUM_THREADS: 2
+2026-10-30T07:55:01.3936174Z   MKL_NUM_THREADS: 2
+2026-10-30T07:55:01.3936300Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:55:01.3936437Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:55:01.3936610Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.3936870Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:55:01.3937100Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.3937312Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.3937524Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:01.3937761Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:55:01.3937944Z ##[endgroup]
+2026-10-30T07:55:08.2644193Z torchvision is not available - cannot save figures
+2026-10-30T07:55:17.0465964Z {"pilot_wavs_checked": 14, "full_wavs_checked": 47, "full_quality_runs": 25, "metric_values_recomputed": 408, "max_recomputed_metric_difference_db": 0.0, "before_scheduled_reset_max_sample_difference": 0.0, "independent_rerun_forward_calls": 3180, "independent_output_max_abs_sample_difference": 9.08970832824707e-07, "independent_event_si_sdri_max_difference_db": 1.7761935641402715e-05, "learned_parameters_and_registered_buffers_unchanged": true, "model_state_sha256": "bc3e7f6462ae98250f32c1c78ed9418189beb2720155767f79a93eae3aac589f", "physical_audio_io_measured": false}
+2026-10-30T07:55:17.2840350Z ##[group]Run test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+2026-10-30T07:55:17.2840637Z [36;1mtest "$(git rev-parse HEAD)" = "$EXPECTED_SHA"[0m
+2026-10-30T07:55:17.2840877Z [36;1mgit config user.name 'SH research evidence'[0m
+2026-10-30T07:55:17.2841139Z [36;1mgit config user.email 'research-evidence@users.noreply.github.com'[0m
+2026-10-30T07:55:17.2841617Z [36;1mgit add research/semantic_hearing/round3/evidence[0m
+2026-10-30T07:55:17.2841936Z [36;1mgit commit -m 'research: preserve verified stateful SH quality, timing and independent replay'[0m
+2026-10-30T07:55:17.2842266Z [36;1mgit push origin HEAD:refs/heads/research/sh-round3-stateful-20261030[0m
+2026-10-30T07:55:17.2867203Z shell: /usr/bin/bash -e {0}
+2026-10-30T07:55:17.2867346Z env:
+2026-10-30T07:55:17.2867460Z   OMP_NUM_THREADS: 2
+2026-10-30T07:55:17.2867592Z   MKL_NUM_THREADS: 2
+2026-10-30T07:55:17.2867720Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:55:17.2867857Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:55:17.2868052Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:17.2868290Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:55:17.2868524Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:17.2868739Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:17.2868956Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:17.2869173Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:55:17.2869403Z   EXPECTED_SHA: 783b5755552b3a4b5a071eef47a5ad350657ae1a
+2026-10-30T07:55:17.2869577Z ##[endgroup]
+2026-10-30T07:55:17.7090801Z [research/sh-round3-stateful-20261030 0630788] research: preserve verified stateful SH quality, timing and independent replay
+2026-10-30T07:55:17.7091483Z  30 files changed, 89044 insertions(+)
+2026-10-30T07:55:17.7091935Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/block_trace.csv
+2026-10-30T07:55:17.7092591Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/event_gain.png
+2026-10-30T07:55:17.7092941Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/event_gain.svg
+2026-10-30T07:55:17.7093475Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/event_metrics.csv
+2026-10-30T07:55:17.7093971Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/event_sdri.png
+2026-10-30T07:55:17.7094475Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/event_sdri.svg
+2026-10-30T07:55:17.7094997Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/run_performance.csv
+2026-10-30T07:55:17.7095373Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/state_interventions.png
+2026-10-30T07:55:17.7095762Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/state_interventions.svg
+2026-10-30T07:55:17.7096176Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/step_time_cdf.png
+2026-10-30T07:55:17.7096526Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/step_time_cdf.svg
+2026-10-30T07:55:17.7096866Z  create mode 100644 research/semantic_hearing/round3/evidence/analysis/summary.json
+2026-10-30T07:55:17.7097190Z  create mode 100644 research/semantic_hearing/round3/evidence/full/config.json
+2026-10-30T07:55:17.7097525Z  create mode 100644 research/semantic_hearing/round3/evidence/full/environment.json
+2026-10-30T07:55:17.7097851Z  create mode 100644 research/semantic_hearing/round3/evidence/full/execution.log
+2026-10-30T07:55:17.7098191Z  create mode 100644 research/semantic_hearing/round3/evidence/full/results.json
+2026-10-30T07:55:17.7098527Z  create mode 100644 research/semantic_hearing/round3/evidence/full/run_summary.json
+2026-10-30T07:55:17.7098897Z  create mode 100644 research/semantic_hearing/round3/evidence/full/source_inventory.json
+2026-10-30T07:55:17.7099536Z  create mode 100644 research/semantic_hearing/round3/evidence/full/wav_manifest.json
+2026-10-30T07:55:17.7099889Z  create mode 100644 research/semantic_hearing/round3/evidence/independent_replay.json
+2026-10-30T07:55:17.7100229Z  create mode 100644 research/semantic_hearing/round3/evidence/listening.zip
+2026-10-30T07:55:17.7100556Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/config.json
+2026-10-30T07:55:17.7100916Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/environment.json
+2026-10-30T07:55:17.7101332Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/execution.log
+2026-10-30T07:55:17.7101634Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/gate.json
+2026-10-30T07:55:17.7101929Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/results.json
+2026-10-30T07:55:17.7102243Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/run_summary.json
+2026-10-30T07:55:17.7102579Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/source_inventory.json
+2026-10-30T07:55:17.7102911Z  create mode 100644 research/semantic_hearing/round3/evidence/pilot/wav_manifest.json
+2026-10-30T07:55:17.7103232Z  create mode 100644 research/semantic_hearing/round3/evidence/verification.json
+2026-10-30T07:55:20.5646645Z To https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T07:55:20.5646963Z    783b575..0630788  HEAD -> research/sh-round3-stateful-20261030
+2026-10-30T07:55:20.5704806Z ##[group]Run actions/upload-artifact@v4
+2026-10-30T07:55:20.5704972Z with:
+2026-10-30T07:55:20.5705095Z   name: sh-r3-independent-replay
+2026-10-30T07:55:20.5705250Z   path: /tmp/sh-r3-independent
+2026-10-30T07:55:20.5705388Z   retention-days: 90
+2026-10-30T07:55:20.5705516Z   if-no-files-found: warn
+2026-10-30T07:55:20.5705646Z   compression-level: 6
+2026-10-30T07:55:20.5705772Z   overwrite: false
+2026-10-30T07:55:20.5705893Z   include-hidden-files: false
+2026-10-30T07:55:20.5706027Z env:
+2026-10-30T07:55:20.5706155Z   OMP_NUM_THREADS: 2
+2026-10-30T07:55:20.5706276Z   MKL_NUM_THREADS: 2
+2026-10-30T07:55:20.5706398Z   OPENBLAS_NUM_THREADS: 2
+2026-10-30T07:55:20.5706535Z   PYTHONHASHSEED: 20261030
+2026-10-30T07:55:20.5706700Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:20.5706933Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T07:55:20.5707159Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:20.5707403Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:20.5707613Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T07:55:20.5707824Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T07:55:20.5707999Z ##[endgroup]
+2026-10-30T07:55:20.6643939Z (node:2394) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:55:20.6672287Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:55:20.6675529Z With the provided path, there will be 4 files uploaded
+2026-10-30T07:55:20.6679084Z Artifact name is valid!
+2026-10-30T07:55:20.6679584Z Root directory input is valid!
+2026-10-30T07:55:21.0264217Z Beginning upload of artifact content to blob storage
+2026-10-30T07:55:21.2368974Z (node:2394) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T07:55:22.1513603Z Uploaded bytes 8388608
+2026-10-30T07:55:22.2527326Z Uploaded bytes 10008979
+2026-10-30T07:55:22.3255690Z Finished uploading artifact content to blob storage!
+2026-10-30T07:55:22.3256328Z SHA256 digest of uploaded artifact zip is 5d075d000801a31013f2ef20d3a973895138445f421a03d32d294b232854ddbe
+2026-10-30T07:55:22.3257501Z Finalizing artifact upload
+2026-10-30T07:55:22.7852050Z Artifact sh-r3-independent-replay.zip successfully finalized. Artifact ID 12961973796
+2026-10-30T07:55:22.7852720Z Artifact sh-r3-independent-replay has been successfully uploaded! Final size is 10008979 bytes. Artifact ID is 12961973796
+2026-10-30T07:55:22.7856496Z Artifact download URL: https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/41022306936/artifacts/12961973796
+2026-10-30T07:55:22.7955051Z Post job cleanup.
+2026-10-30T07:55:22.8609287Z Cache hit occurred on the primary key sh-official-39-f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21, not saving cache.
+2026-10-30T07:55:22.8610612Z (node:2406) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:55:22.8611042Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:55:22.8671257Z Post job cleanup.
+2026-10-30T07:55:22.9324301Z Cache hit occurred on the primary key setup-python-Linux-x64-22.04-Ubuntu-python-3.10.22-pip-d5bbe439e48def5729cea048cf631538dd051ad9df5b70da92c5de9718df81db, not saving cache.
+2026-10-30T07:55:22.9325106Z (node:2414) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T07:55:22.9325723Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T07:55:22.9389057Z Post job cleanup.
+2026-10-30T07:55:22.9862134Z [command]/usr/bin/git version
+2026-10-30T07:55:22.9885970Z git version 2.56.0
+2026-10-30T07:55:22.9906338Z Temporarily overriding HOME='/home/runner/work/_temp/ad136662-b5c0-4a69-b086-0f7a436ae2ee' before making global git config changes
+2026-10-30T07:55:22.9907112Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T07:55:22.9909826Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T07:55:22.9930606Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T07:55:22.9950648Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T07:55:23.0078538Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T07:55:23.0091058Z http.https://github.com/.extraheader
+2026-10-30T07:55:23.0099537Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-30T07:55:23.0142243Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T07:55:23.0315447Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T07:55:23.0336678Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T07:55:23.0556340Z Cleaning up orphan processes
+2026-10-30T07:55:23.0722517Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/download-artifact@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

@@ -1,0 +1,27 @@
+{
+  "capture_packet_samples": 32,
+  "packet_duration_ms": 0.7256235827664399,
+  "model_new_samples_per_step": 416,
+  "block_duration_ms": 9.43310657596372,
+  "input_right_context_samples": 32,
+  "maximum_block_collection_wait_ms": 10.158730158730158,
+  "paced_warning_onset_to_computed_output_ms": 15.169020895687169,
+  "paced_warning_modeled_response_ms": 15.09289915875378,
+  "paced_all_first_sample_response_ms": {
+    "median": 14.683904666675573,
+    "p95": 15.161343877529543,
+    "p99": 15.841942069378948,
+    "max": 16.47209261224969
+  },
+  "paced_input_packet_lateness_ms": {
+    "n": 9647,
+    "median": 0.06664924489996338,
+    "p95": 3.7494760344713995,
+    "p99": 4.138035064191853,
+    "max": 5.606870870735747,
+    "min": 0.0022825941528026306
+  },
+  "paced_last_output_after_file_end_ms": 10.34693189567193,
+  "physical_microphone_DAC_Bluetooth_measured": false,
+  "warning_audibility_or_detection_measured": false
+}
