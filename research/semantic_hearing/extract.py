@@ -6,6 +6,7 @@ import importlib
 import json
 from pathlib import Path
 import sys
+import time
 
 LABELS = ("alarm_clock","baby_cry","birds_chirping","cat","car_horn",
           "cock_a_doodle_doo","cricket","computer_typing","dog","glass_breaking",
@@ -60,6 +61,7 @@ def run(args):
                   checkpoint=args.checkpoint.name,
                   stereo_only=True, realtime=False)
     if not args.dry_run:
+        load_started = time.perf_counter()
         import numpy as np
         import soundfile as sf
         import torch
@@ -83,13 +85,16 @@ def run(args):
         state = torch.load(str(args.checkpoint), map_location="cpu")
         model.load_state_dict(state["model_state_dict"], strict=True)
         model.eval()
+        record["model_setup_seconds"] = time.perf_counter() - load_started
         audio, rate = sf.read(str(args.input), dtype="float32", always_2d=True)
         if rate != 44100 or audio.shape[1] != 2:
             raise ValueError("Unexpected audio format change")
         mixture = torch.from_numpy(np.ascontiguousarray(audio.T)).unsqueeze(0)
         target = torch.tensor([label_vector(args.target)], dtype=torch.float32)
         with torch.inference_mode():
+            inference_started = time.perf_counter()
             result = model({"mixture": mixture, "label_vector": target})["x"]
+            record["inference_seconds"] = time.perf_counter() - inference_started
         extracted = result.squeeze(0).cpu().numpy().T
         if extracted.ndim != 2 or extracted.shape[1] != 2 or abs(len(extracted)-len(audio)) > 64:
             raise RuntimeError("Unexpected output shape/duration")
@@ -97,7 +102,13 @@ def run(args):
         if len(extracted) != len(audio) or not np.isfinite(extracted).all():
             raise RuntimeError("Misaligned or invalid model output")
         args.output.parent.mkdir(parents=True, exist_ok=True)
-        sf.write(str(args.output), np.clip(extracted, -1, 1), rate, subtype="PCM_16")
+        record["output_peak"] = float(np.max(np.abs(extracted)))
+        record["output_out_of_range_samples"] = int(np.sum(np.abs(extracted) > 1))
+        float_output = getattr(args, "float_output", False)
+        sf.write(str(args.output), extracted if float_output else np.clip(extracted, -1, 1),
+                 rate, subtype="FLOAT" if float_output else "PCM_16")
+        record["output_subtype"] = "FLOAT" if float_output else "PCM_16"
+        record["output_sha256"] = sha256(args.output)
     if args.manifest:
         args.manifest.parent.mkdir(parents=True, exist_ok=True)
         args.manifest.write_text(json.dumps(record, indent=2) + "\n")
@@ -114,6 +125,7 @@ def main():
     p.add_argument("--manifest", type=Path)
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--overwrite", action="store_true")
+    p.add_argument("--float-output", action="store_true", help="Save unclipped float WAV for numerical research")
     args = p.parse_args()
     print(json.dumps(run(args), indent=2))
 

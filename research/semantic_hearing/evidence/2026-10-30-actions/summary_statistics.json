@@ -1,0 +1,63 @@
+{
+  "bsb_0258": {
+    "metric_kind": "isolated_recording_metrics",
+    "n": 6,
+    "mean_si_sdri_db": -0.9850313239899429,
+    "median_si_sdri_db": -0.3644535654154286,
+    "min_si_sdri_db": -4.031123861321163,
+    "max_si_sdri_db": 2.3663669689948703,
+    "positive_cases": 3
+  },
+  "bsb_0260": {
+    "metric_kind": "isolated_recording_metrics",
+    "n": 6,
+    "mean_si_sdri_db": -34.85707231549554,
+    "median_si_sdri_db": -35.44833880989929,
+    "min_si_sdri_db": -38.89573443451323,
+    "max_si_sdri_db": -29.501990141715236,
+    "positive_cases": 0
+  },
+  "bsb_2731": {
+    "metric_kind": "contaminated_stem_diagnostics",
+    "n": 6,
+    "mean_si_sdri_db": 3.6545698400019524,
+    "median_si_sdri_db": 3.032458784050042,
+    "min_si_sdri_db": -0.5126303878078593,
+    "max_si_sdri_db": 7.754126054601368,
+    "positive_cases": 5
+  },
+  "bsb_2760": {
+    "metric_kind": "contaminated_stem_diagnostics",
+    "n": 6,
+    "mean_si_sdri_db": -6.298733288263968,
+    "median_si_sdri_db": -6.94931947415947,
+    "min_si_sdri_db": -10.39927152150035,
+    "max_si_sdri_db": -1.651772876467736,
+    "positive_cases": 0
+  },
+  "timing": {
+    "median_inference_seconds": 0.5899725400000193,
+    "min_inference_seconds": 0.5096856860000116,
+    "max_inference_seconds": 0.6380736019999631,
+    "sum_inference_seconds": 21.252507937000928,
+    "median_rtf": 0.11799450800000386,
+    "median_case_wall_seconds": 2.2761632549999717,
+    "max_case_wall_seconds": 2.3621973320000507,
+    "total_run_wall_seconds": 87.64876614599996
+  },
+  "verification": {
+    "wavs_verified": 132,
+    "total_wav_bytes": 275423980,
+    "same_decoded_inputs_local_ci": 36,
+    "same_output_hashes_local_ci": 0,
+    "max_local_ci_si_sdri_difference_db": 3.6340070579399253e-06,
+    "unit_tests_passed": 16,
+    "artifact_zip_sha256": "30a918b2695c3c9c3e17d99e23918b64813fa60c0c46420702bb5c373cdb66fa",
+    "artifact_id": 12944082829,
+    "artifact_expires_at": "2027-01-28T00:23:10Z",
+    "run_id": 40979349690,
+    "code_commit": "edcc2348e881296eeb8388e11df40353b8de8b48",
+    "max_output_sample_difference_local_ci": 2.1457672119140625e-06,
+    "wav_header_note": "Float WAV PEAK chunks contain write-time timestamps; use decoded sample hashes for content comparisons."
+  }
+}

@@ -1,0 +1,1190 @@
+[
+  {
+    "path": "cases/bsb_0124_car_horn/input.wav",
+    "bytes": 1764088,
+    "sha256": "decd0cd5805248b7a4571c2b462800c4fd3d577b16842c0b4f4bda6406478387",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0124_car_horn/output.wav",
+    "bytes": 1764088,
+    "sha256": "6933142de6ca7cb8b53aa543a6a7cda1a014a6ce6dedac34ff4c90d34d7a46a8",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0124_siren/input.wav",
+    "bytes": 1764088,
+    "sha256": "decd0cd5805248b7a4571c2b462800c4fd3d577b16842c0b4f4bda6406478387",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0124_siren/output.wav",
+    "bytes": 1764088,
+    "sha256": "33efdc74cd97d4c679c05255a20aa03f1f66637c05d1f5eeee19291093f1859d",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "8e79a3d8128d37f11864ac9491aa1aa05f83a1df9744212621427ac0efa41dfd",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "9dfd5c2d8c9443225d7da4fb6ec2448166ee29522e84d34ebd638ea79b0e9ab1",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "497f406db78afd3813b33f30639ec0088da35bb1851d1fed786a0e5f7d721932",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "6a346393a43b0eed19acb4da6bac4937d578cc4feae153d272461d8159aa5e4b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "6314403b49a475264b41ac1f9733d6611c89dc58f41484865bc17539218240bd",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "8ac1726b216624cf0c5b75b086c6f4b4a1d8dfb5a06a9be2baff636518e881e7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "1aaf8a032ee5d8414eef0767fddd95c8c84749b852bdc7ee7d873c1c92ac4137",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "ca22ede02ed107bec1ededac4fbb425303ba263a8c87b533b609922e5d891aef",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "95fef2e11eac950ec0f53cbe3ac91c5756f486ec828a58f43888269dfa9674b9",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "784a61d73f36a138276c50143d16a1c8888f8ef1e789dd806e03c52dcc57e460",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "c6602ec0e59aca714799fe4255d5d4d587e36cc5e3a631e15ab4e908c33f9094",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "3b73fc8fa2015175d7519271048e01fab1229a742d21391cadb4e74d33df68ba",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "e75cbda32015a4919fa7b25c44a765b3b4e8eeb7b0b559cb1cf5e6f360019193",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "c26e1577c9d9216c501f71eac1b50725a7a4616dd7db1dffd1c078f8e21d9b18",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "5a3957fe7ac8212b858094a2386298afb27700d48f55c90dca57c9cda4e37bd5",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "2d387af67ed7352f8ba8542c2ad03c62a17ef0a7c12bab88788a62dbcefe7956",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "5f79757478202873e6df920f5f847134e19b9d6f40207a3e4209a12965e5fbe2",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "6c124f4f6b8c6b816eeee75714698a84f149c095116a8e91c90e8c3c28622f63",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "c42ee2199dd5e14a74f773a21f4474c80cf293b995ff93cd9bde732a531bbb2f",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "20985ab6a6284c55feb751bc0d1c564401e6124cdeed90ec8b03142c936a17de",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "f23b2052a38bd623661e01298f814ea9afcc80709a84a7c2c4648f4763e4efb9",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "af70d0f01de7c77700b5c672c0e48fda661c20fef55475ae19c7c24de03585b8",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "76546010916ac48f72142ef2716d6b2f85160ca70ea1e945752c47044d424620",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "6c1bbbd2d0a97367e2fb03d023aac6d8ac365e08742af05e04015d95f8ff7e1a",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_original/input.wav",
+    "bytes": 1764088,
+    "sha256": "96f8e3e3eb15fd820bb8f873111abd6eb480d1c59fab073471321d0a5a33a274",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_original/output.wav",
+    "bytes": 1764088,
+    "sha256": "4759eb65bf8d06610d1720de5114af56a47c25848c2f30dd324764cb72384810",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_other_label/input.wav",
+    "bytes": 1764088,
+    "sha256": "96f8e3e3eb15fd820bb8f873111abd6eb480d1c59fab073471321d0a5a33a274",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0258_other_label/output.wav",
+    "bytes": 1764088,
+    "sha256": "e495713cb773cb51cde464d48867c61d8d8a6c7d0769b85ed9642be1efc27232",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "879fa85828c7c8ee703b53027bfde89f8c9a8f3a70b7eeddf5f280461fab8ef4",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "b97a41455e7ba89b5c6a8559bb3c68efea38757708eb4e66c4e660b5ae30b21b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "973177caeca1096c8fd339b2a51d8677c6fc9c795db43719eef17d9cb4d52ab3",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "2dd9af915ee156564befad437996f729d5d68ed2d73d923e37d99151152d2fa8",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "98f7d129889f80ec8270f407fdf0f89290e474ae07d495534499d911c13a4e90",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "4837fda3879ad87708b12390d3baf4b12aa7894d43de190ca094580638a39abf",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "5bdb06868eee8270452219d42bb4d01de38961a8a27880eeaf9c25c03656a9c1",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "b43e27de37f15bd43c0cacc92bd00c375971bbde668148cab3a5c40d4974f311",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "28faf7733b417cc5996dbd973e8cd556c8b545d2b066ae94433cac62d948d07a",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "68e9099ef166e07d0d3cac14ab282cc03bee8297d0572d592d3915439817100a",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "883373ab12b9ec08cf731af99b16f1d242b17f02b441062e650cf1b1671ec1cd",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "0ca2243a765bc75fd5b46da46fd1500a658f4cb92869b6f27a39cbed835bd82b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "b8c1aa263f37a1a84d5afd07f408e852faf160c73726cd12704f9da090f0894f",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "575a1135777143178412b8dd2ddc0f91ec93976fdb799b6d0b8f150d1221e735",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "d75078370f78541b086f5bdf32290cf12b69c4fd5957c184f937de5424ddcfd5",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "de0844c08b476f77aef94e94fdbb47b541b7b37445dac8e5bf68ec92c1ce9788",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "d6c2041fff1bdb3b561afdddb91ffd69f1d368f7833000bfa1a6f2f70bf08b51",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "a16b2d4a6263a87e97bc375d0b197fcb0547bd551baed0172b5ba4c6e48f0f69",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "c985ddeebe2878e0a4f47436138fc8a1fdc7b900d5073f59c6aecb29fbdf9434",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "c1c25158f0a898c3f4968d70a05226f69c1630957f9bf30ba4a80a4ef0551b3e",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "145fa90991bc9e3a8a9c51d9da94281c39a3d2d9eafe26386a2c3fff1e3c1d8a",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "08965496be951834b4a6f010e747fec43362810fc33187f746c05d0e9b5b9e46",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "20eb9295e07ab5feff68644bc189551a36042d713316169859978bc9b485ba2f",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "4f47562243b0af7d6c9e9b5d687a28502012c3c78f53527d5d2d0b0f8eb3d8cc",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_original/input.wav",
+    "bytes": 1764088,
+    "sha256": "98253579c699cc141a10447e9cfa4d1462609af5708de2236a7a2fea12ae9ef7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_original/output.wav",
+    "bytes": 1764088,
+    "sha256": "8609b13f0e1378132098f7f5a5949892f386716c11309b24f193a66721b51e42",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_other_label/input.wav",
+    "bytes": 1764088,
+    "sha256": "98253579c699cc141a10447e9cfa4d1462609af5708de2236a7a2fea12ae9ef7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_0260_other_label/output.wav",
+    "bytes": 1764088,
+    "sha256": "5c8030a326e84800be6b48e5d41c8a53e8d47d8e9bee0910270fa8397359752d",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2717_car_horn/input.wav",
+    "bytes": 1764088,
+    "sha256": "1456de7a8d6bf3b6117262b92aba61a306f9db5a5f22f92c45714e5afb24eeb7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2717_car_horn/output.wav",
+    "bytes": 1764088,
+    "sha256": "b8b856b2de960475034cf6d36bf723d267318aee0c456f9911968baa08dbff72",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2717_siren/input.wav",
+    "bytes": 1764088,
+    "sha256": "1456de7a8d6bf3b6117262b92aba61a306f9db5a5f22f92c45714e5afb24eeb7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2717_siren/output.wav",
+    "bytes": 1764088,
+    "sha256": "fca837f5a5e225fdd7299fa40e02f070ecd021ece6f44f7b0b13766b0f7e4eb8",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "03ad5431346355f1fb06d5b10e6b0345d6ff62f5f8e88e66311b925f660fe7b6",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "0221fd8faefb4e61746b915932c96f8f01e8360cc811dabad4bd2ac872033598",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "e3a46de4580f2943505559bb2cfa131d5d36a679b77a77a5d1a650e322af068c",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "6c667932d8b0cc17702c2334cfac93e8344e30ac22f34c0c2b87688c8a7082a3",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "55730f533d048cb1b290c2c377bc6245758a6cd652509e94c58413edd83142cd",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "85425d85581873f36beb07b29e2d671669cb59a4798ab26a5389fa6eabe6c7e6",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "1e42c9d4ba1a284146b8a0b3afeaea7b52201e473aa51a1be1abd9887094e231",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "3a61d8908baa6553d4b65ec2d9f9ccd0646636f38b081272a7cd922deb932858",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "665d45454d058324dae3aac82a31962636d9d5b28c378ababeedae56ceb92df2",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "aa392187e6868ce802afd6b0c40c4f1f7b6771474dbe4a20141fbfcd30f62a93",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "72ace3a4bad2cfa26017cfaf263d26f085f5e2533e56f6f3eabacc0c25682466",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "fe57d438e89e6874768ba8db19c66bed5ba2f99e27535ffb57779182583cf968",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "5ef65c9c507f67af0aa42286825b79e90c041c73452c06f672396fa82e39eeb7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "ae6bf0226a429c251e21bde23c948aace0bdcd15c0337645194b93a87d5951f6",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "6e2664955e1c3e367c0adabcde2b5f922ad0a31c6e5b687c807705b9c2f33760",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "dc1cbef260da6742bcc35df4184bb549bb80f0e0ed7c9c5f8bff70b0a94296a0",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "f02cce9c86b402f0da406e4ad98ffb6c7e87e63aab3d760afe1543b77ca9eb24",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "d404808e845943cb3809edcd5dbf48c2adb99a7482250c1fd5bb3becaf5d268f",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "2219d6b2fa6b5cc3118ee93c1f1e3cb4f0afe3b8f173d42e24144350ac76db3c",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "be02429d2f4716a49d5dc2dbaddc8b78bf83636ba7aab0fa310815778e769fec",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "30b004aa46338d80473e0eb278dad27a04c0eea36f727b0c0632cb9db96701ac",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "a568e9abc2851872a94a1d0133c86c6f22484407247db0fe715bfbe5114d6ba2",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "b0e476cc6a56b109fd61b6e35b449e78e5d0d5d83a27ef36b412b1205f8df7f4",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "64048f92e6e6e572fcd02d4331766af9c41d4f56345db67042646756477fd139",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_original/input.wav",
+    "bytes": 1764088,
+    "sha256": "9c087ee99e09e7801a83249b48f77748dd0408e84cae0d623cff202da2e20b17",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_original/output.wav",
+    "bytes": 1764088,
+    "sha256": "5e50e0442ac38a89406cedef687935189b5b90155d01de49cefd218d99d18d47",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_other_label/input.wav",
+    "bytes": 1764088,
+    "sha256": "9c087ee99e09e7801a83249b48f77748dd0408e84cae0d623cff202da2e20b17",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2731_other_label/output.wav",
+    "bytes": 1764088,
+    "sha256": "78b20c3d54be8b301b3abb5467aa87b4c1ab6f877feca931c366d70c7d72a6a8",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "972f1559426849cf990d9ad99d8820b6a087548d397e52ddbd8202cae1f60b0e",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "69c4db62f42d9be8ccba043d58e70a0fa75c20aa352b3c249dafe6fc25b8ed13",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "65bf5c4f638335bc57f34fcb40921169d93b891012d64b778538c791b7aaa4b2",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "34bfd9af5e169224a7e60ec877a03d02cac431098209c3d322c0298feb49aebb",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "e2ee723c4de2b79df8d04f71ba189883875af1d2df4e6f74912ade45acd4c2ea",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "f518536433e2c9886683a8c9dc7809d61b9dde3a6d5ff22ef8e1db8d82f78a28",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "5d969c95c59178fdfc9144833b6d939e90e473463f963dd116c96713adc759ad",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "2a343f1315a67293dbff8b027367279b96c0d4ebf3ebc6aae001a6fa8b566b04",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "7e40e103adc5a0e41bc267a132c8c951e05ad231658c22ccd73d792185a91b55",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "0d2e922ee20c06dad5e610e26f66c268dc8a5fd01686ffd93eed8b73ab1c5312",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "52aba6e579f96f62202b3334bb06060e7c765ded267a0f5cc15669df343e76cb",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "c09cca48c82299670647590a0ac3b40169e23483544dd37858016c5df5a68d28",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "4e268614936478c76d0895d844b4c56e3747dc9d9f7c1f35080517ce46e18910",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/input.wav",
+    "bytes": 1764088,
+    "sha256": "f46ac98ac28db5b5d8c17c069eaa1cc2a7b108e848596210103232d9b9fdd546",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/output.wav",
+    "bytes": 1764088,
+    "sha256": "dadc7083336d9f64f98c4921233e2565f5742e814a9f2b01cfb016c3e8b6e5f5",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/reference.wav",
+    "bytes": 1764088,
+    "sha256": "334babc4474db18a3abc7a665fa96c054ec37e812b4c21db19aa266e4f0dc524",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "02962d95181e4f20a85e89cc05733b91bef1a2834fee7ae61ee67dc08ab3073b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/input.wav",
+    "bytes": 1764088,
+    "sha256": "07fc6c19e89ba255241af25f739272bc8f3cb095b95832f2be3f65279c49339e",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/output.wav",
+    "bytes": 1764088,
+    "sha256": "78e5f71dffbab5d973bcaf7b527a432788bfbc2a131e397e4edbf64354ecf438",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "2740f0b6f7aed4fc369c5eedbbb9e4dc2a82174e6b7e6be7059341db5ec7de94",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/added_noise.wav",
+    "bytes": 1764088,
+    "sha256": "58a56aa655dac6bf7a38efa6d03cdb3bebc0e279f6c3a5ef4d93104b0b3cd83b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/input.wav",
+    "bytes": 1764088,
+    "sha256": "ed6842c3976201ca72ff253fdf6d9d6d3ca707287be6bafa4bb215ca637ac730",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/output.wav",
+    "bytes": 1764088,
+    "sha256": "4546be0ab366eb9ee287df132f7f322cfc97bbd0ff635b9cde9982ced9740a6c",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/reference.wav",
+    "bytes": 1764088,
+    "sha256": "b6b2163cdd7e1879139be0533f977b4e13080703f6c6b9319aa7e86af5f2fccb",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_original/input.wav",
+    "bytes": 1764088,
+    "sha256": "1a46264ca471d05c70a9229f348d5eda25c77541594bf990f6e4f9b9d7d6a16b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_original/output.wav",
+    "bytes": 1764088,
+    "sha256": "549b03c8113a8a47ba1b43cf4cd18a4a39986bcac6e039beefe12ef6fae4fc1f",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_other_label/input.wav",
+    "bytes": 1764088,
+    "sha256": "1a46264ca471d05c70a9229f348d5eda25c77541594bf990f6e4f9b9d7d6a16b",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "cases/bsb_2760_other_label/output.wav",
+    "bytes": 1764088,
+    "sha256": "769b70bcc6c0d76818a64a4c383f07d45c5db62aa31b6ccf858b69b95c7f0db6",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "excerpts/bsb_0124.wav",
+    "bytes": 1764088,
+    "sha256": "a3c56fcd54f63a9ed3c0870013a6accea839bbb52eda711b1efac962d708cc2f",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "excerpts/bsb_0258.wav",
+    "bytes": 1764088,
+    "sha256": "a79e8a078ec94546c3bd58d197762c218e0c2375115b0f48324a7cd7dd9328e5",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "excerpts/bsb_0260.wav",
+    "bytes": 1764088,
+    "sha256": "d153026abe1fa1e3df424f1b61b65f9ff988d64604e0645a5bb9a3b67ea8ae75",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "excerpts/bsb_2717.wav",
+    "bytes": 1764088,
+    "sha256": "9fbac2e9ccd945fb6cbfc1e444403f7ce26b885f21d0ce3159bc1f236e75e9d2",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "excerpts/bsb_2731.wav",
+    "bytes": 1764088,
+    "sha256": "57b87d8a9e54b098132025e820b3d25f18d7c71e1b8fa1019d01e96b8529e165",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "excerpts/bsb_2760.wav",
+    "bytes": 1764088,
+    "sha256": "c884ec85d9939ed5a955d481c546ec3df69a0a6d3942baa28be9e0982e8481a2",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT"
+  },
+  {
+    "path": "originals/bsb_0124.wav",
+    "bytes": 7546030,
+    "sha256": "d37affc216bd76b5f1964fbafacb19644ac057b00a099d96dff061ec2b5a2643",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 1886208,
+    "subtype": "PCM_16"
+  },
+  {
+    "path": "originals/bsb_0258.wav",
+    "bytes": 284546,
+    "sha256": "a5875adfc2f935df5f93da49f7c86aa0d2c9980f6e05d76089cd74f6be0dbdd7",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 70873,
+    "subtype": "PCM_16"
+  },
+  {
+    "path": "originals/bsb_0260.wav",
+    "bytes": 88220,
+    "sha256": "0aa92864f1e0cbc43dbe697aac76e23dfb3f4415e89b542b79a7a0d810543adf",
+    "rate": 44100,
+    "channels": 2,
+    "frames": 21784,
+    "subtype": "PCM_16"
+  },
+  {
+    "path": "originals/bsb_2717.wav",
+    "bytes": 11601580,
+    "sha256": "d9927c8a8f76fc389cc860ad967146acd9f659c19971daeb7b936e7cb8cdbfa4",
+    "rate": 48000,
+    "channels": 2,
+    "frames": 1933055,
+    "subtype": "PCM_24"
+  },
+  {
+    "path": "originals/bsb_2731.wav",
+    "bytes": 27950020,
+    "sha256": "2458b8b2facfe48dc62c7311266b3e109a9bd7bb06ed9ead2d058e20be174e11",
+    "rate": 48000,
+    "channels": 2,
+    "frames": 4657755,
+    "subtype": "PCM_24"
+  },
+  {
+    "path": "originals/bsb_2760.wav",
+    "bytes": 5678496,
+    "sha256": "c27d3a0e25d207e70bf2bb475dd67a22fceec51f30334c7f8286e8265de27009",
+    "rate": 48000,
+    "channels": 2,
+    "frames": 945882,
+    "subtype": "PCM_24"
+  }
+]

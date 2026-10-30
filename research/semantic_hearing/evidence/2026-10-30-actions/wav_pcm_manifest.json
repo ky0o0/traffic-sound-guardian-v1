@@ -1,0 +1,530 @@
+[
+  {
+    "path": "cases/bsb_0124_car_horn/input.wav",
+    "float32_le_interleaved_sha256": "784cbaab016f7e709538c8ce9fd63d5bcc006e402d8254a041d2e1d14c540e69"
+  },
+  {
+    "path": "cases/bsb_0124_car_horn/output.wav",
+    "float32_le_interleaved_sha256": "e50a4633cbccfb345029b72ebd59ddfcc56c36a4ea7bd699d4b6916c034711aa"
+  },
+  {
+    "path": "cases/bsb_0124_siren/input.wav",
+    "float32_le_interleaved_sha256": "784cbaab016f7e709538c8ce9fd63d5bcc006e402d8254a041d2e1d14c540e69"
+  },
+  {
+    "path": "cases/bsb_0124_siren/output.wav",
+    "float32_le_interleaved_sha256": "b9ec7e98cd8ec33194d5d8b5d4d25fd08db969958659dbc190ef30e1d828782b"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "8adbda3891d553c6df5eae445fbd6b50288dc0d3759207366def212283a01528"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "c4152aa237135becf3f8a6383c26c122fce883f6b11420677e72a6e88f179dd6"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "a5d35bbf50831be1a953ca0dcf08a669c332c56091ecaf4039ea6ff6ccf95deb"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "1f83219eb504d55740daf83996cc65b325b9908579b2d0ad15fe5419111dba38"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "e324b9264ade2cd06e94531ed94944127e40cafa6259a97bde41a1e2a12c24ca"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "2799fa1609d889a77fe3e5ff2c964b6fbb3a7ccb29d103ed1c69109e22aee040"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "8d0880984c8073bbefa8b38ded3302bac7292a62046a2408bc234a1c353c9734"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "520842fedcfd5477a0bef504caa32bb2d2f5d3adcac3d54f4fe4f9d49a1af3dc"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "92b15104eff3070ac3cec9cb29e49c20f929692595c3f4d658c7e11e28c053c0"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "44f55da21163c7843c85fc49e952f1f7425ab057702af540a731752003583320"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "77b5feffafc1345c994b42d3450ecf6172e3688896af7439336d7a614456a4c2"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_0124_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "7ad88bb922d92220d4a2a4336049a224bed0528a123fd12a3e3d4418f9c81497"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "4a2e6e33ed9cb2a012c628767049394fde222120014f8f649a19d08adb07f02d"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "6b00a78b49afa1f4b6ae272527c635032de4dc33c927d94648e6d185d9f20cf0"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "30b3a51fd8e271a6d8b490d1cfee6240a12ff6de4aae283743203828a936d066"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "2865e379827ea69b9ae1d96bdcad5ea75b5e1cafa4cf8df41dc1914d232880b2"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "d9dd28b72564d8ca73cfd6dd7b5bb4fdad10b41e5a6476acafd782127e28ad67"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "2212b6020158f6e06524da4678d6669cb52179cd47b874d8ab01f71fe35ba4f0"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "d51d62e2900f79ab9af171ca94c87204b20fd7bda361da13f5144ee96942cdb8"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "92a48ef3689185378c44e939e2301e1b2bae8eb8023f32ea1bafd74d93716058"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "7572e31dd7a47c01dc9d07c1a5678670ce823d8939ff1db8ddcf598810bdb7e3"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "85d407892d48d1fd67c6f1ea11817b0d88957e75aadd5d30d98bb12e14eb15bd"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "538cf47028293cc6969b5c69ae7e4571d68326a7de9aa2ad36aed0b81f2d14e9"
+  },
+  {
+    "path": "cases/bsb_0258_bsb_2717_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "02a5c5355a5a296e5933da696be96868040ca66ec7f3505a7d4259e2ab9f4558"
+  },
+  {
+    "path": "cases/bsb_0258_original/input.wav",
+    "float32_le_interleaved_sha256": "7b5140999769a3c23ce9e9c9f90fd45b9ee648dd1f14b89016253a0e9e30c8ce"
+  },
+  {
+    "path": "cases/bsb_0258_original/output.wav",
+    "float32_le_interleaved_sha256": "8833f0e25a94efde154535e2bf9aaf29c2e1dbb3dae74fc6c60c7e18cbd5b181"
+  },
+  {
+    "path": "cases/bsb_0258_other_label/input.wav",
+    "float32_le_interleaved_sha256": "7b5140999769a3c23ce9e9c9f90fd45b9ee648dd1f14b89016253a0e9e30c8ce"
+  },
+  {
+    "path": "cases/bsb_0258_other_label/output.wav",
+    "float32_le_interleaved_sha256": "69caba22709f5b0299edfb7d2a4c438daa33fc8d8c6c709f31a18c5a95a474f2"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "e2f520668f240de9936fc15c9b213a9f6e085c3380873c0bda09510dbbe95819"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "50eddbaa0595d2bde135a287732c5f7142f9ef1875ac40a10be7206080d21d5e"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "fcca8f1739da7e652174c15f3b10cdeea734d18a8b4d4b3621601d10c31db52f"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "02c47fc1cbf080313270edb45bd50d35f0320341aab2a3d92cbf137142e13e05"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "a62258cc58ad05ae5a7ab74cb64595ac42f8a0c7a8d0b433fa3aebce33e1e45f"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "3d050872271ee6bebbe00b995783820b9264a8b16678c4413bd2b57359ca3035"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "bb5a49526ccfdc9166bb964b527f5d757bad9f64b233aaa7ceb54e49aa8c0b17"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "191c3d0e68f2d4b79621b87ab3eadd38543308c6e287cdd8fb14e96f616c94ef"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "829807052b80fd1e7ae302b123973c70972274e59573023cc32577f6566c3b27"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "4b1a8e03c50d67f1e33df4f5bd24e88a06fab32a292ccd1dfcc82b1c2a4b64ce"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "4547b21f156d3f2c6d89c7ac7f4a3427438b9e3decc3fefeb98aa45fc457a344"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_0124_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "4a3f5b9f0c306d553a45235ccdcd0037c9ca77d458952d0e23a8dcedb155a89c"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "3aa154a5cce7a55b2835d0c184f14aada1748d3c4dcc7d3def8b4930e2fc40ca"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "d4ff8c3a14d19b68ffdafd317574a86d4f844843c90f5b954cacfd11fd60d207"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "c40e731a46c4237cf01ffca952fcc7de6042e812c7d230496cd2bedbdabe7df4"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "1a0daa18dc93232e65251167d249e39d4b83009770e3602254cabf0ff8bcd2d5"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "4f0732b9145cfa627112c13c56c9754ad501072476c3cf53521b88acf1399fb1"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "74955792b4676dc4cfe4e763775059dd240e8319f544f3910e0b2f0717b25ec0"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "668f140a01091a8158ff62c0b8ae395d9d62dc456264d4ff928db8048ff178e2"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "2554b461f00be4ca399fe354540349a5df46e167d4afb93fc474269f5b2169d9"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "dcdacad76e016745c415fcfc0a55c2bc9e2878db4e6c575d36c812252c326ad7"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "29c57b937130f38cc2535dc5486c4ba31bd8083828b9b7ed737a86d8d77b6f15"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "c46767bdd0ce66e926949e5b46f361aae33e38f2dd6d2d4ed6e1b81d94baf961"
+  },
+  {
+    "path": "cases/bsb_0260_bsb_2717_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "b084bf6c562d3a85bf0d6df648734510b8d39f13b3fa1158618ed5e64b585c49"
+  },
+  {
+    "path": "cases/bsb_0260_original/input.wav",
+    "float32_le_interleaved_sha256": "ac2ecc2a7b1ed5183b675217415b7c3172c720f72974438efba0f81029e62376"
+  },
+  {
+    "path": "cases/bsb_0260_original/output.wav",
+    "float32_le_interleaved_sha256": "024620cb0b7eabac145d97a1fb77a229bd2236ef3b1d317a914962be9bbcf4df"
+  },
+  {
+    "path": "cases/bsb_0260_other_label/input.wav",
+    "float32_le_interleaved_sha256": "ac2ecc2a7b1ed5183b675217415b7c3172c720f72974438efba0f81029e62376"
+  },
+  {
+    "path": "cases/bsb_0260_other_label/output.wav",
+    "float32_le_interleaved_sha256": "6c68aa2bc3d47c841d2f5bd2fe9bb4d7e32ce00034fc76b9975854a1996d95fc"
+  },
+  {
+    "path": "cases/bsb_2717_car_horn/input.wav",
+    "float32_le_interleaved_sha256": "ff1186257efd75c359812cfd648311b6e368d7ffaeb36d863b089e72321f0bd1"
+  },
+  {
+    "path": "cases/bsb_2717_car_horn/output.wav",
+    "float32_le_interleaved_sha256": "c4ac188e8cb977f47c1a7f046615534813e0c424b588b9d8426d0a70180eb387"
+  },
+  {
+    "path": "cases/bsb_2717_siren/input.wav",
+    "float32_le_interleaved_sha256": "ff1186257efd75c359812cfd648311b6e368d7ffaeb36d863b089e72321f0bd1"
+  },
+  {
+    "path": "cases/bsb_2717_siren/output.wav",
+    "float32_le_interleaved_sha256": "ec726c6e0e61081b728bbbfb935bef612547aa5c939f5216929b78e063da5e68"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "2388dfa95bc9ac93d3637a8d450f6c700f27d39344e20fd9ecabf81eebdb0e24"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "e8fce985072037d370b5a1dd53633d48d26025a9738c7c3f01de37e71172923c"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "ed6cfde02c680507c651573c94de290fc6daf5d24831939350c95ff1c9142f9f"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "1fa10c0435c82b0fb5beceae9140ff86d01d4c20f964e2508e55538933d7bc7f"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "861c5304cbe43960661bbcb993295aecc06cee6b960afe4b964d6fb5a85d09a6"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "e8083d203447008a9e5f48ab6b57cf7b3c5945e21a2b6bb98eb792b99054dfd0"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "4504417aac405719c7637f943f78f832c221c186361b29a72a4b49818a09d08f"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "2fce54405ef22d6edaa6f9c7650e461ef1e63aa7421b06a5c7d7b9961f2a714c"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "025d0806b9e5b493b4c8e3807ca0b1dfaeb44d3a3af338015e14b04add660c1b"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "4518352cc84c5eaae0d639b39f7d08beb328b311768dc5df77340f21e0b4a229"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "2d4d8dd465743ac38d2e9094ee58da581389740aedc350770cbb1df5305a8d7e"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_0124_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "a80c6eca3a391669d185233e3741850b2e6c11b01fc63a0a8331f8964a7f9ce7"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "9041bafc3f089bf6c579b3ed75111029d078e103113679e510e785b135fa2ce8"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "0f22dc67eccf3dec7668c1eaff8ba254b353e33ca7313e5c89be24e92cce73b5"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "860e2492a4ba0d73a94f9ca039694a147668ad1d6627c8eb5cfc9faae651ab08"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "520bcae8be4df15f6c5a2fc8d6e04cd04048bb3e03b5e8bb648f1cb3efa85f1b"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "e0bdd6183dc5b058da701f7d8e559497fa4b5b07ee8efb132221b8e31f3c3e74"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "c6c5aefadac57f07581ff795dfad90425ce4bffaf8edd0fd33677003b149b896"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "4a6fb52f6f0e3dd059c94a5b2a689505304063123dc4a3dfad302e38cb2494ea"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "fd9d83ffc826682efefc69f29f988ec07fc09931509b304500b9866a00b610ae"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "ee76b6fc5998204caed4c37eff2d0f9b03e1fd6452094069bdc1ad25d6b69bb2"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "852f55e864290fd3d6e5ebbcdcf3fc1238847d6a243d38e34cdd0d5a511c2ffe"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "ad995017f2f8f5e85a11b90c894da5950c28d3450558bc7b1593a69a324c52b5"
+  },
+  {
+    "path": "cases/bsb_2731_bsb_2717_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "eb8ac110ee3608ad189f558ee22746f28f085d5ab947507310df2073fbacd76d"
+  },
+  {
+    "path": "cases/bsb_2731_original/input.wav",
+    "float32_le_interleaved_sha256": "38b8acf014d0dddd969e99b83cda33c45e5d2b20c4aed9d9d37b70369b4e3ada"
+  },
+  {
+    "path": "cases/bsb_2731_original/output.wav",
+    "float32_le_interleaved_sha256": "1918a051fbac1e339f062b1975c465f6b4de16b39442b413c19d9d80b280d604"
+  },
+  {
+    "path": "cases/bsb_2731_other_label/input.wav",
+    "float32_le_interleaved_sha256": "38b8acf014d0dddd969e99b83cda33c45e5d2b20c4aed9d9d37b70369b4e3ada"
+  },
+  {
+    "path": "cases/bsb_2731_other_label/output.wav",
+    "float32_le_interleaved_sha256": "db584b51a5ab6105fae1d23481727e4f00d93e987737bdead88efc870911110a"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "20bdf3fde1b7104b72af197e0e716390103ae0a120a6ddf6417fb6a4eebbab07"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "959b3d54371c505981e08b8caf2858985b7ad93db09512109c1c523a025824fd"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "2dcbe4e32ac903c934b31200c7e2a2a88d2cf2bb9a542fc72264ca8c2978ad01"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "9fe199542186622a8618e02b8333a13bfb3386e158278ac35243917e76eff35c"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "583f9dc0913bc10fd913fbed32cd5de32cd17e4b38f6f9b96fbfedd0c6a41a25"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "0de403556673e34afd406bc56042360951c03dd15c6f8561acace6268e8f9c74"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "df36364ab5eb1c02d16babd2a69c48dc012aa14d4a34095bfc6b44cc3eaec7d4"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "2d0beb16ef48fc9d1223c5a626281c523cfd11b925e177697646fed4e1339e84"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "1388cab7da0f70d19b48719c084efcfdf9e26e8e4da8f816ac06f227c17de86c"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "13d032c694fde2dfda35fb0b06fe5e8e0fb08724c8887dc5f3f33957b19decd7"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "e8144c85e48f33df4484b88094af734fb14b5607d66794471343eb1f94fc20a2"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_0124_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "8ccd6271f575fab7f9c5593faf351453060544bc65f4af83167d816abedd0d74"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/added_noise.wav",
+    "float32_le_interleaved_sha256": "501053ab898510ca25e2d95525741544b2668422d3a02f2f4d6321aebeab4cf2"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/input.wav",
+    "float32_le_interleaved_sha256": "ec2d569e1f51333601925b2ec972c2d0d1c9a4857faa3f8f2f20ededa0fb2162"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/output.wav",
+    "float32_le_interleaved_sha256": "f5a1483a69655153c341e87c9ae2eff5d53464d5d10a649129bb8e5955974f89"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+0/reference.wav",
+    "float32_le_interleaved_sha256": "2dea7c963689c7d3e66cf5cfee27256c4e73a30f98ebff6f9cdaf6f4ba8afd8b"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/added_noise.wav",
+    "float32_le_interleaved_sha256": "225101719c463ddeca8abeebe53db4473abe249f3659078a8ca9ea0509c993ac"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/input.wav",
+    "float32_le_interleaved_sha256": "757d1ce950b25938e92973bc3d4dd4f7352cbccdebd3559d101f67fa9dfdda4b"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/output.wav",
+    "float32_le_interleaved_sha256": "e62d360e5783ced6716e48ebdda4d23e8bdbdb09d0801c4c63f4fce08d10c883"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr+5/reference.wav",
+    "float32_le_interleaved_sha256": "5a4af36da4048d0c1fa18a3aec429f06648837ab9067b9dcb147c92ae1c1722b"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/added_noise.wav",
+    "float32_le_interleaved_sha256": "a14b617e7814a1200789892945932d5f3a26b09b48fcb79827ebae7701423934"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/input.wav",
+    "float32_le_interleaved_sha256": "9caa638a34bdea6149639659ddf8836692e09baff38021b6eabda5d6a52f88bf"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/output.wav",
+    "float32_le_interleaved_sha256": "9a94453d6dd9eeb1aa585645fca35067ed85b3d111a37ba7a93915c917ce2afd"
+  },
+  {
+    "path": "cases/bsb_2760_bsb_2717_snr-5/reference.wav",
+    "float32_le_interleaved_sha256": "dcdfcef874b07dc7c3a1d786d809a89d2d3cd3587d6d2146b32e914d6570ec38"
+  },
+  {
+    "path": "cases/bsb_2760_original/input.wav",
+    "float32_le_interleaved_sha256": "371d7b5f67c39a9fae6cab6b6384e48859ed3f10b94b89ee92ebfb0caab39203"
+  },
+  {
+    "path": "cases/bsb_2760_original/output.wav",
+    "float32_le_interleaved_sha256": "2dbafccd092589fdfdc5d725f0b0465bd008aa9ae5cc11c69584a4bcaa325ae9"
+  },
+  {
+    "path": "cases/bsb_2760_other_label/input.wav",
+    "float32_le_interleaved_sha256": "371d7b5f67c39a9fae6cab6b6384e48859ed3f10b94b89ee92ebfb0caab39203"
+  },
+  {
+    "path": "cases/bsb_2760_other_label/output.wav",
+    "float32_le_interleaved_sha256": "8f9a3136b7874f5eefab38ddc24d09f63a35fcdd234cf72b7a21bfafb32310ca"
+  },
+  {
+    "path": "excerpts/bsb_0124.wav",
+    "float32_le_interleaved_sha256": "1487a0a14ba57fcfe9959326f8f9ae781a37a07b9aa8765f174551b9ea0fa0c7"
+  },
+  {
+    "path": "excerpts/bsb_0258.wav",
+    "float32_le_interleaved_sha256": "91769518d12b7aec108cb52421b46b807e25b3c8455587f21a3aeca4b3c69773"
+  },
+  {
+    "path": "excerpts/bsb_0260.wav",
+    "float32_le_interleaved_sha256": "727e23da426537abc049807e10fcd8615a3f023493d32e65fc0bfa3e8313cd7d"
+  },
+  {
+    "path": "excerpts/bsb_2717.wav",
+    "float32_le_interleaved_sha256": "100437aca582890bf2330a23e80fc7b94b589aad53f7f8410077a78a1d0a72ba"
+  },
+  {
+    "path": "excerpts/bsb_2731.wav",
+    "float32_le_interleaved_sha256": "cfa7124ca773a1b00f2db21adef9b0e6d3340cf235afc699365f7ece644bba70"
+  },
+  {
+    "path": "excerpts/bsb_2760.wav",
+    "float32_le_interleaved_sha256": "ef210bf961a33702b6095c7d657da2857ead1891ac1701bdc04d3961bed5f7f9"
+  },
+  {
+    "path": "originals/bsb_0124.wav",
+    "float32_le_interleaved_sha256": "1afdbf8d24231b9cc6ca8c813f1e1c885e98130b6b02e211ada3ccae5a60aa6e"
+  },
+  {
+    "path": "originals/bsb_0258.wav",
+    "float32_le_interleaved_sha256": "84c9230349eb01be6f28f9073b774d6d657b48a28cd3424bada17f59e3f9b311"
+  },
+  {
+    "path": "originals/bsb_0260.wav",
+    "float32_le_interleaved_sha256": "9a7ba5cff6f86b2733502093f15db17f2f018e66e9ef1f6e6a1cc9bd8ee4b586"
+  },
+  {
+    "path": "originals/bsb_2717.wav",
+    "float32_le_interleaved_sha256": "e20cfcf0d05e4512b560a2755b4e85d915e9302dda10167d9f9e9b84988c6d3b"
+  },
+  {
+    "path": "originals/bsb_2731.wav",
+    "float32_le_interleaved_sha256": "4b8dac366788671ddef5cbb23f4dbed0e758e6fc2f62454a9b1627110da45c7a"
+  },
+  {
+    "path": "originals/bsb_2760.wav",
+    "float32_le_interleaved_sha256": "6120d6be14aaebd8e2f882e667ef53aef853a64c453a051d684d5077981e8d37"
+  }
+]

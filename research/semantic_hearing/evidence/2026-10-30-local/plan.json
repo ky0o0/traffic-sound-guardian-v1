@@ -1,0 +1,518 @@
+[
+  {
+    "id": "bsb_0258_original",
+    "target": "car_horn",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_0258"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.7582936481320008
+  },
+  {
+    "id": "bsb_0258_other_label",
+    "target": "siren",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_0258"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.7582936481320008
+  },
+  {
+    "id": "bsb_0258_bsb_0124_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 7.370501941294027,
+    "common_gain": 0.5964789105449586,
+    "measured_snr_db": -5.00000006600192
+  },
+  {
+    "id": "bsb_0258_bsb_0124_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 4.144737828985323,
+    "common_gain": 0.9686900255644094,
+    "measured_snr_db": 2.2647040374739378e-07
+  },
+  {
+    "id": "bsb_0258_bsb_0124_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 2.330757363318177,
+    "common_gain": 1.4873551945667953,
+    "measured_snr_db": 4.99999993901043
+  },
+  {
+    "id": "bsb_0258_bsb_2717_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 26.94359764034695,
+    "common_gain": 0.6389062912056788,
+    "measured_snr_db": -5.000000048258496
+  },
+  {
+    "id": "bsb_0258_bsb_2717_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 15.151498402468267,
+    "common_gain": 1.0837144242231633,
+    "measured_snr_db": -2.228699391782541e-07
+  },
+  {
+    "id": "bsb_0258_bsb_2717_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 8.520313690263462,
+    "common_gain": 1.6013368322654193,
+    "measured_snr_db": 5.000000435201308
+  },
+  {
+    "id": "bsb_0260_original",
+    "target": "car_horn",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_0260"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 0.8000244148075808
+  },
+  {
+    "id": "bsb_0260_other_label",
+    "target": "siren",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_0260"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 0.8000244148075808
+  },
+  {
+    "id": "bsb_0260_bsb_0124_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 12.2954693263748,
+    "common_gain": 0.4073355880517728,
+    "measured_snr_db": -4.999999972074701
+  },
+  {
+    "id": "bsb_0260_bsb_0124_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 6.914250514830894,
+    "common_gain": 0.6208855711929384,
+    "measured_snr_db": 1.7892383231759423e-07
+  },
+  {
+    "id": "bsb_0260_bsb_0124_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 3.888168797208058,
+    "common_gain": 0.7028794560703902,
+    "measured_snr_db": 4.999999968274396
+  },
+  {
+    "id": "bsb_0260_bsb_2717_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 44.947302228226185,
+    "common_gain": 0.35568339857397746,
+    "measured_snr_db": -5.000000297251894
+  },
+  {
+    "id": "bsb_0260_bsb_2717_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 25.27572549875184,
+    "common_gain": 0.6003457570599074,
+    "measured_snr_db": -2.8129576939787823e-07
+  },
+  {
+    "id": "bsb_0260_bsb_2717_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 14.213584972115607,
+    "common_gain": 0.678079367042461,
+    "measured_snr_db": 5.00000004619282
+  },
+  {
+    "id": "bsb_2731_original",
+    "target": "siren",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_2731"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 2.085893066254102
+  },
+  {
+    "id": "bsb_2731_other_label",
+    "target": "car_horn",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_2731"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 2.085893066254102
+  },
+  {
+    "id": "bsb_2731_bsb_0124_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 5.344163464979884,
+    "common_gain": 0.9349049922069036,
+    "measured_snr_db": -4.999999922532072
+  },
+  {
+    "id": "bsb_2731_bsb_0124_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 3.0052439649306355,
+    "common_gain": 1.659622688497014,
+    "measured_snr_db": -1.444661017115883e-07
+  },
+  {
+    "id": "bsb_2731_bsb_0124_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 1.6899728737593924,
+    "common_gain": 2.008122666024711,
+    "measured_snr_db": 4.999999980478169
+  },
+  {
+    "id": "bsb_2731_bsb_2717_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 19.53611725111087,
+    "common_gain": 0.8277645132295932,
+    "measured_snr_db": -5.000000135102791
+  },
+  {
+    "id": "bsb_2731_bsb_2717_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 10.985966064063726,
+    "common_gain": 1.4853227333809416,
+    "measured_snr_db": 2.656164794641985e-07
+  },
+  {
+    "id": "bsb_2731_bsb_2717_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 6.177862714961799,
+    "common_gain": 1.9401437453734336,
+    "measured_snr_db": 5.000000099321173
+  },
+  {
+    "id": "bsb_2760_original",
+    "target": "siren",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_2760"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.2174363198005917
+  },
+  {
+    "id": "bsb_2760_other_label",
+    "target": "car_horn",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_2760"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.2174363198005917
+  },
+  {
+    "id": "bsb_2760_bsb_0124_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 8.401045856355358,
+    "common_gain": 0.5465564163926373,
+    "measured_snr_db": -4.999999942202834
+  },
+  {
+    "id": "bsb_2760_bsb_0124_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 4.724255259847762,
+    "common_gain": 0.9129215616922868,
+    "measured_snr_db": 3.27534503086683e-07
+  },
+  {
+    "id": "bsb_2760_bsb_0124_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 2.6566439633602674,
+    "common_gain": 1.1297074402114817,
+    "measured_snr_db": 5.000000315511719
+  },
+  {
+    "id": "bsb_2760_bsb_2717_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 30.710852682036208,
+    "common_gain": 0.5105626402720612,
+    "measured_snr_db": -5.000000252777056
+  },
+  {
+    "id": "bsb_2760_bsb_2717_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 17.26998159494183,
+    "common_gain": 0.8945451152424484,
+    "measured_snr_db": 1.0699196041020884e-07
+  },
+  {
+    "id": "bsb_2760_bsb_2717_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 9.711624336112525,
+    "common_gain": 1.090361728061684,
+    "measured_snr_db": 5.000000170071149
+  },
+  {
+    "id": "bsb_0124_car_horn",
+    "target": "car_horn",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 5.007526265520535
+  },
+  {
+    "id": "bsb_0124_siren",
+    "target": "siren",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 5.007526265520535
+  },
+  {
+    "id": "bsb_2717_car_horn",
+    "target": "car_horn",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 15.98701054249942
+  },
+  {
+    "id": "bsb_2717_siren",
+    "target": "siren",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 15.98701054249942
+  }
+]

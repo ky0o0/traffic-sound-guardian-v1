@@ -1,0 +1,1742 @@
+[
+  {
+    "id": "bsb_0258_original",
+    "target": "car_horn",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_0258"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.7582936481320008,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "0636dc5e840d8401f8f1047f079cf9992f135761b29900fdc65e61a104122827",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.1018720449999364,
+      "inference_seconds": 2.174962899999855,
+      "output_peak": 0.566322386264801,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "9910ea5efe7478708190d9634bc1974a521cdf9f2c10a73495bea02c1880f70a"
+    },
+    "rtf": 0.434992579999971,
+    "output_to_input_energy_db": -2.750811440584529,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 6.0232229950001965
+  },
+  {
+    "id": "bsb_0258_other_label",
+    "target": "siren",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_0258"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.7582936481320008,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "0636dc5e840d8401f8f1047f079cf9992f135761b29900fdc65e61a104122827",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.9511127129999295,
+      "inference_seconds": 1.2765176089999386,
+      "output_peak": 0.38102987408638,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "e205daa0c2b21f6a4f8e7c2d4614ad4f920752ef65db788537af0c8bacd55e9c"
+    },
+    "rtf": 0.2553035217999877,
+    "output_to_input_energy_db": -13.186638700491164,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 4.927597743999968
+  },
+  {
+    "id": "bsb_0258_bsb_0124_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 7.370501941294027,
+    "common_gain": 0.5964789105449586,
+    "measured_snr_db": -5.00000006600192,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "eafa5c500e2faed5ff3d397a0392cfceb44cb7d94679d4d38391f5e4976b15bc",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.384377991000065,
+      "inference_seconds": 1.2738592690000132,
+      "output_peak": 0.2495417594909668,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "bef60748236f3b735602f410ea9717a08bb1cd4e82d23625bc3345332351581c"
+    },
+    "rtf": 0.25477185380000267,
+    "output_to_input_energy_db": -11.476235670236807,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        -6.139522777045167,
+        -4.134835609927924
+      ],
+      "output_si_sdr_db": [
+        -3.4577154690032614,
+        -2.083908071280094
+      ],
+      "si_sdri_db": 2.366367423344868,
+      "output_snr_db": 1.8726303783473326,
+      "output_to_reference_energy_db": -5.29179415728613
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 5.346594701999948
+  },
+  {
+    "id": "bsb_0258_bsb_0124_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 4.144737828985323,
+    "common_gain": 0.9686900255644094,
+    "measured_snr_db": 2.2647040374739378e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "8c5293840059916f00061bd334cc3c2881c98a027f494aed3f128822adc033d1",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.180590144000007,
+      "inference_seconds": 1.1749022069998318,
+      "output_peak": 0.42070722579956055,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "2e297f90c9049db7b16b56a3a3abd5ca892e32b7b947aa0baa37cce012062bfe"
+    },
+    "rtf": 0.23498044139996638,
+    "output_to_input_energy_db": -6.255322431666661,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        -1.1269395505085311,
+        0.8837159253727522
+      ],
+      "output_si_sdr_db": [
+        -0.6357303258754238,
+        0.5673638825949693
+      ],
+      "si_sdri_db": 0.0874285909276622,
+      "output_snr_db": 3.0500994229455674,
+      "output_to_reference_energy_db": -3.2554038965612335
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.476268578999907
+  },
+  {
+    "id": "bsb_0258_bsb_0124_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 2.330757363318177,
+    "common_gain": 1.4873551945667953,
+    "measured_snr_db": 4.99999993901043,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "a08721460c896e8b3ee776d232819de7fbf6220e079b1d8608fc2a06003ae685",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.6548490380000658,
+      "inference_seconds": 0.6941278369999964,
+      "output_peak": 0.5601511001586914,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "f32ce2fe6d3d77e8624b2f234be5baf08b84ff691808fb8a467fe50ffce0e35b"
+    },
+    "rtf": 0.13882556739999927,
+    "output_to_input_energy_db": -4.0979274418493885,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        3.8801280696525,
+        5.894130391278627
+      ],
+      "output_si_sdr_db": [
+        0.7150550802045093,
+        1.6419734965155863
+      ],
+      "si_sdri_db": -3.7086149421055152,
+      "output_snr_db": 3.672502050424895,
+      "output_to_reference_energy_db": -2.913485965382751
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.335174602000052
+  },
+  {
+    "id": "bsb_0258_bsb_2717_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 26.94359764034695,
+    "common_gain": 0.6389062912056788,
+    "measured_snr_db": -5.000000048258496,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "7be8d7d1fccd387664b17f20911470a1feaeb7ced08b4cc1d0c11f792e47a6a1",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 5.495531739999933,
+      "inference_seconds": 1.3177952270000333,
+      "output_peak": 0.35672926902770996,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "129047bf930bb337bc00903d0811dfd2532bee60687135281069f5b62487af93"
+    },
+    "rtf": 0.26355904540000663,
+    "output_to_input_energy_db": -7.069556972500058,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        -5.798056910880404,
+        -4.595177577650118
+      ],
+      "output_si_sdr_db": [
+        -6.152828522422213,
+        -3.856221393612608
+      ],
+      "si_sdri_db": 0.19209228624785002,
+      "output_snr_db": 0.4055867899808163,
+      "output_to_reference_energy_db": -0.9029359486123292
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 9.422779105000018
+  },
+  {
+    "id": "bsb_0258_bsb_2717_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 15.151498402468267,
+    "common_gain": 1.0837144242231633,
+    "measured_snr_db": -2.228699391782541e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "19b4d28cee1d10080c6697eebe7d8f314e682b8b1af56b7b0c2daf33e9d0c623",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 4.043399179999824,
+      "inference_seconds": 0.9517899800000578,
+      "output_peak": 0.5313132405281067,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "a349441299dd81616e9568a9bd702dea2b755713cb53a32f6308c7a07cf266bb"
+    },
+    "rtf": 0.19035799600001155,
+    "output_to_input_energy_db": -4.709173446545458,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        -0.7616280193837415,
+        0.46189933753810536
+      ],
+      "output_si_sdr_db": [
+        -1.6763457424765538,
+        -0.25605397066419056
+      ],
+      "si_sdri_db": -0.8163355156475541,
+      "output_snr_db": 2.4487575233653462,
+      "output_to_reference_energy_db": -1.7301247618054216
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 5.989255225000079
+  },
+  {
+    "id": "bsb_0258_bsb_2717_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0258",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 8.520313690263462,
+    "common_gain": 1.6013368322654193,
+    "measured_snr_db": 5.000000435201308,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "6799dc2518a42087de0b446b764d56e43189f81871a66cbc5b7c0f6561e535a7",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0258",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.648814689999881,
+      "inference_seconds": 1.324865002000024,
+      "output_peak": 0.637920081615448,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "c334e79cebca22e794bccb4a2c15b57208dfce4daa224c14f971b9761c2bd9d7"
+    },
+    "rtf": 0.2649730004000048,
+    "output_to_input_energy_db": -3.5656665620934547,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        4.258791282258815,
+        5.49383281022335
+      ],
+      "output_si_sdr_db": [
+        0.33917962836694315,
+        1.3511975837825172
+      ],
+      "si_sdri_db": -4.031123440166352,
+      "output_snr_db": 3.503613839385796,
+      "output_to_reference_energy_db": -2.3990456828532096
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 5.79222012199989
+  },
+  {
+    "id": "bsb_0260_original",
+    "target": "car_horn",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_0260"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 0.8000244148075808,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "a898c1b3e8ba19f27e1fee1a0244ee4fe5cd76cdabbf4d1b9999e667555f6f99",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.525692602999925,
+      "inference_seconds": 2.3991131979998954,
+      "output_peak": 0.019080154597759247,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "13b9bccfbccce76c6fc951e5d96af4c034897fb25157eb0fa5307fa6889a94fc"
+    },
+    "rtf": 0.47982263959997906,
+    "output_to_input_energy_db": -39.968216961782396,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 7.026876371000071
+  },
+  {
+    "id": "bsb_0260_other_label",
+    "target": "siren",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_0260"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 0.8000244148075808,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "a898c1b3e8ba19f27e1fee1a0244ee4fe5cd76cdabbf4d1b9999e667555f6f99",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.813595752000083,
+      "inference_seconds": 1.3767602350001198,
+      "output_peak": 0.03665487840771675,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "5790d7aad209363aa0509354572d21453fedd2daab799edfcc67d06ba8d87c7d"
+    },
+    "rtf": 0.27535204700002397,
+    "output_to_input_energy_db": -35.822581890247605,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 4.890769278999869
+  },
+  {
+    "id": "bsb_0260_bsb_0124_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 12.2954693263748,
+    "common_gain": 0.4073355880517728,
+    "measured_snr_db": -4.999999972074701,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "67229905525a68b203d0b8758774ebb6cda849c08a3905934b055eef1c1cda10",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.4973180770000454,
+      "inference_seconds": 0.9043412959999841,
+      "output_peak": 0.08083818107843399,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "aa7d762aebba60dad8eee748b196dc2b3174208b43af8269554b428fc0da56eb"
+    },
+    "rtf": 0.18086825919999683,
+    "output_to_input_energy_db": -20.50316023376717,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        -4.975523077381392,
+        -5.020529699376366
+      ],
+      "output_si_sdr_db": [
+        -32.30409489776419,
+        -36.695940593440575
+      ],
+      "si_sdri_db": -29.5019913572235,
+      "output_snr_db": -0.1516776547326409,
+      "output_to_reference_energy_db": -14.309281167006212
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.189891600999999
+  },
+  {
+    "id": "bsb_0260_bsb_0124_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 6.914250514830894,
+    "common_gain": 0.6208855711929384,
+    "measured_snr_db": 1.7892383231759423e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "55fa368174594eadc694c187486ae11867720de669794b509d2d2ff80762b9db",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.305953190999844,
+      "inference_seconds": 1.2476081060001434,
+      "output_peak": 0.0767231285572052,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "3cbc5cf56022c475d5c1fcd114d982635716824f6df77ec3c968871c5ea59e87"
+    },
+    "rtf": 0.2495216212000287,
+    "output_to_input_energy_db": -21.589163223915328,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.051193246497405,
+        -28.146797791057043
+      ],
+      "si_sdri_db": -31.099939481042664,
+      "output_snr_db": -0.07067114990306587,
+      "output_to_reference_energy_db": -18.57819791922436
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.274130181000146
+  },
+  {
+    "id": "bsb_0260_bsb_0124_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 3.888168797208058,
+    "common_gain": 0.7028794560703902,
+    "measured_snr_db": 4.999999968274396,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "a55d045b817c1843455d061e42cf745edbb8b70b37755cb3bb399571f21c0920",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.1203357179999784,
+      "inference_seconds": 1.2905263150000792,
+      "output_peak": 0.058452073484659195,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "78b5af5f8f80b61ce881ef323f798ae6b258c2cb9c62b43a9befb17d6a57a592"
+    },
+    "rtf": 0.25810526300001585,
+    "output_to_input_energy_db": -23.723294027586128,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        5.022412491975585,
+        4.97831671220981
+      ],
+      "output_si_sdr_db": [
+        -31.582564760217803,
+        -23.66439924537452
+      ],
+      "si_sdri_db": -32.623846604888854,
+      "output_snr_db": -0.03721579503357869,
+      "output_to_reference_energy_db": -22.529414932664764
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.0495337380000365
+  },
+  {
+    "id": "bsb_0260_bsb_2717_snr-5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": -5,
+    "noise_gain": 44.947302228226185,
+    "common_gain": 0.35568339857397746,
+    "measured_snr_db": -5.000000297251894,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "0a218644634d24756a0203ea4b058979bb8a4f057936034f947e2daa2936f60e",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.8558933009999237,
+      "inference_seconds": 2.0971125700000357,
+      "output_peak": 0.2362932711839676,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "70d5b496263ab901fb6cf01951ed4ac9b78a0477371a9785157c6c39eeb39d63"
+    },
+    "rtf": 0.41942251400000713,
+    "output_to_input_energy_db": -11.958317850438608,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        -4.621544197869849,
+        -5.3889308685619675
+      ],
+      "output_si_sdr_db": [
+        -41.1202749171511,
+        -45.4358524560572
+      ],
+      "si_sdri_db": -38.27282615338824,
+      "output_snr_db": -1.014229645831423,
+      "output_to_reference_energy_db": -5.768986334458991
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 5.762123449000001
+  },
+  {
+    "id": "bsb_0260_bsb_2717_snr+0",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 0,
+    "noise_gain": 25.27572549875184,
+    "common_gain": 0.6003457570599074,
+    "measured_snr_db": -2.8129576939787823e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "22f0badee4c2c464c0dfd95752474ceb1ebbfc9866465a7462a3b1f1e57bae18",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.456942177999963,
+      "inference_seconds": 1.4484146129998408,
+      "output_peak": 0.22495371103286743,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "df9d0f2ce842875787237561e33d0f000d2ec48ee11a20f9480ec30580c5a9f3"
+    },
+    "rtf": 0.28968292259996814,
+    "output_to_input_energy_db": -13.782246706882455,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        0.39541114283300605,
+        -0.391727247361515
+      ],
+      "output_si_sdr_db": [
+        -41.91657938050931,
+        -35.871207990149614
+      ],
+      "si_sdri_db": -38.89573563306521,
+      "output_snr_db": -0.35777780473079357,
+      "output_to_reference_energy_db": -10.77660385959681
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.689909971999896
+  },
+  {
+    "id": "bsb_0260_bsb_2717_snr+5",
+    "target": "car_horn",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_0260",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "isolated_recording",
+    "nominal_snr_db": 5,
+    "noise_gain": 14.213584972115607,
+    "common_gain": 0.678079367042461,
+    "measured_snr_db": 5.00000004619282,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "c7eb01ea40596ec688f8126b63abd27da8c1ff7093be2e27e0a5ca931b9766b1",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0260",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.2426331879998997,
+      "inference_seconds": 1.1652844730001561,
+      "output_peak": 0.14393708109855652,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "b6fed2c23c0272c029d0b959adbf78a93bcf48f405c2b1057b579a9ca889cd56"
+    },
+    "rtf": 0.23305689460003123,
+    "output_to_input_energy_db": -17.426329595333737,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "isolated_recording_metrics": {
+      "input_si_sdr_db": [
+        5.4049316345744955,
+        4.6067001437239385
+      ],
+      "output_si_sdr_db": [
+        -37.38625494873942,
+        -30.09829358075482
+      ],
+      "si_sdri_db": -38.74809015389634,
+      "output_snr_db": -0.11318540976393202,
+      "output_to_reference_energy_db": -16.23699831746556
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.171069541999941
+  },
+  {
+    "id": "bsb_2731_original",
+    "target": "siren",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_2731"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 2.085893066254102,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "90940a8a7b32c817bd2a117193f25b603f54c5021dfffad7d0b91e2d866c73ae",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.004790084999968,
+      "inference_seconds": 0.9468080329997974,
+      "output_peak": 0.5443808436393738,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "04a9a9a3548a22f382260e6db8b0217a668a802a320cb9a27287e9fe3abaaba9"
+    },
+    "rtf": 0.1893616065999595,
+    "output_to_input_energy_db": -5.0311045825221505,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 3.494869000000108
+  },
+  {
+    "id": "bsb_2731_other_label",
+    "target": "car_horn",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_2731"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 2.085893066254102,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "90940a8a7b32c817bd2a117193f25b603f54c5021dfffad7d0b91e2d866c73ae",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.1447719579998648,
+      "inference_seconds": 1.332509380999909,
+      "output_peak": 0.6539295315742493,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "5ea389c65e558a52d64fe8c5f0f5af1bc3327636db42f3251b226713466f7da0"
+    },
+    "rtf": 0.2665018761999818,
+    "output_to_input_energy_db": -4.8132637054570315,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 4.306264442000156
+  },
+  {
+    "id": "bsb_2731_bsb_0124_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 5.344163464979884,
+    "common_gain": 0.9349049922069036,
+    "measured_snr_db": -4.999999922532072,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "038d7247dfb8c38342f9a2ad9aa71f97e69a2009fd43e49b0c24069caf8a38c3",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.2175039819999256,
+      "inference_seconds": 0.9447070969999913,
+      "output_peak": 0.2923930585384369,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "d2a63cb4bd8a0efd854cb2826fcf66bcb3f8b25250c0c86a3d90647f582ffc9a"
+    },
+    "rtf": 0.18894141939999826,
+    "output_to_input_energy_db": -8.151818215465322,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        -2.5314261924012342,
+        -12.392470106296134
+      ],
+      "output_si_sdr_db": [
+        4.240044532221345,
+        -3.6556891897906896
+      ],
+      "si_sdri_db": 7.754125820564012,
+      "output_snr_db": 4.580733440980206,
+      "output_to_reference_energy_db": -1.9736260302051494
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.8601675310001156
+  },
+  {
+    "id": "bsb_2731_bsb_0124_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 3.0052439649306355,
+    "common_gain": 1.659622688497014,
+    "measured_snr_db": -1.444661017115883e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "8881a39bf58133507c62cda1b37779c79e5d083c6777e7b02af0edac5396d0f3",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 1.938359795999986,
+      "inference_seconds": 0.879026850999935,
+      "output_peak": 0.453754186630249,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "71aa15e2ec0095a7cfc42a0c5f4811e435a598b5207afe6447d40e9d14eb8e74"
+    },
+    "rtf": 0.17580537019998702,
+    "output_to_input_energy_db": -5.217141233047226,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        2.502383061656665,
+        -7.427668125614906
+      ],
+      "output_si_sdr_db": [
+        6.470831693988006,
+        0.6449739554555858
+      ],
+      "si_sdri_db": 6.020545356700916,
+      "output_snr_db": 6.348423393441975,
+      "output_to_reference_energy_db": -2.224539484012143
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.482998119000058
+  },
+  {
+    "id": "bsb_2731_bsb_0124_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 1.6899728737593924,
+    "common_gain": 2.008122666024711,
+    "measured_snr_db": 4.999999980478169,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "cd923a57df37eb10086bff65f3093a03b2653ba5196d9e03ecc4c052d7c417da",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 1.9331429579999622,
+      "inference_seconds": 0.8900935959998151,
+      "output_peak": 0.5461678504943848,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "7b74b9414fbdb60be6619523bb45300a366c8ae598fd9ee4bdcd34f2d2eb0236"
+    },
+    "rtf": 0.178018719199963,
+    "output_to_input_energy_db": -3.9764322056953274,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        7.521338011344648,
+        -2.4475240017815953
+      ],
+      "output_si_sdr_db": [
+        7.0582005538291135,
+        3.216533015373046
+      ],
+      "si_sdri_db": 2.600459779819553,
+      "output_snr_db": 6.661609173954823,
+      "output_to_reference_energy_db": -2.798239957716733
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.4395682720000877
+  },
+  {
+    "id": "bsb_2731_bsb_2717_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 19.53611725111087,
+    "common_gain": 0.8277645132295932,
+    "measured_snr_db": -5.000000135102791,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "594b0b2771966acfb6f234376c2d505c943bba1093833ddd41a555194e06c0d9",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.784694409000167,
+      "inference_seconds": 1.1395053860001099,
+      "output_peak": 0.4080043435096741,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "ebe0bab6a8e988745bb19a47338361e34f834cf03b7bc60fd729c0ceb5f226f1"
+    },
+    "rtf": 0.22790107720002198,
+    "output_to_input_energy_db": -5.273435483790415,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        -2.114755448844324,
+        -12.877440249355471
+      ],
+      "output_si_sdr_db": [
+        0.9539432594087381,
+        -9.766620460943546
+      ],
+      "si_sdri_db": 3.089759248332494,
+      "output_snr_db": 0.8501198509779528,
+      "output_to_reference_energy_db": 0.906974433660533
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 5.593202215000019
+  },
+  {
+    "id": "bsb_2731_bsb_2717_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 10.985966064063726,
+    "common_gain": 1.4853227333809416,
+    "measured_snr_db": 2.656164794641985e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "f0d2a7ebc287bc869680ec2cc86df0cb7e840cb8ffa4463c624aa49fcbc2385d",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.1434998409999935,
+      "inference_seconds": 1.1144829180000215,
+      "output_peak": 0.5127201080322266,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "9ad3b8e63f10e91615b3d06475bbcd49c89b2fe2737be2ef8b46ff08801283d9"
+    },
+    "rtf": 0.2228965836000043,
+    "output_to_input_energy_db": -4.418837703780888,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        2.9097841434302625,
+        -7.863765423286494
+      ],
+      "output_si_sdr_db": [
+        5.136368311924272,
+        -4.140031514360894
+      ],
+      "si_sdri_db": 2.975159038709805,
+      "output_snr_db": 4.6963152290699774,
+      "output_to_reference_energy_db": -1.4236394871539795
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.927135449000161
+  },
+  {
+    "id": "bsb_2731_bsb_2717_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2731",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 6.177862714961799,
+    "common_gain": 1.9401437453734336,
+    "measured_snr_db": 5.000000099321173,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "4911ea779a86ef259a369a473493b01b0b06d6bf7be4f3d0f6e44ae20e231fda",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2731",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.1243779110000105,
+      "inference_seconds": 0.821380452999847,
+      "output_peak": 0.5644826889038086,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "2d307c0c69ef1e1d557a2723fec4bd977da1ec86d07931987be78840c290dda1"
+    },
+    "rtf": 0.1642760905999694,
+    "output_to_input_energy_db": -4.6871817250387675,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        7.923552980615578,
+        -2.856085337275206
+      ],
+      "output_si_sdr_db": [
+        4.544423310949307,
+        -0.5022152824860469
+      ],
+      "si_sdri_db": -0.5126298074385556,
+      "output_snr_db": 4.794634343424008,
+      "output_to_reference_energy_db": -3.5067719319888573
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.2657326399998965
+  },
+  {
+    "id": "bsb_2760_original",
+    "target": "siren",
+    "kind": "recorded_scene",
+    "source_ids": [
+      "bsb_2760"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.2174363198005917,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "aaed9588ebe2e09f9196cb92c2e1c97b7f3cc18a1c025a5f46c0c589fb6ca8c5",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.2641995589999624,
+      "inference_seconds": 0.9300341799998932,
+      "output_peak": 0.18493925034999847,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "a76dcba42af6c95d2e587d2dfab47918d9b9097655a77e0745e52097bcf06f82"
+    },
+    "rtf": 0.18600683599997864,
+    "output_to_input_energy_db": -19.03885860260282,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 3.8605966059999446
+  },
+  {
+    "id": "bsb_2760_other_label",
+    "target": "car_horn",
+    "kind": "other_label_control",
+    "source_ids": [
+      "bsb_2760"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 1.2174363198005917,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "aaed9588ebe2e09f9196cb92c2e1c97b7f3cc18a1c025a5f46c0c589fb6ca8c5",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.145287241999995,
+      "inference_seconds": 1.0699069939998935,
+      "output_peak": 0.04008731245994568,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "9b866c61d92dfb817a4b465df406cf569d51829e820460805ac5772ad7b887e8"
+    },
+    "rtf": 0.2139813987999787,
+    "output_to_input_energy_db": -30.39623827586776,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 3.893608674999996
+  },
+  {
+    "id": "bsb_2760_bsb_0124_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 8.401045856355358,
+    "common_gain": 0.5465564163926373,
+    "measured_snr_db": -4.999999942202834,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "ca604afc0fdf5de27669404fb28e3cedf3f522b3643e84e3898e81106ca035bb",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 4.543502930999921,
+      "inference_seconds": 0.8727167259999078,
+      "output_peak": 0.08675505220890045,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "7b9b9ff31c86ce7b1ec5d99c5581aef8daee7c8e7551996c124c6fd1b660123a"
+    },
+    "rtf": 0.17454334519998155,
+    "output_to_input_energy_db": -18.959850172269068,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        -6.3604880430233806,
+        -3.9889529345922097
+      ],
+      "output_si_sdr_db": [
+        -8.196118366269538,
+        -5.456869599198603
+      ],
+      "si_sdri_db": -1.6517734939262754,
+      "output_snr_db": 0.6530168617612846,
+      "output_to_reference_energy_db": -12.77424456059686
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 6.096474120000039
+  },
+  {
+    "id": "bsb_2760_bsb_0124_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 4.724255259847762,
+    "common_gain": 0.9129215616922868,
+    "measured_snr_db": 3.27534503086683e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "918bc14b7a7beac828bd7dd54cbea3ae3ef4e6ae53600fbbe4178c59bf053e05",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.053814608000039,
+      "inference_seconds": 0.9126817880000999,
+      "output_peak": 0.12227995693683624,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "2bcfcb7d7ea92f5438d79066becfbf56736df76a9f321619902bc9182cffbbd6"
+    },
+    "rtf": 0.18253635760002,
+    "output_to_input_energy_db": -19.16173683565557,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        -1.3400349781536307,
+        1.0212862216742056
+      ],
+      "output_si_sdr_db": [
+        -4.07767863458091,
+        -1.4053948338821485
+      ],
+      "si_sdri_db": -2.5821623559918168,
+      "output_snr_db": 0.7668069591824456,
+      "output_to_reference_energy_db": -16.160455438207272
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.6193070689998876
+  },
+  {
+    "id": "bsb_2760_bsb_0124_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 2.6566439633602674,
+    "common_gain": 1.1297074402114817,
+    "measured_snr_db": 5.000000315511719,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "e1fc1bdde9a25b72a27e24d5e1facda987f648baa13bd0108783c37993b7b947",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.305265749,
+      "inference_seconds": 0.9286863749998702,
+      "output_peak": 0.20068085193634033,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "b1fd296de69291fd7026e7ed62434bd78bf04458536806dee1d2482da4106400"
+    },
+    "rtf": 0.18573727499997403,
+    "output_to_input_energy_db": -18.813269231451716,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        3.6714453496354826,
+        6.027038675607038
+      ],
+      "output_si_sdr_db": [
+        -1.4052149917411842,
+        -0.04468244313161461
+      ],
+      "si_sdri_db": -5.57419073005766,
+      "output_snr_db": 0.7703759402189219,
+      "output_to_reference_energy_db": -17.62766365053135
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.8946428669999023
+  },
+  {
+    "id": "bsb_2760_bsb_2717_snr-5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": -5,
+    "noise_gain": 30.710852682036208,
+    "common_gain": 0.5105626402720612,
+    "measured_snr_db": -5.000000252777056,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "3625de738144a1a96ea6512a04f52b7734bfd082b7ed4c2e3b53388f41662234",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.5002630490000683,
+      "inference_seconds": 1.1896634710001308,
+      "output_peak": 0.27958789467811584,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "03e5fe9840d27152efb4c42ac7d4b233d37dedaa5abc273a8ad31c0fae1b0e1a"
+    },
+    "rtf": 0.23793269420002616,
+    "output_to_input_energy_db": -9.35384421709626,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        -6.045913231349953,
+        -4.237352688118827
+      ],
+      "output_si_sdr_db": [
+        -14.362518505090643,
+        -12.569645853079095
+      ],
+      "si_sdri_db": -8.324449219350477,
+      "output_snr_db": -0.7609092670464929,
+      "output_to_reference_energy_db": -3.1567047530790986
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 4.498607107999987
+  },
+  {
+    "id": "bsb_2760_bsb_2717_snr+0",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 0,
+    "noise_gain": 17.26998159494183,
+    "common_gain": 0.8945451152424484,
+    "measured_snr_db": 1.0699196041020884e-07,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "7dbc58308dfae9c9eac8ab5a4fd2589b255a2a6ec18ec85f76b2e6c2e2137f83",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 1.9829378049998923,
+      "inference_seconds": 0.7828926050001428,
+      "output_peak": 0.29920125007629395,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "b058ca079fc5f23eb4c93d53c5548ccc5e3c6e35b00a613b4f7d9e8e8b321b7a"
+    },
+    "rtf": 0.15657852100002856,
+    "output_to_input_energy_db": -10.997953399098893,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        -0.9896794709223387,
+        0.718535550878352
+      ],
+      "output_si_sdr_db": [
+        -10.126296579304423,
+        -8.665959769286752
+      ],
+      "si_sdri_db": -9.260556214273594,
+      "output_snr_db": 0.4521480627936302,
+      "output_to_reference_energy_db": -7.983172958270373
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.382781955000155
+  },
+  {
+    "id": "bsb_2760_bsb_2717_snr+5",
+    "target": "siren",
+    "kind": "controlled_mix",
+    "source_ids": [
+      "bsb_2760",
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": true,
+    "reference_kind": "contaminated_recorded_scene",
+    "nominal_snr_db": 5,
+    "noise_gain": 9.711624336112525,
+    "common_gain": 1.090361728061684,
+    "measured_snr_db": 5.000000170071149,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "77658b91bf73b504cb49bc6690a670bd46a7d13e5048cffa2e6d79696c080510",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2760",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 1.9241411200000584,
+      "inference_seconds": 0.6772987960000592,
+      "output_peak": 0.22585907578468323,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "907514225c331e4dae789693df5d11cdef3d90e0f7fbf622dbea6aa970c08308"
+    },
+    "rtf": 0.13545975920001183,
+    "output_to_input_energy_db": -13.655989594389407,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "contaminated_stem_diagnostics": {
+      "input_si_sdr_db": [
+        4.041783766796288,
+        5.693630776058707
+      ],
+      "output_si_sdr_db": [
+        -6.243717675020406,
+        -4.819412138083202
+      ],
+      "si_sdri_db": -10.399272177979302,
+      "output_snr_db": 0.7954176172601628,
+      "output_to_reference_energy_db": -12.45885036290703
+    },
+    "clean_siren_quality_validated": false,
+    "wall_seconds": 3.2501931439999225
+  },
+  {
+    "id": "bsb_0124_car_horn",
+    "target": "car_horn",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 5.007526265520535,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "8448bff4196a1e0cdf9e18c76a112a839a7456fb72724f5be1ad29675a6b29ae",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_0124",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 3.5135898229998475,
+      "inference_seconds": 1.2114409670000441,
+      "output_peak": 0.08084108680486679,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "108b6be299c43fa5631803d3780d08d59548da9a6c96e03a933d2b6ddc97e3fc"
+    },
+    "rtf": 0.24228819340000882,
+    "output_to_input_energy_db": -19.409008093282306,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 6.333949379999922
+  },
+  {
+    "id": "bsb_0124_siren",
+    "target": "siren",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_0124"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 5.007526265520535,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "8448bff4196a1e0cdf9e18c76a112a839a7456fb72724f5be1ad29675a6b29ae",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_0124",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 23.551915381999834,
+      "inference_seconds": 2.040760437000017,
+      "output_peak": 0.10513542592525482,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "ecb55128c2ab5307e2c03ae394a9f0f14a7e03b85e7016c529ddc8e0618bb1a9"
+    },
+    "rtf": 0.4081520874000034,
+    "output_to_input_energy_db": -17.247813496501315,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 27.76653873700002
+  },
+  {
+    "id": "bsb_2717_car_horn",
+    "target": "car_horn",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 15.98701054249942,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "240d1b9ba88da6cf7e02d1c62f210cd5bb5813bf43227481429fbed4b0b45d43",
+      "output_file": "output.wav",
+      "target": "car_horn",
+      "group_id": "bsb_2717",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.1720966200000476,
+      "inference_seconds": 1.6763676680000117,
+      "output_peak": 0.23629340529441833,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "3ff53bb9ea843d7f4ecc452b33f16639b58f0b2e899c105b25abb8eb969d5e85"
+    },
+    "rtf": 0.33527353360000234,
+    "output_to_input_energy_db": -10.760126962528826,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 5.290164209000068
+  },
+  {
+    "id": "bsb_2717_siren",
+    "target": "siren",
+    "kind": "background_control",
+    "source_ids": [
+      "bsb_2717"
+    ],
+    "duration_seconds": 5,
+    "has_reference": false,
+    "input_gain": 15.98701054249942,
+    "status": "processed",
+    "inference": {
+      "status": "processed",
+      "source_file": "input.wav",
+      "source_sha256": "240d1b9ba88da6cf7e02d1c62f210cd5bb5813bf43227481429fbed4b0b45d43",
+      "output_file": "output.wav",
+      "target": "siren",
+      "group_id": "bsb_2717",
+      "duration": 5.0,
+      "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+      "checkpoint": "39.pt",
+      "stereo_only": true,
+      "realtime": false,
+      "model_setup_seconds": 2.590402452999797,
+      "inference_seconds": 1.8853508409999904,
+      "output_peak": 0.28986337780952454,
+      "output_out_of_range_samples": 0,
+      "output_subtype": "FLOAT",
+      "output_sha256": "c92f90fc2b454972fa9799e0323f7fc708885a618d2795c113c799c159d3dff3"
+    },
+    "rtf": 0.37707016819999806,
+    "output_to_input_energy_db": -8.142735658738617,
+    "energy_interpretation": "Descriptive level change only; not accuracy or target preservation",
+    "reference_metrics": null,
+    "no_reference_reason": "No synchronized clean target stem; no SI-SDR or accuracy claim",
+    "wall_seconds": 5.260048079000171
+  }
+]
