@@ -1,0 +1,11 @@
+{
+  "seed": 20261030,
+  "threads": 2,
+  "source_commit": "a2584bb2f0016340d4e40be658820f0ecba6392b",
+  "official_source": "07e9786c7a741f0a7c722dcde66a2679ca068c50",
+  "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+  "runner_sha256": "6eb59aa4da2ffff5936bba411fb675bc1ad3ae138b330767656d5a278789a31e",
+  "dependency_freeze": "certifi==2026.10.23\ncffi==2.1.1\ncharset-normalizer==3.5.2\ncloudpickle==3.1.2\ncontourpy==1.3.2\ncycler==0.12.1\nfilelock==4.1.0\nfonttools==4.65.0\nfsspec==2026.9.0\nhuggingface-hub==0.25.2\nHyperPyYAML==1.2.3\nidna==3.20\njoblib==1.6.0\nkiwisolver==1.5.1\nmatplotlib==3.9.4\nnumpy==1.26.4\npackaging==26.3\npillow==12.3.0\npycparser==3.11\npyparsing==3.3.3\npython-dateutil==3.0.0\nPyYAML==6.0.2\nremotezip==0.12.3\nrequests==2.32.3\nruamel.yaml==0.18.17\nruamel.yaml.clib==0.2.15\nscipy==1.14.1\nsentencepiece==0.2.2\nsix==1.17.0\nsoundfile==0.13.1\nspeechbrain==0.5.16\ntorch==1.13.1+cpu\ntorchaudio==0.13.1+cpu\ntorchmetrics==0.10.0\ntqdm==4.70.1\ntyping_extensions==4.16.0\ntzdata==2026.6\nurllib3==2.8.0\n",
+  "exploratory": true,
+  "trigger": "Large onset-position effect observed in frozen round2 results; follow-up designed afterward"
+}

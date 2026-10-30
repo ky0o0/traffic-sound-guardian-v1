@@ -1,0 +1,1796 @@
+{
+  "total_conditions": 238,
+  "processed": 238,
+  "failed": 0,
+  "unique_used_recording_files": 23,
+  "forward_median_seconds": 0.3619774705000083,
+  "by_source_family": [
+    {
+      "family": "background",
+      "source_id": "bsb_0257",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 10.653403300430218,
+        "median": 11.70676219297238,
+        "min": 5.717475496432021,
+        "max": 12.525079787931281
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 0.41702664423001734,
+        "median": 1.509610047873855,
+        "min": -4.4522574387013325,
+        "max": 1.8776506889772904
+      },
+      "output_snr_db": {
+        "mean": 2.4769568412375014,
+        "median": 3.4219763431579953,
+        "min": -0.9209518265142097,
+        "max": 3.776623236317704
+      },
+      "active_output_snr_db": {
+        "mean": 4.521259919708989,
+        "median": 4.417039370257584,
+        "min": 3.3612480861270804,
+        "max": 5.3656146486640335
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.11218598110545841,
+        "median": -0.32811621335300273,
+        "min": -2.686503227634592,
+        "max": 1.7305011567909636
+      },
+      "mean_projected_gain_db": -2.9861931086941444,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 7.168413759995348,
+        "median": 8.318708384571982,
+        "min": 4.574556690952658,
+        "max": 8.719100534158752
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 2.3119750141483673,
+        "median": 2.724051952384446,
+        "min": -0.3718155110715905,
+        "max": 4.272288573557322
+      },
+      "output_snr_db": {
+        "mean": 4.101332051514783,
+        "median": 4.65316375801936,
+        "min": 1.467122458436838,
+        "max": 5.779085458701294
+      },
+      "active_output_snr_db": {
+        "mean": 4.581585632264206,
+        "median": 4.788942140433873,
+        "min": 2.5973449000718802,
+        "max": 6.056673777538812
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.3245316655103248,
+        "median": -0.7620736273673465,
+        "min": -1.0669677534164055,
+        "max": 1.2136018609455113
+      },
+      "mean_projected_gain_db": -2.5231424432692506,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_0259",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 11.227749245882524,
+        "median": 12.627124366326392,
+        "min": 7.052051553069213,
+        "max": 14.686077054775922
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 0.3801108798676964,
+        "median": 1.643634804931523,
+        "min": -3.8449368207359305,
+        "max": 3.7857013152367696
+      },
+      "output_snr_db": {
+        "mean": 2.30379009292078,
+        "median": 2.6222272403905467,
+        "min": -1.4310001169498507,
+        "max": 4.526011313384895
+      },
+      "active_output_snr_db": {
+        "mean": 5.047167289006251,
+        "median": 5.505965557297392,
+        "min": 1.7695890094916658,
+        "max": 7.743022740589445
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.5753204992378625,
+        "median": 0.6609901620370147,
+        "min": -7.8736558276457425,
+        "max": 2.715208554773648
+      },
+      "mean_projected_gain_db": -3.738236159226568,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 9.043018878434452,
+        "median": 9.650206232593106,
+        "min": 3.6331953383388917,
+        "max": 13.696436349293094
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -2.628415654804285,
+        "median": -1.792453986240592,
+        "min": -9.228609367421642,
+        "max": 1.9937908076931983
+      },
+      "output_snr_db": {
+        "mean": 1.2946923712004863,
+        "median": 2.1903943780065744,
+        "min": -3.0372681914399493,
+        "max": 3.169838220160618
+      },
+      "active_output_snr_db": {
+        "mean": 3.60733483294228,
+        "median": 3.5782679697846254,
+        "min": 1.5198380509347167,
+        "max": 6.057478596676967
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.7415845152851972,
+        "median": -1.153433578565803,
+        "min": -7.614882129275802,
+        "max": 2.826686460271348
+      },
+      "mean_projected_gain_db": -6.671035776697603,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_005",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 9.76338514695258,
+        "median": 10.297346699214366,
+        "min": 7.45690573122784,
+        "max": 10.62319558069462
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 7.0225679029292625,
+        "median": 7.1762274146489755,
+        "min": 5.184409782141275,
+        "max": 8.289942260305128
+      },
+      "output_snr_db": {
+        "mean": 7.653233388827283,
+        "median": 7.837946272232239,
+        "min": 5.918431887643898,
+        "max": 8.8150828198012
+      },
+      "active_output_snr_db": {
+        "mean": 7.86448279568736,
+        "median": 8.07782179652886,
+        "min": 6.1989990175841845,
+        "max": 8.818046610672436
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.019437138718118113,
+        "median": -0.11632365805941972,
+        "min": -0.1701804046948435,
+        "max": 0.28756228590897703
+      },
+      "mean_projected_gain_db": -0.8325684124882693,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_006",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 9.833619275551579,
+        "median": 10.30114886061325,
+        "min": 7.993623286104675,
+        "max": 11.071383512175002
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 6.895118025661307,
+        "median": 7.013189057129537,
+        "min": 5.50583663886483,
+        "max": 7.8876929590112805
+      },
+      "output_snr_db": {
+        "mean": 7.486177266699625,
+        "median": 7.620494486444816,
+        "min": 6.03099020298454,
+        "max": 8.398676311175011
+      },
+      "active_output_snr_db": {
+        "mean": 7.800560508604792,
+        "median": 8.060602735431742,
+        "min": 6.411311749321414,
+        "max": 8.712194060173848
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.025004286350172107,
+        "median": -0.04576353235002024,
+        "min": -0.19824670462493202,
+        "max": 0.4743906502305851
+      },
+      "mean_projected_gain_db": -0.7954476067226288,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_009",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 11.939525465171618,
+        "median": 12.691618774087875,
+        "min": 8.586211826609386,
+        "max": 13.551297109042377
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 4.63935213826971,
+        "median": 5.433287612261636,
+        "min": 1.3288832100544359,
+        "max": 5.644198532762569
+      },
+      "output_snr_db": {
+        "mean": 5.599214982559661,
+        "median": 6.207664954916764,
+        "min": 2.7767497150806495,
+        "max": 6.506570836176369
+      },
+      "active_output_snr_db": {
+        "mean": 6.866093240097479,
+        "median": 6.869638028727913,
+        "min": 5.324130982939956,
+        "max": 8.61903051671143
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.037463173025493735,
+        "median": 0.02680064946588097,
+        "min": -0.7755619496566256,
+        "max": 0.6934651241111285
+      },
+      "mean_projected_gain_db": -1.310477166007504,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_010",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 14.75442454975161,
+        "median": 14.797261800538458,
+        "min": 12.578397519585518,
+        "max": 16.216880574311418
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 7.495823527775171,
+        "median": 7.371403644129121,
+        "min": 5.3769804013293,
+        "max": 9.276570813156795
+      },
+      "output_snr_db": {
+        "mean": 7.842972689153567,
+        "median": 7.960219732969178,
+        "min": 5.75718238955751,
+        "max": 9.37664151538923
+      },
+      "active_output_snr_db": {
+        "mean": 9.818777824509379,
+        "median": 9.517009960510823,
+        "min": 9.010679023792926,
+        "max": 11.3696392669836
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.25787397638204157,
+        "median": 0.1526517024864022,
+        "min": -0.08838693643023492,
+        "max": 0.6890641080527088
+      },
+      "mean_projected_gain_db": -0.4835848867707879,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "commons_98066175",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 9.625039525379005,
+        "median": 10.776403782489115,
+        "min": 4.908161849128858,
+        "max": 11.709536307321487
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 1.401207482502209,
+        "median": 1.6381075778499024,
+        "min": -2.341131006305933,
+        "max": 3.696425563627218
+      },
+      "output_snr_db": {
+        "mean": 3.8956960595604206,
+        "median": 3.998706765609504,
+        "min": 1.820533268121372,
+        "max": 5.356856285540042
+      },
+      "active_output_snr_db": {
+        "mean": 4.8855149261435535,
+        "median": 5.228077105511199,
+        "min": 3.7038299486347848,
+        "max": 6.1521586651977165
+      },
+      "output_to_reference_energy_db": {
+        "mean": -2.29174134413928,
+        "median": -1.9455885989905704,
+        "min": -4.023825973685184,
+        "max": -1.1772750389588138
+      },
+      "mean_projected_gain_db": -4.773133459695883,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_014",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 5.92297780550372,
+        "median": 6.856973295095768,
+        "min": 3.2436859491711982,
+        "max": 7.651442000912102
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 5.947662723332895,
+        "median": 6.91129413762674,
+        "min": 3.293811041577557,
+        "max": 7.617088510994561
+      },
+      "output_snr_db": {
+        "mean": 6.771468498764274,
+        "median": 7.436616739437292,
+        "min": 4.937368011222458,
+        "max": 8.18669852980075
+      },
+      "active_output_snr_db": {
+        "mean": 6.771468498764274,
+        "median": 7.436616739437292,
+        "min": 4.937368011222458,
+        "max": 8.18669852980075
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.22400312326767807,
+        "median": -0.11232067704212033,
+        "min": -1.3199689549424458,
+        "max": 0.3992011207708549
+      },
+      "mean_projected_gain_db": -1.267315442340181,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_015",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 6.039321961291768,
+        "median": 7.141770083310765,
+        "min": 3.9885022129083683,
+        "max": 7.597585389132263
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 6.095739806445378,
+        "median": 7.196872904894088,
+        "min": 4.086573204274453,
+        "max": 7.655382258304962
+      },
+      "output_snr_db": {
+        "mean": 6.8565708370674985,
+        "median": 7.6055380606169445,
+        "min": 4.936743572078857,
+        "max": 8.278524852737627
+      },
+      "active_output_snr_db": {
+        "mean": 6.8565708370674985,
+        "median": 7.6055380606169445,
+        "min": 4.936743572078857,
+        "max": 8.278524852737627
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.1656275540005803,
+        "median": -0.0488984772348192,
+        "min": -1.2631767968772045,
+        "max": 0.48195148308086583
+      },
+      "mean_projected_gain_db": -1.1705627947740922,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_016",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": -2.116303906503659,
+        "median": -1.165972931185002,
+        "min": -4.420115938288582,
+        "max": -0.9078049012082687
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -2.2246581746940937,
+        "median": -1.3193660028407894,
+        "min": -4.495183147467991,
+        "max": -1.029875315079159
+      },
+      "output_snr_db": {
+        "mean": 1.946150837983917,
+        "median": 2.0975829983416148,
+        "min": 1.3215469565096027,
+        "max": 2.3475440404474868
+      },
+      "active_output_snr_db": {
+        "mean": 1.946150837983917,
+        "median": 2.0975829983416148,
+        "min": 1.3215469565096027,
+        "max": 2.3475440404474868
+      },
+      "output_to_reference_energy_db": {
+        "mean": -5.764472318736077,
+        "median": -5.887865468817153,
+        "min": -7.33419330032406,
+        "max": -4.312454067268026
+      },
+      "mean_projected_gain_db": -10.036302034733438,
+      "positive_improvement_conditions": 0
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_017",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 5.797651582297636,
+        "median": 6.641268018702645,
+        "min": 3.1938897028274966,
+        "max": 6.977946428996626
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 5.4153399962710145,
+        "median": 6.287295277514141,
+        "min": 2.7653535454816,
+        "max": 6.580282184847678
+      },
+      "output_snr_db": {
+        "mean": 6.757545802930585,
+        "median": 7.418732978712807,
+        "min": 4.593942884144861,
+        "max": 7.702577932230622
+      },
+      "active_output_snr_db": {
+        "mean": 6.757545802930585,
+        "median": 7.418732978712807,
+        "min": 4.593942884144861,
+        "max": 7.702577932230622
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.5237677633333393,
+        "median": -0.3473387299862223,
+        "min": -1.1473648826985658,
+        "max": -0.07212731999108346
+      },
+      "mean_projected_gain_db": -1.6129511582964067,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "iusb_018",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 1.4988815511171782,
+        "median": 1.5319658724165544,
+        "min": -0.1553754762419779,
+        "max": 2.576878318994114
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 1.2672628199835008,
+        "median": 1.3563947722390943,
+        "min": -0.3596432327587824,
+        "max": 2.292868563911977
+      },
+      "output_snr_db": {
+        "mean": 3.8516738907198467,
+        "median": 3.8490957500983294,
+        "min": 2.9399104464434593,
+        "max": 4.489985085800249
+      },
+      "active_output_snr_db": {
+        "mean": 3.8516738907198467,
+        "median": 3.8490957500983294,
+        "min": 2.9399104464434593,
+        "max": 4.489985085800249
+      },
+      "output_to_reference_energy_db": {
+        "mean": -2.5917277702869312,
+        "median": -2.9264288047384035,
+        "min": -3.4375886879304907,
+        "max": -1.6581181361863893
+      },
+      "mean_projected_gain_db": -5.052688486493991,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_1463",
+      "reference_kind": "publisher_no_engine_mono_recording",
+      "input_mode": "explicit_dual_mono_diagnostic",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 3.994694177156883,
+        "median": 4.908824585699978,
+        "min": 0.3867406768544557,
+        "max": 6.564773946095161
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -0.4759928311362417,
+        "median": 0.5848819027133153,
+        "min": -3.437597233350255,
+        "max": 2.03541862675615
+      },
+      "output_snr_db": {
+        "mean": 2.6224192059419535,
+        "median": 2.984916121353724,
+        "min": 0.8118505475009908,
+        "max": 4.115252259034296
+      },
+      "active_output_snr_db": {
+        "mean": 3.7174664272649673,
+        "median": 4.025932219573817,
+        "min": 2.119143073765546,
+        "max": 4.4779371593963795
+      },
+      "output_to_reference_energy_db": {
+        "mean": -2.115428874834549,
+        "median": -2.544284027757375,
+        "min": -4.8046216524175565,
+        "max": 0.15872477395709772
+      },
+      "mean_projected_gain_db": -5.510724681426709,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_1464",
+      "reference_kind": "publisher_no_engine_mono_recording",
+      "input_mode": "explicit_dual_mono_diagnostic",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 2.164006213717026,
+        "median": 2.874531102238951,
+        "min": 0.4083867697400677,
+        "max": 3.5048874422263347
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 2.1821079689311205,
+        "median": 2.9125206464982956,
+        "min": 0.4252122776223106,
+        "max": 3.5397685851236735
+      },
+      "output_snr_db": {
+        "mean": 4.1611447369617185,
+        "median": 4.702836936688853,
+        "min": 2.887889339858249,
+        "max": 5.006233605616029
+      },
+      "active_output_snr_db": {
+        "mean": 4.1611447369617185,
+        "median": 4.702836936688853,
+        "min": 2.887889339858249,
+        "max": 5.006233605616029
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.5060709027720354,
+        "median": -1.680399322490712,
+        "min": -2.7676110294883842,
+        "max": -0.39603210566688307
+      },
+      "mean_projected_gain_db": -3.6160688575421,
+      "positive_improvement_conditions": 5
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_2731",
+      "reference_kind": "contaminated_recorded_scene",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": 4.134270182311444,
+        "median": 5.954563374669386,
+        "min": -0.5934939153728918,
+        "max": 6.307519198892535
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 1.6735905062715866,
+        "median": 3.5380059014484386,
+        "min": -3.0678549345166797,
+        "max": 3.8346726330598586
+      },
+      "output_snr_db": {
+        "mean": 5.499962147356749,
+        "median": 6.743375202685499,
+        "min": 2.195315461002001,
+        "max": 7.21195406654925
+      },
+      "active_output_snr_db": {
+        "mean": 5.499962147356749,
+        "median": 6.743375202685499,
+        "min": 2.195315461002001,
+        "max": 7.21195406654925
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.396330920904774,
+        "median": -1.444351966298415,
+        "min": -3.3354817058592516,
+        "max": -0.1342393403790431
+      },
+      "mean_projected_gain_db": -3.116067029674762,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "background",
+      "source_id": "bsb_2760",
+      "reference_kind": "contaminated_recorded_scene",
+      "input_mode": "recorded_stereo",
+      "conditions": 5,
+      "si_sdri_db": {
+        "mean": -4.942771360996202,
+        "median": -4.199617878406572,
+        "min": -9.678102945403982,
+        "max": -1.324432044573447
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -5.061191202283254,
+        "median": -4.333602874764132,
+        "min": -9.813674763799002,
+        "max": -1.3714553029995509
+      },
+      "output_snr_db": {
+        "mean": 0.624286704545767,
+        "median": 0.6493850286802051,
+        "min": 0.38724641886360106,
+        "max": 0.7603309443165742
+      },
+      "active_output_snr_db": {
+        "mean": 0.624286704545767,
+        "median": 0.6493850286802051,
+        "min": 0.38724641886360106,
+        "max": 0.7603309443165742
+      },
+      "output_to_reference_energy_db": {
+        "mean": -13.653899902330503,
+        "median": -14.563745022204092,
+        "min": -18.79264643976131,
+        "max": -7.8569595164045625
+      },
+      "mean_projected_gain_db": -20.012836790466814,
+      "positive_improvement_conditions": 0
+    },
+    {
+      "family": "snr",
+      "source_id": "bsb_0257",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 4,
+      "si_sdri_db": {
+        "mean": 10.887009979520977,
+        "median": 12.367758451318133,
+        "min": 6.3795797571404425,
+        "max": 12.432943258307201
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 0.8078167940331,
+        "median": 1.9931198536780514,
+        "min": -8.329349452424013,
+        "max": 7.574376921200311
+      },
+      "output_snr_db": {
+        "mean": 3.85474882501315,
+        "median": 3.734933716736664,
+        "min": -0.10296560454715678,
+        "max": 8.052093471126428
+      },
+      "active_output_snr_db": {
+        "mean": 5.737754526658618,
+        "median": 5.907561897648435,
+        "min": 1.67892689858939,
+        "max": 9.456967412748215
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.30978553810461257,
+        "median": 0.2248230240212429,
+        "min": -2.9957196766044674,
+        "max": 1.3069314761435311
+      },
+      "mean_projected_gain_db": -4.026549577717372,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "snr",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 4,
+      "si_sdri_db": {
+        "mean": 8.042026816183888,
+        "median": 8.173051530479224,
+        "min": 7.11008543664725,
+        "max": 8.711918767129857
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 3.253003122682979,
+        "median": 3.0393326333567963,
+        "min": -2.3253399186503927,
+        "max": 9.258687142668716
+      },
+      "output_snr_db": {
+        "mean": 5.49971364038074,
+        "median": 5.3613303364673275,
+        "min": 1.7031137748500211,
+        "max": 9.573080113738287
+      },
+      "active_output_snr_db": {
+        "mean": 5.944572017112167,
+        "median": 5.829110551753513,
+        "min": 2.3710179361654022,
+        "max": 9.749049028776238
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.3047266470250456,
+        "median": -0.2639040003020841,
+        "min": -4.947928212862818,
+        "max": 0.25682962536680404
+      },
+      "mean_projected_gain_db": -3.7785653048925303,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "snr",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 4,
+      "si_sdri_db": {
+        "mean": 9.651687038537073,
+        "median": 11.353062757380439,
+        "min": 3.149207177038175,
+        "max": 12.751415462349247
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -1.9168525093552975,
+        "median": -0.10215905608686615,
+        "min": -13.416823442422949,
+        "max": 5.953731517175491
+      },
+      "output_snr_db": {
+        "mean": 2.9111338424528284,
+        "median": 3.0379054088341513,
+        "min": -0.9340985291271053,
+        "max": 6.502823081270116
+      },
+      "active_output_snr_db": {
+        "mean": 5.174834016331184,
+        "median": 5.2062386882795435,
+        "min": 1.1294713083248569,
+        "max": 9.157387380440792
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.6984521266515312,
+        "median": -0.4212873851416564,
+        "min": -2.6131074002475128,
+        "max": 0.6618736639247008
+      },
+      "mean_projected_gain_db": -6.32056251135252,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "snr",
+      "source_id": "iusb_009",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 4,
+      "si_sdri_db": {
+        "mean": 11.811208595414413,
+        "median": 11.856779744557233,
+        "min": 10.125322851280226,
+        "max": 13.405952041262964
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 4.768803713331738,
+        "median": 4.835029014901992,
+        "min": -1.5290751146581925,
+        "max": 10.93423193818116
+      },
+      "output_snr_db": {
+        "mean": 6.199393055601991,
+        "median": 6.172739271615404,
+        "min": 1.2538723151793167,
+        "max": 11.198221363997838
+      },
+      "active_output_snr_db": {
+        "mean": 7.671843232964998,
+        "median": 7.680215473392182,
+        "min": 3.260221943637723,
+        "max": 12.066720041437907
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.026655071005490548,
+        "median": 0.027370978986022722,
+        "min": -1.235296107898257,
+        "max": 1.2871744339481737
+      },
+      "mean_projected_gain_db": -1.9296999028621658,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "snr",
+      "source_id": "bsb_1463",
+      "reference_kind": "publisher_no_engine_mono_recording",
+      "input_mode": "explicit_dual_mono_diagnostic",
+      "conditions": 4,
+      "si_sdri_db": {
+        "mean": 4.067579655281825,
+        "median": 4.169171751209672,
+        "min": 1.4091709535754395,
+        "max": 6.522804165132514
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -0.40283544223866163,
+        "median": -0.5288491209545991,
+        "min": -3.1342014429891742,
+        "max": 2.580557915943726
+      },
+      "output_snr_db": {
+        "mean": 2.54936196716195,
+        "median": 2.778963005986663,
+        "min": 0.28063640637587367,
+        "max": 4.358885450298598
+      },
+      "active_output_snr_db": {
+        "mean": 3.547439251490559,
+        "median": 3.615252603881813,
+        "min": 2.3974435146281614,
+        "max": 4.56180828357045
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.5848084777950278,
+        "median": -1.9716543401381539,
+        "min": -3.1152874143550524,
+        "max": 0.7193621834512489
+      },
+      "mean_projected_gain_db": -5.016914983877925,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "snr",
+      "source_id": "bsb_1464",
+      "reference_kind": "publisher_no_engine_mono_recording",
+      "input_mode": "explicit_dual_mono_diagnostic",
+      "conditions": 4,
+      "si_sdri_db": {
+        "mean": 2.17707158185362,
+        "median": 2.0071817193264607,
+        "min": -0.30840577460539365,
+        "max": 5.002328663366954
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 2.2185240792783523,
+        "median": 2.383663921298834,
+        "min": -0.675898985393128,
+        "max": 4.78266745990887
+      },
+      "output_snr_db": {
+        "mean": 4.261874382394806,
+        "median": 4.270079179104882,
+        "min": 2.548317840097897,
+        "max": 5.959021331271563
+      },
+      "active_output_snr_db": {
+        "mean": 4.261874382394806,
+        "median": 4.270079179104882,
+        "min": 2.548317840097897,
+        "max": 5.959021331271563
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.4698586455098073,
+        "median": -1.7240533308484773,
+        "min": -1.9059957490773733,
+        "max": -0.5253321712649012
+      },
+      "mean_projected_gain_db": -3.6868742961360303,
+      "positive_improvement_conditions": 2
+    },
+    {
+      "family": "position",
+      "source_id": "bsb_0257",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": -0.07450748486154939,
+        "median": 11.63722654812206,
+        "min": -41.897973367164724,
+        "max": 12.302101049097729
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -0.6212985268242265,
+        "median": 1.6848948937603634,
+        "min": -52.37491545957694,
+        "max": 28.108005825998987
+      },
+      "output_snr_db": {
+        "mean": 7.2116288337036245,
+        "median": 3.063818349905709,
+        "min": -1.0214618140286582,
+        "max": 25.7679168471467
+      },
+      "active_output_snr_db": {
+        "mean": 8.2880621503524,
+        "median": 5.214695000003088,
+        "min": -0.0010346846507214116,
+        "max": 25.767916849043484
+      },
+      "output_to_reference_energy_db": {
+        "mean": -2.1151946052068533,
+        "median": 0.030564851340853443,
+        "min": -8.174035081963728,
+        "max": 1.0735783258258573
+      },
+      "mean_projected_gain_db": -10.900148810870306,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "position",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": 6.413025478029195,
+        "median": 8.413396830802206,
+        "min": 1.986801618358352,
+        "max": 8.719100534158752
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 6.268979355803178,
+        "median": 3.4667407061397775,
+        "min": -3.099385063279059,
+        "max": 23.413055382605215
+      },
+      "output_snr_db": {
+        "mean": 8.073575186656614,
+        "median": 4.854203607400301,
+        "min": 1.7260646074994799,
+        "max": 22.829775308753963
+      },
+      "active_output_snr_db": {
+        "mean": 8.349709809168584,
+        "median": 5.511859874527364,
+        "min": 2.102796293836087,
+        "max": 22.829836903764324
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.2825321586399816,
+        "median": -0.4511930103907275,
+        "min": -4.291673074527637,
+        "max": 0.12806557282784917
+      },
+      "mean_projected_gain_db": -3.322363086881916,
+      "positive_improvement_conditions": 6
+    },
+    {
+      "family": "position",
+      "source_id": "bsb_0259",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": 0.7509744904033105,
+        "median": 13.006499284199123,
+        "min": -40.006862631551215,
+        "max": 14.52375313110357
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -1.5604212207208255,
+        "median": 2.4114524304915217,
+        "min": -50.753074018482394,
+        "max": 25.722555212336186
+      },
+      "output_snr_db": {
+        "mean": 6.370856945308118,
+        "median": 3.196851918873207,
+        "min": -1.186163082254804,
+        "max": 23.190895675509147
+      },
+      "active_output_snr_db": {
+        "mean": 7.967458026019797,
+        "median": 6.423954247771496,
+        "min": 0.020266407471566023,
+        "max": 23.190980048505754
+      },
+      "output_to_reference_energy_db": {
+        "mean": -3.47402147213029,
+        "median": 0.35544549539573816,
+        "min": -23.29047649232807,
+        "max": 1.127980935665749
+      },
+      "mean_projected_gain_db": -12.762943420861491,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "position",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": -2.0414861900682406,
+        "median": 11.63524587000952,
+        "min": -32.99919943566198,
+        "max": 13.696436349293094
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -6.189950682477382,
+        "median": 1.777550019718247,
+        "min": -44.281700071380726,
+        "max": 17.351825853754125
+      },
+      "output_snr_db": {
+        "mean": 5.001012193083117,
+        "median": 3.169838220160618,
+        "min": -0.8733237787438196,
+        "max": 17.15871953724072
+      },
+      "active_output_snr_db": {
+        "mean": 6.159437555563928,
+        "median": 5.944079883608194,
+        "min": 0.0035760574440846446,
+        "max": 17.165696108510787
+      },
+      "output_to_reference_energy_db": {
+        "mean": -6.119292456379885,
+        "median": -0.07098978758532987,
+        "min": -38.11255925099502,
+        "max": 0.7261805082786992
+      },
+      "mean_projected_gain_db": -17.94202915697111,
+      "positive_improvement_conditions": 4
+    },
+    {
+      "family": "duration",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": 10.72786495419772,
+        "median": 11.004551004372596,
+        "min": 9.205726457887732,
+        "max": 12.151852936147165
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 8.226842134742618,
+        "median": 2.0979483098105556,
+        "min": -1.509879145834467,
+        "max": 26.784175992159298
+      },
+      "output_snr_db": {
+        "mean": 9.125770165778967,
+        "median": 3.8751260830115184,
+        "min": 0.6360937843040873,
+        "max": 24.817141361783143
+      },
+      "active_output_snr_db": {
+        "mean": 10.625082874089468,
+        "median": 5.395325229635038,
+        "min": 4.975045888517497,
+        "max": 24.81727197932215
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.02486828612087663,
+        "median": 0.17005078873124252,
+        "min": -1.447621235132275,
+        "max": 1.3718766888809462
+      },
+      "mean_projected_gain_db": -1.7942969058883322,
+      "positive_improvement_conditions": 6
+    },
+    {
+      "family": "duration",
+      "source_id": "iusb_005",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": 11.242720654715091,
+        "median": 10.870169506335435,
+        "min": 10.354764373108534,
+        "max": 12.939541621815836
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 7.2412656500562305,
+        "median": 4.05119619809881,
+        "min": -1.2577270673829952,
+        "max": 20.73114918487707
+      },
+      "output_snr_db": {
+        "mean": 8.174217264193508,
+        "median": 4.960047591687542,
+        "min": 0.27133908157767983,
+        "max": 20.602316782936132
+      },
+      "active_output_snr_db": {
+        "mean": 10.31720632710464,
+        "median": 6.593575211724136,
+        "min": 5.315706518138901,
+        "max": 20.602512874982164
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.5494154455858283,
+        "median": 0.1302123486046538,
+        "min": -0.14150747732423177,
+        "max": 2.0481999610575645
+      },
+      "mean_projected_gain_db": -1.1208301793334572,
+      "positive_improvement_conditions": 6
+    },
+    {
+      "family": "duration",
+      "source_id": "iusb_006",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": 11.932766454853114,
+        "median": 11.811503412511128,
+        "min": 10.801316503995851,
+        "max": 13.837934479122918
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 7.028641201156633,
+        "median": 3.9851290758047107,
+        "min": -1.2178617469458368,
+        "max": 19.38425948881405
+      },
+      "output_snr_db": {
+        "mean": 7.916761519862151,
+        "median": 4.770106454697379,
+        "min": 0.4671652102475068,
+        "max": 19.39984833661144
+      },
+      "active_output_snr_db": {
+        "mean": 10.159085033030156,
+        "median": 7.284480596902747,
+        "min": 6.088226953057911,
+        "max": 19.399956877316175
+      },
+      "output_to_reference_energy_db": {
+        "mean": 0.413658318165853,
+        "median": 0.11703994494567677,
+        "min": -0.06734362752729992,
+        "max": 1.7774886563384173
+      },
+      "mean_projected_gain_db": -1.092662467398773,
+      "positive_improvement_conditions": 6
+    },
+    {
+      "family": "repeat",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 9,
+      "si_sdri_db": {
+        "mean": 8.689113774200639,
+        "median": 9.02085967364387,
+        "min": 4.91318249586384,
+        "max": 12.558320906922177
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 6.684463167296109,
+        "median": 3.90452108859478,
+        "min": 1.4693442374590164,
+        "max": 15.429601201077961
+      },
+      "output_snr_db": {
+        "mean": 7.8011689803039665,
+        "median": 5.255498819307992,
+        "min": 3.802319618650938,
+        "max": 15.371794879346082
+      },
+      "active_output_snr_db": {
+        "mean": 8.278323596049134,
+        "median": 6.081886689417331,
+        "min": 4.361342193753033,
+        "max": 15.378455356674376
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.9817205522763537,
+        "median": -0.6137667278146837,
+        "min": -3.1788295652799228,
+        "max": 0.15681594441735647
+      },
+      "mean_projected_gain_db": -2.223823319050497,
+      "positive_improvement_conditions": 6
+    },
+    {
+      "family": "spatial",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": 8.615733718987064,
+        "median": 8.671455624414618,
+        "min": 8.456644998387826,
+        "max": 8.719100534158752
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 13.531686077797666,
+        "median": 13.423903804110791,
+        "min": 4.224643663813189,
+        "max": 23.68424411416423
+      },
+      "output_snr_db": {
+        "mean": 13.928547177409179,
+        "median": 13.890489167183011,
+        "min": 5.732087650378771,
+        "max": 22.754149828131588
+      },
+      "active_output_snr_db": {
+        "mean": 14.021577922039826,
+        "median": 13.89410246229239,
+        "min": 6.0053515877914085,
+        "max": 22.75420988653728
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.5064163261430291,
+        "median": -0.43983007744434777,
+        "min": -1.4098595211229878,
+        "max": 0.19799600358139183
+      },
+      "mean_projected_gain_db": -1.200442099151833,
+      "positive_improvement_conditions": 3
+    },
+    {
+      "family": "spatial",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": 11.048757077716573,
+        "median": 10.148407004610938,
+        "min": 9.650206232593106,
+        "max": 13.347657995945678
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 8.353611053016115,
+        "median": 9.78077689053642,
+        "min": -1.792453986240592,
+        "max": 16.9137187352123
+      },
+      "output_snr_db": {
+        "mean": 9.855312722732348,
+        "median": 10.609087101548415,
+        "min": 2.1903943780065744,
+        "max": 16.765927984518445
+      },
+      "active_output_snr_db": {
+        "mean": 10.35665098732666,
+        "median": 10.657291367438791,
+        "min": 3.5782679697846254,
+        "max": 16.772807969174796
+      },
+      "output_to_reference_energy_db": {
+        "mean": -1.2960631510087641,
+        "median": -1.1246294657619014,
+        "min": -3.4924738371344266,
+        "max": 0.1887171315246421
+      },
+      "mean_projected_gain_db": -2.9278156381942337,
+      "positive_improvement_conditions": 3
+    },
+    {
+      "family": "spatial",
+      "source_id": "iusb_005",
+      "reference_kind": "unreviewed_corpus_event_recording",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": 9.572670427066925,
+        "median": 9.857900413950832,
+        "min": 8.986691761670222,
+        "max": 9.873419105579718
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 10.27350165046834,
+        "median": 10.766151413122564,
+        "min": 7.325444837200167,
+        "max": 12.751123279590853
+      },
+      "output_snr_db": {
+        "mean": 10.647326308180649,
+        "median": 11.108468581186386,
+        "min": 7.861676311887588,
+        "max": 12.991584877657726
+      },
+      "active_output_snr_db": {
+        "mean": 10.710278852873982,
+        "median": 11.109797550128377,
+        "min": 8.035295811491224,
+        "max": 12.991650835719408
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.09980909704113898,
+        "median": -0.17561278493056467,
+        "min": -0.20834560822341286,
+        "max": 0.10076578497729338
+      },
+      "mean_projected_gain_db": -0.5460776884979338,
+      "positive_improvement_conditions": 3
+    },
+    {
+      "family": "level",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": 8.862342874253889,
+        "median": 8.824303533287022,
+        "min": 8.719100534158752,
+        "max": 9.043624555315894
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 10.660950578266364,
+        "median": 5.294693640383629,
+        "min": 4.272288573557322,
+        "max": 22.565404085621182
+      },
+      "output_snr_db": {
+        "mean": 11.310253203498933,
+        "median": 6.256857356607934,
+        "min": 5.621222254305058,
+        "max": 22.422515001893984
+      },
+      "active_output_snr_db": {
+        "mean": 11.402530541329442,
+        "median": 6.302180382593173,
+        "min": 5.878791577497506,
+        "max": 22.422570508988933
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.7138096607612271,
+        "median": -0.4257145013949726,
+        "min": -2.4611811450329117,
+        "max": 0.11999346898852248
+      },
+      "mean_projected_gain_db": -1.590953024461563,
+      "positive_improvement_conditions": 3
+    },
+    {
+      "family": "level",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": 12.908655246294074,
+        "median": 13.60116997417444,
+        "min": 9.650206232593106,
+        "max": 15.474589532114674
+      },
+      "output_si_sdr_mean_db": {
+        "mean": 10.066848596927256,
+        "median": 10.382515156283871,
+        "min": -1.792453986240592,
+        "max": 19.829098264042365
+      },
+      "output_snr_db": {
+        "mean": 11.07915079799306,
+        "median": 11.054868052518591,
+        "min": 2.1903943780065744,
+        "max": 19.42899531060021
+      },
+      "active_output_snr_db": {
+        "mean": 11.799956333780479,
+        "median": 11.332729312002833,
+        "min": 3.5782679697846254,
+        "max": 19.45050470513473
+      },
+      "output_to_reference_energy_db": {
+        "mean": -0.6574360417014181,
+        "median": 0.06775789443618012,
+        "min": -3.4924738371344266,
+        "max": 0.3201219552795387
+      },
+      "mean_projected_gain_db": -1.9416337407305566,
+      "positive_improvement_conditions": 3
+    },
+    {
+      "family": "round1",
+      "source_id": "bsb_0258",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": -0.9850309328998401,
+        "median": -0.36445346235994597,
+        "min": -4.031123440166352,
+        "max": 2.366367423344868
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -1.1253361519891516,
+        "median": -0.5001915391052998,
+        "min": -5.00452495801741,
+        "max": 1.1785142883600477
+      },
+      "output_snr_db": {
+        "mean": 2.492198334074959,
+        "median": 2.749428473155457,
+        "min": 0.4055867899808163,
+        "max": 3.672502050424895
+      },
+      "active_output_snr_db": {
+        "mean": 2.955910005345195,
+        "median": 3.136581661105099,
+        "min": 1.8933921293868394,
+        "max": 3.7550873365643875
+      },
+      "output_to_reference_energy_db": {
+        "mean": -2.7487984020835126,
+        "median": -2.6562658241179804,
+        "min": -5.29179415728613,
+        "max": -0.9029359486123292
+      },
+      "mean_projected_gain_db": -6.486420147794238,
+      "positive_improvement_conditions": 3
+    },
+    {
+      "family": "round1",
+      "source_id": "bsb_0260",
+      "reference_kind": "isolated_recording_with_unknown_noise_floor",
+      "input_mode": "recorded_stereo",
+      "conditions": 6,
+      "si_sdri_db": {
+        "mean": -34.857071563917465,
+        "median": -35.448336379138546,
+        "min": -38.89573563306521,
+        "max": -29.5019913572235
+      },
+      "output_si_sdr_mean_db": {
+        "mean": -34.85612115064275,
+        "median": -34.12114600517475,
+        "min": -43.27806368660415,
+        "max": -27.62348200279616
+      },
+      "output_snr_db": {
+        "mean": -0.290792909999239,
+        "median": -0.13243153224828647,
+        "min": -1.014229645831423,
+        "max": -0.03721579503357869
+      },
+      "active_output_snr_db": {
+        "mean": -0.005573066428948792,
+        "median": -0.010834000457718488,
+        "min": -0.013549995511435185,
+        "max": 0.007497740882214195
+      },
+      "output_to_reference_energy_db": {
+        "mean": -14.699913755069451,
+        "median": -15.273139742235886,
+        "min": -22.529414932664764,
+        "max": -5.768986334458991
+      },
+      "mean_projected_gain_db": -49.56727360867948,
+      "positive_improvement_conditions": 0
+    }
+  ],
+  "position_pairs": [
+    {
+      "source_id": "bsb_0257",
+      "background_id": null,
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 26.99948378012618,
+      "gain_delta_from_start_db": 9.7289638313263,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0257",
+      "background_id": null,
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 25.252579329869487,
+      "gain_delta_from_start_db": 9.722418755816877,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0257",
+      "background_id": "bsb_0124",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 17.555014032290345,
+      "gain_delta_from_start_db": 21.562190123013885,
+      "active_snr_start_db": 1.7947775355189444,
+      "active_snr_moved_db": 2.5410551147944586e-07,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0257",
+      "background_id": "bsb_0124",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 17.987852351098745,
+      "gain_delta_from_start_db": 22.09636713686098,
+      "active_snr_start_db": 1.7947775355189444,
+      "active_snr_moved_db": 0.48233435661897994,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0257",
+      "background_id": "iusb_road_00",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 53.84015048881685,
+      "gain_delta_from_start_db": 56.913480513302325,
+      "active_snr_start_db": -0.8745062229301581,
+      "active_snr_moved_db": -4.732358426988804e-08,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0257",
+      "background_id": "iusb_road_00",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 54.1827709330827,
+      "gain_delta_from_start_db": 56.553443902163984,
+      "active_snr_start_db": -0.8745062229301581,
+      "active_snr_moved_db": -0.4743533898235922,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0258",
+      "background_id": null,
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 21.03793029438867,
+      "gain_delta_from_start_db": 5.529199397629232,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0258",
+      "background_id": null,
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 22.289853169964214,
+      "gain_delta_from_start_db": 5.54704133456573,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0258",
+      "background_id": "bsb_0124",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 6.440096431298791,
+      "gain_delta_from_start_db": 6.004523402337808,
+      "active_snr_start_db": 1.2517359937758632,
+      "active_snr_moved_db": 2.760498424016763e-07,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0258",
+      "background_id": "bsb_0124",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 6.232625107321869,
+      "gain_delta_from_start_db": 6.553567525376037,
+      "active_snr_start_db": 1.2517359937758632,
+      "active_snr_moved_db": 0.6087852840336256,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0258",
+      "background_id": "iusb_road_00",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 6.286155554974805,
+      "gain_delta_from_start_db": 5.774614862607801,
+      "active_snr_start_db": -0.3156039586626594,
+      "active_snr_moved_db": 2.5991003923899504e-07,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0258",
+      "background_id": "iusb_road_00",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 6.566125769418837,
+      "gain_delta_from_start_db": 5.9619396208515,
+      "active_snr_start_db": -0.3156039586626594,
+      "active_snr_moved_db": -0.02831319629018871,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0259",
+      "background_id": null,
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 28.921239386622794,
+      "gain_delta_from_start_db": 28.52863553572538,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0259",
+      "background_id": null,
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 25.869596948220682,
+      "gain_delta_from_start_db": 28.52861041018402,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0259",
+      "background_id": "bsb_0124",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 24.297658254963984,
+      "gain_delta_from_start_db": 27.126580302533174,
+      "active_snr_start_db": 1.8514083490819713,
+      "active_snr_moved_db": 7.779697494691661e-08,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0259",
+      "background_id": "bsb_0124",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 24.697624548805933,
+      "gain_delta_from_start_db": 27.469228366983042,
+      "active_snr_start_db": 1.8514083490819713,
+      "active_snr_moved_db": 0.32447853573379093,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0259",
+      "background_id": "iusb_road_00",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 52.39670882341392,
+      "gain_delta_from_start_db": 54.55878715451852,
+      "active_snr_start_db": -0.9191034259834032,
+      "active_snr_moved_db": -9.005871227464593e-08,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0259",
+      "background_id": "iusb_road_00",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 53.164526448973916,
+      "gain_delta_from_start_db": 54.77999412774157,
+      "active_snr_start_db": -0.9191034259834032,
+      "active_snr_moved_db": -0.48502459407629184,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0260",
+      "background_id": null,
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 24.881651388391184,
+      "gain_delta_from_start_db": 48.006264014788606,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0260",
+      "background_id": null,
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 25.50037623987041,
+      "gain_delta_from_start_db": 48.051851914787335,
+      "active_snr_start_db": null,
+      "active_snr_moved_db": null,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0260",
+      "background_id": "bsb_0124",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 42.48924608514013,
+      "gain_delta_from_start_db": 44.91168810045365,
+      "active_snr_start_db": 2.8443633440778617,
+      "active_snr_moved_db": 2.672403894603572e-07,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0260",
+      "background_id": "bsb_0124",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 46.61327070659302,
+      "gain_delta_from_start_db": 50.33836653541835,
+      "active_snr_start_db": 2.8443633440778617,
+      "active_snr_moved_db": 0.8017759485272559,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0260",
+      "background_id": "iusb_road_00",
+      "position": "middle",
+      "output_si_sdr_delta_from_start_db": 43.668480824904805,
+      "gain_delta_from_start_db": 46.817051006880256,
+      "active_snr_start_db": -0.8145581345552824,
+      "active_snr_moved_db": 3.7670931846063394e-07,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    },
+    {
+      "source_id": "bsb_0260",
+      "background_id": "iusb_road_00",
+      "position": "end",
+      "output_si_sdr_delta_from_start_db": 43.45224003692985,
+      "gain_delta_from_start_db": 46.157629837526336,
+      "active_snr_start_db": -0.8145581345552824,
+      "active_snr_moved_db": 0.21314928256241022,
+      "identical_noise_gain": true,
+      "identical_common_gain": true
+    }
+  ]
+}

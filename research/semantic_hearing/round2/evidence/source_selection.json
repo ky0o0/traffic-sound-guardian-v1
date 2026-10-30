@@ -1,0 +1,257 @@
+[
+  {
+    "id": "bsb_0254",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "bsb_0255",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "bsb_0257",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0258",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0259",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0260",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0558",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_0850",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_0968",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_0970",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_2721",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_0886",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "bsb_0887",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "bsb_1463",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_1464",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_1465",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_1466",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_1467",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "bsb_2731",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_2760",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0124",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_2717",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0908",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_2969",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "bsb_0122",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "commons_142057026",
+    "included": false,
+    "reason": "Not a suitable isolated car-horn/vehicle-siren recording (bell scene, train or boat horn)"
+  },
+  {
+    "id": "commons_98066175",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_000",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_001",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_002",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "iusb_003",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "iusb_004",
+    "included": false,
+    "reason": "Near-identical or nearly linearly scaled channels; not accepted into recorded-stereo stratum"
+  },
+  {
+    "id": "iusb_005",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_006",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_007",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_008",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_009",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_010",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_011",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_012",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_013",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_014",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_015",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_016",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_017",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "iusb_018",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  },
+  {
+    "id": "commons_92573949",
+    "included": false,
+    "reason": "Not a suitable isolated car-horn/vehicle-siren recording (bell scene, train or boat horn)"
+  },
+  {
+    "id": "commons_99377170",
+    "included": false,
+    "reason": "Not a suitable isolated car-horn/vehicle-siren recording (bell scene, train or boat horn)"
+  },
+  {
+    "id": "commons_99377537",
+    "included": false,
+    "reason": "Not a suitable isolated car-horn/vehicle-siren recording (bell scene, train or boat horn)"
+  },
+  {
+    "id": "bsb_0123",
+    "included": false,
+    "reason": "Primary stereo priority; source/session redundancy or contamination. Only two publisher-no-engine sirens opted into explicit dual-mono diagnostic."
+  },
+  {
+    "id": "iusb_road_00",
+    "included": true,
+    "reason": "Included; input provenance and reference stratum fixed in config.json"
+  }
+]

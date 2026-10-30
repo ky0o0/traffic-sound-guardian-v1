@@ -1,0 +1,26 @@
+[
+  {
+    "id": "iusb_road_00",
+    "provider": "Zenodo IUSB",
+    "source_page": "https://zenodo.org/records/1213793",
+    "download_url": "https://zenodo.org/api/records/1213793/files/Isolated%20urban%20sound%20database.zip/content",
+    "archive_member": "Isolated urban sound database/background/traffic_bg01.wav",
+    "original_filename": "iusb_road_00.wav",
+    "author": "Jean-Rémy Gloaguen; Mathieu Lagrange; Arnaud Can; Jean-François Petiot",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "target": null,
+    "role": "background",
+    "background_type": "traffic",
+    "training_overlap": "Unknown",
+    "sha256": "384bfe9ecae2024b62fce26fae5a3f0c63f393a7ec51c03f066da20112b56eae",
+    "bytes": 8502764,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 2125680,
+    "duration": 48.201360544217685,
+    "subtype": "PCM_16",
+    "lr_correlation": 0.617122383967821,
+    "relative_lr_difference": 0.7660637843974717
+  }
+]

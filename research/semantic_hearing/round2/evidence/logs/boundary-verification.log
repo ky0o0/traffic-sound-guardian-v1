@@ -1,0 +1,268 @@
+﻿2026-10-30T06:17:03.1905534Z Current runner version: '2.338.0'
+2026-10-30T06:17:03.1923897Z ##[group]Runner Image Provisioner
+2026-10-30T06:17:03.1924456Z Hosted Compute Agent
+2026-10-30T06:17:03.1924829Z Version: 20261021.618
+2026-10-30T06:17:03.1925188Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-30T06:17:03.1925856Z Build Date: 2026-10-21T00:45:21Z
+2026-10-30T06:17:03.1926274Z Worker ID: {f16661c0-6c56-4443-a39c-869169ca44e9}
+2026-10-30T06:17:03.1926680Z Region: centralus
+2026-10-30T06:17:03.1927037Z Cloud: Azure
+2026-10-30T06:17:03.1927347Z ##[endgroup]
+2026-10-30T06:17:03.1928158Z ##[group]Operating System
+2026-10-30T06:17:03.1928548Z Ubuntu
+2026-10-30T06:17:03.1928839Z 22.04.5
+2026-10-30T06:17:03.1929137Z LTS
+2026-10-30T06:17:03.1929429Z ##[endgroup]
+2026-10-30T06:17:03.1929739Z ##[group]Runner Image
+2026-10-30T06:17:03.1930089Z Image: ubuntu-22.04
+2026-10-30T06:17:03.1930404Z Version: 20261025.340.1
+2026-10-30T06:17:03.1931170Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261025.340/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-30T06:17:03.1932020Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261025.340
+2026-10-30T06:17:03.1932808Z ##[endgroup]
+2026-10-30T06:17:03.1933518Z ##[group]GITHUB_TOKEN Permissions
+2026-10-30T06:17:03.1934846Z Actions: read
+2026-10-30T06:17:03.1935170Z Contents: write
+2026-10-30T06:17:03.1935641Z Metadata: read
+2026-10-30T06:17:03.1936036Z ##[endgroup]
+2026-10-30T06:17:03.1937499Z Secret source: Actions
+2026-10-30T06:17:03.1938037Z Cache mode: write
+2026-10-30T06:17:03.1938445Z Prepare workflow directory
+2026-10-30T06:17:03.2166314Z Prepare all required actions
+2026-10-30T06:17:03.2199806Z Getting action download info
+2026-10-30T06:17:03.4643689Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-30T06:17:03.5751822Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-30T06:17:03.6541955Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-30T06:17:04.1041012Z Complete job name: verify-boundary
+2026-10-30T06:17:04.1555755Z ##[group]Run actions/checkout@v4
+2026-10-30T06:17:04.1556220Z with:
+2026-10-30T06:17:04.1556491Z   ref: research/sh-round2-controlled-20261030
+2026-10-30T06:17:04.1556840Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:17:04.1559062Z   token: ***
+2026-10-30T06:17:04.1559323Z   ssh-strict: true
+2026-10-30T06:17:04.1559562Z   ssh-user: git
+2026-10-30T06:17:04.1559807Z   persist-credentials: true
+2026-10-30T06:17:04.1560076Z   clean: true
+2026-10-30T06:17:04.1560322Z   sparse-checkout-cone-mode: true
+2026-10-30T06:17:04.1560605Z   fetch-depth: 1
+2026-10-30T06:17:04.1561242Z   fetch-tags: false
+2026-10-30T06:17:04.1561659Z   show-progress: true
+2026-10-30T06:17:04.1561971Z   lfs: false
+2026-10-30T06:17:04.1562230Z   submodules: false
+2026-10-30T06:17:04.1562477Z   set-safe-directory: true
+2026-10-30T06:17:04.1562752Z   allow-unsafe-pr-checkout: false
+2026-10-30T06:17:04.1563168Z ##[endgroup]
+2026-10-30T06:17:04.2758545Z Syncing repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:17:04.2760317Z ##[group]Getting Git version info
+2026-10-30T06:17:04.2761105Z Working directory is '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T06:17:04.2762276Z [command]/usr/bin/git version
+2026-10-30T06:17:04.2763361Z git version 2.56.0
+2026-10-30T06:17:04.2776923Z ##[endgroup]
+2026-10-30T06:17:04.2787027Z Temporarily overriding HOME='/home/runner/work/_temp/8ebeda11-180f-4f5a-bd6f-e690b3a40b08' before making global git config changes
+2026-10-30T06:17:04.2788305Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T06:17:04.2791109Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:17:04.2816657Z Deleting the contents of '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T06:17:04.2822939Z ##[group]Initializing the repository
+2026-10-30T06:17:04.2830728Z [command]/usr/bin/git init /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:17:04.2908153Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-30T06:17:04.2909056Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-30T06:17:04.2909875Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-30T06:17:04.2910623Z hint: call:
+2026-10-30T06:17:04.2911064Z hint:
+2026-10-30T06:17:04.2911502Z hint: 	git config --global init.defaultBranch <name>
+2026-10-30T06:17:04.2912039Z hint:
+2026-10-30T06:17:04.2912527Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-30T06:17:04.2913336Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-30T06:17:04.2913981Z hint:
+2026-10-30T06:17:04.2914325Z hint: 	git branch -m <name>
+2026-10-30T06:17:04.2914745Z hint:
+2026-10-30T06:17:04.2915363Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-30T06:17:04.2916594Z Initialized empty Git repository in /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1/.git/
+2026-10-30T06:17:04.2918793Z [command]/usr/bin/git remote add origin https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:17:04.2940454Z ##[endgroup]
+2026-10-30T06:17:04.2941154Z ##[group]Disabling automatic garbage collection
+2026-10-30T06:17:04.2943797Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-30T06:17:04.2964302Z ##[endgroup]
+2026-10-30T06:17:04.2964919Z ##[group]Setting up auth
+2026-10-30T06:17:04.2969707Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T06:17:04.2989262Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T06:17:04.3189480Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T06:17:04.3213604Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T06:17:04.3335176Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T06:17:04.3356237Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T06:17:04.3463611Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-30T06:17:04.3487702Z ##[endgroup]
+2026-10-30T06:17:04.3488175Z ##[group]Fetching the repository
+2026-10-30T06:17:04.3494090Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/research/sh-round2-controlled-20261030*:refs/remotes/origin/research/sh-round2-controlled-20261030* +refs/tags/research/sh-round2-controlled-20261030*:refs/tags/research/sh-round2-controlled-20261030*
+2026-10-30T06:17:05.2371521Z From https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:17:05.2373106Z  * [new branch]      research/sh-round2-controlled-20261030 -> origin/research/sh-round2-controlled-20261030
+2026-10-30T06:17:05.2376375Z ##[endgroup]
+2026-10-30T06:17:05.2377255Z ##[group]Determining the checkout info
+2026-10-30T06:17:05.2379792Z [command]/usr/bin/git branch --list --remote origin/research/sh-round2-controlled-20261030
+2026-10-30T06:17:05.2395537Z   origin/research/sh-round2-controlled-20261030
+2026-10-30T06:17:05.2398392Z ##[endgroup]
+2026-10-30T06:17:05.2401592Z [command]/usr/bin/git sparse-checkout disable
+2026-10-30T06:17:05.2459102Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-30T06:17:05.2476459Z ##[group]Checking out the ref
+2026-10-30T06:17:05.2479142Z [command]/usr/bin/git checkout --progress --force -B research/sh-round2-controlled-20261030 refs/remotes/origin/research/sh-round2-controlled-20261030
+2026-10-30T06:17:05.3344146Z Switched to a new branch 'research/sh-round2-controlled-20261030'
+2026-10-30T06:17:05.3345992Z branch 'research/sh-round2-controlled-20261030' set up to track 'origin/research/sh-round2-controlled-20261030'.
+2026-10-30T06:17:05.3351789Z ##[endgroup]
+2026-10-30T06:17:05.3377570Z [command]/usr/bin/git log -1 --format=%H
+2026-10-30T06:17:05.3391289Z a2584bb2f0016340d4e40be658820f0ecba6392b
+2026-10-30T06:17:05.3631609Z ##[group]Run actions/setup-python@v5
+2026-10-30T06:17:05.3632311Z with:
+2026-10-30T06:17:05.3632795Z   python-version: 3.10.22
+2026-10-30T06:17:05.3633396Z   check-latest: false
+2026-10-30T06:17:05.3639679Z   token: ***
+2026-10-30T06:17:05.3640190Z   update-environment: true
+2026-10-30T06:17:05.3640793Z   allow-prereleases: false
+2026-10-30T06:17:05.3641376Z   freethreaded: false
+2026-10-30T06:17:05.3641903Z ##[endgroup]
+2026-10-30T06:17:05.4547524Z ##[group]Installed versions
+2026-10-30T06:17:05.4561752Z Version 3.10.22 was not found in the local cache
+2026-10-30T06:17:05.4651868Z (node:2039) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:17:05.4653782Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:17:06.2083687Z Version 3.10.22 is available for downloading
+2026-10-30T06:17:06.2084547Z Download from "https://github.com/actions/python-versions/releases/download/3.10.22-36876129702/python-3.10.22-linux-22.04-x64.tar.gz"
+2026-10-30T06:17:06.7337857Z Extract downloaded archive
+2026-10-30T06:17:06.7413856Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/e8932104-33b4-43e3-bd7d-d40d2b842b5e -f /home/runner/work/_temp/2fc670bd-486a-48fc-bc23-2db3c653b576
+2026-10-30T06:17:07.7048917Z Execute installation script
+2026-10-30T06:17:07.7106371Z Check if Python hostedtoolcache folder exist...
+2026-10-30T06:17:07.7106822Z Create Python 3.10.22 folder
+2026-10-30T06:17:07.7116118Z Copy Python binaries to hostedtoolcache folder
+2026-10-30T06:17:07.8563616Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-30T06:17:07.8584590Z Upgrading pip...
+2026-10-30T06:17:09.6847879Z Collecting pip
+2026-10-30T06:17:09.7440505Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-30T06:17:09.8110421Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 28.3 MB/s eta 0:00:00
+2026-10-30T06:17:09.8110962Z 
+2026-10-30T06:17:09.8450761Z Installing collected packages: pip
+2026-10-30T06:17:09.8452075Z Attempting uninstall: pip
+2026-10-30T06:17:09.8453456Z Found existing installation: pip 23.0.1
+2026-10-30T06:17:09.9184758Z Uninstalling pip-23.0.1:
+2026-10-30T06:17:09.9224121Z Successfully uninstalled pip-23.0.1
+2026-10-30T06:17:10.4599444Z Successfully installed pip-26.2.2
+2026-10-30T06:17:10.5321358Z Create complete file
+2026-10-30T06:17:10.5347407Z Successfully set up CPython (3.10.22)
+2026-10-30T06:17:10.5348377Z ##[endgroup]
+2026-10-30T06:17:10.5464600Z ##[group]Run python -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1
+2026-10-30T06:17:10.5465007Z [36;1mpython -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1[0m
+2026-10-30T06:17:10.5503241Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:17:10.5503427Z env:
+2026-10-30T06:17:10.5503620Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:10.5503880Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:17:10.5504118Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:10.5504339Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:10.5504580Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:10.5504811Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:17:10.5505044Z ##[endgroup]
+2026-10-30T06:17:11.1303399Z Collecting numpy==1.26.4
+2026-10-30T06:17:11.1937292Z   Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2026-10-30T06:17:11.3056295Z Collecting scipy==1.14.1
+2026-10-30T06:17:11.3227510Z   Downloading scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+2026-10-30T06:17:11.3568915Z Collecting soundfile==0.13.1
+2026-10-30T06:17:11.3729709Z   Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-10-30T06:17:11.4750540Z Collecting cffi>=1.0 (from soundfile==0.13.1)
+2026-10-30T06:17:11.4911564Z   Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-10-30T06:17:11.5139207Z Collecting pycparser (from cffi>=1.0->soundfile==0.13.1)
+2026-10-30T06:17:11.5296153Z   Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T06:17:11.5484450Z Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+2026-10-30T06:17:11.7577026Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 94.6 MB/s  0:00:00
+2026-10-30T06:17:11.7757629Z Downloading scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+2026-10-30T06:17:12.2610574Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.2/41.2 MB 84.7 MB/s  0:00:00
+2026-10-30T06:17:12.2799653Z Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+2026-10-30T06:17:12.2873474Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 195.2 MB/s  0:00:00
+2026-10-30T06:17:12.3036848Z Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218 kB)
+2026-10-30T06:17:12.3217246Z Downloading pycparser-3.11-py3-none-any.whl (51 kB)
+2026-10-30T06:17:12.4089547Z Installing collected packages: pycparser, numpy, scipy, cffi, soundfile
+2026-10-30T06:17:15.9221971Z 
+2026-10-30T06:17:15.9231776Z Successfully installed cffi-2.1.1 numpy-1.26.4 pycparser-3.11 scipy-1.14.1 soundfile-0.13.1
+2026-10-30T06:17:16.0482734Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:17:16.0482908Z with:
+2026-10-30T06:17:16.0483089Z   name: sh-round2-boundary-a2584bb2f0016340d4e40be658820f0ecba6392b
+2026-10-30T06:17:16.0483302Z   path: /tmp/sh-boundary
+2026-10-30T06:17:16.0483431Z   merge-multiple: false
+2026-10-30T06:17:16.0483567Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:17:16.0483722Z   run-id: 41012851317
+2026-10-30T06:17:16.0483833Z env:
+2026-10-30T06:17:16.0483975Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:16.0484203Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:17:16.0484432Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:16.0484640Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:16.0484843Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:16.0485050Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:17:16.0485380Z ##[endgroup]
+2026-10-30T06:17:16.1432773Z Downloading single artifact
+2026-10-30T06:17:16.1533003Z (node:2096) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:17:16.1533446Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:17:16.3171258Z Preparing to download the following artifacts:
+2026-10-30T06:17:16.3180162Z - sh-round2-boundary-a2584bb2f0016340d4e40be658820f0ecba6392b (ID: 12958228578, Size: 235075407, Expected Digest: sha256:5923568fe14da15623f43560d3403a68014c000763aef28ddc5e11f2d797ad0a)
+2026-10-30T06:17:16.5017174Z Redirecting to blob download url: https://productionresultssa9.blob.core.windows.net/actions-results/b96640ca-f624-8b34-9acb-92e98b80571c/workflow-job-run-5d22d3e2-61ee-588a-930e-ddb84431d1be/artifacts/bec23c1719f0f945563138508fdd70056d81d40948d5606c59fa790a2a65551e.zip
+2026-10-30T06:17:16.5018219Z Starting download of artifact to: /tmp/sh-boundary
+2026-10-30T06:17:16.7290556Z (node:2096) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:17:22.0170976Z SHA256 digest of downloaded artifact is 5923568fe14da15623f43560d3403a68014c000763aef28ddc5e11f2d797ad0a
+2026-10-30T06:17:22.0171637Z Artifact download completed successfully.
+2026-10-30T06:17:22.0171933Z Total of 1 artifact(s) downloaded
+2026-10-30T06:17:22.0177615Z Download artifact has finished successfully
+2026-10-30T06:17:22.0262820Z ##[group]Run python research/semantic_hearing/round2/followup/verify_boundary.py --run /tmp/sh-boundary --output research/semantic_hearing/round2/evidence/boundary
+2026-10-30T06:17:22.0263871Z [36;1mpython research/semantic_hearing/round2/followup/verify_boundary.py --run /tmp/sh-boundary --output research/semantic_hearing/round2/evidence/boundary[0m
+2026-10-30T06:17:22.0300951Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:17:22.0301182Z env:
+2026-10-30T06:17:22.0301445Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:22.0301856Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:17:22.0302257Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:22.0302612Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:22.0302970Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:22.0303332Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:17:22.0303669Z ##[endgroup]
+2026-10-30T06:17:23.6893104Z {"cases": 42, "wavs_checked": 252}
+2026-10-30T06:17:23.7551578Z ##[group]Run git config user.name 'SH research evidence'
+2026-10-30T06:17:23.7551881Z [36;1mgit config user.name 'SH research evidence'[0m
+2026-10-30T06:17:23.7552121Z [36;1mgit config user.email 'research-evidence@users.noreply.github.com'[0m
+2026-10-30T06:17:23.7552390Z [36;1mgit add research/semantic_hearing/round2/evidence/boundary[0m
+2026-10-30T06:17:23.7552694Z [36;1mgit commit -m 'research: preserve verified 42-case block-aligned boundary follow-up'[0m
+2026-10-30T06:17:23.7553012Z [36;1mgit push origin HEAD:refs/heads/research/sh-round2-controlled-20261030[0m
+2026-10-30T06:17:23.7580147Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:17:23.7580301Z env:
+2026-10-30T06:17:23.7580462Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:23.7580705Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:17:23.7580943Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:23.7581190Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:23.7581412Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:17:23.7581638Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:17:23.7581827Z ##[endgroup]
+2026-10-30T06:17:23.9651874Z [research/sh-round2-controlled-20261030 208bd69] research: preserve verified 42-case block-aligned boundary follow-up
+2026-10-30T06:17:23.9652447Z  11 files changed, 13802 insertions(+)
+2026-10-30T06:17:23.9652845Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/boundary-listening.zip
+2026-10-30T06:17:23.9653342Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/boundary.png
+2026-10-30T06:17:23.9653811Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/boundary.svg
+2026-10-30T06:17:23.9654306Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/environment.json
+2026-10-30T06:17:23.9654822Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/execution.log
+2026-10-30T06:17:23.9655410Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/plan.json
+2026-10-30T06:17:23.9655871Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/results.csv
+2026-10-30T06:17:23.9656190Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/results.json
+2026-10-30T06:17:23.9656634Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/run_summary.json
+2026-10-30T06:17:23.9656942Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/verification.json
+2026-10-30T06:17:23.9657254Z  create mode 100644 research/semantic_hearing/round2/evidence/boundary/wav_manifest.json
+2026-10-30T06:17:25.7795131Z To https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:17:25.7795761Z    a2584bb..208bd69  HEAD -> research/sh-round2-controlled-20261030
+2026-10-30T06:17:25.7897808Z Post job cleanup.
+2026-10-30T06:17:25.8674852Z (node:2131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:17:25.8675688Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:17:25.8767830Z Post job cleanup.
+2026-10-30T06:17:25.9377229Z [command]/usr/bin/git version
+2026-10-30T06:17:25.9404896Z git version 2.56.0
+2026-10-30T06:17:25.9429726Z Temporarily overriding HOME='/home/runner/work/_temp/de76f550-6555-46e3-9c52-b6befc162f61' before making global git config changes
+2026-10-30T06:17:25.9430630Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T06:17:25.9433803Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:17:25.9461231Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T06:17:25.9487535Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T06:17:25.9629441Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T06:17:25.9648476Z http.https://github.com/.extraheader
+2026-10-30T06:17:25.9657347Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-30T06:17:25.9689090Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T06:17:25.9862915Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T06:17:25.9877048Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T06:17:26.0123096Z Cleaning up orphan processes
+2026-10-30T06:17:26.0342792Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

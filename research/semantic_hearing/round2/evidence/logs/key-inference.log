@@ -1,0 +1,724 @@
+﻿2026-10-30T05:59:29.5114538Z Current runner version: '2.338.0'
+2026-10-30T05:59:29.5143429Z ##[group]Runner Image Provisioner
+2026-10-30T05:59:29.5144625Z Hosted Compute Agent
+2026-10-30T05:59:29.5145333Z Version: 20261021.618
+2026-10-30T05:59:29.5146299Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-30T05:59:29.5147168Z Build Date: 2026-10-21T00:45:21Z
+2026-10-30T05:59:29.5148150Z Worker ID: {2d1529f1-f16b-4458-80b4-18962f232509}
+2026-10-30T05:59:29.5149019Z Region: eastus
+2026-10-30T05:59:29.5149757Z Cloud: Azure
+2026-10-30T05:59:29.5150444Z ##[endgroup]
+2026-10-30T05:59:29.5152051Z ##[group]Operating System
+2026-10-30T05:59:29.5152935Z Ubuntu
+2026-10-30T05:59:29.5153586Z 22.04.5
+2026-10-30T05:59:29.5154426Z LTS
+2026-10-30T05:59:29.5155250Z ##[endgroup]
+2026-10-30T05:59:29.5155957Z ##[group]Runner Image
+2026-10-30T05:59:29.5156722Z Image: ubuntu-22.04
+2026-10-30T05:59:29.5157448Z Version: 20261025.340.1
+2026-10-30T05:59:29.5159134Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261025.340/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-30T05:59:29.5161104Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261025.340
+2026-10-30T05:59:29.5162432Z ##[endgroup]
+2026-10-30T05:59:29.5163841Z ##[group]GITHUB_TOKEN Permissions
+2026-10-30T05:59:29.5166237Z Actions: read
+2026-10-30T05:59:29.5166986Z Contents: read
+2026-10-30T05:59:29.5167815Z Metadata: read
+2026-10-30T05:59:29.5168542Z ##[endgroup]
+2026-10-30T05:59:29.5171259Z Secret source: Actions
+2026-10-30T05:59:29.5172577Z Cache mode: write
+2026-10-30T05:59:29.5173705Z Prepare workflow directory
+2026-10-30T05:59:29.5534765Z Prepare all required actions
+2026-10-30T05:59:29.5589088Z Getting action download info
+2026-10-30T05:59:29.7487075Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-30T05:59:29.9177159Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-30T05:59:30.0589922Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-30T05:59:30.2563911Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-30T05:59:30.5576431Z Complete job name: experiment (key)
+2026-10-30T05:59:30.6301797Z ##[group]Run actions/checkout@v4
+2026-10-30T05:59:30.6302481Z with:
+2026-10-30T05:59:30.6302915Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:59:30.6306160Z   token: ***
+2026-10-30T05:59:30.6306504Z   ssh-strict: true
+2026-10-30T05:59:30.6306846Z   ssh-user: git
+2026-10-30T05:59:30.6307197Z   persist-credentials: true
+2026-10-30T05:59:30.6307574Z   clean: true
+2026-10-30T05:59:30.6307977Z   sparse-checkout-cone-mode: true
+2026-10-30T05:59:30.6308386Z   fetch-depth: 1
+2026-10-30T05:59:30.6308724Z   fetch-tags: false
+2026-10-30T05:59:30.6309075Z   show-progress: true
+2026-10-30T05:59:30.6309428Z   lfs: false
+2026-10-30T05:59:30.6309761Z   submodules: false
+2026-10-30T05:59:30.6310125Z   set-safe-directory: true
+2026-10-30T05:59:30.6310556Z   allow-unsafe-pr-checkout: false
+2026-10-30T05:59:30.6311131Z ##[endgroup]
+2026-10-30T05:59:30.8169273Z Syncing repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:59:30.8171225Z ##[group]Getting Git version info
+2026-10-30T05:59:30.8172133Z Working directory is '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T05:59:30.8173194Z [command]/usr/bin/git version
+2026-10-30T05:59:30.8202842Z git version 2.56.0
+2026-10-30T05:59:30.8219094Z ##[endgroup]
+2026-10-30T05:59:30.8232721Z Temporarily overriding HOME='/home/runner/work/_temp/4de1cf00-a5ab-4397-9725-19259b9d4e53' before making global git config changes
+2026-10-30T05:59:30.8234801Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T05:59:30.8237342Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T05:59:30.8281268Z Deleting the contents of '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T05:59:30.8283199Z ##[group]Initializing the repository
+2026-10-30T05:59:30.8286015Z [command]/usr/bin/git init /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T05:59:30.8360260Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-30T05:59:30.8361806Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-30T05:59:30.8363172Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-30T05:59:30.8364456Z hint: call:
+2026-10-30T05:59:30.8365112Z hint:
+2026-10-30T05:59:30.8365849Z hint: 	git config --global init.defaultBranch <name>
+2026-10-30T05:59:30.8443902Z hint:
+2026-10-30T05:59:30.8445469Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-30T05:59:30.8446675Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-30T05:59:30.8447747Z hint:
+2026-10-30T05:59:30.8448600Z hint: 	git branch -m <name>
+2026-10-30T05:59:30.8449552Z hint:
+2026-10-30T05:59:30.8450559Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-30T05:59:30.8452357Z Initialized empty Git repository in /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1/.git/
+2026-10-30T05:59:30.8455415Z [command]/usr/bin/git remote add origin https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:59:30.8457677Z ##[endgroup]
+2026-10-30T05:59:30.8458603Z ##[group]Disabling automatic garbage collection
+2026-10-30T05:59:30.8459133Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-30T05:59:30.8460236Z ##[endgroup]
+2026-10-30T05:59:30.8460773Z ##[group]Setting up auth
+2026-10-30T05:59:30.8461311Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T05:59:30.8489357Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T05:59:30.8795299Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T05:59:30.8831443Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T05:59:30.9070030Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T05:59:30.9103405Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T05:59:30.9320883Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-30T05:59:30.9362624Z ##[endgroup]
+2026-10-30T05:59:30.9363249Z ##[group]Fetching the repository
+2026-10-30T05:59:30.9371264Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f2d18e19605b102d2cca5717bb22e3917258a676:refs/remotes/origin/research/sh-round2-controlled-20261030
+2026-10-30T05:59:31.4718734Z From https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:59:31.4720748Z  * [new ref]         f2d18e19605b102d2cca5717bb22e3917258a676 -> origin/research/sh-round2-controlled-20261030
+2026-10-30T05:59:31.4724787Z ##[endgroup]
+2026-10-30T05:59:31.4725713Z ##[group]Determining the checkout info
+2026-10-30T05:59:31.4726662Z ##[endgroup]
+2026-10-30T05:59:31.4728767Z [command]/usr/bin/git sparse-checkout disable
+2026-10-30T05:59:31.4776020Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-30T05:59:31.4822614Z ##[group]Checking out the ref
+2026-10-30T05:59:31.4826757Z [command]/usr/bin/git checkout --progress --force -B research/sh-round2-controlled-20261030 refs/remotes/origin/research/sh-round2-controlled-20261030
+2026-10-30T05:59:31.5759612Z Switched to a new branch 'research/sh-round2-controlled-20261030'
+2026-10-30T05:59:31.5767258Z branch 'research/sh-round2-controlled-20261030' set up to track 'origin/research/sh-round2-controlled-20261030'.
+2026-10-30T05:59:31.5776403Z ##[endgroup]
+2026-10-30T05:59:31.5818333Z [command]/usr/bin/git log -1 --format=%H
+2026-10-30T05:59:31.5847410Z f2d18e19605b102d2cca5717bb22e3917258a676
+2026-10-30T05:59:31.6174620Z ##[group]Run actions/setup-python@v5
+2026-10-30T05:59:31.6175580Z with:
+2026-10-30T05:59:31.6176267Z   python-version: 3.10.22
+2026-10-30T05:59:31.6177065Z   cache: pip
+2026-10-30T05:59:31.6178176Z   cache-dependency-path: research/semantic_hearing/round2/dependency-lock.txt
+2026-10-30T05:59:31.6179526Z   check-latest: false
+2026-10-30T05:59:31.6186607Z   token: ***
+2026-10-30T05:59:31.6187339Z   update-environment: true
+2026-10-30T05:59:31.6188171Z   allow-prereleases: false
+2026-10-30T05:59:31.6188982Z   freethreaded: false
+2026-10-30T05:59:31.6189723Z ##[endgroup]
+2026-10-30T05:59:31.7289853Z ##[group]Installed versions
+2026-10-30T05:59:31.7303953Z Version 3.10.22 was not found in the local cache
+2026-10-30T05:59:31.7445716Z (node:1872) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T05:59:31.7448068Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T05:59:32.1124467Z Version 3.10.22 is available for downloading
+2026-10-30T05:59:32.1126759Z Download from "https://github.com/actions/python-versions/releases/download/3.10.22-36876129702/python-3.10.22-linux-22.04-x64.tar.gz"
+2026-10-30T05:59:32.5165051Z Extract downloaded archive
+2026-10-30T05:59:32.5296234Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/0b029894-8c2e-4de1-a981-15ef0b33f4db -f /home/runner/work/_temp/9fe52b5a-c98c-43e4-916a-1e8894896942
+2026-10-30T05:59:33.6825660Z Execute installation script
+2026-10-30T05:59:33.6917323Z Check if Python hostedtoolcache folder exist...
+2026-10-30T05:59:33.6918053Z Create Python 3.10.22 folder
+2026-10-30T05:59:33.6933170Z Copy Python binaries to hostedtoolcache folder
+2026-10-30T05:59:34.1310735Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-30T05:59:34.1352255Z Upgrading pip...
+2026-10-30T05:59:36.4342490Z Collecting pip
+2026-10-30T05:59:36.6567136Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-30T05:59:37.0599912Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 4.5 MB/s eta 0:00:00
+2026-10-30T05:59:37.0600609Z 
+2026-10-30T05:59:37.1735045Z Installing collected packages: pip
+2026-10-30T05:59:37.1735940Z Attempting uninstall: pip
+2026-10-30T05:59:37.1739827Z Found existing installation: pip 23.0.1
+2026-10-30T05:59:37.3195091Z Uninstalling pip-23.0.1:
+2026-10-30T05:59:37.3252165Z Successfully uninstalled pip-23.0.1
+2026-10-30T05:59:38.1695548Z Successfully installed pip-26.2.2
+2026-10-30T05:59:38.2223827Z Create complete file
+2026-10-30T05:59:38.2257022Z Successfully set up CPython (3.10.22)
+2026-10-30T05:59:38.2257688Z ##[endgroup]
+2026-10-30T05:59:38.2612060Z [command]/opt/hostedtoolcache/Python/3.10.22/x64/bin/pip cache dir
+2026-10-30T05:59:38.5134409Z /home/runner/.cache/pip
+2026-10-30T05:59:38.5773924Z pip cache is not found
+2026-10-30T05:59:38.5934415Z ##[group]Run python -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+2026-10-30T05:59:38.5935592Z [36;1mpython -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu[0m
+2026-10-30T05:59:38.6006830Z shell: /usr/bin/bash -e {0}
+2026-10-30T05:59:38.6007067Z env:
+2026-10-30T05:59:38.6007309Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:59:38.6007704Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T05:59:38.6008047Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:59:38.6008351Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:59:38.6008858Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:59:38.6009152Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T05:59:38.6009449Z ##[endgroup]
+2026-10-30T05:59:39.2766115Z Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+2026-10-30T05:59:39.3582608Z Collecting certifi==2026.10.23 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 1))
+2026-10-30T05:59:39.3885902Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-10-30T05:59:39.4986339Z Collecting cffi==2.1.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 2))
+2026-10-30T05:59:39.5022543Z   Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-10-30T05:59:39.6185490Z Collecting charset-normalizer==3.5.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 3))
+2026-10-30T05:59:39.6218879Z   Downloading charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-10-30T05:59:39.6570099Z Collecting cloudpickle==3.1.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 4))
+2026-10-30T05:59:39.6604984Z   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+2026-10-30T05:59:39.7252869Z Collecting contourpy==1.3.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 5))
+2026-10-30T05:59:39.7288319Z   Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.5 kB)
+2026-10-30T05:59:39.7912399Z Collecting cycler==0.12.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 6))
+2026-10-30T05:59:39.7946002Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2026-10-30T05:59:39.8323085Z Collecting filelock==4.1.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 7))
+2026-10-30T05:59:39.8361998Z   Downloading filelock-4.1.0-py3-none-any.whl.metadata (2.0 kB)
+2026-10-30T05:59:39.9908805Z Collecting fonttools==4.65.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 8))
+2026-10-30T05:59:39.9962831Z   Downloading fonttools-4.65.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (125 kB)
+2026-10-30T05:59:40.0350311Z Collecting fsspec==2026.9.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 9))
+2026-10-30T05:59:40.0384341Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-10-30T05:59:40.1251916Z Collecting huggingface-hub==0.25.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 10))
+2026-10-30T05:59:40.1314349Z   Downloading huggingface_hub-0.25.2-py3-none-any.whl.metadata (13 kB)
+2026-10-30T05:59:40.3094790Z Collecting hyperpyyaml==1.2.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 11))
+2026-10-30T05:59:40.3146015Z   Downloading hyperpyyaml-1.2.3-py3-none-any.whl.metadata (8.1 kB)
+2026-10-30T05:59:40.3319027Z Collecting idna==3.20 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 12))
+2026-10-30T05:59:40.3353769Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-10-30T05:59:40.5162213Z Collecting joblib==1.6.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 13))
+2026-10-30T05:59:40.5198086Z   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+2026-10-30T05:59:40.5939929Z Collecting kiwisolver==1.5.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 14))
+2026-10-30T05:59:40.5986857Z   Downloading kiwisolver-1.5.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.2 kB)
+2026-10-30T05:59:40.7495120Z Collecting matplotlib==3.9.4 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 15))
+2026-10-30T05:59:40.7537470Z   Downloading matplotlib-3.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2026-10-30T05:59:41.3413371Z Collecting numpy==1.26.4 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 16))
+2026-10-30T05:59:41.3454411Z   Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2026-10-30T05:59:41.3920101Z Collecting packaging==26.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 17))
+2026-10-30T05:59:41.3959716Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-30T05:59:41.9611614Z Collecting pillow==12.3.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 18))
+2026-10-30T05:59:41.9649457Z   Downloading pillow-12.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-30T05:59:41.9700088Z Requirement already satisfied: pip==26.2.2 in /opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/site-packages (from -r research/semantic_hearing/round2/dependency-lock.txt (line 19)) (26.2.2)
+2026-10-30T05:59:42.0078189Z Collecting pycparser==3.11 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 20))
+2026-10-30T05:59:42.0113653Z   Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T05:59:42.0481211Z Collecting pyparsing==3.3.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 21))
+2026-10-30T05:59:42.0515981Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+2026-10-30T05:59:42.0801650Z Collecting python-dateutil==3.0.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 22))
+2026-10-30T05:59:42.0837366Z   Downloading python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T05:59:42.1304957Z Collecting pyyaml==6.0.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 23))
+2026-10-30T05:59:42.1339309Z   Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2026-10-30T05:59:42.1580998Z Collecting remotezip==0.12.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 24))
+2026-10-30T05:59:42.1621965Z   Downloading remotezip-0.12.3-py3-none-any.whl.metadata (7.2 kB)
+2026-10-30T05:59:42.1851695Z Collecting requests==2.32.3 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 25))
+2026-10-30T05:59:42.1887198Z   Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+2026-10-30T05:59:42.3746010Z Collecting ruamel-yaml==0.18.17 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 26))
+2026-10-30T05:59:42.3797783Z   Downloading ruamel_yaml-0.18.17-py3-none-any.whl.metadata (27 kB)
+2026-10-30T05:59:42.4256930Z Collecting ruamel-yaml-clib==0.2.15 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 27))
+2026-10-30T05:59:42.4292112Z   Downloading ruamel_yaml_clib-0.2.15-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+2026-10-30T05:59:42.5468530Z Collecting scipy==1.14.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 28))
+2026-10-30T05:59:42.5504515Z   Downloading scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+2026-10-30T05:59:42.8074971Z Collecting sentencepiece==0.2.2 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 29))
+2026-10-30T05:59:42.8119526Z   Downloading sentencepiece-0.2.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+2026-10-30T05:59:42.8847955Z Collecting setuptools==69.5.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 30))
+2026-10-30T05:59:42.8885038Z   Downloading setuptools-69.5.1-py3-none-any.whl.metadata (6.2 kB)
+2026-10-30T05:59:43.1446385Z Collecting six==1.17.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 31))
+2026-10-30T05:59:43.1483726Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-10-30T05:59:43.1746647Z Collecting soundfile==0.13.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 32))
+2026-10-30T05:59:43.1780128Z   Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-10-30T05:59:43.3133706Z Collecting speechbrain==0.5.16 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 33))
+2026-10-30T05:59:43.3182076Z   Downloading speechbrain-0.5.16-py3-none-any.whl.metadata (23 kB)
+2026-10-30T05:59:43.4798139Z Collecting torch==1.13.1+cpu (from -r research/semantic_hearing/round2/dependency-lock.txt (line 34))
+2026-10-30T05:59:43.5214915Z   Downloading torch-1.13.1%2Bcpu-cp310-cp310-linux_x86_64.whl (199.1 MB)
+2026-10-30T05:59:45.5370983Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.1/199.1 MB 99.0 MB/s  0:00:02
+2026-10-30T05:59:45.8800602Z Collecting torchaudio==0.13.1+cpu (from -r research/semantic_hearing/round2/dependency-lock.txt (line 35))
+2026-10-30T05:59:45.8923985Z   Downloading torchaudio-0.13.1%2Bcpu-cp310-cp310-linux_x86_64.whl (4.0 MB)
+2026-10-30T05:59:46.0304369Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 27.7 MB/s  0:00:00
+2026-10-30T05:59:46.0779899Z Collecting torchmetrics==0.10.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 36))
+2026-10-30T05:59:46.0825015Z   Downloading torchmetrics-0.10.0-py3-none-any.whl.metadata (15 kB)
+2026-10-30T05:59:46.1889090Z Collecting tqdm==4.70.1 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 37))
+2026-10-30T05:59:46.1934785Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-10-30T05:59:46.2682835Z Collecting typing-extensions==4.16.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 38))
+2026-10-30T05:59:46.2727922Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-30T05:59:46.3323352Z Collecting tzdata==2026.6 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 39))
+2026-10-30T05:59:46.3358221Z   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-10-30T05:59:46.5102475Z Collecting urllib3==2.8.0 (from -r research/semantic_hearing/round2/dependency-lock.txt (line 40))
+2026-10-30T05:59:46.5139156Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-10-30T05:59:46.5964039Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-10-30T05:59:46.6942170Z Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218 kB)
+2026-10-30T05:59:46.7120984Z Downloading charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (271 kB)
+2026-10-30T05:59:46.8741801Z Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+2026-10-30T05:59:46.8936879Z Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+2026-10-30T05:59:46.9281559Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2026-10-30T05:59:46.9380466Z Downloading filelock-4.1.0-py3-none-any.whl (133 kB)
+2026-10-30T05:59:47.0605660Z Downloading fonttools-4.65.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.3 MB)
+2026-10-30T05:59:47.1909245Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 39.3 MB/s  0:00:00
+2026-10-30T05:59:47.1949283Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-10-30T05:59:47.2105693Z Downloading huggingface_hub-0.25.2-py3-none-any.whl (436 kB)
+2026-10-30T05:59:47.2324794Z Downloading hyperpyyaml-1.2.3-py3-none-any.whl (16 kB)
+2026-10-30T05:59:47.2592216Z Downloading ruamel_yaml-0.18.17-py3-none-any.whl (121 kB)
+2026-10-30T05:59:47.2797220Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-10-30T05:59:47.3014948Z Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+2026-10-30T05:59:47.3281476Z Downloading kiwisolver-1.5.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+2026-10-30T05:59:47.3573910Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 53.1 MB/s  0:00:00
+2026-10-30T05:59:47.3617987Z Downloading matplotlib-3.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+2026-10-30T05:59:47.6491916Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 28.2 MB/s  0:00:00
+2026-10-30T05:59:47.6531707Z Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+2026-10-30T05:59:47.8289698Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 104.1 MB/s  0:00:00
+2026-10-30T05:59:47.8329709Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-30T05:59:47.8837205Z Downloading pillow-12.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+2026-10-30T05:59:47.9730612Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 76.8 MB/s  0:00:00
+2026-10-30T05:59:47.9767936Z Downloading pycparser-3.11-py3-none-any.whl (51 kB)
+2026-10-30T05:59:47.9934361Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+2026-10-30T05:59:48.0115569Z Downloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+2026-10-30T05:59:48.0359207Z Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+2026-10-30T05:59:48.0922846Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 9.1 MB/s  0:00:00
+2026-10-30T05:59:48.0970817Z Downloading remotezip-0.12.3-py3-none-any.whl (8.1 kB)
+2026-10-30T05:59:48.1176368Z Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+2026-10-30T05:59:48.1364807Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-10-30T05:59:48.1598987Z Downloading ruamel_yaml_clib-0.2.15-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (731 kB)
+2026-10-30T05:59:48.1913302Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 731.3/731.3 kB 16.6 MB/s  0:00:00
+2026-10-30T05:59:48.1989001Z Downloading scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+2026-10-30T05:59:48.6984665Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.2/41.2 MB 82.3 MB/s  0:00:00
+2026-10-30T05:59:48.7048452Z Downloading sentencepiece-0.2.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+2026-10-30T05:59:48.7997397Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 12.2 MB/s  0:00:00
+2026-10-30T05:59:48.8036329Z Downloading setuptools-69.5.1-py3-none-any.whl (894 kB)
+2026-10-30T05:59:49.0745400Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 894.6/894.6 kB 2.4 MB/s  0:00:00
+2026-10-30T05:59:49.0784554Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-10-30T05:59:49.1845449Z Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+2026-10-30T05:59:49.1995443Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 82.8 MB/s  0:00:00
+2026-10-30T05:59:49.2042471Z Downloading speechbrain-0.5.16-py3-none-any.whl (630 kB)
+2026-10-30T05:59:49.2112197Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 630.6/630.6 kB 75.3 MB/s  0:00:00
+2026-10-30T05:59:49.2161536Z Downloading torchmetrics-0.10.0-py3-none-any.whl (529 kB)
+2026-10-30T05:59:49.2272976Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 529.2/529.2 kB 61.5 MB/s  0:00:00
+2026-10-30T05:59:49.2308905Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-10-30T05:59:49.2363525Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-30T05:59:49.2418166Z Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+2026-10-30T05:59:49.6743480Z Installing collected packages: urllib3, tzdata, typing-extensions, tqdm, six, setuptools, sentencepiece, ruamel-yaml-clib, pyyaml, pyparsing, pycparser, pillow, packaging, numpy, kiwisolver, idna, fsspec, fonttools, filelock, cycler, cloudpickle, charset-normalizer, certifi, torch, scipy, ruamel-yaml, requests, python-dateutil, joblib, contourpy, cffi, torchmetrics, torchaudio, soundfile, remotezip, matplotlib, hyperpyyaml, huggingface-hub, speechbrain
+2026-10-30T05:59:49.9610885Z   Attempting uninstall: setuptools
+2026-10-30T05:59:49.9616144Z     Found existing installation: setuptools 79.0.1
+2026-10-30T05:59:49.9896014Z     Uninstalling setuptools-79.0.1:
+2026-10-30T05:59:50.0057396Z       Successfully uninstalled setuptools-79.0.1
+2026-10-30T06:00:03.8657735Z 
+2026-10-30T06:00:03.8698966Z Successfully installed certifi-2026.10.23 cffi-2.1.1 charset-normalizer-3.5.2 cloudpickle-3.1.2 contourpy-1.3.2 cycler-0.12.1 filelock-4.1.0 fonttools-4.65.0 fsspec-2026.9.0 huggingface-hub-0.25.2 hyperpyyaml-1.2.3 idna-3.20 joblib-1.6.0 kiwisolver-1.5.1 matplotlib-3.9.4 numpy-1.26.4 packaging-26.3 pillow-12.3.0 pycparser-3.11 pyparsing-3.3.3 python-dateutil-3.0.0 pyyaml-6.0.2 remotezip-0.12.3 requests-2.32.3 ruamel-yaml-0.18.17 ruamel-yaml-clib-0.2.15 scipy-1.14.1 sentencepiece-0.2.2 setuptools-69.5.1 six-1.17.0 soundfile-0.13.1 speechbrain-0.5.16 torch-1.13.1+cpu torchaudio-0.13.1+cpu torchmetrics-0.10.0 tqdm-4.70.1 typing-extensions-4.16.0 tzdata-2026.6 urllib3-2.8.0
+2026-10-30T06:00:04.1456592Z ##[group]Run python -m unittest discover -s research/semantic_hearing -p 'test_*.py' -v
+2026-10-30T06:00:04.1457121Z [36;1mpython -m unittest discover -s research/semantic_hearing -p 'test_*.py' -v[0m
+2026-10-30T06:00:04.1457573Z [36;1mpython -m unittest discover -s research/semantic_hearing/round2 -p 'test_*.py' -v[0m
+2026-10-30T06:00:04.1514707Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:00:04.1514920Z env:
+2026-10-30T06:00:04.1515145Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:04.1515495Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:04.1515828Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:04.1516147Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:04.1516451Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:04.1516772Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:04.1517064Z ##[endgroup]
+2026-10-30T06:00:04.5857225Z test_counts_zero_denominators (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5859036Z test_identical_predictions (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5860102Z test_processed_improvement_is_measured_not_assumed (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5860852Z test_processed_regression_is_reported (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5861490Z test_reject_duplicate_group (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5862074Z test_reject_label_change (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5862633Z test_reject_missing_group (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5864979Z test_reject_threshold_mismatch (test_compare.PairedComparison) ... ok
+2026-10-30T06:00:04.5865522Z test_label_order (test_extract.ContractTests) ... ok
+2026-10-30T06:00:04.5865941Z test_one_hot (test_extract.ContractTests) ... ok
+2026-10-30T06:00:04.5866248Z test_reject_unsupported (test_extract.ContractTests) ... ok
+2026-10-30T06:00:04.5874259Z test_known_orthogonal_noise (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T06:00:04.5881405Z test_mix_ratio_and_no_clipping (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T06:00:04.5895153Z test_scale_invariance_does_not_mean_gain_preservation (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T06:00:04.5897605Z test_shape_mismatch_rejected (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T06:00:04.5903243Z test_silence_reference_rejected (test_real_audio.AudioMetricsTests) ... ok
+2026-10-30T06:00:04.5903650Z 
+2026-10-30T06:00:04.5903932Z ----------------------------------------------------------------------
+2026-10-30T06:00:04.5904915Z Ran 16 tests in 0.005s
+2026-10-30T06:00:04.5905099Z 
+2026-10-30T06:00:04.5905194Z OK
+2026-10-30T06:00:05.0087825Z test_active_snr_does_not_count_padded_silence (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:05.0175141Z test_gain_and_residual_have_analytic_meaning (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:05.5733333Z test_metric_crosscheck_against_torchmetrics (test_experiment.RoundTwoScientificTests) ... /opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:23: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+2026-10-30T06:00:05.5735594Z   from pkg_resources import DistributionNotFound, get_distribution
+2026-10-30T06:00:05.6101418Z ok
+2026-10-30T06:00:05.6104801Z test_placement_cannot_truncate_event (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:07.2614815Z test_placement_series_keeps_identical_gains_noise_and_samples (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:07.2643294Z test_silent_output_is_not_a_defined_si_sdr_score (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:07.2646433Z test_silent_source_mask_rejected (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:07.2675708Z test_target_only_does_not_publish_huge_improvement (test_experiment.RoundTwoScientificTests) ... ok
+2026-10-30T06:00:07.2676247Z 
+2026-10-30T06:00:07.2676435Z ----------------------------------------------------------------------
+2026-10-30T06:00:07.2676829Z Ran 8 tests in 2.262s
+2026-10-30T06:00:07.2676949Z 
+2026-10-30T06:00:07.2677015Z OK
+2026-10-30T06:00:07.4602437Z ##[group]Run git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+2026-10-30T06:00:07.4602984Z [36;1mgit clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing[0m
+2026-10-30T06:00:07.4603484Z [36;1mgit -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50[0m
+2026-10-30T06:00:07.4658443Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:00:07.4658658Z env:
+2026-10-30T06:00:07.4658892Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.4659239Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:07.4659578Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.4659880Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.4660173Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.4660464Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:07.4660769Z ##[endgroup]
+2026-10-30T06:00:07.6585885Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:00:07.6586123Z with:
+2026-10-30T06:00:07.6587990Z   github-token: ***
+2026-10-30T06:00:07.6588181Z   run-id: 41010371339
+2026-10-30T06:00:07.6588362Z   name: sh-r2-source-audit
+2026-10-30T06:00:07.6588564Z   path: /tmp/sh-source-cache/first
+2026-10-30T06:00:07.6588804Z   merge-multiple: false
+2026-10-30T06:00:07.6589016Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:00:07.6589243Z env:
+2026-10-30T06:00:07.6589450Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.6589819Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:07.6590161Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.6590464Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.6590753Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:07.6591074Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:07.6591335Z ##[endgroup]
+2026-10-30T06:00:07.7900571Z Downloading single artifact
+2026-10-30T06:00:07.7989527Z (node:1989) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:00:07.7990565Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:00:07.8143001Z (node:1989) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:00:07.9450098Z Preparing to download the following artifacts:
+2026-10-30T06:00:07.9451123Z - sh-r2-source-audit (ID: 12956633987, Size: 143576622, Expected Digest: sha256:21ebea4931b3bc16829e1c9f93360a8f6972b2b24a477d4f297a5296f4e6f9a7)
+2026-10-30T06:00:07.9482467Z Downloading artifact '12956633987' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T06:00:08.0980745Z Redirecting to blob download url: https://productionresultssa4.blob.core.windows.net/actions-results/9a6d7793-ff05-83f6-a470-2832fd4e0e06/workflow-job-run-8f15a2cf-d3c9-516f-be90-e421ee3fd7ab/artifacts/ce395527a576d7be4d5c46216a6696366a5b76148a4346d4a9f95a2bfe99b1c4.zip
+2026-10-30T06:00:08.0981768Z Starting download of artifact to: /tmp/sh-source-cache/first
+2026-10-30T06:00:08.2002861Z (node:1989) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:00:09.9645475Z SHA256 digest of downloaded artifact is 21ebea4931b3bc16829e1c9f93360a8f6972b2b24a477d4f297a5296f4e6f9a7
+2026-10-30T06:00:09.9646234Z Artifact download completed successfully.
+2026-10-30T06:00:09.9646624Z Total of 1 artifact(s) downloaded
+2026-10-30T06:00:09.9651571Z Download artifact has finished successfully
+2026-10-30T06:00:09.9818257Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:00:09.9818486Z with:
+2026-10-30T06:00:09.9820538Z   github-token: ***
+2026-10-30T06:00:09.9820731Z   run-id: 41010808161
+2026-10-30T06:00:09.9820921Z   name: sh-r2-extra-source-audit
+2026-10-30T06:00:09.9821140Z   path: /tmp/sh-source-cache/extra
+2026-10-30T06:00:09.9821354Z   merge-multiple: false
+2026-10-30T06:00:09.9821564Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:00:09.9821810Z env:
+2026-10-30T06:00:09.9822017Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:09.9822357Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:09.9822684Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:09.9823036Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:09.9823329Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:09.9823646Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:09.9823905Z ##[endgroup]
+2026-10-30T06:00:10.1095884Z Downloading single artifact
+2026-10-30T06:00:10.1178343Z (node:2001) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:00:10.1178933Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:00:10.1337158Z (node:2001) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:00:10.3320512Z Preparing to download the following artifacts:
+2026-10-30T06:00:10.3321409Z - sh-r2-extra-source-audit (ID: 12957815450, Size: 32422594, Expected Digest: sha256:4f40f718c8b4ef38c4aeccb1d2dcbe8b03df7069fa6507f2b089a579b5168af1)
+2026-10-30T06:00:10.3348890Z Downloading artifact '12957815450' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T06:00:10.4765109Z Redirecting to blob download url: https://productionresultssa14.blob.core.windows.net/actions-results/7319e729-9cbe-8ffb-ac36-0ca2d119aa64/workflow-job-run-dda8b8fe-5ef0-5307-a1be-221de1a45bd7/artifacts/a1a536cd9c0812f60207b8626d2b6241a59da2569b33bb625cee901fd1432be9.zip
+2026-10-30T06:00:10.4766114Z Starting download of artifact to: /tmp/sh-source-cache/extra
+2026-10-30T06:00:10.5503634Z (node:2001) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:00:10.9696433Z SHA256 digest of downloaded artifact is 4f40f718c8b4ef38c4aeccb1d2dcbe8b03df7069fa6507f2b089a579b5168af1
+2026-10-30T06:00:10.9697070Z Artifact download completed successfully.
+2026-10-30T06:00:10.9697336Z Total of 1 artifact(s) downloaded
+2026-10-30T06:00:10.9700681Z Download artifact has finished successfully
+2026-10-30T06:00:10.9882803Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:00:10.9883197Z with:
+2026-10-30T06:00:10.9886784Z   github-token: ***
+2026-10-30T06:00:10.9887075Z   run-id: 41011046101
+2026-10-30T06:00:10.9887374Z   name: sh-r2-final-source-audit
+2026-10-30T06:00:10.9887721Z   path: /tmp/sh-source-cache/final
+2026-10-30T06:00:10.9888059Z   merge-multiple: false
+2026-10-30T06:00:10.9888383Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:00:10.9888733Z env:
+2026-10-30T06:00:10.9889039Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:10.9889608Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:10.9890129Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:10.9890605Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:10.9891026Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:10.9891518Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:10.9891926Z ##[endgroup]
+2026-10-30T06:00:11.1172277Z Downloading single artifact
+2026-10-30T06:00:11.1255768Z (node:2013) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:00:11.1256508Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:00:11.1399067Z (node:2013) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:00:11.2621043Z Preparing to download the following artifacts:
+2026-10-30T06:00:11.2621789Z - sh-r2-final-source-audit (ID: 12957651167, Size: 7801892, Expected Digest: sha256:dfc7e2be2920f980cec879e81b41688c362f757a29cea88ede5e535ea70575fb)
+2026-10-30T06:00:11.2648165Z Downloading artifact '12957651167' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T06:00:11.4135929Z Redirecting to blob download url: https://productionresultssa14.blob.core.windows.net/actions-results/b33c23c8-dcbf-8ef7-8621-2379e5052cb6/workflow-job-run-bbf4fcdc-e85a-5aa9-9938-2ddd4771cc04/artifacts/8d025bbb79328567acf6ae4527a06629e9ea939659b67477a699b36c5b35653b.zip
+2026-10-30T06:00:11.4137620Z Starting download of artifact to: /tmp/sh-source-cache/final
+2026-10-30T06:00:11.4841853Z (node:2013) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:00:11.5826066Z SHA256 digest of downloaded artifact is dfc7e2be2920f980cec879e81b41688c362f757a29cea88ede5e535ea70575fb
+2026-10-30T06:00:11.5826709Z Artifact download completed successfully.
+2026-10-30T06:00:11.5827154Z Total of 1 artifact(s) downloaded
+2026-10-30T06:00:11.5833017Z Download artifact has finished successfully
+2026-10-30T06:00:11.5996929Z ##[group]Run python research/semantic_hearing/round2/cache_sources.py --cache /tmp/sh-source-cache --output /tmp/sh-round2
+2026-10-30T06:00:11.5997629Z [36;1mpython research/semantic_hearing/round2/cache_sources.py --cache /tmp/sh-source-cache --output /tmp/sh-round2[0m
+2026-10-30T06:00:11.6051942Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:00:11.6052157Z env:
+2026-10-30T06:00:11.6052380Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.6052724Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:11.6053061Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.6053552Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.6053849Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.6054353Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:11.6054609Z ##[endgroup]
+2026-10-30T06:00:11.8815092Z Verified and staged all 23 source originals; no further provider downloads
+2026-10-30T06:00:11.8893510Z ##[group]Run set -o pipefail
+2026-10-30T06:00:11.8893761Z [36;1mset -o pipefail[0m
+2026-10-30T06:00:11.8893951Z [36;1mstudy_args=()[0m
+2026-10-30T06:00:11.8894373Z [36;1mif [ "$STUDY_MODE" = key ]; then study_args+=(--key-only); fi[0m
+2026-10-30T06:00:11.8895113Z [36;1mpython -u research/semantic_hearing/round2/experiment.py --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt --output /tmp/sh-round2 "${study_args[@]}" 2>&1 | tee /tmp/sh-round2/execution.log[0m
+2026-10-30T06:00:11.8949430Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:00:11.8949634Z env:
+2026-10-30T06:00:11.8949862Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.8950224Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:00:11.8950552Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.8950861Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.8951179Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:00:11.8951477Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:00:11.8951730Z   STUDY_MODE: key
+2026-10-30T06:00:11.8951893Z ##[endgroup]
+2026-10-30T06:00:39.0105625Z {"id": "background_iusb_014_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9803234620000012}
+2026-10-30T06:00:40.9211194Z {"id": "background_iusb_014_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9098894260000066}
+2026-10-30T06:00:43.0048168Z {"id": "background_iusb_014_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0829044820000036}
+2026-10-30T06:00:45.1584815Z {"id": "background_iusb_014_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.152727890999998}
+2026-10-30T06:00:47.1430255Z {"id": "background_iusb_014_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9835331120000035}
+2026-10-30T06:00:49.2527514Z {"id": "background_iusb_015_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.1085979070000036}
+2026-10-30T06:00:51.2446080Z {"id": "background_iusb_015_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9907406960000031}
+2026-10-30T06:00:53.2630402Z {"id": "background_iusb_015_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.017265748}
+2026-10-30T06:00:55.2789294Z {"id": "background_iusb_015_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.014610321999996}
+2026-10-30T06:00:57.3233085Z {"id": "background_iusb_015_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0429750030000093}
+2026-10-30T06:00:59.2625749Z {"id": "background_iusb_016_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9377346240000008}
+2026-10-30T06:01:01.2478303Z {"id": "background_iusb_016_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.983487089999997}
+2026-10-30T06:01:03.2094531Z {"id": "background_iusb_016_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9600719479999924}
+2026-10-30T06:01:05.2268183Z {"id": "background_iusb_016_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.015729927999999}
+2026-10-30T06:01:07.1865997Z {"id": "background_iusb_016_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9579528900000014}
+2026-10-30T06:01:09.4209367Z {"id": "background_iusb_017_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.2149980539999916}
+2026-10-30T06:01:11.4360506Z {"id": "background_iusb_017_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0131992860000025}
+2026-10-30T06:01:13.4112512Z {"id": "background_iusb_017_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9730690620000075}
+2026-10-30T06:01:15.3858722Z {"id": "background_iusb_017_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9728051569999963}
+2026-10-30T06:01:17.5694934Z {"id": "background_iusb_017_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.181448356000004}
+2026-10-30T06:01:19.6434823Z {"id": "background_iusb_018_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0717047779999973}
+2026-10-30T06:01:21.6320915Z {"id": "background_iusb_018_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.986391685000001}
+2026-10-30T06:01:23.6451241Z {"id": "background_iusb_018_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0107258269999875}
+2026-10-30T06:01:25.6798034Z {"id": "background_iusb_018_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0323416349999945}
+2026-10-30T06:01:27.7841633Z {"id": "background_iusb_018_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.101857888000012}
+2026-10-30T06:01:29.8433341Z {"id": "background_bsb_1463_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0567193340000074}
+2026-10-30T06:01:31.9071631Z {"id": "background_bsb_1463_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0611592630000075}
+2026-10-30T06:01:33.9281418Z {"id": "background_bsb_1463_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0151522200000045}
+2026-10-30T06:01:35.9836491Z {"id": "background_bsb_1463_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.052740502000006}
+2026-10-30T06:01:37.9631408Z {"id": "background_bsb_1463_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.976716376000013}
+2026-10-30T06:01:39.9631175Z {"id": "background_bsb_1464_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9970775349999883}
+2026-10-30T06:01:41.9686357Z {"id": "background_bsb_1464_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0026073869999834}
+2026-10-30T06:01:44.0035993Z {"id": "background_bsb_1464_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0318068640000035}
+2026-10-30T06:01:46.0182103Z {"id": "background_bsb_1464_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0113821269999903}
+2026-10-30T06:01:47.9935082Z {"id": "background_bsb_1464_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.972074292000002}
+2026-10-30T06:01:50.0191756Z {"id": "background_bsb_2731_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0225125629999923}
+2026-10-30T06:01:52.1128974Z {"id": "background_bsb_2731_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.090405481999994}
+2026-10-30T06:01:54.1246018Z {"id": "background_bsb_2731_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.008302426}
+2026-10-30T06:01:56.1504479Z {"id": "background_bsb_2731_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0223022389999983}
+2026-10-30T06:01:58.1830746Z {"id": "background_bsb_2731_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.02919892700001}
+2026-10-30T06:02:00.2354932Z {"id": "background_bsb_2760_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.048766080000007}
+2026-10-30T06:02:02.2596392Z {"id": "background_bsb_2760_original_bsb_2717_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0204645839999955}
+2026-10-30T06:02:04.3101060Z {"id": "background_bsb_2760_original_bsb_0908_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.046898978999991}
+2026-10-30T06:02:06.2796598Z {"id": "background_bsb_2760_original_bsb_2969_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9645818989999952}
+2026-10-30T06:02:08.2681918Z {"id": "background_bsb_2760_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.984539194000007}
+2026-10-30T06:02:10.2546555Z {"id": "position_bsb_0258_original_quiet_active+0_start_original_gain1", "status": "processed", "wall_seconds": 1.982551448999999}
+2026-10-30T06:02:12.2066774Z {"id": "position_bsb_0258_original_quiet_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9480728329999977}
+2026-10-30T06:02:14.4126110Z {"id": "position_bsb_0258_original_quiet_active+0_end_original_gain1", "status": "processed", "wall_seconds": 2.2017358619999925}
+2026-10-30T06:02:16.4818162Z {"id": "position_bsb_0258_original_bsb_0124_active+0_start_original_gain1", "status": "processed", "wall_seconds": 2.065011518999995}
+2026-10-30T06:02:18.4461974Z {"id": "position_bsb_0258_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9601511070000015}
+2026-10-30T06:02:20.4396240Z {"id": "position_bsb_0258_original_bsb_0124_active+0_end_original_gain1", "status": "processed", "wall_seconds": 1.9890978519999862}
+2026-10-30T06:02:22.5431168Z {"id": "position_bsb_0258_original_iusb_road_00_active+0_start_original_gain1", "status": "processed", "wall_seconds": 2.0991153829999973}
+2026-10-30T06:02:24.5108338Z {"id": "position_bsb_0258_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.963337270000011}
+2026-10-30T06:02:26.5077494Z {"id": "position_bsb_0258_original_iusb_road_00_active+0_end_original_gain1", "status": "processed", "wall_seconds": 1.9923496979999982}
+2026-10-30T06:02:28.5032931Z {"id": "position_bsb_0260_original_quiet_active+0_start_original_gain1", "status": "processed", "wall_seconds": 1.9909187220000035}
+2026-10-30T06:02:30.5347999Z {"id": "position_bsb_0260_original_quiet_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.0269006670000067}
+2026-10-30T06:02:32.5202718Z {"id": "position_bsb_0260_original_quiet_active+0_end_original_gain1", "status": "processed", "wall_seconds": 1.9806176350000158}
+2026-10-30T06:02:34.5649478Z {"id": "position_bsb_0260_original_bsb_0124_active+0_start_original_gain1", "status": "processed", "wall_seconds": 2.03979720800001}
+2026-10-30T06:02:36.5340971Z {"id": "position_bsb_0260_original_bsb_0124_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 1.9643387320000159}
+2026-10-30T06:02:38.4671740Z {"id": "position_bsb_0260_original_bsb_0124_active+0_end_original_gain1", "status": "processed", "wall_seconds": 1.9282101799999793}
+2026-10-30T06:02:40.3967920Z {"id": "position_bsb_0260_original_iusb_road_00_active+0_start_original_gain1", "status": "processed", "wall_seconds": 1.9246701550000012}
+2026-10-30T06:02:42.4198366Z {"id": "position_bsb_0260_original_iusb_road_00_active+0_middle_original_gain1", "status": "processed", "wall_seconds": 2.017807805999979}
+2026-10-30T06:02:44.3473237Z {"id": "position_bsb_0260_original_iusb_road_00_active+0_end_original_gain1", "status": "processed", "wall_seconds": 1.9222718519999944}
+2026-10-30T06:02:46.2897099Z {"id": "round1_bsb_0258_bsb_0124_snr-5", "status": "processed", "wall_seconds": 1.937243512000009}
+2026-10-30T06:02:48.2891250Z {"id": "round1_bsb_0258_bsb_0124_snr+0", "status": "processed", "wall_seconds": 1.9941014089999953}
+2026-10-30T06:02:50.3449701Z {"id": "round1_bsb_0258_bsb_0124_snr+5", "status": "processed", "wall_seconds": 2.050530887000008}
+2026-10-30T06:02:52.3355447Z {"id": "round1_bsb_0258_bsb_2717_snr-5", "status": "processed", "wall_seconds": 1.9852110449999998}
+2026-10-30T06:02:54.3577536Z {"id": "round1_bsb_0258_bsb_2717_snr+0", "status": "processed", "wall_seconds": 2.016756971999996}
+2026-10-30T06:02:56.3102864Z {"id": "round1_bsb_0258_bsb_2717_snr+5", "status": "processed", "wall_seconds": 1.947040104999985}
+2026-10-30T06:02:58.2647678Z {"id": "round1_bsb_0260_bsb_0124_snr-5", "status": "processed", "wall_seconds": 1.948678842999982}
+2026-10-30T06:03:00.2582792Z {"id": "round1_bsb_0260_bsb_0124_snr+0", "status": "processed", "wall_seconds": 1.9879167100000075}
+2026-10-30T06:03:02.2159569Z {"id": "round1_bsb_0260_bsb_0124_snr+5", "status": "processed", "wall_seconds": 1.9520039539999914}
+2026-10-30T06:03:04.1448028Z {"id": "round1_bsb_0260_bsb_2717_snr-5", "status": "processed", "wall_seconds": 1.923044138999984}
+2026-10-30T06:03:06.1142884Z {"id": "round1_bsb_0260_bsb_2717_snr+0", "status": "processed", "wall_seconds": 1.9627183529999854}
+2026-10-30T06:03:08.0972632Z {"id": "round1_bsb_0260_bsb_2717_snr+5", "status": "processed", "wall_seconds": 1.9770049769999787}
+2026-10-30T06:03:10.8475192Z ##[group]Run python research/semantic_hearing/round2/analyze.py /tmp/sh-round2 --output /tmp/sh-round2/analysis
+2026-10-30T06:03:10.8475829Z [36;1mpython research/semantic_hearing/round2/analyze.py /tmp/sh-round2 --output /tmp/sh-round2/analysis[0m
+2026-10-30T06:03:10.8529554Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:03:10.8529757Z env:
+2026-10-30T06:03:10.8529978Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:10.8530317Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:03:10.8530662Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:10.8530967Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:10.8531278Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:10.8531569Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:03:10.8531824Z ##[endgroup]
+2026-10-30T06:03:12.0366236Z /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1/research/semantic_hearing/round2/analyze.py:57: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+2026-10-30T06:03:12.0367443Z   for ax in axes:ax.set_xlabel('Edited prefix duration (s)');ax.set_title('Same-recording prefix crops, 5ms fades');ax.grid(alpha=.25);ax.legend(fontsize=8)
+2026-10-30T06:03:12.7728379Z ##[group]Run actions/upload-artifact@v4
+2026-10-30T06:03:12.7728609Z with:
+2026-10-30T06:03:12.7728837Z   name: sh-round2-key-f2d18e19605b102d2cca5717bb22e3917258a676
+2026-10-30T06:03:12.7729116Z   path: /tmp/sh-round2
+2026-10-30T06:03:12.7729316Z   retention-days: 90
+2026-10-30T06:03:12.7729490Z   if-no-files-found: error
+2026-10-30T06:03:12.7729675Z   compression-level: 6
+2026-10-30T06:03:12.7729839Z   overwrite: false
+2026-10-30T06:03:12.7730009Z   include-hidden-files: false
+2026-10-30T06:03:12.7730191Z env:
+2026-10-30T06:03:12.7730395Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:12.7730720Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:03:12.7731043Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:12.7731337Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:12.7731621Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:03:12.7731928Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:03:12.7732179Z ##[endgroup]
+2026-10-30T06:03:12.9133578Z (node:2752) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:03:12.9134756Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:03:13.0639459Z With the provided path, there will be 1187 files uploaded
+2026-10-30T06:03:13.0643968Z Artifact name is valid!
+2026-10-30T06:03:13.0644569Z Root directory input is valid!
+2026-10-30T06:03:13.2831653Z Beginning upload of artifact content to blob storage
+2026-10-30T06:03:13.6279701Z (node:2752) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:03:13.8561118Z Uploaded bytes 8388608
+2026-10-30T06:03:14.0499025Z Uploaded bytes 16777216
+2026-10-30T06:03:14.4558134Z Uploaded bytes 25165824
+2026-10-30T06:03:14.7161666Z Uploaded bytes 33554432
+2026-10-30T06:03:15.0171312Z Uploaded bytes 41943040
+2026-10-30T06:03:15.3275878Z Uploaded bytes 50331648
+2026-10-30T06:03:15.5708549Z Uploaded bytes 58720256
+2026-10-30T06:03:15.9765179Z Uploaded bytes 67108864
+2026-10-30T06:03:16.2123441Z Uploaded bytes 75497472
+2026-10-30T06:03:16.4461994Z Uploaded bytes 83886080
+2026-10-30T06:03:16.7559521Z Uploaded bytes 92274688
+2026-10-30T06:03:16.9406886Z Uploaded bytes 100663296
+2026-10-30T06:03:17.2386276Z Uploaded bytes 109051904
+2026-10-30T06:03:17.5312812Z Uploaded bytes 117440512
+2026-10-30T06:03:17.7671462Z Uploaded bytes 125829120
+2026-10-30T06:03:18.0124744Z Uploaded bytes 134217728
+2026-10-30T06:03:18.3040342Z Uploaded bytes 142606336
+2026-10-30T06:03:18.6840192Z Uploaded bytes 150994944
+2026-10-30T06:03:18.9229525Z Uploaded bytes 159383552
+2026-10-30T06:03:19.1695263Z Uploaded bytes 167772160
+2026-10-30T06:03:19.4743339Z Uploaded bytes 176160768
+2026-10-30T06:03:19.7587046Z Uploaded bytes 184549376
+2026-10-30T06:03:20.0899763Z Uploaded bytes 192937984
+2026-10-30T06:03:20.3414341Z Uploaded bytes 201326592
+2026-10-30T06:03:20.6268017Z Uploaded bytes 209715200
+2026-10-30T06:03:20.9601886Z Uploaded bytes 218103808
+2026-10-30T06:03:21.4153295Z Uploaded bytes 226492416
+2026-10-30T06:03:21.6358677Z Uploaded bytes 234881024
+2026-10-30T06:03:21.9494032Z Uploaded bytes 243269632
+2026-10-30T06:03:22.2247064Z Uploaded bytes 251658240
+2026-10-30T06:03:22.5142504Z Uploaded bytes 260046848
+2026-10-30T06:03:22.9220488Z Uploaded bytes 268435456
+2026-10-30T06:03:23.3914550Z Uploaded bytes 276824064
+2026-10-30T06:03:23.7373889Z Uploaded bytes 285212672
+2026-10-30T06:03:24.1430023Z Uploaded bytes 293601280
+2026-10-30T06:03:24.5172644Z Uploaded bytes 301989888
+2026-10-30T06:03:24.8873116Z Uploaded bytes 310378496
+2026-10-30T06:03:25.3535513Z Uploaded bytes 318767104
+2026-10-30T06:03:25.6917525Z Uploaded bytes 327155712
+2026-10-30T06:03:26.0808695Z Uploaded bytes 335544320
+2026-10-30T06:03:26.3530096Z Uploaded bytes 343932928
+2026-10-30T06:03:26.6712164Z Uploaded bytes 352321536
+2026-10-30T06:03:26.9767800Z Uploaded bytes 360710144
+2026-10-30T06:03:27.2486457Z Uploaded bytes 369098752
+2026-10-30T06:03:27.4895251Z Uploaded bytes 377487360
+2026-10-30T06:03:27.7769328Z Uploaded bytes 385875968
+2026-10-30T06:03:28.0713823Z Uploaded bytes 394264576
+2026-10-30T06:03:28.4139662Z Uploaded bytes 402653184
+2026-10-30T06:03:28.7272242Z Uploaded bytes 411041792
+2026-10-30T06:03:28.9797204Z Uploaded bytes 419430400
+2026-10-30T06:03:29.3779864Z Uploaded bytes 427819008
+2026-10-30T06:03:29.8000260Z Uploaded bytes 436207616
+2026-10-30T06:03:30.2644809Z Uploaded bytes 444596224
+2026-10-30T06:03:30.6589681Z Uploaded bytes 452984832
+2026-10-30T06:03:31.1274324Z Uploaded bytes 461373440
+2026-10-30T06:03:31.5051523Z Uploaded bytes 469762048
+2026-10-30T06:03:32.0446722Z Uploaded bytes 478150656
+2026-10-30T06:03:32.5756216Z Uploaded bytes 486539264
+2026-10-30T06:03:32.9330332Z Uploaded bytes 494927872
+2026-10-30T06:03:33.2585183Z Uploaded bytes 503316480
+2026-10-30T06:03:33.6146167Z Uploaded bytes 511705088
+2026-10-30T06:03:33.8738818Z Uploaded bytes 520093696
+2026-10-30T06:03:34.3155410Z Uploaded bytes 528482304
+2026-10-30T06:03:34.8587985Z Uploaded bytes 536870912
+2026-10-30T06:03:35.2366686Z Uploaded bytes 545259520
+2026-10-30T06:03:35.5140584Z Uploaded bytes 553648128
+2026-10-30T06:03:35.8009517Z Uploaded bytes 562036736
+2026-10-30T06:03:36.2624843Z Uploaded bytes 570425344
+2026-10-30T06:03:36.6387758Z Uploaded bytes 578813952
+2026-10-30T06:03:37.0602065Z Uploaded bytes 587202560
+2026-10-30T06:03:37.4281912Z Uploaded bytes 595591168
+2026-10-30T06:03:37.6655061Z Uploaded bytes 603979776
+2026-10-30T06:03:37.9916438Z Uploaded bytes 612368384
+2026-10-30T06:03:38.3513479Z Uploaded bytes 620756992
+2026-10-30T06:03:38.5395275Z Uploaded bytes 629145600
+2026-10-30T06:03:38.8596574Z Uploaded bytes 637534208
+2026-10-30T06:03:39.2942944Z Uploaded bytes 645922816
+2026-10-30T06:03:39.6017725Z Uploaded bytes 654311424
+2026-10-30T06:03:39.9415117Z Uploaded bytes 662700032
+2026-10-30T06:03:40.3094255Z Uploaded bytes 671088640
+2026-10-30T06:03:40.6118992Z Uploaded bytes 679477248
+2026-10-30T06:03:40.9561473Z Uploaded bytes 687865856
+2026-10-30T06:03:41.2301436Z Uploaded bytes 696254464
+2026-10-30T06:03:41.6954846Z Uploaded bytes 704643072
+2026-10-30T06:03:42.0974991Z Uploaded bytes 713031680
+2026-10-30T06:03:42.4819657Z Uploaded bytes 721420288
+2026-10-30T06:03:43.0078251Z Uploaded bytes 729808896
+2026-10-30T06:03:43.3908224Z Uploaded bytes 738197504
+2026-10-30T06:03:43.6471357Z Uploaded bytes 746586112
+2026-10-30T06:03:43.9110590Z Uploaded bytes 754974720
+2026-10-30T06:03:44.1634925Z Uploaded bytes 763363328
+2026-10-30T06:03:44.4529348Z Uploaded bytes 771751936
+2026-10-30T06:03:44.6750967Z Uploaded bytes 780140544
+2026-10-30T06:03:44.9851183Z Uploaded bytes 788529152
+2026-10-30T06:03:45.1763298Z Uploaded bytes 796917760
+2026-10-30T06:03:45.4684838Z Uploaded bytes 805306368
+2026-10-30T06:03:45.7000915Z Uploaded bytes 813694976
+2026-10-30T06:03:45.9374243Z Uploaded bytes 822083584
+2026-10-30T06:03:46.1775331Z Uploaded bytes 830472192
+2026-10-30T06:03:46.4766780Z Uploaded bytes 838860800
+2026-10-30T06:03:46.9284392Z Uploaded bytes 847249408
+2026-10-30T06:03:47.2959034Z Uploaded bytes 855638016
+2026-10-30T06:03:47.5934998Z Uploaded bytes 864026624
+2026-10-30T06:03:47.6681524Z Uploaded bytes 866752019
+2026-10-30T06:03:47.6886984Z Finished uploading artifact content to blob storage!
+2026-10-30T06:03:47.6889290Z SHA256 digest of uploaded artifact zip is c04ef0d745781241e580a6b090816fdb52b795795b3c3f88b7d0f3859865bba6
+2026-10-30T06:03:47.6891034Z Finalizing artifact upload
+2026-10-30T06:03:48.1115129Z Artifact sh-round2-key-f2d18e19605b102d2cca5717bb22e3917258a676.zip successfully finalized. Artifact ID 12957767960
+2026-10-30T06:03:48.1116000Z Artifact sh-round2-key-f2d18e19605b102d2cca5717bb22e3917258a676 has been successfully uploaded! Final size is 866752019 bytes. Artifact ID is 12957767960
+2026-10-30T06:03:48.1123368Z Artifact download URL: https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/41011463180/artifacts/12957767960
+2026-10-30T06:03:48.1377009Z Post job cleanup.
+2026-10-30T06:03:48.2421794Z (node:2772) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:03:48.2422590Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:03:48.2574288Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1 --files-from manifest.txt --use-compress-program zstdmt
+2026-10-30T06:03:48.7502428Z (node:2772) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:03:49.7397961Z Sent 227867140 of 294976004 (77.2%), 217.1 MBs/sec
+2026-10-30T06:03:49.7906115Z Sent 294976004 of 294976004 (100.0%), 267.4 MBs/sec
+2026-10-30T06:03:49.9769932Z Cache saved with the key: setup-python-Linux-x64-22.04-Ubuntu-python-3.10.22-pip-d5bbe439e48def5729cea048cf631538dd051ad9df5b70da92c5de9718df81db
+2026-10-30T06:03:49.9910515Z Post job cleanup.
+2026-10-30T06:03:50.0669724Z [command]/usr/bin/git version
+2026-10-30T06:03:50.0710793Z git version 2.56.0
+2026-10-30T06:03:50.0743935Z Temporarily overriding HOME='/home/runner/work/_temp/fd2b6657-c548-46da-9f30-3aedf8ccda6f' before making global git config changes
+2026-10-30T06:03:50.0744924Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T06:03:50.0748837Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:03:50.0785709Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T06:03:50.0817606Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T06:03:50.1074823Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T06:03:50.1099510Z http.https://github.com/.extraheader
+2026-10-30T06:03:50.1109391Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-30T06:03:50.1143630Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T06:03:50.1398509Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T06:03:50.1438919Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T06:03:50.1803181Z Cleaning up orphan processes
+2026-10-30T06:03:50.2103988Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

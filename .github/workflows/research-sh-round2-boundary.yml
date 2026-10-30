@@ -1,0 +1,70 @@
+name: SH round 2 block-aligned boundary follow-up
+on:
+  push:
+    branches: [research/sh-round2-controlled-20261030]
+    paths: ['research/semantic_hearing/round2/followup/**', '.github/workflows/research-sh-round2-boundary.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  boundary:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.22'
+          cache: pip
+          cache-dependency-path: research/semantic_hearing/round2/dependency-lock.txt
+      - run: python -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41011463180
+          name: sh-round2-full-f2d18e19605b102d2cca5717bb22e3917258a676
+          path: /tmp/sh-baseline
+      - name: Pin unchanged official neural network
+        run: |
+          git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+          git -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50
+      - name: Execute the 42 exploratory block-aligned controls
+        run: |
+          mkdir -p /tmp/sh-boundary
+          set -o pipefail
+          python -u research/semantic_hearing/round2/followup/boundary.py --baseline /tmp/sh-baseline --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt --output /tmp/sh-boundary 2>&1 | tee /tmp/sh-boundary/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sh-round2-boundary-${{ github.sha }}
+          path: /tmp/sh-boundary
+          retention-days: 90
+          if-no-files-found: error
+  verify-boundary:
+    needs: boundary
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/sh-round2-controlled-20261030
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.22'
+      - run: python -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: sh-round2-boundary-${{ github.sha }}
+          path: /tmp/sh-boundary
+      - name: Verify context padding, exact original input samples, and WAV archive
+        run: python research/semantic_hearing/round2/followup/verify_boundary.py --run /tmp/sh-boundary --output research/semantic_hearing/round2/evidence/boundary
+      - name: Preserve actual follow-up evidence
+        run: |
+          git config user.name 'SH research evidence'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/semantic_hearing/round2/evidence/boundary
+          git commit -m 'research: preserve verified 42-case block-aligned boundary follow-up'
+          git push origin HEAD:refs/heads/research/sh-round2-controlled-20261030

@@ -1,0 +1,333 @@
+﻿2026-10-30T06:11:04.1115161Z Current runner version: '2.338.0'
+2026-10-30T06:11:04.1142697Z ##[group]Runner Image Provisioner
+2026-10-30T06:11:04.1143691Z Hosted Compute Agent
+2026-10-30T06:11:04.1144351Z Version: 20261021.618
+2026-10-30T06:11:04.1145006Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-30T06:11:04.1145848Z Build Date: 2026-10-21T00:45:21Z
+2026-10-30T06:11:04.1146595Z Worker ID: {d609f2b0-2d28-4769-90e3-bdf9e36efa3f}
+2026-10-30T06:11:04.1147395Z Region: centralus
+2026-10-30T06:11:04.1148018Z Cloud: Azure
+2026-10-30T06:11:04.1148584Z ##[endgroup]
+2026-10-30T06:11:04.1150920Z ##[group]Operating System
+2026-10-30T06:11:04.1151622Z Ubuntu
+2026-10-30T06:11:04.1152912Z 22.04.5
+2026-10-30T06:11:04.1153525Z LTS
+2026-10-30T06:11:04.1154067Z ##[endgroup]
+2026-10-30T06:11:04.1154766Z ##[group]Runner Image
+2026-10-30T06:11:04.1155413Z Image: ubuntu-22.04
+2026-10-30T06:11:04.1156057Z Version: 20261025.340.1
+2026-10-30T06:11:04.1157435Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261025.340/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-30T06:11:04.1159124Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261025.340
+2026-10-30T06:11:04.1160554Z ##[endgroup]
+2026-10-30T06:11:04.1161898Z ##[group]GITHUB_TOKEN Permissions
+2026-10-30T06:11:04.1164570Z Actions: read
+2026-10-30T06:11:04.1165875Z Contents: write
+2026-10-30T06:11:04.1166515Z Metadata: read
+2026-10-30T06:11:04.1167168Z ##[endgroup]
+2026-10-30T06:11:04.1169397Z Secret source: Actions
+2026-10-30T06:11:04.1170811Z Cache mode: write
+2026-10-30T06:11:04.1172160Z Prepare workflow directory
+2026-10-30T06:11:04.1545106Z Prepare all required actions
+2026-10-30T06:11:04.1619290Z Getting action download info
+2026-10-30T06:11:04.4033850Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-30T06:11:04.5817977Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-30T06:11:04.6808513Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-30T06:11:05.1662558Z Complete job name: audit
+2026-10-30T06:11:05.2661266Z ##[group]Run actions/checkout@v4
+2026-10-30T06:11:05.2662229Z with:
+2026-10-30T06:11:05.2662763Z   ref: research/sh-round2-controlled-20261030
+2026-10-30T06:11:05.2663472Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:05.2667546Z   token: ***
+2026-10-30T06:11:05.2668008Z   ssh-strict: true
+2026-10-30T06:11:05.2668475Z   ssh-user: git
+2026-10-30T06:11:05.2668950Z   persist-credentials: true
+2026-10-30T06:11:05.2669468Z   clean: true
+2026-10-30T06:11:05.2670163Z   sparse-checkout-cone-mode: true
+2026-10-30T06:11:05.2670739Z   fetch-depth: 1
+2026-10-30T06:11:05.2671206Z   fetch-tags: false
+2026-10-30T06:11:05.2671689Z   show-progress: true
+2026-10-30T06:11:05.2672182Z   lfs: false
+2026-10-30T06:11:05.2672639Z   submodules: false
+2026-10-30T06:11:05.2673125Z   set-safe-directory: true
+2026-10-30T06:11:05.2673919Z   allow-unsafe-pr-checkout: false
+2026-10-30T06:11:05.2674939Z ##[endgroup]
+2026-10-30T06:11:05.5011827Z Syncing repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:05.5014832Z ##[group]Getting Git version info
+2026-10-30T06:11:05.5016366Z Working directory is '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T06:11:05.5018425Z [command]/usr/bin/git version
+2026-10-30T06:11:05.5089264Z git version 2.56.0
+2026-10-30T06:11:05.5120293Z ##[endgroup]
+2026-10-30T06:11:05.5136932Z Temporarily overriding HOME='/home/runner/work/_temp/0340db82-2a39-4e9c-a01d-40850c26efd2' before making global git config changes
+2026-10-30T06:11:05.5139866Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T06:11:05.5142977Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:11:05.5208570Z Deleting the contents of '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T06:11:05.5211633Z ##[group]Initializing the repository
+2026-10-30T06:11:05.5212779Z [command]/usr/bin/git init /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:11:05.5348059Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-30T06:11:05.5350001Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-30T06:11:05.5351904Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-30T06:11:05.5353174Z hint: call:
+2026-10-30T06:11:05.5353981Z hint:
+2026-10-30T06:11:05.5355464Z hint: 	git config --global init.defaultBranch <name>
+2026-10-30T06:11:05.5356641Z hint:
+2026-10-30T06:11:05.5357702Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-30T06:11:05.5359362Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-30T06:11:05.5361013Z hint:
+2026-10-30T06:11:05.5361718Z hint: 	git branch -m <name>
+2026-10-30T06:11:05.5362641Z hint:
+2026-10-30T06:11:05.5363805Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-30T06:11:05.5366069Z Initialized empty Git repository in /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1/.git/
+2026-10-30T06:11:05.5369931Z [command]/usr/bin/git remote add origin https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:05.5416420Z ##[endgroup]
+2026-10-30T06:11:05.5418077Z ##[group]Disabling automatic garbage collection
+2026-10-30T06:11:05.5420727Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-30T06:11:05.5470199Z ##[endgroup]
+2026-10-30T06:11:05.5471564Z ##[group]Setting up auth
+2026-10-30T06:11:05.5472835Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T06:11:05.5511570Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T06:11:05.5925173Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T06:11:05.5975932Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T06:11:05.6260452Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T06:11:05.6304016Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T06:11:05.6574201Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-30T06:11:05.6622637Z ##[endgroup]
+2026-10-30T06:11:05.6623439Z ##[group]Fetching the repository
+2026-10-30T06:11:05.6634819Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/research/sh-round2-controlled-20261030*:refs/remotes/origin/research/sh-round2-controlled-20261030* +refs/tags/research/sh-round2-controlled-20261030*:refs/tags/research/sh-round2-controlled-20261030*
+2026-10-30T06:11:06.5762187Z From https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:06.5764449Z  * [new branch]      research/sh-round2-controlled-20261030 -> origin/research/sh-round2-controlled-20261030
+2026-10-30T06:11:06.5768556Z ##[endgroup]
+2026-10-30T06:11:06.5770407Z ##[group]Determining the checkout info
+2026-10-30T06:11:06.5776803Z [command]/usr/bin/git branch --list --remote origin/research/sh-round2-controlled-20261030
+2026-10-30T06:11:06.5811576Z   origin/research/sh-round2-controlled-20261030
+2026-10-30T06:11:06.5824971Z ##[endgroup]
+2026-10-30T06:11:06.5826414Z [command]/usr/bin/git sparse-checkout disable
+2026-10-30T06:11:06.5925469Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-30T06:11:06.5968366Z ##[group]Checking out the ref
+2026-10-30T06:11:06.5974162Z [command]/usr/bin/git checkout --progress --force -B research/sh-round2-controlled-20261030 refs/remotes/origin/research/sh-round2-controlled-20261030
+2026-10-30T06:11:06.7386523Z Switched to a new branch 'research/sh-round2-controlled-20261030'
+2026-10-30T06:11:06.7391639Z branch 'research/sh-round2-controlled-20261030' set up to track 'origin/research/sh-round2-controlled-20261030'.
+2026-10-30T06:11:06.7412780Z ##[endgroup]
+2026-10-30T06:11:06.7462575Z [command]/usr/bin/git log -1 --format=%H
+2026-10-30T06:11:06.7496766Z 1d1642427a95f0848a9d656b990e15c3e5f762f2
+2026-10-30T06:11:06.7988599Z ##[group]Run actions/setup-python@v5
+2026-10-30T06:11:06.7990451Z with:
+2026-10-30T06:11:06.7991448Z   python-version: 3.10.22
+2026-10-30T06:11:06.7992488Z   check-latest: false
+2026-10-30T06:11:06.8002214Z   token: ***
+2026-10-30T06:11:06.8003132Z   update-environment: true
+2026-10-30T06:11:06.8004197Z   allow-prereleases: false
+2026-10-30T06:11:06.8005248Z   freethreaded: false
+2026-10-30T06:11:06.8006180Z ##[endgroup]
+2026-10-30T06:11:06.9527831Z ##[group]Installed versions
+2026-10-30T06:11:06.9549438Z Version 3.10.22 was not found in the local cache
+2026-10-30T06:11:06.9754763Z (node:2186) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:11:06.9759475Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:11:07.8902621Z Version 3.10.22 is available for downloading
+2026-10-30T06:11:07.8904388Z Download from "https://github.com/actions/python-versions/releases/download/3.10.22-36876129702/python-3.10.22-linux-22.04-x64.tar.gz"
+2026-10-30T06:11:08.5260053Z Extract downloaded archive
+2026-10-30T06:11:08.5405402Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/221f4739-9038-4815-a844-e1e5b0ec494e -f /home/runner/work/_temp/109e5859-217f-4df5-a034-b382b2fd3f78
+2026-10-30T06:11:09.8595889Z Execute installation script
+2026-10-30T06:11:09.8706590Z Check if Python hostedtoolcache folder exist...
+2026-10-30T06:11:09.8707376Z Create Python 3.10.22 folder
+2026-10-30T06:11:09.8722852Z Copy Python binaries to hostedtoolcache folder
+2026-10-30T06:11:10.4278348Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-30T06:11:10.4328501Z Upgrading pip...
+2026-10-30T06:11:12.3968360Z Collecting pip
+2026-10-30T06:11:12.4747723Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-30T06:11:12.5642102Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 21.0 MB/s eta 0:00:00
+2026-10-30T06:11:12.5642732Z 
+2026-10-30T06:11:12.6258792Z Installing collected packages: pip
+2026-10-30T06:11:12.6260591Z Attempting uninstall: pip
+2026-10-30T06:11:12.6266912Z Found existing installation: pip 23.0.1
+2026-10-30T06:11:12.8147577Z Uninstalling pip-23.0.1:
+2026-10-30T06:11:12.8222347Z Successfully uninstalled pip-23.0.1
+2026-10-30T06:11:13.7029322Z Successfully installed pip-26.2.2
+2026-10-30T06:11:13.7672410Z Create complete file
+2026-10-30T06:11:13.7716483Z Successfully set up CPython (3.10.22)
+2026-10-30T06:11:13.7717609Z ##[endgroup]
+2026-10-30T06:11:13.7910697Z ##[group]Run python -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1
+2026-10-30T06:11:13.7911355Z [36;1mpython -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1[0m
+2026-10-30T06:11:13.7994367Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:11:13.7994661Z env:
+2026-10-30T06:11:13.7994945Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:13.7995401Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:13.7995884Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:13.7996277Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:13.7996724Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:13.7997113Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:13.7997437Z ##[endgroup]
+2026-10-30T06:11:14.6587363Z Collecting numpy==1.26.4
+2026-10-30T06:11:14.7241602Z   Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2026-10-30T06:11:14.9080497Z Collecting scipy==1.14.1
+2026-10-30T06:11:14.9238249Z   Downloading scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+2026-10-30T06:11:14.9598828Z Collecting soundfile==0.13.1
+2026-10-30T06:11:14.9738060Z   Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-10-30T06:11:15.1345579Z Collecting cffi>=1.0 (from soundfile==0.13.1)
+2026-10-30T06:11:15.1488444Z   Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-10-30T06:11:15.1743713Z Collecting pycparser (from cffi>=1.0->soundfile==0.13.1)
+2026-10-30T06:11:15.1881963Z   Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T06:11:15.2049963Z Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+2026-10-30T06:11:15.3327401Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 162.9 MB/s  0:00:00
+2026-10-30T06:11:15.3483512Z Downloading scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+2026-10-30T06:11:15.5245781Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.2/41.2 MB 236.4 MB/s  0:00:00
+2026-10-30T06:11:15.5392028Z Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+2026-10-30T06:11:15.5490375Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 152.5 MB/s  0:00:00
+2026-10-30T06:11:15.5632514Z Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218 kB)
+2026-10-30T06:11:15.5802086Z Downloading pycparser-3.11-py3-none-any.whl (51 kB)
+2026-10-30T06:11:15.7124645Z Installing collected packages: pycparser, numpy, scipy, cffi, soundfile
+2026-10-30T06:11:21.4246783Z 
+2026-10-30T06:11:21.4263149Z Successfully installed cffi-2.1.1 numpy-1.26.4 pycparser-3.11 scipy-1.14.1 soundfile-0.13.1
+2026-10-30T06:11:21.5159094Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:11:21.5159402Z with:
+2026-10-30T06:11:21.5162227Z   github-token: ***
+2026-10-30T06:11:21.5162451Z   run-id: 41010371339
+2026-10-30T06:11:21.5162672Z   name: sh-r2-source-audit
+2026-10-30T06:11:21.5162916Z   path: /tmp/sh-source-cache/first
+2026-10-30T06:11:21.5163175Z   merge-multiple: false
+2026-10-30T06:11:21.5163424Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:21.5163700Z env:
+2026-10-30T06:11:21.5163943Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:21.5164371Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:21.5164798Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:21.5165171Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:21.5165546Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:21.5165969Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:21.5166301Z ##[endgroup]
+2026-10-30T06:11:21.6792504Z Downloading single artifact
+2026-10-30T06:11:21.6897644Z (node:2245) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:11:21.6898560Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:11:21.7091886Z (node:2245) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:11:21.9387458Z Preparing to download the following artifacts:
+2026-10-30T06:11:21.9388748Z - sh-r2-source-audit (ID: 12956633987, Size: 143576622, Expected Digest: sha256:21ebea4931b3bc16829e1c9f93360a8f6972b2b24a477d4f297a5296f4e6f9a7)
+2026-10-30T06:11:21.9427292Z Downloading artifact '12956633987' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T06:11:22.1311448Z Redirecting to blob download url: https://productionresultssa4.blob.core.windows.net/actions-results/9a6d7793-ff05-83f6-a470-2832fd4e0e06/workflow-job-run-8f15a2cf-d3c9-516f-be90-e421ee3fd7ab/artifacts/ce395527a576d7be4d5c46216a6696366a5b76148a4346d4a9f95a2bfe99b1c4.zip
+2026-10-30T06:11:22.1313394Z Starting download of artifact to: /tmp/sh-source-cache/first
+2026-10-30T06:11:22.3347325Z (node:2245) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:11:24.9421296Z SHA256 digest of downloaded artifact is 21ebea4931b3bc16829e1c9f93360a8f6972b2b24a477d4f297a5296f4e6f9a7
+2026-10-30T06:11:24.9422085Z Artifact download completed successfully.
+2026-10-30T06:11:24.9422537Z Total of 1 artifact(s) downloaded
+2026-10-30T06:11:24.9432115Z Download artifact has finished successfully
+2026-10-30T06:11:24.9611563Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:11:24.9611879Z with:
+2026-10-30T06:11:24.9614371Z   github-token: ***
+2026-10-30T06:11:24.9614617Z   run-id: 41010808161
+2026-10-30T06:11:24.9614848Z   name: sh-r2-extra-source-audit
+2026-10-30T06:11:24.9615112Z   path: /tmp/sh-source-cache/extra
+2026-10-30T06:11:24.9615376Z   merge-multiple: false
+2026-10-30T06:11:24.9615641Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:24.9615923Z env:
+2026-10-30T06:11:24.9616168Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:24.9616587Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:24.9617009Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:24.9617383Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:24.9617766Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:24.9618179Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:24.9618503Z ##[endgroup]
+2026-10-30T06:11:25.1288013Z Downloading single artifact
+2026-10-30T06:11:25.1390805Z (node:2257) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:11:25.1391711Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:11:25.1587900Z (node:2257) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:11:25.3636920Z Preparing to download the following artifacts:
+2026-10-30T06:11:25.3638432Z - sh-r2-extra-source-audit (ID: 12957815450, Size: 32422594, Expected Digest: sha256:4f40f718c8b4ef38c4aeccb1d2dcbe8b03df7069fa6507f2b089a579b5168af1)
+2026-10-30T06:11:25.3671875Z Downloading artifact '12957815450' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T06:11:25.5527615Z Redirecting to blob download url: https://productionresultssa14.blob.core.windows.net/actions-results/7319e729-9cbe-8ffb-ac36-0ca2d119aa64/workflow-job-run-dda8b8fe-5ef0-5307-a1be-221de1a45bd7/artifacts/a1a536cd9c0812f60207b8626d2b6241a59da2569b33bb625cee901fd1432be9.zip
+2026-10-30T06:11:25.5530275Z Starting download of artifact to: /tmp/sh-source-cache/extra
+2026-10-30T06:11:25.7249025Z (node:2257) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:11:26.5595231Z SHA256 digest of downloaded artifact is 4f40f718c8b4ef38c4aeccb1d2dcbe8b03df7069fa6507f2b089a579b5168af1
+2026-10-30T06:11:26.5596049Z Artifact download completed successfully.
+2026-10-30T06:11:26.5596479Z Total of 1 artifact(s) downloaded
+2026-10-30T06:11:26.5605841Z Download artifact has finished successfully
+2026-10-30T06:11:26.5797550Z ##[group]Run actions/download-artifact@v4
+2026-10-30T06:11:26.5797857Z with:
+2026-10-30T06:11:26.5800836Z   github-token: ***
+2026-10-30T06:11:26.5801091Z   run-id: 41011046101
+2026-10-30T06:11:26.5801326Z   name: sh-r2-final-source-audit
+2026-10-30T06:11:26.5801852Z   path: /tmp/sh-source-cache/final
+2026-10-30T06:11:26.5802119Z   merge-multiple: false
+2026-10-30T06:11:26.5802385Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:26.5802670Z env:
+2026-10-30T06:11:26.5802923Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:26.5803389Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:26.5803818Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:26.5804206Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:26.5804596Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:26.5805013Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:26.5805342Z ##[endgroup]
+2026-10-30T06:11:26.7521321Z Downloading single artifact
+2026-10-30T06:11:26.7628587Z (node:2269) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:11:26.7629411Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:11:26.7827709Z (node:2269) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T06:11:26.9952316Z Preparing to download the following artifacts:
+2026-10-30T06:11:26.9953383Z - sh-r2-final-source-audit (ID: 12957651167, Size: 7801892, Expected Digest: sha256:dfc7e2be2920f980cec879e81b41688c362f757a29cea88ede5e535ea70575fb)
+2026-10-30T06:11:26.9995568Z Downloading artifact '12957651167' from 'ky0o0/traffic-sound-guardian-v1'
+2026-10-30T06:11:27.2648803Z Redirecting to blob download url: https://productionresultssa14.blob.core.windows.net/actions-results/b33c23c8-dcbf-8ef7-8621-2379e5052cb6/workflow-job-run-bbf4fcdc-e85a-5aa9-9938-2ddd4771cc04/artifacts/8d025bbb79328567acf6ae4527a06629e9ea939659b67477a699b36c5b35653b.zip
+2026-10-30T06:11:27.2650946Z Starting download of artifact to: /tmp/sh-source-cache/final
+2026-10-30T06:11:27.4472674Z (node:2269) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-30T06:11:27.9016075Z SHA256 digest of downloaded artifact is dfc7e2be2920f980cec879e81b41688c362f757a29cea88ede5e535ea70575fb
+2026-10-30T06:11:27.9016704Z Artifact download completed successfully.
+2026-10-30T06:11:27.9017018Z Total of 1 artifact(s) downloaded
+2026-10-30T06:11:27.9022608Z Download artifact has finished successfully
+2026-10-30T06:11:27.9156314Z ##[group]Run python research/semantic_hearing/round2/cache_sources.py --cache /tmp/sh-source-cache --output /tmp/qa
+2026-10-30T06:11:27.9157158Z [36;1mpython research/semantic_hearing/round2/cache_sources.py --cache /tmp/sh-source-cache --output /tmp/qa[0m
+2026-10-30T06:11:27.9222275Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:11:27.9222541Z env:
+2026-10-30T06:11:27.9222812Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:27.9223257Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:27.9223694Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:27.9224072Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:27.9224454Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:27.9224842Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:27.9225163Z ##[endgroup]
+2026-10-30T06:11:28.2492671Z Verified and staged all 23 source originals; no further provider downloads
+2026-10-30T06:11:28.2589477Z ##[group]Run python research/semantic_hearing/round2/audit/source_qa.py --sources /tmp/qa --config research/semantic_hearing/round2/config.json --output research/semantic_hearing/round2/evidence/source_provenance_audit.json
+2026-10-30T06:11:28.2591567Z [36;1mpython research/semantic_hearing/round2/audit/source_qa.py --sources /tmp/qa --config research/semantic_hearing/round2/config.json --output research/semantic_hearing/round2/evidence/source_provenance_audit.json[0m
+2026-10-30T06:11:28.2656311Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:11:28.2656561Z env:
+2026-10-30T06:11:28.2656840Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:28.2657299Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:28.2657723Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:28.2658112Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:28.2658545Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:28.2658935Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:28.2659257Z ##[endgroup]
+2026-10-30T06:11:30.3307946Z {"sources": [{"id": "bsb_0257", "riff_metadata": {"bext": "Recent car horn 1BigSoundBank.com02572007-03-30A=PCM,F=44100,W=16,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"}, "decoded_pcm_sha256": "708887cf57d26ee7a260a6547caaedd4bdf3314dfce67f1a19f9c32358a0d827", "right_from_left_gain": 0.19721749984104442, "right_from_left_residual_ratio": 0.9759699904655109}, {"id": "bsb_0258", "riff_metadata": {"bext": "Recent car horn 2BigSoundBank.com02582007-03-30A=PCM,F=44100,W=16,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"}, "decoded_pcm_sha256": "84c9230349eb01be6f28f9073b774d6d657b48a28cd3424bada17f59e3f9b311", "right_from_left_gain": 0.3115472448866149, "right_from_left_residual_ratio": 0.9371888813411362}, {"id": "bsb_0259", "riff_metadata": {"bext": "Recent car horn 3BigSoundBank.com02592007-03-30A=PCM,F=44100,W=16,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"}, "decoded_pcm_sha256": "0f69ea0c3498fe472417dfc0852e39ebad11c169e648f59dd86ea95c9fff45a7", "right_from_left_gain": 0.338998226429279, "right_from_left_residual_ratio": 0.8861646618346853}, {"id": "bsb_0260", "riff_metadata": {"bext": "Car horn 4BigSoundBank.com02602007-03-30A=PCM,F=44100,W=16,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "voiture,klaxon,alerte,signal,sonore,vehicule,auto,automobile,horn,car,vehicle,klaxonner"}, "decoded_pcm_sha256": "9a7ba5cff6f86b2733502093f15db17f2f018e66e9ef1f6e6a1cc9bd8ee4b586", "right_from_left_gain": 0.25201026451626424, "right_from_left_residual_ratio": 0.9339102554083982}, {"id": "iusb_005", "riff_metadata": {"INAM": "120216_02", "IART": "My Recording"}, "decoded_pcm_sha256": "dc16ca02e039867d8c2de24112e17cf6524e96280512669bbdd9861effb6da9c", "right_from_left_gain": 0.7869870638086796, "right_from_left_residual_ratio": 0.2412247940611917}, {"id": "iusb_006", "riff_metadata": {"INAM": "120218_01", "IART": "My Recording"}, "decoded_pcm_sha256": "20b2450198d315f4b8117de50b4ab947fbb5a5418c36d9d1f7b21ca8f0ffd007", "right_from_left_gain": 0.8896905414922015, "right_from_left_residual_ratio": 0.1458952764912626}, {"id": "iusb_009", "riff_metadata": {}, "decoded_pcm_sha256": "ce4ea58185281b92d0f737cf2088ea3fbcb9abfa828bd19fb9e4e4fec9d13925", "right_from_left_gain": 1.0689849069578348, "right_from_left_residual_ratio": 0.008595964973763892}, {"id": "iusb_010", "riff_metadata": {}, "decoded_pcm_sha256": "e86b2d1dafa7ae9a497050ff52edd6f2fa78464199ddeeb2f25d58197c88dabd", "right_from_left_gain": 0.9045602639702149, "right_from_left_residual_ratio": 0.1840300837786012}, {"id": "commons_98066175", "riff_metadata": {"ICRD": "2019-02-27T23:34:50+01:00", "ISFT": "Adobe Audition CC 2019.0 (Windows)", "bext": "2019-02-2723:51:12\u0001", "iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<BWFXML><SPEED><TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_LO>0</TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_LO><TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_HI>0</TIMESTAMP_SAMPLES_SINCE_MIDNIGHT_HI></SPEED><BEXT><BWF_ORIGINATION_DATE>2019-02-27</BWF_ORIGINATION_DATE><BWF_ORIGINATION_TIME>23:51:12</BWF_ORIGINATION_TIME><BWF_TIME_REFERENCE_LOW>0</BWF_TIME_REFERENCE_LOW><BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH></BEXT></BWFXML>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         "}, "decoded_pcm_sha256": "0a406ffdb0a85fcb51073ebf793dfb9704cb6f63d964ad9dbc234a163fe29bfd", "right_from_left_gain": 0.6819119854644421, "right_from_left_residual_ratio": 0.23531900946489803}, {"id": "iusb_014", "riff_metadata": {}, "decoded_pcm_sha256": "0b4288d2339ae5125cc65867893c2c8ecdf0bbe4eadff0a2cee5a24ef85eef99", "right_from_left_gain": 1.0179116515909263, "right_from_left_residual_ratio": 0.30612588634660853}, {"id": "iusb_015", "riff_metadata": {}, "decoded_pcm_sha256": "64b52a1290e299f5408521dda6898892bf05191bde78cfd60ffd4adbaccef15e", "right_from_left_gain": 1.0117567737567115, "right_from_left_residual_ratio": 0.07165870655971075}, {"id": "iusb_016", "riff_metadata": {}, "decoded_pcm_sha256": "cc4f52d9f23d45048c68a9be1ab814e909fbae4d9a64530c3a85cbb7839c995d", "right_from_left_gain": 0.4147953557721925, "right_from_left_residual_ratio": 0.705489069234348}, {"id": "iusb_017", "riff_metadata": {"INAM": "http://www.freesound.org/samplesViewSingle.php?id=26711", "IART": "Timbre", "ICMT": "email: uvw111-fs@yahoo.co.uk", "ICRD": "2009"}, "decoded_pcm_sha256": "04568faecd839ca8a2233215df8223fd2115170679021c4e5e620c76ed41f069", "right_from_left_gain": 0.17867258846882875, "right_from_left_residual_ratio": 0.9614767385379345}, {"id": "iusb_018", "riff_metadata": {}, "decoded_pcm_sha256": "7e06b6852ed1a04c88ff2e19f7ab1054a2e32a4bf5a1ca2ceaa0fbf099a88ea2", "right_from_left_gain": 0.5772514860821836, "right_from_left_residual_ratio": 0.5700161529768959}, {"id": "bsb_1463", "riff_metadata": {"bext": "Ambulance siren 1BigSoundBank.com14632019-07-09A=PCM,F=48000,W=24,M=mono", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "ambulance,ambulancier,siren,horn,french,francais,francaise,avertisseur,special,secours,sirene,urgence,urgent,vehicule,paramedic,emergency,vehicle,alarm,alarme,trois,ton,gyrophare,beacon,pin,pon,samu,intervention,intervenir,alert,alerte"}, "decoded_pcm_sha256": "fe206103a5d31aa9cd2098c6d974fd5ed63bf7222f8a4e94d869048d5c6c7976"}, {"id": "bsb_1464", "riff_metadata": {"bext": "Ambulance siren 2BigSoundBank.com14642019-07-09A=PCM,F=48000,W=24,M=mono", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "ambulance,ambulancier,siren,horn,french,francais,francaise,avertisseur,special,secours,sirene,urgence,urgent,vehicule,paramedic,emergency,vehicle,alarm,alarme,deux,ton,gyrophare,beacon,pin,pon,pompier,samu,intervention,intervenir,alert,alerte"}, "decoded_pcm_sha256": "b2168673fe39127f27e203b975564e2cbd34feb903e5183a39f92535b53aa5c8"}, {"id": "bsb_2731", "riff_metadata": {"iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2022-07-07</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>11:24:52</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>1225038</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>F7D3AC0B37B34D90A40B19D575F57EDC</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>MartoPiqueur</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<NAME>AudioSyncpoint</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>22962</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stéréo</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n ", "bext": "Vehicle sirenBigSoundBank.com27312022-06-11A=PCM,F=48000,W=24,M=stereo", "IARL": "48.3172301,0.8262362", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "ambulance,ambulancier,siren,horn,french,francais,francaise,avertisseur,special,secours,sirene,urgence,urgent,vehicule,paramedic,emergency,vehicle,alarm,alarme,deux,ton,gyrophare,beacon,pin,pon,pompier,samu,intervention,intervenir,two,passage,effect,effet,arriver,passer,partir,alert,alerte,prioritaire"}, "decoded_pcm_sha256": "4b8dac366788671ddef5cbb23f4dbed0e758e6fc2f62454a9b1627110da45c7a", "right_from_left_gain": 0.011698303880613742, "right_from_left_residual_ratio": 0.9996552082681645}, {"id": "bsb_2760", "riff_metadata": {"iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2022-07-07</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>12:35:19</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>25885522</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>5EE6C7142D8846268378D7A4D7E5385D</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>Geofon</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<NAME>AudioSyncpoint</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>34478</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stereo Out</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n", "bext": "Gendarmerie motorcycle crossingBigSoundBank.com27602022-07-07A=PCM,F=48000,W=24,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "moto,motorcycle,gendarmerie,gendarme,siren,sirene"}, "decoded_pcm_sha256": "6120d6be14aaebd8e2f882e667ef53aef853a64c453a051d684d5077981e8d37", "right_from_left_gain": 0.34124163121988954, "right_from_left_residual_ratio": 0.926574912695033}, {"id": "bsb_0124", "riff_metadata": {"bext": "Rain and stormBigSoundBank.com01242006-09-30A=PCM,F=44100,W=16,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "orage,pluie,eau,pleut,foudre,tonnerre,coup,averse,rain,thunderstorm,thunder,ambiance,clash,atmosphere,soundscape,raining,kick,nature,grondement,gronder,tonner,eclair,grosse,gros,fort,forte,thunderstruck", "IARL": "48.576346,1.876454"}, "decoded_pcm_sha256": "1afdbf8d24231b9cc6ca8c813f1e1c885e98130b6b02e211ada3ccae5a60aa6e", "right_from_left_gain": -0.041488113792673365, "right_from_left_residual_ratio": 0.9988246228352532}, {"id": "bsb_2717", "riff_metadata": {"iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2022-06-04</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>13:00:28</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>0</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>102A6E0E215F494CB21EE418B056F954</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>MartoPiqueur</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stéréo</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n ", "bext": "Storm and rain 3BigSoundBank.com27172022-06-04A=PCM,F=48000,W=24,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "orage,pluie,eau,pleut,foudre,tonnerre,coup,averse,rain,thunderstorm,thunder,raining,drop,water,ambiance,clash,atmosphere,soundscape,nature,grondement,gronder,tonner,eclair,grosse,gros,fort,forte,thunderstruck"}, "decoded_pcm_sha256": "e20cfcf0d05e4512b560a2755b4e85d915e9302dda10167d9f9e9b84988c6d3b", "right_from_left_gain": 0.7960995992460359, "right_from_left_residual_ratio": 0.38757020980981494}, {"id": "bsb_0908", "riff_metadata": {"bext": "Wind in tall grassBigSoundBank.com09082015-04-19A=PCM,F=48000,W=16,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "vent,wind,grass,herbe,haute,ambiance,nature,atmosphere,soundscape,gust,blowing,blow,souffler,vegetal"}, "decoded_pcm_sha256": "63c8cf14ad1a208b2140fe3a1b9ec1a4827837fdf3e4e74b749ea0ff023a4adf", "right_from_left_gain": 0.5108330601380915, "right_from_left_residual_ratio": 0.7704946069072308}, {"id": "bsb_2969", "riff_metadata": {"iXML": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<BWFXML>\r\n\t<BEXT>\r\n\t\t<BWF_ORIGINATION_DATE>2023-05-30</BWF_ORIGINATION_DATE>\r\n\t\t<BWF_ORIGINATION_TIME>17:31:27</BWF_ORIGINATION_TIME>\r\n\t\t<BWF_TIME_REFERENCE_HIGH>0</BWF_TIME_REFERENCE_HIGH>\r\n\t\t<BWF_TIME_REFERENCE_LOW>0</BWF_TIME_REFERENCE_LOW>\r\n\t\t<BWF_UMID>F1814929D5C7489E8E3A57BE2DB10CE4</BWF_UMID>\r\n\t</BEXT>\r\n\t<PROJECT>Sans titre</PROJECT>\r\n\t<SPEED>\r\n\t\t<MASTER_SPEED>30/1</MASTER_SPEED>\r\n\t</SPEED>\r\n\t<STEINBERG>\r\n\t\t<ATTR_LIST>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSampleFormatSize</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>3</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>AudioSpeakerArrangement</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>1</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDropFrames</NAME>\r\n\t\t\t\t<TYPE>int</TYPE>\r\n\t\t\t\t<VALUE>0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaDuration</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>5681.001312</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaPullFactor</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>1.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaStartTime</NAME>\r\n\t\t\t\t<TYPE>float</TYPE>\r\n\t\t\t\t<VALUE>0.0</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>MediaTrackTitle</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Stereo Out</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramName</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Cubase LE AI Elements</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t\t<ATTR>\r\n\t\t\t\t<FLAGS>2</FLAGS>\r\n\t\t\t\t<NAME>ProgramVersion</NAME>\r\n\t\t\t\t<TYPE>string</TYPE>\r\n\t\t\t\t<VALUE>Version 10.5.30</VALUE>\r\n\t\t\t</ATTR>\r\n\t\t</ATTR_LIST>\r\n\t</STEINBERG>\r\n\t<TRACK_LIST>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>1</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>L-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>1</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK>\r\n\t\t\t<CHANNEL_INDEX>2</CHANNEL_INDEX>\r\n\t\t\t<FUNCTION>R-MIX</FUNCTION>\r\n\t\t\t<INTERLEAVE_INDEX>2</INTERLEAVE_INDEX>\r\n\t\t</TRACK>\r\n\t\t<TRACK_COUNT>2</TRACK_COUNT>\r\n\t</TRACK_LIST>\r\n</BWFXML>\r\n ", "bext": "Outside talks 2BigSoundBank.com29692023-06-01A=PCM,F=48000,W=24,M=stereo", "ICOP": "CC0 / WTFPL / Public domain", "IKEY": "walla,discussion,people,soiree,fete,personne,cocktail,vernissage,rhubarb,rhabarber,rabarber,gaya,group,groupe,ambiance,atmosphere,soundscape,talk,papotement,papoter,bavardage,bavarder,conversation,vacarme,voix,parler,gens,discuter,humain,speaking,adulte,adult,homme,femme,man,woman,talking,exterieur,outdoor,outside"}, "decoded_pcm_sha256": "0c7071c91e5b294b5ea73854bf067c63dc3b5e89e351930acbe06900e4809690", "right_from_left_gain": 0.07954758056050151, "right_from_left_residual_ratio": 0.9909616985673102}, {"id": "iusb_road_00", "riff_metadata": {}, "decoded_pcm_sha256": "f76161e260d37594538a43ffa9d196e00c50e460c9295bacb1b69eba40c4f678", "right_from_left_gain": 0.6034490943277897, "right_from_left_residual_ratio": 0.6191599632058726}], "horn_pairs": [{"a": "bsb_0257", "b": "bsb_0258", "max_abs_mono_subclip_correlation": 0.011033748756638415, "long_clip_offset_seconds": 1.0836281179138323, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "bsb_0259", "max_abs_mono_subclip_correlation": 0.008121985737052534, "long_clip_offset_seconds": 0.006712018140589569, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "bsb_0260", "max_abs_mono_subclip_correlation": 0.021096593451578157, "long_clip_offset_seconds": 0.011156462585034013, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "commons_98066175", "max_abs_mono_subclip_correlation": 0.03081555500111783, "long_clip_offset_seconds": 2.8140589569161, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "iusb_005", "max_abs_mono_subclip_correlation": 0.09960858741917816, "long_clip_offset_seconds": 0.22975056689342405, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "iusb_006", "max_abs_mono_subclip_correlation": 0.039810373327728604, "long_clip_offset_seconds": 0.4964172335600907, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.07061681355478781, "long_clip_offset_seconds": 0.00018140589569160998, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0257", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.021509084360893434, "long_clip_offset_seconds": 0.41523809523809524, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "bsb_0259", "max_abs_mono_subclip_correlation": 0.38227277182538383, "long_clip_offset_seconds": 0.00399092970521542, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "bsb_0260", "max_abs_mono_subclip_correlation": 0.036947644515594076, "long_clip_offset_seconds": 0.9579138321995465, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "commons_98066175", "max_abs_mono_subclip_correlation": 0.0023021350049458322, "long_clip_offset_seconds": 1.8922448979591837, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "iusb_005", "max_abs_mono_subclip_correlation": 0.01935642276098317, "long_clip_offset_seconds": 0.4854421768707483, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "iusb_006", "max_abs_mono_subclip_correlation": 0.04259495454891678, "long_clip_offset_seconds": 0.5987301587301588, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.04779670905423625, "long_clip_offset_seconds": 0.059319727891156464, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0258", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.011588853552624801, "long_clip_offset_seconds": 0.1164625850340136, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0259", "b": "bsb_0260", "max_abs_mono_subclip_correlation": 0.011527078345923985, "long_clip_offset_seconds": 0.06657596371882087, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0259", "b": "commons_98066175", "max_abs_mono_subclip_correlation": 0.04199410867640244, "long_clip_offset_seconds": 2.312562358276644, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0259", "b": "iusb_005", "max_abs_mono_subclip_correlation": 0.04604757196752676, "long_clip_offset_seconds": 0.49396825396825395, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0259", "b": "iusb_006", "max_abs_mono_subclip_correlation": 0.06618070502178156, "long_clip_offset_seconds": 0.5063038548752834, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0259", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.11515109482727819, "long_clip_offset_seconds": 0.4860770975056689, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0259", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.05169348350171052, "long_clip_offset_seconds": 0.47147392290249435, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0260", "b": "commons_98066175", "max_abs_mono_subclip_correlation": 0.03972391491707738, "long_clip_offset_seconds": 2.874920634920635, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0260", "b": "iusb_005", "max_abs_mono_subclip_correlation": 0.1173655777837246, "long_clip_offset_seconds": 0.4797278911564626, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0260", "b": "iusb_006", "max_abs_mono_subclip_correlation": 0.20556060721574362, "long_clip_offset_seconds": 0.6707482993197279, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0260", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.19433491492478344, "long_clip_offset_seconds": 0.42149659863945577, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "bsb_0260", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.029270123164615233, "long_clip_offset_seconds": 0.374421768707483, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "commons_98066175", "b": "iusb_005", "max_abs_mono_subclip_correlation": 0.00801655925920537, "long_clip_offset_seconds": 0.13006802721088434, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "commons_98066175", "b": "iusb_006", "max_abs_mono_subclip_correlation": 0.005663748238164031, "long_clip_offset_seconds": 0.3354195011337868, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "commons_98066175", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.017050257866779835, "long_clip_offset_seconds": 2.3178231292517006, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "commons_98066175", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.0424398276101384, "long_clip_offset_seconds": 0.41904761904761906, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "iusb_005", "b": "iusb_006", "max_abs_mono_subclip_correlation": 0.05028332619993059, "long_clip_offset_seconds": 0.07691609977324262, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "iusb_005", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.05337736677984786, "long_clip_offset_seconds": 0.3783219954648526, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "iusb_005", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.03173423127703953, "long_clip_offset_seconds": 1.055328798185941, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "iusb_006", "b": "iusb_009", "max_abs_mono_subclip_correlation": 0.07195940079879015, "long_clip_offset_seconds": 0.6263038548752834, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "iusb_006", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.03662547439109619, "long_clip_offset_seconds": 1.0300226757369615, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}, {"a": "iusb_009", "b": "iusb_010", "max_abs_mono_subclip_correlation": 0.009118164128989052, "long_clip_offset_seconds": 0.0016326530612244899, "interpretation": "High correlation screens reuse; periodic horns alone can also correlate. Not proof of session independence or duplication."}], "method": "Original RIFF INFO/bext/iXML inspection, exact decoded hashes, channel linear-fit residual; all-pairs fixed-excerpt mono subclip correlation at 11025Hz", "limitations": "No human listening/purity annotation. No SH raw-file training map. File uniqueness does not establish independent recording sessions."}
+2026-10-30T06:11:30.3777581Z ##[group]Run git config user.name 'SH research evidence'
+2026-10-30T06:11:30.3778023Z [36;1mgit config user.name 'SH research evidence'[0m
+2026-10-30T06:11:30.3778452Z [36;1mgit config user.email 'research-evidence@users.noreply.github.com'[0m
+2026-10-30T06:11:30.3778991Z [36;1mgit add research/semantic_hearing/round2/evidence/source_provenance_audit.json[0m
+2026-10-30T06:11:30.3779849Z [36;1mgit commit -m 'research: preserve measured recording provenance and redundancy audit'[0m
+2026-10-30T06:11:30.3780700Z [36;1mgit push origin HEAD:refs/heads/research/sh-round2-controlled-20261030[0m
+2026-10-30T06:11:30.3844048Z shell: /usr/bin/bash -e {0}
+2026-10-30T06:11:30.3844292Z env:
+2026-10-30T06:11:30.3844559Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:30.3845006Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T06:11:30.3845443Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:30.3845857Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:30.3846242Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T06:11:30.3846622Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T06:11:30.3846940Z ##[endgroup]
+2026-10-30T06:11:30.4866089Z [research/sh-round2-controlled-20261030 33ae198] research: preserve measured recording provenance and redundancy audit
+2026-10-30T06:11:30.4867178Z  1 file changed, 487 insertions(+)
+2026-10-30T06:11:30.4867758Z  create mode 100644 research/semantic_hearing/round2/evidence/source_provenance_audit.json
+2026-10-30T06:11:31.7267979Z To https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T06:11:31.7269025Z    1d16424..33ae198  HEAD -> research/sh-round2-controlled-20261030
+2026-10-30T06:11:31.7398182Z Post job cleanup.
+2026-10-30T06:11:31.8721091Z (node:2304) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T06:11:31.8722045Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T06:11:31.8894275Z Post job cleanup.
+2026-10-30T06:11:31.9884065Z [command]/usr/bin/git version
+2026-10-30T06:11:31.9932858Z git version 2.56.0
+2026-10-30T06:11:31.9979295Z Temporarily overriding HOME='/home/runner/work/_temp/157ec6af-e8e5-4528-9f20-185c99f63497' before making global git config changes
+2026-10-30T06:11:31.9980770Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T06:11:31.9988527Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T06:11:32.0036149Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T06:11:32.0084530Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T06:11:32.0411934Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T06:11:32.0437247Z http.https://github.com/.extraheader
+2026-10-30T06:11:32.0453048Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-30T06:11:32.0520351Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T06:11:32.0966709Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T06:11:32.1027730Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T06:11:32.1481744Z Cleaning up orphan processes
+2026-10-30T06:11:32.1843138Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

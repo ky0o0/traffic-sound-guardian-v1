@@ -1,0 +1,277 @@
+﻿2026-10-30T05:47:30.0782913Z Current runner version: '2.338.0'
+2026-10-30T05:47:30.0809220Z ##[group]Runner Image Provisioner
+2026-10-30T05:47:30.0810180Z Hosted Compute Agent
+2026-10-30T05:47:30.0810820Z Version: 20261021.618
+2026-10-30T05:47:30.0811571Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-30T05:47:30.0812376Z Build Date: 2026-10-21T00:45:21Z
+2026-10-30T05:47:30.0813156Z Worker ID: {0cfd618c-330a-42bc-af53-ab24eb5385c4}
+2026-10-30T05:47:30.0813930Z Region: westus
+2026-10-30T05:47:30.0814522Z Cloud: Azure
+2026-10-30T05:47:30.0815141Z ##[endgroup]
+2026-10-30T05:47:30.0816647Z ##[group]Operating System
+2026-10-30T05:47:30.0817332Z Ubuntu
+2026-10-30T05:47:30.0818062Z 22.04.5
+2026-10-30T05:47:30.0818672Z LTS
+2026-10-30T05:47:30.0819510Z ##[endgroup]
+2026-10-30T05:47:30.0820115Z ##[group]Runner Image
+2026-10-30T05:47:30.0820788Z Image: ubuntu-22.04
+2026-10-30T05:47:30.0821478Z Version: 20261025.340.1
+2026-10-30T05:47:30.0822793Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261025.340/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-30T05:47:30.0824502Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261025.340
+2026-10-30T05:47:30.0825494Z ##[endgroup]
+2026-10-30T05:47:30.0826722Z ##[group]GITHUB_TOKEN Permissions
+2026-10-30T05:47:30.0829094Z Contents: read
+2026-10-30T05:47:30.0830257Z Metadata: read
+2026-10-30T05:47:30.0830873Z ##[endgroup]
+2026-10-30T05:47:30.0833123Z Secret source: Actions
+2026-10-30T05:47:30.0834180Z Cache mode: write
+2026-10-30T05:47:30.0834972Z Prepare workflow directory
+2026-10-30T05:47:30.1174967Z Prepare all required actions
+2026-10-30T05:47:30.1249453Z Getting action download info
+2026-10-30T05:47:30.4720258Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-30T05:47:30.6231290Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-30T05:47:30.7089575Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-30T05:47:30.9354076Z Complete job name: source-audit
+2026-10-30T05:47:31.0255368Z ##[group]Run actions/checkout@v4
+2026-10-30T05:47:31.0256283Z with:
+2026-10-30T05:47:31.0256777Z   repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:47:31.0261056Z   token: ***
+2026-10-30T05:47:31.0261509Z   ssh-strict: true
+2026-10-30T05:47:31.0261945Z   ssh-user: git
+2026-10-30T05:47:31.0262414Z   persist-credentials: true
+2026-10-30T05:47:31.0262896Z   clean: true
+2026-10-30T05:47:31.0263341Z   sparse-checkout-cone-mode: true
+2026-10-30T05:47:31.0263864Z   fetch-depth: 1
+2026-10-30T05:47:31.0264280Z   fetch-tags: false
+2026-10-30T05:47:31.0264769Z   show-progress: true
+2026-10-30T05:47:31.0265208Z   lfs: false
+2026-10-30T05:47:31.0265604Z   submodules: false
+2026-10-30T05:47:31.0266043Z   set-safe-directory: true
+2026-10-30T05:47:31.0266532Z   allow-unsafe-pr-checkout: false
+2026-10-30T05:47:31.0267350Z ##[endgroup]
+2026-10-30T05:47:31.2833732Z Syncing repository: ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:47:31.2836394Z ##[group]Getting Git version info
+2026-10-30T05:47:31.2837889Z Working directory is '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T05:47:31.2839896Z [command]/usr/bin/git version
+2026-10-30T05:47:31.2950332Z git version 2.56.0
+2026-10-30T05:47:31.2965484Z ##[endgroup]
+2026-10-30T05:47:31.2973472Z Temporarily overriding HOME='/home/runner/work/_temp/6fba4460-00ce-454e-9999-e9280adfd343' before making global git config changes
+2026-10-30T05:47:31.2980309Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T05:47:31.2983017Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T05:47:31.3046979Z Deleting the contents of '/home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1'
+2026-10-30T05:47:31.3064126Z ##[group]Initializing the repository
+2026-10-30T05:47:31.3068466Z [command]/usr/bin/git init /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T05:47:31.3163138Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-30T05:47:31.3164955Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-30T05:47:31.3166842Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-30T05:47:31.3168330Z hint: call:
+2026-10-30T05:47:31.3169498Z hint:
+2026-10-30T05:47:31.3170489Z hint: 	git config --global init.defaultBranch <name>
+2026-10-30T05:47:31.3171683Z hint:
+2026-10-30T05:47:31.3172977Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-30T05:47:31.3174775Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-30T05:47:31.3176234Z hint:
+2026-10-30T05:47:31.3177205Z hint: 	git branch -m <name>
+2026-10-30T05:47:31.3178167Z hint:
+2026-10-30T05:47:31.3179734Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-30T05:47:31.3182583Z Initialized empty Git repository in /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1/.git/
+2026-10-30T05:47:31.3186069Z [command]/usr/bin/git remote add origin https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:47:31.3225770Z ##[endgroup]
+2026-10-30T05:47:31.3227096Z ##[group]Disabling automatic garbage collection
+2026-10-30T05:47:31.3230820Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-30T05:47:31.3271053Z ##[endgroup]
+2026-10-30T05:47:31.3272418Z ##[group]Setting up auth
+2026-10-30T05:47:31.3279323Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T05:47:31.3317542Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T05:47:31.3729036Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T05:47:31.3774885Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T05:47:31.4047934Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T05:47:31.4090095Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T05:47:31.4356923Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-30T05:47:31.4405946Z ##[endgroup]
+2026-10-30T05:47:31.4406769Z ##[group]Fetching the repository
+2026-10-30T05:47:31.4418116Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8a9bf7a7028be22a3f9ae1b7e64c1a380bc80a0f:refs/remotes/origin/research/sh-round2-controlled-20261030
+2026-10-30T05:47:32.0716706Z From https://github.com/ky0o0/traffic-sound-guardian-v1
+2026-10-30T05:47:32.0719711Z  * [new ref]         8a9bf7a7028be22a3f9ae1b7e64c1a380bc80a0f -> origin/research/sh-round2-controlled-20261030
+2026-10-30T05:47:32.0724979Z ##[endgroup]
+2026-10-30T05:47:32.0726979Z ##[group]Determining the checkout info
+2026-10-30T05:47:32.0728733Z ##[endgroup]
+2026-10-30T05:47:32.0733930Z [command]/usr/bin/git sparse-checkout disable
+2026-10-30T05:47:32.0789744Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-30T05:47:32.0844208Z ##[group]Checking out the ref
+2026-10-30T05:47:32.0848330Z [command]/usr/bin/git checkout --progress --force -B research/sh-round2-controlled-20261030 refs/remotes/origin/research/sh-round2-controlled-20261030
+2026-10-30T05:47:32.1897466Z Switched to a new branch 'research/sh-round2-controlled-20261030'
+2026-10-30T05:47:32.1900024Z branch 'research/sh-round2-controlled-20261030' set up to track 'origin/research/sh-round2-controlled-20261030'.
+2026-10-30T05:47:32.1914584Z ##[endgroup]
+2026-10-30T05:47:32.1973295Z [command]/usr/bin/git log -1 --format=%H
+2026-10-30T05:47:32.2026430Z 8a9bf7a7028be22a3f9ae1b7e64c1a380bc80a0f
+2026-10-30T05:47:32.2440626Z ##[group]Run actions/setup-python@v5
+2026-10-30T05:47:32.2441984Z with:
+2026-10-30T05:47:32.2442955Z   python-version: 3.10
+2026-10-30T05:47:32.2444037Z   check-latest: false
+2026-10-30T05:47:32.2453522Z   token: ***
+2026-10-30T05:47:32.2454559Z   update-environment: true
+2026-10-30T05:47:32.2455707Z   allow-prereleases: false
+2026-10-30T05:47:32.2456846Z   freethreaded: false
+2026-10-30T05:47:32.2457881Z ##[endgroup]
+2026-10-30T05:47:32.3959676Z ##[group]Installed versions
+2026-10-30T05:47:32.4135342Z Version 3.10 was not found in the local cache
+2026-10-30T05:47:32.4251760Z (node:2061) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T05:47:32.4254435Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T05:47:33.2161305Z Version 3.10 is available for downloading
+2026-10-30T05:47:33.2163569Z Download from "https://github.com/actions/python-versions/releases/download/3.10.22-36876129702/python-3.10.22-linux-22.04-x64.tar.gz"
+2026-10-30T05:47:33.8203001Z Extract downloaded archive
+2026-10-30T05:47:33.8361936Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/3717dd1b-06b1-4e96-b6be-0a26a69ab563 -f /home/runner/work/_temp/f7242bc5-16d0-461a-9072-177836a47db4
+2026-10-30T05:47:35.1315104Z Execute installation script
+2026-10-30T05:47:35.1427534Z Check if Python hostedtoolcache folder exist...
+2026-10-30T05:47:35.1428229Z Create Python 3.10.22 folder
+2026-10-30T05:47:35.1445099Z Copy Python binaries to hostedtoolcache folder
+2026-10-30T05:47:35.6971889Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-30T05:47:35.7020425Z Upgrading pip...
+2026-10-30T05:47:37.5771851Z Collecting pip
+2026-10-30T05:47:37.6697818Z Downloading pip-26.2.2-py3-none-any.whl (1.8 MB)
+2026-10-30T05:47:37.7798245Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 16.9 MB/s eta 0:00:00
+2026-10-30T05:47:37.7799206Z 
+2026-10-30T05:47:37.8401661Z Installing collected packages: pip
+2026-10-30T05:47:37.8402451Z Attempting uninstall: pip
+2026-10-30T05:47:37.8408716Z Found existing installation: pip 23.0.1
+2026-10-30T05:47:38.0302121Z Uninstalling pip-23.0.1:
+2026-10-30T05:47:38.0380261Z Successfully uninstalled pip-23.0.1
+2026-10-30T05:47:38.8936845Z Successfully installed pip-26.2.2
+2026-10-30T05:47:38.9547350Z Create complete file
+2026-10-30T05:47:38.9603476Z Successfully set up CPython (3.10.22)
+2026-10-30T05:47:38.9604682Z ##[endgroup]
+2026-10-30T05:47:38.9800077Z ##[group]Run python -m pip install numpy==1.26.4 soundfile==0.13.1
+2026-10-30T05:47:38.9800642Z [36;1mpython -m pip install numpy==1.26.4 soundfile==0.13.1[0m
+2026-10-30T05:47:38.9883374Z shell: /usr/bin/bash -e {0}
+2026-10-30T05:47:38.9883657Z env:
+2026-10-30T05:47:38.9883939Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:38.9884448Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T05:47:38.9884915Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:38.9885332Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:38.9885736Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:38.9886175Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T05:47:38.9886522Z ##[endgroup]
+2026-10-30T05:47:39.8042678Z Collecting numpy==1.26.4
+2026-10-30T05:47:39.8895745Z   Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2026-10-30T05:47:39.9376604Z Collecting soundfile==0.13.1
+2026-10-30T05:47:39.9584392Z   Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-10-30T05:47:40.1006908Z Collecting cffi>=1.0 (from soundfile==0.13.1)
+2026-10-30T05:47:40.1296235Z   Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-10-30T05:47:40.1497210Z Collecting pycparser (from cffi>=1.0->soundfile==0.13.1)
+2026-10-30T05:47:40.1706956Z   Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+2026-10-30T05:47:40.1963026Z Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+2026-10-30T05:47:40.3832204Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 114.0 MB/s  0:00:00
+2026-10-30T05:47:40.4065202Z Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+2026-10-30T05:47:40.4166312Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 147.7 MB/s  0:00:00
+2026-10-30T05:47:40.4374140Z Downloading cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218 kB)
+2026-10-30T05:47:40.4649784Z Downloading pycparser-3.11-py3-none-any.whl (51 kB)
+2026-10-30T05:47:40.5322602Z Installing collected packages: pycparser, numpy, cffi, soundfile
+2026-10-30T05:47:42.6488014Z 
+2026-10-30T05:47:42.6503167Z Successfully installed cffi-2.1.1 numpy-1.26.4 pycparser-3.11 soundfile-0.13.1
+2026-10-30T05:47:42.7078016Z ##[group]Run python -u research/semantic_hearing/round2/probe.py --output /tmp/sh-r2-probe
+2026-10-30T05:47:42.7078703Z [36;1mpython -u research/semantic_hearing/round2/probe.py --output /tmp/sh-r2-probe[0m
+2026-10-30T05:47:42.7145187Z shell: /usr/bin/bash -e {0}
+2026-10-30T05:47:42.7145432Z env:
+2026-10-30T05:47:42.7145696Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:42.7146144Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T05:47:42.7146593Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:42.7146981Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:42.7147368Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:47:42.7147757Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T05:47:42.7148080Z ##[endgroup]
+2026-10-30T05:47:48.3761548Z {"id": "bsb_0254", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/old-car-horn-1-s0254.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0254.wav", "title": "Old car horn #1", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:01 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Stereo Conditions : Studio Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : DenisChardonnet Sound number : 254 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "d3c1e2998457ffdd7a7377cab26b1c7ec3989a9c7c2583b8ebbd9150a4000f35", "bytes": 42392, "rate": 44100, "channels": 2, "frames": 10333, "duration": 0.23430839002267573, "subtype": "PCM_16", "lr_correlation": 0.9999679526676044, "relative_lr_difference": 0.0019310279707504747}
+2026-10-30T05:47:49.3484195Z {"id": "bsb_0255", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/old-car-horn-2-s0255.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0255.wav", "title": "Old car horn #2", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:01 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Stereo Conditions : Studio Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : DenisChardonnet Sound number : 255 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "d7dca072068f8f2c74a5b49bc0c9d0027651c5e1c9dd5c657a53ae1e39ef8324", "bytes": 104542, "rate": 44100, "channels": 2, "frames": 25872, "duration": 0.5866666666666667, "subtype": "PCM_16", "lr_correlation": 1.0, "relative_lr_difference": 0.0}
+2026-10-30T05:47:49.9146948Z {"id": "bsb_0257", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/recent-car-horn-1-s0257.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0257.wav", "title": "Recent car horn #1", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:01 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Stereo Conditions : Studio Realism : Realistic Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : DenisChardonnet Sound number : 257 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "885cd85197f0773d5d91079cb0d3f52354a3cc3f2be575827531d6b7b886e498", "bytes": 86118, "rate": 44100, "channels": 2, "frames": 21266, "duration": 0.4822222222222222, "subtype": "PCM_16", "lr_correlation": 0.1550161589463789, "relative_lr_difference": 1.6986819613991775}
+2026-10-30T05:47:50.2382638Z {"id": "bsb_0258", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/recent-car-horn-2-s0258.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0258.wav", "title": "Recent Car Horn #2", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:02 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Stereo Conditions : Studio Realism : Realistic Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : DenisChardonnet Sound number : 258 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "a5875adfc2f935df5f93da49f7c86aa0d2c9980f6e05d76089cd74f6be0dbdd7", "bytes": 284546, "rate": 44100, "channels": 2, "frames": 70873, "duration": 1.6070975056689343, "subtype": "PCM_16", "lr_correlation": 0.25062146488053205, "relative_lr_difference": 1.5102587338163251}
+2026-10-30T05:47:50.6816621Z {"id": "bsb_0259", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/recent-car-horn-3-s0259.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0259.wav", "title": "Recent car horn #3", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:01 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Stereo Conditions : Studio Realism : Realistic Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : DenisChardonnet Sound number : 259 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "283f6ee84086dd0329e4c7ee5baed2ddef7b83f37ac44b5b4d1d5f9a94237802", "bytes": 76098, "rate": 44100, "channels": 2, "frames": 18742, "duration": 0.42498866213151926, "subtype": "PCM_16", "lr_correlation": 0.337394929074689, "relative_lr_difference": 1.3249679103192185}
+2026-10-30T05:47:51.0204983Z {"id": "bsb_0260", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/car-horn-4-s0260.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0260.wav", "title": "Car horn #4", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:01 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Stereo Conditions : Studio Realism : Realistic Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : DenisChardonnet Sound number : 260 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "0aa92864f1e0cbc43dbe697aac76e23dfb3f4415e89b542b79a7a0d810543adf", "bytes": 88220, "rate": 44100, "channels": 2, "frames": 21784, "duration": 0.49396825396825395, "subtype": "PCM_16", "lr_correlation": 0.2570792574121871, "relative_lr_difference": 1.485943495478843}
+2026-10-30T05:47:51.5070566Z {"id": "bsb_0558", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/klaxons-inside-car-s0558.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0558.wav", "title": "Klaxons, inside car", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:11 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Sampling Rate : 48,000 Hz Bit Depth : 16 bits Author : Joseph SARDIN Sound number : 558 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "0e9f5202db284bbe68d88d30d5ed445b72dccefa44133541375f21c91060857b", "bytes": 1002478, "rate": 48000, "channels": 1, "frames": 500681, "duration": 10.430854166666666, "subtype": "PCM_16", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:52.8448032Z {"id": "bsb_0850", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/recent-car-horn-5-s0850.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0850.wav", "title": "Recent car horn #5", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:08 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 16 bits Equipment : Tascam DR-40 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 850 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "223c07120e067c2bc38141d5d76d40efb9c1158c38b3cbe76752024647fc3ec1", "bytes": 689706, "rate": 48000, "channels": 1, "frames": 344312, "duration": 7.173166666666667, "subtype": "PCM_16", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:53.2929653Z {"id": "bsb_0968", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/recent-car-horn-6-s0968.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0968.wav", "title": "Recent car horn #6", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:13 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Monophonic Conditions : Studio Sampling Rate : 48,000 Hz Bit Depth : 16 bits Equipment : Tascam DR-40 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 968 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "13498c2c55e0fb4b5bdec710f158a8890467c50d439c5f055b9212e00071b0aa", "bytes": 1182380, "rate": 48000, "channels": 1, "frames": 590651, "duration": 12.305229166666667, "subtype": "PCM_16", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:54.1114161Z {"id": "bsb_0970", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/central-locking-horn-s0970.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0970.wav", "title": "Central locking horn", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:06 UCS Category : Vehicles / Horn ( VEHHorn ) Type : Alone sound Channels : Monophonic Conditions : Studio Sampling Rate : 48,000 Hz Bit Depth : 16 bits Equipment : Tascam DR-40 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 970 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "55aa60f3bee20f38c2fa116fa8ae3a25f489219c5d38d79325535f02196128aa", "bytes": 573414, "rate": 48000, "channels": 1, "frames": 286168, "duration": 5.961833333333334, "subtype": "PCM_16", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:54.5924904Z {"id": "bsb_2721", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/truck-horn-s2721.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/2721.wav", "title": "Truck Horn", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:03 UCS Category : Vehicles / Horn ( VEHHorn ), Horns / Air Powered ( HORNAir ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Neumann KM184 Author : Pierre SIBANARCO Sound number : 2,721 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "b5a24178f9e6b2f5457d24641a49ea8d51203b09bf93bd547627f59711e7069b", "bytes": 652070, "rate": 48000, "channels": 1, "frames": 108137, "duration": 2.252854166666667, "subtype": "PCM_24", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:55.3412377Z {"id": "bsb_0886", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/siren-french-gendarmerie-s0886.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0886.wav", "title": "Gendarmerie, Outdoor Siren", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:21 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Stereo Conditions : Studio Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 16 bits Sound number : 886 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "4c8c04520f55c5fd015bc029826641b702a87690ea63f7fae06ff11974fd500b", "bytes": 4022524, "rate": 48000, "channels": 2, "frames": 1005324, "duration": 20.94425, "subtype": "PCM_16", "lr_correlation": 0.9999999986933408, "relative_lr_difference": 8.04425653939877e-09}
+2026-10-30T05:47:55.9284384Z {"id": "bsb_0887", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/siren-french-gendarmerie-s0887.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0887.wav", "title": "Gendarmerie, indoor siren", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:19 UCS Category : Vehicles / Interior ( VEHInt ), Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Stereo Conditions : Studio Sampling Rate : 48,000 Hz Bit Depth : 16 bits Sound number : 887 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "026387b4fce0a670db84ebe53e3b8a0104f44ab87fe567a987aaeefe8da31902", "bytes": 3556704, "rate": 48000, "channels": 2, "frames": 888865, "duration": 18.518020833333335, "subtype": "PCM_16", "lr_correlation": 0.9999999981693873, "relative_lr_difference": 9.078114159584237e-09}
+2026-10-30T05:47:56.4519075Z {"id": "bsb_1463", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/ambulance-siren-1-s1463.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/1463.wav", "title": "Ambulance, 3 Ton Siren", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:21 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 1,463 ", "publisher_description": "Horn of a French ambulance. Sound recording outdoors, without engine noise. Listen 0:00 / 0:21 Download Download WAV (2.8 MB) MP3 (788 KB) BWF (2.8 MB) OGG (474 KB) M4A (313 KB) AIFF (2.8 MB) AAC (313 KB) FLAC (1.6 MB) Download (function(){ window.da", "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "1039703d18b0f20f2a42c6f7c335dd2f32b9b852410b32e4c0c8e376ab09fa6e", "bytes": 2894090, "rate": 48000, "channels": 1, "frames": 964273, "duration": 20.089020833333333, "subtype": "PCM_24", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:56.9479753Z {"id": "bsb_1464", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/ambulance-siren-2-s1464.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/1464.wav", "title": "2 Ton Siren", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:09 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 1,464 ", "publisher_description": "Horn of a French ambulance. Sound recording outdoors, without engine noise. Listen 0:00 / 0:09 Download Download WAV (1.1 MB) MP3 (320 KB) BWF (1.1 MB) OGG (187 KB) M4A (98 KB) AIFF (1.1 MB) AAC (97 KB) FLAC (1.1 MB) Download (function(){ window.data", "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "856ee22bf05c334b684b2437bc12db37f06b90a15b060507abc433840700a9c4", "bytes": 1168378, "rate": 48000, "channels": 1, "frames": 389033, "duration": 8.104854166666666, "subtype": "PCM_24", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:57.5007946Z {"id": "bsb_1465", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/ambulance-siren-1-motor-s1465.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/1465.wav", "title": "Ambulance, 3 ton siren, motor", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:21 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 1,465 ", "publisher_description": "Horn of a French ambulance. Sound recording outdoors, with the engine on. Listen 0:00 / 0:21 Download Download WAV (2.9 MB) MP3 (821 KB) BWF (2.9 MB) OGG (557 KB) M4A (322 KB) AIFF (2.9 MB) AAC (322 KB) FLAC (1.9 MB) Download (function(){ window.data", "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "ff174146c670cc255e399c1da7801162e2e102e0df5b2b34fe0a60fec7a46c36", "bytes": 3013366, "rate": 48000, "channels": 1, "frames": 1004032, "duration": 20.917333333333332, "subtype": "PCM_24", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:58.0582132Z {"id": "bsb_1466", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/ambulance-siren-2-motor-s1466.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/1466.wav", "title": "2 ton siren, motor", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:18 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 1,466 ", "publisher_description": "Horn of a French ambulance. Sound recording outdoors, with the engine on. Listen 0:00 / 0:18 Download Download WAV (2.5 MB) MP3 (685 KB) BWF (2.5 MB) OGG (451 KB) M4A (234 KB) AIFF (2.5 MB) AAC (234 KB) FLAC (2.2 MB) Download (function(){ window.data", "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "7e08551d1523074b10e00568427c5a15a7641a85d934f72b107ff08d37e12857", "bytes": 2514262, "rate": 48000, "channels": 1, "frames": 837661, "duration": 17.451270833333332, "subtype": "PCM_24", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:58.6086607Z {"id": "bsb_1467", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/ambulance-siren-2-engine-and-hangar-s1467.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/1467.wav", "title": "2 ton siren, engine and hangar", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:26 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Alone sound Channels : Monophonic Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Sennheiser ME66 Author : Joseph SARDIN Sound number : 1,467 ", "publisher_description": "Horn of a French ambulance. Sound recording inside a shed with the engine on. Listen 0:00 / 0:26 Download Download WAV (3.6 MB) MP3 (1.0 MB) BWF (3.6 MB) OGG (628 KB) M4A (337 KB) AIFF (3.6 MB) AAC (337 KB) FLAC (2.8 MB) Download (function(){ window.", "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "8008374ca32af860584472b3434b71be46c1441b01f309a845b71178766bc9c7", "bytes": 3680556, "rate": 48000, "channels": 1, "frames": 1226426, "duration": 25.550541666666668, "subtype": "PCM_24", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:47:59.4634165Z {"id": "bsb_2731", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/vehicle-siren-s2731.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/2731.wav", "title": "Vehicle Siren", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 01:38 UCS Category : Vehicles / Siren ( VEHSirn ) Type : Soundscape Channels : Stereo Disposition : ORTF Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Neumann KM184 Author : Joseph SARDIN Sound number : 2,731 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "2458b8b2facfe48dc62c7311266b3e109a9bd7bb06ed9ead2d058e20be174e11", "bytes": 27950020, "rate": 48000, "channels": 2, "frames": 4657755, "duration": 97.0365625, "subtype": "PCM_24", "lr_correlation": 0.01856856838409276, "relative_lr_difference": 1.9665022727460906}
+2026-10-30T05:47:59.8415354Z {"id": "bsb_2760", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/gendarmerie-motorcycle-crossing-s2760.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/2760.wav", "title": "Gendarmerie motorcycle crossing", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:20 UCS Category : Vehicles / Motorcycle ( VEHMoto ) Type : Soundscape Channels : Stereo Disposition : ORTF Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Neumann KM184 Author : Joseph SARDIN Sound number : 2,760 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "c27d3a0e25d207e70bf2bb475dd67a22fceec51f30334c7f8286e8265de27009", "bytes": 5678496, "rate": 48000, "channels": 2, "frames": 945882, "duration": 19.705875, "subtype": "PCM_24", "lr_correlation": 0.2709706391935616, "relative_lr_difference": 1.4721530992681988}
+2026-10-30T05:48:00.3017261Z {"id": "bsb_0124", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/rain-and-storm-s0124.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0124.wav", "title": "Rain and Thunder #1", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:43 UCS Category : Weather / Storm ( STORM ) Type : Soundscape Channels : Stereo Conditions : Outdoor Realism : Realistic Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : Joseph SARDIN Sound number : 124 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "d37affc216bd76b5f1964fbafacb19644ac057b00a099d96dff061ec2b5a2643", "bytes": 7546030, "rate": 44100, "channels": 2, "frames": 1886208, "duration": 42.77115646258503, "subtype": "PCM_16", "lr_correlation": -0.03428377407384811, "relative_lr_difference": 2.067340307195383}
+2026-10-30T05:48:00.8016133Z {"id": "bsb_2717", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/storm-and-rain-3-s2717.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/2717.wav", "title": "Rain and Thunder #3", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 00:41 UCS Category : Weather / Storm ( STORM ) Type : Soundscape Channels : Stereo Disposition : ORTF Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Neumann KM184 Author : Joseph SARDIN Sound number : 2,717 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "d9927c8a8f76fc389cc860ad967146acd9f659c19971daeb7b936e7cb8cdbfa4", "bytes": 11601580, "rate": 48000, "channels": 2, "frames": 1933055, "duration": 40.27197916666667, "subtype": "PCM_24", "lr_correlation": 0.7825789354373056, "relative_lr_difference": 0.4350717240673587}
+2026-10-30T05:48:02.0023113Z {"id": "bsb_0908", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/wind-in-tall-grass-s0908.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0908.wav", "title": "Wind in Tall Grass", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 01:26 UCS Category : Wind / Vegetation ( WINDVege ), Vegetation / Grass ( VEGEGras ) Type : Soundscape Channels : Stereo Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 16 bits Equipment : Tascam DR-40 Author : Joseph SARDIN Sound number : 908 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "e45986e15436ea41af289fb929524df889c1f3204e263fd6b1231d4140b11da1", "bytes": 16341632, "rate": 48000, "channels": 2, "frames": 4085126, "duration": 85.10679166666667, "subtype": "PCM_16", "lr_correlation": 0.4790672114565627, "relative_lr_difference": 1.0438249654407263}
+2026-10-30T05:48:04.2132300Z {"id": "bsb_2969", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/outside-talks-2-s2969.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/2969.wav", "title": "Outside Talks #2", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 02:15 UCS Category : Crowds / Walla ( CRWDWalla ) Type : Soundscape Channels : Stereo Disposition : ORTF Conditions : Outdoor Realism : Realistic Sampling Rate : 48,000 Hz Bit Depth : 24 bits Equipment : SoundDevices MixPre-3 + Neumann KM184 Author : Joseph SARDIN Sound number : 2,969 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "6c171f711cfef9102686cfe39a2bc86f94ebeeeb9f9a1237161820c1e82a25af", "bytes": 49993298, "rate": 48000, "channels": 2, "frames": 6444313, "duration": 134.25652083333333, "subtype": "PCM_24", "lr_correlation": 0.09506998176443933, "relative_lr_difference": 1.8128414829252113}
+2026-10-30T05:48:05.0307517Z {"id": "bsb_0122", "provider": "BigSoundBank", "source_page": "https://bigsoundbank.com/highway-s0122.html", "download_url": "https://bigsoundbank.com/UPLOAD/bwf-en/0122.wav", "title": "Highway", "license": "CC0-1.0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/", "license_evidence": "https://bigsoundbank.com/licenses.html", "publisher_details": "Technical details Length : 01:18 UCS Category : Ambience / Traffic ( AMBTraf ) Type : Soundscape Channels : Monophonic Conditions : Outdoor Sampling Rate : 44,100 Hz Bit Depth : 16 bits Author : Joseph SARDIN Sound number : 122 ", "publisher_description": null, "training_overlap": "Unknown; not asserted independent of SH training", "sha256": "3d1fe1d28c35fac1662ece6f48cb216c2426a26c79921490396a9370d7d67417", "bytes": 6793070, "rate": 44100, "channels": 1, "frames": 3395961, "duration": 77.00591836734694, "subtype": "PCM_16", "lr_correlation": null, "relative_lr_difference": null}
+2026-10-30T05:48:09.8734016Z {"id": "commons_142057026", "provider": "Wikimedia Commons", "source_page": "https://commons.wikimedia.org/wiki/File:Campanas_de_La_Profesa.wav", "download_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Campanas_de_La_Profesa.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original", "title": "File:Campanas de La Profesa.wav", "target": "car_horn", "license": "CC BY-SA 4.0", "author": "Luisalvaz", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "description": "Campanas de La Profesa, Templo de San Felipe Neri, desde el Hotel Gillow. Despu\u00e9s de las campanadas se escuchan otros sonidos de la calle, como una sirena de ambulancia pasando por alguna calle del centro hist\u00f3rico de la Ciudad de M\u00e9xico. El audio fue grabado a las 6:44 pm.", "reference_kind": "unreviewed_scene", "training_overlap": "Unknown", "original_filename": "commons_142057026.org&utm_campaign=imageinfo&utm_content=original", "sha256": "f4f3941119b84ea2099c2c480092fb41c93933864697200f428757cb442e6a4f", "bytes": 21777452, "rate": 44100, "channels": 2, "frames": 5444352, "duration": 123.45469387755102, "subtype": "PCM_16", "lr_correlation": 0.4177230841438761, "relative_lr_difference": 1.1648269358780423}
+2026-10-30T05:48:09.9342240Z {"id": "commons_98066175", "provider": "Wikimedia Commons", "source_page": "https://commons.wikimedia.org/wiki/File:Car_Horn.wav", "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Car_Horn.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original", "title": "File:Car Horn.wav", "target": "car_horn", "license": "CC0", "author": "15HPanska_Ruttner_Jan", "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en", "description": "The sound made by a car horn.", "reference_kind": "unreviewed_scene", "training_overlap": "Unknown", "original_filename": "commons_98066175.org&utm_campaign=imageinfo&utm_content=original", "sha256": "f44a161267e00c374ea6670292e70491e18f7c49a9448fc3a96960525adcfeb6", "bytes": 1026656, "rate": 48000, "channels": 2, "frames": 168679, "duration": 3.5141458333333335, "subtype": "PCM_24", "lr_correlation": 0.8744603996380284, "relative_lr_difference": 0.3038090074239452}
+2026-10-30T05:48:10.5758306Z ##[group]Run actions/upload-artifact@v4
+2026-10-30T05:48:10.5758623Z with:
+2026-10-30T05:48:10.5759031Z   name: sh-r2-source-audit
+2026-10-30T05:48:10.5759289Z   path: /tmp/sh-r2-probe
+2026-10-30T05:48:10.5759519Z   retention-days: 90
+2026-10-30T05:48:10.5759740Z   if-no-files-found: warn
+2026-10-30T05:48:10.5759979Z   compression-level: 6
+2026-10-30T05:48:10.5760195Z   overwrite: false
+2026-10-30T05:48:10.5760412Z   include-hidden-files: false
+2026-10-30T05:48:10.5760668Z env:
+2026-10-30T05:48:10.5760925Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:48:10.5761577Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-30T05:48:10.5762002Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:48:10.5762384Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:48:10.5762785Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-30T05:48:10.5763237Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-30T05:48:10.5763569Z ##[endgroup]
+2026-10-30T05:48:10.7600183Z (node:2126) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T05:48:10.7601142Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T05:48:10.7793736Z With the provided path, there will be 67 files uploaded
+2026-10-30T05:48:10.7799560Z Artifact name is valid!
+2026-10-30T05:48:10.7800516Z Root directory input is valid!
+2026-10-30T05:48:11.1806721Z Beginning upload of artifact content to blob storage
+2026-10-30T05:48:11.5178401Z (node:2126) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-30T05:48:12.4518012Z Uploaded bytes 8388608
+2026-10-30T05:48:12.9270412Z Uploaded bytes 16777216
+2026-10-30T05:48:13.0060859Z Uploaded bytes 25165824
+2026-10-30T05:48:13.1980547Z Uploaded bytes 33554432
+2026-10-30T05:48:13.3018399Z Uploaded bytes 41943040
+2026-10-30T05:48:13.6074604Z Uploaded bytes 50331648
+2026-10-30T05:48:13.9793551Z Uploaded bytes 58720256
+2026-10-30T05:48:14.3261170Z Uploaded bytes 67108864
+2026-10-30T05:48:14.5540226Z Uploaded bytes 75497472
+2026-10-30T05:48:14.8165541Z Uploaded bytes 83886080
+2026-10-30T05:48:15.1726402Z Uploaded bytes 92274688
+2026-10-30T05:48:15.4719826Z Uploaded bytes 100663296
+2026-10-30T05:48:15.6696128Z Uploaded bytes 109051904
+2026-10-30T05:48:16.0160271Z Uploaded bytes 117440512
+2026-10-30T05:48:16.3853328Z Uploaded bytes 125829120
+2026-10-30T05:48:16.7616240Z Uploaded bytes 134217728
+2026-10-30T05:48:17.0339913Z Uploaded bytes 142606336
+2026-10-30T05:48:17.1307370Z Uploaded bytes 143576622
+2026-10-30T05:48:17.2119964Z Finished uploading artifact content to blob storage!
+2026-10-30T05:48:17.2123411Z SHA256 digest of uploaded artifact zip is 21ebea4931b3bc16829e1c9f93360a8f6972b2b24a477d4f297a5296f4e6f9a7
+2026-10-30T05:48:17.2126075Z Finalizing artifact upload
+2026-10-30T05:48:17.8358106Z Artifact sh-r2-source-audit.zip successfully finalized. Artifact ID 12956633987
+2026-10-30T05:48:17.8359697Z Artifact sh-r2-source-audit has been successfully uploaded! Final size is 143576622 bytes. Artifact ID is 12956633987
+2026-10-30T05:48:17.8368073Z Artifact download URL: https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/41010371339/artifacts/12956633987
+2026-10-30T05:48:17.8627154Z Post job cleanup.
+2026-10-30T05:48:17.9979693Z (node:2141) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-30T05:48:17.9981597Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-30T05:48:18.0178684Z Post job cleanup.
+2026-10-30T05:48:18.1317737Z [command]/usr/bin/git version
+2026-10-30T05:48:18.1359582Z git version 2.56.0
+2026-10-30T05:48:18.1421493Z Temporarily overriding HOME='/home/runner/work/_temp/95d5cb51-eca3-42b6-bdf3-7cdcca9b8216' before making global git config changes
+2026-10-30T05:48:18.1423107Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-30T05:48:18.1429187Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/traffic-sound-guardian-v1/traffic-sound-guardian-v1
+2026-10-30T05:48:18.1489510Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-30T05:48:18.1554245Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-30T05:48:18.1942259Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-30T05:48:18.1977167Z http.https://github.com/.extraheader
+2026-10-30T05:48:18.1990985Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-30T05:48:18.2081273Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-30T05:48:18.2467309Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-30T05:48:18.2517001Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-30T05:48:18.3024582Z Cleaning up orphan processes
+2026-10-30T05:48:18.3461665Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

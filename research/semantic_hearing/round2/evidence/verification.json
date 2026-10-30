@@ -1,0 +1,13 @@
+{
+  "wavs_hash_and_pcm_checked": 1747,
+  "full_cases": 238,
+  "key_cases": 75,
+  "key_input_max_abs_difference": 0.0,
+  "key_output_max_abs_difference": 8.642673492431641e-07,
+  "key_si_sdri_max_abs_difference_db": 1.505320746275629e-05,
+  "round1_matched_cases": 12,
+  "round1_si_sdri_max_abs_difference_db": 3.6340070579399253e-06,
+  "checks": "All stored WAV byte hashes/decoded hashes/formats/finiteness, 23 source hashes, additive stems, independent metric recomputation, official weight hash, fresh-run agreement, first-round numerical reproduction",
+  "listening_cases": 5,
+  "listening_zip_sha256": "671413a5c264c293e94a7ce0899fe7efb721d5c63c4302cb5e0044011c97bed1"
+}

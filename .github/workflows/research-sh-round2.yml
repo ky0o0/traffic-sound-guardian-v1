@@ -1,0 +1,117 @@
+name: SH round 2 controlled real audio
+on:
+  push:
+    branches: [research/sh-round2-controlled-20261030]
+    paths:
+      - 'research/semantic_hearing/round2/*.py'
+      - 'research/semantic_hearing/round2/config.json'
+      - 'research/semantic_hearing/round2/dependency-lock.txt'
+      - '.github/workflows/research-sh-round2.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  experiment:
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [full, key]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.22'
+          cache: pip
+          cache-dependency-path: research/semantic_hearing/round2/dependency-lock.txt
+      - name: Install pinned dependencies
+        run: python -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+      - name: Verify existing and new scientific contracts
+        run: |
+          python -m unittest discover -s research/semantic_hearing -p 'test_*.py' -v
+          python -m unittest discover -s research/semantic_hearing/round2 -p 'test_*.py' -v
+      - name: Pin official source
+        run: |
+          git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+          git -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41010371339
+          name: sh-r2-source-audit
+          path: /tmp/sh-source-cache/first
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41010808161
+          name: sh-r2-extra-source-audit
+          path: /tmp/sh-source-cache/extra
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41011046101
+          name: sh-r2-final-source-audit
+          path: /tmp/sh-source-cache/final
+      - name: Stage the 23 hash-verified original recordings
+        run: python research/semantic_hearing/round2/cache_sources.py --cache /tmp/sh-source-cache --output /tmp/sh-round2
+      - name: Run official 39.pt on the frozen controlled study
+        env:
+          STUDY_MODE: ${{ matrix.mode }}
+        run: |
+          set -o pipefail
+          study_args=()
+          if [ "$STUDY_MODE" = key ]; then study_args+=(--key-only); fi
+          python -u research/semantic_hearing/round2/experiment.py --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt --output /tmp/sh-round2 "${study_args[@]}" 2>&1 | tee /tmp/sh-round2/execution.log
+      - name: Generate stratified tables and figures
+        run: python research/semantic_hearing/round2/analyze.py /tmp/sh-round2 --output /tmp/sh-round2/analysis
+      - name: Preserve complete actual inputs, outputs, stems and process logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sh-round2-${{ matrix.mode }}-${{ github.sha }}
+          path: /tmp/sh-round2
+          retention-days: 90
+          if-no-files-found: error
+  verify-and-preserve:
+    needs: experiment
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/sh-round2-controlled-20261030
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.22'
+      - run: python -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: sh-round2-full-${{ github.sha }}
+          path: /tmp/sh-full
+      - uses: actions/download-artifact@v4
+        with:
+          name: sh-round2-key-${{ github.sha }}
+          path: /tmp/sh-key
+      - name: Verify every saved WAV and recompute metrics after artifact round-trip
+        run: python research/semantic_hearing/round2/verify_and_pack.py --full /tmp/sh-full --key /tmp/sh-key --destination research/semantic_hearing/round2/evidence
+      - name: Preserve verified results on this isolated research branch
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          git config user.name 'SH research evidence'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/semantic_hearing/round2/evidence
+          git commit -m 'research: preserve verified actual round-two outputs and independent rerun evidence'
+          git push origin HEAD:refs/heads/research/sh-round2-controlled-20261030
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sh-round2-verified-evidence
+          path: research/semantic_hearing/round2/evidence
+          retention-days: 90
