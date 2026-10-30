@@ -39,3 +39,18 @@ html[data-theme=light] .annotation-status,html[data-theme=light] .annotation-leg
 html[data-theme=light] .annotation-row{border-color:#c6d4df}
 .theme-picker.standalone{display:flex;justify-content:flex-end;padding:10px max(20px,calc((100vw - 1000px)/2));position:relative;z-index:1}
 @media(max-width:440px){.annotation-editor{padding:10px}.annotation-controls{gap:6px}.rolling-panel{padding:10px}}
+
+/* V1.6.1: default-enabled accessible audible alert toggle; no microphone changes. */
+.alert-tone-setting{width:100%;margin:12px auto 0;padding:10px 14px;border-radius:12px;border:1px solid #425c72;background:#17283c}
+.alert-tone-line{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}
+#alert-tone-label{font-size:13px;font-weight:650;color:#f6f8fc;cursor:pointer}
+#alert-tone-toggle{width:44px;height:26px;flex:none;accent-color:#6dddc8;cursor:pointer}
+#alert-tone-toggle:focus-visible{outline:3px solid #9cdfd1;outline-offset:4px}
+#alert-tone-note{font-size:11px;color:#b9cadd;line-height:1.5;margin:5px 0 0}
+html[data-theme=light] .alert-tone-setting{background:#fff;border-color:#cad8e3}
+html[data-theme=light] #alert-tone-label{color:#193048}
+html[data-theme=light] #alert-tone-note{color:#52677d}
+body[data-state=warning] .alert-tone-setting{background:#52192b;border-color:#ffd5db}
+body[data-state=warning] #alert-tone-label,body[data-state=warning] #alert-tone-note{color:#fff}
+html[data-theme=light] body[data-state=warning] .alert-tone-setting{background:#6e2036;border-color:#ffffff99}
+@media(max-height:740px){.alert-tone-setting{margin-top:7px;padding:7px 11px}}

@@ -9,6 +9,9 @@ const FEEDBACK_FORM_URLS = Object.freeze({
   en: 'https://forms.gle/AkXuRHWwi9Kp95GfA'
 });
 const EN = Object.freeze({
+  "新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。": "Two short beeps on each new warning. Your device controls where sound plays.",
+  "通知音を鳴らす": "Play alert beeps",
+  "警告音の通知": "Alert sound",
   "AIデバッグモード": "AI Debug Mode",
   "マイク接続テスト（イヤホン入力） ↗": "Microphone Test Mode (headset input) ↗",
   "交通警告音の感度設定": "Traffic warning sound sensitivity",
@@ -103,6 +106,9 @@ const EN = Object.freeze({
   "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "A research prototype for real-time traffic warning sound recognition, studying headphone use and traffic safety."
 });
 const ZH = Object.freeze({
+  "新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。": "每次新的警告播放两声短促提示音；实际从哪里播放由设备决定。",
+  "通知音を鳴らす": "播放提示音",
+  "警告音の通知": "提示音提醒",
   "AIデバッグモード": "AI 调试模式",
   "マイク接続テスト（イヤホン入力） ↗": "麦克风测试模式（耳机输入） ↗",
   "交通警告音の感度設定": "交通警告音灵敏度设置",
@@ -212,7 +218,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -221,9 +227,24 @@ const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warnin
 let session = null;
 let nextSession = 0;
 let view = 'stopped';
-// Store ONLY six numeric UI preferences. Never store audio or inference history.
+// Preferences only; no PCM, AI results, or inference history are persisted.
+const ALERT_TONE_STORAGE_KEY = 'trafficSoundGuardian.alertToneEnabled';
 const THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.soundThresholds';
 const LEGACY_BELL_STORAGE_KEY = 'trafficSoundGuardian.bicycleBellThreshold';
+// Default ON even if localStorage is unavailable. Only an explicit 'false' disables it.
+function loadAlertToneEnabled() {
+  try { return window.localStorage?.getItem(ALERT_TONE_STORAGE_KEY) !== 'false'; }
+  catch { return true; }
+}
+let alertToneEnabled = loadAlertToneEnabled();
+function setAlertToneEnabled(next) {
+  alertToneEnabled = !!next;
+  ui['alert-tone-toggle'].checked = alertToneEnabled;
+  // Muting also silences a two-beep sequence already in progress.
+  if (!alertToneEnabled && session) stopAlertTones(session);
+  try { window.localStorage?.setItem(ALERT_TONE_STORAGE_KEY, String(alertToneEnabled)); } catch {}
+}
+
 const thresholdRows = Object.entries(TARGETS).map(([name, info], i) => ({
   name, info, label: $('threshold-label-' + i),
   input: $('threshold-input-' + i), output: $('threshold-value-' + i)
@@ -377,6 +398,56 @@ function stopDebug(s) {
 }
 
 
+// Beeps use the same user-activated AudioContext as the real-time microphone,
+// but a SEPARATE output-only node chain. The microphone source stays read-only.
+// Audio is routed by the OS/browser (we cannot force Bluetooth headphone output).
+function stopAlertTones(s) {
+  for (const entry of s?.alertToneNodes ?? []) {
+    try { entry.osc.onended = null; entry.osc.stop(); } catch {}
+    try { entry.osc.disconnect(); } catch {}
+    try { entry.gain.disconnect(); } catch {}
+  }
+  s?.alertToneNodes?.clear();
+}
+function playAlertTone(s) {
+  const context = s?.context;
+  if (!alertToneEnabled || !context || context.state !== 'running' ||
+      !context.createOscillator || !context.createGain) return false;
+  try {
+    // A gentle two-tone sequence (two 110 ms sine beeps, 85 ms gap).
+    // Peak WebAudio gain is deliberately capped at 0.045 (not a dB SPL guarantee).
+    const start = context.currentTime + 0.02;
+    for (let i = 0; i < 2; i++) {
+      const at = start + i * 0.195;
+      const end = at + 0.11;
+      const osc = context.createOscillator();
+      const gain = context.createGain();
+      const entry = { osc, gain };
+      s.alertToneNodes.add(entry);
+      osc.type = 'sine';
+      osc.frequency.value = 740;
+      gain.gain.setValueAtTime(0, at);
+      gain.gain.linearRampToValueAtTime(0.045, at + 0.015);
+      gain.gain.setValueAtTime(0.045, end - 0.03);
+      gain.gain.linearRampToValueAtTime(0, end);
+      osc.connect(gain);
+      gain.connect(context.destination);
+      osc.onended = () => {
+        s.alertToneNodes.delete(entry);
+        try { osc.disconnect(); } catch {}
+        try { gain.disconnect(); } catch {}
+      };
+      osc.start(at);
+      osc.stop(end);
+    }
+    return true;
+  } catch (error) {
+    stopAlertTones(s);
+    console.warn('[Traffic Sound Guardian] Alert audio unavailable:', error);
+    return false; // Visual warning must still work when audio output is blocked.
+  }
+}
+
 function render(state, description = '') {
   view = state;
   viewDescription = description;
@@ -429,6 +500,10 @@ function setLanguage(next) {
   document.documentElement.lang = language;
   ui['language-select'].value = language;
   ui['language-select-label'].textContent = t('言語');
+  ui['alert-tone-label'].textContent = t('通知音を鳴らす');
+  ui['alert-tone-note'].textContent = t('新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。');
+  ui['alert-tone-toggle'].setAttribute('aria-label', t('通知音を鳴らす'));
+  ui['alert-tone-toggle'].checked = alertToneEnabled;
   ui['language-select'].setAttribute('aria-label', t('言語'));
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
   ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.6.0&lang=' + language);
@@ -548,6 +623,7 @@ function stop(message = '') {
     }
     // Release any pending async initialization wait as well as native resources.
     old.rejectReady?.(new DOMException('Stopped', 'AbortError'));
+    stopAlertTones(old); // Discard any scheduled beeps when microphone session ends.
     old.gate.reset();
   }
   resetVisuals();
@@ -641,7 +717,11 @@ function receiveResult(s, data) {
   // Legacy test fixtures without trafficScores keep the prior default behaviour.
   const target = data.trafficScores ? chooseTarget(data.trafficScores, soundThresholds) : data.target;
   const threshold = target?.name ? (soundThresholds[target.name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
+  // Only the inactive -> active transition counts as a NEW warning.
+  // A late JavaScript timer must not make an expired warning look continuous.
+  const wasActive = s.gate.active && now - s.gate.lastPositive < WARNING_HOLD_MS;
   s.gate.observe(target, now, threshold);
+  if (!wasActive && s.gate.active) playAlertTone(s);
   // The red interval represents a positive YAMNet analysis window, not exact event boundaries.
   // Use capture timestamps rather than delayed Worker response time.
   if (target && Number.isFinite(completedFrame?.endTime)) {
@@ -743,7 +823,7 @@ async function start() {
     return;
   }
   const s = { id: ++nextSession, gate: new WarningGate(), connected: false, hasResult: false,
-    pending: null, flight: null };
+    pending: null, flight: null, alertToneNodes: new Set() };
   session = s;
   diagnostics.model = '読み込み中';
   diagnostics.microphone = '許可を確認中';
@@ -847,6 +927,7 @@ for (const row of thresholdRows) {
   });
 }
 ui['threshold-reset'].addEventListener('click', resetThresholds);
+ui['alert-tone-toggle'].addEventListener('change', () => setAlertToneEnabled(ui['alert-tone-toggle'].checked));
 ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
 ui['language-select'].addEventListener('change', () => setLanguage(ui['language-select'].value));
@@ -854,6 +935,7 @@ ui.feedback.addEventListener('click', event => {
   if (!feedbackURL(FEEDBACK_FORM_URLS[language === 'ja' ? 'ja' : 'en'])) event.preventDefault();
 });
 setLanguage(language);
+ui['alert-tone-toggle'].checked = alertToneEnabled;
 renderThresholds();
 resetVisuals();
 setDebug(true); // Default ON; changes the diagnostics view only, never starts the microphone.
