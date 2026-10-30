@@ -11,7 +11,8 @@ IMPORTANT:
 """
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import hashlib,json,time,urllib.request,urllib.parse,subprocess
+import hashlib,json,time,urllib.request,urllib.parse
+from mutagen.mp3 import MP3
 
 ROOT=Path(__file__).resolve().parent
 WORK=ROOT/".working"
@@ -70,14 +71,10 @@ def pull(item):
                 local="audio/"+item["id"]+".mp3"
                 (WORK/local).write_bytes(buf)
                 sha=hashlib.sha256(buf).hexdigest()
-                duration=None
                 try:
-                    q=subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
-                     "-of","default=noprint_wrappers=1:nokey=1",str(WORK/local)],
-                     capture_output=True,text=True,timeout=12,check=True)
-                    duration=float(q.stdout.strip())
+                    duration=float(MP3(str(WORK/local)).info.length)
                 except Exception as e:
-                    raise ValueError("Could not decode duration") from e
+                    raise ValueError("Could not decode MP3 duration") from e
                 if not 0.975<=duration<=120:
                     raise ValueError(f"duration {duration:.3f} outside 0.975-120 sec range")
                 return dict(file_local=local,sha256=sha,size_bytes=len(buf),
