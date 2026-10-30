@@ -1,0 +1,138 @@
+[
+  {
+    "id": "horn0260_rain",
+    "horn_source": "bsb_0260",
+    "siren_source": null,
+    "background_id": "bsb_0124",
+    "horn_event": {
+      "start_sample": 88192,
+      "end_sample": 109976,
+      "start_seconds": 1.9998185941043083,
+      "end_seconds": 2.4937868480725625
+    },
+    "siren_event": null,
+    "input_hash": "6b9ccd748d96f3639e3ad666c28159ae05835d2e145f29bc2157dec8a544b921",
+    "horn_reference_hash": "acd709d36e370c01aae9c682027733c8724369ff083c61797bdf68e155b49053",
+    "siren_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+    "noise_hash": "5ee1bc028fa1a566c395c52804b6720739f6840c4184a79a152af1a2a54551bb",
+    "input_peak": 0.8499999642372131,
+    "gain": 0.9297992101100283,
+    "length_samples": 352800,
+    "input_has_background_history_seconds": 1.9998185941043083
+  },
+  {
+    "id": "siren_road",
+    "horn_source": null,
+    "siren_source": "iusb_014",
+    "background_id": "iusb_road_00",
+    "horn_event": null,
+    "siren_event": {
+      "start_sample": 88192,
+      "end_sample": 176392,
+      "start_seconds": 1.9998185941043083,
+      "end_seconds": 3.9998185941043083
+    },
+    "input_hash": "09ec7a4ffc8a6c6b7e949f8fb7e4a1159061956ca59268faff3a607aa12f66f3",
+    "horn_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+    "siren_reference_hash": "84968c091e1de637666407daf46158827fd6e3a61447c8f0c9f928f35a8eff61",
+    "noise_hash": "41345ed81914cdbc7e4f4aef29d156fba8910729e7e92005b006b5c932a17896",
+    "input_peak": 0.2890591323375702,
+    "gain": 1.0,
+    "length_samples": 352800,
+    "input_has_background_history_seconds": 1.9998185941043083
+  },
+  {
+    "id": "sequential_rain",
+    "horn_source": "bsb_0260",
+    "siren_source": "iusb_014",
+    "background_id": "bsb_0124",
+    "horn_event": {
+      "start_sample": 88192,
+      "end_sample": 109976,
+      "start_seconds": 1.9998185941043083,
+      "end_seconds": 2.4937868480725625
+    },
+    "siren_event": {
+      "start_sample": 185120,
+      "end_sample": 273320,
+      "start_seconds": 4.197732426303855,
+      "end_seconds": 6.197732426303855
+    },
+    "input_hash": "ab5c318f6e18f1494f7c969af418363fedb605cc51210e03ff2ba79041e208ab",
+    "horn_reference_hash": "924d6a339530327353146e3e9cd2e2df5ee2705c0ddc901d788b380ecb52f7de",
+    "siren_reference_hash": "6edc0f6d863c3c99f43aedaec9c092e414c7bd28a410eb4d7d11f782b0affc1c",
+    "noise_hash": "c5509dc94c1420d7f626259a8d92338a653012519c25ed81c192c311668be319",
+    "input_peak": 0.6036547422409058,
+    "gain": 1.0,
+    "length_samples": 352800,
+    "input_has_background_history_seconds": 1.9998185941043083
+  },
+  {
+    "id": "overlap_rain",
+    "horn_source": "bsb_0260",
+    "siren_source": "iusb_014",
+    "background_id": "bsb_0124",
+    "horn_event": {
+      "start_sample": 132288,
+      "end_sample": 154072,
+      "start_seconds": 2.9997278911564624,
+      "end_seconds": 3.4936961451247166
+    },
+    "siren_event": {
+      "start_sample": 88192,
+      "end_sample": 176392,
+      "start_seconds": 1.9998185941043083,
+      "end_seconds": 3.9998185941043083
+    },
+    "input_hash": "fdc7917779119328b3195115afab4b800df81405dc91adf4c2aba56088986c4a",
+    "horn_reference_hash": "8e90fcceb803b19dba15939fc0edd3e8cf1720056827dab5cdfec705a3557dd9",
+    "siren_reference_hash": "84968c091e1de637666407daf46158827fd6e3a61447c8f0c9f928f35a8eff61",
+    "noise_hash": "757baeec888c5e8b6529cc1795fa36d6ac0e97f751ad6bb24ee3921dc2963c32",
+    "input_peak": 0.5265277624130249,
+    "gain": 1.0,
+    "length_samples": 352800,
+    "input_has_background_history_seconds": 1.9998185941043083
+  },
+  {
+    "id": "overlap_road",
+    "horn_source": "bsb_0257",
+    "siren_source": "iusb_014",
+    "background_id": "iusb_road_00",
+    "horn_event": {
+      "start_sample": 132288,
+      "end_sample": 153554,
+      "start_seconds": 2.9997278911564624,
+      "end_seconds": 3.481950113378685
+    },
+    "siren_event": {
+      "start_sample": 88192,
+      "end_sample": 176392,
+      "start_seconds": 1.9998185941043083,
+      "end_seconds": 3.9998185941043083
+    },
+    "input_hash": "8036f52043bfce2bc60576cecd4ef1a2a6904d9959f7a793530ff856208bc194",
+    "horn_reference_hash": "7b010ed1b7a84373c86ae23506d0bc2a9d6b1e47b366d301c3200a62f4a3ba53",
+    "siren_reference_hash": "84968c091e1de637666407daf46158827fd6e3a61447c8f0c9f928f35a8eff61",
+    "noise_hash": "497f974a3e7ca532f772bb351e0c855ad6075b2a7ea684b9ab9cb7fb72ececcc",
+    "input_peak": 0.4301711320877075,
+    "gain": 1.0,
+    "length_samples": 352800,
+    "input_has_background_history_seconds": 1.9998185941043083
+  },
+  {
+    "id": "background_road",
+    "horn_source": null,
+    "siren_source": null,
+    "background_id": "iusb_road_00",
+    "horn_event": null,
+    "siren_event": null,
+    "input_hash": "0fd7d0c12ed6cf9f36092c5ab9c394b05ec58c492e0b993e6c504f62558c4280",
+    "horn_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+    "siren_reference_hash": "4d5dfececf9ba311f7dce724f3e5f00f9d05c24c267d4f94905ce0be10c7ebee",
+    "noise_hash": "0fd7d0c12ed6cf9f36092c5ab9c394b05ec58c492e0b993e6c504f62558c4280",
+    "input_peak": 0.2199999988079071,
+    "gain": 1.0,
+    "length_samples": 352800,
+    "input_has_background_history_seconds": 8
+  }
+]
