@@ -382,7 +382,7 @@ function render(state, description = '') {
   viewDescription = description;
   document.body.dataset.state = state;
   const warning = state === 'warning';
-  ui['theme-color'].setAttribute('content', warning ? '#c7263a' : document.documentElement.dataset.theme === 'light' ? '#f5f7fb' : '#101a2c');
+  ui['theme-color'].setAttribute('content', warning ? '#c7263a' : document.documentElement.dataset?.theme === 'light' ? '#f5f7fb' : '#101a2c');
   ui['warning-details'].hidden = !warning;
   ui.description.hidden = warning;
   const texts = {
