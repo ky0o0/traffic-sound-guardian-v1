@@ -75,10 +75,10 @@ function harness({devices=[{kind:'audioinput',deviceId:'mic1',label:'iPhone Micr
     tickFrame(){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn())},
     resolve:()=>pendingResolve?.()};
 }
-test('V1.5.4 diagnostic is independent and all DOM IDs are present',()=>{
+test('V1.6.0 diagnostic is independent and all DOM IDs are present',()=>{
   for(const id of requiredIds)assert.ok(allIds.has(id),id);
-  assert.ok(html.includes('microphone-test.js?v=1.5.4'));
-  assert.ok(html.includes('microphone-test.css?v=1.5.4'));
+  assert.ok(html.includes('microphone-test.js?v=1.6.0'));
+  assert.ok(html.includes('microphone-test.css?v=1.6.0'));
   assert.ok(!app.includes('yamnet.tflite'));
   assert.ok(!app.includes('MediaRecorder'));
   assert.ok(!app.includes('localStorage'));
@@ -170,7 +170,7 @@ test('changing language does not restart audio or erase a selected input',async(
  h.lang('en');assert.equal(h.get('device-select').value,'mic1');
  assert.equal(h.get('status').textContent.includes('Receiving microphone'),true);
  assert.equal(h.calls.length,1);
- assert.equal(h.get('home-link').attributes.href,'./index.html?v=1.5.4&lang=en');
+ assert.equal(h.get('home-link').attributes.href,'./index.html?v=1.6.0&lang=en');
  h.lang('ja');assert.equal(h.get('language').value,'ja');
  h.stop();
 });
