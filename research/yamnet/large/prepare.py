@@ -41,7 +41,7 @@ BELLS=[
 UA="TSG-Education-Research/1.0 (GitHub ky0o0/traffic-sound-guardian-v1)"
 MAX_BYTES=12_000_000
 # Caps to bound CI runtime. ~250 separate source-group candidates before download.
-ESC_COUNTS={"car_horn":35,"siren":35,"rain":10,"wind":10,
+ESC_COUNTS={"car_horn":32,"siren":24,"rain":10,"wind":10,
             "engine":10,"train":10,"church_bells":10,"clock_alarm":10,
             "footsteps":10,"helicopter":10}
 URBAN_COUNTS={"car_horn":25,"siren":25,"street_music":9,
@@ -110,6 +110,8 @@ def make_urban():
     b,u=get(US_CSV,limit=1_500_000)
     rows=list(csv.DictReader(io.StringIO(b.decode("utf8"))))
     used=set()
+    # Do not feed clips shorter than the exact 0.975-second YAMNet window.
+    rows=[r for r in rows if float(r["end"])-float(r["start"])>=0.977]
     entries=choose(rows,"class",URBAN_COUNTS,"fsID",used)
     return [dict(dataset="UrbanSound8K",group_id="freesound:"+r["fsID"],
        original_audio_id=r["fsID"],filename=r["slice_file_name"],
