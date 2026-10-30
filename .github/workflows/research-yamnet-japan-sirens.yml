@@ -1,0 +1,77 @@
+name: YAMNet Japan emergency vehicle siren type pilot
+on:
+  push:
+    branches: [research/yamnet-jp-emergency-types-pilot-20261030]
+    paths:
+      - '.github/workflows/research-yamnet-japan-sirens.yml'
+      - 'research/yamnet/japan/trigger.json'
+permissions:
+  contents: write
+jobs:
+  japan-emergency-reference:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify unchanged official TSG production YAMNet
+        run: |
+          test "$(sha256sum yamnet.tflite | awk '{print $1}')" = "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf"
+          node --test test-*.js
+      - name: Install Playwright controller for actual browser worker
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          if command -v google-chrome >/dev/null; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          else
+            npx playwright install --with-deps chromium
+          fi
+      - name: Download and hash official Japanese fire and ambulance demos, field effects and Japanese police synthetic controls
+        run: python -u research/yamnet/japan/prepare.py
+      - name: Run actual TSG YAMNet worker on the downloaded recordings
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/yamnet-japan-http.log 2>&1 &
+          for i in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8765/research/yamnet/japan/harness.html >/dev/null && break || sleep 2; done
+          node research/yamnet/japan/run-browser.mjs
+      - name: Keep all six raw scores, with original license and source URL provenance
+        run: |
+          node research/yamnet/japan/analyse.mjs
+          python - <<'PY'
+          import gzip,json
+          from pathlib import Path
+          p=Path('research/yamnet/japan')
+          d=json.loads((p/'RESULTS.json').read_text())
+          assert d['sourceFileCount']>=3
+          with (p/'SIX_SCORES.csv').open('rb') as a, gzip.open(p/'SIX_SCORES.csv.gz','wb') as b:b.write(a.read())
+          print('Preserved',d['sampleWindows'],'actual six-class score windows')
+          PY
+      - name: Retain provenance, verified WAV scores and download failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yamnet-japan-emergency-siren-scores
+          path: |
+            research/yamnet/japan/.working/manifest.json
+            research/yamnet/japan/.working/raw-results.json
+            research/yamnet/japan/RESULTS.json
+            research/yamnet/japan/REPORT.zh-CN.md
+            research/yamnet/japan/SIX_SCORES.csv
+            research/yamnet/japan/SIX_SCORES.csv.gz
+            /tmp/yamnet-japan-http.log
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Commit lightweight report to experimental branch
+        if: success()
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name 'TSG Japan siren research'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/yamnet/japan/RESULTS.json research/yamnet/japan/REPORT.zh-CN.md research/yamnet/japan/SIX_SCORES.csv.gz
+          git commit -m 'research(yamnet): publish Japan official siren pilot with six raw class scores'
+          git push origin HEAD:refs/heads/research/yamnet-jp-emergency-types-pilot-20261030
