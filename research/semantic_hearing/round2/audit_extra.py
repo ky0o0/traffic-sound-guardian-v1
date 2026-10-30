@@ -35,8 +35,12 @@ def main():
                 path=root/'originals'/(sid+suffix)
                 try:
                     path.write_bytes(get(inf['url']));row=dict(id=sid,provider='Wikimedia Commons',source_page=inf['descriptionurl'],download_url=inf['url'],title=page['title'],target=target,license=lic,author=plain(meta.get('Artist',{}).get('value','unknown')),license_url=meta.get('LicenseUrl',{}).get('value'),description=plain(meta.get('ImageDescription',{}).get('value','')),reference_kind='unreviewed_scene',training_overlap='Unknown',original_filename=path.name,**describe(path));rows.append(row);print(json.dumps(row),flush=True)
-                except Exception as e:errors.append(dict(id=sid,error=str(e)))
-        except Exception as e:errors.append(dict(provider='Wikimedia Commons',url=url,error=str(e)))
+                except Exception as e:
+                    errors.append(dict(id=sid,error=str(e)))
+                    if getattr(e,'code',None)==429:raise RuntimeError('Provider rate limit; stop Commons discovery')
+        except Exception as e:
+            errors.append(dict(provider='Wikimedia Commons',url=url,error=str(e)))
+            break
     # A genuine recorded stereo road background, selected from canonical search links.
     try:
         search=get('https://bigsoundbank.com/search?q=traffic').decode()
