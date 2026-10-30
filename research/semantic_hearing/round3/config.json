@@ -1,0 +1,39 @@
+{
+  "schema": "tsg-sh-round3/1",
+  "base_commit": "97e51d7d51ac1128ff097753161fa538f2790b95",
+  "upstream_commit": "07e9786c7a741f0a7c722dcde66a2679ca068c50",
+  "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21",
+  "seed": 20261030,
+  "rate": 44100,
+  "threads": 2,
+  "block_samples": 416,
+  "input_conv_halo_samples_each_side": 32,
+  "capture_packet_samples": 32,
+  "long_stream_blocks": 3180,
+  "background_period_blocks": 530,
+  "horn_event_blocks": [0, 530, 610, 1590, 2650, 3070],
+  "siren_event_blocks": [0, 530, 1060, 1320, 2650],
+  "scheduled_reset_block": 2650,
+  "event_peak": 0.25,
+  "siren_edit_seconds": 2.0,
+  "siren_edit_fade_seconds": 0.005,
+  "nominal_active_snr_db": 0,
+  "event_postguard_seconds": 0.1,
+  "event_onset_score_seconds": 0.1,
+  "history_prime_blocks": 160,
+  "paced_noise_prime_blocks": 212,
+  "sources": ["bsb_0260", "bsb_0257", "iusb_014"],
+  "backgrounds": ["bsb_0124", "iusb_road_00"],
+  "policies": ["carry", "reset_each_block", "scheduled_reset"],
+  "archive_inputs": {
+    "main": {
+      "path": "../round2/evidence/listening-selection.zip",
+      "sha256": "671413a5c264c293e94a7ce0899fe7efb721d5c63c4302cb5e0044011c97bed1"
+    },
+    "boundary": {
+      "path": "../round2/evidence/boundary/boundary-listening.zip",
+      "sha256": "8dfa64a4685e4c0196495e0b4d43a7bb123151c97d8beea15d81880dcc059c97"
+    }
+  },
+  "interpretation": "Repeated real recorded components in constructed continuous streams; not new independent recordings, true binaural capture or physical headphone measurements"
+}

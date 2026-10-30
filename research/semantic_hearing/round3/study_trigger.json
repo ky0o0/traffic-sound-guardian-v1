@@ -1,0 +1,9 @@
+{
+  "pilot_run": 41021346346,
+  "pilot_passed": true,
+  "expanded_only_after_actual_pretrained_equivalence_and_state_interventions": true,
+  "new_original_recording_downloads": 0,
+  "long_inputs": 6,
+  "state_policies": 3,
+  "independent_replays": 1
+}

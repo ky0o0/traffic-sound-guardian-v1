@@ -1,0 +1,8 @@
+torchvision is not available - cannot save figures
+{"id": "cold_carry", "si_sdri_db": -31.099939417399046, "gain_db": -49.70171961284524, "max_sample_difference": 2.859160304069519e-07}
+{"id": "zero_history_carry", "si_sdri_db": 8.756328065356882, "gain_db": -2.0321672830247626, "max_sample_difference": 1.519918441772461e-06}
+{"id": "zero_history_reset_each_block", "si_sdri_db": -14.083693391110138, "gain_db": -51.234826952489335, "max_sample_difference": 0.6406219601631165}
+{"id": "zero_history_reset_encoder", "si_sdri_db": -31.100559032224993, "gain_db": -49.702341662381876}
+{"id": "zero_history_reset_decoder", "si_sdri_db": 8.756207129384325, "gain_db": -2.0321816946217712}
+{"id": "zero_history_reset_output", "si_sdri_db": 8.756321660242882, "gain_db": -2.032168045727592}
+{"id": "zero_history_reset_all", "si_sdri_db": -31.099939417399046, "gain_db": -49.70171961284524}

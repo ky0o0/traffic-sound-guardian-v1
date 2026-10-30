@@ -1,0 +1,19 @@
+{
+  "python": "3.10.22 (main, Oct  1 2026, 14:31:30) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.35",
+  "cpu_info": "processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 106\nmodel name\t: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz\nstepping\t: 6\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3490.618\ncache size\t: 49152 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 27\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves vnmi avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid fsrm arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs mmio_stale_data retbleed bhi its its_native_only\nbogomips\t: 5586.87\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 57 bits virtual\npower management:",
+  "torch_threads": 2,
+  "model": {
+    "load_seconds": 0.39440018199999827,
+    "parameters": 1743872,
+    "checkpoint_sha256": "f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21"
+  },
+  "source_commit": "783b5755552b3a4b5a071eef47a5ad350657ae1a",
+  "upstream": "07e9786c7a741f0a7c722dcde66a2679ca068c50",
+  "package_freeze": "certifi==2026.10.23\ncffi==2.1.1\ncharset-normalizer==3.5.2\ncloudpickle==3.1.2\ncontourpy==1.3.2\ncycler==0.12.1\nfilelock==4.1.0\nfonttools==4.65.0\nfsspec==2026.9.0\nhuggingface-hub==0.25.2\nHyperPyYAML==1.2.3\nidna==3.20\njoblib==1.6.0\nkiwisolver==1.5.1\nmatplotlib==3.9.4\nnumpy==1.26.4\npackaging==26.3\npillow==12.3.0\npycparser==3.11\npyparsing==3.3.3\npython-dateutil==3.0.0\nPyYAML==6.0.2\nremotezip==0.12.3\nrequests==2.32.3\nruamel.yaml==0.18.17\nruamel.yaml.clib==0.2.15\nscipy==1.14.1\nsentencepiece==0.2.2\nsix==1.17.0\nsoundfile==0.13.1\nspeechbrain==0.5.16\ntorch==1.13.1+cpu\ntorchaudio==0.13.1+cpu\ntorchmetrics==0.10.0\ntqdm==4.70.1\ntyping_extensions==4.16.0\ntzdata==2026.6\nurllib3==2.8.0\n",
+  "input_recipe_sha256": "744263792f1c61429dc47efa16adaffd5debe8824295893e63b009ad984beb03",
+  "adapter_sha256": "b371d2864c8a6acccfae468f6b6ed7562770befcecc33406bfa2d251f490553b",
+  "model_loader_sha256": "05a3a7b13e3f3b9ce754a20664169404266a8328a29b4325413e00fa7714b682",
+  "config_sha256": "a47e1f9bd68f735629d879b71f25158959cf517323cc530a16397be4cd415026",
+  "runner_sha256": "6cbf6f57d589edbdf2d55738283ad6518a8878d4b0f2315a46608c0749403a65"
+}

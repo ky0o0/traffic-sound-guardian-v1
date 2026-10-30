@@ -1,0 +1,728 @@
+[
+  {
+    "id": "cold_carry",
+    "kind": "pilot",
+    "signal": "cold",
+    "policy": "carry",
+    "has_reference": true,
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.05119077264848,
+        -28.14680013761873
+      ],
+      "si_sdri_db": -31.099939417399046,
+      "output_snr_db": -0.07067114390232351,
+      "output_to_reference_energy_db": -18.57819781849533,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.098995455133604,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0021985238738494463,
+        -0.004871883030298994
+      ],
+      "projected_gain_db": [
+        -53.15737627998687,
+        -46.2460629457036
+      ],
+      "residual_suppression_db": 18.583598689348925,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65868450921096,
+      "active_output_snr_db": -0.011457337720134068,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.112365913260643,
+        -4.172904426575489
+      ],
+      "inactive_output_energy_fraction": 0.9922030337029129
+    },
+    "stream_vs_offline_max_abs_sample_difference": 2.859160304069519e-07,
+    "timing": {
+      "blocks": 531,
+      "neural_forward_calls": 531,
+      "duration_seconds": 5.0,
+      "forward_seconds": {
+        "n": 531,
+        "median": 0.005416300000000263,
+        "p95": 0.005728105500001135,
+        "p99": 0.006498815600001261,
+        "max": 0.01023230899999561,
+        "min": 0.0050447400000024345
+      },
+      "first_block_forward_seconds": 0.007316132999996228,
+      "steady_forward_seconds": {
+        "n": 422,
+        "median": 0.005394713499999426,
+        "p95": 0.005723355749997339,
+        "p99": 0.0063143836600028916,
+        "max": 0.01023230899999561,
+        "min": 0.0051982190000003925
+      },
+      "step_seconds": {
+        "n": 531,
+        "median": 0.005468757000002711,
+        "p95": 0.005799354499998799,
+        "p99": 0.006567969999998989,
+        "max": 0.01030518600000363,
+        "min": 0.005191607000000431
+      },
+      "cpu_forward_rtf": 0.5801394592000051,
+      "unpaced_adapter_wall_rtf": 0.5967938732000008,
+      "wall_seconds": 2.9839693660000037,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 1,
+      "modeled_queue_wait_seconds": {
+        "n": 531,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0054179619999956685,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 5.969661687,
+      "process_cpu_percent": 200.05774037158776,
+      "memory_before": {
+        "VmHWM_kib": 540712,
+        "VmRSS_kib": 528008
+      },
+      "memory_after": {
+        "VmHWM_kib": 540712,
+        "VmRSS_kib": 528520
+      }
+    },
+    "score_offset": 0,
+    "offline_forward_seconds": 0.6292701009999959,
+    "status": "processed"
+  },
+  {
+    "id": "zero_history_carry",
+    "kind": "pilot",
+    "signal": "zero_history",
+    "policy": "carry",
+    "has_reference": true,
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        8.78915889057766,
+        8.725385164666987
+      ],
+      "si_sdri_db": 8.756328065356882,
+      "output_snr_db": 8.959667083988617,
+      "output_to_reference_energy_db": -1.4900364720887644,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": 8.757272027622324,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7809054918551543,
+        0.8020192542399452
+      ],
+      "projected_gain_db": [
+        -2.1480304581613843,
+        -1.9163041078881409
+      ],
+      "residual_suppression_db": 10.789868224474821,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -1.6458514169948535,
+      "active_output_snr_db": 9.91324836812362,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        10.15122143084129,
+        10.47148014473487
+      ],
+      "inactive_output_energy_fraction": 0.03529877158654437
+    },
+    "stream_vs_offline_max_abs_sample_difference": 1.519918441772461e-06,
+    "timing": {
+      "blocks": 691,
+      "neural_forward_calls": 691,
+      "duration_seconds": 6.509297052154195,
+      "forward_seconds": {
+        "n": 691,
+        "median": 0.005274780000007695,
+        "p95": 0.005442955499994184,
+        "p99": 0.005870991100000823,
+        "max": 0.006429706999995233,
+        "min": 0.0037703150000112373
+      },
+      "first_block_forward_seconds": 0.006046788999995556,
+      "steady_forward_seconds": {
+        "n": 582,
+        "median": 0.0052677465000030566,
+        "p95": 0.00544889774999504,
+        "p99": 0.005735850489999164,
+        "max": 0.006054899000005776,
+        "min": 0.005176934999994387
+      },
+      "step_seconds": {
+        "n": 691,
+        "median": 0.005325326000004793,
+        "p95": 0.005493380999993747,
+        "p99": 0.005947417200000871,
+        "max": 0.006478250000000685,
+        "min": 0.0039002289999956474
+      },
+      "cpu_forward_rtf": 0.5623947468779728,
+      "unpaced_adapter_wall_rtf": 0.5776030740148387,
+      "wall_seconds": 3.7597899869999907,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 0,
+      "modeled_queue_wait_seconds": {
+        "n": 691,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.00546676099999388,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 7.519473704000001,
+      "process_cpu_percent": 199.99717351234116,
+      "memory_before": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560692
+      },
+      "memory_after": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560692
+      }
+    },
+    "score_offset": 66560,
+    "offline_forward_seconds": 0.6500697570000114,
+    "status": "processed"
+  },
+  {
+    "id": "zero_history_reset_each_block",
+    "kind": "pilot",
+    "signal": "zero_history",
+    "policy": "reset_each_block",
+    "has_reference": true,
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -22.10677288645273,
+        -6.0587259712366635
+      ],
+      "si_sdri_db": -14.083693391110138,
+      "output_snr_db": -0.024023491506285716,
+      "output_to_reference_energy_db": -36.65762901183117,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -14.082749428844696,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0011364078181879955,
+        -0.006621907225016482
+      ],
+      "projected_gain_db": [
+        -58.88931574213189,
+        -43.58033816284678
+      ],
+      "residual_suppression_db": 37.12904044633565,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -40.31383499100854,
+      "active_output_snr_db": -0.023495750000267074,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -18.503272327259552,
+        -0.5060861442394421
+      ],
+      "inactive_output_energy_fraction": 0.5691225874441778
+    },
+    "stream_vs_offline_max_abs_sample_difference": 0.6406219601631165,
+    "timing": {
+      "blocks": 691,
+      "neural_forward_calls": 691,
+      "duration_seconds": 6.509297052154195,
+      "forward_seconds": {
+        "n": 691,
+        "median": 0.005338969999996834,
+        "p95": 0.007011015500005158,
+        "p99": 0.0074267976000015785,
+        "max": 0.0077454449999976305,
+        "min": 0.004040887000002158
+      },
+      "first_block_forward_seconds": 0.007606441999996605,
+      "steady_forward_seconds": {
+        "n": 582,
+        "median": 0.0053357589999976085,
+        "p95": 0.007078725849989808,
+        "p99": 0.007430930040002008,
+        "max": 0.0077454449999976305,
+        "min": 0.005203976000004218
+      },
+      "step_seconds": {
+        "n": 691,
+        "median": 0.005475928000009844,
+        "p95": 0.007163062500005424,
+        "p99": 0.007580401200010557,
+        "max": 0.007916016000010018,
+        "min": 0.004255230000012489
+      },
+      "cpu_forward_rtf": 0.590925135722126,
+      "unpaced_adapter_wall_rtf": 0.6162272503253662,
+      "wall_seconds": 4.0112062239999915,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 0,
+      "modeled_queue_wait_seconds": {
+        "n": 691,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.006087659000002077,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 8.023257485000002,
+      "process_cpu_percent": 200.0210669048867,
+      "memory_before": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 561412
+      },
+      "memory_after": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 561412
+      }
+    },
+    "score_offset": 66560,
+    "offline_forward_seconds": 0.6500697570000114,
+    "status": "processed"
+  },
+  {
+    "id": "zero_history_reset_encoder",
+    "kind": "state_component_intervention",
+    "policy": "reset_encoder",
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.05337944468899,
+        -28.14585069523011
+      ],
+      "si_sdri_db": -31.100559032224993,
+      "output_snr_db": -0.07067575715374777,
+      "output_to_reference_energy_db": -18.578199743189646,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.09961506995955,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.00219796946526275,
+        -0.004872413961497754
+      ],
+      "projected_gain_db": [
+        -53.15956690394671,
+        -46.24511642081704
+      ],
+      "residual_suppression_db": 18.58360117031419,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65893136786329,
+      "active_output_snr_db": -0.011462014578048213,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.11434086464376,
+        -4.171303755326416
+      ],
+      "inactive_output_energy_fraction": 0.9922034734248165
+    },
+    "timing": {
+      "blocks": 691,
+      "neural_forward_calls": 691,
+      "duration_seconds": 6.509297052154195,
+      "forward_seconds": {
+        "n": 691,
+        "median": 0.0053077419999993936,
+        "p95": 0.005471624499996608,
+        "p99": 0.006184585699992341,
+        "max": 0.007547987999998895,
+        "min": 0.0038456789999941066
+      },
+      "first_block_forward_seconds": 0.006149324999995542,
+      "steady_forward_seconds": {
+        "n": 582,
+        "median": 0.005311257999998986,
+        "p95": 0.005480030649998468,
+        "p99": 0.0061887821299939074,
+        "max": 0.007547987999998895,
+        "min": 0.005195710999998937
+      },
+      "step_seconds": {
+        "n": 691,
+        "median": 0.005357395000004317,
+        "p95": 0.0055288420000039196,
+        "p99": 0.00623237970000048,
+        "max": 0.00759983599999714,
+        "min": 0.003952330000004167
+      },
+      "cpu_forward_rtf": 0.5665122951762697,
+      "unpaced_adapter_wall_rtf": 0.5817977664341951,
+      "wall_seconds": 3.787094486000001,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 0,
+      "modeled_queue_wait_seconds": {
+        "n": 691,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.005396910000001753,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 7.575513285000003,
+      "process_cpu_percent": 200.03496910375213,
+      "memory_before": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560968
+      },
+      "memory_after": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560968
+      }
+    },
+    "score_offset": 66560,
+    "status": "processed"
+  },
+  {
+    "id": "zero_history_reset_decoder",
+    "kind": "state_component_intervention",
+    "policy": "reset_decoder",
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        8.789026183616661,
+        8.725275999682871
+      ],
+      "si_sdri_db": 8.756207129384325,
+      "output_snr_db": 8.959578460496573,
+      "output_to_reference_energy_db": -1.4900366819642579,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": 8.757151091649767,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7809040786670305,
+        0.8020180442244698
+      ],
+      "projected_gain_db": [
+        -2.1480461768460604,
+        -1.916317212397482
+      ],
+      "residual_suppression_db": 10.789761847680843,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -1.6458516345497696,
+      "active_output_snr_db": 9.913137977656106,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        10.151044195354615,
+        10.47132227750941
+      ],
+      "inactive_output_energy_fraction": 0.03529877329237938
+    },
+    "timing": {
+      "blocks": 691,
+      "neural_forward_calls": 691,
+      "duration_seconds": 6.509297052154195,
+      "forward_seconds": {
+        "n": 691,
+        "median": 0.005291429999999764,
+        "p95": 0.005499883500000635,
+        "p99": 0.006238581999994608,
+        "max": 0.006456012999990435,
+        "min": 0.0038380100000097173
+      },
+      "first_block_forward_seconds": 0.006093099000011648,
+      "steady_forward_seconds": {
+        "n": 582,
+        "median": 0.005286521500003971,
+        "p95": 0.0054948756500039055,
+        "p99": 0.006238589199995204,
+        "max": 0.0063832259999969665,
+        "min": 0.005192272000002163
+      },
+      "step_seconds": {
+        "n": 691,
+        "median": 0.005341432999998119,
+        "p95": 0.005548510500005932,
+        "p99": 0.006286153499999614,
+        "max": 0.006517809000001762,
+        "min": 0.003953918000007661
+      },
+      "cpu_forward_rtf": 0.5659949496052913,
+      "unpaced_adapter_wall_rtf": 0.5811584055375187,
+      "wall_seconds": 3.782932696000003,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 0,
+      "modeled_queue_wait_seconds": {
+        "n": 691,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.005390720999997711,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 7.563570558000002,
+      "process_cpu_percent": 199.9393371708032,
+      "memory_before": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560768
+      },
+      "memory_after": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560768
+      }
+    },
+    "score_offset": 66560,
+    "status": "processed"
+  },
+  {
+    "id": "zero_history_reset_output",
+    "kind": "state_component_intervention",
+    "policy": "reset_output",
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        8.789150700189051,
+        8.725380544827598
+      ],
+      "si_sdri_db": 8.756321660242882,
+      "output_snr_db": 8.959662391640386,
+      "output_to_reference_energy_db": -1.4900364839291975,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": 8.757265622508324,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.7809054055142436,
+        0.802019202065636
+      ],
+      "projected_gain_db": [
+        -2.1480314185178826,
+        -1.9163046729373014
+      ],
+      "residual_suppression_db": 10.789862604457067,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -1.6458514292685327,
+      "active_output_snr_db": 9.91324252326542,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        10.151209571893208,
+        10.471472889138173
+      ],
+      "inactive_output_energy_fraction": 0.03529877168278155
+    },
+    "timing": {
+      "blocks": 691,
+      "neural_forward_calls": 691,
+      "duration_seconds": 6.509297052154195,
+      "forward_seconds": {
+        "n": 691,
+        "median": 0.005329576000008274,
+        "p95": 0.005500947999998118,
+        "p99": 0.005761647900006041,
+        "max": 0.007500129000007405,
+        "min": 0.00420984899999155
+      },
+      "first_block_forward_seconds": 0.0060233909999993784,
+      "steady_forward_seconds": {
+        "n": 582,
+        "median": 0.00534960350000091,
+        "p95": 0.005504035499991744,
+        "p99": 0.005766434910004673,
+        "max": 0.007500129000007405,
+        "min": 0.005200422999990906
+      },
+      "step_seconds": {
+        "n": 691,
+        "median": 0.0053795900000039865,
+        "p95": 0.005555515999994043,
+        "p99": 0.0058110555999903125,
+        "max": 0.007568317999997021,
+        "min": 0.004344742999990103
+      },
+      "cpu_forward_rtf": 0.5678315783386778,
+      "unpaced_adapter_wall_rtf": 0.5832712962060209,
+      "wall_seconds": 3.7966861290000082,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 0,
+      "modeled_queue_wait_seconds": {
+        "n": 691,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.00547043000000258,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 7.5950566550000005,
+      "process_cpu_percent": 200.04436492622125,
+      "memory_before": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560572
+      },
+      "memory_after": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560572
+      }
+    },
+    "score_offset": 66560,
+    "status": "processed"
+  },
+  {
+    "id": "zero_history_reset_all",
+    "kind": "state_component_intervention",
+    "policy": "reset_all",
+    "metrics": {
+      "input_si_sdr_db": [
+        0.02315579485119703,
+        -0.021267870320312375
+      ],
+      "output_si_sdr_db": [
+        -34.05119077264848,
+        -28.14680013761873
+      ],
+      "si_sdri_db": -31.099939417399046,
+      "output_snr_db": -0.07067114390232351,
+      "output_to_reference_energy_db": -18.57819781849533,
+      "input_si_sdr_mean_db": 0.0009439622654423274,
+      "output_si_sdr_mean_db": -31.098995455133604,
+      "si_sdr_status": "defined",
+      "projected_gain_signed": [
+        0.0021985238738494463,
+        -0.004871883030298994
+      ],
+      "projected_gain_db": [
+        -53.15737627998687,
+        -46.2460629457036
+      ],
+      "residual_suppression_db": 18.583598689348925,
+      "residual_interpretation": "Projection residual contains uncorrelated target distortion and remaining noise; not pure background separation",
+      "active_output_to_reference_energy_db": -39.65868450921096,
+      "active_output_snr_db": -0.011457337720134068,
+      "active_input_snr_db": 14.131336707303777,
+      "whole_input_snr_db": 1.788753141117682e-07,
+      "active_input_si_sdr_db": [
+        14.037182074681416,
+        14.256559036494618
+      ],
+      "active_output_si_sdr_db": [
+        -14.112365913260643,
+        -4.172904426575489
+      ],
+      "inactive_output_energy_fraction": 0.9922030337029129
+    },
+    "timing": {
+      "blocks": 691,
+      "neural_forward_calls": 691,
+      "duration_seconds": 6.509297052154195,
+      "forward_seconds": {
+        "n": 691,
+        "median": 0.005400784000002545,
+        "p95": 0.005635407999996289,
+        "p99": 0.005884096499998749,
+        "max": 0.00728043499999842,
+        "min": 0.004054476999996837
+      },
+      "first_block_forward_seconds": 0.006209660999999755,
+      "steady_forward_seconds": {
+        "n": 582,
+        "median": 0.005386206499998991,
+        "p95": 0.005647572149990765,
+        "p99": 0.00588814694999783,
+        "max": 0.00728043499999842,
+        "min": 0.005197500999997828
+      },
+      "step_seconds": {
+        "n": 691,
+        "median": 0.005452126000008661,
+        "p95": 0.005696470499998441,
+        "p99": 0.005932403700001033,
+        "max": 0.007336129999998775,
+        "min": 0.0041901419999987866
+      },
+      "cpu_forward_rtf": 0.5753563670535492,
+      "unpaced_adapter_wall_rtf": 0.5912581217546872,
+      "wall_seconds": 3.8486747490000113,
+      "paced": false,
+      "packet_samples": 32,
+      "blocks_step_exceeds_block_duration": 0,
+      "modeled_queue_wait_seconds": {
+        "n": 691,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0056731259999907024,
+        "min": 0.0
+      },
+      "neural_state_bytes": 2125824,
+      "packet_lateness_seconds": null,
+      "cpu_seconds": 7.699391030000001,
+      "process_cpu_percent": 200.05304506442144,
+      "memory_before": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560576
+      },
+      "memory_after": {
+        "VmHWM_kib": 705360,
+        "VmRSS_kib": 560576
+      }
+    },
+    "score_offset": 66560,
+    "status": "processed"
+  }
+]
