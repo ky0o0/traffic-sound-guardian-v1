@@ -1,0 +1,5 @@
+{
+  "revision": 2,
+  "reason": "fix utf-8-sig metadata decoder; rerun real Tokyo Japanese police source test",
+  "created": "2026-10-30"
+}
