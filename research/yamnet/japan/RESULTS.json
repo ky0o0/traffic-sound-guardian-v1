@@ -1,0 +1,1329 @@
+{
+  "status": "EXPLORATORY_CREATOR_LABELS_SYNTHETIC_MIXED",
+  "class_names": {
+    "bell": "Bicycle bell",
+    "horn": "Vehicle horn, car horn, honking",
+    "siren": "Siren",
+    "police": "Police car (siren)",
+    "ambulance": "Ambulance (siren)",
+    "fire": "Fire engine, fire truck (siren)"
+  },
+  "source_counts": {
+    "police": {
+      "clips": 3,
+      "synthesized": 3,
+      "independent_source_groups": 1,
+      "exact_at_010": 3,
+      "siren_group_at_010": 3
+    },
+    "ambulance": {
+      "clips": 5,
+      "synthesized": 3,
+      "independent_source_groups": 3,
+      "exact_at_010": 2,
+      "siren_group_at_010": 3
+    },
+    "fire": {
+      "clips": 6,
+      "synthesized": 3,
+      "independent_source_groups": 4,
+      "exact_at_010": 2,
+      "siren_group_at_010": 6
+    },
+    "none": {
+      "clips": 2,
+      "synthesized": 0,
+      "independent_source_groups": 2,
+      "exact_at_010": 0,
+      "siren_group_at_010": 1
+    }
+  },
+  "windows": 901,
+  "source_rows": [
+    {
+      "id": "otologic_ambulance_1",
+      "source_label": "ambulance",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Ambulance-Siren03",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Ambulance-Siren03-1%28Close%29.mp3",
+      "sha256": "7b684c30dadfedde6b0eece90e6a661d4110caef838b76558c33022a32c5e939",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 10.6418820861678,
+      "windows": 21,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.00390625,
+        "siren": 0.1484375,
+        "police": 0.04296875,
+        "ambulance": 0.015625,
+        "fire": 0.0
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "otologic_ambulance_3",
+      "source_label": "ambulance",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Ambulance-Siren03",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Ambulance-Siren03-3%28Far%29.mp3",
+      "sha256": "181b9b68987b80ee7a3bb9f0762a81e4007ddd95ea2ff522313b1b8b6a6050bc",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 11.704195011337868,
+      "windows": 23,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.0,
+        "siren": 0.0078125,
+        "police": 0.00390625,
+        "ambulance": 0.0,
+        "fire": 0.0
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": false
+    },
+    {
+      "id": "otologic_ambulance_5",
+      "source_label": "ambulance",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Ambulance-Siren03",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Ambulance-Siren03-5%28Dry%29.mp3",
+      "sha256": "7be47dc64e3f007a02e4335457bfd4be3581de623e59d315732213889d7951ec",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 9.597936507936508,
+      "windows": 18,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.0078125,
+        "siren": 0.04296875,
+        "police": 0.01953125,
+        "ambulance": 0.015625,
+        "fire": 0.0
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": false
+    },
+    {
+      "id": "otologic_fire_01",
+      "source_label": "fire",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Fire_Truck-Siren01",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Fire_Truck-Siren01-01%28Close%29.mp3",
+      "sha256": "533c9fba644b3c51123846c1c5736213ba123bc68cdfd5131423d9d471c78b1b",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 18.265532879818593,
+      "windows": 37,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.03125,
+        "siren": 0.984375,
+        "police": 0.08203125,
+        "ambulance": 0.01953125,
+        "fire": 0.03125
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "otologic_fire_06",
+      "source_label": "fire",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Fire_Truck-Siren01",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Fire_Truck-Siren01-06%28Far%29.mp3",
+      "sha256": "f699fdd67a46029cfd9595558cad488c2dcf0489f2dbd3ed1c35d6d78e53615a",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 18.323514739229026,
+      "windows": 37,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.00390625,
+        "siren": 0.8515625,
+        "police": 0.4140625,
+        "ambulance": 0.01953125,
+        "fire": 0.01171875
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "otologic_fire_11",
+      "source_label": "fire",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Fire_Truck-Siren01",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Fire_Truck-Siren01-11%28Dry%29.mp3",
+      "sha256": "95f56a4995c57f39864ed5231722717a9d3d64e8319b264884bc347a4c8128e0",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 18.28331065759637,
+      "windows": 37,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.03125,
+        "siren": 0.98046875,
+        "police": 0.26171875,
+        "ambulance": 0.04296875,
+        "fire": 0.03125
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "otologic_police_01",
+      "source_label": "police",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Police_Car-Siren03",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Police_Car-Siren03-01%28Close%29.mp3",
+      "sha256": "4cc752edce63e13c3ccd93ecf6d5983dd4363fe4e18dd847b94fd23dc09be3a9",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 18.216621315192743,
+      "windows": 36,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.01171875,
+        "siren": 0.98046875,
+        "police": 0.66796875,
+        "ambulance": 0.05859375,
+        "fire": 0.08203125
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "otologic_police_05",
+      "source_label": "police",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Police_Car-Siren03",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Police_Car-Siren03-05%28Far%29.mp3",
+      "sha256": "d1c8d45542571a80af4ef66534ff1217cbfee19612f6b23bcfa005edd904008f",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 18.228163265306122,
+      "windows": 36,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.00390625,
+        "siren": 0.9921875,
+        "police": 0.33203125,
+        "ambulance": 0.03125,
+        "fire": 0.015625
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "otologic_police_09",
+      "source_label": "police",
+      "sound_kind": "SYNTHETIC Japanese-style siren; NOT actual street recording",
+      "dataset": "OtoLogic Japan designed siren",
+      "source_group": "OtoLogic:Police_Car-Siren03",
+      "source_url": "https://otologic.jp/free/se/transportation02.html",
+      "download_url": "https://otologic.jp/sounds/se/pre/Police_Car-Siren03-09%28Dry%29.mp3",
+      "sha256": "ee89433992b12e7e57a35b90b6848466f9e1f588d33e155d4ee5238b172ad39d",
+      "license": "OtoLogic site terms; attribution required for free use; no standalone redistribution",
+      "duration": 18.319251700680272,
+      "windows": 37,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.04296875,
+        "siren": 0.984375,
+        "police": 0.33203125,
+        "ambulance": 0.03125,
+        "fire": 0.03125
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "taira_ambulance_pass",
+      "source_label": "ambulance",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:ambulance_pass",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/ambulance_pass.mp3",
+      "sha256": "2fce6861de44a847828ec4d62f1df19b4d2387b234c5cad16ba4880190c25bd5",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 16.440975056689343,
+      "windows": 33,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.00390625,
+        "siren": 0.5859375,
+        "police": 0.08203125,
+        "ambulance": 0.66796875,
+        "fire": 0.01953125
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "taira_ambulance_siren",
+      "source_label": "ambulance",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:ambulance_siren",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/ambulance_siren.mp3",
+      "sha256": "2ac1353a6315f2aa87a0003c5000cc4a158a637e5de8e533d54badc9804ee96e",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 2.424965986394558,
+      "windows": 4,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.00390625,
+        "siren": 0.4140625,
+        "police": 0.08203125,
+        "ambulance": 0.5859375,
+        "fire": 0.04296875
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "taira_city_traffic",
+      "source_label": "none",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:city_traffic",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/city_traffic.mp3",
+      "sha256": "f2c9e1b71246ff5a090026b53629d6dbac8e2526ed0b4b81235c9b1b642359c6",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 86.52344671201814,
+      "windows": 179,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.04296875,
+        "siren": 0.03125,
+        "police": 0.03125,
+        "ambulance": 0.08203125,
+        "fire": 0.109375
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "taira_daytime_traffic",
+      "source_label": "none",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:daytime_traffic",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/daytime_traffic.mp3",
+      "sha256": "85eca04f2cb04dd2ec64dfed5d3d5bd98e49657beb8b39a078816b89b509cb73",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 49.727981859410434,
+      "windows": 102,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.01953125,
+        "siren": 0.0078125,
+        "police": 0.00390625,
+        "ambulance": 0.00390625,
+        "fire": 0.00390625
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": false
+    },
+    {
+      "id": "taira_fire_engine_pass",
+      "source_label": "fire",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:fire_engine_pass",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/fire_engine_pass.mp3",
+      "sha256": "2915bcceda5ef80ad831c30afd9f08d520a7fb2fb834e15271bf3f4888bf02c8",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 39.983990929705215,
+      "windows": 82,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.01171875,
+        "siren": 0.96875,
+        "police": 0.73828125,
+        "ambulance": 0.5,
+        "fire": 0.5859375
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "taira_fire_engine_start",
+      "source_label": "fire",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:fire_engine_start",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/fire_engine_start.mp3",
+      "sha256": "c5d2c4720c2c21bec797015dbb27fe0c3f5c631d2e05aa0ef2cc4728bdb742b4",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 58.88580498866213,
+      "windows": 121,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.01953125,
+        "siren": 0.96875,
+        "police": 0.73828125,
+        "ambulance": 0.26171875,
+        "fire": 0.33203125
+      },
+      "exact_label_meets_0_10": true,
+      "any_siren_meets_0_10": true
+    },
+    {
+      "id": "taira_fire_engines",
+      "source_label": "fire",
+      "sound_kind": "creator-labelled audio effect; recording geometry not verified",
+      "dataset": "Taira Komori Japan effects",
+      "source_group": "Taira-Komori:fire_engines",
+      "source_url": "https://taira-komori.net/enviroment01.html",
+      "download_url": "https://taira-komori.net/sound/environment01/fire_engines.mp3",
+      "sha256": "c06807e2482c44298ee8ca117bde8f7ed7714a9428c958a7147e5e420c5c984f",
+      "license": "Taira Komori website: educational/research use allowed; standalone redistribution prohibited",
+      "duration": 47.87469387755102,
+      "windows": 98,
+      "peaks": {
+        "bell": 0.0,
+        "horn": 0.00390625,
+        "siren": 0.4140625,
+        "police": 0.05859375,
+        "ambulance": 0.0078125,
+        "fire": 0.00390625
+      },
+      "exact_label_meets_0_10": false,
+      "any_siren_meets_0_10": true
+    }
+  ],
+  "threshold_sweep": {
+    "police": [
+      {
+        "threshold": 0.01,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.02,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.03,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.04,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.05,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.06,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.07,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.08,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.09,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.1,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.11,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.12,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.13,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.14,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.15,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.16,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.17,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.18,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.19,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.2,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.21,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.22,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.23,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.24,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.25,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.26,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.27,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.28,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.29,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.3,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.31,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.32,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.33,
+        "matching": 3,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.34,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.35,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.36,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.37,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.38,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.39,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.4,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.41,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.42,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.43,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.44,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.45,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.46,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.47,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.48,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.49,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.5,
+        "matching": 1,
+        "total": 3,
+        "any_siren_matching": 3
+      }
+    ],
+    "ambulance": [
+      {
+        "threshold": 0.01,
+        "matching": 4,
+        "total": 5,
+        "any_siren_matching": 4
+      },
+      {
+        "threshold": 0.02,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 4
+      },
+      {
+        "threshold": 0.03,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 4
+      },
+      {
+        "threshold": 0.04,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 4
+      },
+      {
+        "threshold": 0.05,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.06,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.07,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.08,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.09,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.1,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.11,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.12,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.13,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.14,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 3
+      },
+      {
+        "threshold": 0.15,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.16,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.17,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.18,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.19,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.2,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.21,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.22,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.23,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.24,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.25,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.26,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.27,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.28,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.29,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.3,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.31,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.32,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.33,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.34,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.35,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.36,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.37,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.38,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.39,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.4,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.41,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.42,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.43,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.44,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.45,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.46,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.47,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.48,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.49,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      },
+      {
+        "threshold": 0.5,
+        "matching": 2,
+        "total": 5,
+        "any_siren_matching": 2
+      }
+    ],
+    "fire": [
+      {
+        "threshold": 0.01,
+        "matching": 5,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.02,
+        "matching": 4,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.03,
+        "matching": 4,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.04,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.05,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.06,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.07,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.08,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.09,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.1,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.11,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.12,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.13,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.14,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.15,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.16,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.17,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.18,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.19,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.2,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.21,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.22,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.23,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.24,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.25,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.26,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.27,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.28,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.29,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.3,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.31,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.32,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.33,
+        "matching": 2,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.34,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.35,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.36,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.37,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.38,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.39,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.4,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.41,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 6
+      },
+      {
+        "threshold": 0.42,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.43,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.44,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.45,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.46,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.47,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.48,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.49,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      },
+      {
+        "threshold": 0.5,
+        "matching": 1,
+        "total": 6,
+        "any_siren_matching": 5
+      }
+    ]
+  },
+  "notes": [
+    "OtoLogic sirens are synthesized and NOT real Japanese street recordings.",
+    "OtoLogic near/far/dry versions are correlated source variants.",
+    "Taira Komori creator-labelled sounds cannot be asserted to be unmodified street recordings.",
+    "Source labels not independently audited.",
+    "No event timestamps/false-alarm rate/real microphone or headphone latency measured.",
+    "No YAMNet production thresholds changed.",
+    "Six scores are original uncalibrated YAMNet outputs, not sound pressure level."
+  ]
+}
