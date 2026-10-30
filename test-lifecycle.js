@@ -7,12 +7,13 @@ import vm from 'node:vm';
 import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
+import { microphoneSourceEvidence } from './mic-source.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
  .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null,trackLabel='',deviceId='',devices=[],enumerationFails=false}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -28,7 +29,9 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],gains=[],oscillators=[],timers=new Map(),frames=new Map(),events={},storageWrites=[];
  let now=0,nextTimer=0,micCalls=0,resolveMic,denied=deny;
  const makeStream=()=>{
-  const track={readyState:'live',muted:false,stop(){this.readyState='ended';this.stopped=true;}};tracks.push(track);
+  const track={readyState:'live',muted:false,label:trackLabel,reportedDeviceId:deviceId,
+    getSettings(){return this.reportedDeviceId ? {deviceId:this.reportedDeviceId} : {};},
+    stop(){this.readyState='ended';this.stopped=true;}};tracks.push(track);
   return {getTracks:()=>[track],getAudioTracks:()=>[track]};
  };
  const baseNode=()=>({connections:[],connect(node){this.connections.push(node);},disconnect(){this.disconnected=true;}});
@@ -56,13 +59,17 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,Float32Array,URL,DOMException,console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   performance:{now:()=>now},document,Worker:ModelWorker,...(worklet?{AudioWorkletNode:WorkletNode}:{}),
   window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(k){return k==='trafficSoundGuardian.bicycleBellThreshold' ? storedThreshold : (k==='trafficSoundGuardian.soundThresholds' ? storedSettings : (k==='trafficSoundGuardian.alertToneEnabled' ? storedAlert : null));},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
-  navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
+  navigator:{mediaDevices:{
+    enumerateDevices(){if(enumerationFails)return Promise.reject(new Error('unsupported'));return Promise.resolve(devices);},
+    addEventListener(name,fn){events['media-'+name]=fn;},
+    removeEventListener(name,fn){if(events['media-'+name]===fn)delete events['media-'+name];},
+    getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
  // Production links are tested by default; fixtures can replace both for validation.
@@ -257,14 +264,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.1 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.1<\/title>/);
- assert.match(page, /class="version">V1\.6\.1<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.1"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.1"/);
+test('V1.6.2 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.2<\/title>/);
+ assert.match(page, /class="version">V1\.6\.2<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.2"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.2"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.1');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.1');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.2');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.2');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -725,4 +732,55 @@ test('stop, backgrounding and new session cancel scheduled sounds; audio errors 
  assert.equal(h.document.body.dataset.state,'warning','blocked output must not affect visual or microphone detection');
  assert.equal(h.oscillators.length,2);
  h.stop();
+});
+
+test('V1.6.2: current microphone is read from actual getUserMedia track without assuming Bluetooth output route',async()=>{
+ const h=await harness({trackLabel:'Microphone',devices:[{kind:'audiooutput',label:'AirPods Pro',deviceId:'headphones'}]});
+ assert.equal(h.elements.get('mic-source-value').textContent,'マイクの種類を確認できません');
+ assert.equal(h.elements.get('mic-source-name').textContent,'ブラウザの機器名：Microphone');
+ assert.equal(h.calls(),1,'no extra getUserMedia() request');
+ h.language('en');
+ assert.equal(h.elements.get('mic-source-value').textContent,'Microphone type unknown');
+ h.language('zh-CN');
+ assert.equal(h.elements.get('mic-source-value').textContent,'无法确定麦克风类型');
+ assert.equal(h.elements.get('mic-source-name').textContent,'浏览器设备名称：Microphone');
+ assert.equal(h.calls(),1,'no new microphone request on language change');
+ h.frame(1);h.emit(1,{score:.5,label:'サイレン'});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.elements.get('mic-source-value').textContent,'无法确定麦克风类型','red screen cannot hide source info');
+ h.stop();
+ assert.equal(h.elements.get('mic-source-value').textContent,'未开始使用麦克风');
+ assert.equal(h.elements.get('mic-source-name').textContent,'','old device names cleared');
+});
+test('V1.6.2: explicit built-in and headset labels are browser-reported, not physically confirmed',async()=>{
+ const h=await harness({trackLabel:'iPhone Microphone',deviceId:'phone-input'});
+ assert.equal(h.elements.get('mic-source-value').textContent,'端末内蔵マイク（ブラウザ報告）');
+ assert.equal(h.elements.get('mic-source-name').textContent,'ブラウザの機器名：iPhone Microphone');
+ assert.match(h.elements.get('mic-source-note').textContent,/ブラウザの申告/);
+ h.tracks[0].label='AirPods Pro Microphone';
+ h.events['media-devicechange']();
+ await flush();await flush();
+ assert.equal(h.elements.get('mic-source-value').textContent,'イヤホン／ヘッドホンのマイク（ブラウザ報告）');
+ assert.equal(h.calls(),1,'device-change reporting does not re-open mic');
+ assert.equal(h.sources.length,1,'audio capture pipeline is unchanged');
+ h.stop();
+ assert.equal(h.events['media-devicechange'],undefined,'devicechange listener removed on stop');
+});
+test('V1.6.2: matched audioinput device label can resolve generic track label, not audiooutput',async()=>{
+ const h=await harness({trackLabel:'Microphone',deviceId:'source-id',
+   devices:[{kind:'audioinput',deviceId:'source-id',label:'WH-1000XM6 Headset Microphone'},
+            {kind:'audiooutput',deviceId:'another',label:'iPhone Speaker'}]});
+ assert.equal(h.elements.get('mic-source-value').textContent,'イヤホン／ヘッドホンのマイク（ブラウザ報告）');
+ assert.match(h.elements.get('mic-source-name').textContent,/WH-1000XM6/);
+ h.stop();
+});
+test('V1.6.2: permission denial, hidden device names and enumeration errors never invent input routing',async()=>{
+ const unavailable=await harness({trackLabel:'',deviceId:'',enumerationFails:true});
+ assert.equal(unavailable.elements.get('mic-source-value').textContent,'マイクの種類を確認できません');
+ assert.equal(unavailable.elements.get('mic-source-name').textContent,'');
+ unavailable.stop();
+ const denied=await harness({deny:true,trackLabel:'AirPods Pro'});
+ assert.equal(denied.elements.get('mic-source-value').textContent,'マイクを使用していません');
+ assert.equal(denied.elements.get('mic-source-name').textContent,'');
+ denied.stop();
 });
