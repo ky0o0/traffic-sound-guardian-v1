@@ -1,5 +1,5 @@
 {
-  "revision": 2,
-  "reason": "fix utf-8-sig metadata decoder; rerun real Tokyo Japanese police source test",
-  "created": "2026-10-30"
+  "revision": 3,
+  "reason": "After actual YAMNet inference succeeded, fix relative analysis-module import and retain Tokyo real recording metrics",
+  "date": "2026-10-30"
 }
