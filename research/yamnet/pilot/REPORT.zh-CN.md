@@ -6,7 +6,7 @@
 
 - 运行实际 TSG V1.6 的 MediaPipe 0.10.21 YAMNet TFLite 模型、classifier-worker、重采样、0.975秒窗口与0.480秒步进；Chromium浏览器离线文件推理。
 - 实际完整录音数：30；独立原始来源组（按元数据去重，尚未复核跨数据集相同来源）：30；实际推理窗口：270。
-- 目标录音来源：ESC-50 原版真实录音及 Wikimedia Commons 自行车铃录音。部分音频可能背景干净，尚未人工确认环境复杂程度。
+- 本次30条音频全部来自 ESC-50 原版真实录音：8段汽车喇叭、8段警笛、14段其他声音；没有自行车铃阳性录音。部分音频可能背景干净，尚未人工确认环境复杂程度。
 - 预先固定选择录音，不根据模型输出挑选样本；没有拼接人工交通音、没有合成测试声。
 - 采集来源和 SHA-256：见 RESULTS.json / 原始运行JSON的 provenance。
 
@@ -54,6 +54,6 @@
 ## 原始来源和可复现性
 
 - [ESC-50 官方GitHub](https://github.com/karolpiczak/ESC-50)，CC BY-NC 3.0，Freesound field recordings（详情参阅原始署名文件）。
-- [Wikimedia Commons 自行车铃类别](https://commons.wikimedia.org/wiki/Category:Audio_files_of_bicycle_bells)，各录音分别适用源文件页面标注的 Creative Commons 许可。
+- 自行车铃尚未进入本次试运行：Wikimedia Commons 对 CI 下载请求返回 HTTP 429；不得把本次数据当作自行车铃的检出性能。
 - 所有30条实际下载地址、文件哈希、人工复核状态和每窗6类原始分数保存在实验归档中；仅报告和结果统计保留在独立研究分支。
 - 这是实际跑了模型的基准试运行，不是已经完成的最终验证。
