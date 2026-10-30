@@ -12,7 +12,7 @@ const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -25,7 +25,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
    getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
   return elements.get(id);
  };
- const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],timers=new Map(),frames=new Map(),events={},storageWrites=[];
+ const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],gains=[],oscillators=[],timers=new Map(),frames=new Map(),events={},storageWrites=[];
  let now=0,nextTimer=0,micCalls=0,resolveMic,denied=deny;
  const makeStream=()=>{
   const track={readyState:'live',muted:false,stop(){this.readyState='ended';this.stopped=true;}};tracks.push(track);
@@ -38,7 +38,8 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   close(){this.state='closed';return Promise.resolve();}
   createMediaStreamSource(){const node=baseNode();sources.push(node);return node;}
   createAnalyser(){const node={...baseNode(),fftSize:2048,pcm:new Float32Array(2048),getFloatTimeDomainData(out){out.set(this.pcm);}};analysers.push(node);return node;}
-  createGain(){return {...baseNode(),gain:{value:1}};}
+  createGain(){const gain={...baseNode(),gain:{value:1,ramps:[],setValueAtTime(v,t){this.value=v;this.ramps.push(['set',v,t]);},linearRampToValueAtTime(v,t){this.value=v;this.ramps.push(['ramp',v,t]);}}};gains.push(gain);return gain;}
+  createOscillator(){const node={...baseNode(),frequency:{value:0},type:'sine',onended:null,start(t){this.startedAt=t;},stop(t){this.stopped=true;this.stoppedAt=t;}};oscillators.push(node);return node;}
   createScriptProcessor(){const node=baseNode();nodes.push(node);return node;}
  }
  class WorkletNode {
@@ -60,7 +61,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   performance:{now:()=>now},document,Worker:ModelWorker,...(worklet?{AudioWorkletNode:WorkletNode}:{}),
-  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(k){return k==='trafficSoundGuardian.bicycleBellThreshold' ? storedThreshold : (k==='trafficSoundGuardian.soundThresholds' ? storedSettings : null);},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
+  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(k){return k==='trafficSoundGuardian.bicycleBellThreshold' ? storedThreshold : (k==='trafficSoundGuardian.soundThresholds' ? storedSettings : (k==='trafficSoundGuardian.alertToneEnabled' ? storedAlert : null));},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
   navigator:{mediaDevices:{getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
@@ -72,7 +73,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  // The test harness simulates the user's tap; production never starts itself.
  if(autoStart)element('mic-control').click();
  await flush();await flush();
- return {document,elements,tracks,workers,contexts,nodes,sources,analysers,drawing,frames,timers,events,context,storageWrites,
+ return {document,elements,tracks,workers,contexts,nodes,sources,analysers,gains,oscillators,drawing,frames,timers,events,context,storageWrites,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
   language:lang=>{const picker=element('language-select');picker.value=lang;picker.change();},
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
@@ -651,5 +652,77 @@ test('V1.6.0 legacy 0.01-step values are preserved until user adjusts a slider',
  assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
  assert.equal(h.elements.get('threshold-input-0').step,'any');
  assert.equal(h.run('soundThresholds').Siren,.12);
+ h.stop();
+});
+
+// V1.6.1 independent audible-warning regression tests (mocked audio nodes, no sound playback).
+test('beep setting defaults ON, is multilingual and never plays before a real warning',async()=>{
+ const h=await harness();
+ assert.equal(h.elements.get('alert-tone-toggle').checked,true);
+ assert.equal(h.oscillators.length,0,'no beep on page load / manual detection start');
+ h.language('en');
+ assert.equal(h.elements.get('alert-tone-label').textContent,'Play alert beeps');
+ h.language('zh-CN');
+ assert.equal(h.elements.get('alert-tone-label').textContent,'播放提示音');
+ assert.equal(h.oscillators.length,0,'changing language does not beep');
+ h.stop();
+});
+test('each INACTIVE-to-ACTIVE warning plays exactly two soft, short output-only beeps',async()=>{
+ const h=await harness();
+ h.frame(1);h.emit(1,{score:.8,label:'車のクラクション'});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(h.oscillators.length,2);
+ assert.deepEqual(h.oscillators.map(x=>x.frequency.value),[740,740]);
+ assert.ok(h.oscillators.every(x=>x.type==='sine' && x.startedAt>=.02));
+ assert.equal(h.oscillators[1].startedAt-h.oscillators[0].startedAt,.195);
+ assert.ok(h.gains.slice(-2).every(g=>g.connections.includes(h.contexts[0].destination)),
+   'output only; no tones are routed into microphone acquisition');
+ assert.ok(h.gains.slice(-2).every(g=>g.gain.ramps.some(([,v])=>v===.045)),
+   'each beep has a conservative gain envelope');
+ h.now(500);h.frame(2);h.emit(2,{score:.9,label:'サイレン'});
+ assert.equal(h.oscillators.length,2,'continued warning or type changes never replay');
+ h.now(1600);h.frame(3);h.emit(3,{score:.6,label:'自転車のベル'});
+ assert.equal(h.oscillators.length,4,'new trigger after 1 second warning hold plays two new beeps');
+ h.stop();
+});
+test('toggle OFF mutes pending beeps and still shows the original red warning',async()=>{
+ const h=await harness();
+ h.frame(1);h.emit(1,{score:.7,label:'サイレン'});
+ assert.equal(h.oscillators.length,2);
+ h.elements.get('alert-tone-toggle').checked=false;
+ h.elements.get('alert-tone-toggle').change();
+ assert.ok(h.oscillators.every(x=>x.stopped && x.disconnected));
+ assert.equal(h.document.body.dataset.state,'warning','audio settings never suppress the red visual warning');
+ assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.alertToneEnabled');
+ assert.equal(h.storageWrites.at(-1)[1],'false');
+ h.now(1500);h.frame(2);h.emit(2,{score:.6,label:'サイレン'});
+ assert.equal(h.oscillators.length,2,'new warnings do not beep while muted');
+ h.elements.get('alert-tone-toggle').checked=true;
+ h.elements.get('alert-tone-toggle').change();
+ h.now(1750);h.frame(3);h.emit(3,{score:.8,label:'サイレン'});
+ assert.equal(h.oscillators.length,2,'toggling back ON mid-warning does not replay');
+ h.now(3000);h.frame(4);h.emit(4,{score:.8,label:'サイレン'});
+ assert.equal(h.oscillators.length,4,'beeps resume at the NEXT warning onset');
+ h.stop();
+});
+test('persisted OFF is honored on reload, while absent or blocked preference defaults ON',async()=>{
+ const h=await harness({storedAlert:'false'});
+ assert.equal(h.elements.get('alert-tone-toggle').checked,false);
+ h.frame(1);h.emit(1,{score:.9,label:'車のクラクション'});
+ assert.equal(h.oscillators.length,0);
+ h.stop();
+});
+test('stop, backgrounding and new session cancel scheduled sounds; audio errors never cancel visual warning',async()=>{
+ const h=await harness();
+ h.frame(1);h.emit(1,{score:.9,label:'サイレン'});
+ assert.equal(h.oscillators.length,2);
+ h.stop();
+ assert.ok(h.oscillators.every(x=>x.stopped && x.disconnected));
+ assert.equal(h.contexts[0].state,'closed');
+ h.click();await flush();
+ h.contexts[1].createOscillator=()=>{throw Error('Output blocked by OS')};
+ h.frame(2);h.emit(2,{score:.8,label:'サイレン'});
+ assert.equal(h.document.body.dataset.state,'warning','blocked output must not affect visual or microphone detection');
+ assert.equal(h.oscillators.length,2);
  h.stop();
 });
