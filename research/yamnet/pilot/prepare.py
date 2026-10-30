@@ -23,16 +23,13 @@ REV="33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6"
 META=f"https://raw.githubusercontent.com/karolpiczak/ESC-50/{REV}/meta/esc50.csv"
 UA="TrafficSoundGuardian-educational-benchmark/0.1 (github.com/ky0o0/traffic-sound-guardian-v1)"
 # Different file names; Commons may contain same underlying recording: provenance review pending.
-COMMONS=[
- ("Bike-bell.wav","CC BY 3.0","kklab5050"),
- ("Bsumusictech bike-bell.wav","CC0 1.0","bsumusictech"),
- ("Ding Dong Bicycle Bell A.ogg","CC BY-SA 4.0","TeWeBs"),
- ("186096 marcel-farres bicycle-bell.wav","Check Commons file page","marcel-farres"),
- ("Classic Bicycle Bell recorded by Frick & Traa.wav","Check Commons file page","Frick & Traa"),
- ("Bicycle-bell.wav","Check Commons file page","See Commons"),
-]
-NEGATIVE_CLASSES=[("engine",2),("train",2),("rain",1),("wind",1),
-                  ("church_bells",1),("clock_alarm",1)]
+# Wikimedia Commons blocked GitHub Actions downloads with HTTP 429 on 2026-10-30.
+# Do not silently use synthetic bells or relabel unrelated recordings as bicycle bells.
+# This first pilot covers horn, siren and 14 category-negative field recordings;
+# bicycle bell performance is explicitly NOT TESTED and must be added later.
+COMMONS=[]
+NEGATIVE_CLASSES=[("engine",3),("train",3),("rain",2),("wind",2),
+                  ("church_bells",2),("clock_alarm",2)]
 
 def get(url,tries=3):
     last=None
@@ -62,8 +59,8 @@ def pick(src,kind,n,used):
     folds=[1,2,3,4,5]
     by_fold={f:sorted((r for r in src if r["category"]==kind and int(r["fold"])==f),
                       key=lambda r:r["filename"]) for f in folds}
-    for _ in range(n):
-        for f in folds:
+    for j in range(n):
+        for f in folds[j%5:]+folds[:j%5]:
             row=next((r for r in by_fold[f] if r["src_file"] not in used),None)
             if row is not None:
                 out.append(row); used.add(row["src_file"]); by_fold[f].remove(row)
@@ -103,7 +100,8 @@ def main():
     summary={"status":"collecting","candidates":30,"ESC50_pin":REV,
              "ESC50_metadata_sha256":metadata_hash,
              "audited_event_onsets":False,"audited_background_noise":False,
-             "selection_method":"predefined category/fold/source-id; never selected using AI output",
+             "selection_method":"predefined category/rotating fold/source-id; never selected using AI output",
+             "bicycle_bell_audio_count":0,"reason_bell_missing":"Wikimedia Commons HTTP429 on GitHub runner; requires alternate verified source",
              "clips":[]}
     fails=[]
     for i,rec in enumerate(selected):
