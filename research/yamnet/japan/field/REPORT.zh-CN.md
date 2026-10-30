@@ -1,38 +1,37 @@
-# 日本の緊急車両サイレン：日本向け六类别 Score 試験
+# 日本警车实际环境录音候选：YAMNet 六类原始分数实测
 
-**实际执行了 TSG V1.6 的原版 YAMNet；这是日本车辆警笛参考音的探索性结果，不是道路现场分类准确率。**
+**本轮测试成功运行 TSG V1.6 的官方 MediaPipe YAMNet，但不等于已经测得真实日本警车识别准确率。车辆类型尚未经人工听辨确认。**
 
-- 下载成功 10 段，声音窗口 171 个；所有窗口的6类原始 YAMNet Score 已保存。
-- 标签来源：日本地方消防机构的警笛示例、日本音效网站的救护车/消防车素材，以及日本警车风格的**合成器参考音**。
-- 日本警车真实街道录音数量：10。不把警车模拟音当成现实录音。
-- 同一来源的多个效果音变体不是独立样本，不用于证明精确率。
+## 经过核对的实际样本
 
-| 来源 / 声音 | 类型 | 正确车型原始分数峰值 | 通用Siren峰值 | 正确车型≥0.10 | UI真正选中正确车型的窗口数 |
-|---|---|---:|---:|---|---:|
-| tokyo34952_34952-8-0-0 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.199 | 0.332 | 是 | 0 / 7 |
-| tokyo34952_34952-8-0-1 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.199 | 0.199 | 是 | 1 / 7 |
-| tokyo34952_34952-8-0-2 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.031 | 0.020 | 否 | 0 / 7 |
-| tokyo34952_34952-8-0-3 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.008 | 0.004 | 否 | 0 / 7 |
-| tokyo34952_34952-8-0-4 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.020 | 0.020 | 否 | 0 / 7 |
-| tokyo34952_34952-8-0-5 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.031 | 0.043 | 否 | 0 / 7 |
-| tokyo34952_34952-8-0-6 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.012 | 0.016 | 否 | 0 / 7 |
-| tokyo34952_34952-8-0-7 | REAL_JAPAN_FIELD_WITH_WEAK_VEHICLE_LABEL | 0.000 | 0.000 | 否 | 0 / 7 |
-| esffects_japanese_patrol | JAPAN_POLICE_SOUND_EFFECT_CAPTURE_UNVERIFIED | 0.891 | 0.918 | 是 | 36 / 80 |
-| pocket_se_distant_patrol | JAPAN_POLICE_SOUND_EFFECT_CAPTURE_UNVERIFIED | 0.332 | 0.262 | 是 | 7 / 35 |
+- **东京实地录音原始来源：1 份**，Freesound #34952，原上传者称其是东京夜间远处警车的警笛；另有评论者认为它可能更像消防车，类别必须继续人工核实。
+- 同一原始录音被 UrbanSound8K 裁切为 8 个片段（同一个 group ID：`Freesound:34952`），绝不把它们算作 8 个独立样本。
+- 另 2 个日本警车音效来源的现场录音属性**未经确认**，独立列出，不能合并成“真实警车”准确率。
+- 实际运行 10 个音频文件、共 171 个 YAMNet 分析窗口；全部六类原始 Score 均保存，没有仅截取超过阈值的分数。
 
-## 不应误读
+## 东京真实录音片段中的识别表现
 
-- 原始分数不是音量dB、校准概率或经过标注的准确率；特别是不能根据少数录音选出最优阈值。
-- 高峰值只是该类别在某一窗口的最高分，**不意味着网站一定显示这个车型**。因为正式网站每个窗口会从全部六类里选择分数最高且达标的类别；增加了真实 UI 选中该车型的窗口数统计。
-- 日本消防车在某些任务中使用不带钟的“ウーウー”警笛，容易与日本警车混淆，因此交通安全项目应优先保证“紧急车辆警报”总体检出。
-- 以上音频包含官方示范、音效和合成参考，并未全部确认为街头实录。仍需找真实日文场景的警车、救护车、消防车、路噪/远近变化录音与人工事件标注。
-- 旭川市两段高警告消防车音频因下载限制未取得，本轮不能声称测试了该型号。
-- 该分支只做实验，不更改正式网站阈值与SH研究内容。
+在来自这 **1份原始现场录音** 的 56 个窗口里，按 V1.6 的默认阈值 0.10，界面实际选择广义警笛类别 7 个窗口，其中选择具体 Police car 类别 1 个窗口；其他窗口未达到任一警告类别的触发规则。
 
-## Source pages
-- 木更津市消防本部 https://www.city.kisarazu.lg.jp/soshiki/shobo/keibo/1/4056.html
-- 旭川市消防本部 https://www.city.asahikawa.hokkaido.jp/kurashi/311/312/d083335.html
-- 小森平（日本環境効果音） https://taira-komori.net/enviroment01.html
-- OtoLogic（日本警车风格为合成器，不是实录） https://otologic.jp/free/se/transportation02.html
+这只是各窗口的分类结果，**不是“49次漏报”**：尚未人工确认每个窗口到底是否存在可听到的警笛，也没有标注警笛起止时间、距离或环境音量。
 
-具体录音来源 URL、SHA256、声音类别、每个窗口六类Score及完整归档在 RESULTS.json、SIX_SCORES.csv 和 GitHub Actions Artifact。
+| 来源 | 类型 | 文件片段 | YAMNet 窗口 | 真正独立原始录音 |
+|---|---|---:|---:|---:|
+| Freesound #34952 / UrbanSound8K | 东京远处警车候选实录，车型未人工确认 | 8 | 56 | 1 |
+| エスフェクツ | 日本警车音效，是否现场录制未核实 | 1 | 80 | 来源独立，实录属性未知 |
+| ポケットサウンド | 日本警车音效，是否现场录制未核实 | 1 | 35 | 来源独立，实录属性未知 |
+
+## 全部六类分数是否保存
+
+已保存。每个窗口包括开始、结束时间和 Bicycle bell / Car horn / Siren / Police car / Ambulance / Fire engine 六种原始分数。另外计算了 UI 选择的实际最高达标类别与每个音频文件的分数峰值，不能把“该类别峰值≥0.10”误解成“UI最终显示该车型”。
+
+本轮仅补充日本警车真实来源的探索性素材；上一轮日本救护车和消防车的录音请看 [此前独立报告](../REPORT.zh-CN.md)。**没有调整网站正式阈值或修改 YAMNet 模型。**
+
+## 来源与局限
+
+- [Freesound #34952 Police_Siren_Tokyo.WAV](https://freesound.org/people/eyecandyuk/sounds/34952/)（真实东京夜间远处警笛录音；原作者指认为警车，但有评论质疑，CC BY-NC 4.0）。
+- [UrbanSound8K 数据集镜像](https://huggingface.co/datasets/MahiA/UrbanSound8K)（由同一原录音生成的原版切片，数据集标签只写广义 siren）。
+- [エスフェクツ的警车音效](https://esffects.net/124.html)（实录属性不确定，禁止再发布原始音频）。
+- [ポケットサウンド远处警车音效](https://pocket-se.info/archives/708/)（实录属性不确定，遵守来源许可）。
+
+**下一步**：增加独立的日本现场实录，尤其是有背景噪声和近/远距离变化的不同警车、救护车、消防车，并人工标注音频中警笛出现的时间范围。此后才能可靠衡量漏报与阈值优化。原始音频不上传到项目仓库；详细来源、SHA-256 和所有六类分数记录保留在 RESULTS.json、SIX_SCORES.csv.gz 及对应 GitHub Actions 归档。
