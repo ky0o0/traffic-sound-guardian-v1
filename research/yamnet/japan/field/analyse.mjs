@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
-import {NAMES} from '../../../ai-test-analysis.js';
-import {chooseTarget} from '../../../detection.js';
+import {NAMES} from '../../../../ai-test-analysis.js';
+import {chooseTarget} from '../../../../detection.js';
 const root=new URL('./',import.meta.url);
 const r=JSON.parse(await fs.readFile(new URL('.working/raw-results.json',root),'utf8'));
 const {rows,manifest}=r;
