@@ -1,0 +1,25 @@
+name: SH round 2 controlled real audio
+on:
+  push:
+    branches: [research/sh-round2-controlled-20261030]
+    paths: ['research/semantic_hearing/round2/**', '.github/workflows/research-sh-round2.yml']
+permissions:
+  contents: read
+jobs:
+  source-audit:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m pip install numpy==1.26.4 soundfile==0.13.1
+      - name: Inspect legal public source candidates without model-based selection
+        run: python -u research/semantic_hearing/round2/probe.py --output /tmp/sh-r2-probe
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sh-r2-source-audit
+          path: /tmp/sh-r2-probe
+          retention-days: 90
