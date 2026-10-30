@@ -1,0 +1,31 @@
+name: V1.6 web regression
+on:
+  pull_request:
+    paths:
+      - "*.js"
+      - "*.html"
+      - "*.css"
+      - "*.json"
+      - "*.webmanifest"
+      - "test-*.js"
+      - ".github/workflows/v16-web-ci.yml"
+  workflow_dispatch:
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check syntax of updated modules
+        run: |
+          node --check app.js
+          node --check ai-test.js
+          node --check theme.js
+          node --check live-timeline.js
+          node --check annotation-editor.js
+      - name: Run existing and new unit tests
+        run: npm test
