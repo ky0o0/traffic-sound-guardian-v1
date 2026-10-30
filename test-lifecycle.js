@@ -436,10 +436,11 @@ test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder s
 });
 
 
-test('V1.4.3 six independent sliders stay inside the initially expanded Debug Mode',async()=>{
+test('V1.6.3 six independent sliders are inside Settings, separate from AI model diagnostics',async()=>{
  const pos=page.indexOf('id="sensitivity-panel"');
- assert.ok(pos>page.indexOf('</footer>'));
- assert.ok(pos>page.indexOf('id="debug-panel"'));
+ assert.ok(pos>page.indexOf('id="settings-content"'));
+ assert.ok(pos<page.indexOf('</details>'));
+ assert.ok(pos<page.indexOf('id="debug-panel"'));
  assert.equal((page.match(/id="threshold-input-[0-5]"/g)||[]).length,6);
  assert.ok(!page.includes('id="bell-threshold"'));
  const h=await harness({autoStart:false});
