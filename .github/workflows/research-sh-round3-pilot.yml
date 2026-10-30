@@ -1,0 +1,58 @@
+name: SH round 3 pretrained streaming gate
+on:
+  push:
+    branches: [research/sh-round3-stateful-20261030]
+    paths: ['.github/workflows/research-sh-round3-pilot.yml', 'research/semantic_hearing/round3/pilot_trigger.json']
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      PYTHONHASHSEED: '20261030'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.22'
+          cache: pip
+          cache-dependency-path: research/semantic_hearing/round2/dependency-lock.txt
+      - run: python -m pip install -r research/semantic_hearing/round2/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+      - name: Pin original official source
+        run: |
+          git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+          git -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50
+      - name: Adapter ordering, framing, state and timestamp tests
+        env:
+          SH_REPO: /tmp/SemanticHearing
+        run: python -m unittest discover -s research/semantic_hearing/round3 -p 'test_*.py' -v
+      - uses: actions/cache@v4
+        with:
+          path: /tmp/39.pt
+          key: sh-official-39-f0328655691378a65516ec08add170bcf474ba41bb2d475af7a7c63bf2478a21
+      - name: Obtain or verify the cached official checkpoint
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0,'research/semantic_hearing')
+          from real_audio import fetch_verified
+          from extract import OFFICIAL_CHECKPOINT_SHA256
+          fetch_verified('https://semantichearing.cs.washington.edu/39.pt',Path('/tmp/39.pt'),OFFICIAL_CHECKPOINT_SHA256)
+          PY
+      - name: Verify pretrained stream equivalence before any long experiments
+        run: |
+          mkdir -p /tmp/sh-r3-pilot
+          set -o pipefail
+          python -u research/semantic_hearing/round3/study.py --mode pilot --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt --output /tmp/sh-r3-pilot 2>&1 | tee /tmp/sh-r3-pilot/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sh-r3-pilot-${{ github.sha }}
+          path: /tmp/sh-r3-pilot
+          retention-days: 90
+          if-no-files-found: error
