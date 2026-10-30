@@ -1,0 +1,48 @@
+name: SH round 2 source provenance QA
+on:
+  push:
+    branches: [research/sh-round2-controlled-20261030]
+    paths: ['research/semantic_hearing/round2/audit/**', '.github/workflows/research-sh-round2-source-qa.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/sh-round2-controlled-20261030
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.22'
+      - run: python -m pip install numpy==1.26.4 scipy==1.14.1 soundfile==0.13.1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41010371339
+          name: sh-r2-source-audit
+          path: /tmp/sh-source-cache/first
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41010808161
+          name: sh-r2-extra-source-audit
+          path: /tmp/sh-source-cache/extra
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 41011046101
+          name: sh-r2-final-source-audit
+          path: /tmp/sh-source-cache/final
+      - run: python research/semantic_hearing/round2/cache_sources.py --cache /tmp/sh-source-cache --output /tmp/qa
+      - name: Inspect recording metadata and cross-source redundancy
+        run: python research/semantic_hearing/round2/audit/source_qa.py --sources /tmp/qa --config research/semantic_hearing/round2/config.json --output research/semantic_hearing/round2/evidence/source_provenance_audit.json
+      - name: Preserve provenance evidence without changing model results
+        run: |
+          git config user.name 'SH research evidence'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/semantic_hearing/round2/evidence/source_provenance_audit.json
+          git commit -m 'research: preserve measured recording provenance and redundancy audit'
+          git push origin HEAD:refs/heads/research/sh-round2-controlled-20261030
