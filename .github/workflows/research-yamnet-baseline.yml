@@ -1,0 +1,77 @@
+name: YAMNet real-audio 30 recording baseline
+on:
+  push:
+    branches: [research/yamnet-baseline-20261030]
+    paths:
+      - '.github/workflows/research-yamnet-baseline.yml'
+      - 'research/yamnet/pilot/trigger.json'
+permissions:
+  contents: write
+jobs:
+  media-pipe-browser-baseline:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify production media/audio source fixed input (model hash)
+        run: |
+          sha256sum yamnet.tflite
+          test "$(sha256sum yamnet.tflite | cut -d' ' -f1)" = "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf"
+          node --test test-*.js
+      - name: Install browser test controller (not a replacement for website YAMNet)
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          if command -v google-chrome >/dev/null; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          elif command -v chromium >/dev/null; then
+            echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
+          else
+            npx playwright install --with-deps chromium
+          fi
+      - name: Download 30 real candidate recordings with exact source and checksum
+        run: |
+          python -u research/yamnet/pilot/prepare.py
+      - name: Run existing TSG v1.6 real WASM YAMNet worker on all actual WAV/OGG clips
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/tsg-yamnet-http.log 2>&1 &
+          echo $! >/tmp/tsg-yamnet-http.pid
+          for i in 1 2 3 4 5; do curl --fail -s http://127.0.0.1:8765/research/yamnet/pilot/harness.html >/dev/null && break || sleep 2; done
+          node research/yamnet/pilot/run-browser.mjs
+      - name: Calculate baseline provisional classification and write Chinese report
+        run: |
+          node research/yamnet/pilot/analyse.mjs
+          node - <<'JS'
+          const fs=require('fs');
+          const r=JSON.parse(fs.readFileSync('research/yamnet/pilot/RESULTS.json'));
+          if(r.total_files!==30||r.classification_windows<30||r.unique_source_groups!==30)
+            throw Error('Missing eligible and provenance-tracked dataset');
+          console.log('Verified 30 original-source-group candidates and',r.classification_windows,'actual model windows');
+          JS
+      - name: Preserve actual scores, input hashes and download diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yamnet-real-browser-baseline-${{ github.sha }}
+          path: |
+            research/yamnet/pilot/.working/manifest.json
+            research/yamnet/pilot/.working/raw-results.json
+            research/yamnet/pilot/RESULTS.json
+            research/yamnet/pilot/REPORT.zh-CN.md
+            /tmp/tsg-yamnet-http.log
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Commit compact actual-experiment report to isolated research branch
+        if: success()
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name "TSG research evidence"
+          git config user.email "research-evidence@users.noreply.github.com"
+          git add research/yamnet/pilot/RESULTS.json research/yamnet/pilot/REPORT.zh-CN.md
+          git commit -m "research(yamnet): save real browser baseline with 30 public sound recordings"
+          git push origin HEAD:refs/heads/research/yamnet-baseline-20261030

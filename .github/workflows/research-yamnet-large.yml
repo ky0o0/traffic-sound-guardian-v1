@@ -1,0 +1,87 @@
+name: YAMNet all-six target raw-scores multi-source field-audio trial
+on:
+  push:
+    branches: [research/yamnet-baseline-20261030]
+    paths:
+      - '.github/workflows/research-yamnet-large.yml'
+      - 'research/yamnet/large/trigger.json'
+permissions:
+  contents: write
+jobs:
+  large-real-source-browser:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 38
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pin site model bytes, and ensure original code tests pass
+        run: |
+          test "$(sha256sum yamnet.tflite | awk '{print $1}')" = "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf"
+          node --test test-*.js
+      - name: Install browser controller only (same deployed MediaPipe worker remains the classifier)
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          if command -v google-chrome >/dev/null; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          elif command -v chromium >/dev/null; then
+            echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
+          else
+            npx playwright install --with-deps chromium
+          fi
+      - name: Collect real recordings across public field-audio sources and save hashes
+        run: python -u research/yamnet/large/prepare.py
+      - name: Run six outputs of actual TSG 1.6 YAMNet on every real recording
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/tsg-large-http.log 2>&1 &
+          echo $! >/tmp/tsg-large-http.pid
+          for i in 1 2 3 4 5; do curl --fail -s http://127.0.0.1:8765/research/yamnet/large/harness.html >/dev/null && break || sleep 2; done
+          node research/yamnet/large/run-browser.mjs
+      - name: Freeze split and produce source-group-heldout comparison / raw six-score CSV
+        run: |
+          node research/yamnet/large/analyse.mjs
+          python - <<'PY'
+          import gzip,json
+          from pathlib import Path
+          root=Path('research/yamnet/large')
+          w=root/'.working'
+          r=json.loads((root/'RESULTS.json').read_text())
+          assert r['sourceRecordings']>=60 and r['workerWindows']>=r['sourceRecordings']
+          assert sorted(r['rawSixClasses'])==sorted(['bell','horn','siren','police','ambulance','fire'])
+          assert r['sourceLabelCounts']['bell']>=4
+          for source,filename in [('raw-results.json','SCORES.json.gz'),('WINDOW_SCORES.csv','WINDOW_SCORES.csv.gz'),('manifest.json','MANIFEST.json.gz')]:
+              with (w/source).open('rb') as f, gzip.open(root/filename,'wb',compresslevel=9) as gz:
+                  while buf:=f.read(1024*1024):gz.write(buf)
+          print('Preserved full raw six-class scores and text CSV; all original WAVs remain outside Git.')
+          PY
+      - name: Upload scored data and download provenance (all audio files excluded)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yamnet-six-classes-full-scores
+          path: |
+            research/yamnet/large/REPORT.zh-CN.md
+            research/yamnet/large/RESULTS.json
+            research/yamnet/large/SCORES.json.gz
+            research/yamnet/large/WINDOW_SCORES.csv.gz
+            research/yamnet/large/MANIFEST.json.gz
+            research/yamnet/large/.working/raw-results.json
+            research/yamnet/large/.working/WINDOW_SCORES.csv
+            research/yamnet/large/.working/manifest.json
+            /tmp/tsg-large-http.log
+          retention-days: 90
+          if-no-files-found: warn
+          include-hidden-files: true
+      - name: Commit experimental evidence only to isolated research branch
+        if: success()
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name 'TSG experimental evidence'
+          git config user.email 'research-evidence@users.noreply.github.com'
+          git add research/yamnet/large/REPORT.zh-CN.md research/yamnet/large/RESULTS.json research/yamnet/large/SCORES.json.gz research/yamnet/large/WINDOW_SCORES.csv.gz research/yamnet/large/MANIFEST.json.gz
+          git commit -m 'research(yamnet): preserve all six raw scores and heldout threshold study'
+          git push origin HEAD:refs/heads/research/yamnet-baseline-20261030

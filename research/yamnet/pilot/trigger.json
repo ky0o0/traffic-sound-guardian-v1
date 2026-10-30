@@ -1,0 +1,6 @@
+{
+  "run": "real-browser-baseline",
+  "revision": 3,
+  "note": "ESC-50 30 clips with six-class raw YAMNet scores; bicycle bell not yet sampled",
+  "date": "2026-10-30"
+}
