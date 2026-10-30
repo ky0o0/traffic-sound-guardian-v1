@@ -1,0 +1,118 @@
+{
+  "phase": "study",
+  "cases": 12,
+  "unique_original_sources": 5,
+  "independent_scenes_not_established": true,
+  "pretrained_real_inferences": 38,
+  "rows": [
+    {
+      "id": "00_none_bsb_0124",
+      "kind": "none",
+      "rtf_multihot": 0.37982445757142663,
+      "rtf_dual_serial": 0.7616295214285742,
+      "multihot_si_sdri": null,
+      "dual_safe_si_sdri": null,
+      "multi_output_rms": 0.0022794769412402107
+    },
+    {
+      "id": "01_horn_bsb_0124",
+      "kind": "horn",
+      "rtf_multihot": 0.37578656214285744,
+      "rtf_dual_serial": 0.7564899115714273,
+      "multihot_si_sdri": 8.846433155205052,
+      "dual_safe_si_sdri": 6.391699132472154,
+      "multi_output_rms": 0.026718748720876637
+    },
+    {
+      "id": "02_siren_bsb_0124",
+      "kind": "siren",
+      "rtf_multihot": 0.37855649699999716,
+      "rtf_dual_serial": 0.7614415089999998,
+      "multihot_si_sdri": -7.74999312015649,
+      "dual_safe_si_sdri": 7.721352067905314,
+      "multi_output_rms": 0.004105159192936564
+    },
+    {
+      "id": "03_overlap_bsb_0124",
+      "kind": "overlap",
+      "rtf_multihot": 0.3786621494285701,
+      "rtf_dual_serial": 0.759877716142861,
+      "multihot_si_sdri": -5.551432588546875,
+      "dual_safe_si_sdri": 5.6360110190333685,
+      "multi_output_rms": 0.02209665418831409
+    },
+    {
+      "id": "04_horn_then_siren_bsb_0124",
+      "kind": "horn_then_siren",
+      "rtf_multihot": 0.38266269971428607,
+      "rtf_dual_serial": 0.7662728995714271,
+      "multihot_si_sdri": -6.406309051614282,
+      "dual_safe_si_sdri": 4.176467209982482,
+      "multi_output_rms": 0.02630376668707439
+    },
+    {
+      "id": "05_siren_then_horn_bsb_0124",
+      "kind": "siren_then_horn",
+      "rtf_multihot": 0.3859408797142854,
+      "rtf_dual_serial": 0.7634193261428541,
+      "multihot_si_sdri": -5.726246830958109,
+      "dual_safe_si_sdri": 3.1437744618599366,
+      "multi_output_rms": 0.02732456073703878
+    },
+    {
+      "id": "06_none_iusb_road_00",
+      "kind": "none",
+      "rtf_multihot": 0.40018071028571206,
+      "rtf_dual_serial": 0.7818927195714268,
+      "multihot_si_sdri": null,
+      "dual_safe_si_sdri": null,
+      "multi_output_rms": 0.006834022992272563
+    },
+    {
+      "id": "07_horn_iusb_road_00",
+      "kind": "horn",
+      "rtf_multihot": 0.38029417842857277,
+      "rtf_dual_serial": 0.7599348414285723,
+      "multihot_si_sdri": 12.146357901702562,
+      "dual_safe_si_sdri": 9.164879724734556,
+      "multi_output_rms": 0.01999703476396747
+    },
+    {
+      "id": "08_siren_iusb_road_00",
+      "kind": "siren",
+      "rtf_multihot": 0.406370103571427,
+      "rtf_dual_serial": 0.782244211142857,
+      "multihot_si_sdri": -4.5584929737929905,
+      "dual_safe_si_sdri": 7.999657122452222,
+      "multi_output_rms": 0.0075536785247378195
+    },
+    {
+      "id": "09_overlap_iusb_road_00",
+      "kind": "overlap",
+      "rtf_multihot": 0.3937029947142849,
+      "rtf_dual_serial": 0.7710074048571423,
+      "multihot_si_sdri": 1.0836879203119199,
+      "dual_safe_si_sdri": 7.225815520276587,
+      "multi_output_rms": 0.02118071792497712
+    },
+    {
+      "id": "10_horn_then_siren_iusb_road_00",
+      "kind": "horn_then_siren",
+      "rtf_multihot": 0.38874144728571636,
+      "rtf_dual_serial": 0.7794292562857176,
+      "multihot_si_sdri": -0.7638004902410808,
+      "dual_safe_si_sdri": 7.650487607751176,
+      "multi_output_rms": 0.019895869357290954
+    },
+    {
+      "id": "11_siren_then_horn_iusb_road_00",
+      "kind": "siren_then_horn",
+      "rtf_multihot": 0.3831231937142791,
+      "rtf_dual_serial": 0.7751544287142897,
+      "multihot_si_sdri": -0.44993848737729447,
+      "dual_safe_si_sdri": 7.409224121730883,
+      "multi_output_rms": 0.020481827458803222
+    }
+  ],
+  "notice": "SI-SDR quality only on known-signal mixture; null for no-target. No detector sensitivity/specificity or real device latency measured."
+}
