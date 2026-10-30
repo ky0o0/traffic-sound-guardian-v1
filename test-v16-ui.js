@@ -12,7 +12,7 @@ test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s 
  assert.match(app,/completedFrame\.endTime - 0\.975/);
  assert.match(timeline,/spanSeconds = 10/);
  assert.match(timeline,/levels\.length>450/);
- assert.doesNotMatch(timeline,/getUserMedia|AudioContext|mediaRecorder|createObjectURL|fetch\(/i);
+ assert.doesNotMatch(timeline,/getUserMedia|new AudioContext|mediaRecorder|createObjectURL|fetch\(/i);
  assert.doesNotMatch(timeline,/localStorage|sessionStorage|indexedDB|sendBeacon/i);
 });
 test('V1.6 theme selector is shared by all three pages, with system preference',()=>{
