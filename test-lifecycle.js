@@ -264,14 +264,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.2 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.2<\/title>/);
- assert.match(page, /class="version">V1\.6\.2<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.2"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.2"/);
+test('V1.6.3 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.3<\/title>/);
+ assert.match(page, /class="version">V1\.6\.3<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.3"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.3"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.2');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.2');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.3');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.3');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -734,53 +734,79 @@ test('stop, backgrounding and new session cancel scheduled sounds; audio errors 
  h.stop();
 });
 
-test('V1.6.2: current microphone is read from actual getUserMedia track without assuming Bluetooth output route',async()=>{
+
+test('V1.6.3: microphone pill displays the actual browser track NAME, without commentary',async()=>{
  const h=await harness({trackLabel:'Microphone',devices:[{kind:'audiooutput',label:'AirPods Pro',deviceId:'headphones'}]});
- assert.equal(h.elements.get('mic-source-value').textContent,'マイクの種類を確認できません');
- assert.equal(h.elements.get('mic-source-name').textContent,'ブラウザの機器名：Microphone');
- assert.equal(h.calls(),1,'no extra getUserMedia() request');
+ assert.equal(h.elements.get('mic-source-value').textContent,'Microphone');
+ assert.equal(h.calls(),1,'no additional getUserMedia() request');
  h.language('en');
- assert.equal(h.elements.get('mic-source-value').textContent,'Microphone type unknown');
+ assert.equal(h.elements.get('mic-source-value').textContent,'Microphone');
+ assert.equal(h.elements.get('settings-title').textContent,'Settings');
+ assert.equal(h.elements.get('settings-toggle').attributes['aria-label'],'Settings');
  h.language('zh-CN');
- assert.equal(h.elements.get('mic-source-value').textContent,'无法确定麦克风类型');
- assert.equal(h.elements.get('mic-source-name').textContent,'浏览器设备名称：Microphone');
+ assert.equal(h.elements.get('mic-source-value').textContent,'Microphone');
+ assert.equal(h.elements.get('settings-title').textContent,'设置');
  assert.equal(h.calls(),1,'no new microphone request on language change');
  h.frame(1);h.emit(1,{score:.5,label:'サイレン'});
  assert.equal(h.document.body.dataset.state,'warning');
- assert.equal(h.elements.get('mic-source-value').textContent,'无法确定麦克风类型','red screen cannot hide source info');
+ assert.equal(h.elements.get('mic-source-value').textContent,'Microphone');
  h.stop();
  assert.equal(h.elements.get('mic-source-value').textContent,'未开始使用麦克风');
- assert.equal(h.elements.get('mic-source-name').textContent,'','old device names cleared');
+ assert.ok(!page.includes('id="mic-source-note"')&&!page.includes('id="mic-source-name"'),
+   'no extra technical explanation or duplicate label on page');
 });
-test('V1.6.2: explicit built-in and headset labels are browser-reported, not physically confirmed',async()=>{
+test('V1.6.3: genuine labeled track name changes without affecting the detection pipeline',async()=>{
  const h=await harness({trackLabel:'iPhone Microphone',deviceId:'phone-input'});
- assert.equal(h.elements.get('mic-source-value').textContent,'端末内蔵マイク（ブラウザ報告）');
- assert.equal(h.elements.get('mic-source-name').textContent,'ブラウザの機器名：iPhone Microphone');
- assert.match(h.elements.get('mic-source-note').textContent,/ブラウザの申告/);
+ assert.equal(h.elements.get('mic-source-value').textContent,'iPhone Microphone');
  h.tracks[0].label='AirPods Pro Microphone';
  h.events['media-devicechange']();
  await flush();await flush();
- assert.equal(h.elements.get('mic-source-value').textContent,'イヤホン／ヘッドホンのマイク（ブラウザ報告）');
- assert.equal(h.calls(),1,'device-change reporting does not re-open mic');
- assert.equal(h.sources.length,1,'audio capture pipeline is unchanged');
+ assert.equal(h.elements.get('mic-source-value').textContent,'AirPods Pro Microphone');
+ assert.equal(h.calls(),1,'devicechange should not request another microphone');
+ assert.equal(h.sources.length,1,'original classification stream remains unchanged');
  h.stop();
- assert.equal(h.events['media-devicechange'],undefined,'devicechange listener removed on stop');
+ assert.equal(h.events['media-devicechange'],undefined,'removed devicechange listener');
 });
-test('V1.6.2: matched audioinput device label can resolve generic track label, not audiooutput',async()=>{
+test('V1.6.3: matching audioinput device name is shown, never infer from audiooutput',async()=>{
  const h=await harness({trackLabel:'Microphone',deviceId:'source-id',
    devices:[{kind:'audioinput',deviceId:'source-id',label:'WH-1000XM6 Headset Microphone'},
             {kind:'audiooutput',deviceId:'another',label:'iPhone Speaker'}]});
- assert.equal(h.elements.get('mic-source-value').textContent,'イヤホン／ヘッドホンのマイク（ブラウザ報告）');
- assert.match(h.elements.get('mic-source-name').textContent,/WH-1000XM6/);
+ assert.equal(h.elements.get('mic-source-value').textContent,'WH-1000XM6 Headset Microphone');
  h.stop();
+ const noMatch=await harness({trackLabel:'Microphone',deviceId:'headphone-output',
+   devices:[{kind:'audiooutput',deviceId:'headphone-output',label:'AirPods Pro'}]});
+ assert.equal(noMatch.elements.get('mic-source-value').textContent,'Microphone');
+ noMatch.stop();
 });
-test('V1.6.2: permission denial, hidden device names and enumeration errors never invent input routing',async()=>{
+test('V1.6.3: no label, permission denial and restricted enumeration remain truthful',async()=>{
  const unavailable=await harness({trackLabel:'',deviceId:'',enumerationFails:true});
  assert.equal(unavailable.elements.get('mic-source-value').textContent,'マイクの種類を確認できません');
- assert.equal(unavailable.elements.get('mic-source-name').textContent,'');
  unavailable.stop();
  const denied=await harness({deny:true,trackLabel:'AirPods Pro'});
  assert.equal(denied.elements.get('mic-source-value').textContent,'マイクを使用していません');
- assert.equal(denied.elements.get('mic-source-name').textContent,'');
  denied.stop();
+});
+test('V1.6.3: settings contain auxiliary controls while AI Test Mode stays outside',async()=>{
+ const start=page.indexOf('id="settings-content"'),end=page.indexOf('</details>',start);
+ assert.ok(start>0&&end>start);
+ const menu=page.slice(start,end);
+ for(const id of ['language-select','debug-toggle','alert-tone-toggle','sensitivity-panel','threshold-input-0',
+   'threshold-input-5','microphone-test-link','feedback'])
+   assert.ok(menu.includes('id="'+id+'"'),id);
+ assert.ok(!menu.includes('id="ai-test-link"'),'offline AI mode remains prominently available');
+ assert.ok(page.indexOf('id="ai-test-link"')>end);
+ assert.ok(page.indexOf('id="debug-panel"')>end,'AI model and debug results remain outside settings');
+ assert.equal((page.match(/id="settings-toggle"/g)||[]).length,1);
+ const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
+ assert.match(css,/main \.rolling-panel\{width:min\(calc\(100vw - 18px\),920px\)/);
+ assert.match(css,/main #rolling-waveform\{width:100%;height:154px\}/);
+ assert.match(css,/\.settings-content\{box-sizing:border-box;position:absolute/);
+ const theme=fs.readFileSync(new URL('./theme.js',import.meta.url),'utf8');
+ assert.match(theme,/getElementById\('settings-content'\)/);
+ const h=await harness({autoStart:false});
+ assert.equal(h.calls(),0);
+ const bell=h.elements.get('threshold-input-0');bell.value='.05';bell.input();
+ assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
+ assert.equal(h.calls(),0);
+ h.stop();
 });
