@@ -50,7 +50,7 @@ def download(url,maxbytes=10_000_000,tries=2):
 def fetch_urban():
     req=urllib.request.Request(META,headers={"User-Agent":UA})
     with urllib.request.urlopen(req,timeout=30) as response:raw=response.read(1_200_000)
-    rows=list(csv.DictReader(io.StringIO(raw.decode("utf8-sig"))))
+    rows=list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))))
     matches=sorted([r for r in rows if r["fsID"]=="34952" and r["class"]=="siren"],key=lambda r:r["slice_file_name"])
     assert matches, "No source recordings from verified Tokyo original 34952"
     print("TOKYO_FILES_IN_URBANSOUND",len(matches),[x["slice_file_name"] for x in matches],flush=True)
