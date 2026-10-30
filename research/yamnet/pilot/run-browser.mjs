@@ -22,7 +22,11 @@ try{
   page.setDefaultTimeout(180000);
   const issues=[];
   page.on('pageerror',e=>issues.push('page error: '+e.message));
-  page.on('console',m=>{if(m.type()==='error')issues.push('console: '+m.text())});
+  page.on('response',r=>{if(r.status()>=400)issues.push('HTTP '+r.status()+' '+r.url())});
+  // MediaPipe logs TensorFlow Lite's normal XNNPACK initialization through
+  // console.error even when all inferences succeed. Do not treat that as a failure.
+  page.on('console',m=>{if(m.type()==='error' && !m.text().includes('Created TensorFlow Lite XNNPACK delegate for CPU'))
+    issues.push('console: '+m.text())});
   await page.goto('http://127.0.0.1:8765/research/yamnet/pilot/harness.html',{waitUntil:'load'});
   const results=await page.evaluate(async clips=>{
     const {ModelClient,windowsOf}=await import('/ai-test-runner.js');
@@ -69,8 +73,8 @@ try{
     onset_times_audited:false,
     all_files_sha256:manifest.clips.map(({id,sha256,size_bytes,source_url,license,original_category,group_id,attribution,background_noise_human_audited})=>({id,sha256,size_bytes,source_url,license,original_category,group_id,attribution,background_noise_human_audited}))},
     pageIssues:issues,ranAt:new Date().toISOString()};
-  if(issues.length)throw Error('Browser console errors: '+issues.join('; '));
   await fs.writeFile(new URL('raw-results.json',work),JSON.stringify(run,null,2)+'\n');
+  if(issues.length)throw Error('Real asset/page runtime failures: '+issues.join('; '));
   console.log('ACTUAL_BROWSER_CLASSIFIER_SUCCESS',results.clips.length,'clips',
               results.clips.reduce((s,c)=>s+c.result.windows.length,0),'windows');
 }finally{await browser.close()}
