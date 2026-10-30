@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import {NAMES} from '../../../ai-test-analysis.js';
+import {chooseTarget} from '../../../detection.js';
 const root=new URL('./',import.meta.url);
 const r=JSON.parse(await fs.readFile(new URL('.working/raw-results.json',root),'utf8'));
 const {rows,manifest}=r;
@@ -7,6 +8,7 @@ const ids=['police','ambulance','fire'];
 const mapping={
   siren:'Siren',police:'Police car (siren)',
   ambulance:'Ambulance (siren)',fire:'Fire engine, fire truck (siren)'};
+const thresholds=Object.fromEntries(NAMES.map(n=>[n,0.10]));
 const files=rows.map(x=>{
   let peak=Object.fromEntries(NAMES.map(n=>[n,Math.max(0,...x.windows.map(w=>w.scores[n]))]));
   const dominant=Object.entries(peak).sort((a,b)=>b[1]-a[1])[0];
@@ -19,7 +21,14 @@ const files=rows.map(x=>{
     intendedScore:peak[mapping[x.label]],
     intendedThreshold01Reached:peak[mapping[x.label]]>=0.10,
     genericSirenScore:peak[mapping.siren],
-    genericSirenThreshold01Reached:peak[mapping.siren]>=0.10};
+    genericSirenThreshold01Reached:peak[mapping.siren]>=0.10,
+    actualChosenWindowLabels: x.windows.reduce((acc,w)=>{
+      const label=chooseTarget(w.scores,thresholds)?.name??"none";
+      acc[label]=(acc[label]??0)+1;
+      return acc;
+    },{}),
+    actualChosenCorrectSubtypeWindowCount:x.windows.filter(w=>chooseTarget(w.scores,thresholds)?.name===mapping[x.label]).length,
+    actualAnySubtypeChosenWindowCount:x.windows.filter(w=>["Police car (siren)","Ambulance (siren)","Fire engine, fire truck (siren)"].includes(chooseTarget(w.scores,thresholds)?.name)).length};
 });
 let csv=['clip_id,source_group,source_type,label,start_seconds,end_seconds,'+
          NAMES.map((n,i)=>'score_'+['bell','horn','siren','police','ambulance','fire'][i]).join(',')+
@@ -59,15 +68,17 @@ const l=[
 '- 日本警车真实街道录音数量：'+realPolice+'。不把警车模拟音当成现实录音。',
 '- 同一来源的多个效果音变体不是独立样本，不用于证明精确率。',
 '',
-'| 来源 / 声音 | 类型 | 正确车型的YAMNet原始分数峰值 | 通用Siren峰值 | 正确车型≥0.10 |',
-'|---|---|---:|---:|---|',
-...files.map(x=>'| '+x.id+' | '+x.tier+' | '+f(x.intendedScore)+' | '+f(x.genericSirenScore)+' | '+(x.intendedThreshold01Reached?'是':'否')+' |'),
+'| 来源 / 声音 | 类型 | 正确车型原始分数峰值 | 通用Siren峰值 | 正确车型≥0.10 | UI真正选中正确车型的窗口数 |',
+'|---|---|---:|---:|---|---:|',
+...files.map(x=>'| '+x.id+' | '+x.tier+' | '+f(x.intendedScore)+' | '+f(x.genericSirenScore)+' | '+(x.intendedThreshold01Reached?'是':'否')+' | '+x.actualChosenCorrectSubtypeWindowCount+' / '+x.windows+' |'),
 '',
 '## 不应误读',
 '',
 '- 原始分数不是音量dB、校准概率或经过标注的准确率；特别是不能根据少数录音选出最优阈值。',
+'- 高峰值只是该类别在某一窗口的最高分，**不意味着网站一定显示这个车型**。因为正式网站每个窗口会从全部六类里选择分数最高且达标的类别；增加了真实 UI 选中该车型的窗口数统计。',
 '- 日本消防车在某些任务中使用不带钟的“ウーウー”警笛，容易与日本警车混淆，因此交通安全项目应优先保证“紧急车辆警报”总体检出。',
 '- 以上音频包含官方示范、音效和合成参考，并未全部确认为街头实录。仍需找真实日文场景的警车、救护车、消防车、路噪/远近变化录音与人工事件标注。',
+'- 旭川市两段高警告消防车音频因下载限制未取得，本轮不能声称测试了该型号。',
 '- 该分支只做实验，不更改正式网站阈值与SH研究内容。',
 '',
 '## Source pages',
