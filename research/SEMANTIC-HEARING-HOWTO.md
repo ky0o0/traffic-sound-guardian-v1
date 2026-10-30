@@ -47,3 +47,7 @@ For generic sirens use `--label siren` and `--target siren`. Siren subtype score
 - Controlled, non-road, real-device verification and subsequent production feasibility.
 
 The model is **not** validated as a safety device. Keep PR #14 in draft until the actual traffic-sound benchmark is reviewed.
+
+## Follow-up: recovered real-recording experiment (2026-10-30)
+
+The earlier status above is historical. The independent recovery branch adds an SH-only recorded-audio study: [protocol and reproduction](semantic_hearing/REAL_AUDIO_README.md), [results](semantic_hearing/REAL_AUDIO_REPORT.md). It does not run the YAMNet paired-comparison procedure described above.

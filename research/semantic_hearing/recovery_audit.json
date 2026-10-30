@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-30",
+  "prior_pr": "https://github.com/ky0o0/traffic-sound-guardian-v1/pull/14",
+  "frozen_base": "52cef75d31bd17d82bbfca68ea2b7d3b921a5a01",
+  "new_branch": "research/sh-real-audio-recovery-20261030",
+  "commits": [
+    {
+      "sha": "6cb7a3a676f865eb29d36b06b2edc2a7cd8eb4d1",
+      "message": "docs: assess Semantic Hearing and PAWS integration without changing production",
+      "date": "2026-10-29T14:37:46Z"
+    },
+    {
+      "sha": "6f24801438cfd1b51752613c47334ca3106422cf",
+      "message": "feat(research): add isolated offline Semantic Hearing extraction adapter",
+      "date": "2026-10-29T14:38:12Z"
+    },
+    {
+      "sha": "beeb0aa8a1109cf0aa18e9d2e48bbff1067bad12",
+      "message": "test(research): verify Semantic Hearing original label contract",
+      "date": "2026-10-29T14:38:21Z"
+    },
+    {
+      "sha": "87e15fd4dd9d4830ee7bd51774b88394b5fa6e0b",
+      "message": "feat(research): add paired YAMNet before/after comparison for AI Test JSON",
+      "date": "2026-10-29T14:45:52Z"
+    },
+    {
+      "sha": "24180ec9fda9639a961c4d80be71c19a26442ebd",
+      "message": "fix(research): support exploratory null split in AI Test exports",
+      "date": "2026-10-29T14:46:18Z"
+    },
+    {
+      "sha": "3c2ac26f50e59ad1aaa9589eb8d436d63ece39e5",
+      "message": "test(research): validate paired study statistics and data-leakage guards",
+      "date": "2026-10-29T14:46:22Z"
+    },
+    {
+      "sha": "7f855afdcea394327a72d91d467204afe7e598f1",
+      "message": "ci(research): check trial contracts and attempt real upstream checkpoint smoke on isolated branch",
+      "date": "2026-10-29T14:47:35Z"
+    },
+    {
+      "sha": "7a488f8fbb041fb04d7b73957fcbcf04e6852e4e",
+      "message": "ci(research): run real-model smoke on trusted same-repo draft PR for observable results",
+      "date": "2026-10-29T14:48:20Z"
+    },
+    {
+      "sha": "960bc1e72fcc0927f9a1c1f3bea73c2bd8e54be8",
+      "message": "fix(research): isolate unused spatial-evaluation imports from actual pretrained inference",
+      "date": "2026-10-29T14:49:59Z"
+    },
+    {
+      "sha": "874b817c9dbf43fe787d74fde6df96854270c965",
+      "message": "security(research): pin author checkpoint SHA-256 before PyTorch deserialization",
+      "date": "2026-10-29T14:51:50Z"
+    },
+    {
+      "sha": "686b2bc72d0128c6aa714319645643acb71ef61b",
+      "message": "docs(research): record verified upstream inference result and controlled-study limits",
+      "date": "2026-10-29T14:52:12Z"
+    },
+    {
+      "sha": "52cef75d31bd17d82bbfca68ea2b7d3b921a5a01",
+      "message": "docs(research): document reproducible paired comparison after successful official checkpoint inference",
+      "date": "2026-10-29T14:53:37Z"
+    }
+  ],
+  "runs": [
+    {
+      "id": 40896041253,
+      "name": "Research Semantic Hearing trial",
+      "sha": "52cef75d31bd17d82bbfca68ea2b7d3b921a5a01",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40896041253"
+    },
+    {
+      "id": 40895808057,
+      "name": "Research Semantic Hearing trial",
+      "sha": "686b2bc72d0128c6aa714319645643acb71ef61b",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895808057"
+    },
+    {
+      "id": 40895746278,
+      "name": "Research Semantic Hearing trial",
+      "sha": "874b817c9dbf43fe787d74fde6df96854270c965",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895746278"
+    },
+    {
+      "id": 40895734014,
+      "name": "Research Semantic Hearing trial",
+      "sha": "874b817c9dbf43fe787d74fde6df96854270c965",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895734014"
+    },
+    {
+      "id": 40895434760,
+      "name": "Research Semantic Hearing trial",
+      "sha": "960bc1e72fcc0927f9a1c1f3bea73c2bd8e54be8",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895434760"
+    },
+    {
+      "id": 40895426304,
+      "name": "Research Semantic Hearing trial",
+      "sha": "960bc1e72fcc0927f9a1c1f3bea73c2bd8e54be8",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895426304"
+    },
+    {
+      "id": 40895164792,
+      "name": "Research Semantic Hearing trial",
+      "sha": "7a488f8fbb041fb04d7b73957fcbcf04e6852e4e",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895164792"
+    },
+    {
+      "id": 40895154881,
+      "name": "Research Semantic Hearing trial",
+      "sha": "7a488f8fbb041fb04d7b73957fcbcf04e6852e4e",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895154881"
+    },
+    {
+      "id": 40895037112,
+      "name": "Research Semantic Hearing trial",
+      "sha": "7f855afdcea394327a72d91d467204afe7e598f1",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895037112"
+    },
+    {
+      "id": 40895032972,
+      "name": "Research Semantic Hearing trial",
+      "sha": "7f855afdcea394327a72d91d467204afe7e598f1",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/40895032972"
+    }
+  ],
+  "finding": "Seven changed files; official checkpoint synthetic smoke and contract tests only. No persisted six-source manifest or 22-case real-audio results found in PR files, commits, or listed branch workflow runs.",
+  "local_state": "Fresh scratch workspace; did not assume the previous Work's uncommitted files exist."
+}

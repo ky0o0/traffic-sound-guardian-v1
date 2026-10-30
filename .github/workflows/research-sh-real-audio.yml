@@ -1,0 +1,44 @@
+name: SH real recorded audio
+on:
+  push:
+    branches:
+      - research/sh-real-audio-recovery-20261030
+    paths:
+      - 'research/semantic_hearing/*.py'
+      - 'research/semantic_hearing/real_sources.json'
+      - 'research/semantic_hearing/dependency-lock.txt'
+      - '.github/workflows/research-sh-real-audio.yml'
+permissions:
+  contents: read
+jobs:
+  recorded-audio:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: pip
+          cache-dependency-path: research/semantic_hearing/dependency-lock.txt
+      - name: Install recorded dependency versions
+        run: python -m pip install -r research/semantic_hearing/dependency-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+      - name: Verify contracts and analytical metric cases
+        run: python -m unittest discover -s research/semantic_hearing -p 'test_*.py' -v
+      - name: Pin official model source
+        run: |
+          git clone --quiet https://github.com/vb000/SemanticHearing.git /tmp/SemanticHearing
+          git -C /tmp/SemanticHearing checkout --quiet 07e9786c7a741f0a7c722dcde66a2679ca068c50
+      - name: Run all recorded-audio cases with official 39.pt
+        run: |
+          python -u research/semantic_hearing/real_audio.py \
+            --semantic-repo /tmp/SemanticHearing --checkpoint /tmp/39.pt \
+            --output /tmp/sh-real-audio
+      - name: Preserve audio, manifests, timing and failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sh-real-audio-${{ github.sha }}
+          path: /tmp/sh-real-audio
+          retention-days: 90
+          if-no-files-found: error
