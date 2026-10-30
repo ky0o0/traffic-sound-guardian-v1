@@ -235,7 +235,7 @@ text.push("","本轮的类别比例是有意人为均衡的，且部分音源只
 "",
 "**主要来源**：[FSD50K 官方数据集](https://fsannotator.upf.edu/fsd/release/FSD50K/) / [Fhrozen原音频托管](https://huggingface.co/datasets/Fhrozen/FSD50k)；[UrbanSound8K](https://urbansounddataset.weebly.com/urbansound8k.html) / [MahiA音频镜像](https://huggingface.co/datasets/MahiA/UrbanSound8K)。",
 ""
-];
+);
 
 await fs.writeFile(new URL('REPORT.zh-CN.md',ROOT),text.join('\n')+'\n');
 console.log('ANALYSIS',samples.length,'clips',scoreRows.length,'frames',JSON.stringify(result.sourceDatasetCounts),JSON.stringify(
