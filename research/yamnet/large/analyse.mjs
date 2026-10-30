@@ -196,6 +196,20 @@ for(const [k,label] of [["bell","自行车铃"],["horn","汽车喇叭"],["siren"
      pct(x.default01.heldout.recall),pct(x.candidate.heldout.recall),
      pct(x.default01.heldout.precision),pct(x.candidate.heldout.precision)].join(" | ")+" |");
 }
+const heldoutF1=Object.fromEntries(["bell","horn","siren"].map(k=>[k,{
+  defaultF1:comparison[k].default01.heldout.f1,
+  selectedF1:comparison[k].candidate.heldout.f1
+}]));
+const suspectNegatives=samples.filter(s=>s.label==='none' && NAMES.some(n=>s.peakScores[n]>=0.10)).length;
+text.push("","## 重要：探索性调参没有在留出测试集上改善整体F1","",
+"测试集F1（默认0.10 → 验证集建议阈值）：",
+...([["bell","自行车铃"],["horn","汽车喇叭"],["siren","通用警笛"]].map(([k,title])=>
+"- "+title+"："+pct(heldoutF1[k].defaultF1)+" → "+pct(heldoutF1[k].selectedF1))),
+"**因此没有足够证据建议更改网站默认阈值0.10。** 这些F1并非人工审核过的最终准确率。",
+"在"+samples.filter(s=>s.label==='none').length+"段被数据集主标签标为非目标的录音中，有"+suspectNegatives+
+"段在默认0.10下至少一个YAMNet类别达到阈值。它们是待人工核查的疑似误报候选，不是已证实的错误报警。",
+"");
+
 text.push("","## 警车、救护车、消防车警笛：已运行模型，但不能虚报准确率","",
   "三个独立类别同样逐窗口输出了真实Score，并记录在WINDOW_SCORES.csv / SCORES.json.gz中；但当前ESC-50和UrbanSound8K只标明笼统siren，没有可核实的三种车型细分标签。",
   "因此这三类的单独Precision、Recall和“最佳阈值”必须显示**N/A**；其阈值仍为0.10，不能仅凭泛指警笛的正确率决定删除或调整。",
