@@ -120,7 +120,10 @@ test('Japanese default, all five tabs and English switch cover actual UI text wi
   const h = harness();
   assert.equal(h.document.documentElement.lang, 'ja');
   assert.match(h.root.textContent, /AIテストモード/);
-  h.click('English');
+  const english = h.all().find(n => n.id === 'language-select');
+  assert.ok(english);
+  english.value = 'en';
+  english.onchange();
   assert.equal(h.document.documentElement.lang, 'en');
   assert.match(h.root.textContent, /AI Test Mode/);
   for (const key of ['results', 'analysis', 'optimize', 'exports', 'upload']) {
@@ -128,7 +131,9 @@ test('Japanese default, all five tabs and English switch cover actual UI text wi
     assert.ok(h.root.textContent.includes(translate(key, 'en')));
   }
   h.run("thresholds[NAMES[0]]=.07");
-  h.click('日本語');
+  const japanese = h.all().find(n => n.id === 'language-select');
+  japanese.value = 'ja';
+  japanese.onchange();
   assert.equal(h.run('thresholds[NAMES[0]]'), .07);
   assert.equal(h.writes.length, 0);
   for (const [k, pair] of Object.entries(TEXT)) {
@@ -165,7 +170,10 @@ test('actual UI label mutations, exclusive none, file removal and failed-file up
 test('live thresholds require explicit confirm; language and test-setting changes do not write preferences',
 () => {
   const h = harness();
-  h.click('English');
+  const english = h.all().find(n => n.id === 'language-select');
+  assert.ok(english);
+  english.value = 'en';
+  english.onchange();
   h.click('Charts & Export');
   h.run('thresholds[NAMES[0]]=.09');
   h.click(translate('applyLive', 'en'));
