@@ -2,7 +2,7 @@ import {
   TARGETS,
   chooseTarget,
   WarningGate
-} from './detection.js?v=1.5.4';
+} from './detection.js?v=1.6.0';
 
 export const IDS = ['bell', 'horn', 'siren', 'police', 'ambulance', 'fire'];
 export const NAMES = Object.keys(TARGETS);
@@ -14,7 +14,7 @@ export const MODEL = {
   runtime: 'MediaPipe 0.10.21'
 };
 export const CONFIG = {
-  version: '1.5.4',
+  version: '1.6.0',
   warningHoldMs: 1000,
   defaultThreshold: 0.10,
   uiThresholdMin: 0.01,
