@@ -1,0 +1,14 @@
+{
+  "pilot_wavs_checked": 14,
+  "full_wavs_checked": 47,
+  "full_quality_runs": 25,
+  "metric_values_recomputed": 408,
+  "max_recomputed_metric_difference_db": 0.0,
+  "before_scheduled_reset_max_sample_difference": 0.0,
+  "independent_rerun_forward_calls": 3180,
+  "independent_output_max_abs_sample_difference": 9.08970832824707e-07,
+  "independent_event_si_sdri_max_difference_db": 1.7761935641402715e-05,
+  "learned_parameters_and_registered_buffers_unchanged": true,
+  "model_state_sha256": "bc3e7f6462ae98250f32c1c78ed9418189beb2720155767f79a93eae3aac589f",
+  "physical_audio_io_measured": false
+}

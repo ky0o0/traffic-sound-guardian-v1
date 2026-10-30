@@ -1,0 +1,8 @@
+{
+  "mode": "pilot",
+  "quality_runs": 7,
+  "pretrained_forward_calls": 4681,
+  "processed": 7,
+  "failed": 0,
+  "wall_seconds": 30.058986794000006
+}

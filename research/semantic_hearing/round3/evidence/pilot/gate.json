@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "cold_stream_equivalence": true,
+    "cold_metric_equivalence": true,
+    "zero_history_stream_equivalence": true,
+    "zero_history_metric_equivalence": true,
+    "future_after_448_cannot_change_first_416": true,
+    "within_block_future_change_first128_max_abs_difference": 0.0001613088243175298,
+    "cold_round2_metric_reproduced": true,
+    "quiet_history_round2_metric_reproduced": true
+  },
+  "pretrained_forward_calls": 4681,
+  "quality_runs": 7,
+  "no_neural_parameters_modified": true
+}

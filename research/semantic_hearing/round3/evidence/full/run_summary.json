@@ -1,0 +1,8 @@
+{
+  "mode": "full",
+  "quality_runs": 25,
+  "pretrained_forward_calls": 57989,
+  "processed": 25,
+  "failed": 0,
+  "wall_seconds": 286.529310663
+}

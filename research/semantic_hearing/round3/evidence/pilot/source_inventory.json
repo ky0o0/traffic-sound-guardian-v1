@@ -1,0 +1,42 @@
+[
+  {
+    "id": "bsb_0260",
+    "prior_case": "position_bsb_0260_original_quiet_active+0_start_original_gain1",
+    "source_reference_sha256": "853ea3036f335d84f4c0f8fd105dc66d79021db7f459ff18734a945dbc1038cb",
+    "event_samples": 21784,
+    "event_pcm_sha256": "0e4782c6a47ed5c7fd59c8744e5bd728575b59d65bb1ad6de9fcbc771ba90727",
+    "reference_kind": "isolated_recording_with_unknown_noise_floor",
+    "recording_geometry": "Ordinary two-channel source, not established binaural",
+    "edited": false
+  },
+  {
+    "id": "bsb_0257",
+    "prior_case": "position_bsb_0257_original_quiet_active+0_middle_original_gain1",
+    "source_reference_sha256": "a027f45161c4524dd058d8ff43d220361752d9e6c97bce39b6fdc93f260edb3e",
+    "event_samples": 21266,
+    "event_pcm_sha256": "697e2c6e1ce53d522156821dbcfe113e60ab8fc2c7385c1d6d38558a9acacc53",
+    "reference_kind": "isolated_recording_with_unknown_noise_floor",
+    "recording_geometry": "Ordinary two-channel source, not established binaural",
+    "edited": false
+  },
+  {
+    "id": "iusb_014",
+    "prior_case": "background_iusb_014_original_iusb_road_00_active+0_middle_original_gain1",
+    "source_reference_sha256": "6cedc1743daa6cf4a9cdd5ffe52139f646a72bc5a8b7d02c653f7af638b09500",
+    "event_samples": 88200,
+    "event_pcm_sha256": "2bb24ed9e1f6d49be71d579f7207eb2fb00e8e5f3b2ab6a5b457ab5029798d8a",
+    "reference_kind": "unreviewed_corpus_event_recording",
+    "recording_geometry": "Ordinary two-channel source, not established binaural",
+    "edited": true
+  },
+  {
+    "id": "bsb_0124",
+    "derived_stem_pcm_sha256": "7f9516b382a18a4555c8355aca4f16dbc969ebe762708f28d12d7a6bbf222646",
+    "derivation": "Prior FLOAT mixture minus synchronized recorded reference in float64, then float32; includes prior floating-point mixing roundoff, not a new original recording"
+  },
+  {
+    "id": "iusb_road_00",
+    "derived_stem_pcm_sha256": "74b58b225668d525df53e9b13cfd309d79db8fad9f3ab066b4d63fd29c72ad7a",
+    "derivation": "Prior FLOAT mixture minus synchronized recorded reference in float64, then float32; includes prior floating-point mixing roundoff, not a new original recording"
+  }
+]

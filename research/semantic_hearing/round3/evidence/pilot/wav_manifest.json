@@ -1,0 +1,156 @@
+[
+  {
+    "path": "inputs/critical/input.wav",
+    "sha256": "8938b329dac912517f3b2bb39dadad137884db4d12bbc1e7677f80d280731c07",
+    "pcm_sha256": "50eddbaa0595d2bde135a287732c5f7142f9ef1875ac40a10be7206080d21d5e",
+    "bytes": 1764088,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "inputs/critical/noise.wav",
+    "sha256": "6fd342c62010b5956d61ce38d47eb30b695794598b98165677c5e8aa98504743",
+    "pcm_sha256": "7f9516b382a18a4555c8355aca4f16dbc969ebe762708f28d12d7a6bbf222646",
+    "bytes": 1764088,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "inputs/critical/reference.wav",
+    "sha256": "06b178de74a7c453dd53e3e520a58ae32957d86c92da4905c565069c0b73e664",
+    "pcm_sha256": "02c47fc1cbf080313270edb45bd50d35f0320341aab2a3d92cbf137142e13e05",
+    "bytes": 1764088,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/cold/carry/output.wav",
+    "sha256": "5f728880c74af47e8c2434427bc60b3760d0112e6a52ca518a9eecf80ff42bf9",
+    "pcm_sha256": "d9ac95aef64498458f040fe14fbb160e43517b324a9d4e4a9f31e259275349db",
+    "bytes": 1764088,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/cold/input.wav",
+    "sha256": "8938b329dac912517f3b2bb39dadad137884db4d12bbc1e7677f80d280731c07",
+    "pcm_sha256": "50eddbaa0595d2bde135a287732c5f7142f9ef1875ac40a10be7206080d21d5e",
+    "bytes": 1764088,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/cold/offline_output.wav",
+    "sha256": "df213ae19661d71df2bd9211272a8634aadc80177caee868b7a069b8b932d2b5",
+    "pcm_sha256": "fcca8f1739da7e652174c15f3b10cdeea734d18a8b4d4b3621601d10c31db52f",
+    "bytes": 1764088,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 220500,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/carry/output.wav",
+    "sha256": "4e27882b69942f479893568e17d7816a9ff3cf6c43f8acb91bbc4ebd4fbf7a09",
+    "pcm_sha256": "0f98cdc49e4432300c060ba3df10455c496b43ef29f692054b791f04748637ea",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/input.wav",
+    "sha256": "633a9cae264fc285b269f46b1ca3bb70b262a3f481ee0a317eb8b42b552cb0d9",
+    "pcm_sha256": "955237fdf1cd5eb166a758231c51c5290e26e10dad5cb8ff8ec7cfb4b08271f0",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/offline_output.wav",
+    "sha256": "03f2e4ae42886f6456ad9f1f43cde9cfb6ae9cf142e7db890fa25df426c4e6e7",
+    "pcm_sha256": "22e692b2c1341f83c7e51892ee672aac49966bb14c972429dc3ca1c83e6e382d",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/reset_all/output.wav",
+    "sha256": "75e475a5d651af2ce5acf613e02e7e08705753f2c7a9ce02e258c431669de563",
+    "pcm_sha256": "cc9f451e3c46dd11679ab1b95e73ae65947471b232704ffb83f1e028ac83941d",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/reset_decoder/output.wav",
+    "sha256": "895fc5051fd12971aca3d43c8f1e947dd23b6ccfc161adf7225c99b94395cded",
+    "pcm_sha256": "b2c013ef69dc90e1a040c089122fa40cf26897370c7c7a02de1d48e9cc6a27e6",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/reset_each_block/output.wav",
+    "sha256": "987723267fbaa103f97fb7b13473cc5dc9b55f5972be34da7f94c74388b81e3a",
+    "pcm_sha256": "201fb1fe591972dcc9d9c1a58e28237d717a45ff0bc0269fcbacbfc94ef65a6a",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/reset_encoder/output.wav",
+    "sha256": "720c41c0d46de9f4d741710a69745410f29df71f80381d8008fff26fa248404e",
+    "pcm_sha256": "35a2e0f5a7d50621435442fdeca9e5006d5a3f13bdc2e8d136d5b69c9c1724d6",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  },
+  {
+    "path": "signals/zero_history/reset_output/output.wav",
+    "sha256": "3858d666931057bea98abc6202b93b4bbfa4646741e1224c4097163aae8c1b99",
+    "pcm_sha256": "713db8e0948aa9297fc194a7d4e661bffecf6310b71aadc6f106c472922756a4",
+    "bytes": 2296568,
+    "rate": 44100,
+    "channels": 2,
+    "frames": 287060,
+    "subtype": "FLOAT",
+    "finite": true
+  }
+]
