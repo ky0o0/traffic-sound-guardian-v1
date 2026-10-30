@@ -1,6 +1,6 @@
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.5.4';
+import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.0';
 import { AudioWindowBuffer } from './audio-window.js';
-import { debugCategoryName } from './debug.js?v=1.5.4';
+import { debugCategoryName } from './debug.js?v=1.6.0';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -431,8 +431,8 @@ function setLanguage(next) {
   ui['language-select-label'].textContent = t('言語');
   ui['language-select'].setAttribute('aria-label', t('言語'));
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
-  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.5.4&lang=' + language);
-  ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.5.4&lang=' + language);
+  ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.6.0&lang=' + language);
+  ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.6.0&lang=' + language);
   for (const [id, text] of Object.entries({
     'ai-test-link': 'AIテストモード（オフライン研究） ↗',
     'microphone-test-link': 'マイク接続テスト（イヤホン入力） ↗',
@@ -770,7 +770,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.5.4', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.0', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
