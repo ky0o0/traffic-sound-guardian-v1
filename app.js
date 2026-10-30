@@ -10,6 +10,7 @@ const FEEDBACK_FORM_URLS = Object.freeze({
   en: 'https://forms.gle/AkXuRHWwi9Kp95GfA'
 });
 const EN = Object.freeze({
+  "設定": "Settings",
   "マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。": "Device type and name are reported by the browser, not proof of the physical microphone.",
   "ブラウザの機器名：": "Browser device name: ",
   "マイクの種類を確認できません": "Microphone type unknown",
@@ -115,6 +116,7 @@ const EN = Object.freeze({
   "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "A research prototype for real-time traffic warning sound recognition, studying headphone use and traffic safety."
 });
 const ZH = Object.freeze({
+  "設定": "设置",
   "マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。": "麦克风类型及名称来自浏览器报告，无法保证实际使用的物理麦克风位置。",
   "ブラウザの機器名：": "浏览器设备名称：",
   "マイクの種類を確認できません": "无法确定麦克风类型",
@@ -235,7 +237,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'mic-source-label', 'mic-source-value', 'mic-source-name', 'mic-source-note', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'mic-source-label', 'mic-source-value', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -247,16 +249,13 @@ let view = 'stopped';
 // The UI reports browser metadata only; it never guesses from Bluetooth connection.
 let micSource = { state: 'stopped', evidence: null };
 function renderMicSource() {
-  const stateText = micSource.state === 'stopped' ? 'マイクを使用していません' :
-    micSource.state === 'loading' ? 'マイク情報を取得中…' :
-    micSource.evidence?.kind === 'headset' ? 'イヤホン／ヘッドホンのマイク（ブラウザ報告）' :
-    micSource.evidence?.kind === 'built-in' ? '端末内蔵マイク（ブラウザ報告）' :
-    'マイクの種類を確認できません';
+  // Show only the name of the browser-reported LIVE input track. Never
+  // substitute the connected playback/output device as a microphone.
+  const name = micSource.state === 'stopped' ? t('マイクを使用していません') :
+    micSource.state === 'loading' ? t('マイク情報を取得中…') :
+    micSource.evidence?.label || t('マイクの種類を確認できません');
   ui['mic-source-label'].textContent = t('使用中のマイク');
-  ui['mic-source-value'].textContent = t(stateText);
-  ui['mic-source-name'].textContent = micSource.state === 'active' && micSource.evidence?.label
-    ? t('ブラウザの機器名：') + micSource.evidence.label : '';
-  ui['mic-source-note'].textContent = t('マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。');
+  ui['mic-source-value'].textContent = name;
 }
 function showMicSource(s) {
   if (session !== s || !s.stream) return;
@@ -549,6 +548,8 @@ function setLanguage(next) {
   language = allowedLanguage(next);
   document.documentElement.lang = language;
   ui['language-select'].value = language;
+  ui['settings-title'].textContent = t('設定');
+  ui['settings-toggle'].setAttribute('aria-label', t('設定'));
   ui['language-select-label'].textContent = t('言語');
   ui['alert-tone-label'].textContent = t('通知音を鳴らす');
   ui['alert-tone-note'].textContent = t('新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。');

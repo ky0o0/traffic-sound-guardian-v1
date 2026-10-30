@@ -29,16 +29,18 @@ function display() {
   const lang = ['ja','en','zh-CN'].includes(document.documentElement.lang) ? document.documentElement.lang : 'ja';
   const t = dictionaries[lang];
   select.setAttribute('aria-label', t.label);
+  const visibleLabel = select.parentElement?.querySelector('.theme-picker-label');
+  if (visibleLabel) visibleLabel.textContent = t.label;
   for (const option of select.options) option.textContent = t[option.value];
 }
 function initialize() {
-  const host = document.querySelector('.toolbar') || document.body;
+  const host = document.getElementById('settings-content') || document.querySelector('.toolbar') || document.body;
   const standalone = host === document.body;
   if (!host || document.getElementById('theme-select')) return;
   const label = document.createElement('label');
   label.className = standalone ? 'theme-picker standalone' : 'theme-picker';
   const text = document.createElement('span');
-  text.className = 'sr-only';
+  text.className = host.id === 'settings-content' ? 'theme-picker-label' : 'sr-only';
   const select = document.createElement('select');
   select.id = 'theme-select';
   for (const key of OPTIONS) {
