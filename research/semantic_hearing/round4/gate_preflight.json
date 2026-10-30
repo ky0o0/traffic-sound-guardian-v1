@@ -1,0 +1,7 @@
+{
+  "accepted": true,
+  "finite": true,
+  "stream_offline_max_abs_sample_difference": 8.791685104370117e-07,
+  "numerical_equivalence": true,
+  "input_samples": 149940
+}
