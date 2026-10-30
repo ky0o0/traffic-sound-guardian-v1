@@ -1,5 +1,6 @@
 import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.0';
 import { AudioWindowBuffer } from './audio-window.js';
+import { microphoneSourceEvidence } from './mic-source.js?v=1.6.2';
 import { debugCategoryName } from './debug.js?v=1.6.0';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
@@ -9,6 +10,14 @@ const FEEDBACK_FORM_URLS = Object.freeze({
   en: 'https://forms.gle/AkXuRHWwi9Kp95GfA'
 });
 const EN = Object.freeze({
+  "マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。": "Device type and name are reported by the browser, not proof of the physical microphone.",
+  "ブラウザの機器名：": "Browser device name: ",
+  "マイクの種類を確認できません": "Microphone type unknown",
+  "端末内蔵マイク（ブラウザ報告）": "Built-in microphone (browser-reported)",
+  "イヤホン／ヘッドホンのマイク（ブラウザ報告）": "Headset microphone (browser-reported)",
+  "マイク情報を取得中…": "Reading microphone information…",
+  "マイクを使用していません": "Microphone not in use",
+  "使用中のマイク": "Current microphone",
   "新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。": "Two short beeps on each new warning. Your device controls where sound plays.",
   "通知音を鳴らす": "Play alert beeps",
   "警告音の通知": "Alert sound",
@@ -106,6 +115,14 @@ const EN = Object.freeze({
   "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "A research prototype for real-time traffic warning sound recognition, studying headphone use and traffic safety."
 });
 const ZH = Object.freeze({
+  "マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。": "麦克风类型及名称来自浏览器报告，无法保证实际使用的物理麦克风位置。",
+  "ブラウザの機器名：": "浏览器设备名称：",
+  "マイクの種類を確認できません": "无法确定麦克风类型",
+  "端末内蔵マイク（ブラウザ報告）": "设备内置麦克风（浏览器报告）",
+  "イヤホン／ヘッドホンのマイク（ブラウザ報告）": "耳机麦克风（浏览器报告）",
+  "マイク情報を取得中…": "正在读取麦克风信息…",
+  "マイクを使用していません": "未开始使用麦克风",
+  "使用中のマイク": "当前麦克风",
   "新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。": "每次新的警告播放两声短促提示音；实际从哪里播放由设备决定。",
   "通知音を鳴らす": "播放提示音",
   "警告音の通知": "提示音提醒",
@@ -218,7 +235,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'mic-source-label', 'mic-source-value', 'mic-source-name', 'mic-source-note', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -227,6 +244,38 @@ const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warnin
 let session = null;
 let nextSession = 0;
 let view = 'stopped';
+// The UI reports browser metadata only; it never guesses from Bluetooth connection.
+let micSource = { state: 'stopped', evidence: null };
+function renderMicSource() {
+  const stateText = micSource.state === 'stopped' ? 'マイクを使用していません' :
+    micSource.state === 'loading' ? 'マイク情報を取得中…' :
+    micSource.evidence?.kind === 'headset' ? 'イヤホン／ヘッドホンのマイク（ブラウザ報告）' :
+    micSource.evidence?.kind === 'built-in' ? '端末内蔵マイク（ブラウザ報告）' :
+    'マイクの種類を確認できません';
+  ui['mic-source-label'].textContent = t('使用中のマイク');
+  ui['mic-source-value'].textContent = t(stateText);
+  ui['mic-source-name'].textContent = micSource.state === 'active' && micSource.evidence?.label
+    ? t('ブラウザの機器名：') + micSource.evidence.label : '';
+  ui['mic-source-note'].textContent = t('マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。');
+}
+function showMicSource(s) {
+  if (session !== s || !s.stream) return;
+  const track = s.stream.getAudioTracks()[0];
+  micSource = {state: 'active', evidence: microphoneSourceEvidence(track, s.reportedAudioInputs || [])};
+  renderMicSource();
+}
+async function refreshMicSource(s) {
+  if (session !== s || !s.stream) return;
+  const token = ++s.micSourceQuery;
+  let inputs = [];
+  try {
+    const devices = await navigator.mediaDevices?.enumerateDevices?.();
+    if (Array.isArray(devices)) inputs = devices.filter(d => d.kind === 'audioinput');
+  } catch { /* The track label may be all that Safari exposes. */ }
+  if (session !== s || token !== s.micSourceQuery) return;
+  s.reportedAudioInputs = inputs;
+  showMicSource(s);
+}
 // Preferences only; no PCM, AI results, or inference history are persisted.
 const ALERT_TONE_STORAGE_KEY = 'trafficSoundGuardian.alertToneEnabled';
 const THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.soundThresholds';
@@ -471,6 +520,7 @@ function render(state, description = '') {
     ui.score.textContent = session.gate.target.score.toFixed(2);
   }
   updateButtons();
+  renderMicSource();
   renderDebug();
 }
 
@@ -599,6 +649,8 @@ function stop(message = '') {
   stopDebug(old);
   session = null; // Invalidate all pending permissions, frames and model results first.
   if (old) {
+    old.micSourceQuery = (old.micSourceQuery ?? 0) + 1;
+    try { navigator.mediaDevices?.removeEventListener?.('devicechange', old.onMicDevicesChange); } catch {}
     clearTimeout(old.startTimeout);
     clearTimeout(old.warningTimeout);
     clearInterval(old.watchdog);
@@ -626,6 +678,7 @@ function stop(message = '') {
     stopAlertTones(old); // Discard any scheduled beeps when microphone session ends.
     old.gate.reset();
   }
+  micSource = {state: 'stopped', evidence: null};
   resetVisuals();
   window.dispatchEvent?.(new Event('tsg:reset'));
   render('stopped', message);
@@ -799,6 +852,9 @@ async function connectCapture(s) {
       if (now - s.lastCapture > limit) diagnostics.microphone = '音声入力が中断';
       if (now - s.lastResult > limit) diagnostics.inference = '更新が停止';
       stop('音声またはAIの解析が途切れました。もう一度開始してください。');
+    } else if (now - (s.lastMicSourceCheck ?? -Infinity) >= 2000) {
+      s.lastMicSourceCheck = now;
+      showMicSource(s); // Detect changes to browser-reported track label/settings.
     }
   }, 250);
 }
@@ -823,8 +879,10 @@ async function start() {
     return;
   }
   const s = { id: ++nextSession, gate: new WarningGate(), connected: false, hasResult: false,
-    pending: null, flight: null, alertToneNodes: new Set() };
+    pending: null, flight: null, alertToneNodes: new Set(), micSourceQuery: 0, reportedAudioInputs: [] };
   session = s;
+  micSource = {state: 'loading', evidence: null};
+  renderMicSource();
   diagnostics.model = '読み込み中';
   diagnostics.microphone = '許可を確認中';
   renderDebug();
@@ -837,6 +895,12 @@ async function start() {
     } }).then(stream => {
       if (!isCurrent(s)) { stream.getTracks().forEach(t => t.stop()); throw new DOMException('Stopped', 'AbortError'); }
       s.stream = stream;
+      // The very same track that feeds classifier audio supplies the label.
+      // Device enumeration never asks for microphone access a second time.
+      showMicSource(s);
+      s.onMicDevicesChange = () => { if (isCurrent(s)) refreshMicSource(s); };
+      try { navigator.mediaDevices?.addEventListener?.('devicechange', s.onMicDevicesChange); } catch {}
+      void refreshMicSource(s);
       diagnostics.microphone = '許可済み・音声データ待ち';
       renderDebug();
       for (const track of stream.getAudioTracks()) {

@@ -54,3 +54,18 @@ body[data-state=warning] .alert-tone-setting{background:#52192b;border-color:#ff
 body[data-state=warning] #alert-tone-label,body[data-state=warning] #alert-tone-note{color:#fff}
 html[data-theme=light] body[data-state=warning] .alert-tone-setting{background:#6e2036;border-color:#ffffff99}
 @media(max-height:740px){.alert-tone-setting{margin-top:7px;padding:7px 11px}}
+
+/* V1.6.2: read-only current microphone input; no false Bluetooth assumptions. */
+.mic-source-panel{width:100%;margin:9px auto 0;padding:11px 14px;border:1px solid #425c72;border-radius:12px;background:#17283c;min-width:0}
+.mic-source-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+#mic-source-label{font-size:12px;color:#b9cadd;font-weight:600}
+#mic-source-value{font-size:13px;font-weight:650;color:#8fe0d2;min-width:0;overflow-wrap:anywhere}
+.mic-source-name,.mic-source-note{font-size:10px;color:#b9cadd;line-height:1.5;margin:5px 0 0;overflow-wrap:anywhere}
+.mic-source-name:empty{display:none}
+html[data-theme=light] .mic-source-panel{background:#fff;border-color:#cad8e3}
+html[data-theme=light] #mic-source-label,html[data-theme=light] .mic-source-name,html[data-theme=light] .mic-source-note{color:#52677d}
+html[data-theme=light] #mic-source-value{color:#147c79}
+body[data-state=warning] .mic-source-panel{background:#52192b;border-color:#ffd5db}
+body[data-state=warning] .mic-source-panel :is(#mic-source-label,#mic-source-value,.mic-source-name,.mic-source-note){color:#fff}
+html[data-theme=light] body[data-state=warning] .mic-source-panel{background:#6e2036;border-color:#ffffff99}
+@media(max-height:740px){.mic-source-panel{margin-top:5px;padding:7px 11px}}
