@@ -264,14 +264,36 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.6 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.6<\/title>/);
- assert.match(page, /class="version">V1\.6\.6<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.6"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.6"/);
+test('V1.6.7 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.7<\/title>/);
+ assert.match(page, /class="version">V1\.6\.7<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.7"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.7"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.6');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.6');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.7');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.7');
+});
+test('V1.6.7 new page load starts at top, back-forward cache preserves scroll and normal scrolling remains untouched',()=>{
+ const head=page.slice(0,page.indexOf('</head>'));
+ const script=head.match(/<script>([\s\S]*?)<\/script>/)?.[1];
+ assert.ok(script,'early inline scroll-reset script exists');
+ assert.ok(head.indexOf('scrollRestoration')<head.indexOf('stylesheet'),'scroll policy set before stylesheet loading');
+ const history={scrollRestoration:'auto'},listeners=new Map(),scrolls=[],frames=[];
+ const window={addEventListener(name,fn){listeners.set(name,fn);},
+   scrollTo(x,y){scrolls.push([x,y]);}};
+ vm.runInNewContext(script,{history,window,requestAnimationFrame:fn=>frames.push(fn)});
+ assert.equal(history.scrollRestoration,'manual');
+ assert.deepEqual([...listeners.keys()],['pageshow'],'do not force-scroll on taps, warning or scrolling');
+ assert.equal(scrolls.length,0,'loading does not scroll prematurely');
+ listeners.get('pageshow')({persisted:false});
+ assert.deepEqual(scrolls,[[0,0]],'full reload resets vertical and horizontal position');
+ assert.equal(frames.length,1);
+ frames.shift()();
+ assert.deepEqual(scrolls,[[0,0],[0,0]],'next animation frame counters late browser restoration');
+ scrolls.length=0;
+ listeners.get('pageshow')({persisted:true});
+ assert.deepEqual(scrolls,[],'returning from browser back-forward cache preserves existing position');
+ assert.equal(frames.length,0);
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -834,7 +856,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.6/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.7/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
