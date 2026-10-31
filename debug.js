@@ -617,6 +617,25 @@ export function debugCategoryName(category, language) {
   return category.categoryName;
 }
 
+// Independently provide the one highest valid YAMNet category for the public
+// current-sound label. This does not depend on enabling the Debug panel.
+export function topCategory(results) {
+  let best = null;
+  for (const result of results) {
+    for (const head of result.classifications ?? []) {
+      for (const item of head.categories ?? []) {
+        if (!Number.isFinite(item.score) || item.score < 0 || item.score > 1 ||
+            typeof item.categoryName !== 'string' || !item.categoryName) continue;
+        if (!best || item.score > best.score ||
+            (item.score === best.score && item.index < best.index)) {
+          best = { categoryName: item.categoryName, index: item.index, score: item.score };
+        }
+      }
+    }
+  }
+  return best;
+}
+
 // Reuse one completed result. Never mutate the model's category array or scores.
 export function summarizeDebug(results) {
   const categories = results.flatMap(result => (result.classifications ?? []).flatMap(head => head.categories ?? []));
