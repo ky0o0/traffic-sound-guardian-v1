@@ -1,153 +1,208 @@
-/* iPad LANDSCAPE TEST — isolated layout; the public index.html is unchanged.
-   All normal microphone/AI/warning code and IDs are reused unchanged. */
+/* iPad-only layout V2. Main site stays completely unchanged.
+   The original page IDs, scripts, YAMNet input and alert logic are reused. */
 body.ipad-test .ipad-back{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:40px;padding:7px 10px;border:1px solid #5a8194;
-  border-radius:10px;color:#9ce0d3;text-decoration:none;font-size:11px;
-  white-space:nowrap;
+ display:inline-flex;align-items:center;justify-content:center;min-height:40px;
+ padding:7px 10px;border:1px solid #5a8194;border-radius:10px;
+ color:#9ce0d3;text-decoration:none;font-size:11px;white-space:nowrap;
 }
 body.ipad-test .ipad-back:focus-visible{outline:3px solid #9cdfd1;outline-offset:2px}
 html[data-theme=light] body.ipad-test .ipad-back{color:#096e67;border-color:#9db5c8}
-body.ipad-test .ipad-banner{font-size:10px;letter-spacing:.7px;color:#9ce0d3}
-html[data-theme=light] body.ipad-test .ipad-banner{color:#116d68}
-body.ipad-test[data-state=warning] .ipad-back,
-body.ipad-test[data-state=warning] .ipad-banner{color:#fff;border-color:#ffffff80}
+body.ipad-test[data-state=warning] .ipad-back{color:#fff;border-color:#ffffff80}
 
-/* Only enable screen-filling dual-column mode on a wide landscape viewport.
-   Short/split-screen and portrait Safari keep the readable original vertical layout. */
-@media (orientation:landscape) and (min-width:820px) and (min-height:500px) {
-  html:has(body.ipad-test){height:100%;overflow:hidden}
-  body.ipad-test{
-    width:100%;height:100dvh;min-height:0;max-height:100dvh;
-    display:grid;grid-template-columns:minmax(0,1fr) clamp(270px,32vw,390px);
-    gap:clamp(8px,1.1vw,16px);
-    padding:calc(8px + env(safe-area-inset-top)) calc(10px + env(safe-area-inset-right))
-      calc(8px + env(safe-area-inset-bottom)) calc(10px + env(safe-area-inset-left));
-    overflow:hidden;
-  }
-  body.ipad-test .app{
-    width:100%;max-width:none;min-width:0;min-height:0;height:100%;
-    display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;
-    gap:5px;padding:0;margin:0;
-  }
-  body.ipad-test .brand{min-height:36px;gap:9px;flex-wrap:nowrap}
-  body.ipad-test .brand-mark{width:26px;height:29px;flex:none}
-  body.ipad-test .wordmark{font-size:8px;letter-spacing:1.1px;white-space:nowrap}
-  body.ipad-test .wordmark span{font-size:17px}
-  body.ipad-test .version{font-size:9px;letter-spacing:0;white-space:nowrap;padding:4px 6px}
-  body.ipad-test .ipad-back{min-height:34px;padding:5px 7px}
-  body.ipad-test .toolbar{margin:0;min-height:40px}
-  body.ipad-test .toolbar>.debug-switch{min-height:40px}
-  body.ipad-test .settings-menu>summary{min-height:40px}
-  body.ipad-test .mic-source-panel{margin:0 auto;max-width:100%;min-height:28px;padding:3px 9px}
-  body.ipad-test .settings-content{z-index:100;max-height:min(78dvh,610px)}
-  body.ipad-test main{
-    display:grid;grid-template-columns:minmax(190px,37%) minmax(0,1fr);
-    grid-template-rows:auto minmax(140px,1fr) auto auto;
-    gap:clamp(4px,1vh,9px) clamp(7px,1.2vw,16px);
-    min-width:0;min-height:0;width:100%;height:100%;
-    padding:0;text-align:center;align-items:center;justify-items:center;
-    overflow:visible;
-  }
-  body.ipad-test main .status{
-    grid-column:1;grid-row:1;justify-self:center;margin:0;min-height:20px;
-  }
-  body.ipad-test main .visual{
-    grid-column:1;grid-row:2;align-self:center;justify-self:center;
-    width:clamp(148px,17vh,180px);height:clamp(148px,17vh,180px);
-    margin:0;max-width:100%;
-  }
-  body.ipad-test main .orbit-two{inset:18px}
-  body.ipad-test .visual .icon-disc{width:clamp(112px,15vh,132px);height:clamp(112px,15vh,132px)}
-  body.ipad-test[data-state=warning] .visual{
-    width:clamp(148px,17vh,180px);height:clamp(148px,17vh,180px);margin:0;
-  }
-  body.ipad-test[data-state=warning] .visual .icon-disc{width:clamp(116px,15vh,136px);height:clamp(116px,15vh,136px)}
-  body.ipad-test main .message{
-    grid-column:1;grid-row:3;min-height:0;width:100%;
-    align-self:center;margin:0;
-  }
-  body.ipad-test main h1{font-size:clamp(16px,1.6vw,21px);line-height:1.24;margin:0 0 4px}
-  body.ipad-test main #description{font-size:clamp(10px,1.05vw,13px);line-height:1.42}
-  body.ipad-test #warning-details{margin:0}
-  body.ipad-test #sound-type{font-size:18px;margin:4px 0}
-  body.ipad-test .score{font-size:11px;padding:4px 8px}
-  body.ipad-test .score strong{font-size:13px}
-  body.ipad-test main .wave{
-    grid-column:1;grid-row:4;align-self:center;
-    width:100%;height:38px;max-width:260px;margin:0;
-  }
-  body.ipad-test main .rolling-panel{
-    grid-column:2;grid-row:1 / 5;
-    align-self:stretch;justify-self:stretch;min-width:0;min-height:0;
-    width:100%;max-width:none;margin:0;padding:10px 12px;
-    display:grid;grid-template-rows:auto auto minmax(75px,1fr) auto auto;
-    gap:3px;
-  }
-  body.ipad-test main .rolling-panel .rolling-current{margin:0;min-height:40px}
-  body.ipad-test main .rolling-header h2{font-size:clamp(11px,1.2vw,14px)}
-  body.ipad-test main .rolling-current-value{font-size:clamp(13px,1.55vw,18px)}
-  body.ipad-test main #rolling-waveform{
-    display:block;width:100%;height:100%;min-height:70px;max-height:100%;
-    margin:0;
-  }
-  body.ipad-test main #rolling-events{margin:0;line-height:1.35;overflow-wrap:anywhere}
-  body.ipad-test main #rolling-note{font-size:10px;line-height:1.4;margin:0;overflow-wrap:anywhere}
-  body.ipad-test footer{align-self:end;min-height:30px}
-  body.ipad-test footer .privacy,body.ipad-test footer .research{
-    font-size:9px;line-height:1.4;margin:1px 0;
-  }
-  body.ipad-test .debug-section{
-    min-width:0;min-height:0;height:100%;width:100%;max-width:none;
-    margin:0;padding:0;overflow:hidden;
-  }
-  body.ipad-test .debug-panel{
-    width:100%;height:100%;min-height:0;
-    display:flex;flex-direction:column;overflow:hidden;
-  }
-  body.ipad-test .debug-panel>summary{
-    flex:0 0 auto;min-height:40px;padding:10px 12px;
-  }
-  body.ipad-test .debug-content{
-    flex:1 1 auto;min-height:0;overflow-y:auto;
-    padding:0 12px 12px;overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
-  }
-  body.ipad-test .debug-content .debug-note{font-size:10px;line-height:1.4;margin:6px 0}
-  body.ipad-test .debug-status{
-    gap:5px 9px;font-size:11px;line-height:1.3;margin:7px 0;
-  }
-  body.ipad-test .debug-panel h2{font-size:12px;margin:12px 0 5px}
-  body.ipad-test .debug-panel table{font-size:10px}
-  body.ipad-test .debug-panel th,body.ipad-test .debug-panel td{padding:5px 3px}
-  body.ipad-test .debug-content .sensitivity{padding:10px;margin-top:10px}
-  body.ipad-test .sensitivity-list{gap:7px}
-  body.ipad-test .sensitivity-line{margin-bottom:0}
-  body.ipad-test .sensitivity-line label,body.ipad-test .sensitivity-line output{font-size:11px}
-  body.ipad-test .sensitivity input[type=range]{height:28px}
-  body.ipad-test .sensitivity-footer{margin-top:8px}
-  /* Turning off diagnostics uses the entire screen for the two live panels. */
-  body.ipad-test[data-debug=off]{grid-template-columns:minmax(0,1fr)}
-  body.ipad-test[data-debug=off] .debug-section{display:none}
-  body.ipad-test[data-debug=off] main{
-    grid-template-columns:minmax(220px,37%) minmax(0,1fr)
-  }
+/* Use a landscape dashboard only when the iPad viewport is genuinely wide.
+   Under Safari's reduced height, overflow remains reachable instead of clipped. */
+@media (orientation:landscape) and (min-width:820px) and (min-height:500px){
+ html:has(body.ipad-test){height:100%;overflow-x:hidden;overflow-y:auto}
+ body.ipad-test{
+   width:100%;height:100dvh;min-height:560px;max-height:none;
+   display:grid;grid-template-columns:minmax(0,1fr) clamp(275px,30vw,365px);
+   grid-template-rows:minmax(0,1fr);gap:clamp(8px,1.1vw,16px);
+   padding:calc(8px + env(safe-area-inset-top))
+     calc(10px + env(safe-area-inset-right))
+     calc(8px + env(safe-area-inset-bottom))
+     calc(10px + env(safe-area-inset-left));
+   overflow-x:hidden;overflow-y:auto;
+ }
+ /* Header and controls share one row; eliminate the wasted toolbar row. */
+ body.ipad-test .app{
+   width:100%;max-width:none;min-width:0;height:100%;min-height:0;
+   margin:0;padding:0;display:grid;
+   grid-template-columns:minmax(0,1fr) auto;
+   grid-template-rows:auto auto minmax(0,1fr) auto;
+   gap:clamp(4px,.7vh,8px);overflow:visible;
+ }
+ body.ipad-test .brand{
+   grid-column:1;grid-row:1;min-width:0;min-height:42px;
+   flex-wrap:nowrap;gap:7px;align-self:center;
+ }
+ body.ipad-test .brand-mark{width:26px;height:29px;flex:none}
+ body.ipad-test .wordmark{font-size:8px;letter-spacing:1.1px;white-space:nowrap}
+ body.ipad-test .wordmark span{font-size:17px}
+ body.ipad-test .version{
+   margin-left:5px;padding:4px 6px;font-size:10px;
+   letter-spacing:0;white-space:nowrap;
+ }
+ /* The same version switch is available in Settings, so omit a duplicate link. */
+ body.ipad-test .ipad-back{display:none}
+ body.ipad-test .toolbar{
+   grid-column:2;grid-row:1;align-self:center;justify-content:flex-end;
+   flex-wrap:nowrap;margin:0;min-height:42px;gap:8px;
+   position:relative;z-index:100;
+ }
+ body.ipad-test .toolbar>.debug-switch{min-height:42px;font-size:11px;white-space:nowrap}
+ body.ipad-test .settings-menu>summary{min-height:42px;padding:7px 10px}
+ body.ipad-test .settings-content{
+   z-index:200;width:min(375px,calc(100vw - 24px));
+   max-height:min(77dvh,620px);overflow-y:auto;
+ }
+ body.ipad-test .mic-source-panel{
+   grid-column:1 / -1;grid-row:2;justify-self:center;align-self:center;
+   width:max-content;max-width:100%;min-height:29px;
+   margin:0;padding:4px 11px;
+ }
+ /* Two balanced live zones. The second column stretches the real 10s trace. */
+ body.ipad-test main{
+   grid-column:1 / -1;grid-row:3;
+   display:grid;grid-template-columns:minmax(190px,39%) minmax(0,1fr);
+   grid-template-rows:24px minmax(118px,1fr) auto 30px;
+   gap:clamp(4px,.8vh,9px) clamp(10px,1.25vw,18px);
+   min-width:0;min-height:0;width:100%;height:100%;
+   padding:0 3px 0 0;margin:0;
+   text-align:center;align-items:center;justify-items:center;
+   overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+ }
+ body.ipad-test main .status{
+   grid-column:1;grid-row:1;justify-self:center;min-height:20px;margin:0;
+ }
+ body.ipad-test main .visual,
+ body.ipad-test[data-state=warning] main .visual{
+   grid-column:1;grid-row:2;align-self:center;justify-self:center;
+   width:clamp(180px,27vh,222px);height:clamp(180px,27vh,222px);
+   margin:0;max-width:100%;
+ }
+ body.ipad-test main .orbit-two{inset:19px}
+ body.ipad-test .visual .icon-disc{
+   width:clamp(132px,14vw,152px);height:clamp(132px,14vw,152px);
+ }
+ body.ipad-test[data-state=warning] .visual .icon-disc{
+   width:clamp(134px,14vw,156px);height:clamp(134px,14vw,156px);
+ }
+ body.ipad-test main .message{
+   grid-column:1;grid-row:3;width:100%;min-height:0;
+   margin:0;align-self:center;
+ }
+ body.ipad-test main h1{
+   font-size:clamp(16px,1.6vw,22px);line-height:1.28;margin:0 0 5px;
+ }
+ body.ipad-test main #description{
+   font-size:clamp(11px,1.05vw,13px);line-height:1.45;margin:0;
+ }
+ body.ipad-test #warning-details{margin:0}
+ body.ipad-test #sound-type{font-size:clamp(16px,1.65vw,21px);margin:4px 0}
+ body.ipad-test .score{font-size:11px;padding:4px 8px}
+ body.ipad-test .score strong{font-size:13px}
+ body.ipad-test main .wave{
+   grid-column:1;grid-row:4;align-self:center;justify-self:center;
+   width:100%;max-width:270px;height:28px;margin:0;
+ }
+ body.ipad-test main .rolling-panel{
+   grid-column:2;grid-row:1 / 5;
+   align-self:stretch;justify-self:stretch;
+   width:100%;max-width:none;min-width:0;min-height:0;
+   margin:0;padding:12px 14px;display:grid;
+   grid-template-rows:auto minmax(52px,.3fr) minmax(95px,1fr) auto auto;
+   gap:clamp(4px,.8vh,10px);
+ }
+ body.ipad-test main .rolling-current{
+   margin:0;min-height:0;align-self:stretch;justify-self:stretch;
+ }
+ body.ipad-test main .rolling-header h2{font-size:clamp(12px,1.2vw,15px);margin:0}
+ body.ipad-test main .rolling-state{white-space:nowrap}
+ body.ipad-test main .rolling-current-label{font-size:11px}
+ body.ipad-test main .rolling-current-value{
+   font-size:clamp(14px,1.65vw,19px);max-width:100%;
+ }
+ body.ipad-test main #rolling-waveform{
+   display:block;width:100%;height:100%;min-height:90px;
+   max-height:100%;margin:0;
+ }
+ body.ipad-test main #rolling-events{
+   font-size:clamp(11px,1.1vw,14px);margin:0;
+   line-height:1.4;overflow-wrap:anywhere;
+ }
+ body.ipad-test main #rolling-note{
+   font-size:11px;line-height:1.45;margin:0;
+   overflow-wrap:anywhere;
+ }
+ body.ipad-test footer{
+   grid-column:1 / -1;grid-row:4;
+   align-self:center;width:100%;min-height:25px;
+ }
+ body.ipad-test footer .privacy,body.ipad-test footer .research{
+   font-size:10px;line-height:1.35;margin:1px 0;
+ }
+ /* Scroll the DETAILS element, not its inner child: Safari's native
+    <details> content wrapper otherwise clips the sensitivity sliders. */
+ body.ipad-test .debug-section{
+   min-width:0;min-height:0;width:100%;height:100%;
+   max-width:none;margin:0;padding:0;overflow:visible;
+ }
+ body.ipad-test .debug-panel{
+   display:block;width:100%;height:100%;min-height:0;
+   overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+   -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+ }
+ body.ipad-test .debug-panel>summary{
+   position:sticky;top:0;z-index:2;
+   min-height:42px;padding:12px 13px;
+   background:#15253a;border-radius:13px 13px 0 0;
+ }
+ html[data-theme=light] body.ipad-test .debug-panel>summary{background:#f2f7fa}
+ body.ipad-test[data-state=warning] .debug-panel>summary{background:#702034}
+ body.ipad-test .debug-content{
+   display:block;max-height:none;min-height:0;overflow:visible;
+   padding:6px 13px 16px;
+ }
+ body.ipad-test .debug-content .debug-note{
+   font-size:11px;line-height:1.45;margin:5px 0 8px;
+ }
+ body.ipad-test .debug-status{
+   grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);
+   gap:6px 9px;font-size:11px;line-height:1.4;margin:8px 0 10px;
+ }
+ body.ipad-test .debug-panel h2{font-size:13px;margin:15px 0 7px}
+ body.ipad-test .debug-panel table{font-size:11px}
+ body.ipad-test .debug-panel th,body.ipad-test .debug-panel td{
+   padding:7px 4px;overflow-wrap:anywhere;
+ }
+ body.ipad-test .debug-content .sensitivity{
+   margin-top:15px;padding:12px 10px;
+ }
+ body.ipad-test .sensitivity-list{gap:10px}
+ body.ipad-test .sensitivity-line label,body.ipad-test .sensitivity-line output{font-size:11px}
+ body.ipad-test .sensitivity input[type=range]{height:30px}
+ body.ipad-test .sensitivity-footer{margin-top:10px}
+ body.ipad-test[data-debug=off]{grid-template-columns:minmax(0,1fr)}
+ body.ipad-test[data-debug=off] .debug-section{display:none}
+ body.ipad-test[data-debug=off] main{
+   grid-template-columns:minmax(220px,38%) minmax(0,1fr);
+ }
 }
-/* Very short iPad landscape: keep everything accessible rather than clip it. */
+/* Short landscape Safari still exposes all controls via safe scrolling. */
 @media (orientation:landscape) and (min-width:820px) and (min-height:500px) and (max-height:640px){
-  body.ipad-test .app{gap:2px}
-  body.ipad-test .brand{min-height:30px}
-  body.ipad-test .toolbar,body.ipad-test .toolbar>.debug-switch{min-height:34px}
-  body.ipad-test main .visual,body.ipad-test[data-state=warning] main .visual{
-    width:148px;height:148px;
-  }
-  body.ipad-test main .wave{height:28px}
-  body.ipad-test main .rolling-panel{padding:8px 10px;grid-template-rows:auto auto minmax(65px,1fr) auto auto}
-  body.ipad-test main #rolling-note{font-size:9px}
+ body.ipad-test{min-height:550px}
+ body.ipad-test .app{gap:3px}
+ body.ipad-test .brand,body.ipad-test .toolbar{min-height:38px}
+ body.ipad-test main .visual,
+ body.ipad-test[data-state=warning] main .visual{
+   width:170px;height:170px;
+ }
+ body.ipad-test main .rolling-panel{padding:9px 10px;gap:4px}
+ body.ipad-test main .rolling-current-value{font-size:15px}
+ body.ipad-test main #rolling-note{font-size:10px}
 }
-/* In portrait or Split View, use standard safe scrolling; do not shrink text into an unreadable dashboard. */
+/* Portrait and Split View intentionally return to the original scrollable layout. */
 @media (orientation:portrait),(max-width:819px),(max-height:499px){
-  body.ipad-test .ipad-back{margin-left:auto}
-  body.ipad-test .brand{flex-wrap:wrap}
-  body.ipad-test .ipad-banner{display:none}
+ body.ipad-test .ipad-back{margin-left:auto}
+ body.ipad-test .brand{flex-wrap:wrap}
 }
