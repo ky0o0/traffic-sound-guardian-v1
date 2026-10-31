@@ -38,7 +38,7 @@ test('left control, center live chart plus BOTH detailed classification tables, 
  }
  assert.ok(!center.includes('id="sensitivity-panel"'),'six sliders are no longer mixed with raw Debug output');
  assert.ok(!right.includes('id="debug-top"'),'no duplicated AI top score table on right');
- assert.ok(center.indexOf('id="rolling-waveform"')<center.indexOf('id="debug-status"'));
+ assert.ok(center.indexOf('id="rolling-waveform"')<center.indexOf('class="debug-status"'));
 });
 
 test('landscape grid shows left / middle / right and preserves mobile, Safari short viewport fallback',()=>{
