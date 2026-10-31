@@ -10,13 +10,27 @@ export const TARGETS = Object.freeze({
   'Ambulance (siren)': { index: 318, label: 'サイレン（救急車）' },
   'Fire engine, fire truck (siren)': { index: 319, label: 'サイレン（消防車）' }
 });
+// Five related bell-like YAMNet labels: each uses the fixed raw-score threshold
+// DEFAULT_THRESHOLD (0.10), independently of the six user-adjustable targets.
+// Keep the categories separate: a generic bell must not be called a bicycle bell.
+export const SECONDARY_BELLS = Object.freeze({
+  'Bell': { index: 195, label: '鐘・ベル' },
+  'Chime': { index: 200, label: 'チャイム' },
+  'Ding': { index: 477, label: 'チンという音' },
+  'Ping': { index: 476, label: 'ピーンという音' },
+  'Doorbell': { index: 349, label: 'ドアベル' }
+});
+export const WARNING_TARGETS = Object.freeze({ ...TARGETS, ...SECONDARY_BELLS });
+export const TRAFFIC_ENVIRONMENT = Object.freeze([
+  'Car', 'Truck', 'Motorcycle', 'Traffic noise, roadway noise'
+]);
 
 export function bestTarget(results) {
   let best = null;
   for (const result of results) {
     for (const head of result.classifications ?? []) {
       for (const category of head.categories ?? []) {
-        const target = TARGETS[category.categoryName];
+        const target = WARNING_TARGETS[category.categoryName];
         if (target && Number.isFinite(category.score) && category.score >= 0 && category.score <= 1 &&
             (!best || category.score > best.score)) {
           best = { name: category.categoryName, label: target.label, score: category.score };
@@ -27,14 +41,14 @@ export function bestTarget(results) {
   return best;
 }
 
-/** Read the six official target classes from genuine YAMNet output.
+/** Read all eleven alertable classes from genuine YAMNet output.
  * All scores remain raw model scores; no normalization or calibration. */
 export function targetScores(results) {
   const scores = {};
   for (const result of results) {
     for (const head of result.classifications ?? []) {
       for (const item of head.categories ?? []) {
-        if (!Object.prototype.hasOwnProperty.call(TARGETS, item.categoryName)) continue;
+        if (!Object.prototype.hasOwnProperty.call(WARNING_TARGETS, item.categoryName)) continue;
         if (!Number.isFinite(item.score) || item.score < 0 || item.score > 1) continue;
         if (!(item.categoryName in scores) || item.score > scores[item.categoryName]) {
           scores[item.categoryName] = item.score;
@@ -45,19 +59,24 @@ export function targetScores(results) {
   return scores;
 }
 
-/** Choose the highest raw-scoring class that meets ITS OWN threshold.
- * No single high-scoring but below-threshold class can hide another valid alert. */
+/** The six traffic targets keep their adjustable thresholds. Five generic
+ * bell-like categories use a fixed 0.10 threshold. Either group triggers on
+ * ONE inference; original traffic-specific categories take display priority
+ * over generic bell labels, regardless of cross-group raw score. */
 export function chooseTarget(scores, thresholds = {}) {
-  let best = null;
-  for (const [name, target] of Object.entries(TARGETS)) {
-    const score = scores?.[name];
-    const threshold = thresholds?.[name] ?? DEFAULT_THRESHOLD;
-    if (!Number.isFinite(score) || score < 0 || score > 1 ||
-        !Number.isFinite(threshold) || threshold < 0.01 || threshold > 0.50 ||
-        score < threshold) continue;
-    if (!best || score > best.score) best = { name, label: target.label, score };
-  }
-  return best;
+  const choose = (targets, adjustable) => {
+    let best = null;
+    for (const [name, target] of Object.entries(targets)) {
+      const score = scores?.[name];
+      const threshold = adjustable ? (thresholds?.[name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
+      if (!Number.isFinite(score) || score < 0 || score > 1 ||
+          !Number.isFinite(threshold) || threshold < 0.01 || threshold > 0.50 ||
+          score < threshold) continue;
+      if (!best || score > best.score) best = { name, label: target.label, score };
+    }
+    return best;
+  };
+  return choose(TARGETS, true) ?? choose(SECONDARY_BELLS, false);
 }
 
 export class WarningGate {

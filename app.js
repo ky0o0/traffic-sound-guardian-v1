@@ -1,7 +1,7 @@
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.0';
+import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.15';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js?v=1.6.2';
-import { debugCategoryName } from './debug.js?v=1.6.10';
+import { debugCategoryName } from './debug.js?v=1.6.15';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -35,7 +35,7 @@ const EN = Object.freeze({
   "推論時間": "Inference time",
   "最終更新": "Last update",
   "上位5種類の音": "Top 5 sounds",
-  "対象の交通警告音（6種類）": "Target traffic sounds (6 categories)",
+  "警告対象の音（11種類）": "Alert sound categories (11)",
   "音の種類": "Sound category",
   "生の識別スコア": "Raw score",
   "最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。": "Only the latest result is shown. No recordings or history are saved. A score is not accuracy.",
@@ -144,7 +144,7 @@ const ZH = Object.freeze({
   "推論時間": "推理耗时",
   "最終更新": "最后更新",
   "上位5種類の音": "分数最高的 5 种声音",
-  "対象の交通警告音（6種類）": "目标交通警告音（6 类）",
+  "警告対象の音（11種類）": "警告声音类别（11 类）",
   "音の種類": "声音类别",
   "生の識別スコア": "原始识别分数",
   "最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。": "只显示最新识别结果，不保存录音或历史记录。分数不代表准确率。",
@@ -407,7 +407,7 @@ function renderDebug() {
     'debug-toggle-label': 'AIデバッグモード', 'debug-summary': '識別の詳細を表示',
     'debug-model-label': 'AIモデル', 'debug-mic-label': 'マイク入力', 'debug-inference-label': '直近の推論',
     'debug-time-label': '推論時間', 'debug-updated-label': '最終更新',
-    'debug-top-heading': '上位5種類の音', 'debug-target-heading': '対象の交通警告音（6種類）',
+    'debug-top-heading': '上位5種類の音', 'debug-target-heading': '警告対象の音（11種類）',
     'debug-top-name': '音の種類', 'debug-target-name': '音の種類',
     'debug-top-score': '生の識別スコア', 'debug-target-score': '生の識別スコア',
     'debug-note': '最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。',
@@ -425,7 +425,7 @@ function renderDebug() {
   ui['debug-empty'].textContent = t(session ? '詳細結果を待っています。' : '結果はまだありません。');
   renderDebugRows(ui['debug-top'], diagnostics.scores?.top5 ?? []);
   renderDebugRows(ui['debug-target'], diagnostics.scores?.targets ??
-    Object.entries(TARGETS).map(([categoryName, info]) => ({ categoryName, index: info.index, score: null })));
+    Object.entries(WARNING_TARGETS).map(([categoryName, info]) => ({ categoryName, index: info.index, score: null })));
 }
 function setDebug(enabled) {
   debugEnabled = !!enabled;
@@ -955,7 +955,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.10', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.15', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {

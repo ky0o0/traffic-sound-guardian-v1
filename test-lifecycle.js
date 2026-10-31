@@ -4,7 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
+import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js';
@@ -59,7 +59,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
@@ -279,15 +279,15 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.14 page, release assets and refreshed classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.14<\/title>/);
- assert.match(page, /class="version">V1\.6\.14<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.13"/); // Unchanged app bytes retain asset cache tag.
+test('V1.6.15 page, release assets and refreshed classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.15<\/title>/);
+ assert.match(page, /class="version">V1\.6\.15<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.15"/); // Changed app JS must refresh cache.
  assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
- assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.14"/);
- assert.match(source, /classifier-worker\.js\?v=1\.6\.10/); // Worker bytecode is unchanged.
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.14');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.14');
+ assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.15"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.6\.15/); // Changed Worker JS must refresh cache.
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.15');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.15');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  const main=page;

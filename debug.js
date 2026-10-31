@@ -1,4 +1,4 @@
-import { TARGETS } from './detection.js';
+import { WARNING_TARGETS } from './detection.js';
 
 // Project-authored Japanese display translations of the bundled official
 // yamnet_class_map.csv. Original category names and model labels are unchanged.
@@ -642,7 +642,7 @@ export function summarizeDebug(results) {
   const valid = categories.filter(category => Number.isFinite(category.score) && category.score >= 0 && category.score <= 1);
   const copy = category => ({ categoryName: category.categoryName, index: category.index, score: category.score });
   const top5 = [...valid].sort((a, b) => b.score - a.score || a.index - b.index).slice(0, 5).map(copy);
-  const targets = Object.entries(TARGETS).map(([name, info]) => {
+  const targets = Object.entries(WARNING_TARGETS).map(([name, info]) => {
     const found = valid.find(category => category.categoryName === name);
     // Null means unavailable, never an invented zero. Real zero is preserved.
     return found ? copy(found) : { categoryName: name, index: info.index, score: null };

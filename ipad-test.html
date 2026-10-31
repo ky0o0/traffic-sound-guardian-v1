@@ -20,20 +20,20 @@
   <meta name="apple-mobile-web-app-title" content="Sound Guardian">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <link rel="manifest" href="./manifest.webmanifest?v=1.6.14">
+  <link rel="manifest" href="./manifest.webmanifest?v=1.6.15">
   <link rel="stylesheet" href="./style.css?v=1.6.13">
   <link rel="stylesheet" href="./theme.css?v=1.6.13">
   <link rel="stylesheet" href="./v1.6.css?v=1.6.14">
-  <link rel="stylesheet" href="./ipad-test.css?v=6">
+  <link rel="stylesheet" href="./ipad-test.css?v=7">
   <script src="./theme.js?v=1.6.13" defer></script>
-  <title>Traffic Sound Guardian — iPad Landscape Test (V1.6.14)</title>
+  <title>Traffic Sound Guardian — iPad Landscape Test (V1.6.15)</title>
 </head>
 <body class="ipad-test" data-state="stopped">
   <div class="app ipad-dashboard">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version" title="iPad landscape experimental page">V1.6.14 · iPad TEST</span>
+      <span class="version" title="iPad landscape experimental page">V1.6.15 · iPad TEST</span>
       <a class="ipad-back" href="./index.html" aria-label="Return to main site / 通常版へ戻る">← 通常版 / Main</a>
     </header>
     <div class="toolbar">
@@ -101,6 +101,11 @@
           <p id="sound-type"></p>
           <p class="score"><span id="score-label">識別スコア：</span><strong id="score"></strong></p>
         </div>
+      </section>
+      <section class="alert-preview" aria-label="通知音の試聴">
+        <button id="alert-preview-button" type="button" aria-describedby="alert-preview-note">通知音を試聴</button>
+        <p id="alert-preview-note">実際の通知音を再生します。マイクとAIは起動しません。</p>
+        <output id="alert-preview-status" role="status" aria-live="polite"></output>
       </section>
       <canvas id="waveform" class="wave" aria-hidden="true"></canvas>
     <footer>
@@ -182,6 +187,7 @@
     <noscript>JavaScriptを有効にして、Safariで開き直してください。 / Enable JavaScript and reopen this page in Safari.</noscript>
   </div>
   <script type="module" src="./live-timeline.js?v=1.6.17"></script>
-  <script type="module" src="./app.js?v=1.6.13"></script>
+  <script type="module" src="./app.js?v=1.6.15"></script>
+  <script type="module" src="./alert-tone-preview.js?v=1.6.15"></script
 </body>
 </html>
