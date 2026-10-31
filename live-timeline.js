@@ -54,9 +54,10 @@ function draw() {
     if (x < 0 || x > w) continue;
     const flagged = marks.some(m => p.time >= m.start && p.time <= m.end);
     // Visual-only soft-limited gain: quiet audio is easier to see; PCM, RMS and AI scores remain unchanged.
-    const amp = Math.max(1.5, Math.tanh(Math.sqrt(p.rms) * 14.4) * h * .45);
+    // A lower near-silence floor makes soft sounds visible without making the baseline look loud.
+    const amp = Math.tanh(Math.pow(p.rms, 0.65) * 11.5) * h * .45;
     c.strokeStyle = flagged ? red : base;
-    c.lineWidth = Math.max(2.25,w/200);
+    c.lineWidth = Math.max(1.5,w/260);
     c.beginPath(); c.moveTo(x,center-amp); c.lineTo(x,center+amp); c.stroke();
   }
   c.fillStyle = light ? '#56697d' : '#b7cadc';
