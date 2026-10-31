@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { summarizeDebug, JAPANESE_LABELS, debugCategoryName } from './debug.js';
+import { summarizeDebug, JAPANESE_LABELS, debugCategoryName, topCategory } from './debug.js';
 import { TARGETS, bestTarget, targetScores } from './detection.js';
 const names=fs.readFileSync(new URL('./yamnet_class_map.csv',import.meta.url),'utf8').trim().split(/\r?\n/).slice(1).map(line=>{
  const value=line.slice(line.indexOf(',',line.indexOf(',')+1)+1);return value.startsWith('"')?JSON.parse(value):value;
@@ -45,7 +45,7 @@ async function workerHarness({failInit=false,failInference=false}={}){
  const classifier={classify(audio,rate){calls++;assert.equal(rate,16000);assert.equal(audio.length,15600);now+=12.3456789;if(failInference)throw Error('test inference failure');return data;}};
  const modules={
   './audio_bundle.mjs':{FilesetResolver:{forAudioTasks:async()=>({})},AudioClassifier:{createFromOptions:async(files,value)=>{creates++;options=value;if(failInit)throw Error('test model failure');return classifier;}}},
-  './detection.js':{bestTarget,targetScores},'./resample.js':{toModelAudio:samples=>{now+=40;return samples;}},'./debug.js':{summarizeDebug}
+  './detection.js':{bestTarget,targetScores},'./resample.js':{toModelAudio:samples=>{now+=40;return samples;}},'./debug.js':{summarizeDebug,topCategory}
  };
  const self={location:{href:'https://example.test/project/classifier-worker.js'},postMessage:value=>sent.push(value)};
  const code=fs.readFileSync(new URL('./classifier-worker.js',import.meta.url),'utf8').replaceAll('import(', 'load(');
@@ -63,6 +63,20 @@ test('worker reuses exactly one classify call with debug on or off and measures 
  assert.equal(on.debug.top5.length,5);assert.equal(on.debug.targets.length,6);
  assert.ok(Math.abs(on.inferenceMs-12.3456789)<1e-9,'resampling time is excluded');
  assert.ok(!('samples' in on));assert.ok(!('audio' in on.debug));
+});
+test('current-sound top category is real, raw, stable on ties and independent of Debug Mode',async()=>{
+ const data=results(),previous=JSON.stringify(data);
+ const top=topCategory(data);
+ assert.equal(top.categoryName,names[0]);assert.equal(top.score,.931234567890123);
+ assert.equal(JSON.stringify(data),previous,'do not modify raw model output');
+ assert.equal(topCategory([{classifications:[{categories:[{categoryName:'Music',index:2,score:NaN}]}]}]),null);
+ const tie=topCategory([{classifications:[{categories:[{categoryName:'Music',index:12,score:.6},{categoryName:'Speech',index:0,score:.6}]}]}]);
+ assert.equal(tie.categoryName,'Speech');
+ const h=await workerHarness();await h.send({type:'init'});
+ const off=await h.send({type:'classify',sequence:1,samples:new Float32Array(15600),sampleRate:16000,debug:false});
+ assert.equal(off.debug,undefined);assert.equal(off.topCategory.categoryName,names[0]);
+ assert.equal(off.topCategory.score,.931234567890123);
+ assert.ok(!('samples' in off)&&!('audio' in off));
 });
 test('worker reports actual initialization failure without pretending inference ran',async()=>{
  const h=await workerHarness({failInit:true});const result=await h.send({type:'init'});
