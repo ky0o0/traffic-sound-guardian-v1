@@ -71,9 +71,10 @@ html[data-theme=light] body[data-state=warning] .mic-source-panel{background:#6e
 @media(max-height:740px){.mic-source-panel{margin-top:5px;padding:7px 11px}}
 
 
-/* V1.6.3: one compact settings control, with every optional control in one menu.
-   AI Test Mode and the separate AI model/debug results remain outside the menu. */
-.toolbar{justify-content:flex-end;align-items:center;margin-top:6px;position:relative;z-index:50}
+/* V1.6.5: only language, appearance, feedback and two test links in Settings.
+   The Debug switch stays visible; alert tone and sensitivity controls live with diagnostics. */
+.toolbar{justify-content:space-between;align-items:center;margin-top:6px;position:relative;z-index:50}
+.toolbar>.debug-switch{min-height:44px}
 .settings-menu{position:relative;margin-left:auto}
 .settings-menu>summary{list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;padding:8px 13px;border:1px solid #506b83;border-radius:12px;background:#20354e;color:#f6f8fc;cursor:pointer;font-size:13px;font-weight:600;user-select:none}
 .settings-menu>summary::-webkit-details-marker{display:none}
@@ -83,10 +84,6 @@ html[data-theme=light] body[data-state=warning] .mic-source-panel{background:#6e
 .settings-content{box-sizing:border-box;position:absolute;top:calc(100% + 8px);right:0;width:min(380px,calc(100vw - 24px));max-height:min(74dvh,680px);overflow-y:auto;overscroll-behavior:contain;padding:16px;border:1px solid #597a92;border-radius:17px;background:#132339;color:#f6f8fc;box-shadow:0 22px 54px #040b16bb}
 .settings-group{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 12px;padding:0 0 9px}
 .settings-content .language-switch{align-self:auto;margin:0}
-.settings-content .debug-switch{font-size:12px}
-.settings-content .alert-tone-setting{margin:8px 0 14px;width:100%;padding:10px 12px}
-.settings-content .sensitivity{margin:14px 0;padding:14px 12px;border:1px solid #607f9970;border-radius:14px;background:#0b172744;color:#d6e9eb}
-.settings-content .sensitivity h2{font-size:14px;margin:0 0 8px}
 .settings-links{display:flex;flex-direction:column;gap:2px;border-top:1px solid #47627b;padding-top:8px;margin-top:12px}
 .settings-links .feedback{justify-content:flex-start;text-align:left;min-height:44px;font-size:12px}
 .settings-content .theme-picker{border-top:1px solid #47627b;justify-content:space-between;gap:10px;padding-top:12px;margin-top:10px}
@@ -94,18 +91,14 @@ html[data-theme=light] body[data-state=warning] .mic-source-panel{background:#6e
 html[data-theme=light] .settings-menu>summary{background:#fff;color:#172c42;border-color:#b8c9d9}
 html[data-theme=light] .settings-menu[open]>summary{background:#edf3f8;border-color:#147c79}
 html[data-theme=light] .settings-content{background:#fff;color:#172c42;border-color:#b8c9d9;box-shadow:0 18px 45px #12283c36}
-html[data-theme=light] .settings-content .sensitivity{background:#edf3f8;color:#24384f;border-color:#c6d5e3}
 html[data-theme=light] .settings-links,html[data-theme=light] .settings-content .theme-picker{border-color:#d7e2eb}
 html[data-theme=light] .settings-content .theme-picker-label{color:#52677d}
 body[data-state=warning] .settings-menu>summary{background:#781d32;color:#fff;border-color:#ffffff99}
 body[data-state=warning] .settings-content{background:#5e1b30;border-color:#ffffffbb;color:#fff}
-body[data-state=warning] .settings-content .sensitivity{border-color:#ffffff80;background:#ffffff0b;color:#fff}
 body[data-state=warning] .settings-content .theme-picker-label{color:#fff}
 body[data-state=warning] .settings-content .settings-links,body[data-state=warning] .settings-content .theme-picker{border-color:#ffffff55}
-body[data-state=warning] .settings-content :is(.debug-switch,#sensitivity-note,.sensitivity-footer span,.sensitivity-line label){color:#fff}
 html[data-theme=light] body[data-state=warning] .settings-menu>summary{background:#781d32;color:#fff;border-color:#ffffff99}
 html[data-theme=light] body[data-state=warning] .settings-content{background:#5e1b30;color:#fff;border-color:#ffffffbb}
-html[data-theme=light] body[data-state=warning] .settings-content .sensitivity{background:#ffffff0b;color:#fff;border-color:#ffffff80}
 
 /* Only the browser-reported name of the actual input track: no explanatory card. */
 .mic-source-panel{display:flex;align-items:center;justify-content:center;gap:7px;max-width:100%;width:max-content;min-height:31px;margin:7px auto 0;padding:5px 11px;border:1px solid #425c72;border-radius:999px;background:#17283c;color:#b9cadd}
@@ -121,3 +114,7 @@ body[data-state=warning] #mic-source-value{color:#fff}
 main .rolling-panel{width:100%;max-width:420px;margin:12px auto 16px;padding:12px 13px 10px}
 main #rolling-waveform{width:100%;height:104px}
 @media(max-height:740px){main .rolling-panel{margin:7px auto;padding:9px 11px}main #rolling-waveform{height:84px}.settings-content{max-height:70dvh}}
+
+/* V1.6.5: advanced audible-alert and threshold controls belong to model diagnostics. */
+.debug-content .alert-tone-setting{width:100%;margin:16px 0 8px;padding:10px 12px}
+.debug-content .sensitivity{margin-top:18px}

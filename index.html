@@ -10,22 +10,23 @@
   <meta name="apple-mobile-web-app-title" content="Sound Guardian">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <link rel="manifest" href="./manifest.webmanifest?v=1.6.4">
+  <link rel="manifest" href="./manifest.webmanifest?v=1.6.5">
   <link rel="stylesheet" href="./style.css?v=1.6.0">
   <link rel="stylesheet" href="./theme.css?v=1.6.0">
-  <link rel="stylesheet" href="./v1.6.css?v=1.6.4">
+  <link rel="stylesheet" href="./v1.6.css?v=1.6.5">
   <script src="./theme.js?v=1.6.0" defer></script>
-  <title>Traffic Sound Guardian V1.6.4</title>
+  <title>Traffic Sound Guardian V1.6.5</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1.6.4</span>
+      <span class="version">V1.6.5</span>
     </header>
 
     <div class="toolbar">
+      <label class="debug-switch"><input id="debug-toggle" type="checkbox" role="switch" aria-controls="debug-panel" checked><span id="debug-toggle-label">AIデバッグモード</span></label>
       <details class="settings-menu" id="settings-panel">
         <summary id="settings-toggle" aria-label="設定">
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="4"/></svg>
@@ -41,49 +42,11 @@
                 <option value="zh-CN">简体中文</option>
               </select>
             </div>
-            <label class="debug-switch"><input id="debug-toggle" type="checkbox" role="switch" aria-controls="debug-panel" checked><span id="debug-toggle-label">AIデバッグモード</span></label>
           </div>
-          <section class="alert-tone-setting" aria-labelledby="alert-tone-label">
-            <div class="alert-tone-line">
-              <label for="alert-tone-toggle" id="alert-tone-label">通知音を鳴らす</label>
-              <input id="alert-tone-toggle" type="checkbox" role="switch" aria-describedby="alert-tone-note" checked>
-            </div>
-            <p id="alert-tone-note">新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。</p>
-          </section>
-        <section id="sensitivity-panel" class="sensitivity" aria-labelledby="sensitivity-heading">
-          <h2 id="sensitivity-heading">交通警告音の感度設定</h2>
-          <p id="sensitivity-note">1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。</p>
-          <div class="sensitivity-list">
-          <div class="sensitivity-item">
-            <div class="sensitivity-line"><label id="threshold-label-0" for="threshold-input-0">自転車のベル</label><output id="threshold-value-0" for="threshold-input-0">0.10</output></div>
-            <input id="threshold-input-0" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
-          </div>
-          <div class="sensitivity-item">
-            <div class="sensitivity-line"><label id="threshold-label-1" for="threshold-input-1">車のクラクション</label><output id="threshold-value-1" for="threshold-input-1">0.10</output></div>
-            <input id="threshold-input-1" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
-          </div>
-          <div class="sensitivity-item">
-            <div class="sensitivity-line"><label id="threshold-label-2" for="threshold-input-2">サイレン</label><output id="threshold-value-2" for="threshold-input-2">0.10</output></div>
-            <input id="threshold-input-2" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
-          </div>
-          <div class="sensitivity-item">
-            <div class="sensitivity-line"><label id="threshold-label-3" for="threshold-input-3">サイレン（パトカー）</label><output id="threshold-value-3" for="threshold-input-3">0.10</output></div>
-            <input id="threshold-input-3" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
-          </div>
-          <div class="sensitivity-item">
-            <div class="sensitivity-line"><label id="threshold-label-4" for="threshold-input-4">サイレン（救急車）</label><output id="threshold-value-4" for="threshold-input-4">0.10</output></div>
-            <input id="threshold-input-4" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
-          </div>
-          <div class="sensitivity-item">
-            <div class="sensitivity-line"><label id="threshold-label-5" for="threshold-input-5">サイレン（消防車）</label><output id="threshold-value-5" for="threshold-input-5">0.10</output></div>
-            <input id="threshold-input-5" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
-          </div>
-          </div>
-          <div class="sensitivity-footer"><span id="sensitivity-scale">0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度</span><button id="threshold-reset" type="button">すべて標準に戻す</button></div>
-        </section>
           <nav class="settings-links" aria-label="補助メニュー">
-            <a id="microphone-test-link" class="feedback" href="./microphone-test.html?v=1.6.0">マイク接続テスト（イヤホン入力） ↗</a>
             <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="false">ご意見・ご感想 ↗</a>
+            <a id="ai-test-link" class="feedback" href="./ai-test.html?v=1.6.0">AIテストモード（オフライン研究） ↗</a>
+            <a id="microphone-test-link" class="feedback" href="./microphone-test.html?v=1.6.0">マイク接続テスト（イヤホン入力） ↗</a>
           </nav>
         </div>
       </details>
@@ -125,7 +88,6 @@
 
     <footer>
       <button id="cancel" type="button" hidden>読み込みを中止</button>
-      <a id="ai-test-link" class="feedback" href="./ai-test.html?v=1.6.0">AIテストモード（オフライン研究） ↗</a>
       <p id="privacy" class="privacy">音声は保存・送信されません</p>
       <p id="research" class="research">研究用プロトタイプ · 安全を保証するものではありません</p>
     </footer>
@@ -150,10 +112,49 @@
         <h2 id="debug-target-heading"></h2>
         <table><thead><tr><th id="debug-target-name" scope="col"></th><th id="debug-target-score" scope="col"></th></tr></thead><tbody id="debug-target"></tbody></table>
 
+        <section class="alert-tone-setting" aria-labelledby="alert-tone-label">
+            <div class="alert-tone-line">
+              <label for="alert-tone-toggle" id="alert-tone-label">通知音を鳴らす</label>
+              <input id="alert-tone-toggle" type="checkbox" role="switch" aria-describedby="alert-tone-note" checked>
+            </div>
+            <p id="alert-tone-note">新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。</p>
+          </section>
+        <section id="sensitivity-panel" class="sensitivity" aria-labelledby="sensitivity-heading">
+          <h2 id="sensitivity-heading">交通警告音の感度設定</h2>
+          <p id="sensitivity-note">1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。</p>
+          <div class="sensitivity-list">
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-0" for="threshold-input-0">自転車のベル</label><output id="threshold-value-0" for="threshold-input-0">0.10</output></div>
+            <input id="threshold-input-0" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-1" for="threshold-input-1">車のクラクション</label><output id="threshold-value-1" for="threshold-input-1">0.10</output></div>
+            <input id="threshold-input-1" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-2" for="threshold-input-2">サイレン</label><output id="threshold-value-2" for="threshold-input-2">0.10</output></div>
+            <input id="threshold-input-2" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-3" for="threshold-input-3">サイレン（パトカー）</label><output id="threshold-value-3" for="threshold-input-3">0.10</output></div>
+            <input id="threshold-input-3" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-4" for="threshold-input-4">サイレン（救急車）</label><output id="threshold-value-4" for="threshold-input-4">0.10</output></div>
+            <input id="threshold-input-4" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
+          </div>
+          <div class="sensitivity-item">
+            <div class="sensitivity-line"><label id="threshold-label-5" for="threshold-input-5">サイレン（消防車）</label><output id="threshold-value-5" for="threshold-input-5">0.10</output></div>
+            <input id="threshold-input-5" type="range" min="0.01" max="0.50" step="any" value="0.10" aria-describedby="sensitivity-note">
+          </div>
+          </div>
+          <div class="sensitivity-footer"><span id="sensitivity-scale">0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度</span><button id="threshold-reset" type="button">すべて標準に戻す</button></div>
+        </section>
+
       </div>
     </details>
   </section>
-  <script type="module" src="./live-timeline.js?v=1.6.4"></script>
-  <script type="module" src="./app.js?v=1.6.4"></script>
+  <script type="module" src="./live-timeline.js?v=1.6.5"></script>
+  <script type="module" src="./app.js?v=1.6.5"></script>
 </body>
 </html>

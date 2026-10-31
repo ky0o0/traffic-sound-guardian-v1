@@ -54,9 +54,9 @@ function draw() {
     if (x < 0 || x > w) continue;
     const flagged = marks.some(m => p.time >= m.start && p.time <= m.end);
     // Visual-only soft-limited gain: quiet audio is easier to see; PCM, RMS and AI scores remain unchanged.
-    const amp = Math.max(1.5, Math.tanh(Math.sqrt(p.rms) * 7.2) * h * .45);
+    const amp = Math.max(1.5, Math.tanh(Math.sqrt(p.rms) * 14.4) * h * .45);
     c.strokeStyle = flagged ? red : base;
-    c.lineWidth = Math.max(1.5,w/350);
+    c.lineWidth = Math.max(2.25,w/200);
     c.beginPath(); c.moveTo(x,center-amp); c.lineTo(x,center+amp); c.stroke();
   }
   c.fillStyle = light ? '#56697d' : '#b7cadc';
