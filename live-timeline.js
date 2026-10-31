@@ -8,16 +8,16 @@ const currentLabel = document.getElementById('rolling-current-label');
 const currentValue = document.getElementById('rolling-current-value');
 const canvasContext = canvas?.getContext('2d');
 const spanSeconds = 10;
-// The iPad test layout alone displays unamplified RMS as dBFS rather than
-// the normal page's amplified symmetric amplitude. Never treat dBFS as dB SPL.
-const ipadDbfsMode = document.body?.classList?.contains?.('ipad-test') === true;
-const DBFS_FLOOR = -90;
-const dbfsFromRms = rms => Math.max(DBFS_FLOOR, Math.min(0,
-  20 * Math.log10(Math.max(1e-9, rms))));
-const dbfsNotes = {
-  ja: '縦軸：dBFS（デジタル音声の相対レベル。実際の騒音dB SPLではありません）。赤：AIの警告判定区間。音声は保存しません。',
-  en: 'Y-axis: dBFS (digital audio level, not calibrated environmental dB SPL). Red: AI warning windows. Audio is not saved.',
-  'zh-CN': '纵轴：dBFS（数字音频相对声级，不是经过校准的环境声压 dB SPL）。红色：AI 警告区间。不保存音频。'
+// Only the iPad test layout shows a mirrored *visual* amplitude percentage axis.
+// This is the existing soft-limited RMS animation scale, not a calibrated sound
+// pressure level, true microphone gain, or numerical accuracy percentage.
+const ipadPercentMode = document.body?.classList?.contains?.('ipad-test') === true;
+const visualAmplitude = rms => Math.max(0, Math.min(1,
+  Math.tanh(Math.pow(Math.max(0, rms), 0.65) * 11.5)));
+const percentNotes = {
+  ja: '縦軸：相対表示振幅（上下とも0～100%、音量の実測値ではありません）。赤：AIの警告判定区間。音声は保存しません。',
+  en: 'Y-axis: relative display amplitude (0–100% mirrored, not measured loudness). Red: AI warning windows. Audio is not saved.',
+  'zh-CN': '纵轴：相对显示振幅（上下镜像0～100%，不代表实际音量）。红色：AI 警告区间。不保存音频。'
 };
 let levels = [], marks = [], currentTime = 0;
 // Ordinary top-category text is refreshed at most once every 2s from real
@@ -38,8 +38,8 @@ function lang() { return dictionary[document.documentElement.lang] ?? dictionary
 function announce() {
   if (!heading) return;
   heading.textContent = lang()[0];
-  foot.textContent = ipadDbfsMode ? (dbfsNotes[document.documentElement.lang] ?? dbfsNotes.ja) : lang()[1];
-  canvas?.setAttribute('aria-label',lang()[0] + (ipadDbfsMode ? ' · dBFS, -90 to 0' : ''));
+  foot.textContent = ipadPercentMode ? (percentNotes[document.documentElement.lang] ?? percentNotes.ja) : lang()[1];
+  canvas?.setAttribute('aria-label',lang()[0] + (ipadPercentMode ? ' · mirrored relative display amplitude, 0–100% on each side' : ''));
   recentEvents(); // Refresh Japanese/English/Chinese warning labels immediately.
   renderCurrent();
 }
@@ -48,60 +48,58 @@ function expire(t) {
   while (levels.length && levels[0].time < cutoff - .2) levels.shift();
   while (marks.length && marks[0].end < cutoff) marks.shift();
 }
-// A true digital dBFS timeline for iPad: 0 dBFS = full-scale RMS, and
-// -90 dBFS is a visualization floor for silence. All sample coordinates are
-// constrained to the plot, with time and dBFS labels in reserved margins.
-// This is NOT a calibrated sound-pressure-level meter.
-function drawIpadDbfs(c, w, h, light) {
-  const left = 56, right = Math.max(left + 22, w - 12);
-  const top = 21, bottom = Math.max(top + 20, h - 27);
+// Restore the original symmetric waveform style on iPad with a legible, mirrored
+// relative visual-amplitude scale: labels are 0/50/100% on BOTH halves, never
+// negative percentages. The nonlinear visual gain remains explicitly uncalibrated.
+function drawIpadPercent(c, w, h, light) {
+  const left = 51, right = Math.max(left + 22, w - 12);
+  const top = 22, bottom = Math.max(top + 20, h - 26);
   const plotWidth = right - left, plotHeight = bottom - top;
+  const center = (top + bottom) / 2;
+  const half = plotHeight / 2;
   const grid = light ? '#d8e2e9' : '#304258';
   const text = light ? '#56697d' : '#b7cadc';
   const base = light ? '#6887a0' : '#91bad0';
   const warning = light ? '#c5223b' : '#ff596b';
-  c.lineWidth = 1;
   c.font = '10px system-ui,sans-serif';
   c.textAlign = 'left';
   c.fillStyle = text;
-  c.fillText('dBFS', 6, 12);
-  const yOf = db => top + (-db / -DBFS_FLOOR) * plotHeight;
-  for (const db of [0, -30, -60, -90]) {
-    const y = yOf(db);
+  c.fillText('%', 7, 12);
+  // Top and bottom both indicate magnitude away from the central zero line.
+  const axisTicks = [
+    {label:'100',y:top}, {label:'50',y:top + half/2},
+    {label:'0',y:center}, {label:'50',y:center + half/2},
+    {label:'100',y:bottom}
+  ];
+  for (const tick of axisTicks) {
     c.strokeStyle = grid;
-    c.beginPath(); c.moveTo(left, y); c.lineTo(right, y); c.stroke();
+    c.lineWidth = 1;
+    c.beginPath(); c.moveTo(left,tick.y); c.lineTo(right,tick.y); c.stroke();
     c.fillStyle = text;
-    c.fillText(String(db), 7, y + (db === 0 ? 9 : db === DBFS_FLOOR ? -3 : 3));
+    c.fillText(tick.label, 7, Math.min(bottom-2, Math.max(top+9, tick.y+3)));
   }
   const start = currentTime - spanSeconds;
-  const xOf = t => left + (t - start) * plotWidth / spanSeconds;
-  // Trim every waveform segment to the chart box; never draw over legends.
+  const xOf = t => left + (t-start) * plotWidth/spanSeconds;
   c.save();
-  c.beginPath(); c.rect(left, top, plotWidth, plotHeight); c.clip();
-  let prev = null;
+  c.beginPath(); c.rect(left,top,plotWidth,plotHeight); c.clip();
   for (const p of levels) {
-    const x = xOf(p.time);
-    if (x < left || x > right || !Number.isFinite(p.rms)) {
-      prev = null;
-      continue;
-    }
-    const y = yOf(dbfsFromRms(p.rms));
-    const flagged = marks.some(m => p.time >= m.start && p.time <= m.end);
-    c.strokeStyle = flagged ? warning : base;
-    c.lineWidth = Math.max(1.5, Math.min(2.4, plotWidth / 180));
+    const x=xOf(p.time);
+    if (x < left || x > right || !Number.isFinite(p.rms)) continue;
+    const amp = visualAmplitude(p.rms) * Math.max(0, half-2);
+    const flagged=marks.some(m => p.time>=m.start && p.time<=m.end);
+    c.strokeStyle=flagged ? warning : base;
+    c.lineWidth=Math.max(1.5,Math.min(2.4,plotWidth/180));
     c.beginPath();
-    if (prev && p.time - prev.time <= .25) c.moveTo(prev.x, prev.y);
-    else c.moveTo(x, y);
-    c.lineTo(x, y);
+    c.moveTo(x,center-amp);
+    c.lineTo(x,center+amp);
     c.stroke();
-    prev = {time:p.time, x, y};
   }
   c.restore();
-  c.fillStyle = text;
-  c.font = '10px system-ui,sans-serif';
-  c.fillText('-10s',left,h-6);
-  c.fillText('-5s',left+plotWidth/2-9,h-6);
-  c.fillText('Now',right-23,h-6);
+  c.fillStyle=text;
+  c.font='10px system-ui,sans-serif';
+  c.fillText('-10s',left,h-5);
+  c.fillText('-5s',left+plotWidth/2-9,h-5);
+  c.fillText('Now',right-23,h-5);
 }
 function draw() {
   if (!canvasContext) return;
@@ -116,7 +114,7 @@ function draw() {
   const light = document.documentElement.dataset.theme === 'light';
   const base = light ? '#6887a0' : '#91bad0';
   const red = light ? '#c5223b' : '#ff596b';
-  if (ipadDbfsMode) { drawIpadDbfs(c, w, h, light); return; }
+  if (ipadPercentMode) { drawIpadPercent(c, w, h, light); return; }
   const center = h * .48;
   const start = currentTime - spanSeconds;
   const xOf = t => (t-start) * w / spanSeconds;
