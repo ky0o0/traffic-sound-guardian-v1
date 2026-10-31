@@ -13,7 +13,7 @@ test('iPad test reuses the complete real control DOM and exact production audio 
  assert.match(ipad, /<body class="ipad-test" data-state="stopped">/);
  assert.match(ipad, /href="\.\/ipad-test\.css\?v=2"/);
  for(const script of ['live-timeline.js','app.js','theme.js']){
-   const re=new RegExp(script.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:12|0)');
+   const re=new RegExp(script.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:13|0)');
    assert.match(main,re);assert.match(ipad,re,'exact same model/controller module');
  }
  for(const name of ['mic-control','rolling-waveform','rolling-current-value','status-label','debug-panel','settings-panel','alert-tone-toggle','language-select','threshold-input-0','threshold-input-5']){
