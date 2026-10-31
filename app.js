@@ -621,24 +621,32 @@ function startVisuals(s) {
   s.analyser.fftSize = 2048;
   s.source.connect(s.analyser); // AnalyserNode output may remain unconnected.
   const samples = new Float32Array(s.analyser.fftSize);
-  let lastDraw = -Infinity, level = 0;
+  // The rolling ten-second timeline can refresh up to 60 times/sec, independently
+  // of the older full-PCM visual and microphone glow (kept at <=30fps).
+  // The same read-only AnalyserNode is used; YAMNet's audio path is untouched.
+  const TIMELINE_INTERVAL_MS = 1000 / 60;
+  const LEGACY_INTERVAL_MS = 1000 / 30;
+  let lastVisual = -Infinity, lastDraw = -Infinity, level = 0;
   const draw = now => {
     if (!isCurrent(s) || !s.connected || s.context.state !== 'running') return;
-    // At most 30 actual PCM reads/draws per second; one reusable sample buffer.
-    if (now - lastDraw >= 1000 / 30) {
-      const elapsed = Math.min(100, now - lastDraw);
-      lastDraw = now;
+    // 1ms tolerance prevents a 60Hz screen's frame-clock rounding from halving the rate.
+    if (now - lastVisual >= TIMELINE_INTERVAL_MS - 1) {
+      lastVisual = now;
       s.analyser.getFloatTimeDomainData(samples);
       let energy = 0;
       for (const sample of samples) energy += sample * sample;
       const rms = Math.sqrt(energy / samples.length);
-      const target = Math.min(1, Math.sqrt(rms) * 2.4);
-      level += (target - level) * (1 - Math.exp(-elapsed / (target > level ? 55 : 160)));
-      if (level < 0.001) level = 0;
-      // Read-only 10-second amplitude visualization; never forwards or stores PCM.
+      // Visual-only 60fps RMS events; no PCM or AI results are forwarded/stored.
       window.dispatchEvent?.(new CustomEvent('tsg:visual', { detail: { time: s.context.currentTime, rms } }));
-      drawWaveform(samples);
-      ui.visual.style.setProperty('--audio-level', level.toFixed(4));
+      if (now - lastDraw >= LEGACY_INTERVAL_MS - 1) {
+        const elapsed = Math.min(100, now - lastDraw);
+        lastDraw = now;
+        const target = Math.min(1, Math.sqrt(rms) * 2.4);
+        level += (target - level) * (1 - Math.exp(-elapsed / (target > level ? 55 : 160)));
+        if (level < 0.001) level = 0;
+        drawWaveform(samples);
+        ui.visual.style.setProperty('--audio-level', level.toFixed(4));
+      }
     }
     s.visualFrame = requestAnimationFrame(draw);
   };
