@@ -15,7 +15,7 @@ test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
  for(const file of ['app.js','live-timeline.js','theme.js']){
    const pattern=new RegExp(file.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:13|0)');
    assert.match(main,pattern);
-   const ipadPattern = file === 'live-timeline.js' ? /live-timeline\\.js\\?v=1\\.6\\.14/ : pattern;
+   const ipadPattern = file === 'live-timeline.js' ? /live-timeline\.js\?v=1\.6\.14/ : pattern;
    assert.match(ipad,ipadPattern,'same audio and model pipeline; iPad opts into the new dBFS timeline');
  }
  assert.doesNotMatch(ipad,/getUserMedia\(|AudioContext\(|MediaRecorder\(/,'no alternative input chain');
