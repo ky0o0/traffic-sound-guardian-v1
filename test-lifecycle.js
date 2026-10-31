@@ -264,14 +264,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.5 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.5<\/title>/);
- assert.match(page, /class="version">V1\.6\.5<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.5"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.5"/);
+test('V1.6.6 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.6<\/title>/);
+ assert.match(page, /class="version">V1\.6\.6<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.6"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.6"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.5');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.5');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.6');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.6');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -436,19 +436,22 @@ test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder s
 });
 
 
-test('V1.6.5 six independent sensitivity sliders and audible alert switch are back inside Debug',async()=>{
+test('V1.6.6 six independent sensitivity sliders stay in Debug, tone switch moves to Settings',async()=>{
  const panelStart=page.indexOf('id="debug-panel"'),panelEnd=page.indexOf('</details>',panelStart);
+ const settingStart=page.indexOf('id="settings-content"'),settingEnd=page.indexOf('</details>',settingStart);
  const sensitivityPos=page.indexOf('id="sensitivity-panel"');
  const tonePos=page.indexOf('id="alert-tone-toggle"');
  assert.ok(panelStart>0&&panelEnd>panelStart);
  assert.ok(sensitivityPos>panelStart&&sensitivityPos<panelEnd);
- assert.ok(tonePos>panelStart&&tonePos<panelEnd);
+ assert.ok(tonePos>settingStart&&tonePos<settingEnd);
+ assert.ok(!(tonePos>panelStart&&tonePos<panelEnd),'notification sound is no longer in Debug');
  assert.equal((page.match(/id="threshold-input-[0-5]"/g)||[]).length,6);
  assert.ok(!page.includes('id="bell-threshold"'));
  const h=await harness({autoStart:false});
  assert.equal(h.calls(),0);
  assert.equal(h.elements.get('debug-panel').hidden,false);
  for(let i=0;i<6;i++)assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.10');
+ assert.equal(h.elements.get('alert-tone-toggle').checked,true);
  h.debug(false);assert.equal(h.elements.get('debug-panel').hidden,true);
  h.debug(true);assert.equal(h.elements.get('debug-panel').hidden,false);h.stop();
 });
@@ -789,13 +792,13 @@ test('V1.6.3: no label, permission denial and restricted enumeration remain trut
  assert.equal(denied.elements.get('mic-source-value').textContent,'マイクを使用していません');
  denied.stop();
 });
-test('V1.6.5 Settings contains only language, theme, feedback and two tests; Debug switch remains visible',async()=>{
+test('V1.6.6 Settings includes tone, language, theme, feedback and two tests; Debug outside',async()=>{
  const start=page.indexOf('id="settings-content"'),end=page.indexOf('</details>',start);
  assert.ok(start>0&&end>start);
  const menu=page.slice(start,end);
- for(const id of ['language-select','feedback','ai-test-link','microphone-test-link'])
+ for(const id of ['language-select','alert-tone-toggle','feedback','ai-test-link','microphone-test-link'])
    assert.ok(menu.includes('id="'+id+'"'),id);
- for(const id of ['debug-toggle','alert-tone-toggle','sensitivity-panel','threshold-input-0','threshold-input-5'])
+ for(const id of ['debug-toggle','sensitivity-panel','threshold-input-0','threshold-input-5'])
    assert.ok(!menu.includes('id="'+id+'"'),id+' must remain outside Settings');
  assert.equal((page.match(/id="settings-toggle"/g)||[]).length,1);
  assert.ok(page.indexOf('id="debug-toggle"')<start&&page.indexOf('id="debug-toggle"')>page.indexOf('class="toolbar"'));
@@ -819,16 +822,25 @@ test('V1.6.5 Settings contains only language, theme, feedback and two tests; Deb
  assert.equal(h.calls(),0);
  h.stop();
 });
-// V1.6.5: visual-only gain regression for 10-second timeline.
-test('V1.6.5 ten-second waveform amplifies quiet sound without clipping or changing inputs',()=>{
+// V1.6.6: quiet waveform baseline regression; no capture or AI changes.
+test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remain visible',()=>{
  const js=fs.readFileSync(new URL('./live-timeline.js',import.meta.url),'utf8');
- assert.match(js,/Math\.tanh\(Math\.sqrt\(p\.rms\) \* 14\.4\) \* h \* \.45/);
- assert.match(js,/Math\.max\(2\.25,w\/200\)/);
- assert.doesNotMatch(js,/Math\.sqrt\(p\.rms\)\*2\.4/);
- const gain=(rms,h)=>Math.max(1.5,Math.tanh(Math.sqrt(rms)*14.4)*h*.45);
- const oldGain=(rms,h)=>Math.max(1.5,Math.tanh(Math.sqrt(rms)*7.2)*h*.45);
- for(const rms of [0.0001,0.001,0.01])assert.ok(gain(rms,104)>oldGain(rms,104));
- assert.equal(gain(0,104),1.5);
- for(const rms of [0,0.0001,0.01,0.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.5/);
+ assert.match(js,/Math\.tanh\(Math\.pow\(p\.rms, 0\.65\) \* 11\.5\) \* h \* \.45/);
+ assert.match(js,/Math\.max\(1\.5,w\/260\)/);
+ const gain=(rms,h)=>Math.tanh(Math.pow(rms,.65)*11.5)*h*.45;
+ const oldGain=(rms,h)=>Math.max(1.5,Math.tanh(Math.sqrt(rms)*14.4)*h*.45);
+ assert.equal(gain(0,104),0,'true silence stays visually flat');
+ for(const rms of [.000001,.0001,.001])assert.ok(gain(rms,104)<oldGain(rms,104),'near silence no longer looks loud');
+ assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
+ assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
+ for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.6/);
+});
+test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
+ const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
+ assert.match(css,/\.visual \.icon-disc\{width:132px;height:132px\}/);
+ assert.match(css,/body\[data-state=warning\] \.visual \.icon-disc\{width:136px;height:136px\}/);
+ assert.match(css,/@media\(max-height:740px\)\{\.visual \.icon-disc\{width:114px;height:114px\}body\[data-state=warning\] \.visual \.icon-disc\{width:116px;height:116px\}\}/);
+ assert.match(css,/\.visual \.mic-icon\{width:48px;height:52px\}/);
+ assert.match(page,/id="mic-control" class="icon-disc"/);
 });
