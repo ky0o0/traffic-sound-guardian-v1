@@ -53,7 +53,7 @@ test('landscape grid shows left / middle / right and preserves mobile, Safari sh
  assert.match(css,/body\.ipad-test \.ipad-center \.debug-section\{/);
  assert.match(css,/overflow-y:auto;overflow-x:hidden/,'detailed AI results remain independently scrollable');
  assert.match(css,/body\.ipad-test \.ipad-right\{/);
- assert.match(css,/body\.ipad-test \[data-debug=off\]/m);
+ assert.match(css,/body\.ipad-test\[data-debug=off\]/);
  assert.match(css,/@media \(orientation:portrait\),\(max-width:819px\),\(max-height:499px\)/);
  assert.match(css,/@media \(orientation:landscape\) and \(min-width:820px\) and \(min-height:500px\) and \(max-height:630px\)/);
  assert.match(css,/grid-template-rows:46px minmax\(530px,1fr\)/);
