@@ -264,14 +264,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.3 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.3<\/title>/);
- assert.match(page, /class="version">V1\.6\.3<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.3"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.3"/);
+test('V1.6.4 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.4<\/title>/);
+ assert.match(page, /class="version">V1\.6\.4<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.4"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.4"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.3');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.3');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.4');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.4');
 });
 test('Debug Mode defaults open below the app and never changes the active session or warning deadline',async()=>{
  const h=await harness();assert.equal(h.run('debugEnabled'),true);assert.equal(h.elements.get('debug-panel').hidden,false);
@@ -799,8 +799,10 @@ test('V1.6.3: settings contain auxiliary controls while AI Test Mode stays outsi
  assert.ok(page.indexOf('id="debug-panel"')>end,'AI model and debug results remain outside settings');
  assert.equal((page.match(/id="settings-toggle"/g)||[]).length,1);
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
- assert.match(css,/main \.rolling-panel\{width:min\(calc\(100vw - 18px\),920px\)/);
- assert.match(css,/main #rolling-waveform\{width:100%;height:154px\}/);
+  assert.match(css,/main \.rolling-panel\{width:100%;max-width:420px/);
+  assert.match(css,/main #rolling-waveform\{width:100%;height:104px\}/);
+  assert.match(css,/#rolling-waveform\{height:84px\}/);
+  assert.doesNotMatch(css,/920px|100vw - 18px|100vw - 12px/);
  assert.match(css,/\.settings-content\{box-sizing:border-box;position:absolute/);
  const theme=fs.readFileSync(new URL('./theme.js',import.meta.url),'utf8');
  assert.match(theme,/getElementById\('settings-content'\)/);
@@ -810,4 +812,17 @@ test('V1.6.3: settings contain auxiliary controls while AI Test Mode stays outsi
  assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
  assert.equal(h.calls(),0);
  h.stop();
+});
+
+// V1.6.4: visual-only gain regression for 10-second timeline.
+test('V1.6.4 ten-second waveform amplifies quiet sound without clipping or changing inputs',()=>{
+ const js=fs.readFileSync(new URL('./live-timeline.js',import.meta.url),'utf8');
+ assert.match(js,/Math\.tanh\(Math\.sqrt\(p\.rms\) \* 7\.2\) \* h \* \.45/);
+ assert.doesNotMatch(js,/Math\.sqrt\(p\.rms\)\*2\.4/);
+ const gain=(rms,h)=>Math.max(1.5,Math.tanh(Math.sqrt(rms)*7.2)*h*.45);
+ const oldGain=(rms,h)=>Math.max(1.5,Math.tanh(Math.sqrt(rms)*2.4)*h*.45);
+ for(const rms of [0.0001,0.001,0.01])assert.ok(gain(rms,104)>oldGain(rms,104));
+ assert.equal(gain(0,104),1.5);
+ for(const rms of [0,0.0001,0.01,0.25,1,100])assert.ok(gain(rms,104)<=104*.45);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.4/);
 });

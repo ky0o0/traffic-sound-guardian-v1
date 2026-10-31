@@ -53,7 +53,8 @@ function draw() {
     const x = xOf(p.time);
     if (x < 0 || x > w) continue;
     const flagged = marks.some(m => p.time >= m.start && p.time <= m.end);
-    const amp = Math.max(1.5,Math.tanh(Math.sqrt(p.rms)*2.4)*h*.45);
+    // Visual-only soft-limited gain: quiet audio is easier to see; PCM, RMS and AI scores remain unchanged.
+    const amp = Math.max(1.5, Math.tanh(Math.sqrt(p.rms) * 7.2) * h * .45);
     c.strokeStyle = flagged ? red : base;
     c.lineWidth = Math.max(1.5,w/350);
     c.beginPath(); c.moveTo(x,center-amp); c.lineTo(x,center+amp); c.stroke();
