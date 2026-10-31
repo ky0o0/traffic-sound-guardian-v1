@@ -36,11 +36,14 @@ function display() {
 function initialize() {
   const host = document.getElementById('settings-content') || document.querySelector('.toolbar') || document.body;
   const standalone = host === document.body;
+  // On the main/iPad Settings popover, place appearance immediately beside language.
+  // Other standalone pages keep their existing theme selector placement.
+  const settingsRow = host.id === 'settings-content' ? host.querySelector('.settings-group') : null;
   if (!host || document.getElementById('theme-select')) return;
   const label = document.createElement('label');
   label.className = standalone ? 'theme-picker standalone' : 'theme-picker';
   const text = document.createElement('span');
-  text.className = host.id === 'settings-content' ? 'theme-picker-label' : 'sr-only';
+  text.className = settingsRow ? 'sr-only' : (host.id === 'settings-content' ? 'theme-picker-label' : 'sr-only');
   const select = document.createElement('select');
   select.id = 'theme-select';
   for (const key of OPTIONS) {
@@ -55,7 +58,8 @@ function initialize() {
     apply(); display();
   });
   label.append(text, select);
-  if (standalone) host.insertBefore(label,host.firstChild);
+  if (settingsRow) settingsRow.append(label);
+  else if (standalone) host.insertBefore(label,host.firstChild);
   else host.append(label);
   display();
   // Other pages may update lang after initialization.
