@@ -8,7 +8,7 @@ const ids = html => [...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 const between = (a,b) => ipad.slice(ipad.indexOf(a),ipad.indexOf(b,ipad.indexOf(a)));
 
 test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
- assert.deepEqual([...ids(ipad)].sort(),[...ids(main)].sort(),'same ID set despite moving elements into columns');
+ assert.deepEqual(ids(ipad).filter(id=>!id.startsWith('alert-preview-')).sort(),[...ids(main)].sort(),'same shared DOM IDs; only iPad adds output-only preview controls');
  assert.equal(new Set(ids(ipad)).size,ids(ipad).length,'no duplicated microphone, threshold or debug IDs');
  assert.match(ipad,/<body class="ipad-test" data-state="stopped">/);
  assert.match(ipad,/href="\.\/ipad-test\.css\?v=6"/);
@@ -25,7 +25,7 @@ test('left control, center live chart plus BOTH detailed classification tables, 
  const left=between('<main class="ipad-left">','<section class="ipad-center"');
  const center=between('<section class="ipad-center"','<aside class="ipad-right"');
  const right=between('<aside class="ipad-right"','</aside>');
- for(const id of ['mic-source-value','status-label','mic-control','heading','description','warning-details','sound-type','score'])
+ for(const id of ['mic-source-value','status-label','mic-control','heading','description','warning-details','sound-type','score','alert-preview-button','alert-preview-status','alert-preview-note'])
    assert.ok(left.includes('id="'+id+'"'),id+' is in left operations');
  for(const id of ['rolling-current-value','rolling-waveform','rolling-events','debug-panel','debug-model','debug-mic','debug-inference','debug-time','debug-updated','debug-top','debug-target'])
    assert.ok(center.includes('id="'+id+'"'),id+' is in center live/research data');
