@@ -67,9 +67,9 @@ function drawIpadPercent(c, w, h, light) {
   c.fillText('%', 7, 12);
   // Top and bottom both indicate magnitude away from the central zero line.
   const axisTicks = [
-    {label:'100',y:top}, {label:'50',y:top + half/2},
-    {label:'0',y:center}, {label:'50',y:center + half/2},
-    {label:'100',y:bottom}
+    {label:'100%',y:top}, {label:'50%',y:top + half/2},
+    {label:'0%',y:center}, {label:'50%',y:center + half/2},
+    {label:'100%',y:bottom}
   ];
   for (const tick of axisTicks) {
     c.strokeStyle = grid;
