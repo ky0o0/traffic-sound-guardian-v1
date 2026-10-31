@@ -283,7 +283,7 @@ test('V1.6.13 page, release assets and refreshed classifier cache agree',()=>{
  assert.match(page, /<title>Traffic Sound Guardian V1\.6\.13<\/title>/);
  assert.match(page, /class="version">V1\.6\.13<\/span>/);
  assert.match(page, /src="\.\/app\.js\?v=1\.6\.13"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.13"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.10/); // Worker bytecode is unchanged.
  assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.13');
  assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.13');
@@ -953,16 +953,16 @@ test('V1.6.6 Settings includes tone, language, theme, feedback and two tests; De
 // V1.6.6: quiet waveform baseline regression; no capture or AI changes.
 test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remain visible',()=>{
  const js=fs.readFileSync(new URL('./live-timeline.js',import.meta.url),'utf8');
- assert.match(js,/Math\.tanh\(Math\.pow\(p\.rms, 0\.65\) \* 11\.5\) \* h \* \.45/);
+ assert.match(js,/Math\.tanh\(Math\.pow\(p\.rms, 0\.65\) \* 11\.5\) \* maxAmplitude/);
  assert.match(js,/Math\.max\(1\.5,w\/260\)/);
- const gain=(rms,h)=>Math.tanh(Math.pow(rms,.65)*11.5)*h*.45;
+ const gain=(rms,h)=>Math.tanh(Math.pow(rms,.65)*11.5)*Math.min(h*.45,(h-22)/2);
  const oldGain=(rms,h)=>Math.max(1.5,Math.tanh(Math.sqrt(rms)*14.4)*h*.45);
  assert.equal(gain(0,104),0,'true silence stays visually flat');
  for(const rms of [.000001,.0001,.001])assert.ok(gain(rms,104)<oldGain(rms,104),'near silence no longer looks loud');
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.13/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.17/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');

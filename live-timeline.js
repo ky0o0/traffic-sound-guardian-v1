@@ -9,6 +9,16 @@ const currentValue = document.getElementById('rolling-current-value');
 const canvasContext = canvas?.getContext('2d');
 const spanSeconds = 10;
 let levels = [], marks = [], currentTime = 0;
+let redrawFrame = null, pageActive = true;
+// Layout/theme changes need one paint even while stopped, never a new audio loop.
+function scheduleDraw() {
+  if (!pageActive || redrawFrame !== null) return;
+  redrawFrame = window.requestAnimationFrame(() => { redrawFrame = null; draw(); });
+}
+function cancelScheduledDraw() {
+  if (redrawFrame !== null) window.cancelAnimationFrame(redrawFrame);
+  redrawFrame = null;
+}
 // Ordinary top-category text is refreshed at most once every 2s from real
 // inference results. Traffic warnings always bypass this visual-only interval.
 const NORMAL_UPDATE_MS = 2000;
@@ -50,9 +60,15 @@ function draw() {
   const light = document.documentElement.dataset.theme === 'light';
   const base = light ? '#6887a0' : '#91bad0';
   const red = light ? '#c5223b' : '#ff596b';
-  const center = h * .48;
+  // Keep the original symmetric, soft-limited envelope. Reserve only 20 CSS px
+  // for the 11px time labels, their bottom inset and a clear gap above them.
+  const plotTop = 2, plotBottom = h - 20;
+  const center = (plotTop + plotBottom) / 2;
+  const maxAmplitude = Math.min(h * .45, (plotBottom - plotTop) / 2);
   const start = currentTime - spanSeconds;
   const xOf = t => (t-start) * w / spanSeconds;
+  c.save();
+  c.beginPath(); c.rect(0,plotTop,w,plotBottom-plotTop); c.clip();
   c.strokeStyle = light ? '#d8e2e9' : '#304258';
   c.lineWidth = 1;
   c.beginPath(); c.moveTo(0,center); c.lineTo(w,center); c.stroke();
@@ -64,11 +80,12 @@ function draw() {
     const flagged = marks.some(m => p.time >= m.start && p.time <= m.end);
     // Visual-only soft-limited gain: quiet audio is easier to see; PCM, RMS and AI scores remain unchanged.
     // A lower near-silence floor makes soft sounds visible without making the baseline look loud.
-    const amp = Math.tanh(Math.pow(p.rms, 0.65) * 11.5) * h * .45;
+    const amp = Math.tanh(Math.pow(p.rms, 0.65) * 11.5) * maxAmplitude;
     c.strokeStyle = flagged ? red : base;
     c.lineWidth = Math.max(1.5,w/260);
     c.beginPath(); c.moveTo(x,center-amp); c.lineTo(x,center+amp); c.stroke();
   }
+  c.restore();
   c.fillStyle = light ? '#56697d' : '#b7cadc';
   c.font = '11px system-ui,sans-serif';
   c.fillText('-10s',5,h-5);
@@ -150,6 +167,15 @@ if (canvasContext) {
   window.addEventListener('tsg:classification',onClassification);
   window.addEventListener('tsg:language',announce);
   window.addEventListener('tsg:reset',reset);
-  new MutationObserver(announce).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  new MutationObserver(changes => {
+    if (changes.some(change => change.attributeName === 'lang')) announce();
+    if (changes.some(change => change.attributeName === 'data-theme')) scheduleDraw();
+  }).observe(document.documentElement,{attributes:true,attributeFilter:['lang','data-theme']});
+  if (typeof ResizeObserver === 'function') new ResizeObserver(scheduleDraw).observe(canvas);
+  window.addEventListener('resize',scheduleDraw);
+  window.addEventListener('orientationchange',scheduleDraw);
+  // Keep the single observers for bfcache restoration; suppress late callbacks while hidden.
+  window.addEventListener('pageshow',() => { pageActive = true; scheduleDraw(); });
+  window.addEventListener('pagehide',() => { pageActive = false; cancelScheduledDraw(); });
   announce();reset();
 }

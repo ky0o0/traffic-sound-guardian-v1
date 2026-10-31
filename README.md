@@ -4,6 +4,14 @@
 
 **Score 是原始 YAMNet 输出，不是准确率，也不是经过校准的概率。此项目不是经过验证的道路安全保护设备。**
 
+## UI 修复：R08 / R09 / R10
+
+- 十秒声纹保留上下对称、原来的 RMS 视觉增益曲线及蓝／红色波形，仅为底部时间文字预留 20 CSS px，并将绘制限制在绘图区；没有 Y 轴，没有改变 RMS 或 AI 判定。
+- Canvas 通过 ResizeObserver、有效主题属性及窗口事件请求一次合并重绘；停止状态也能响应尺寸、布局与系统主题变化，不会启动麦克风、推理或持续动画循环。
+- iPad 右栏恢复默认按钮独占一行，避免三语文字被挤成竖排；设置弹层宽度扣除页面留白及安全区域。原三栏结构、滑杆和全部设置保持不变。
+- 两入口更新 `live-timeline.js?v=1.6.17`、`v1.6.css?v=1.6.14`；iPad CSS 更新为 `?v=6`。应用和模型版本不变。下面各版本说明保留为历史记录。
+- 回归验证见 [UI-R08-R10-TEST-REPORT.md](UI-R08-R10-TEST-REPORT.md)。浏览器回归可在静态服务启动后运行：`python tests/ui-canvas-browser.py --base-url http://127.0.0.1:8000/ --output ../ui-evidence`（需 Python Playwright 及浏览器；`--engine webkit` 可用于已安装 WebKit 的环境）。实体 iPad Safari 仍需验收。
+
 ## iPad V3：还原最初的 10 秒声纹（撤销 dBFS 和百分比轴）
 
 - 根据用户反馈，将 iPad 横屏测试版的波形恢复到 V3 最初使用的真实 RMS 上下对称 **蓝色振幅声纹**：没有 Y 轴百分比或 dBFS 刻度，X 轴仍显示 −10s／−5s／Now，警告区间仍只把实际波形变红，不绘制整条红色背景块。

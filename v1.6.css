@@ -91,7 +91,8 @@ html[data-theme=light] body[data-state=warning] .mic-source-panel{background:#6e
 .settings-menu>summary::marker{content:''}
 .settings-menu>summary:focus-visible{outline:3px solid #9cdfd1;outline-offset:3px}
 .settings-menu[open]>summary{border-color:#9cdfd1;background:#29465e}
-.settings-content{box-sizing:border-box;position:absolute;top:calc(100% + 8px);right:0;width:min(380px,calc(100vw - 24px));max-height:min(74dvh,680px);overflow-y:auto;overscroll-behavior:contain;padding:16px;border:1px solid #597a92;border-radius:17px;background:#132339;color:#f6f8fc;box-shadow:0 22px 54px #040b16bb}
+/* Narrow .app content has 26px side padding; size the anchored popover inside it. */
+.settings-content{box-sizing:border-box;position:absolute;top:calc(100% + 8px);right:0;width:min(380px,calc(100vw - 52px - env(safe-area-inset-left) - env(safe-area-inset-right)));max-height:min(74dvh,680px);overflow-y:auto;overscroll-behavior:contain;padding:16px;border:1px solid #597a92;border-radius:17px;background:#132339;color:#f6f8fc;box-shadow:0 22px 54px #040b16bb}
 .settings-group{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 12px;padding:0 0 9px}
 .settings-content .language-switch{align-self:auto;margin:0}
 .settings-links{display:flex;flex-direction:column;gap:2px;border-top:1px solid #47627b;padding-top:8px;margin-top:12px}

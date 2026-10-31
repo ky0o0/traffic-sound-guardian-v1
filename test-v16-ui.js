@@ -6,7 +6,7 @@ const file = path => fs.readFileSync(new URL(path,import.meta.url),'utf8');
 test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s visualization',()=>{
  const html=file('./index.html'),app=file('./app.js'),timeline=file('./live-timeline.js');
  assert.match(html,/id="rolling-waveform"/);
- assert.match(html,/live-timeline\.js\?v=1\.6\.13/);
+ assert.match(html,/live-timeline\.js\?v=1\.6\.17/);
  assert.match(app,/tsg:visual/);
  assert.match(app,/tsg:warning/);
  assert.match(app,/completedFrame\.endTime - 0\.975/);
@@ -38,7 +38,7 @@ test('real YAMNet and manual labels remain different sources',()=>{
 });
 test('rolling timeline marks only actual positive results and clears after 10 seconds',()=>{
  const events={},drawn=[],ctx={
-   clearRect(){},setTransform(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},
+   clearRect(){},save(){},restore(){},rect(){},clip(){},setTransform(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},
    stroke(){drawn.push(this.strokeStyle)},fillText(){}
  };
  const canvas={width:0,height:0,clientWidth:340,clientHeight:100,
@@ -63,7 +63,7 @@ test('rolling timeline marks only actual positive results and clears after 10 se
 });
 
 test('V1.6.11 ordinary predictions update on 2-second boundaries; warning sound bypasses immediately',()=>{
- const events={},ctx={clearRect(){},setTransform(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){},fillText(){}};
+ const events={},ctx={clearRect(){},save(){},restore(){},rect(){},clip(){},setTransform(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){},fillText(){}};
  const elements=Object.fromEntries(['rolling-events','rolling-heading','rolling-note','rolling-current-label'].map(id=>[id,{textContent:''}]));
  elements['rolling-current-value']={textContent:'',dataset:{}};
  const canvas={width:0,height:0,clientWidth:340,clientHeight:104,getContext(){return ctx},setAttribute(){}};
