@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { TARGETS, bestTarget, targetScores, chooseTarget, WarningGate } from './detection.js';
+import { TARGETS, SECONDARY_BELLS, WARNING_TARGETS, TRAFFIC_ENVIRONMENT, DEFAULT_THRESHOLD, bestTarget, targetScores, chooseTarget, WarningGate } from './detection.js';
 const t = (score, name = 'Bicycle bell') => ({ score, name, label: TARGETS[name].label });
 const result = categories => [{ classifications: [{ categories }] }];
 
@@ -59,8 +59,8 @@ test('all categories and heads are scanned, not just top one', () => {
  results.push(...result([{ categoryName:'Ambulance (siren)',score:.93 }]));
  assert.equal(bestTarget(results).label, 'サイレン（救急車）');
 });
-test('ordinary traffic, generic bells and misleading partial label matches are ignored', () => {
- assert.equal(bestTarget(result(['Traffic noise, roadway noise','Car','Bicycle','Bell','French horn','Civil defense siren'].map(categoryName => ({ categoryName,score:1 })))), null);
+test('ordinary traffic and unrelated sound labels are never interpreted as alert categories', () => {
+ assert.equal(bestTarget(result(['Traffic noise, roadway noise','Car','Bicycle','French horn','Civil defense siren'].map(categoryName => ({ categoryName,score:1 })))), null);
 });
 test('invalid numbers are never used as warning scores', () => {
  for (const score of [NaN, Infinity,-.1,1.1]) assert.equal(bestTarget(result([{ categoryName:'Siren',score }])),null);
@@ -117,7 +117,7 @@ test('old stored 0.01-step custom values remain valid for detection',()=>{
  assert.equal(chooseTarget({[bell]:.03},{[bell]:.03})?.name,bell);
 });
 test('invalid scores and unrelated sound classes cannot trigger alerts',()=>{
- assert.equal(Object.keys(targetScores(result([{categoryName:'Bell',score:.95}]))).length,0);
+ assert.equal(Object.keys(targetScores(result([{categoryName:'Music',score:.95}]))).length,0);
  for(const score of [NaN,Infinity,-.2,1.2]){
   assert.equal(Object.keys(targetScores(result([{categoryName:'Bicycle bell',score}]))).length,0);
  }
