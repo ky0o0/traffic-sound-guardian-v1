@@ -31,7 +31,7 @@ test('iPad and production retain the symmetric waveform without either experimen
  assert.match(ipad,/live-timeline\.js\?v=1\.6\.17/);
  assert.match(main,/live-timeline\.js\?v=1\.6\.17/);
  assert.match(ipad,/ipad-test\.css\?v=7/);
- assert.match(ipad,/V1\.6\.14 · iPad TEST/);
+ assert.match(ipad,/V1\.6\.15 · iPad TEST/);
  const css=read('./ipad-test.css');
  assert.match(css,/height:clamp\(205px,36dvh,315px\)/);
  assert.match(css,/minmax\(85px,1fr\)/);
