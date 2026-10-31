@@ -11,7 +11,7 @@ test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
  assert.deepEqual([...ids(ipad)].sort(),[...ids(main)].sort(),'same ID set despite moving elements into columns');
  assert.equal(new Set(ids(ipad)).size,ids(ipad).length,'no duplicated microphone, threshold or debug IDs');
  assert.match(ipad,/<body class="ipad-test" data-state="stopped">/);
- assert.match(ipad,/href="\.\/ipad-test\.css\?v=3"/);
+ assert.match(ipad,/href="\.\/ipad-test\.css\?v=4"/);
  for(const file of ['app.js','live-timeline.js','theme.js']){
    const pattern=new RegExp(file.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:13|0)');
    assert.match(main,pattern);
