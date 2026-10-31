@@ -163,3 +163,22 @@ body[data-state=warning] .settings-content .version-switch{border-color:#ffffff6
 body[data-state=warning] .settings-content #version-switch-title{color:#fff}
 body[data-state=warning] .settings-content .version-options a{color:#fff;background:#ffffff12;border-color:#ffffff88}
 body[data-state=warning] .settings-content .version-options a[aria-current=page]{background:#ffffff30;border-color:#fff;color:#fff}
+
+/* V1.6.13: language and appearance are side-by-side in Settings, on both layouts.
+   Both have visible native dropdowns with accessible labels; avoid a third row. */
+.settings-content .settings-group{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:center;gap:10px;padding:0 0 10px;
+}
+.settings-content .settings-group .language-switch,
+.settings-content .settings-group .theme-picker{width:100%;min-width:0;margin:0}
+.settings-content .settings-group .language-switch select{
+  display:block;width:100%;min-width:0;min-height:44px;
+}
+.settings-content .settings-group > .theme-picker{
+  display:flex;align-items:center;justify-content:stretch;
+  border-top:0;margin:0;padding:0;min-width:0;
+}
+.settings-content .settings-group .theme-picker select{
+  display:block;width:100%;min-width:0;max-width:none;min-height:44px;
+}

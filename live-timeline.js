@@ -56,12 +56,8 @@ function draw() {
   c.strokeStyle = light ? '#d8e2e9' : '#304258';
   c.lineWidth = 1;
   c.beginPath(); c.moveTo(0,center); c.lineTo(w,center); c.stroke();
-  for (const m of marks) {
-    const left = Math.max(0,xOf(m.start)), right = Math.min(w,xOf(m.end));
-    if (right <= left) continue;
-    c.fillStyle = light ? '#fae3e6' : '#70253380';
-    c.fillRect(left,4,right-left,h-8);
-  }
+  // Warning windows color ONLY the matching audio waveform samples red.
+  // Never draw full-height shaded warning intervals behind the waveform.
   for (const p of levels) {
     const x = xOf(p.time);
     if (x < 0 || x > w) continue;
