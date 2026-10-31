@@ -86,7 +86,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
   calls:()=>micCalls,allow:()=>denied=false,resolveMic:()=>resolveMic(),now:n=>now=n,
   run:code=>vm.runInContext(code,context),click:()=>element('mic-control').click(),stop:()=>vm.runInContext('stop()',context),
-  emit:(sequence,target=null)=>workers.at(-1).emit({type:'result',sequence,target}),
+  emit:(sequence,target=null,extra={})=>workers.at(-1).emit({type:'result',sequence,target,...extra}),
   frame(sequence=1){context.frameData={sequence,samples:new Float32Array(46800),endTime:contexts.at(-1).currentTime};vm.runInContext('receiveFrame(session, frameData)',context);}
  };
 }
@@ -279,14 +279,42 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.9 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.9<\/title>/);
- assert.match(page, /class="version">V1\.6\.9<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.9"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.9"/);
- assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.9');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.9');
+test('V1.6.10 page, release assets and refreshed classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.10<\/title>/);
+ assert.match(page, /class="version">V1\.6\.10<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.10"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.10"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.6\.10/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.10');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.10');
+});
+test('V1.6.10 real result emits trilingual top class independently of Debug and warns immediately',async()=>{
+ const h=await harness();
+ h.debug(false);
+ h.frame(1);
+ h.now(1000);
+ h.emit(1,null,{topCategory:{categoryName:'Speech',score:.74,index:0}});
+ const soundEvents=()=>h.dispatched.filter(e=>e.type==='tsg:classification');
+ assert.equal(soundEvents().length,1);
+ assert.equal(soundEvents()[0].detail.categoryName,'Speech');
+ assert.equal(soundEvents()[0].detail.labels.ja,'話し声');
+ assert.equal(soundEvents()[0].detail.labels.en,'Speech');
+ assert.equal(soundEvents()[0].detail.labels['zh-CN'],'人声');
+ assert.equal(soundEvents()[0].detail.warningName,null);
+ assert.ok(!('pcm' in soundEvents()[0].detail));
+ assert.equal(h.document.body.dataset.state,'listening');
+ h.frame(2);h.now(2100);
+ h.emit(2,{score:.65,label:'車のクラクション',name:'Vehicle horn, car horn, honking'},{topCategory:{categoryName:'Speech',score:.5,index:0}});
+ assert.equal(h.document.body.dataset.state,'warning');
+ assert.equal(soundEvents().at(-1).detail.warningName,'Vehicle horn, car horn, honking');
+ assert.equal(soundEvents().at(-1).detail.warningLabels['zh-CN'],'汽车喇叭');
+ const warnings=h.dispatched.filter(e=>e.type==='tsg:warning');
+ assert.equal(warnings.at(-1).detail.labels.en,'Vehicle horn, car horn, honking');
+ h.language('zh-CN');
+ assert.ok(h.dispatched.some(e=>e.type==='tsg:language'&&e.detail.language==='zh-CN'));
+ assert.equal(h.workers.length,1,'language switch and public sound status create no new worker');
+ h.stop();
+ assert.equal(h.dispatched.at(-1).type,'tsg:reset');
 });
 test('V1.6.8 status label has no background and its dot replaces microphone-corner recording dot',async()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
@@ -302,8 +330,8 @@ test('V1.6.8 status label has no background and its dot replaces microphone-corn
  assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
  assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.9"/);
- assert.match(page, /href="\.\/theme\.css\?v=1\.6\.9"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.10"/);
+ assert.match(page, /href="\.\/theme\.css\?v=1\.6\.10"/);
  const h=await harness();
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
  assert.equal(h.elements.get('status-label').textContent,'検知中');
@@ -892,7 +920,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.9/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.10/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
