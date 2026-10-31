@@ -4,13 +4,24 @@ const canvas = document.getElementById('rolling-waveform');
 const list = document.getElementById('rolling-events');
 const heading = document.getElementById('rolling-heading');
 const foot = document.getElementById('rolling-note');
+const currentLabel = document.getElementById('rolling-current-label');
+const currentValue = document.getElementById('rolling-current-value');
 const canvasContext = canvas?.getContext('2d');
 const spanSeconds = 10;
 let levels = [], marks = [], currentTime = 0;
+const MIN_DISPLAY_MS = 2000;
+const REQUIRED_CONSECUTIVE_RESULTS = 2;
+let currentSound = null, candidateName = null, candidateCount = 0;
+let changedAtMs = -Infinity, hasAudio = false;
 const dictionary = {
   ja: ['直近10秒の音声', '赤色：AIが警告音と判定した窓。音声は保存しません。', '最近の警告なし'],
   en: ['Last 10 seconds', 'Red: AI-positive analysis windows. Audio is not saved.', 'No recent detections'],
   'zh-CN': ['最近10秒声音', '红色：AI判断含警告音的分析窗口。不保存音频。', '最近没有警告音']
+};
+const currentText = {
+  ja: ['現在のAI識別結果', '検知開始前', '解析中…'],
+  en: ['Current AI prediction', 'Not started', 'Analyzing…'],
+  'zh-CN': ['当前AI识别结果', '尚未开始检测', '分析中…']
 };
 function lang() { return dictionary[document.documentElement.lang] ?? dictionary.ja; }
 function announce() {
@@ -18,6 +29,8 @@ function announce() {
   heading.textContent = lang()[0];
   foot.textContent = lang()[1];
   canvas?.setAttribute('aria-label',lang()[0]);
+  recentEvents(); // Refresh Japanese/English/Chinese warning labels immediately.
+  renderCurrent();
 }
 function expire(t) {
   const cutoff = t - spanSeconds;
@@ -69,14 +82,49 @@ function draw() {
 function recentEvents() {
   if (!list) return;
   const visible = marks.filter(x => x.end >= currentTime - spanSeconds);
-  const message = visible.length ? visible.slice(-3).reverse().map(x => x.label).join(' · ') : lang()[2];
+  const message = visible.length ? visible.slice(-3).reverse().map(x => localized(x)).join(' · ') : lang()[2];
   if (list.textContent !== message) list.textContent = message; // Avoid needless 60fps DOM writes.
+}
+// Labels originate from the same model category and are pretranslated by app.js.
+// Unsupported Chinese categories intentionally fall back to their official English name.
+function localized(item) {
+  return item.labels?.[document.documentElement.lang] ?? item.label ?? item.categoryName ?? '';
+}
+function renderCurrent() {
+  const locale = document.documentElement.lang;
+  const words = currentText[locale] ?? currentText.ja;
+  if (currentLabel && currentLabel.textContent !== words[0]) currentLabel.textContent = words[0];
+  const value = currentSound ? localized(currentSound) : hasAudio ? words[2] : words[1];
+  if (currentValue && currentValue.textContent !== value) currentValue.textContent = value;
+  if (currentValue) currentValue.dataset.warning = currentSound?.warning ? 'true' : 'false';
+}
+function onClassification(event) {
+  const {categoryName,labels,timeMs,warningName,warningLabels} = event.detail ?? {};
+  if (typeof categoryName !== 'string' || !categoryName || !Number.isFinite(timeMs)) return;
+  if (typeof warningName === 'string' && warningName) {
+    // Safety-priority prediction bypasses confirmation and the normal 2s gate.
+    if (currentSound?.categoryName !== warningName || !currentSound.warning) {
+      currentSound = {categoryName:warningName,labels:warningLabels,warning:true};
+      changedAtMs = timeMs;
+    }
+    candidateName = null; candidateCount = 0;
+    renderCurrent();
+    return;
+  }
+  if (candidateName !== categoryName) { candidateName = categoryName; candidateCount = 1; }
+  else candidateCount++;
+  if (currentSound?.categoryName === categoryName && !currentSound.warning) return;
+  if (candidateCount < REQUIRED_CONSECUTIVE_RESULTS || timeMs - changedAtMs < MIN_DISPLAY_MS) return;
+  currentSound = {categoryName,labels,warning:false};
+  changedAtMs = timeMs;
+  renderCurrent();
 }
 function onVisual(event) {
   const {time,rms} = event.detail ?? {};
   if (!Number.isFinite(time) || !Number.isFinite(rms)) return;
   if (time < currentTime) { levels = []; marks = []; } // New AudioContext timebase.
   currentTime = time;
+  if (!hasAudio) { hasAudio = true; renderCurrent(); }
   levels.push({time,rms:Math.max(0,rms)});
   if (levels.length>720) levels.shift();
   expire(time);
@@ -89,7 +137,7 @@ function onWarning(event) {
   const name = String(label||'Warning').slice(0,64);
   const prev = marks[marks.length-1];
   if (prev && prev.label === name && start <= prev.end + .12) prev.end = Math.max(prev.end,end);
-  else marks.push({start,end,label:name});
+  else marks.push({start,end,label:name,labels:event.detail?.labels ?? null});
   if (marks.length > 80) marks.shift();
   expire(currentTime);
   draw();
@@ -97,11 +145,15 @@ function onWarning(event) {
 }
 function reset() {
   levels = []; marks = []; currentTime = 0;
-  draw(); recentEvents();
+  currentSound = null; candidateName = null; candidateCount = 0;
+  changedAtMs = -Infinity; hasAudio = false;
+  draw(); recentEvents(); renderCurrent();
 }
 if (canvasContext) {
   window.addEventListener('tsg:visual',onVisual);
   window.addEventListener('tsg:warning',onWarning);
+  window.addEventListener('tsg:classification',onClassification);
+  window.addEventListener('tsg:language',announce);
   window.addEventListener('tsg:reset',reset);
   new MutationObserver(announce).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   announce();reset();

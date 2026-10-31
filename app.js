@@ -1,7 +1,7 @@
 import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.0';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js?v=1.6.2';
-import { debugCategoryName } from './debug.js?v=1.6.0';
+import { debugCategoryName } from './debug.js?v=1.6.10';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -232,6 +232,12 @@ function initialLanguage() {
 let language = initialLanguage(); // Japanese by default; language preference only, never audio.
 let viewDescription = '';
 const t = text => language === 'en' ? (EN[text] ?? text) : language === 'zh-CN' ? (ZH[text] ?? text) : text;
+// Names are always translated from the same original YAMNet class ID.
+const localizedSoundNames = categoryName => categoryName ? {
+  ja: debugCategoryName({categoryName}, 'ja'),
+  en: debugCategoryName({categoryName}, 'en'),
+  'zh-CN': debugCategoryName({categoryName}, 'zh-CN')
+} : null;
 
 const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
@@ -547,6 +553,7 @@ function feedbackURL(value) {
 function setLanguage(next) {
   language = allowedLanguage(next);
   document.documentElement.lang = language;
+  window.dispatchEvent?.(new CustomEvent('tsg:language', { detail: { language } }));
   ui['language-select'].value = language;
   ui['settings-title'].textContent = t('設定');
   ui['settings-toggle'].setAttribute('aria-label', t('設定'));
@@ -788,7 +795,19 @@ function receiveResult(s, data) {
   // Use capture timestamps rather than delayed Worker response time.
   if (target && Number.isFinite(completedFrame?.endTime)) {
     window.dispatchEvent?.(new CustomEvent('tsg:warning', { detail: {
-      start: completedFrame.endTime - 0.975, end: completedFrame.endTime, label: target.name
+      start: completedFrame.endTime - 0.975, end: completedFrame.endTime, label: target.name,
+      labels: localizedSoundNames(target.name)
+    } }));
+  }
+  // One tiny read-only category snapshot per real inference. No PCM, new AI
+  // inference, storage, or Debug dependency. The UI alone handles 2s stability.
+  if (data.topCategory?.categoryName) {
+    window.dispatchEvent?.(new CustomEvent('tsg:classification', { detail: {
+      categoryName: data.topCategory.categoryName,
+      labels: localizedSoundNames(data.topCategory.categoryName),
+      timeMs: now,
+      warningName: target?.name ?? null,
+      warningLabels: target?.name ? localizedSoundNames(target.name) : null
     } }));
   }
   const state = s.gate.active ? 'warning' : 'listening';
@@ -923,7 +942,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.0', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.10', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {

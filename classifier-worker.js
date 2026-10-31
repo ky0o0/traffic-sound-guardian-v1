@@ -7,6 +7,7 @@ let selectTarget;
 let selectTrafficScores;
 let resample;
 let summarizeDebug;
+let selectTopCategory;
 self.onmessage = async ({ data }) => {
   let inferenceStarted;
   let inferenceMs = null;
@@ -14,12 +15,13 @@ self.onmessage = async ({ data }) => {
     if (data.type === 'init') {
       initializing ??= (async () => {
         const [{ AudioClassifier, FilesetResolver }, { bestTarget, targetScores }, { toModelAudio }, debug] = await Promise.all([
-          import('./audio_bundle.mjs'), import('./detection.js?v=1.5.4'), import('./resample.js'), import('./debug.js')
+          import('./audio_bundle.mjs'), import('./detection.js?v=1.5.4'), import('./resample.js'), import('./debug.js?v=1.6.10')
         ]);
         selectTarget = bestTarget;
         selectTrafficScores = targetScores;
         resample = toModelAudio;
         summarizeDebug = debug.summarizeDebug;
+        selectTopCategory = debug.topCategory;
         const files = await FilesetResolver.forAudioTasks(new URL('./', self.location.href).href.replace(/\/$/, ''));
         classifier = await AudioClassifier.createFromOptions(files, {
           baseOptions: { modelAssetPath: new URL('./yamnet.tflite', self.location.href).href },
@@ -40,6 +42,7 @@ self.onmessage = async ({ data }) => {
       // Send only real model results. No audio, history or scores are persisted.
       self.postMessage({ type: 'result', sequence: data.sequence, target: selectTarget(results), trafficScores: selectTrafficScores(results),
         inferenceMs, categoryCount: count, frameCount: results.length,
+        topCategory: selectTopCategory(results),
         debug: data.debug ? summarizeDebug(results) : undefined });
     }
   } catch (error) {
