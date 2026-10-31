@@ -4,17 +4,17 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { summarizeDebug, JAPANESE_LABELS, debugCategoryName, topCategory } from './debug.js';
-import { TARGETS, bestTarget, targetScores } from './detection.js';
+import { TARGETS, WARNING_TARGETS, bestTarget, targetScores } from './detection.js';
 const names=fs.readFileSync(new URL('./yamnet_class_map.csv',import.meta.url),'utf8').trim().split(/\r?\n/).slice(1).map(line=>{
  const value=line.slice(line.indexOf(',',line.indexOf(',')+1)+1);return value.startsWith('"')?JSON.parse(value):value;
 });
 function results(){return [{classifications:[{categories:names.map((categoryName,index)=>({categoryName,index,score:index===0?.931234567890123:index===1?.71:index===2?.69:index===3?.62:index===4?.51:index===198?.123456789012345:0}))}]}];}
 
-test('debug sorts all 521 categories into top five and includes six low or zero target scores',()=>{
+test('debug sorts all 521 categories into top five and includes all eleven alertable raw scores',()=>{
  const data=results();data[0].classifications[0].categories.reverse();
  const result=summarizeDebug(data);
  assert.deepEqual(result.top5.map(c=>c.index),[0,1,2,3,4]);
- assert.equal(result.targets.length,6);
+ assert.equal(result.targets.length,11);
  assert.equal(result.targets.find(c=>c.index===198).score,.123456789012345);
  assert.equal(result.targets.find(c=>c.index===302).score,0);
 });
@@ -60,7 +60,7 @@ test('worker reuses exactly one classify call with debug on or off and measures 
  const off=await h.send({type:'classify',sequence:1,samples:audio,sampleRate:16000,debug:false});
  const on=await h.send({type:'classify',sequence:2,samples:audio,sampleRate:16000,debug:true});
  assert.equal(h.calls(),2);assert.equal(off.debug,undefined);assert.deepEqual(on.target,off.target);
- assert.equal(on.debug.top5.length,5);assert.equal(on.debug.targets.length,6);
+ assert.equal(on.debug.top5.length,5);assert.equal(on.debug.targets.length,11);
  assert.ok(Math.abs(on.inferenceMs-12.3456789)<1e-9,'resampling time is excluded');
  assert.ok(!('samples' in on));assert.ok(!('audio' in on.debug));
 });
