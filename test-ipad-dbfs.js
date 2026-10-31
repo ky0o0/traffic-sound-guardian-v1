@@ -89,7 +89,7 @@ test('formal site stays in original symmetrical RMS waveform mode; only iPad opt
  const a=html('./ipad-test.html'),b=html('./index.html'),css=html('./ipad-test.css');
  assert.match(a,/live-timeline\.js\?v=1\.6\.14/);
  assert.match(b,/live-timeline\.js\?v=1\.6\.13/);
- assert.match(a,/ipad-test\.css\?v=3/);
+ assert.match(a,/ipad-test\.css\?v=4/);
  assert.match(css,/\.ipad-center \.rolling-panel\{/);
  assert.match(css,/height:clamp\(260px,40dvh,350px\)/);
  assert.match(css,/minmax\(110px,1fr\)/);
