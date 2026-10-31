@@ -279,14 +279,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.10 page, release assets and refreshed classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.10<\/title>/);
- assert.match(page, /class="version">V1\.6\.10<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.10"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.10"/);
- assert.match(source, /classifier-worker\.js\?v=1\.6\.10/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.10');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.10');
+test('V1.6.11 page, release assets and refreshed classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.11<\/title>/);
+ assert.match(page, /class="version">V1\.6\.11<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.11"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.11"/);
+ assert.match(source, /classifier-worker\.js\?v=1\.6\.11/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.11');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.11');
 });
 test('V1.6.10 real result emits trilingual top class independently of Debug and warns immediately',async()=>{
  const h=await harness();
@@ -330,8 +330,8 @@ test('V1.6.8 status label has no background and its dot replaces microphone-corn
  assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
  assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.10"/);
- assert.match(page, /href="\.\/theme\.css\?v=1\.6\.10"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.11"/);
+ assert.match(page, /href="\.\/theme\.css\?v=1\.6\.11"/);
  const h=await harness();
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
  assert.equal(h.elements.get('status-label').textContent,'検知中');
@@ -920,7 +920,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.10/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.11/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
