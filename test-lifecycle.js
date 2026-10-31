@@ -4,7 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { WarningGate, TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
+import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js';
@@ -59,7 +59,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
