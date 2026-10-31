@@ -159,10 +159,11 @@ test('real controller warning timer returns to listening one second after last q
 test('V1.6.9 rolling waveform samples at 60fps while legacy glow remains at 30fps',async()=>{
  const h=await harness();
  const visualEvents=()=>h.dispatched.filter(e=>e.type==='tsg:visual');
+ const initialGlowWrites=h.elements.get('visual').style.calls.filter(x=>x[0]==='--audio-level').length;
  for(const t of [0,16.7,33.4,50.1,66.8])h.animate(t);
  assert.equal(visualEvents().length,5,'60Hz display receives each frame, not every second frame');
  const glowWrites=h.elements.get('visual').style.calls.filter(x=>x[0]==='--audio-level');
- assert.equal(glowWrites.length,3,'older full PCM/glow visual remains 30fps');
+ assert.equal(glowWrites.length-initialGlowWrites,3,'older full PCM/glow visual remains 30fps');
  assert.ok(visualEvents().every(x=>Number.isFinite(x.detail.rms)),'only scalar RMS is emitted');
  assert.ok(visualEvents().every(x=>!('samples' in x.detail)),'no PCM in timeline event');
  assert.equal(h.workers.length,1,'no new classifier workers');
