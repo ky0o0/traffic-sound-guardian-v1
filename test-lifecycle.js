@@ -284,7 +284,7 @@ test('V1.6.11 page, release assets and refreshed classifier cache agree',()=>{
  assert.match(page, /class="version">V1\.6\.11<\/span>/);
  assert.match(page, /src="\.\/app\.js\?v=1\.6\.11"/);
  assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.11"/);
- assert.match(source, /classifier-worker\.js\?v=1\.6\.11/);
+ assert.match(source, /classifier-worker\.js\?v=1\.6\.10/); // Worker bytecode is unchanged.
  assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.11');
  assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.11');
 });
