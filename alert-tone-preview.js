@@ -1,4 +1,4 @@
-// iPad-only output test. No microphone, classifier, alarm state, or user data.
+// iPad-only output test. No microphone, AI inference, alarm state, or user data.
 // Matches the production two-beep pattern in app.js: 740 Hz sine, two 110 ms
 // beeps with an 85 ms gap, and 0.045 peak gain. No automatic audio playback.
 const button = document.getElementById('alert-preview-button');
