@@ -6,12 +6,12 @@ const file = path => fs.readFileSync(new URL(path,import.meta.url),'utf8');
 test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s visualization',()=>{
  const html=file('./index.html'),app=file('./app.js'),timeline=file('./live-timeline.js');
  assert.match(html,/id="rolling-waveform"/);
- assert.match(html,/live-timeline\.js\?v=1\.6\.8/);
+ assert.match(html,/live-timeline\.js\?v=1\.6\.9/);
  assert.match(app,/tsg:visual/);
  assert.match(app,/tsg:warning/);
  assert.match(app,/completedFrame\.endTime - 0\.975/);
  assert.match(timeline,/spanSeconds = 10/);
- assert.match(timeline,/levels\.length>450/);
+ assert.match(timeline,/levels\.length>720/);
  assert.doesNotMatch(timeline,/\bgetUserMedia\s*\(|\bnew\s+AudioContext\s*\(|\bMediaRecorder\s*\(|\bcreateObjectURL\s*\(|\bfetch\s*\(/i);
  assert.doesNotMatch(timeline,/localStorage|sessionStorage|indexedDB|sendBeacon/i);
 });
