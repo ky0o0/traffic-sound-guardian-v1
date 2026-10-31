@@ -200,3 +200,15 @@ body.ipad-test .ipad-left footer{margin-top:10px}
 }
 
 /* V3 original waveform restored; v5 avoids Safari keeping dBFS/percent chart styles. */
+
+// iPad-only output-only sound check; no microphone/AI activation.
+body.ipad-test .alert-preview{display:flex;flex-direction:column;align-items:center;width:100%;max-width:290px;gap:4px;margin:2px auto 4px;padding:0 4px;text-align:center}
+body.ipad-test #alert-preview-button{font:inherit;font-weight:650;font-size:13px;min-height:44px;width:100%;max-width:260px;padding:8px 12px;border:1px solid #74b8b9;border-radius:11px;background:#153d4b;color:#ecfdf9;cursor:pointer;touch-action:manipulation}
+body.ipad-test #alert-preview-button:disabled{opacity:.6;cursor:default}
+body.ipad-test #alert-preview-button:focus-visible{outline:3px solid #9cdfd1;outline-offset:2px}
+body.ipad-test #alert-preview-note{font-size:10px;line-height:1.4;margin:0;color:#b7cadc}
+body.ipad-test #alert-preview-status{font-size:11px;min-height:1.25em;line-height:1.25;color:#9cdbd8}
+html[data-theme=light] body.ipad-test #alert-preview-button{background:#e9f6f4;color:#16424c;border-color:#75aeb1}
+html[data-theme=light] body.ipad-test :is(#alert-preview-note,#alert-preview-status){color:#415e72}
+body.ipad-test[data-state=warning] #alert-preview-button{background:#641a31;border-color:#ffffffa0;color:#fff}
+body.ipad-test[data-state=warning] :is(#alert-preview-note,#alert-preview-status){color:#fff}
