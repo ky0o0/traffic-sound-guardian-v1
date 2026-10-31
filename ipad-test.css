@@ -18,7 +18,7 @@ body.ipad-test .ipad-right .sensitivity-line label{font-size:12px}
 body.ipad-test .ipad-right .sensitivity-line output{font-size:12px}
 body.ipad-test .ipad-right input[type=range]{height:36px;touch-action:pan-y}
 body.ipad-test .ipad-right .sensitivity-footer{margin-top:14px;gap:7px}
-body.ipad-test .ipad-right #threshold-reset{min-height:44px;flex:1}
+body.ipad-test .ipad-right #threshold-reset{min-height:44px;flex:1 0 100%;overflow-wrap:normal}
 html[data-theme=light] body.ipad-test .ipad-right .sensitivity{
   background:#fff;color:#193048;border-color:#cad8e3
 }
@@ -70,7 +70,7 @@ body.ipad-test .ipad-left footer{margin-top:10px}
   body.ipad-test .toolbar>.debug-switch{min-height:42px;font-size:11px;white-space:nowrap;gap:6px}
   body.ipad-test .settings-menu>summary{min-height:42px;min-width:43px;padding:7px 9px}
   body.ipad-test .settings-content{
-    width:min(380px,calc(100vw - 22px));
+    width:min(380px,calc(100vw - 22px - env(safe-area-inset-left) - env(safe-area-inset-right)));
     max-height:min(77dvh,650px);z-index:150;overflow-y:auto;
   }
   body.ipad-test .ipad-left,body.ipad-test .ipad-center,body.ipad-test .ipad-right{

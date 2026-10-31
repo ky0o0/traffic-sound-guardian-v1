@@ -1,4 +1,4 @@
-// Revert verification: the initial V3 waveform has no Y-axis, no dBFS or percentage labels.
+// Preserve the V3 symmetric waveform and gain curve, with reserved X-axis space.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -11,7 +11,7 @@ function init(){
  const events={},lines=[],texts=[],fills=[];
  const c={path:[],beginPath(){this.path=[];},moveTo(x,y){this.path.push([x,y]);},
    lineTo(x,y){this.path.push([x,y]);},stroke(){lines.push({color:this.strokeStyle,points:[...this.path]});},
-   setTransform(){},clearRect(){},fillRect(...xs){fills.push(xs);},fillText(t){texts.push(t);}};
+   save(){},restore(){},rect(){},clip(){},setTransform(){},clearRect(){},fillRect(...xs){fills.push(xs);},fillText(t){texts.push(t);}};
  const nodes={
   'rolling-waveform':{clientWidth:380,clientHeight:150,width:0,height:0,getContext(){return c;},setAttribute(){}},
   'rolling-events':{textContent:''},'rolling-heading':{textContent:''},'rolling-note':{textContent:''},
@@ -23,14 +23,14 @@ function init(){
  vm.runInNewContext(src,{document,window,MutationObserver:Observer,Math,Number,String});
  return {events,lines,texts,fills,nodes,document};
 }
-test('iPad V3 exactly reuses the production symmetric waveform without either experimental Y-axis',()=>{
+test('iPad and production retain the symmetric waveform without either experimental Y-axis',()=>{
  assert.doesNotMatch(src,/ipadDbfsMode|ipadPercentMode|drawIpadDbfs|drawIpadPercent|dbfsFromRms|visualAmplitude/);
- assert.match(src,/const center = h \* \.48;/);
- assert.match(src,/const amp = Math\.tanh\(Math\.pow\(p\.rms, 0\.65\) \* 11\.5\) \* h \* \.45;/);
+ assert.match(src,/const center = \(plotTop \+ plotBottom\) \/ 2;/);
+ assert.match(src,/const amp = Math\.tanh\(Math\.pow\(p\.rms, 0\.65\) \* 11\.5\) \* maxAmplitude;/);
  assert.match(src,/c\.moveTo\(x,center-amp\); c\.lineTo\(x,center\+amp\)/);
- assert.match(ipad,/live-timeline\.js\?v=1\.6\.16/);
- assert.match(main,/live-timeline\.js\?v=1\.6\.13/);
- assert.match(ipad,/ipad-test\.css\?v=5/);
+ assert.match(ipad,/live-timeline\.js\?v=1\.6\.17/);
+ assert.match(main,/live-timeline\.js\?v=1\.6\.17/);
+ assert.match(ipad,/ipad-test\.css\?v=6/);
  assert.match(ipad,/V1\.6\.13 · iPad TEST/);
  const css=read('./ipad-test.css');
  assert.match(css,/height:clamp\(205px,36dvh,315px\)/);
@@ -53,7 +53,7 @@ test('restored waveform draws the real symmetric amplitude with warning-only red
    assert.equal(sample.points.length,2);
    const [[x1,y1],[x2,y2]]=sample.points;
    assert.equal(x1,x2);
-   assert.ok(Math.abs((y1+y2)/2-72)<1e-8,'symmetric around original 48%-height baseline');
+   assert.ok(Math.abs((y1+y2)/2-66)<1e-8,'symmetric inside the plot above the time labels');
    assert.ok(y1>=0&&y2<=150,'peaks stay within the canvas');
  }
  a.document.documentElement.dataset.theme='dark';

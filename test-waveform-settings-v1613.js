@@ -10,7 +10,7 @@ test('warning intervals recolor waveform strokes only, never shade the full canv
  assert.doesNotMatch(src,/\.fillRect\(/,'no warning-window background rectangles');
  const events={}, strokes=[],rects=[];
  const ctx={
-   setTransform(){},clearRect(){},beginPath(){},moveTo(){},lineTo(){},
+   save(){},restore(){},rect(){},clip(){},setTransform(){},clearRect(){},beginPath(){},moveTo(){},lineTo(){},
    stroke(){strokes.push(this.strokeStyle);},fillRect(...args){rects.push(args);},fillText(){}
  };
  const canvas={width:0,height:0,clientWidth:340,clientHeight:104,getContext(){return ctx},setAttribute(){}};
@@ -47,7 +47,7 @@ test('main and iPad Settings put appearance next to language, keeping shared the
  for(const pageName of ['index.html','ipad-test.html']){
    const html=file('./'+pageName);
    assert.match(html,/theme\.js\?v=1\.6\.13/);
-   assert.match(html,/href="\.\/v1\.6\.css\?v=1\.6\.13"/);
+   assert.match(html,/href="\.\/v1\.6\.css\?v=1\.6\.14"/);
    assert.match(html,/id="settings-content"/);
    assert.match(html,/<div class="settings-group">\s*<div id="language-switch"/);
  }
