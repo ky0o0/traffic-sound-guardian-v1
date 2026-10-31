@@ -116,5 +116,13 @@ main #rolling-waveform{width:100%;height:104px}
 @media(max-height:740px){main .rolling-panel{margin:7px auto;padding:9px 11px}main #rolling-waveform{height:84px}.settings-content{max-height:70dvh}}
 
 /* V1.6.5: advanced audible-alert and threshold controls belong to model diagnostics. */
-.debug-content .alert-tone-setting{width:100%;margin:16px 0 8px;padding:10px 12px}
+.settings-content .alert-tone-setting{width:100%;margin:10px 0 14px;padding:10px 12px}
 .debug-content .sensitivity{margin-top:18px}
+
+/* V1.6.6: enlarge the central tap target, including warning and compact layouts. */
+.visual .icon-disc{width:132px;height:132px}
+.visual .mic-icon{width:48px;height:52px}
+.visual .loader{width:40px;height:40px}
+body[data-state=warning] .visual .icon-disc{width:136px;height:136px}
+body[data-state=warning] .visual .warning-icon{width:67px;height:67px}
+@media(max-height:740px){.visual .icon-disc{width:114px;height:114px}body[data-state=warning] .visual .icon-disc{width:116px;height:116px}}
