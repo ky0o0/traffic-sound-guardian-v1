@@ -146,3 +146,20 @@ body[data-state=listening] main .status-dot{background:#f43f5e;box-shadow:0 0 10
 body[data-state=warning] main .status-dot{background:#fff;box-shadow:none;animation:none}
 @keyframes tsg-status-pulse{0%,100%{opacity:1}50%{opacity:.45}}
 @media(prefers-reduced-motion:reduce){body[data-state=listening] main .status-dot{animation:none;opacity:1}}
+
+/* V1.6.12: two true same-origin page links in Settings; the active page
+   is highlighted, while the existing audio session is stopped by pagehide. */
+.settings-content .version-switch{margin:10px 0 12px;padding:10px 0 0;border-top:1px solid #47627b}
+.settings-content #version-switch-title{display:block;margin:0 0 7px;font-size:12px;font-weight:600;color:#cbdbe5}
+.settings-content .version-options{display:grid;grid-template-columns:1fr 1fr;gap:7px;min-width:0}
+.settings-content .version-options a{min-width:0;min-height:44px;padding:9px 7px;border-radius:11px;border:1px solid #617b94;color:#d4eee8;background:#ffffff08;text-decoration:none;text-align:center;font-size:12px;line-height:1.4;display:flex;align-items:center;justify-content:center;overflow-wrap:anywhere}
+.settings-content .version-options a[aria-current=page]{background:#235d5d;border-color:#9cdfd1;color:#fff;font-weight:700}
+.settings-content .version-options a:focus-visible{outline:3px solid #9cdfd1;outline-offset:2px}
+html[data-theme=light] .settings-content .version-switch{border-color:#d7e2eb}
+html[data-theme=light] .settings-content #version-switch-title{color:#52677d}
+html[data-theme=light] .settings-content .version-options a{color:#193048;background:#f5f8fb;border-color:#b8c9d9}
+html[data-theme=light] .settings-content .version-options a[aria-current=page]{background:#d4f1e9;color:#0d4a47;border-color:#147c79}
+body[data-state=warning] .settings-content .version-switch{border-color:#ffffff66}
+body[data-state=warning] .settings-content #version-switch-title{color:#fff}
+body[data-state=warning] .settings-content .version-options a{color:#fff;background:#ffffff12;border-color:#ffffff88}
+body[data-state=warning] .settings-content .version-options a[aria-current=page]{background:#ffffff30;border-color:#fff;color:#fff}

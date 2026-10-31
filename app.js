@@ -106,6 +106,9 @@ const EN = Object.freeze({
   "Safariで音声を開始するには、中央のマイクをタップしてください。": "Tap the microphone circle to enable audio in Safari.",
   "画面が非表示になったため停止しました。再開するには中央のマイクをタップしてください。": "Detection stopped because the page was hidden. Tap the microphone circle to resume.",
   "言語": "Language",
+  "表示バージョン": "Page layout",
+  "通常版": "Standard",
+  "iPad横画面（テスト）": "iPad landscape (test)",
   "音声は保存・送信されません": "Audio is not saved or transmitted",
   "研究用プロトタイプ · 安全を保証するものではありません": "Research prototype · Does not guarantee safety",
   "AIテストモード（オフライン研究） ↗": "AI Test Mode (offline research) ↗",
@@ -212,6 +215,9 @@ const ZH = Object.freeze({
   "Safariで音声を開始するには、中央のマイクをタップしてください。": "请点击中央麦克风按钮，在 Safari 中启动音频。",
   "画面が非表示になったため停止しました。再開するには中央のマイクをタップしてください。": "页面进入后台，检测已停止。点击中央麦克风可重新开始。",
   "言語": "语言",
+  "表示バージョン": "页面版本",
+  "通常版": "标准版",
+  "iPad横画面（テスト）": "iPad 横屏测试版",
   "音声は保存・送信されません": "音频不会被保存或上传",
   "研究用プロトタイプ · 安全を保証するものではありません": "研究原型 · 不保证安全",
   "AIテストモード（オフライン研究） ↗": "AI 测试模式（离线研究） ↗",
@@ -243,7 +249,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'mic-source-label', 'mic-source-value', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'version-switch-title', 'version-standard', 'version-ipad', 'mic-source-label', 'mic-source-value', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -563,6 +569,13 @@ function setLanguage(next) {
   ui['alert-tone-toggle'].setAttribute('aria-label', t('通知音を鳴らす'));
   ui['alert-tone-toggle'].checked = alertToneEnabled;
   ui['language-select'].setAttribute('aria-label', t('言語'));
+  // Both pages share the same controller and language preference. The
+  // selected page is marked in HTML; navigating stops capture via pagehide.
+  ui['version-switch-title'].textContent = t('表示バージョン');
+  ui['version-standard'].textContent = t('通常版');
+  ui['version-ipad'].textContent = t('iPad横画面（テスト）');
+  ui['version-standard'].setAttribute('href', './index.html?lang=' + language);
+  ui['version-ipad'].setAttribute('href', './ipad-test.html?lang=' + language);
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
   ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.6.0&lang=' + language);
   ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.6.0&lang=' + language);
