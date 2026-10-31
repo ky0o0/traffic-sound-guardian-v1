@@ -15,7 +15,7 @@ html[data-theme=light] :is(.language-switch select,.toolbar select){color:#172c4
 html[data-theme=light] :is(.language-switch::after){color:#24596a}
 html[data-theme=light] :is(input[type=text],input[type=number],textarea,select,#device-select){background:#fff;color:#15273d;border-color:#a8bdcd}
 html[data-theme=light] .theme-picker select{background:#edf3f8;color:#172c42;border-color:#b8c9d9}
-html[data-theme=light] :is(.debug-content .sensitivity,.status,.notice,.meter){background:#edf3f8;color:#24384f;border-color:#c6d5e3}
+html[data-theme=light] :is(.debug-content .sensitivity,.notice,.meter){background:#edf3f8;color:#24384f;border-color:#c6d5e3}
 html[data-theme=light] :is(.sensitivity #sensitivity-note,.sensitivity-footer span,.sensitivity-line label,.debug-content .sensitivity){color:#53677e}
 html[data-theme=light] .sensitivity-line output{color:#0c7165}
 html[data-theme=light] :is(.feedback,.toolbar a,footer a){color:#116d68}
@@ -25,7 +25,6 @@ html[data-theme=light] .version{border-color:#b6c9d8}
 html[data-theme=light] .debug-panel th{color:#52647b}
 html[data-theme=light] .panel .primary,html[data-theme=light] button.primary,html[data-theme=light] button[aria-selected=true]{background:#106d66;color:#fff;border-color:#106d66}
 html[data-theme=light] .meter-head strong{color:#176e67}
-html[data-theme=light] .icon-disc .listening-indicator{border-color:white}
 html[data-theme=light] .feedback[aria-disabled=true]{color:#71869a}
 /* Red warning remains highly visible and takes priority over the light theme. */
 html[data-theme=light] body[data-state=warning]{background:#c7263a!important;color:#fff}
