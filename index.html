@@ -10,19 +10,19 @@
   <meta name="apple-mobile-web-app-title" content="Sound Guardian">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <link rel="manifest" href="./manifest.webmanifest?v=1.6.5">
+  <link rel="manifest" href="./manifest.webmanifest?v=1.6.6">
   <link rel="stylesheet" href="./style.css?v=1.6.0">
   <link rel="stylesheet" href="./theme.css?v=1.6.0">
-  <link rel="stylesheet" href="./v1.6.css?v=1.6.5">
+  <link rel="stylesheet" href="./v1.6.css?v=1.6.6">
   <script src="./theme.js?v=1.6.0" defer></script>
-  <title>Traffic Sound Guardian V1.6.5</title>
+  <title>Traffic Sound Guardian V1.6.6</title>
 </head>
 <body data-state="stopped">
   <div class="app">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"/><path d="M10 17v3m4-9v14m4-11v8m4-5v3"/></svg></div>
       <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-      <span class="version">V1.6.5</span>
+      <span class="version">V1.6.6</span>
     </header>
 
     <div class="toolbar">
@@ -43,6 +43,13 @@
               </select>
             </div>
           </div>
+        <section class="alert-tone-setting" aria-labelledby="alert-tone-label">
+            <div class="alert-tone-line">
+              <label for="alert-tone-toggle" id="alert-tone-label">通知音を鳴らす</label>
+              <input id="alert-tone-toggle" type="checkbox" role="switch" aria-describedby="alert-tone-note" checked>
+            </div>
+            <p id="alert-tone-note">新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。</p>
+          </section>
           <nav class="settings-links" aria-label="補助メニュー">
             <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="false">ご意見・ご感想 ↗</a>
             <a id="ai-test-link" class="feedback" href="./ai-test.html?v=1.6.0">AIテストモード（オフライン研究） ↗</a>
@@ -112,13 +119,7 @@
         <h2 id="debug-target-heading"></h2>
         <table><thead><tr><th id="debug-target-name" scope="col"></th><th id="debug-target-score" scope="col"></th></tr></thead><tbody id="debug-target"></tbody></table>
 
-        <section class="alert-tone-setting" aria-labelledby="alert-tone-label">
-            <div class="alert-tone-line">
-              <label for="alert-tone-toggle" id="alert-tone-label">通知音を鳴らす</label>
-              <input id="alert-tone-toggle" type="checkbox" role="switch" aria-describedby="alert-tone-note" checked>
-            </div>
-            <p id="alert-tone-note">新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。</p>
-          </section>
+
         <section id="sensitivity-panel" class="sensitivity" aria-labelledby="sensitivity-heading">
           <h2 id="sensitivity-heading">交通警告音の感度設定</h2>
           <p id="sensitivity-note">1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。</p>
@@ -154,7 +155,7 @@
       </div>
     </details>
   </section>
-  <script type="module" src="./live-timeline.js?v=1.6.5"></script>
-  <script type="module" src="./app.js?v=1.6.5"></script>
+  <script type="module" src="./live-timeline.js?v=1.6.6"></script>
+  <script type="module" src="./app.js?v=1.6.6"></script>
 </body>
 </html>
