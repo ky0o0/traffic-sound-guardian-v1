@@ -14,7 +14,7 @@ self.onmessage = async ({ data }) => {
     if (data.type === 'init') {
       initializing ??= (async () => {
         const [{ AudioClassifier, FilesetResolver }, { bestTarget, targetScores }, { toModelAudio }, debug] = await Promise.all([
-          import('./audio_bundle.mjs'), import('./detection.js?v=1.5.4'), import('./resample.js'), import('./debug.js')
+          import('./audio_bundle.mjs'), import('./detection.js?v=1.5.4'), import('./resample.js'), import('./debug.js?v=1.7.0')
         ]);
         selectTarget = bestTarget;
         selectTrafficScores = targetScores;
@@ -40,6 +40,7 @@ self.onmessage = async ({ data }) => {
       // Send only real model results. No audio, history or scores are persisted.
       self.postMessage({ type: 'result', sequence: data.sequence, target: selectTarget(results), trafficScores: selectTrafficScores(results),
         inferenceMs, categoryCount: count, frameCount: results.length,
+        topCategory: debug.topCategory(results),
         debug: data.debug ? summarizeDebug(results) : undefined });
     }
   } catch (error) {
