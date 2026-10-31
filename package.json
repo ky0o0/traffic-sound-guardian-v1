@@ -1,6 +1,6 @@
 {
   "name": "traffic-sound-guardian-v1",
-  "version": "1.6.10",
+  "version": "1.6.11",
   "private": true,
   "type": "module",
   "scripts": {
