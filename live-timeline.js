@@ -9,10 +9,10 @@ const currentValue = document.getElementById('rolling-current-value');
 const canvasContext = canvas?.getContext('2d');
 const spanSeconds = 10;
 let levels = [], marks = [], currentTime = 0;
-const MIN_DISPLAY_MS = 2000;
-const REQUIRED_CONSECUTIVE_RESULTS = 2;
-let currentSound = null, candidateName = null, candidateCount = 0;
-let changedAtMs = -Infinity, hasAudio = false;
+// Ordinary top-category text is refreshed at most once every 2s from real
+// inference results. Traffic warnings always bypass this visual-only interval.
+const NORMAL_UPDATE_MS = 2000;
+let currentSound = null, changedAtMs = -Infinity, hasAudio = false;
 const dictionary = {
   ja: ['直近10秒の音声', '赤色：AIが警告音と判定した窓。音声は保存しません。', '最近の警告なし'],
   en: ['Last 10 seconds', 'Red: AI-positive analysis windows. Audio is not saved.', 'No recent detections'],
@@ -102,21 +102,21 @@ function onClassification(event) {
   const {categoryName,labels,timeMs,warningName,warningLabels} = event.detail ?? {};
   if (typeof categoryName !== 'string' || !categoryName || !Number.isFinite(timeMs)) return;
   if (typeof warningName === 'string' && warningName) {
-    // Safety-priority prediction bypasses confirmation and the normal 2s gate.
+    // Every valid traffic-warning prediction is displayed immediately, even
+    // inside an ordinary 2-second slot. Preserve warning priority.
     if (currentSound?.categoryName !== warningName || !currentSound.warning) {
       currentSound = {categoryName:warningName,labels:warningLabels,warning:true};
       changedAtMs = timeMs;
     }
-    candidateName = null; candidateCount = 0;
     renderCurrent();
     return;
   }
-  if (candidateName !== categoryName) { candidateName = categoryName; candidateCount = 1; }
-  else candidateCount++;
-  if (currentSound?.categoryName === categoryName && !currentSound.warning) return;
-  if (candidateCount < REQUIRED_CONSECUTIVE_RESULTS || timeMs - changedAtMs < MIN_DISPLAY_MS) return;
+  // First genuine prediction appears without delay. Thereafter take the most
+  // recent top category from the first real inference at/after each 2s boundary.
+  // No consecutive-identical-result gate and no extra model inference/timer.
+  if (timeMs - changedAtMs < NORMAL_UPDATE_MS) return;
   currentSound = {categoryName,labels,warning:false};
-  changedAtMs = timeMs;
+  changedAtMs = timeMs; // Advance the interval even when the category is unchanged.
   renderCurrent();
 }
 function onVisual(event) {
@@ -145,8 +145,7 @@ function onWarning(event) {
 }
 function reset() {
   levels = []; marks = []; currentTime = 0;
-  currentSound = null; candidateName = null; candidateCount = 0;
-  changedAtMs = -Infinity; hasAudio = false;
+  currentSound = null; changedAtMs = -Infinity; hasAudio = false;
   draw(); recentEvents(); renderCurrent();
 }
 if (canvasContext) {
