@@ -264,14 +264,35 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.7 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.7<\/title>/);
- assert.match(page, /class="version">V1\.6\.7<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.7"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.7"/);
+test('V1.6.8 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.8<\/title>/);
+ assert.match(page, /class="version">V1\.6\.8<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.8"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.8"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.7');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.7');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.8');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.8');
+});
+test('V1.6.8 status label has no background and its dot replaces microphone-corner recording dot',async()=>{
+ const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
+ const base=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
+ const theme=fs.readFileSync(new URL('./theme.css',import.meta.url),'utf8');
+ assert.match(page, /id="status" class="status"><span class="status-dot"><\/span><span id="status-label"/);
+ assert.ok(!page.includes('listening-indicator'),'microphone button no longer contains a decorative red dot');
+ assert.doesNotMatch(base,/\.listening-indicator|@keyframes listening-blink/);
+ assert.doesNotMatch(theme,/\.icon-disc \.listening-indicator/);
+ assert.doesNotMatch(theme,/\.debug-content \.sensitivity,\.status,\.notice,\.meter/,'light mode status must not inherit a colored box');
+ assert.match(css,/main \.status\{background:transparent;border:0;box-shadow:none;padding:0;border-radius:0\}/);
+ assert.match(css,/html\[data-theme=light\] main \.status\{background:transparent;border:0;box-shadow:none;color:#53677e\}/);
+ assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
+ assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
+ assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.8"/);
+ assert.match(page, /href="\.\/theme\.css\?v=1\.6\.8"/);
+ const h=await harness();
+ h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
+ assert.equal(h.elements.get('status-label').textContent,'検知中');
+ h.stop();assert.equal(h.document.body.dataset.state,'stopped');
 });
 test('V1.6.7 new page load starts at top, back-forward cache preserves scroll and normal scrolling remains untouched',()=>{
  const head=page.slice(0,page.indexOf('</head>'));
@@ -856,7 +877,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.7/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.8/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');

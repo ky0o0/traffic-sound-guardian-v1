@@ -126,3 +126,13 @@ main #rolling-waveform{width:100%;height:104px}
 body[data-state=warning] .visual .icon-disc{width:136px;height:136px}
 body[data-state=warning] .visual .warning-icon{width:67px;height:67px}
 @media(max-height:740px){.visual .icon-disc{width:114px;height:114px}body[data-state=warning] .visual .icon-disc{width:116px;height:116px}}
+
+/* V1.6.8: clean status text (no pill/card background), with the only active
+   red indicator placed next to 検知中 instead of on the microphone circle. */
+main .status{background:transparent;border:0;box-shadow:none;padding:0;border-radius:0}
+html[data-theme=light] main .status{background:transparent;border:0;box-shadow:none;color:#53677e}
+main .status-dot{width:10px;height:10px;flex:none;border-radius:50%;background:#8495aa;box-shadow:none}
+body[data-state=listening] main .status-dot{background:#f43f5e;box-shadow:0 0 10px #f43f5e88;animation:tsg-status-pulse 1.45s ease-in-out infinite}
+body[data-state=warning] main .status-dot{background:#fff;box-shadow:none;animation:none}
+@keyframes tsg-status-pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@media(prefers-reduced-motion:reduce){body[data-state=listening] main .status-dot{animation:none;opacity:1}}
