@@ -69,7 +69,8 @@ function draw() {
 function recentEvents() {
   if (!list) return;
   const visible = marks.filter(x => x.end >= currentTime - spanSeconds);
-  list.textContent = visible.length ? visible.slice(-3).reverse().map(x => x.label).join(' · ') : lang()[2];
+  const message = visible.length ? visible.slice(-3).reverse().map(x => x.label).join(' · ') : lang()[2];
+  if (list.textContent !== message) list.textContent = message; // Avoid needless 60fps DOM writes.
 }
 function onVisual(event) {
   const {time,rms} = event.detail ?? {};
@@ -77,7 +78,7 @@ function onVisual(event) {
   if (time < currentTime) { levels = []; marks = []; } // New AudioContext timebase.
   currentTime = time;
   levels.push({time,rms:Math.max(0,rms)});
-  if (levels.length>450) levels.shift();
+  if (levels.length>720) levels.shift();
   expire(time);
   draw();
   recentEvents();

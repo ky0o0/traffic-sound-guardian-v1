@@ -21,12 +21,12 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
    append(...nodes){for(const node of nodes)this.children.push(...(node.fragment ? node.children : [node]));},
    replaceChildren(...nodes){this.children=[];this.append(...nodes);},
    scrolls:[],scrollIntoView(options){this.scrolls.push(options);},
-   style:{values:{},setProperty(key,value){this.values[key]=value;}},
+   style:{values:{},calls:[],setProperty(key,value){this.values[key]=value;this.calls.push([key,value]);}},
    setAttribute(key,value){this.attributes[key]=value;},removeAttribute(key){delete this.attributes[key];},
    getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
   return elements.get(id);
  };
- const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],gains=[],oscillators=[],timers=new Map(),frames=new Map(),events={},storageWrites=[];
+ const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],gains=[],oscillators=[],timers=new Map(),frames=new Map(),events={},dispatched=[],storageWrites=[];
  let now=0,nextTimer=0,micCalls=0,resolveMic,denied=deny;
  const makeStream=()=>{
   const track={readyState:'live',muted:false,label:trackLabel,reportedDeviceId:deviceId,
@@ -59,12 +59,12 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   performance:{now:()=>now},document,Worker:ModelWorker,...(worklet?{AudioWorkletNode:WorkletNode}:{}),
-  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(k){return k==='trafficSoundGuardian.bicycleBellThreshold' ? storedThreshold : (k==='trafficSoundGuardian.soundThresholds' ? storedSettings : (k==='trafficSoundGuardian.alertToneEnabled' ? storedAlert : null));},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;}},
+  window:{isSecureContext:true,AudioContext:Context,localStorage:{getItem(k){return k==='trafficSoundGuardian.bicycleBellThreshold' ? storedThreshold : (k==='trafficSoundGuardian.soundThresholds' ? storedSettings : (k==='trafficSoundGuardian.alertToneEnabled' ? storedAlert : null));},setItem(k,v){storageWrites.push([k,v]);}},addEventListener(name,fn){events[name]=fn;},dispatchEvent(event){dispatched.push(event);return true;}},
   navigator:{mediaDevices:{
     enumerateDevices(){if(enumerationFails)return Promise.reject(new Error('unsupported'));return Promise.resolve(devices);},
     addEventListener(name,fn){events['media-'+name]=fn;},
@@ -80,7 +80,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  // The test harness simulates the user's tap; production never starts itself.
  if(autoStart)element('mic-control').click();
  await flush();await flush();
- return {document,elements,tracks,workers,contexts,nodes,sources,analysers,gains,oscillators,drawing,frames,timers,events,context,storageWrites,
+ return {document,elements,tracks,workers,contexts,nodes,sources,analysers,gains,oscillators,drawing,frames,timers,events,dispatched,context,storageWrites,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
   language:lang=>{const picker=element('language-select');picker.value=lang;picker.change();},
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
@@ -156,6 +156,21 @@ test('real controller warning timer returns to listening one second after last q
 });
 
 // V1.1 regressions. Controlled PCM/device fixtures only; not loaded by the website.
+test('V1.6.9 rolling waveform samples at 60fps while legacy glow remains at 30fps',async()=>{
+ const h=await harness();
+ const visualEvents=()=>h.dispatched.filter(e=>e.type==='tsg:visual');
+ const initialGlowWrites=h.elements.get('visual').style.calls.filter(x=>x[0]==='--audio-level').length;
+ for(const t of [0,16.7,33.4,50.1,66.8])h.animate(t);
+ assert.equal(visualEvents().length,5,'60Hz display receives each frame, not every second frame');
+ const glowWrites=h.elements.get('visual').style.calls.filter(x=>x[0]==='--audio-level');
+ assert.equal(glowWrites.length-initialGlowWrites,3,'older full PCM/glow visual remains 30fps');
+ assert.ok(visualEvents().every(x=>Number.isFinite(x.detail.rms)),'only scalar RMS is emitted');
+ assert.ok(visualEvents().every(x=>!('samples' in x.detail)),'no PCM in timeline event');
+ assert.equal(h.workers.length,1,'no new classifier workers');
+ h.frame(1);assert.equal(h.workers[0].sent.at(-1).samples.length,46800);
+ h.stop();
+ assert.equal(h.frames.size,0,'stop cancels visual frame request');
+});
 test('visualizer observes the original source without changing the AI capture route',async()=>{
  const h=await harness();
  assert.equal(h.sources.length,1);assert.equal(h.analysers.length,1);
@@ -264,14 +279,14 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.8 page, release assets and unchanged classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.8<\/title>/);
- assert.match(page, /class="version">V1\.6\.8<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.8"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.8"/);
+test('V1.6.9 page, release assets and unchanged classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.9<\/title>/);
+ assert.match(page, /class="version">V1\.6\.9<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.9"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.9"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.8');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.8');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.9');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.9');
 });
 test('V1.6.8 status label has no background and its dot replaces microphone-corner recording dot',async()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
@@ -287,8 +302,8 @@ test('V1.6.8 status label has no background and its dot replaces microphone-corn
  assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
  assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.8"/);
- assert.match(page, /href="\.\/theme\.css\?v=1\.6\.8"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.9"/);
+ assert.match(page, /href="\.\/theme\.css\?v=1\.6\.9"/);
  const h=await harness();
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
  assert.equal(h.elements.get('status-label').textContent,'検知中');
@@ -877,7 +892,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.8/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.9/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
