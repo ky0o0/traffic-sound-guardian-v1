@@ -279,14 +279,56 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.11 page, release assets and refreshed classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.11<\/title>/);
- assert.match(page, /class="version">V1\.6\.11<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.11"/);
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.11"/);
+test('V1.6.12 page, release assets and refreshed classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.12<\/title>/);
+ assert.match(page, /class="version">V1\.6\.12<\/span>/);
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.12"/);
+ assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.12"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.10/); // Worker bytecode is unchanged.
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.11');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.11');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.12');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.12');
+});
+test('V1.6.12 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
+ const main=page;
+ const ipad=fs.readFileSync(new URL('./ipad-test.html',import.meta.url),'utf8');
+ for(const [html,selected,other] of [[main,'version-standard','version-ipad'],[ipad,'version-ipad','version-standard']]){
+   const start=html.indexOf('id="settings-content"'),end=html.indexOf('</details>',start);
+   assert.ok(start>0&&end>start,'Settings exists');
+   const menu=html.slice(start,end);
+   for(const id of ['version-switch-title','version-standard','version-ipad'])
+     assert.equal((html.match(new RegExp('id="'+id+'"','g'))||[]).length,1,id+' appears once');
+   assert.ok(menu.includes('id="version-standard" href="./index.html"'));
+   assert.ok(menu.includes('id="version-ipad" href="./ipad-test.html"'));
+   assert.ok(menu.includes('id="'+selected+'" href='));
+   const selectedLink=menu.match(new RegExp('<a id="'+selected+'"[^>]*>'))?.[0]||'';
+   const otherLink=menu.match(new RegExp('<a id="'+other+'"[^>]*>'))?.[0]||'';
+   assert.match(selectedLink,/aria-current="page"/);
+   assert.doesNotMatch(otherLink,/aria-current="page"/);
+ }
+ const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
+ assert.match(css,/\.version-options a\[aria-current=page\]/);
+ assert.match(css,/\.version-options a:focus-visible/);
+ const h=await harness({autoStart:false});
+ assert.equal(h.calls(),0,'navigation is passive and does not use microphone');
+ const regular=h.elements.get('version-standard'),ipadLink=h.elements.get('version-ipad');
+ assert.equal(regular.textContent,'通常版');
+ assert.equal(ipadLink.textContent,'iPad横画面（テスト）');
+ assert.equal(regular.attributes.href,'./index.html?lang=ja');
+ assert.equal(ipadLink.attributes.href,'./ipad-test.html?lang=ja');
+ h.language('en');
+ assert.equal(h.elements.get('version-switch-title').textContent,'Page layout');
+ assert.equal(regular.textContent,'Standard');
+ assert.equal(ipadLink.textContent,'iPad landscape (test)');
+ assert.equal(regular.attributes.href,'./index.html?lang=en');
+ assert.equal(ipadLink.attributes.href,'./ipad-test.html?lang=en');
+ h.language('zh-CN');
+ assert.equal(h.elements.get('version-switch-title').textContent,'页面版本');
+ assert.equal(regular.textContent,'标准版');
+ assert.equal(ipadLink.textContent,'iPad 横屏测试版');
+ assert.equal(regular.attributes.href,'./index.html?lang=zh-CN');
+ assert.equal(ipadLink.attributes.href,'./ipad-test.html?lang=zh-CN');
+ assert.equal(h.calls(),0,'language and version selection never start audio');
+ h.stop();
 });
 test('V1.6.10 real result emits trilingual top class independently of Debug and warns immediately',async()=>{
  const h=await harness();
@@ -330,8 +372,8 @@ test('V1.6.8 status label has no background and its dot replaces microphone-corn
  assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
  assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.11"/);
- assert.match(page, /href="\.\/theme\.css\?v=1\.6\.11"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.12"/);
+ assert.match(page, /href="\.\/theme\.css\?v=1\.6\.12"/);
  const h=await harness();
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
  assert.equal(h.elements.get('status-label').textContent,'検知中');
@@ -920,7 +962,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.11/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.12/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
