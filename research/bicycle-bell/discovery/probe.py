@@ -1,5 +1,5 @@
 """Bounded source discovery; results are candidates, never automatic truth labels."""
-import urllib.request,urllib.parse,json,pathlib,concurrent.futures
+import urllib.request,urllib.parse,json,pathlib,concurrent.futures,re,html
 out=pathlib.Path('bell-discovery');out.mkdir(exist_ok=True)
 queries={
  'commons_bicycle_bell':'https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(dict(action='query',format='json',generator='search',gsrsearch='bicycle bell filetype:audio',gsrnamespace=6,gsrlimit=50,prop='imageinfo',iiprop='url|extmetadata')),
@@ -12,7 +12,11 @@ def probe(kv):
  try:
   req=urllib.request.Request(url,headers={'User-Agent':'TrafficSoundGuardianResearch/2 (https://github.com/ky0o0/traffic-sound-guardian-v1; license metadata audit)'})
   with urllib.request.urlopen(req,timeout=30) as r:data=r.read(2000000);status=r.status
-  (out/(name+'.response')).write_bytes(data)
+  if name=='freesound_search':
+   body=data.decode()
+   links=sorted(set(re.findall(r'/people/([^/\" ]+)/sounds/(\d+)/',body)))
+   (out/'freesound-candidate-links.json').write_text(json.dumps(links,indent=2))
+  else:(out/(name+'.response')).write_bytes(data)
   return {'source':name,'url':url,'http_status':status,'bytes':len(data),'note':'Metadata candidates require license, overlap and audio label review before any test use.'}
  except Exception as err:return {'source':name,'url':url,'error':str(err)}
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:results=list(pool.map(probe,queries.items()))
