@@ -36,4 +36,4 @@ python research/bicycle-bell/infer.py bell-results /path/to/real-recording.wav
 
 Actions artifact 包含实际执行产生的头模型 `.tflite` / `.keras` / `.npz`、冻结特征模型、协议、manifest、测试指标、混淆矩阵、错误分析、依赖版本和校验和。特征缓存和原录音不打包。模型头依赖所记录的 YAMNet 特征接口，不是可直接覆盖原站 `yamnet.tflite` 的文件。
 
-实验报告将在真实训练和一次锁定测试结束后补充；预检成功不等于训练成功，也不能证明实际交通安全保护能力。
+实际训练及一次锁定测试已完成，详见 [中文实验报告](EXPERIMENT-REPORT.zh-CN.md)。测试集 216 段：原版 Recall 87.80%、Precision 70.59%、F1 78.26%；训练头 Recall 63.41%、Precision 83.87%、F1 72.22%。误报 15→5，漏报 5→15，**综合优化目标未达成，不建议部署**。模型和真实结果已保存在 `results/20261102-v1`；运行 `python research/bicycle-bell/verify_results.py` 可独立核验校验和、数据隔离和 CSV 指标。

@@ -1,0 +1,73 @@
+{
+  "checksummed_artifacts": 20,
+  "recordings": 935,
+  "disjoint_keys_verified": [
+    "group",
+    "sha256",
+    "pcm_group",
+    "uploader"
+  ],
+  "test_clips_recomputed": 216,
+  "test_windows_exact_site_rule_rechecked": 6917,
+  "confusion_matrices_recomputed": {
+    "trained_selected": [
+      [
+        170,
+        5
+      ],
+      [
+        15,
+        26
+      ]
+    ],
+    "trained_same_480ms_hop": [
+      [
+        171,
+        4
+      ],
+      [
+        17,
+        24
+      ]
+    ],
+    "v1615_bicycle_raw_0.10": [
+      [
+        160,
+        15
+      ],
+      [
+        5,
+        36
+      ]
+    ],
+    "v1615_displayed_bicycle_exact_rule": [
+      [
+        160,
+        15
+      ],
+      [
+        5,
+        36
+      ]
+    ],
+    "v1615_any_of_11_warning_classes": [
+      [
+        109,
+        66
+      ],
+      [
+        1,
+        40
+      ]
+    ]
+  },
+  "original_yamnet_unchanged": true,
+  "local_saved_model_smoke": {
+    "scope": "Local saved-model loading/numerical smoke only; not an additional benchmark",
+    "real_audio": "ESC-50 1-17124-A-43.wav (car_horn)",
+    "original_encoder_max_abs_error": 0.0,
+    "head_tflite_score": 2.0239473087713122e-05,
+    "head_numpy_score": 2.023947126872372e-05,
+    "head_max_abs_error": 1.8189894035458565e-12
+  }
+}
