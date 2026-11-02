@@ -1,0 +1,9 @@
+{
+  "target_achieved": false,
+  "fresh_final_test_executed": false,
+  "sealed_positive_recordings": 5,
+  "validation_clips": 179,
+  "validation_positive": 28,
+  "reason": "New sources remain weakly labelled, with no independent listening/event annotation. Small reserved cohort and no reserved negative cohort do not support final verification. Validation tuning is not a final test.",
+  "actual_source_commit": "9917f4a4d664a304f317c17d8cb0e8babc945cfc"
+}
