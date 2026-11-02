@@ -1,0 +1,39 @@
+/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/tensorflow/lite/python/interpreter.py:457: UserWarning:     Warning: tf.lite.Interpreter is deprecated and is scheduled for deletion in
+    TF 2.20. Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+FEATURES 1 / 222 windows 15
+FEATURES 51 / 222 windows 1093
+FEATURES 101 / 222 windows 2330
+FEATURES 151 / 222 windows 4101
+FEATURES 201 / 222 windows 6625
+TRAINED linear_recall_l2_0.001 epochs 28 best val AP 0.8657035520413439 best feasible True
+TRAINED mlp64_recall_l2_0.001 epochs 28 best val AP 0.885074234888718 best feasible True
+Saved artifact at '/tmp/tmpmm8qzpp_'. The following endpoints are available:
+
+* Endpoint 'serve'
+  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 1024), dtype=tf.float32, name='keras_tensor_4')
+Output Type:
+  TensorSpec(shape=(None, 1), dtype=tf.float32, name=None)
+Captures:
+  139666579290832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  139666579291984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793622843.378499    2207 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1793622843.378517    2207 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+I0000 00:00:1793622843.379826    2207 mlir_graph_optimization_pass.cc:437] MLIR V1 optimization pass is not enabled
+VALIDATION {"threshold": 0.26171875, "feasible": true, "tp": 23, "fp": 5, "fn": 1, "tn": 146, "precision": 0.8214285714285714, "recall": 0.9583333333333334, "f1": 0.8846153846153846, "fpr": 0.033112582781456956, "confusion_matrix": [[146, 5], [1, 23]], "model": "yamnet_bicycle_threshold", "fnr": 0.04166666666666663, "scope": "development validation only"}
+VALIDATION {"threshold": 0.95703125, "feasible": true, "tp": 8, "fp": 7, "fn": 16, "tn": 144, "precision": 0.5333333333333333, "recall": 0.3333333333333333, "f1": 0.41025641025641024, "fpr": 0.046357615894039736, "confusion_matrix": [[144, 7], [16, 8]], "model": "bicycle_or_bell", "fnr": 0.6666666666666667, "scope": "development validation only"}
+VALIDATION {"threshold": 0.984375, "feasible": true, "tp": 5, "fp": 5, "fn": 19, "tn": 146, "precision": 0.5, "recall": 0.20833333333333334, "f1": 0.29411764705882354, "fpr": 0.033112582781456956, "confusion_matrix": [[146, 5], [19, 5]], "model": "five_bell_classes", "fnr": 0.7916666666666666, "scope": "development validation only"}
+VALIDATION {"threshold": 0.6307253241539001, "feasible": true, "tp": 21, "fp": 4, "fn": 3, "tn": 147, "precision": 0.84, "recall": 0.875, "f1": 0.8571428571428571, "fpr": 0.026490066225165563, "confusion_matrix": [[147, 4], [3, 21]], "model": "saved_v1_head_rethreshold", "fnr": 0.125, "scope": "development validation only"}
+VALIDATION {"model": "saved_v1_head_original_threshold", "threshold": 0.7501617074012756, "tp": 19, "fp": 2, "fn": 5, "tn": 149, "precision": 0.9047619047619048, "recall": 0.7916666666666666, "f1": 0.8444444444444444, "fpr": 0.013245033112582781, "confusion_matrix": [[149, 2], [5, 19]], "fnr": 0.20833333333333337, "scope": "development validation only"}
+VALIDATION {"threshold": 0.2570781564974229, "feasible": true, "tp": 23, "fp": 5, "fn": 1, "tn": 146, "precision": 0.8214285714285714, "recall": 0.9583333333333334, "f1": 0.8846153846153846, "fpr": 0.033112582781456956, "confusion_matrix": [[146, 5], [1, 23]], "model": "score_logistic_C0.1", "fnr": 0.04166666666666663, "scope": "development validation only"}
+VALIDATION {"threshold": 0.22855187528620174, "feasible": true, "tp": 23, "fp": 7, "fn": 1, "tn": 144, "precision": 0.7666666666666667, "recall": 0.9583333333333334, "f1": 0.8518518518518519, "fpr": 0.046357615894039736, "confusion_matrix": [[144, 7], [1, 23]], "model": "score_logistic_C1.0", "fnr": 0.04166666666666663, "scope": "development validation only"}
+VALIDATION {"threshold": 0.22354475406123506, "feasible": true, "tp": 23, "fp": 7, "fn": 1, "tn": 144, "precision": 0.7666666666666667, "recall": 0.9583333333333334, "f1": 0.8518518518518519, "fpr": 0.046357615894039736, "confusion_matrix": [[144, 7], [1, 23]], "model": "score_logistic_C10.0", "fnr": 0.04166666666666663, "scope": "development validation only"}
+VALIDATION {"threshold": 0.728467583656311, "feasible": true, "tp": 22, "fp": 5, "fn": 2, "tn": 146, "precision": 0.8148148148148148, "recall": 0.9166666666666666, "f1": 0.8627450980392157, "fpr": 0.033112582781456956, "confusion_matrix": [[146, 5], [2, 22]], "model": "new_mil_head", "fnr": 0.08333333333333337, "scope": "development validation only"}
+VALIDATION {"threshold": 0.6293585300445557, "feasible": true, "tp": 22, "fp": 4, "fn": 2, "tn": 147, "precision": 0.8461538461538461, "recall": 0.9166666666666666, "f1": 0.88, "fpr": 0.026490066225165563, "confusion_matrix": [[147, 4], [2, 22]], "model": "yamnet_mil_fusion_0.25", "fnr": 0.08333333333333337, "scope": "development validation only"}
+VALIDATION {"threshold": 0.425744891166687, "feasible": true, "tp": 23, "fp": 7, "fn": 1, "tn": 144, "precision": 0.7666666666666667, "recall": 0.9583333333333334, "f1": 0.8518518518518519, "fpr": 0.046357615894039736, "confusion_matrix": [[144, 7], [1, 23]], "model": "yamnet_mil_fusion_0.5", "fnr": 0.04166666666666663, "scope": "development validation only"}
+VALIDATION {"threshold": 0.3437318205833435, "feasible": true, "tp": 23, "fp": 4, "fn": 1, "tn": 147, "precision": 0.8518518518518519, "recall": 0.9583333333333334, "f1": 0.9019607843137255, "fpr": 0.026490066225165563, "confusion_matrix": [[147, 4], [1, 23]], "model": "yamnet_mil_fusion_0.75", "fnr": 0.04166666666666663, "scope": "development validation only"}

@@ -1,0 +1,4115 @@
+[
+  {
+    "id": "251070",
+    "original_split": "dev",
+    "labels": [
+      "Acoustic_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "E3(v1).flac",
+    "uploader": "Project16",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/251070/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/251070.wav",
+    "split": "train"
+  },
+  {
+    "id": "167265",
+    "original_split": "dev",
+    "labels": [
+      "Writing",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Writing",
+    "uploader": "Hornetan1",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/167265/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/167265.wav",
+    "split": "train"
+  },
+  {
+    "id": "405054",
+    "original_split": "dev",
+    "labels": [
+      "Chicken_and_rooster",
+      "Fowl",
+      "Livestock_and_farm_animals_and_working_animals",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "small town early morning city haze distant rooster nearby bird chirp nice echo short Saravena, Colombia 2016.flac",
+    "uploader": "kyles",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/405054/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/405054.wav",
+    "split": "train"
+  },
+  {
+    "id": "193834",
+    "original_split": "dev",
+    "labels": [
+      "Knock",
+      "Door",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Door Knock - 18.wav",
+    "uploader": "Ligidium",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/193834/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/193834.wav",
+    "split": "train"
+  },
+  {
+    "id": "61831",
+    "original_split": "dev",
+    "labels": [
+      "Piano",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "C_S_rhodes_mark_2_G#0.aif",
+    "uploader": "Corsica_S",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/61831/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/61831.wav",
+    "split": "train"
+  },
+  {
+    "id": "339916",
+    "original_split": "eval",
+    "labels": [
+      "Chatter",
+      "Run",
+      "Child_speech_and_kid_speaking",
+      "Train",
+      "Rail_transport",
+      "Vehicle",
+      "Human_group_actions",
+      "Speech",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Train passing Overhead while in Tunnel ",
+    "uploader": "IESP",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/339916/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/339916.wav",
+    "split": "train"
+  },
+  {
+    "id": "194849",
+    "original_split": "dev",
+    "labels": [
+      "Thunder",
+      "Rain",
+      "Water",
+      "Thunderstorm"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "NM-Mejor-Lado-Thunder-01.wav",
+    "uploader": "aaronstar",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/194849/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/194849.wav",
+    "split": "train"
+  },
+  {
+    "id": "121940",
+    "original_split": "dev",
+    "labels": [
+      "Wind"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "windandrain.wav",
+    "uploader": "1jmorrisoncafe291",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/121940/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/121940.wav",
+    "split": "train"
+  },
+  {
+    "id": "143090",
+    "original_split": "dev",
+    "labels": [
+      "Snare_drum",
+      "Drum",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "SD14x08Tama-MP,TSn-CS-v03.wav",
+    "uploader": "quartertone",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/143090/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/143090.wav",
+    "split": "train"
+  },
+  {
+    "id": "51397",
+    "original_split": "dev",
+    "labels": [
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "keyboard brass.wav",
+    "uploader": "marvman",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/51397/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/51397.wav",
+    "split": "train"
+  },
+  {
+    "id": "51163",
+    "original_split": "dev",
+    "labels": [
+      "Run"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Running Up The Stairs.wav",
+    "uploader": "RutgerMuller",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/51163/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/51163.wav",
+    "split": "train"
+  },
+  {
+    "id": "67561",
+    "original_split": "dev",
+    "labels": [
+      "Gunshot_and_gunfire",
+      "Explosion"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "m230_chain_gun_burst_2.flac",
+    "uploader": "qubodup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/67561/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/67561.wav",
+    "split": "train"
+  },
+  {
+    "id": "364105",
+    "original_split": "dev",
+    "labels": [
+      "Drawer_open_or_close",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Wooden_Drawer_open_close_2 (of 2)",
+    "uploader": "Rudmer_Rotteveel",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/364105/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/364105.wav",
+    "split": "train"
+  },
+  {
+    "id": "235265",
+    "original_split": "dev",
+    "labels": [
+      "Bell",
+      "Telephone",
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "bell2.wav",
+    "uploader": "Godowan",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/235265/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/235265.wav",
+    "split": "train"
+  },
+  {
+    "id": "190594",
+    "original_split": "dev",
+    "labels": [
+      "Stream",
+      "Car_passing_by",
+      "Gurgling",
+      "Water",
+      "Car",
+      "Motor_vehicle_(road)",
+      "Vehicle"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "gurgling.wav",
+    "uploader": "imeil",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/190594/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/190594.wav",
+    "split": "train"
+  },
+  {
+    "id": "432641",
+    "original_split": "eval",
+    "labels": [
+      "Vehicle_horn_and_car_horn_and_honking",
+      "Alarm",
+      "Car",
+      "Motor_vehicle_(road)",
+      "Vehicle"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Car Horn.mp3",
+    "uploader": "DigPro120",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/432641/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/432641.wav",
+    "split": "train"
+  },
+  {
+    "id": "219868",
+    "original_split": "dev",
+    "labels": [
+      "Screaming",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Old woman scream.mp3",
+    "uploader": "polmdx",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/219868/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/219868.wav",
+    "split": "train"
+  },
+  {
+    "id": "406432",
+    "original_split": "dev",
+    "labels": [
+      "Cutlery_and_silverware",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Cutlery-007.wav",
+    "uploader": "kretopi",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/406432/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/406432.wav",
+    "split": "train"
+  },
+  {
+    "id": "109605",
+    "original_split": "dev",
+    "labels": [
+      "Bird",
+      "Wild_animals",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "FX - piar pajaro, puntual.wav",
+    "uploader": "vinjatovix",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/109605/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/109605.wav",
+    "split": "train"
+  },
+  {
+    "id": "12770",
+    "original_split": "dev",
+    "labels": [
+      "Piano",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "EP 2 E5.wav",
+    "uploader": "Jovica",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/12770/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/12770.wav",
+    "split": "train"
+  },
+  {
+    "id": "321705",
+    "original_split": "dev",
+    "labels": [
+      "Squeak"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Stall_Door_Open_And_Close 01.wav",
+    "uploader": "n_audioman",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/321705/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/321705.wav",
+    "split": "train"
+  },
+  {
+    "id": "345746",
+    "original_split": "eval",
+    "labels": [
+      "Burping_and_eructation",
+      "Mallet_percussion",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Burp 01",
+    "uploader": "PhilllChabbb",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/345746/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/345746.wav",
+    "split": "train"
+  },
+  {
+    "id": "107328",
+    "original_split": "dev",
+    "labels": [
+      "Bowed_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "v_G#.wav",
+    "uploader": "menegass",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/107328/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/107328.wav",
+    "split": "train"
+  },
+  {
+    "id": "236350",
+    "original_split": "dev",
+    "labels": [
+      "Male_speech_and_man_speaking",
+      "Speech",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "M-S (spoken).aif",
+    "uploader": "bcimmet",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/236350/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/236350.wav",
+    "split": "train"
+  },
+  {
+    "id": "55185",
+    "original_split": "dev",
+    "labels": [
+      "Burping_and_eructation"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "mictest1.wav",
+    "uploader": "NoiseCollector",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/55185/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/55185.wav",
+    "split": "train"
+  },
+  {
+    "id": "343785",
+    "original_split": "dev",
+    "labels": [
+      "Rattle_(instrument)",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "1shaker.wav",
+    "uploader": "mk6032",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/343785/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/343785.wav",
+    "split": "train"
+  },
+  {
+    "id": "46092",
+    "original_split": "dev",
+    "labels": [
+      "Siren",
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "siren.wav",
+    "uploader": "IFartInUrGeneralDirection",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/46092/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/46092.wav",
+    "split": "train"
+  },
+  {
+    "id": "96166",
+    "original_split": "dev",
+    "labels": [
+      "Crack"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "JBF Plywood Breaking 1.aif",
+    "uploader": "cmusounddesign",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/96166/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/96166.wav",
+    "split": "train"
+  },
+  {
+    "id": "147450",
+    "original_split": "dev",
+    "labels": [
+      "Bass_drum",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music",
+      "Drum",
+      "Percussion"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "kick_thump_long2.wav",
+    "uploader": "TheVille",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/147450/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/147450.wav",
+    "split": "train"
+  },
+  {
+    "id": "198320",
+    "original_split": "dev",
+    "labels": [
+      "Applause",
+      "Human_group_actions"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "applauses.wav",
+    "uploader": "schafferdavid",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/198320/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/198320.wav",
+    "split": "train"
+  },
+  {
+    "id": "48665",
+    "original_split": "dev",
+    "labels": [
+      "Printer",
+      "Mechanisms"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "caja1.wav",
+    "uploader": "suzenako",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/48665/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/48665.wav",
+    "split": "train"
+  },
+  {
+    "id": "362760",
+    "original_split": "dev",
+    "labels": [
+      "Coin_(dropping)",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "coin spinning on ceramic plate_2.wav",
+    "uploader": "tec studios",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/362760/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/362760.wav",
+    "split": "train"
+  },
+  {
+    "id": "340898",
+    "original_split": "eval",
+    "labels": [
+      "Chirp_and_tweet",
+      "Vehicle_horn_and_car_horn_and_honking",
+      "Alarm",
+      "Car",
+      "Motor_vehicle_(road)",
+      "Vehicle",
+      "Bird_vocalization_and_bird_call_and_bird_song",
+      "Bird",
+      "Wild_animals",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "CarAlarm_stereo_bip.wav",
+    "uploader": "passAirmangrace",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/340898/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/340898.wav",
+    "split": "train"
+  },
+  {
+    "id": "372989",
+    "original_split": "dev",
+    "labels": [
+      "Wind_instrument_and_woodwind_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Clarinet - staccato - D3 (DCClar_stac_D2_v1_rr2_sum.wav)",
+    "uploader": "Samulis",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/372989/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/372989.wav",
+    "split": "train"
+  },
+  {
+    "id": "135703",
+    "original_split": "dev",
+    "labels": [
+      "Electric_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Samy_Martinez03.wav",
+    "uploader": "univ_lyon3",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/135703/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/135703.wav",
+    "split": "train"
+  },
+  {
+    "id": "391277",
+    "original_split": "eval",
+    "labels": [
+      "Chirp_and_tweet",
+      "Bird",
+      "Wild_animals",
+      "Animal",
+      "Bird_vocalization_and_bird_call_and_bird_song"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Spring Birds Forest 04 Amp.wav",
+    "uploader": "ANARKYA",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/391277/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/391277.wav",
+    "split": "train"
+  },
+  {
+    "id": "432913",
+    "original_split": "dev",
+    "labels": [
+      "Keys_jangling",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "key_drop.wav",
+    "uploader": "Kyanite_",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/432913/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/432913.wav",
+    "split": "train"
+  },
+  {
+    "id": "77033",
+    "original_split": "dev",
+    "labels": [
+      "Splash_and_splatter",
+      "Liquid"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "SPLASH.mp3",
+    "uploader": "cs272",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/77033/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/77033.wav",
+    "split": "train"
+  },
+  {
+    "id": "152997",
+    "original_split": "dev",
+    "labels": [
+      "Chewing_and_mastication",
+      "Laughter",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Female_laugh_04.wav",
+    "uploader": "fmaudio",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/152997/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/152997.wav",
+    "split": "train"
+  },
+  {
+    "id": "6858",
+    "original_split": "dev",
+    "labels": [
+      "Hiss"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "slow bottle cap.wav",
+    "uploader": "TwistedLemon",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/6858/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/6858.wav",
+    "split": "train"
+  },
+  {
+    "id": "370162",
+    "original_split": "eval",
+    "labels": [
+      "Mechanical_fan",
+      "Mechanisms"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "electric ventilator",
+    "uploader": "dotY21",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/370162/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/370162.wav",
+    "split": "train"
+  },
+  {
+    "id": "7127",
+    "original_split": "dev",
+    "labels": [
+      "Camera",
+      "Mechanisms"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "camera_shutter_and_rewind.wav",
+    "uploader": "Bram",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/7127/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/7127.wav",
+    "split": "train"
+  },
+  {
+    "id": "420452",
+    "original_split": "dev",
+    "labels": [
+      "Dog",
+      "Domestic_animals_and_pets",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Barking 5.wav",
+    "uploader": "Mrthenoronha",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/420452/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/420452.wav",
+    "split": "train"
+  },
+  {
+    "id": "131405",
+    "original_split": "dev",
+    "labels": [
+      "Laughter",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Nerd Laugh 6.wav",
+    "uploader": "ecfike",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/131405/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/131405.wav",
+    "split": "train"
+  },
+  {
+    "id": "68699",
+    "original_split": "dev",
+    "labels": [
+      "Keys_jangling",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "KeysJingling.wav",
+    "uploader": "mikaelfernstrom",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/68699/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/68699.wav",
+    "split": "train"
+  },
+  {
+    "id": "103326",
+    "original_split": "dev",
+    "labels": [
+      "Truck",
+      "Motor_vehicle_(road)",
+      "Vehicle"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "mini truck on cobbled road210810.mp3",
+    "uploader": "miastodzwiekow",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/103326/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/103326.wav",
+    "split": "train"
+  },
+  {
+    "id": "135873",
+    "original_split": "eval",
+    "labels": [
+      "Microwave_oven",
+      "Bell",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Vintage Microwave Timer Bell Ring - 26 November ‎2011, ‏‎11:39:00 P.M.",
+    "uploader": "crz1990",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/135873/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/135873.wav",
+    "split": "train"
+  },
+  {
+    "id": "33913",
+    "original_split": "dev",
+    "labels": [
+      "Crushing"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "aluminum09.wav",
+    "uploader": "Necrosensual",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/33913/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/33913.wav",
+    "split": "train"
+  },
+  {
+    "id": "214360",
+    "original_split": "eval",
+    "labels": [
+      "Crack",
+      "Crushing"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "crack some spaghetti",
+    "uploader": "edhutschek",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/214360/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/214360.wav",
+    "split": "train"
+  },
+  {
+    "id": "131991",
+    "original_split": "dev",
+    "labels": [
+      "Slam",
+      "Door",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Doorslam.wav",
+    "uploader": "a-row",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/131991/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/131991.wav",
+    "split": "train"
+  },
+  {
+    "id": "371583",
+    "original_split": "dev",
+    "labels": [
+      "Crackle"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Vinyl Record Crackle Loop",
+    "uploader": "OwlStorm",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/371583/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/371583.wav",
+    "split": "train"
+  },
+  {
+    "id": "120646",
+    "original_split": "dev",
+    "labels": [
+      "Buzz",
+      "Bird",
+      "Insect",
+      "Wild_animals",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "20110504_buzz.wav",
+    "uploader": "dobroide",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/120646/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/120646.wav",
+    "split": "train"
+  },
+  {
+    "id": "36266",
+    "original_split": "eval",
+    "labels": [
+      "Boiling",
+      "Hiss",
+      "Liquid"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Boiling water 2.aif",
+    "uploader": "Piero",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/36266/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/36266.wav",
+    "split": "train"
+  },
+  {
+    "id": "318078",
+    "original_split": "dev",
+    "labels": [
+      "Gasp",
+      "Breathing",
+      "Respiratory_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Whimper_Gasp_1_Female",
+    "uploader": "Drkvixn91",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/318078/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/318078.wav",
+    "split": "train"
+  },
+  {
+    "id": "393910",
+    "original_split": "dev",
+    "labels": [
+      "Coin_(dropping)",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Money Collect 3",
+    "uploader": "Pogmog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/393910/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/393910.wav",
+    "split": "train"
+  },
+  {
+    "id": "119255",
+    "original_split": "dev",
+    "labels": [
+      "Wind_instrument_and_woodwind_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Alto Sax a3.wav",
+    "uploader": "clruwe",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/119255/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/119255.wav",
+    "split": "train"
+  },
+  {
+    "id": "316479",
+    "original_split": "dev",
+    "labels": [
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "SmallCreature3_10.wav",
+    "uploader": "LittleRobotSoundFactory",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/316479/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/316479.wav",
+    "split": "train"
+  },
+  {
+    "id": "175140",
+    "original_split": "eval",
+    "labels": [
+      "Engine",
+      "Car",
+      "Motor_vehicle_(road)",
+      "Vehicle"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "squeaky car.wav",
+    "uploader": "yottasounds",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/175140/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/175140.wav",
+    "split": "train"
+  },
+  {
+    "id": "219474",
+    "original_split": "dev",
+    "labels": [
+      "Trickle_and_dribble",
+      "Bathtub_(filling_or_washing)",
+      "Sink_(filling_or_washing)",
+      "Gurgling",
+      "Splash_and_splatter",
+      "Liquid",
+      "Pour",
+      "Domestic_sounds_and_home_sounds",
+      "Water"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Bath With Gurgle 01.wav",
+    "uploader": "JarredGibb",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/219474/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/219474.wav",
+    "split": "train"
+  },
+  {
+    "id": "348106",
+    "original_split": "dev",
+    "labels": [
+      "Shatter",
+      "Glass"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Lasia rikki, ikkunalasi / Glass break, window panes break on the floor one after another, edit",
+    "uploader": "YleArkisto",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/348106/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/348106.wav",
+    "split": "train"
+  },
+  {
+    "id": "235661",
+    "original_split": "dev",
+    "labels": [
+      "Door",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Unlocking Door.mp3",
+    "uploader": "Coonick",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/235661/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/235661.wav",
+    "split": "train"
+  },
+  {
+    "id": "431827",
+    "original_split": "dev",
+    "labels": [
+      "Gunshot_and_gunfire",
+      "Explosion"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Very distant shot2.wav",
+    "uploader": "moosegravy",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/431827/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/431827.wav",
+    "split": "train"
+  },
+  {
+    "id": "189223",
+    "original_split": "dev",
+    "labels": [
+      "Rattle"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Fence Rattle 2 Rear.wav",
+    "uploader": "Starvolt",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/189223/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/189223.wav",
+    "split": "train"
+  },
+  {
+    "id": "275069",
+    "original_split": "dev",
+    "labels": [
+      "Doorbell",
+      "Door",
+      "Domestic_sounds_and_home_sounds",
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "doorbell",
+    "title": "Doorbell C#",
+    "uploader": "kwahmah_02",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/275069/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/275069.wav",
+    "split": "train"
+  },
+  {
+    "id": "434281",
+    "original_split": "dev",
+    "labels": [
+      "Fireworks",
+      "Explosion"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "037 Fireworks.flac",
+    "uploader": "Parasonya",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/434281/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/434281.wav",
+    "split": "train"
+  },
+  {
+    "id": "219908",
+    "original_split": "dev",
+    "labels": [
+      "Respiratory_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "SnifShort01.wav",
+    "uploader": "Otakua",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/219908/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/219908.wav",
+    "split": "train"
+  },
+  {
+    "id": "377055",
+    "original_split": "dev",
+    "labels": [
+      "Applause",
+      "Human_group_actions"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "090812 - Rijeka - Pavlinski Trg - Quartet Veljak 5.wav",
+    "uploader": "dkustic",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/377055/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/377055.wav",
+    "split": "train"
+  },
+  {
+    "id": "116229",
+    "original_split": "dev",
+    "labels": [
+      "Bird",
+      "Wild_animals",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "unknown_bird.wav",
+    "uploader": "soundbytez",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/116229/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/116229.wav",
+    "split": "train"
+  },
+  {
+    "id": "348364",
+    "original_split": "dev",
+    "labels": [
+      "Cough",
+      "Respiratory_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Cough",
+    "uploader": "FrostyFrost",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/348364/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/348364.wav",
+    "split": "train"
+  },
+  {
+    "id": "58234",
+    "original_split": "dev",
+    "labels": [
+      "Bird_vocalization_and_bird_call_and_bird_song",
+      "Bird",
+      "Wild_animals",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Hluhluwe_hadeda_ibis.WAV",
+    "uploader": "reinsamba",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/58234/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/58234.wav",
+    "split": "train"
+  },
+  {
+    "id": "400744",
+    "original_split": "dev",
+    "labels": [
+      "Male_speech_and_man_speaking",
+      "Speech",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Mystery of the cosmos",
+    "uploader": "Fynixx",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/400744/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/400744.wav",
+    "split": "train"
+  },
+  {
+    "id": "402443",
+    "original_split": "dev",
+    "labels": [
+      "Knock",
+      "Door",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Knocking Interior Room Door.wav",
+    "uploader": "yitibit",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/402443/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/402443.wav",
+    "split": "train"
+  },
+  {
+    "id": "13296",
+    "original_split": "dev",
+    "labels": [
+      "Organ",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "WO f2.aif",
+    "uploader": "hookhead",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/13296/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/13296.wav",
+    "split": "train"
+  },
+  {
+    "id": "89286",
+    "original_split": "eval",
+    "labels": [
+      "Chatter",
+      "Laughter",
+      "Human_group_actions",
+      "Human_voice"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "ccc_laughter.wav",
+    "uploader": "uair01",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/89286/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/89286.wav",
+    "split": "train"
+  },
+  {
+    "id": "360484",
+    "original_split": "dev",
+    "labels": [
+      "Writing",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "Writing on whiteboard",
+    "uploader": "chrillz3r",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/360484/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/360484.wav",
+    "split": "train"
+  },
+  {
+    "id": "237351",
+    "original_split": "dev",
+    "labels": [
+      "Applause",
+      "Crowd",
+      "Cheering",
+      "Human_group_actions"
+    ],
+    "target": 0,
+    "category": "environment",
+    "title": "parentsclapandcheer_02.wav",
+    "uploader": "xtrgamr",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/237351/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/237351.wav",
+    "split": "train"
+  },
+  {
+    "id": "333613",
+    "original_split": "eval",
+    "labels": [
+      "Ratchet_and_pawl",
+      "Percussion",
+      "Mechanisms",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Ratchet4.aif",
+    "uploader": "blevesque4",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/333613/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/333613.wav",
+    "split": "train"
+  },
+  {
+    "id": "379416",
+    "original_split": "eval",
+    "labels": [
+      "Ringtone",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music",
+      "Telephone",
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Cell Ringtone",
+    "uploader": "fennelliott",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/379416/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/379416.wav",
+    "split": "train"
+  },
+  {
+    "id": "430161",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "carla-de-sanctis-guitar-freesound.wav",
+    "uploader": "iut_Paris8",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/430161/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/430161.wav",
+    "split": "train"
+  },
+  {
+    "id": "116887",
+    "original_split": "dev",
+    "labels": [
+      "Harmonica",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "C Harmonica-1.wav",
+    "uploader": "CBeeching",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/116887/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/116887.wav",
+    "split": "train"
+  },
+  {
+    "id": "118979",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Windchimes 2.wav",
+    "uploader": "esperri",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/118979/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/118979.wav",
+    "split": "train"
+  },
+  {
+    "id": "128827",
+    "original_split": "dev",
+    "labels": [
+      "Electric_guitar",
+      "Strum",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Chord 17",
+    "uploader": "mtcband",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/128827/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/128827.wav",
+    "split": "train"
+  },
+  {
+    "id": "127551",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Jingle-Bell3.wav",
+    "uploader": "romulofs",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/127551/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/127551.wav",
+    "split": "train"
+  },
+  {
+    "id": "160542",
+    "original_split": "eval",
+    "labels": [
+      "Bass_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "E on Bass 01.wav",
+    "uploader": "shogunalley",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/160542/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/160542.wav",
+    "split": "train"
+  },
+  {
+    "id": "252489",
+    "original_split": "dev",
+    "labels": [
+      "Acoustic_guitar",
+      "Human_voice",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "HOPE1_Mixdown.mp3",
+    "uploader": "GrowingUp",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/252489/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/252489.wav",
+    "split": "train"
+  },
+  {
+    "id": "28673",
+    "original_split": "dev",
+    "labels": [
+      "Scratching_(performance_technique)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "57923_Trance-Scratch.wav",
+    "uploader": "hello_flowers",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/28673/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/28673.wav",
+    "split": "train"
+  },
+  {
+    "id": "44967",
+    "original_split": "dev",
+    "labels": [
+      "Hi-hat",
+      "Cymbal",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Hihat Op2 C3000B-08.wav",
+    "uploader": "Sascha Burghard",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/44967/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/44967.wav",
+    "split": "train"
+  },
+  {
+    "id": "157436",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "deep echo tube 1.wav",
+    "uploader": "nengisuls",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/157436/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/157436.wav",
+    "split": "train"
+  },
+  {
+    "id": "377353",
+    "original_split": "dev",
+    "labels": [
+      "Hi-hat",
+      "Cymbal",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "HH_Open_01.wav",
+    "uploader": "SBAudio",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/377353/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/377353.wav",
+    "split": "train"
+  },
+  {
+    "id": "399475",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "B3.wav",
+    "uploader": "Skamos66",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/399475/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/399475.wav",
+    "split": "train"
+  },
+  {
+    "id": "181827",
+    "original_split": "eval",
+    "labels": [
+      "Bass_guitar",
+      "Marimba_and_xylophone",
+      "Drum",
+      "Percussion",
+      "Musical_instrument",
+      "Music",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Mallet_percussion"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Theme for Sadistic.wav",
+    "uploader": "Gregzor",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/181827/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/181827.wav",
+    "split": "train"
+  },
+  {
+    "id": "155848",
+    "original_split": "dev",
+    "labels": [
+      "Piano",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Upright Piano Pizz A Muted 1.wav",
+    "uploader": "day_tripper13",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/155848/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/155848.wav",
+    "split": "train"
+  },
+  {
+    "id": "58970",
+    "original_split": "eval",
+    "labels": [
+      "Acoustic_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "LucasGonze-FrogInTheWell-bit2.wav",
+    "uploader": "lucasgonze",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/58970/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/58970.wav",
+    "split": "train"
+  },
+  {
+    "id": "110412",
+    "original_split": "dev",
+    "labels": [
+      "Church_bell",
+      "Percussion",
+      "Musical_instrument",
+      "Music",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "TUBULAR 013.wav",
+    "uploader": "sandyrb",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/110412/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/110412.wav",
+    "split": "train"
+  },
+  {
+    "id": "44153",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "chimes 6sec gliss down b.wav",
+    "uploader": "Stickinthemud",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/44153/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/44153.wav",
+    "split": "train"
+  },
+  {
+    "id": "48081",
+    "original_split": "eval",
+    "labels": [
+      "Acoustic_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "2_9_2008_joey ska.mp3",
+    "uploader": "moca",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/48081/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/48081.wav",
+    "split": "train"
+  },
+  {
+    "id": "401692",
+    "original_split": "eval",
+    "labels": [
+      "Electric_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "guitar-fx5.wav",
+    "uploader": "heitormar",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/401692/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/401692.wav",
+    "split": "train"
+  },
+  {
+    "id": "352586",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Ultra Metal Loop.wav",
+    "uploader": "5c1Rokker",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/352586/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/352586.wav",
+    "split": "train"
+  },
+  {
+    "id": "350712",
+    "original_split": "eval",
+    "labels": [
+      "Cowbell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Cowbell - Tic 04.wav",
+    "uploader": "RP1312",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/350712/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/350712.wav",
+    "split": "train"
+  },
+  {
+    "id": "333769",
+    "original_split": "dev",
+    "labels": [
+      "Organ",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "g2.wav",
+    "uploader": "hammondman",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/333769/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/333769.wav",
+    "split": "train"
+  },
+  {
+    "id": "245875",
+    "original_split": "eval",
+    "labels": [
+      "Gong",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "gong whirl close 1.wav",
+    "uploader": "thma",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/245875/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/245875.wav",
+    "split": "train"
+  },
+  {
+    "id": "1908",
+    "original_split": "eval",
+    "labels": [
+      "Piano",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "pianoLoop2.wav",
+    "uploader": "nicStage",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/1908/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/1908.wav",
+    "split": "train"
+  },
+  {
+    "id": "371059",
+    "original_split": "eval",
+    "labels": [
+      "Musical_instrument",
+      "Music",
+      "Bowed_string_instrument"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Duduk With Orchestra.wav",
+    "uploader": "joshuaempyre",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/371059/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/371059.wav",
+    "split": "train"
+  },
+  {
+    "id": "160288",
+    "original_split": "dev",
+    "labels": [
+      "Organ",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "initiation_3bPR(A4)©SW.aif",
+    "uploader": "Tom_McLaughlin",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/160288/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/160288.wav",
+    "split": "train"
+  },
+  {
+    "id": "211843",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "loop_guit_glitch_7.wav",
+    "uploader": "nyonk",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/211843/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/211843.wav",
+    "split": "train"
+  },
+  {
+    "id": "391825",
+    "original_split": "eval",
+    "labels": [
+      "Organ",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Switching off an Organ.wav",
+    "uploader": "Martineerok",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/391825/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/391825.wav",
+    "split": "train"
+  },
+  {
+    "id": "317001",
+    "original_split": "eval",
+    "labels": [
+      "Electric_guitar",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Funky Tuna Guitar (90 Bpm) in Em.wav",
+    "uploader": "abett",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/317001/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/317001.wav",
+    "split": "train"
+  },
+  {
+    "id": "323041",
+    "original_split": "dev",
+    "labels": [
+      "Wind_instrument_and_woodwind_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Oboe slow improvisation.wav",
+    "uploader": "piermic",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/323041/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/323041.wav",
+    "split": "train"
+  },
+  {
+    "id": "369036",
+    "original_split": "eval",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "kirchenglocke-suedfriedhof-leipzig_96k@24bit.wav",
+    "uploader": "tomgrimmer",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/369036/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/369036.wav",
+    "split": "train"
+  },
+  {
+    "id": "395807",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "buzzer_boardgame_01.wav",
+    "uploader": "magedu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/395807/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/395807.wav",
+    "split": "train"
+  },
+  {
+    "id": "115671",
+    "original_split": "eval",
+    "labels": [
+      "Acoustic_guitar",
+      "Tambourine",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music",
+      "Percussion"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "phonejam.50909.1.RL2.wav",
+    "uploader": "SpaceTigers",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/115671/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/115671.wav",
+    "split": "train"
+  },
+  {
+    "id": "13425",
+    "original_split": "dev",
+    "labels": [
+      "Wind_instrument_and_woodwind_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "023.wav",
+    "uploader": "uauaua",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/13425/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/13425.wav",
+    "split": "train"
+  },
+  {
+    "id": "47863",
+    "original_split": "eval",
+    "labels": [
+      "Electric_guitar",
+      "Strum",
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "D_min.wav",
+    "uploader": "godlesswonder",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/47863/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/47863.wav",
+    "split": "train"
+  },
+  {
+    "id": "367079",
+    "original_split": "eval",
+    "labels": [
+      "Tearing",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "TEARIN CARTON.WAV",
+    "uploader": "edzie777",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/367079/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/367079.wav",
+    "split": "train"
+  },
+  {
+    "id": "274511",
+    "original_split": "eval",
+    "labels": [
+      "Hi-hat",
+      "Cymbal",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Brittle-Dark Hi-hat Loop",
+    "uploader": "Bitbeast",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/274511/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/274511.wav",
+    "split": "train"
+  },
+  {
+    "id": "95721",
+    "original_split": "dev",
+    "labels": [
+      "Organ",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Pump Organ - Mid C.wav",
+    "uploader": "elankford",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/95721/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/95721.wav",
+    "split": "train"
+  },
+  {
+    "id": "89606",
+    "original_split": "dev",
+    "labels": [
+      "Rattle_(instrument)",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "chajchas.wav",
+    "uploader": "MarleneAyni",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/89606/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/89606.wav",
+    "split": "train"
+  },
+  {
+    "id": "415432",
+    "original_split": "dev",
+    "labels": [
+      "Harp",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Harp Tinkly Riff 2.wav",
+    "uploader": "luckylittleraven",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/415432/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/415432.wav",
+    "split": "train"
+  },
+  {
+    "id": "28399",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "solo 1.wav",
+    "uploader": "ERH",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/28399/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/28399.wav",
+    "split": "train"
+  },
+  {
+    "id": "246182",
+    "original_split": "eval",
+    "labels": [
+      "Scratching_(performance_technique)",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Astro Birds.wav",
+    "uploader": "AndreAngelo",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/246182/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/246182.wav",
+    "split": "train"
+  },
+  {
+    "id": "260395",
+    "original_split": "dev",
+    "labels": [
+      "Hi-hat",
+      "Cymbal",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "electribe-hats slice 60.wav",
+    "uploader": "soneproject",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/260395/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/260395.wav",
+    "split": "train"
+  },
+  {
+    "id": "213504",
+    "original_split": "dev",
+    "labels": [
+      "Hi-hat",
+      "Cymbal",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "DnB Loop 174 BPM",
+    "uploader": "Goup_1",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/213504/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/213504.wav",
+    "split": "train"
+  },
+  {
+    "id": "265179",
+    "original_split": "dev",
+    "labels": [
+      "Snare_drum",
+      "Drum",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Snare roll",
+    "uploader": "lucianodato",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/265179/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/265179.wav",
+    "split": "train"
+  },
+  {
+    "id": "173826",
+    "original_split": "dev",
+    "labels": [
+      "Guitar",
+      "Plucked_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "Tape_El Guitar 19.wav",
+    "uploader": "mojomills",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/173826/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/173826.wav",
+    "split": "train"
+  },
+  {
+    "id": "203746",
+    "original_split": "eval",
+    "labels": [
+      "Bowed_string_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "BasBow_a21.wav",
+    "uploader": "V4cuum",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/203746/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/203746.wav",
+    "split": "train"
+  },
+  {
+    "id": "245098",
+    "original_split": "dev",
+    "labels": [
+      "Snare_drum",
+      "Drum_kit",
+      "Drum",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "hiphop mpc-sp 2.wav",
+    "uploader": "Insidebeat",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/245098/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/245098.wav",
+    "split": "train"
+  },
+  {
+    "id": "331802",
+    "original_split": "dev",
+    "labels": [
+      "Bass_drum",
+      "Keyboard_(musical)",
+      "Musical_instrument",
+      "Music",
+      "Drum",
+      "Percussion"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "xKicks - Bouncing Throaty.aif",
+    "uploader": "ElectroShockNetwork",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/331802/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/331802.wav",
+    "split": "train"
+  },
+  {
+    "id": "119012",
+    "original_split": "dev",
+    "labels": [
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "scifi_scare_b.aiff",
+    "uploader": "realtheremin",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/119012/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/119012.wav",
+    "split": "train"
+  },
+  {
+    "id": "26874",
+    "original_split": "eval",
+    "labels": [
+      "Glockenspiel",
+      "Mallet_percussion",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "cf_FX_batch_jingle_glock_N--kling.aif",
+    "uploader": "cfork",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/26874/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/26874.wav",
+    "split": "train"
+  },
+  {
+    "id": "429847",
+    "original_split": "eval",
+    "labels": [
+      "Wind_instrument_and_woodwind_instrument",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "music",
+    "title": "DIZI FLUTE LOOP 25 120 BPM.wav",
+    "uploader": "CarlosCarty",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/429847/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/429847.wav",
+    "split": "train"
+  },
+  {
+    "id": "394625",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Restaurant Bell.mp3",
+    "uploader": "Diego25",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/394625/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/394625.wav",
+    "split": "train"
+  },
+  {
+    "id": "181605",
+    "original_split": "eval",
+    "labels": [
+      "Cowbell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "cowbell_115bpm.flac",
+    "uploader": "tembelkaptan",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/181605/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/181605.wav",
+    "split": "train"
+  },
+  {
+    "id": "203948",
+    "original_split": "dev",
+    "labels": [
+      "Doorbell",
+      "Door",
+      "Domestic_sounds_and_home_sounds",
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "doorbell",
+    "title": "DoorBell5.wav",
+    "uploader": "FrogPrince79",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/203948/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/203948.wav",
+    "split": "train"
+  },
+  {
+    "id": "377693",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "b34.mp3",
+    "uploader": "danarobinsondesignsgmailcom",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/377693/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/377693.wav",
+    "split": "train"
+  },
+  {
+    "id": "377112",
+    "original_split": "eval",
+    "labels": [
+      "Microwave_oven",
+      "Bell",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "paisaje-sonoro-uem-microndas.wav",
+    "uploader": "almalaut",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/377112/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/377112.wav",
+    "split": "train"
+  },
+  {
+    "id": "425536",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "bell.mp3",
+    "uploader": "MiaE012",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/425536/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/425536.wav",
+    "split": "train"
+  },
+  {
+    "id": "160689",
+    "original_split": "dev",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Church Bell",
+    "uploader": "CosmicEmbers",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/160689/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/160689.wav",
+    "split": "train"
+  },
+  {
+    "id": "430300",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "campanas.wav",
+    "uploader": "citeyo1",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/430300/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/430300.wav",
+    "split": "train"
+  },
+  {
+    "id": "402382",
+    "original_split": "dev",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Bells Bong",
+    "uploader": "freemaster2",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/402382/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/402382.wav",
+    "split": "train"
+  },
+  {
+    "id": "321387",
+    "original_split": "eval",
+    "labels": [
+      "Harp",
+      "Bell",
+      "Musical_instrument",
+      "Music",
+      "Bowed_string_instrument"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Sleeping Fairy Loop",
+    "uploader": "rhodesmas",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/321387/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/321387.wav",
+    "split": "train"
+  },
+  {
+    "id": "10434",
+    "original_split": "dev",
+    "labels": [
+      "Bell",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "gbell_7-1_ff.aif",
+    "uploader": "batchku",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/10434/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/10434.wav",
+    "split": "train"
+  },
+  {
+    "id": "420762",
+    "original_split": "eval",
+    "labels": [
+      "Chatter",
+      "Bell",
+      "Musical_instrument",
+      "Music",
+      "Human_group_actions"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "orch_warmupstop.wav",
+    "uploader": "relwin",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/420762/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/420762.wav",
+    "split": "train"
+  },
+  {
+    "id": "273891",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Windchime C4 a.wav",
+    "uploader": "beskhu",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/273891/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/273891.wav",
+    "split": "train"
+  },
+  {
+    "id": "423119",
+    "original_split": "eval",
+    "labels": [
+      "Male_speech_and_man_speaking",
+      "Female_speech_and_woman_speaking",
+      "Crowd",
+      "Church_bell",
+      "Laughter",
+      "Dog",
+      "Chicken_and_rooster",
+      "Fowl",
+      "Livestock_and_farm_animals_and_working_animals",
+      "Speech",
+      "Human_voice",
+      "Human_group_actions",
+      "Domestic_animals_and_pets",
+      "Animal",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Medieval City - SAMPLE.wav",
+    "uploader": "OGsoundFX",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/423119/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/423119.wav",
+    "split": "train"
+  },
+  {
+    "id": "394657",
+    "original_split": "dev",
+    "labels": [
+      "Church_bell",
+      "Bird_vocalization_and_bird_call_and_bird_song",
+      "Bird",
+      "Wild_animals",
+      "Animal",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "mourezebellsHPF1.wav",
+    "uploader": "AGC66",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/394657/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/394657.wav",
+    "split": "train"
+  },
+  {
+    "id": "49169",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Wood",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "WindChimeWood_02.WAV",
+    "uploader": "gmtechb",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/49169/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/49169.wav",
+    "split": "train"
+  },
+  {
+    "id": "84972",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Antwerp 060323 19.aif",
+    "uploader": "NickPeeters",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/84972/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/84972.wav",
+    "split": "train"
+  },
+  {
+    "id": "11619",
+    "original_split": "dev",
+    "labels": [
+      "Rain",
+      "Water"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "rainandchimes5.mp3",
+    "uploader": "psakion",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/11619/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/11619.wav",
+    "split": "train"
+  },
+  {
+    "id": "361344",
+    "original_split": "eval",
+    "labels": [
+      "Bass_drum",
+      "Cowbell",
+      "Mallet_percussion",
+      "Percussion",
+      "Musical_instrument",
+      "Music",
+      "Drum",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Sea Spurs",
+    "uploader": "ADnova",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/361344/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/361344.wav",
+    "split": "train"
+  },
+  {
+    "id": "413194",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind Chimes 1 (EoS).wav",
+    "uploader": "Z_er0",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/413194/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/413194.wav",
+    "split": "train"
+  },
+  {
+    "id": "422072",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "space-chimes-dust-05.wav",
+    "uploader": "gamebalance",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/422072/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/422072.wav",
+    "split": "train"
+  },
+  {
+    "id": "338333",
+    "original_split": "eval",
+    "labels": [
+      "Walk_and_footsteps",
+      "Chatter",
+      "Church_bell",
+      "Human_group_actions",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "kirchenglocken in der stadt.mp3",
+    "uploader": "Wanderklasse",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/338333/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/338333.wav",
+    "split": "train"
+  },
+  {
+    "id": "89602",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Music_Jingle Bells Jingling.mp3",
+    "uploader": "CGEffex",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/89602/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/89602.wav",
+    "split": "train"
+  },
+  {
+    "id": "185822",
+    "original_split": "eval",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Single chime",
+    "uploader": "LloydEvans09",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/185822/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/185822.wav",
+    "split": "train"
+  },
+  {
+    "id": "15549",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Wind",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Chime03.wav",
+    "uploader": "LG",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/15549/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/15549.wav",
+    "split": "train"
+  },
+  {
+    "id": "208658",
+    "original_split": "dev",
+    "labels": [
+      "Chink_and_clink",
+      "Glass"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "metal and glass chimes",
+    "uploader": "ginacollecchia",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/208658/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/208658.wav",
+    "split": "train"
+  },
+  {
+    "id": "399538",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Windchime soft",
+    "uploader": "Vendarro",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/399538/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/399538.wav",
+    "split": "train"
+  },
+  {
+    "id": "116779",
+    "original_split": "eval",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Ringing bell - happy.wav",
+    "uploader": "domrodrig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/116779/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/116779.wav",
+    "split": "train"
+  },
+  {
+    "id": "108435",
+    "original_split": "eval",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Pink Floyd - High Hopes BELL.mp3",
+    "uploader": "rickdyson",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/108435/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/108435.wav",
+    "split": "train"
+  },
+  {
+    "id": "397884",
+    "original_split": "eval",
+    "labels": [
+      "Cowbell",
+      "Bird",
+      "Wild_animals",
+      "Animal",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Countryside",
+    "uploader": "ptrflr",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/397884/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/397884.wav",
+    "split": "train"
+  },
+  {
+    "id": "394148",
+    "original_split": "dev",
+    "labels": [
+      "Car_passing_by",
+      "Church_bell",
+      "Bird_vocalization_and_bird_call_and_bird_song",
+      "Bird",
+      "Wild_animals",
+      "Animal",
+      "Car",
+      "Motor_vehicle_(road)",
+      "Vehicle",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Church bells",
+    "uploader": "Maurice_J_K",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/394148/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/394148.wav",
+    "split": "train"
+  },
+  {
+    "id": "85458",
+    "original_split": "eval",
+    "labels": [
+      "Microwave_oven",
+      "Bell",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Microwave.aif",
+    "uploader": "JasonElrod",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/85458/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/85458.wav",
+    "split": "train"
+  },
+  {
+    "id": "235460",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Chimes_Pickup_Drop_Carpet.wav",
+    "uploader": "jcdecha",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/235460/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/235460.wav",
+    "split": "train"
+  },
+  {
+    "id": "123654",
+    "original_split": "eval",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "md4trk10.AIF",
+    "uploader": "alienistcog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/123654/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/123654.wav",
+    "split": "train"
+  },
+  {
+    "id": "69511",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "town_bell 2.wav",
+    "uploader": "Zixem",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/69511/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/69511.wav",
+    "split": "train"
+  },
+  {
+    "id": "28396",
+    "original_split": "eval",
+    "labels": [
+      "Female_speech_and_woman_speaking",
+      "Chatter",
+      "Accelerating_and_revving_and_vroom",
+      "Bell",
+      "Train",
+      "Speech",
+      "Human_voice",
+      "Rail_transport",
+      "Vehicle",
+      "Human_group_actions",
+      "Engine"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Zoe-AMB-LightRail-Dvr.mp3",
+    "uploader": "kerouacsamerica",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/28396/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/28396.wav",
+    "split": "train"
+  },
+  {
+    "id": "174725",
+    "original_split": "eval",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "bell_sound_B.wav",
+    "uploader": "Archeos",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/174725/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/174725.wav",
+    "split": "train"
+  },
+  {
+    "id": "422154",
+    "original_split": "eval",
+    "labels": [
+      "Glockenspiel",
+      "Bell",
+      "Human_group_actions",
+      "Musical_instrument",
+      "Music",
+      "Mallet_percussion",
+      "Percussion"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "2 - jingle bells, xylophone.wav",
+    "uploader": "14G_Panska_Niklova_Michaela",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/422154/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/422154.wav",
+    "split": "train"
+  },
+  {
+    "id": "159763",
+    "original_split": "eval",
+    "labels": [
+      "Cowbell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Cowbell_rattle_2.aif",
+    "uploader": "timgormly",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/159763/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/159763.wav",
+    "split": "train"
+  },
+  {
+    "id": "9853",
+    "original_split": "eval",
+    "labels": [
+      "Cowbell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "180803D.mp3",
+    "uploader": "Freed",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/9853/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/9853.wav",
+    "split": "train"
+  },
+  {
+    "id": "414315",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Christmas Bell Loop.wav",
+    "uploader": "erickvillegas1986",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/414315/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/414315.wav",
+    "split": "train"
+  },
+  {
+    "id": "240839",
+    "original_split": "eval",
+    "labels": [
+      "Typewriter",
+      "Bell",
+      "Typing",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Typing on a typewriter",
+    "uploader": "videog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/240839/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/240839.wav",
+    "split": "train"
+  },
+  {
+    "id": "424791",
+    "original_split": "eval",
+    "labels": [
+      "Male_speech_and_man_speaking",
+      "Church_bell",
+      "Bird_vocalization_and_bird_call_and_bird_song",
+      "Speech",
+      "Human_voice",
+      "Bird",
+      "Wild_animals",
+      "Animal",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Bells and birds at town",
+    "uploader": "bolkmar",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/424791/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/424791.wav",
+    "split": "train"
+  },
+  {
+    "id": "78506",
+    "original_split": "eval",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "desk_bell_one_time_01.wav",
+    "uploader": "joedeshon",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/78506/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/78506.wav",
+    "split": "train"
+  },
+  {
+    "id": "388470",
+    "original_split": "eval",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "bell.wav",
+    "uploader": "molkko",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/388470/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/388470.wav",
+    "split": "train"
+  },
+  {
+    "id": "380398",
+    "original_split": "eval",
+    "labels": [
+      "Crowd",
+      "Cheering",
+      "Alarm",
+      "Bell",
+      "Truck",
+      "Motor_vehicle_(road)",
+      "Vehicle",
+      "Human_group_actions"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "rally.wav",
+    "uploader": "Avantdebris",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/380398/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/380398.wav",
+    "split": "train"
+  },
+  {
+    "id": "196377",
+    "original_split": "dev",
+    "labels": [
+      "Doorbell",
+      "Door",
+      "Domestic_sounds_and_home_sounds",
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "doorbell",
+    "title": "Doorbell Pull with pull Store Bell 06.wav",
+    "uploader": "maisonsonique",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/196377/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/196377.wav",
+    "split": "train"
+  },
+  {
+    "id": "131348",
+    "original_split": "eval",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Bell at Daitokuji temple,kyoto.wav",
+    "uploader": "kaonaya",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/131348/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/131348.wav",
+    "split": "train"
+  },
+  {
+    "id": "184444",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "dark bell.wav",
+    "uploader": "neizvestnost",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/184444/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/184444.wav",
+    "split": "train"
+  },
+  {
+    "id": "277033",
+    "original_split": "eval",
+    "labels": [
+      "Alarm",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "UI Completed Status Alert Notification SFX001.wav",
+    "uploader": "Headphaze",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/277033/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/277033.wav",
+    "split": "train"
+  },
+  {
+    "id": "198850",
+    "original_split": "eval",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Chime Glissando",
+    "uploader": "bone666138",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/198850/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/198850.wav",
+    "split": "train"
+  },
+  {
+    "id": "130585",
+    "original_split": "eval",
+    "labels": [
+      "Motorcycle",
+      "Accelerating_and_revving_and_vroom",
+      "Bell",
+      "Motor_vehicle_(road)",
+      "Vehicle",
+      "Engine"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Motorcycle Starts and Drives Away.wav",
+    "uploader": "casemundy",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/130585/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/130585.wav",
+    "split": "train"
+  },
+  {
+    "id": "245688",
+    "original_split": "dev",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Church Bells In Amsterdam 01.aif",
+    "uploader": "TicAshfield",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/245688/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/245688.wav",
+    "split": "train"
+  },
+  {
+    "id": "78382",
+    "original_split": "eval",
+    "labels": [
+      "Male_speech_and_man_speaking",
+      "Chatter",
+      "Church_bell",
+      "Speech",
+      "Human_voice",
+      "Human_group_actions",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Church bells.aif",
+    "uploader": "Peaveycroquette",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/78382/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/78382.wav",
+    "split": "train"
+  },
+  {
+    "id": "75105",
+    "original_split": "eval",
+    "labels": [
+      "Typewriter",
+      "Bell",
+      "Typing",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Old typewriter.wav",
+    "uploader": "juskiddink",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/75105/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/75105.wav",
+    "split": "train"
+  },
+  {
+    "id": "237105",
+    "original_split": "eval",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "sqeeeek_bell_ting2.wav",
+    "uploader": "sqeeeek",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/237105/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/237105.wav",
+    "split": "train"
+  },
+  {
+    "id": "348280",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Bell 1",
+    "uploader": "GioMilko",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/348280/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/348280.wav",
+    "split": "train"
+  },
+  {
+    "id": "391905",
+    "original_split": "eval",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Campana.wav",
+    "uploader": "Trancox",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/391905/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/391905.wav",
+    "split": "train"
+  },
+  {
+    "id": "402732",
+    "original_split": "eval",
+    "labels": [
+      "Squeak",
+      "Chatter",
+      "Subway_and_metro_and_underground",
+      "Bell",
+      "Human_group_actions",
+      "Rail_transport",
+      "Vehicle"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "NYC subway midtown platform - train arrives.wav",
+    "uploader": "samwd",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/402732/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/402732.wav",
+    "split": "train"
+  },
+  {
+    "id": "424902",
+    "original_split": "eval",
+    "labels": [
+      "Typewriter",
+      "Bell",
+      "Typing",
+      "Domestic_sounds_and_home_sounds"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "typewriter scrolling.wav",
+    "uploader": "keus92",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/424902/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/424902.wav",
+    "split": "train"
+  },
+  {
+    "id": "157263",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "spieluhr10.wav",
+    "uploader": "baujahr66",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/157263/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/157263.wav",
+    "split": "train"
+  },
+  {
+    "id": "100647",
+    "original_split": "eval",
+    "labels": [
+      "Chatter",
+      "Bus",
+      "Vehicle_horn_and_car_horn_and_honking",
+      "Bell",
+      "Alarm",
+      "Car",
+      "Motor_vehicle_(road)",
+      "Vehicle",
+      "Human_group_actions"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Shanghai Nanjing Road 20100606_01.mp3",
+    "uploader": "Unice.ys",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/100647/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/100647.wav",
+    "split": "train"
+  },
+  {
+    "id": "186719",
+    "original_split": "eval",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Chime_01.wav",
+    "uploader": "Andromadax24",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/186719/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/186719.wav",
+    "split": "train"
+  },
+  {
+    "id": "96521",
+    "original_split": "dev",
+    "labels": [
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "reception bell1.mp3",
+    "uploader": "kleinhirn2000",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/96521/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/96521.wav",
+    "split": "train"
+  },
+  {
+    "id": "426217",
+    "original_split": "dev",
+    "labels": [
+      "Church_bell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Churchbell 1",
+    "uploader": "derjuli",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/426217/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/426217.wav",
+    "split": "train"
+  },
+  {
+    "id": "266499",
+    "original_split": "eval",
+    "labels": [
+      "Church_bell",
+      "Speech",
+      "Bird_vocalization_and_bird_call_and_bird_song",
+      "Human_voice",
+      "Bird",
+      "Wild_animals",
+      "Animal",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Church bell in Belmonte, Portugal",
+    "uploader": "Refrain",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/266499/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/266499.wav",
+    "split": "train"
+  },
+  {
+    "id": "15584",
+    "original_split": "eval",
+    "labels": [
+      "Cowbell",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "hornbartwat.wav",
+    "uploader": "lewis",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/15584/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/15584.wav",
+    "split": "train"
+  },
+  {
+    "id": "156946",
+    "original_split": "eval",
+    "labels": [
+      "Male_speech_and_man_speaking",
+      "Walk_and_footsteps",
+      "Chatter",
+      "Church_bell",
+      "Speech",
+      "Human_voice",
+      "Human_group_actions",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "other_bell",
+    "title": "Campanes església_melodia1.wav",
+    "uploader": "AAEPGranollers",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/156946/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/156946.wav",
+    "split": "train"
+  },
+  {
+    "id": "27082",
+    "original_split": "eval",
+    "labels": [
+      "Tick-tock",
+      "Chime",
+      "Bell",
+      "Clock",
+      "Mechanisms"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "ClockTicksTwoChimes.wav",
+    "uploader": "daveincamas",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/27082/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/27082.wav",
+    "split": "train"
+  },
+  {
+    "id": "333629",
+    "original_split": "eval",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Chime sound",
+    "uploader": "jgreer",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/333629/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/333629.wav",
+    "split": "train"
+  },
+  {
+    "id": "221681",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Chimes.wav",
+    "uploader": "doorknocker",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/221681/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/221681.wav",
+    "split": "train"
+  },
+  {
+    "id": "388309",
+    "original_split": "dev",
+    "labels": [
+      "Clock",
+      "Mechanisms"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Delft chimes 6",
+    "uploader": "jmdh",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/388309/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/388309.wav",
+    "split": "train"
+  },
+  {
+    "id": "159568",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Bark",
+      "Chime",
+      "Bell",
+      "Dog",
+      "Domestic_animals_and_pets",
+      "Animal"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Windchime",
+    "uploader": "stephb123",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/159568/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/159568.wav",
+    "split": "train"
+  },
+  {
+    "id": "263661",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Stream",
+      "Chime",
+      "Bell",
+      "Water"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Glass Chimes.aif",
+    "uploader": "stefansmulovitz",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/263661/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/263661.wav",
+    "split": "train"
+  },
+  {
+    "id": "399234",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Bar chimes 01.wav",
+    "uploader": "ubik83",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/399234/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/399234.wav",
+    "split": "train"
+  },
+  {
+    "id": "424250",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind Chimes Loop",
+    "uploader": "mogalini",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/424250/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/424250.wav",
+    "split": "train"
+  },
+  {
+    "id": "246056",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind Chimes 01.wav",
+    "uploader": "blukotek",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/246056/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/246056.wav",
+    "split": "train"
+  },
+  {
+    "id": "249835",
+    "original_split": "eval",
+    "labels": [
+      "Alarm"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "R142/R142A Door Chime",
+    "uploader": "nickymastro25",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/249835/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/249835.wav",
+    "split": "train"
+  },
+  {
+    "id": "434085",
+    "original_split": "eval",
+    "labels": [
+      "Marimba_and_xylophone",
+      "Alarm",
+      "Mallet_percussion",
+      "Percussion",
+      "Musical_instrument",
+      "Music"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Subway MTA Door Close Chime",
+    "uploader": "Ccomics88",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/434085/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/434085.wav",
+    "split": "train"
+  },
+  {
+    "id": "367669",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind_chimes_01.wav",
+    "uploader": "bobv2",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/367669/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/367669.wav",
+    "split": "train"
+  },
+  {
+    "id": "169853",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind Chime (G-006) +.wav",
+    "uploader": "GnoteSoundz",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/169853/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/169853.wav",
+    "split": "train"
+  },
+  {
+    "id": "203935",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "chimes",
+    "uploader": "aptbr",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/203935/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/203935.wav",
+    "split": "train"
+  },
+  {
+    "id": "378274",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "2. Small_bells.WAV",
+    "uploader": "13GPanska_Jirova_Tereza",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/378274/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/378274.wav",
+    "split": "train"
+  },
+  {
+    "id": "254505",
+    "original_split": "dev",
+    "labels": [
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "copper bells.wav",
+    "uploader": "adambar",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/254505/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/254505.wav",
+    "split": "train"
+  },
+  {
+    "id": "384088",
+    "original_split": "eval",
+    "labels": [
+      "Tick-tock",
+      "Chime",
+      "Bell",
+      "Clock",
+      "Mechanisms"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "antique clock 5x gong",
+    "uploader": "Jay_You",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/384088/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/384088.wav",
+    "split": "train"
+  },
+  {
+    "id": "423495",
+    "original_split": "dev",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "windchimes3.wav",
+    "uploader": "swordofkings128",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/423495/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/dev/423495.wav",
+    "split": "train"
+  },
+  {
+    "id": "268753",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Wind",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind Bells",
+    "uploader": "lindyeah23",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/268753/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/268753.wav",
+    "split": "train"
+  },
+  {
+    "id": "31462",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Glass",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Fish Chimes.WAV",
+    "uploader": "gurdonark",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/31462/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/31462.wav",
+    "split": "train"
+  },
+  {
+    "id": "235369",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "steel chimes 1.wav",
+    "uploader": "3863",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/235369/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/235369.wav",
+    "split": "train"
+  },
+  {
+    "id": "394730",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Wind Chime.mp3",
+    "uploader": "jasonlee3071",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "license_group": "CC0-1.0",
+    "source_url": "https://freesound.org/s/394730/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/394730.wav",
+    "split": "train"
+  },
+  {
+    "id": "17091",
+    "original_split": "eval",
+    "labels": [
+      "Wind_chime",
+      "Wood",
+      "Chime",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "bamboo_wind_chimes_2.wav",
+    "uploader": "jppi_Stu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/17091/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/17091.wav",
+    "split": "train"
+  },
+  {
+    "id": "332024",
+    "original_split": "eval",
+    "labels": [
+      "Harp",
+      "Keyboard_(musical)",
+      "Chime",
+      "Musical_instrument",
+      "Music",
+      "Bell"
+    ],
+    "target": 0,
+    "category": "chime",
+    "title": "Fairytale (Harp & Chimes)",
+    "uploader": "Slaking_97",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "license_group": "CC-BY",
+    "source_url": "https://freesound.org/s/332024/",
+    "audio_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/332024.wav",
+    "split": "train"
+  }
+]

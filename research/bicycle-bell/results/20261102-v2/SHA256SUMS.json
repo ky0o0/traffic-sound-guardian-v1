@@ -1,0 +1,21 @@
+{
+  "bicycle_bell_head_weights.npz": "85be2fd44635e7485696ad73ad8eb20396391986a10b0ca5d3d3b7058b99ee55",
+  "training-history.json": "32a98cf61d3ac802c8bc4ebe8561b927df9ab7ba18b08c26f957df001c513013",
+  "encoder-check.json": "f36546ad614d9863912a2f5e6a4f2c591f24d10cefe32d414db6a5ba06257f01",
+  "additional-data-before-download.json": "535db5c266bc4ba39289b7652db84c3da6ba0273d1dd07d27b37128d64d58781",
+  "score_logistic_C1.0.joblib": "eca1e8273b73d180ced192ee32fc64f4ed26af4286aff65111c34188da40fefb",
+  "score_logistic_C10.0.joblib": "1e7a3b8049b44454b2ae7cb9ae4db703e07c1b84687accabb8a6795f0822198f",
+  "score_logistic_C0.1.joblib": "c4af3d35b565509897ef29c7cd46b5ffe12bf92fc4406987035787d6732d0d54",
+  "development-manifest.json": "62a64948a274d0efadb926905fdb68b947c303dc8ee3ebcb455c00049284c4d1",
+  "selection-locked-before-test.json": "e9fbc8a568588a3a3bfd574f88bad3390eb5298d95d867e692abbd2b6093b5d5",
+  "download-failures.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "bicycle_bell_head.tflite": "79bb8837f144126966739d0a6dc8af0162d44bc718a793d050410d9ae3ec104e",
+  "protocol.json": "d223bd3009b48efb78625bf46e3e1325691f02d0d9715d24c5e6e6762bc22ada",
+  "validation-clip-scores.json": "eae2bd9b51f01803fbc89ce5a9068183affec2d9fefb46bccf6a3d7f849c4f6b",
+  "validation-candidates.json": "7b0056c35cbb4c616180e65b291f7439a334b3e0655c3568ee69ef80d128dc16",
+  "status.json": "be6b7f2f9c84884c6123229a240c1a2c6782627560828f7443bec302ed5d644d",
+  "positive-source-audit.json": "dac248bfd714456829a50eae17f53aa7dff75016986108aef291ea06c3be5ccc",
+  "validation-comparison.json": "8fdc7a02297c269224863f08fd3eb1d9999bcdce976eaf7dbf9e73edb5e008d7",
+  "bicycle_bell_head.keras": "4a38f22d0eb0130caac68c5f1fbc6b7c2cdb7fe38d0b691fb7dfba367866728e",
+  "yamnet_features.tflite": "3ffb27df92bc2707c04b9313e871a673c0cfae53b71f3d7b6d3e1577e996d5d4"
+}

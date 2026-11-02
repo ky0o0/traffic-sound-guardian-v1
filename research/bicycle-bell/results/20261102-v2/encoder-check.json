@@ -1,0 +1,34 @@
+{
+  "original_sha256": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+  "encoder_sha256": "3ffb27df92bc2707c04b9313e871a673c0cfae53b71f3d7b6d3e1577e996d5d4",
+  "feature_tensor": 115,
+  "feature_name": "tower0/network/layer28/reduce_mean",
+  "quantization": [
+    0.022328350692987442,
+    -128
+  ],
+  "baseline_output_max_abs_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "encoder_inference_ms": {
+    "n": 7853,
+    "mean": 0.5753803764167076,
+    "p50": 0.5692499999838674,
+    "p95": 0.606681999988723,
+    "max": 3.766898000009178
+  },
+  "original_inference_ms_small_parity_sample": {
+    "n": 8,
+    "mean": 0.5861263750048806,
+    "p50": 0.576174999991963,
+    "p95": 0.643789199992284,
+    "max": 0.6616699999995035
+  }
+}
