@@ -1,0 +1,33 @@
+{
+  "model": "mlp64_l2_0.001",
+  "config": {
+    "name": "mlp64_l2_0.001",
+    "hidden": 64,
+    "l2": 0.001
+  },
+  "hop_seconds": 0.24,
+  "stride": 1,
+  "validation_average_precision": 0.8994598978928992,
+  "epochs": 32,
+  "early_stopped": true,
+  "threshold": 0.7501617074012756,
+  "feasible": true,
+  "tp": 20,
+  "fp": 2,
+  "fn": 4,
+  "tn": 149,
+  "precision": 0.9090909090909091,
+  "recall": 0.8333333333333334,
+  "f1": 0.8695652173913043,
+  "fpr": 0.013245033112582781,
+  "confusion_matrix": [
+    [
+      149,
+      2
+    ],
+    [
+      4,
+      20
+    ]
+  ]
+}

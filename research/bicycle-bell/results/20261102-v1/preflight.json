@@ -1,0 +1,119 @@
+{
+  "revision": "ccf1acaff12f3f4a4c10052dddafbb6d22152c9b",
+  "files": {
+    "dev": {
+      "rows": 40966,
+      "bicycle_bell": 73,
+      "metadata_type": "dict",
+      "metadata_sha256": "b31a2eb130aea6d545d4b48511b24dfd0120420567a8d1066c52d54968bb3735",
+      "first_label": {
+        "fname": "64760",
+        "labels": "Electric_guitar,Guitar,Plucked_string_instrument,Musical_instrument,Music",
+        "mids": "/m/02sgy,/m/0342h,/m/0fx80y,/m/04szw,/m/04rlf",
+        "split": "train"
+      },
+      "first_metadata": [
+        "425873",
+        {
+          "title": "water baltic sea foley water run in fast splashes heavy mono.wav",
+          "description": "This sound effect was recorded with high quality sound equipment and comes from a sound library called Baltic Sea which is pack of 56 high quality audio files with a total length of 153 minutes. In this library you'll find various ambients recorded on the shores of the Baltic Sea. You can use this sound for free, and if you need a whole package of ambients you can support my work and get it for 40$ here: <a href=\"http://soundholder.com/product/sound-library-baltic-sea/\" rel=\"nofollow\">http://soundholder.com/product/sound-library-baltic-sea/</a>\n\nAlso here's a 10% discount code for all freesound users, just type : freesound in discount window.\n\nEnjoy!",
+          "tags": [
+            "splashes",
+            "foley",
+            "soundscape",
+            "baltic",
+            "ambience",
+            "ambient",
+            "sea",
+            "location",
+            "atmo",
+            "water",
+            "wave",
+            "whoosh",
+            "waves",
+            "swell",
+            "splash",
+            "run",
+            "noise",
+            "atmosphere",
+            "heavy",
+            "watery"
+          ],
+          "license": "http://creativecommons.org/licenses/by/3.0/",
+          "uploader": "Soundholder"
+        }
+      ]
+    },
+    "eval": {
+      "rows": 10231,
+      "bicycle_bell": 56,
+      "metadata_type": "dict",
+      "metadata_sha256": "ced921d00c4f7ace86b92c259689a1a40a8452808e93235021165ad2d8b77e6c",
+      "first_label": {
+        "fname": "37199",
+        "labels": "Electric_guitar,Guitar,Plucked_string_instrument,Musical_instrument,Music",
+        "mids": "/m/02sgy,/m/0342h,/m/0fx80y,/m/04szw,/m/04rlf"
+      },
+      "first_metadata": [
+        "391277",
+        {
+          "title": "Spring Birds Forest 04 Amp.wav",
+          "description": "An other birds singings recorded on the morning (Amplified)",
+          "tags": [
+            "birdsong",
+            "bird",
+            "forest",
+            "environment",
+            "morning",
+            "nature",
+            "birds"
+          ],
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "uploader": "ANARKYA"
+        }
+      ]
+    }
+  },
+  "audio": [
+    {
+      "id": "9218",
+      "split": "dev",
+      "metadata": {
+        "title": "timbre.wav",
+        "description": "a bike's ring sound recorded in a silent ambiance.",
+        "tags": [
+          "bell",
+          "bike",
+          "metal",
+          "ring"
+        ],
+        "license": "http://creativecommons.org/licenses/by/3.0/",
+        "uploader": "melack"
+      },
+      "folder": "dev",
+      "bytes": 296014,
+      "sha256": "94cc21c4936c98de7dc9c30198fb9c89865f0db0a8600ecf62ef45cf0cfff130"
+    },
+    {
+      "id": "348325",
+      "split": "eval",
+      "metadata": {
+        "title": "RingsFromBicycle.wav",
+        "description": "Recorded with a Zoom H4n. Rang some bikebells from stranges.",
+        "tags": [
+          "bicycle",
+          "bell",
+          "machanic",
+          "outside",
+          "bike",
+          "ring"
+        ],
+        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+        "uploader": "BlackNeon1234"
+      },
+      "folder": "eval",
+      "bytes": 2523068,
+      "sha256": "37507408dbfc39f460903e212faae9b872b7560dbd509d2bb4cc9f1b1900be5b"
+    }
+  ]
+}
