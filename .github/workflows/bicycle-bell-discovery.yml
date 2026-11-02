@@ -1,0 +1,29 @@
+name: Bicycle bell independent source access audit
+on:
+  push:
+    branches: [research/bicycle-bell-transfer-20261102]
+    paths: [research/bicycle-bell/discovery/**, .github/workflows/bicycle-bell-discovery.yml]
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python research/bicycle-bell/discovery/probe.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bicycle-source-audit
+          path: bell-discovery
+      - name: Preserve discovery without racing a training push
+        run: |
+          git fetch origin research/bicycle-bell-transfer-20261102
+          git reset --hard FETCH_HEAD
+          mkdir -p research/bicycle-bell/results/source-discovery
+          cp -a bell-discovery/. research/bicycle-bell/results/source-discovery/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/bicycle-bell/results/source-discovery
+          git commit -m 'research: preserve independent-source access audit'
+          git push origin HEAD:refs/heads/research/bicycle-bell-transfer-20261102
