@@ -1,0 +1,368 @@
+{
+  "checksummed_artifacts": 19,
+  "validation_confusion_matrices_recomputed": 12,
+  "test_audio_used": false,
+  "positive_uploader_analysis": [
+    {
+      "model": "yamnet_bicycle_threshold",
+      "positive_uploader_macro_recall": 0.8333333333333334,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 19,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "bicycle_or_bell",
+      "positive_uploader_macro_recall": 0.543859649122807,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 5,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 0,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "five_bell_classes",
+      "positive_uploader_macro_recall": 0.5175438596491228,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 2,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 0,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "saved_v1_head_rethreshold",
+      "positive_uploader_macro_recall": 0.8157894736842105,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 17,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "saved_v1_head_original_threshold",
+      "positive_uploader_macro_recall": 0.7982456140350878,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 15,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "score_logistic_C0.1",
+      "positive_uploader_macro_recall": 0.8333333333333334,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 19,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "score_logistic_C1.0",
+      "positive_uploader_macro_recall": 0.8333333333333334,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 19,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "score_logistic_C10.0",
+      "positive_uploader_macro_recall": 0.8333333333333334,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 19,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "new_mil_head",
+      "positive_uploader_macro_recall": 0.8245614035087719,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 18,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "yamnet_mil_fusion_0.25",
+      "positive_uploader_macro_recall": 0.8245614035087719,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 18,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "yamnet_mil_fusion_0.5",
+      "positive_uploader_macro_recall": 0.8333333333333334,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 19,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    },
+    {
+      "model": "yamnet_mil_fusion_0.75",
+      "positive_uploader_macro_recall": 0.8333333333333334,
+      "positive_uploader_counts": {
+        "newagesoup": {
+          "detected": 19,
+          "clips": 19
+        },
+        "pallen33": {
+          "detected": 1,
+          "clips": 1
+        },
+        "nikiforov5000": {
+          "detected": 1,
+          "clips": 1
+        },
+        "AntumDeluge": {
+          "detected": 1,
+          "clips": 1
+        },
+        "escortmarius": {
+          "detected": 0,
+          "clips": 1
+        },
+        "LukeUPF": {
+          "detected": 1,
+          "clips": 1
+        }
+      }
+    }
+  ],
+  "rounding_note": "Saved head numpy score 0.7501615881919861 vs original pre-fold threshold 0.7501617074012756 flips one validation boundary; report exact arithmetic working point and require future exported-model calibration with threshold margin."
+}
