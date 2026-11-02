@@ -1,0 +1,38 @@
+name: Preserve round2 verified artifacts after concurrent source audit
+on:
+  push:
+    branches: [research/bicycle-bell-transfer-20261102]
+    paths: [.github/workflows/bicycle-bell-preserve-round2.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Await actual computation (failure logs are retained too)
+        run: gh run watch 41445169339 --repo "$GITHUB_REPOSITORY" --interval 30 || true
+      - run: gh run download 41445169339 --repo "$GITHUB_REPOSITORY" --name bicycle-bell-round2-41445169339 --dir preserved-round2
+      - name: Check model and evidence bytes and preserve on current research head
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          p=pathlib.Path('preserved-round2')
+          if (p/'SHA256SUMS.json').exists():
+              for name,h in json.loads((p/'SHA256SUMS.json').read_text()).items():
+                  assert pathlib.Path(name).name==name
+                  assert hashlib.sha256((p/name).read_bytes()).hexdigest()==h,name
+          PY
+          git fetch origin research/bicycle-bell-transfer-20261102
+          git reset --hard FETCH_HEAD
+          mkdir -p research/bicycle-bell/results/20261102-v2
+          cp -a preserved-round2/. research/bicycle-bell/results/20261102-v2/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/bicycle-bell/results/20261102-v2
+          git diff --cached --quiet || git commit -m 'research: permanently preserve checksummed round2 models and real computation evidence'
+          git push origin HEAD:refs/heads/research/bicycle-bell-transfer-20261102
