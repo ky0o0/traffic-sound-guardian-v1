@@ -1,0 +1,32 @@
+name: Bicycle bell research (isolated CPU experiment)
+on:
+  push:
+    branches: [research/bicycle-bell-transfer-20261102]
+    paths:
+      - research/bicycle-bell/*.py
+      - research/bicycle-bell/requirements.txt
+      - research/bicycle-bell/protocol.json
+      - .github/workflows/bicycle-bell-research.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      BELL_RESULTS: ${{ runner.temp }}/bell-results
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify independent runner can read licensed FSD50K audio
+        run: python research/bicycle-bell/preflight.py
+      - name: Preserve actual preflight evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bicycle-bell-research-${{ github.run_id }}
+          path: ${{ env.BELL_RESULTS }}
+          retention-days: 90
