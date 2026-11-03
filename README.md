@@ -1,4 +1,11 @@
-# Traffic Sound Guardian V1.7.0
+# Traffic Sound Guardian V1.7.1
+
+## V1.7.1 — Standard microphone visual restoration
+
+- Restored the prominent circular microphone control and two concentric rings on the Standard page. The ring and button respond to existing real-time audio level data and use the V1.7 light/dark theme colors. The Test page keeps its rectangular microphone button.
+- Restored the pulsing red status indicator next to the listening-status label on both pages. The indicator is static when reduced motion is requested and does not pulse while stopped or during a warning.
+- This is a presentation-only patch. Audio capture, YAMNet classification, warning thresholds, sound output, and microphone routing are unchanged. Real-device Safari/iPad presentation still needs manual verification.
+
 
 ## V1.7.0 重构候选：Standard / Test（未合并、未部署）
 

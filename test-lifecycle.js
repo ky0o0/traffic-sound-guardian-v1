@@ -272,7 +272,7 @@ test('V1.6.17 page, release assets and refreshed classifier cache agree',async()
  assert.match(html,/V1\.7\.0/);assert.match(html,/app\.js\?v=1\.7\.0/);assert.match(html,/guardian\.css\?v=1\.7\.0/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.0/);
  }
  assert.match(source,/classifier-worker\.js\?v=1\.7\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.0');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.1');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  for(const [file,selected] of [['index.html','version-standard'],['ipad-test.html','version-ipad']]) {

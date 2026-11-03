@@ -1,5 +1,7 @@
 name: Web regression
 on:
+  push:
+    branches: [main]
   pull_request:
     paths:
       - "*.js"
