@@ -91,3 +91,49 @@ body[data-state="warning"] .sensitivity :is(.sensitivity-line output,.sensitivit
    Keep normal document flow: no scripted scrolling, jumps, or fixed overlays.
    Very short screens may need normal scrolling to reach the panel. */
 body[data-debug="on"] .app{min-height:calc(100vh - 84px);min-height:calc(100dvh - 84px)}
+
+
+/* V1.6.17: shared Settings controls for audible-alert preview and real audio inputs. */
+.settings-content :is(.alert-sound-options,.mic-options){
+  display:flex;flex-direction:column;gap:7px;min-width:0;
+  margin:12px 0;padding:12px 10px;border-top:1px solid #58748c;
+}
+.settings-content :is(.alert-sound-options,.mic-options)>label{
+  font-size:12px;font-weight:650;line-height:1.5;color:#e0f1ef;
+}
+.settings-content :is(#alert-volume-select,#mic-select){
+  display:block;width:100%;max-width:100%;min-height:44px;box-sizing:border-box;
+  padding:9px 10px;border:1px solid #7e9eae;border-radius:10px;
+  background:#182c40;color:#f2faf9;font:inherit;font-size:13px;
+}
+.settings-content :is(#alert-volume-note,#mic-select-note,#mic-select-status,#alert-preview-note){
+  margin:0;font-size:11px;line-height:1.55;color:#bdccda;overflow-wrap:anywhere;
+}
+.settings-content #mic-select-status{display:block;min-height:1.4em}
+.settings-content .alert-preview{
+  width:100%;max-width:none;box-sizing:border-box;display:flex;
+  flex-direction:column;align-items:stretch;gap:7px;padding:0 10px 12px;
+  text-align:left;margin:0;
+}
+.settings-content #alert-preview-button{
+  width:100%;max-width:none;min-height:44px;padding:9px 13px;
+  border:1px solid #6ab1a9;border-radius:10px;background:#245364;
+  color:#fff;font:inherit;font-size:13px;font-weight:650;cursor:pointer;
+}
+.settings-content #alert-preview-button:disabled{opacity:.6;cursor:default}
+.settings-content :is(#alert-volume-select,#mic-select,#alert-preview-button):focus-visible{
+  outline:3px solid #b3eedc;outline-offset:2px;
+}
+.settings-content #alert-preview-status{display:block;min-height:1.4em;font-size:11px;color:#c5f0e4}
+html[data-theme=light] .settings-content :is(.alert-sound-options,.mic-options){border-color:#d7e2eb}
+html[data-theme=light] .settings-content :is(.alert-sound-options,.mic-options)>label{color:#193048}
+html[data-theme=light] .settings-content :is(#alert-volume-select,#mic-select){
+  background:#fff;color:#193048;border-color:#a9becd;
+}
+html[data-theme=light] .settings-content :is(#alert-volume-note,#mic-select-note,#mic-select-status,#alert-preview-note){color:#425d70}
+html[data-theme=light] .settings-content #alert-preview-button{background:#e0f5f0;color:#114d48;border-color:#6cae9e}
+html[data-theme=light] .settings-content #alert-preview-status{color:#0b6e64}
+body[data-state=warning] .settings-content :is(.alert-sound-options,.mic-options){border-color:#ffffff66}
+body[data-state=warning] .settings-content :is(.alert-sound-options,.mic-options)>label,
+body[data-state=warning] .settings-content :is(#alert-volume-note,#mic-select-note,#mic-select-status,#alert-preview-note,#alert-preview-status){color:#fff}
+body[data-state=warning] .settings-content #alert-preview-button{background:#6b243a;color:#fff;border-color:#ffffffa0}
