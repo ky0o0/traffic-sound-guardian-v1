@@ -279,15 +279,15 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.15 page, release assets and refreshed classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.15<\/title>/);
- assert.match(page, /class="version">V1\.6\.15<\/span>/);
+test('V1.6.16 page, release assets and refreshed classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.16<\/title>/);
+ assert.match(page, /class="version">V1\.6\.16<\/span>/);
  assert.match(page, /src="\.\/app\.js\?v=1\.6\.15"/); // Changed app JS must refresh cache.
  assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
- assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.15"/);
+ assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.16"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.15/); // Changed Worker JS must refresh cache.
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.15');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.15');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.16');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.16');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  const main=page;
