@@ -8,21 +8,24 @@ const manifest = JSON.parse(read('./manifest.webmanifest'));
 const version = pkg.version;
 const name = 'Traffic Sound Guardian V' + version;
 
-test('published release version is consistent across package, manifest, both pages and README',()=>{
+test('published release version is consistent across package, manifest, all four pages and README',()=>{
   assert.match(version, /^\d+\.\d+\.\d+$/, 'semantic release version');
   assert.equal(manifest.name, name);
-  for (const filename of ['index.html','ipad-test.html']) {
+  for (const filename of ['index.html','ipad-test.html','ai-test.html','microphone-test.html']) {
     const html = read('./'+filename);
     assert.ok(html.includes('V'+version), filename+' displays release version');
-    assert.ok(html.includes('manifest.webmanifest?v='+version), filename+' refreshes manifest cache');
+    if (['index.html','ipad-test.html'].includes(filename)) {
+      assert.ok(html.includes('manifest.webmanifest?v='+version), filename+' refreshes manifest cache');
+    }
     if (filename === 'index.html') {
       assert.ok(html.includes('<title>'+name+'</title>'));
       assert.ok(html.includes('<span class="version">V'+version+'</span>'));
-    } else {
+    } else if (filename === 'ipad-test.html') {
       assert.ok(html.includes('iPad Landscape Test (V'+version+')'));
       assert.ok(html.includes('V'+version+' · iPad TEST'));
     }
   }
+  assert.ok(read('./ai-test.js').includes('Traffic Sound Guardian V'+version));
   assert.ok(read('./README.md').startsWith('# '+name+'\n'));
   // Individual JS/CSS query strings are independent cache identifiers, not app releases.
 });

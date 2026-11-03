@@ -3,10 +3,11 @@
   "browser-layout.json": "24f324565cf233ee1fa98370e69b8e91b76411eaf11ed39f295e7d5f548fa8de",
   "browser-stability.json": "da933c1409dc8c4e0864036ddde1d3a78c9b2dc421404b38de6d5eec79ce1094",
   "environment.json": "8d4c908f22585825ec35b7ccd7be16316a5d4d59448363f276b8f58d1979050a",
+  "github-ci.json": "4f4a05f2b06bd92a985b50576b966d20e688baafd1c779c680dccbdd401978e6",
   "ipad-zh.png": "0288e98221817e6d8aca4b6a967418d0d0ccc9dd0e6dc26bba6cb1d4964378c4",
   "mobile-zh.png": "15595a1d817b0488f15ae22bdae30d66ba02790f4f185457ffef33fb8348b9b2",
   "node-baseline.log": "2256cbd610fce4ac15664e1043fc1de1b3cf7bcf55e6f5a95c1364a7fa7f107a",
-  "node-final.log": "9eb855e6c47407d3fed7bab8e1cfb61a40e611b9ff3ea950ed24f8bc9fe0bf9e",
+  "node-final.log": "adbd0b536982cf65f66823ed2474da6058b644877c6a6d50f35c13a32a9645e1",
   "protected-assets.json": "8dc532635d882cff82831b0ec3ca3b79d1ec647f7f71f2a0d5d2f355852c5545",
   "site-integrity.json": "0c146d336e3c932f286e98548b5aff996be2a89220cab17a0bd123de3689ec0e",
   "worker-faults-before.log": "5e46161d00ccec0f1c880540b5cbd6c8d8fb31bd7b4a2060b60f5555cb9b5fc2"

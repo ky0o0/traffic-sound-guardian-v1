@@ -33,6 +33,7 @@
 | L02 Low | `app.js:1094` 设置面板 | 原生 details 没有实现 Escape 关闭／焦点返回与外部点击关闭 | 保留非模态 details，新增关闭交互，不锁焦点；Node 与两页真实键盘测试 |
 | L03 Low | `live-timeline.js` / 两页标签 | 时间轴 Now、部分 iPad 导航／区域辅助名称及试听区域名称语言混用；停止时仍显示 LIVE | 本地化轴、区域／导航／播放状态；停止状态单独标明；三语言、深浅色、主题／语言重绘测试 |
 | L04 Low | `app.js:857` | receiveResult 调用 render 后再次 renderDebug，警告期间同一次推理重复构建表格 | 每次推理只刷新一次；计数回归覆盖普通结果、首次和持续警告，不宣称完整页面快一倍 |
+| L06 Low | `ai-test.html` / `ai-test.js` / `microphone-test.html` | 诊断／离线工具标题仍显示1.6.0，与入口候选1.6.16不一致 | 同步用户可见版本，扩展原版本一致性测试到四个页面；资源缓存键仍独立 |
 | L05 Low | 两页 mic-source-evidence / `app.js:277` | 只展示设备名，没有关联“浏览器报告并非物理麦克风证明”的现有说明 | 添加本地化 title 与 aria-describedby 说明；不猜蓝牙路由、不修改设备；三语言回归与浏览器检查 |
 
 没有删除核心功能、UI 输入或整个警告类别；没有为修复视觉问题引入新的识别策略。
@@ -98,3 +99,11 @@ python tests/stability-browser.py --base-url http://127.0.0.1:8000/traffic-sound
 当前没有已确认而未处理的代码级 Critical/High 问题；主要剩余风险是未经验证的实体 Safari/Web Audio／蓝牙／无障碍行为、模型识别性能和长时设备资源表现。原模型自身漏报／误报不是这次稳定性修复能够解决的事项。未做架构性更换或未经独立数据验证的优化。
 
 建议：先审查本 PR 并执行 [实体设备验收清单](DEVICE-ACCEPTANCE-V1.6.16.zh-CN.md) 的核心采集、试听、红屏、打断、后台、连续启停和资源释放项；通过后再由维护者决定合并及发布。**本次没有自动合并或部署。** 原 PR48 的修复已包含于此分支，应避免分别重复发布两个1.6.16候选；PR47研究仍独立。
+
+
+最终审查 PR：[**#49**](https://github.com/ky0o0/traffic-sound-guardian-v1/pull/49)，源提交 `6f3792b42c53db00dd9f038f2622b2eac6ea34f0`。保持草稿，由维护者按实体设备清单决定发布。
+
+公开 Pages 域名在本执行环境的直接请求被网络代理403拒绝，因此没有把线上端点可用性列为本次通过项；这不是网站故障证据。本次浏览器服务使用同样的 `/traffic-sound-guardian-v1/` 子路径，候选未部署。
+
+
+GitHub 独立 runner [41564229663](https://github.com/ky0o0/traffic-sound-guardian-v1/actions/runs/41564229663) 两任务全部成功：Node225／225、版本门禁、8资产校验通过；Chromium **156.0.8078.0** 的114项布局和22项候选稳定性通过，0 pageerror、448次请求全为本机GET。CI不运行本地额外2项旧版本对照。可下载该 run 的 `browser-evidence` artifact（ID13197423867），摘要已永久保存 [github-ci.json](audit/20261103/github-ci.json)。最后跟进提交还同步了离线工具／诊断页的1.6.16版本标记并补充报告，未更改声音处理算法；最新检查以 PR #49 Checks 为准。
