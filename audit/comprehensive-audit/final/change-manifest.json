@@ -5,6 +5,11 @@
   "historical_readme_copy": "README-HISTORY.md",
   "files": [
     {
+      "path": ".gitattributes",
+      "change": "modified",
+      "reason": "Preserve verbatim historical README whitespace and existing exported CSV line endings; application checks remain strict."
+    },
+    {
       "path": ".github/workflows/v16-web-ci.yml",
       "change": "modified",
       "reason": "Pinned development-only parser/formatter, maintenance release, independent branch CI and temporary-output exclusions."
@@ -103,6 +108,11 @@
       "path": "audit/comprehensive-audit/final/audio-policy.json",
       "change": "added",
       "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/change-manifest.json",
+      "change": "added",
+      "reason": "New final audit report and complete per-file preservation/change manifest."
     },
     {
       "path": "audit/comprehensive-audit/final/comprehensive.json",
@@ -218,6 +228,11 @@
       "path": "docs/COMPREHENSIVE-AUDIT.md",
       "change": "added",
       "reason": "Current English architecture, audit, usage and limitations; historical documents preserved."
+    },
+    {
+      "path": "docs/REFACTOR-RESULTS.md",
+      "change": "added",
+      "reason": "New final audit report and complete per-file preservation/change manifest."
     },
     {
       "path": "index.html",

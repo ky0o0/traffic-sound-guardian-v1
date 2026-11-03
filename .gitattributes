@@ -1,2 +1,4 @@
 # Browser CSV exports use RFC 4180 CRLF; preserve the evidence bytes.
 audit/**/*.csv whitespace=cr-at-eol
+# Keep the archived V1.7.3 document byte-for-byte, including its pre-existing spaces.
+README-HISTORY.md whitespace=-blank-at-eol

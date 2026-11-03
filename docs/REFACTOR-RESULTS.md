@@ -101,7 +101,7 @@ Uncertain or historical resources remain with a recorded purpose. The complete
 added/modified manifest and reasons are in
 [`change-manifest.json`](../audit/comprehensive-audit/final/change-manifest.json).
 
-- `README-HISTORY.md` is an added exact historical copy, not a rewritten result.
+- `README-HISTORY.md` is an added exact historical copy, not a rewritten result. Its existing trailing whitespace is preserved using a Git attribute scoped only to this immutable snapshot; source and runtime checks remain strict.
 - `style.css` has no active HTML consumer but historical/test/report references;
   retained as legacy history. Active assertions now check guardian.css/ipad-test.css.
 - `v1.6.css` and theme.css are still used by AI/Microphone Test and annotation UI;
