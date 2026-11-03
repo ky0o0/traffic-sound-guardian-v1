@@ -26,7 +26,8 @@ function endPreview() {
     try { osc.disconnect(); } catch {}
     try { gain.disconnect(); } catch {}
   }
-  try { current.context.close(); } catch {}
+  // close() is asynchronous in Web Audio; consume rejection on interrupted Safari sessions.
+  try { Promise.resolve(current.context.close()).catch(() => {}); } catch {}
   button.disabled = false;
 }
 function playPreview() {
@@ -44,6 +45,7 @@ function playPreview() {
     // Browser may begin suspended; schedule immediately within the same gesture.
     const resume = context.resume();
     const start = context.currentTime + 0.02;
+    const finalEnd = start + 0.195 + 0.11;
     for(let i=0; i<2; i++){
       const at = start + i * 0.195, end = at + 0.11;
       const osc = context.createOscillator(), gain = context.createGain();
@@ -56,6 +58,15 @@ function playPreview() {
       gain.gain.linearRampToValueAtTime(0,end);
       osc.connect(gain);
       gain.connect(context.destination);
+      // The final oscillator ending is evidence that the scheduled beeps completed.
+      // A fixed wall-clock timer alone can falsely report success (or cut sound off)
+      // while Safari's AudioContext is suspended by an OS audio interruption.
+      if (i === 1) osc.onended = () => {
+        if (active !== current) return;
+        const played = context.state === 'running';
+        endPreview();
+        status.textContent = words()[played ? 3 : 4];
+      };
       osc.start(at);
       osc.stop(end);
     }
@@ -64,11 +75,15 @@ function playPreview() {
         endPreview(); status.textContent = words()[4];
       }
     });
+    // Safety timeout only: wait for the real audio graph to finish. If the
+    // onended callback is missing, require AudioContext time to have advanced.
     current.timer = setTimeout(() => {
       if (active === current) {
-        endPreview(); status.textContent = words()[3];
+        const played = context.state === 'running' && context.currentTime >= finalEnd;
+        endPreview();
+        status.textContent = words()[played ? 3 : 4];
       }
-    }, 700);
+    }, 3000);
   } catch (error) {
     if (active) endPreview();
     else try { context?.close(); } catch {}
@@ -79,7 +94,9 @@ function playPreview() {
 if (button && note && status) {
   button.addEventListener('click',playPreview);
   window.addEventListener('tsg:language',announcePreview);
-  window.addEventListener('pagehide',endPreview);
-  document.addEventListener('visibilitychange',() => { if (document.hidden) endPreview(); });
+  window.addEventListener('pagehide',() => { endPreview(); status.textContent = ''; });
+  document.addEventListener('visibilitychange',() => {
+    if (document.hidden) { endPreview(); status.textContent = ''; }
+  });
   announcePreview();
 }
