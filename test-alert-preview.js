@@ -43,7 +43,7 @@ test('preview exists only inside Settings on both pages and never starts microph
  const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./guardian.css');
  for(const markup of [main,ipad]) {
   assert.match(markup,/id="alert-preview-button"/);
-  assert.match(markup,/<script (?=[^>]*type="module")(?=[^>]*src="\.\/alert-tone-preview\.js\?v=1\.7\.4")[^>]*><\/script>/);
+  assert.match(markup,/<script (?=[^>]*type="module")(?=[^>]*src="\.\/alert-tone-preview\.js\?v=1\.8\.0")[^>]*><\/script>/);
   assert.ok(markup.indexOf('id="alert-preview-button"')>markup.indexOf('id="settings-content"'));
   if (markup === main) assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
   else assert.ok(!markup.includes('id="settings-panel"'));

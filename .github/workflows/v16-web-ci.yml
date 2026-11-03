@@ -69,6 +69,7 @@ jobs:
           python tests/v17-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/v17
           python tests/audio-policy-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/audio-policy
           python tests/stability-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/stability
+          python tests/design-system-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/design-system
           python tests/comprehensive-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/comprehensive
       - uses: actions/upload-artifact@v4
         if: always()

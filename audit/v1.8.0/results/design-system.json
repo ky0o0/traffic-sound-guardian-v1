@@ -1,0 +1,1016 @@
+{
+  "passed_layout_cases": 144,
+  "live_navigation_cleanup_cases": 2,
+  "cases": [
+    {
+      "entry": "index.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "index.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "index.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ipad-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "ai-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1440,
+      "height": 900,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1194,
+      "height": 834,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 1024,
+      "height": 768,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 820,
+      "height": 500,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 390,
+      "height": 844,
+      "language": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "en",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "ja",
+      "theme": "light"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "entry": "microphone-test.html",
+      "width": 320,
+      "height": 568,
+      "language": "zh-CN",
+      "theme": "light"
+    }
+  ],
+  "page_errors": [],
+  "limits": "Chromium viewport emulation. Physical iPad/Safari, headset routing and road accuracy require manual acceptance."
+}

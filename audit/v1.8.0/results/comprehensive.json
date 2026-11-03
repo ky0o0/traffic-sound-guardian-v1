@@ -1,0 +1,147 @@
+{
+  "browser": "154.0.8037.57",
+  "passed": 10,
+  "cases": [
+    {
+      "case": "denial-retry-real-warning-clear-reduced-motion-navigation",
+      "entry": "index.html",
+      "real_warning_scores": {
+        "Ping": 0.109375,
+        "Ding": 0.01953125,
+        "Doorbell": 0.00390625,
+        "Bell": 0,
+        "Bicycle bell": 0,
+        "Chime": 0,
+        "Police car (siren)": 0,
+        "Ambulance (siren)": 0,
+        "Fire engine, fire truck (siren)": 0,
+        "Siren": 0,
+        "Vehicle horn, car horn, honking": 0
+      },
+      "cleanup": {
+        "contexts": [
+          "closed",
+          "closed",
+          "closed"
+        ],
+        "tracks": [
+          "ended",
+          "ended"
+        ],
+        "workers": [
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "case": "denial-retry-real-warning-clear-reduced-motion-navigation",
+      "entry": "ipad-test.html",
+      "real_warning_scores": {
+        "Ping": 0.109375,
+        "Ding": 0.03125,
+        "Doorbell": 0.00390625,
+        "Bell": 0,
+        "Bicycle bell": 0,
+        "Chime": 0,
+        "Vehicle horn, car horn, honking": 0,
+        "Police car (siren)": 0,
+        "Ambulance (siren)": 0,
+        "Fire engine, fire truck (siren)": 0,
+        "Siren": 0
+      },
+      "cleanup": {
+        "contexts": [
+          "closed",
+          "closed",
+          "closed"
+        ],
+        "tracks": [
+          "ended",
+          "ended"
+        ],
+        "workers": [
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "case": "auxiliary-language-theme-layout-no-autostart",
+      "entry": "ai-test.html",
+      "language": "ja"
+    },
+    {
+      "case": "auxiliary-language-theme-layout-no-autostart",
+      "entry": "ai-test.html",
+      "language": "en"
+    },
+    {
+      "case": "auxiliary-language-theme-layout-no-autostart",
+      "entry": "ai-test.html",
+      "language": "zh-CN"
+    },
+    {
+      "case": "auxiliary-language-theme-layout-no-autostart",
+      "entry": "microphone-test.html",
+      "language": "ja"
+    },
+    {
+      "case": "auxiliary-language-theme-layout-no-autostart",
+      "entry": "microphone-test.html",
+      "language": "en"
+    },
+    {
+      "case": "auxiliary-language-theme-layout-no-autostart",
+      "entry": "microphone-test.html",
+      "language": "zh-CN"
+    },
+    {
+      "case": "actual-offline-UI-real-YAMNet-synthetic-PCM-export",
+      "windows": 3,
+      "category_count": 521
+    },
+    {
+      "case": "actual-diagnostic-microphone-without-model"
+    }
+  ],
+  "page_errors": [],
+  "navigation_cleanup": [
+    {
+      "contexts": [
+        "closed",
+        "closed",
+        "closed"
+      ],
+      "tracks": [
+        "ended",
+        "ended"
+      ],
+      "workers": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "contexts": [
+        "closed",
+        "closed",
+        "closed"
+      ],
+      "tracks": [
+        "ended",
+        "ended"
+      ],
+      "workers": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "request_count": 248,
+  "limits": "Virtual microphone for realtime capture and explicitly synthetic WAV for offline inference. Actual production YAMNet, not simulated model scores. No physical Safari/iPad/AirPods or road-accuracy validation."
+}

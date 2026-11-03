@@ -1,5 +1,5 @@
-import { WARNING_TARGETS, effectiveThreshold } from './detection.js?v=1.7.4';
-import { debugCategoryName } from './debug.js?v=1.7.4';
+import { WARNING_TARGETS, effectiveThreshold } from './detection.js?v=1.8.0';
+import { debugCategoryName } from './debug.js?v=1.8.0';
 export function createDebugView({ ui, document, translate: t, getLanguage, getSession, getThresholds }) {
   function renderDebugRows(container, rows) {
     const language = getLanguage();
