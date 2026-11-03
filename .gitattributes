@@ -1,0 +1,2 @@
+# Browser CSV exports use RFC 4180 CRLF; preserve the evidence bytes.
+audit/**/*.csv whitespace=cr-at-eol
