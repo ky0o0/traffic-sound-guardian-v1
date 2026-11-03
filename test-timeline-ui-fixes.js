@@ -132,9 +132,9 @@ test('R09: resize fallback works without ResizeObserver',()=>{
 test('R08–R10: both entrypoints load the revised relative UI assets',()=>{
   for(const name of ['index.html','ipad-test.html']) {
     const html=fs.readFileSync(new URL('./'+name,import.meta.url),'utf8');
-    assert.ok(html.includes('live-timeline.js?v=1.7.4'));
-    assert.ok(html.includes('guardian.css?v=1.7.4'));
-    if(name==='ipad-test.html') assert.ok(html.includes('ipad-test.css?v=1.7.4'));
+    assert.ok(html.includes('live-timeline.js?v=1.8.0'));
+    assert.ok(html.includes('guardian.css?v=1.8.0'));
+    if(name==='ipad-test.html') assert.ok(html.includes('ipad-test.css?v=1.8.0'));
     for(const [,path] of html.matchAll(/(?:src|href)="\.\/([^"?]+)(?:\?[^\"]*)?"/g)) {
       assert.ok(fs.existsSync(new URL('./'+path,import.meta.url)),`${name}: ${path}`);
     }

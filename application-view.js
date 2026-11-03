@@ -1,4 +1,4 @@
-import { LANGUAGE_STORAGE_KEY } from './app-i18n.js?v=1.7.4';
+import { LANGUAGE_STORAGE_KEY } from './app-i18n.js?v=1.8.0';
 export function createApplicationView({
   ui,
   document,
@@ -109,8 +109,8 @@ export function createApplicationView({
     try {
       window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language);
     } catch {}
-    ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.7.4&lang=' + language);
-    ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.7.4&lang=' + language);
+    ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.8.0&lang=' + language);
+    ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.8.0&lang=' + language);
     for (const [id, text] of Object.entries({
       'ai-test-link': 'AIテストモード（オフライン研究） ↗',
       'microphone-test-link': 'マイク接続テスト（イヤホン入力） ↗',

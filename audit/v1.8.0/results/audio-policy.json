@@ -1,0 +1,74 @@
+{
+  "passed": 6,
+  "cases": [
+    {
+      "entry": "index.html",
+      "mode": "ambient",
+      "contexts": [
+        "closed"
+      ],
+      "workers": 0,
+      "mic": 0,
+      "types": [
+        "ambient"
+      ],
+      "session": "auto",
+      "status": "Played"
+    },
+    {
+      "entry": "index.html",
+      "mode": "unsupported",
+      "contexts": [],
+      "workers": 0,
+      "mic": 0,
+      "types": [],
+      "session": null,
+      "status": "Mixing API unavailable: preview blocked on this Apple device."
+    },
+    {
+      "entry": "index.html",
+      "mode": "rejected",
+      "contexts": [],
+      "workers": 0,
+      "mic": 0,
+      "types": [],
+      "session": "auto",
+      "status": "Mixing API unavailable: preview blocked on this Apple device."
+    },
+    {
+      "entry": "ipad-test.html",
+      "mode": "ambient",
+      "contexts": [
+        "closed"
+      ],
+      "workers": 0,
+      "mic": 0,
+      "types": [
+        "ambient"
+      ],
+      "session": "auto",
+      "status": "Played"
+    },
+    {
+      "entry": "ipad-test.html",
+      "mode": "unsupported",
+      "contexts": [],
+      "workers": 0,
+      "mic": 0,
+      "types": [],
+      "session": null,
+      "status": "Mixing API unavailable: preview blocked on this Apple device."
+    },
+    {
+      "entry": "ipad-test.html",
+      "mode": "rejected",
+      "contexts": [],
+      "workers": 0,
+      "mic": 0,
+      "types": [],
+      "session": "auto",
+      "status": "Mixing API unavailable: preview blocked on this Apple device."
+    }
+  ],
+  "limitation": "Chromium policy injection; no physical Safari or Apple Music"
+}
