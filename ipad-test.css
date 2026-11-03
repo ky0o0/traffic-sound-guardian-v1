@@ -13,3 +13,21 @@ body.ipad-test .app{max-width:1800px}body.ipad-test .brand{margin-bottom:20px}bo
 
 /* Independent score thresholds: position each reset button on the right. */
 body.ipad-test .effective-line{justify-content:flex-end}
+
+/* Test-only page navigation: right-aligned, always one row, horizontally scrollable when needed. */
+body.ipad-test .test-header-nav{
+ display:flex;align-items:center;gap:5px;min-width:0;max-width:100%;overflow-x:auto;
+ flex:0 1 auto;white-space:nowrap;overscroll-behavior-x:contain;scrollbar-width:thin;
+}
+body.ipad-test .test-header-nav a{
+ display:inline-flex;align-items:center;justify-content:center;flex:none;min-height:40px;
+ padding:7px 10px;border:1px solid var(--line);border-radius:9px;
+ background:var(--surface);color:var(--ink);font-size:12px;text-decoration:none;
+}
+body.ipad-test .test-header-nav a[aria-current=page]{
+ border-color:var(--accent);background:var(--raised);color:var(--accent);
+}
+@media (orientation:portrait),(max-width:819px),(max-height:499px){
+ body.ipad-test .brand{flex-wrap:wrap;}
+ body.ipad-test .test-header-nav{width:100%;flex-basis:100%;}
+}
