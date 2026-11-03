@@ -1,6 +1,6 @@
 import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.7.3';
 import { AudioWindowBuffer } from './audio-window.js';
-import { microphoneSourceEvidence } from './mic-source.js?v=1.6.2';
+import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.6.2';
 import { debugCategoryName } from './debug.js?v=1.6.15';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
@@ -361,7 +361,7 @@ function renderMicChoices() {
   }
   select.setAttribute('title', selectedName || t('ブラウザ標準'));
   const activeTrack = session?.stream?.getAudioTracks()[0];
-  const reportedId = activeTrack?.getSettings?.()?.deviceId ?? '';
+  const reportedId = safeTrackSettings(activeTrack).deviceId ?? '';
   const selected = !!preferredMicId;
   const status = !microphoneListReady ? 'マイクの許可後に機器一覧を取得します。' :
     selected && session?.stream && (!reportedId || reportedId === 'default') ?
@@ -867,6 +867,11 @@ function startVisuals(s) {
   s.visualFrame = requestAnimationFrame(draw);
 }
 
+function cleanupOperation(operation, action) {
+  try { return action(); }
+  catch (error) { console.warn('[Traffic Sound Guardian] Cleanup failed: ' + operation, error); }
+}
+
 function stop(message = '') {
   const old = session;
   stopDebug(old);
@@ -878,23 +883,23 @@ function stop(message = '') {
     clearTimeout(old.warningTimeout);
     clearInterval(old.watchdog);
     if (old.visualFrame != null) cancelAnimationFrame(old.visualFrame);
-    old.worker?.terminate(); // Releases the classifier and its WASM heap.
+    cleanupOperation('Worker termination', () => old.worker?.terminate()); // Releases the classifier and its WASM heap.
     old.pending = null;
     old.flight = null;
     if (old.node) {
       old.node.onaudioprocess = null;
-      if (old.node.port) { old.node.port.onmessage = null; old.node.port.close(); }
+      if (old.node.port) { old.node.port.onmessage = null; cleanupOperation('Worklet port close', () => old.node.port.close()); }
       try { old.node.disconnect(); } catch { /* Already disconnected. */ }
     }
     for (const node of [old.source, old.silent, old.analyser]) { try { node?.disconnect(); } catch {} }
     for (const track of old.stream?.getTracks() || []) {
       track.onended = null;
       track.onmute = null;
-      track.stop();
+      cleanupOperation('Microphone track stop', () => track.stop());
     }
     if (old.context) {
       old.context.onstatechange = null;
-      if (old.context.state !== 'closed') old.context.close().catch(() => {});
+      if (old.context.state !== 'closed') cleanupOperation('AudioContext close', () => Promise.resolve(old.context.close()).catch(error => console.warn('[Traffic Sound Guardian] AudioContext close failed', error)));
     }
     // Release any pending async initialization wait as well as native resources.
     old.rejectReady?.(new DOMException('Stopped', 'AbortError'));
@@ -1012,7 +1017,7 @@ function receiveResult(s, data) {
     scores:data.trafficScores ?? null,
     thresholds:{ ...activeThresholds() },
     warning:newWarning ? target?.name : null,
-    inputSampleRate:s.stream?.getAudioTracks()[0]?.getSettings?.()?.sampleRate ?? null,
+    inputSampleRate:safeTrackSettings(s.stream?.getAudioTracks()[0]).sampleRate ?? null,
     contextSampleRate:s.context.sampleRate,
     microphone:microphoneSourceEvidence(s.stream?.getAudioTracks()[0],s.reportedAudioInputs)
   }}));
@@ -1153,7 +1158,7 @@ async function start() {
     if (s.requestedMicId) audioConstraints.deviceId = {exact:s.requestedMicId};
     const microphone = navigator.mediaDevices.getUserMedia({ video: false, audio: audioConstraints }).then(stream => {
       if (!isCurrent(s)) { stream.getTracks().forEach(t => t.stop()); throw new DOMException('Stopped', 'AbortError'); }
-      const actualId = stream.getAudioTracks()[0]?.getSettings?.()?.deviceId ?? '';
+      const actualId = safeTrackSettings(stream.getAudioTracks()[0]).deviceId ?? '';
       if (s.requestedMicId && actualId && actualId !== 'default' && actualId !== s.requestedMicId) {
         stream.getTracks().forEach(track => track.stop());
         throw publicError('ブラウザは選択したマイクと異なる入力を返しました。別の入力を選んでください。');

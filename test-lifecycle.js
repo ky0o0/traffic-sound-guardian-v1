@@ -7,7 +7,7 @@ import vm from 'node:vm';
 import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
-import { microphoneSourceEvidence } from './mic-source.js';
+import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
  .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
 const page=fs.readFileSync(new URL('./ipad-test.html',import.meta.url),'utf8');
@@ -61,7 +61,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,safeTrackSettings,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
@@ -1033,4 +1033,25 @@ test('V1.7 preserves legacy six preferences, defaults new five and permits indep
   const slider=h.elements.get('threshold-input-'+i);slider.value='.2';slider.input();assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.20');
  }
  assert.equal(Object.keys(JSON.parse(h.storageWrites.at(-1)[1])).length,11);h.stop();
+});
+
+
+test('cleanup continues after a native Worklet port failure and releases capture',async()=>{
+ const h=await harness({worklet:true});h.nodes[0].port.close=()=>{throw Error('injected port failure')};
+ h.stop();assert.equal(h.tracks[0].readyState,'ended');assert.equal(h.contexts[0].state,'closed');
+ assert.equal(h.frames.size,0);assert.equal(h.timers.size,0);assert.equal(h.document.body.dataset.state,'stopped');
+});
+test('cleanup continues after Worker termination and synchronous Context close failures',async()=>{
+ const h=await harness();h.workers[0].terminate=()=>{throw Error('injected worker failure')};
+ h.contexts[0].close=()=>{throw Error('injected close failure')};
+ h.stop();assert.equal(h.tracks[0].readyState,'ended');assert.equal(h.frames.size,0);assert.equal(h.timers.size,0);
+ assert.equal(h.run('session'),null);assert.equal(h.document.body.dataset.state,'stopped');
+});
+test('unavailable browser track settings cannot interrupt inference or device rendering',async()=>{
+ const h=await harness();h.tracks[0].getSettings=()=>{throw Error('settings unavailable')};
+ assert.doesNotThrow(()=>h.run('renderMicChoices()'));
+ h.frame();assert.doesNotThrow(()=>h.emit(1,null,{trafficScores:{Bell:.2},topCategory:{categoryName:'Bell',score:.2}}));
+ assert.equal(h.document.body.dataset.state,'warning');
+ const metadata=h.dispatched.filter(e=>e.type==='tsg:research').at(-1).detail;
+ assert.equal(metadata.inputSampleRate,null);h.stop();assert.equal(h.tracks[0].readyState,'ended');
 });

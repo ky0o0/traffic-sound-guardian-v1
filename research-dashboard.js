@@ -30,8 +30,6 @@ function renderMetrics(){
 function render(){
  const t=words();
  for(const [id,key] of Object.entries({'research-title':'title','research-counts-title':'counts','research-log-title':'log','research-log-note':'note','export-csv':'export','log-time':'time','log-kind':'kind','log-value':'value'}))$(id).textContent=t[key];
- $('sensitivity-scale').textContent=t.base;
- $('debug-target-effective').textContent=t.effective;
  renderMetrics();
  $('research-counts').replaceChildren(...Object.entries(state.counts).map(([name,count]) => {
   const row=document.createElement('span'),label=document.createElement('span'),value=document.createElement('strong');label.textContent=sound(name);value.textContent=String(count);row.append(label,value);return row;

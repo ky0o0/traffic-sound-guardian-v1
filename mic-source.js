@@ -1,3 +1,11 @@
+/** Browser metadata is optional; diagnostic failures must not stop capture. */
+export function safeTrackSettings(track) {
+  try {
+    const settings = track?.getSettings?.();
+    return settings && typeof settings === 'object' ? settings : {};
+  } catch { return {}; }
+}
+
 /* Read-only display helper: reports only browser-exposed information.
  * A track label is NOT proof that the named physical microphone is active.
  * The input source cannot be inferred from the connected audio OUTPUT device.
@@ -7,7 +15,7 @@ export function microphoneSourceEvidence(track, devices = []) {
   const rawTrackLabel = typeof track?.label === 'string' ? track.label.trim() : '';
   let deviceId = '';
   try {
-    const id = track?.getSettings?.()?.deviceId;
+    const id = safeTrackSettings(track).deviceId;
     if (typeof id === 'string') deviceId = id;
   } catch { /* Some Safari versions hide device settings. */ }
   const matched = deviceId && Array.isArray(devices) ? devices.find(d =>
