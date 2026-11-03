@@ -1,5 +1,5 @@
-import { bindApplicationElements } from './page-elements.js?v=1.8.0';
-import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.8.0';
+import { bindApplicationElements } from './page-elements.js?v=1.7.4';
+import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.4';
 import {
   createThresholdSettings,
   thresholdsForMode,
@@ -7,11 +7,11 @@ import {
   STANDARD_THRESHOLD_STORAGE_KEY,
   THRESHOLD_STOPS,
   nearestThreshold,
-} from './threshold-settings.js?v=1.8.0';
-import { createMicrophoneView } from './microphone-view.js?v=1.8.0';
-import { createDebugView } from './debug-view.js?v=1.8.0';
-import { createApplicationView } from './application-view.js?v=1.8.0';
-import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.8.0';
+} from './threshold-settings.js?v=1.7.4';
+import { createMicrophoneView } from './microphone-view.js?v=1.7.4';
+import { createDebugView } from './debug-view.js?v=1.7.4';
+import { createApplicationView } from './application-view.js?v=1.7.4';
+import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.4';
 import {
   WarningGate,
   WARNING_TARGETS,
@@ -19,10 +19,10 @@ import {
   effectiveThreshold,
   DEFAULT_THRESHOLD,
   WARNING_HOLD_MS,
-} from './detection.js?v=1.8.0';
+} from './detection.js?v=1.7.4';
 import { AudioWindowBuffer } from './audio-window.js';
-import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.8.0';
-import { debugCategoryName } from './debug.js?v=1.8.0';
+import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.7.4';
+import { debugCategoryName } from './debug.js?v=1.7.4';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -630,7 +630,7 @@ async function connectCapture(s) {
   s.silent.gain.value = 0;
   if (context.audioWorklet && typeof AudioWorkletNode !== 'undefined') {
     try {
-      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.8.0', import.meta.url));
+      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.7.4', import.meta.url));
       if (!isCurrent(s)) return;
       s.node = new AudioWorkletNode(context, 'guardian-capture', {
         numberOfInputs: 1,
@@ -808,7 +808,7 @@ async function start() {
           : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.8.0', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.7.4', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {

@@ -1,6 +1,4 @@
-# Traffic Sound Guardian V1.8.0
-
-V1.8.0 introduces a shared four-page interface while preserving the existing audio and recognition pipeline. See the [design, validation and before/after report](audit/v1.8.0/REPORT.md) for the implementation boundary, test evidence and remaining device acceptance.
+# Traffic Sound Guardian V1.7.4
 
 A local, browser-based research prototype for recognizing surrounding traffic
 warning sounds. This maintenance candidate is on `refactor/comprehensive-audit`;

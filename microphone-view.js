@@ -1,4 +1,4 @@
-import { safeTrackSettings } from './mic-source.js?v=1.8.0';
+import { safeTrackSettings } from './mic-source.js?v=1.7.4';
 export function createMicrophoneView({ ui, document, translate: t }) {
   const $ = (id) => document.getElementById(id);
   function renderMicSource(micSource) {
