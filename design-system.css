@@ -1227,3 +1227,29 @@ body.ipad-test .settings-group select {
     scroll-margin-top: 88px;
   }
 }
+
+/* Keep all four page navigation links in one horizontal row on every screen. */
+.brand .site-navigation {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+.brand .site-navigation a {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  justify-content: center;
+}
+@media (max-width: 899px) {
+  .brand .site-navigation {
+    width: 100%;
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}
