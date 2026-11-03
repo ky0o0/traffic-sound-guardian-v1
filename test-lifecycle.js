@@ -26,7 +26,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
    getContext:()=>canvas,addEventListener(name,fn){this[name]=fn;}});
   return elements.get(id);
  };
- const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],gains=[],oscillators=[],timers=new Map(),frames=new Map(),events={},dispatched=[],storageWrites=[];
+ const tracks=[],workers=[],contexts=[],nodes=[],sources=[],analysers=[],gains=[],oscillators=[],timers=new Map(),frames=new Map(),events={},dispatched=[],storageWrites=[],micRequests=[];
  let now=0,nextTimer=0,micCalls=0,resolveMic,denied=deny;
  const makeStream=()=>{
   const track={readyState:'live',muted:false,label:trackLabel,reportedDeviceId:deviceId,
@@ -70,7 +70,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
     enumerateDevices(){if(enumerationFails)return Promise.reject(new Error('unsupported'));return Promise.resolve(devices);},
     addEventListener(name,fn){events['media-'+name]=fn;},
     removeEventListener(name,fn){if(events['media-'+name]===fn)delete events['media-'+name];},
-    getUserMedia(){micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
+    getUserMedia(request){micRequests.push(request);micCalls++;if(denied)return Promise.reject(new DOMException('denied','NotAllowedError'));
     if(deferMic)return new Promise(resolve=>{resolveMic=()=>resolve(makeStream());});return Promise.resolve(makeStream());}}}
  });
  // Production links are tested by default; fixtures can replace both for validation.
@@ -81,7 +81,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  // The test harness simulates the user's tap; production never starts itself.
  if(autoStart)element('mic-control').click();
  await flush();await flush();
- return {document,elements,tracks,workers,contexts,nodes,sources,analysers,gains,oscillators,drawing,frames,timers,events,dispatched,context,storageWrites,
+ return {document,elements,tracks,workers,contexts,nodes,sources,analysers,gains,oscillators,drawing,frames,timers,events,dispatched,context,storageWrites,micRequests,
   animate(time){const tasks=[...frames.values()];frames.clear();tasks.forEach(fn=>fn(time));},
   language:lang=>{const picker=element('language-select');picker.value=lang;picker.change();},
   debug(enabled){element('debug-toggle').checked=enabled;element('debug-toggle').change();},
@@ -280,15 +280,15 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
  h.stop();
 });
-test('V1.6.16 page, release assets and refreshed classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.16<\/title>/);
- assert.match(page, /class="version">V1\.6\.16<\/span>/);
+test('V1.6.17 page, release assets and refreshed classifier cache agree',()=>{
+ assert.match(page, /<title>Traffic Sound Guardian V1\.6\.17<\/title>/);
+ assert.match(page, /class="version">V1\.6\.17<\/span>/);
  assert.match(page, /src="\.\/app\.js\?v=1\.6\.16"/); // Changed app JS must refresh cache.
  assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
  assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.16"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.15/); // Changed Worker JS must refresh cache.
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.16');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.16');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.17');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.17');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  const main=page;
@@ -374,7 +374,7 @@ test('V1.6.8 status label has no background and its dot replaces microphone-corn
  assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
  assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.16"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.17"/);
  assert.match(page, /href="\.\/theme\.css\?v=1\.6\.13"/);
  const h=await harness();
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
@@ -820,7 +820,7 @@ test('each INACTIVE-to-ACTIVE warning plays exactly two soft, short output-only 
  assert.equal(h.oscillators[1].startedAt-h.oscillators[0].startedAt,.195);
  assert.ok(h.gains.slice(-2).every(g=>g.connections.includes(h.contexts[0].destination)),
    'output only; no tones are routed into microphone acquisition');
- assert.ok(h.gains.slice(-2).every(g=>g.gain.ramps.some(([,v])=>v===.045)),
+ assert.ok(h.gains.slice(-2).every(g=>g.gain.ramps.some(([,v])=>v===.09)),
    'each beep has a conservative gain envelope');
  h.now(500);h.frame(2);h.emit(2,{score:.9,label:'サイレン'});
  assert.equal(h.oscillators.length,2,'continued warning or type changes never replay');
@@ -1061,5 +1061,56 @@ test('each inference refreshes diagnostics once, including warning state transit
  for(const [i,target] of [[1,null],[2,{name:'Siren',label:'サイレン',score:.5}],[3,{name:'Siren',label:'サイレン',score:.6}]]){
   h.frame(i);h.run('debugCalls=0');h.emit(i,target);assert.equal(h.run('debugCalls'),1);
  }
+ h.stop();
+});
+
+test('settings expose only real browser-reported input choices after permission',async()=>{
+ const h=await harness({autoStart:false,devices:[
+  {kind:'audioinput',deviceId:'builtin-1',label:'Built-in Microphone'},
+  {kind:'audioinput',deviceId:'airpods-1',label:'AirPods Microphone'},
+  {kind:'audiooutput',deviceId:'output-1',label:'AirPods Output'}
+ ]});
+ assert.equal(h.calls(),0,'opening settings cannot request microphone permission');
+ assert.equal(h.elements.get('mic-select').value,'','default chosen initially');
+ h.click();await flush();await flush();
+ const choices=h.elements.get('mic-select').children.map(x=>x.value);
+ assert.deepEqual(choices,['','builtin-1','airpods-1'],'audio outputs must never be selectable as input');
+ assert.equal(h.calls(),1);h.stop();
+});
+test('selecting a reported input requests deviceId exact after releasing the previous capture',async()=>{
+ const h=await harness({deviceId:'airpods-1',devices:[{kind:'audioinput',deviceId:'airpods-1',label:'AirPods Microphone'}]});
+ const select=h.elements.get('mic-select');
+ assert.ok(select.children.some(option=>option.value==='airpods-1'));
+ select.value='airpods-1';select.change();await flush();await flush();
+ assert.equal(h.calls(),2);
+ assert.equal(h.micRequests[1].audio.deviceId.exact,'airpods-1');
+ assert.equal(h.tracks[0].readyState,'ended','old microphone released before new one opens');
+ assert.equal(h.tracks[1].readyState,'live');
+ assert.equal(h.document.body.dataset.state,'priming');
+ h.stop();
+});
+test('deviceId mismatch is not silently reported as successful microphone selection',async()=>{
+ const h=await harness({deviceId:'builtin-1',devices:[
+  {kind:'audioinput',deviceId:'builtin-1',label:'Built-in Microphone'},
+  {kind:'audioinput',deviceId:'airpods-1',label:'AirPods Microphone'}
+ ]});
+ const select=h.elements.get('mic-select');select.value='airpods-1';select.change();
+ await flush();await flush();
+ assert.equal(h.micRequests.at(-1).audio.deviceId.exact,'airpods-1');
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.ok(h.tracks.every(track=>track.readyState==='ended'));
+ assert.match(h.elements.get('description').textContent,/異なる入力/);
+ h.stop();
+});
+test('volume selector stores one of three finite presets and never restarts detection',async()=>{
+ const h=await harness({autoStart:false});
+ const selector=h.elements.get('alert-volume-select');
+ assert.equal(selector.value,'normal');
+ selector.value='clear';selector.change();
+ assert.equal(h.run('alertVolume'),'clear');
+ assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.alertVolume');
+ assert.equal(h.storageWrites.at(-1)[1],'clear');
+ assert.equal(h.calls(),0);
+ selector.value='soft';selector.change();assert.equal(h.run('alertVolume'),'soft');
  h.stop();
 });
