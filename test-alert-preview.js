@@ -42,7 +42,12 @@ function boot({audio=true}={}){
 test('preview exists exclusively on iPad and never starts mic, real warning, or inference',()=>{
  const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./ipad-test.css');
  assert.match(ipad,/id="alert-preview-button"/);
- assert.match(ipad,/alert-tone-preview\.js\?v=1\.6\.15/);
+ assert.match(ipad,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.15\.1"><\/script>/);
+ for(const [name,markup] of [['standard',main],['iPad',ipad]]) {
+  const opened=[...markup.matchAll(/<script\b/gi)].length;
+  const closed=[...markup.matchAll(/<\/script>/gi)].length;
+  assert.equal(opened,closed,name+' must close every script tag with a complete </script>');
+ }
  assert.doesNotMatch(main,/alert-preview-button|alert-tone-preview\.js/);
  assert.match(css,/#alert-preview-button\{[^}]*min-height:44px/);
  assert.doesNotMatch(source,/getUserMedia|AudioWorklet|classifier|tsg:warning|data-state|localStorage/);
@@ -66,8 +71,11 @@ test('manual user click plays exactly the normal two quiet sine beeps through ou
  }
  assert.ok(Math.abs((a.oscillators[1].started[0]-a.oscillators[0].stopped[0])-.085)<1e-10);
  a.buttonListeners.click();assert.equal(a.contexts.length,1,'second click while playing is ignored');
- a.timers[0].fn();
- assert.equal(a.contexts[0].closed,true,'close temporary output Context after sound');
+ assert.equal(a.timers[0].time,3000,'watchdog must not stop still-playing Safari audio at a fixed 700ms');
+ a.contexts[0].currentTime=10+.02+.195+.11;
+ a.oscillators[1].onended();
+ assert.equal(a.contexts[0].closed,true,'close temporary output Context after the second oscillator ends');
+ assert.equal(a.timers[0].cleared,true,'completion cancels the fallback watchdog');
  assert.equal(a.nodes['alert-preview-button'].disabled,false);
  assert.equal(a.nodes['alert-preview-status'].textContent,'再生完了');
 });
@@ -79,15 +87,37 @@ test('pagehide and background visibility always release preview audio and multil
  a.events.pagehide();
  assert.equal(a.contexts[0].closed,true);
  assert.equal(a.nodes['alert-preview-button'].disabled,false);
+ assert.equal(a.nodes['alert-preview-status'].textContent,'','a hidden page cannot claim to be playing');
  a.document.documentElement.lang='en';a.events['tsg:language']();
  assert.equal(a.nodes['alert-preview-button'].textContent,'Play alert sound');
  a.buttonListeners.click();
  a.document.hidden=true;a.docEvents.visibilitychange();
  assert.equal(a.contexts[1].closed,true);
+ assert.equal(a.nodes['alert-preview-status'].textContent,'');
 });
 test('missing Web Audio supports graceful failure without permissions or fake playback',()=>{
  const a=boot({audio:false});
  a.buttonListeners.click();
  assert.equal(a.contexts.length,0);
  assert.equal(a.nodes['alert-preview-status'].textContent,'この端末では再生できません。');
+});
+
+test('Safari suspended AudioContext cannot claim successful beep playback',()=>{
+ const a=boot();
+ a.buttonListeners.click();
+ a.contexts[0].state='suspended';
+ a.timers[0].fn();
+ assert.equal(a.contexts[0].closed,true);
+ assert.equal(a.nodes['alert-preview-button'].disabled,false);
+ assert.equal(a.nodes['alert-preview-status'].textContent,'この端末では再生できません。');
+ assert.equal(a.oscillators[1].onended,null,'cleanup removes stale onended callback');
+});
+
+test('fallback accepts actual elapsed AudioContext time when onended is missing',()=>{
+ const a=boot();
+ a.buttonListeners.click();
+ a.contexts[0].currentTime=10+.02+.195+.11+0.01;
+ a.timers[0].fn();
+ assert.equal(a.contexts[0].closed,true);
+ assert.equal(a.nodes['alert-preview-status'].textContent,'再生完了');
 });
