@@ -1,3 +1,10 @@
+import { bindApplicationElements } from './page-elements.js';
+import { EN, ZH, LANGUAGE_STORAGE_KEY, allowedLanguage, initialLanguage, translateApp } from './app-i18n.js';
+import { createThresholdSettings, thresholdsForMode, THRESHOLD_STORAGE_KEY, STANDARD_THRESHOLD_STORAGE_KEY, THRESHOLD_STOPS, nearestThreshold } from './threshold-settings.js';
+import { createMicrophoneView } from './microphone-view.js';
+import { createDebugView } from './debug-view.js';
+import { createApplicationView } from './application-view.js';
+import { createMicrophoneVisualizer } from './microphone-visualizer.js';
 // Isolated controller tests with fake browser devices. This file is never imported
 // by index.html; these fixtures do not replace real audio/model code in the app.
 import test from 'node:test';
@@ -61,7 +68,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,safeTrackSettings,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
+ const context=vm.createContext({bindApplicationElements,EN,ZH,LANGUAGE_STORAGE_KEY,allowedLanguage,initialLanguage,translateApp,createThresholdSettings,thresholdsForMode,THRESHOLD_STORAGE_KEY,STANDARD_THRESHOLD_STORAGE_KEY,THRESHOLD_STOPS,nearestThreshold,createMicrophoneView,createDebugView,createApplicationView,createMicrophoneVisualizer,WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,safeTrackSettings,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
@@ -450,7 +457,7 @@ test('warning still allows stopping by tapping the circular control',async()=>{
  assert.equal(h.document.body.dataset.state,'stopped');h.stop();
 });
 test('waveform uses soft-limited display amplification without mutating captured frames',async()=>{
- assert.match(source,/Math\.tanh\(samples\[i\] \* 18\)/);
+ assert.match(fs.readFileSync(new URL('./microphone-visualizer.js',import.meta.url),'utf8'),/Math\.tanh\(samples\[i\] \* 18\)/);
  const h=await harness();h.analysers[0].pcm.fill(.08);h.animate(0);
  assert.ok(h.drawing.some(([,y])=>y!==24));
  h.frame(1);assert.equal(h.workers[0].sent.at(-1).sampleRate,48000);

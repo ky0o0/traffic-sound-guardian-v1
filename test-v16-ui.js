@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 const file = path => fs.readFileSync(new URL(path,import.meta.url),'utf8');
 test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s visualization',()=>{
- const html=file('./index.html'),app=file('./app.js'),timeline=file('./live-timeline.js');
+ const html=file('./index.html'),app=file('./app.js')+file('./microphone-visualizer.js'),timeline=file('./live-timeline.js');
  assert.match(html,/id="rolling-waveform"/);
  assert.match(html,/live-timeline\.js\?v=1\.6\.18/);
  assert.match(app,/tsg:visual/);

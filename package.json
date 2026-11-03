@@ -5,5 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "node --test test-*.js"
+  },
+  "devDependencies": {
+    "acorn": "8.15.0",
+    "prettier": "3.6.2"
   }
 }

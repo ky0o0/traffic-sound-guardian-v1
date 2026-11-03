@@ -1,3 +1,4 @@
+import { requireElements, RESEARCH_IDS } from './page-elements.js?v=1.7.3';
 import { ResearchSession } from './research.js?v=1.7.0';
 import { WARNING_TARGETS } from './detection.js?v=1.7.0';
 import { debugCategoryName } from './debug.js?v=1.6.15';
@@ -30,6 +31,7 @@ function renderMetrics(){
 function render(){
  const t=words();
  for(const [id,key] of Object.entries({'research-title':'title','research-counts-title':'counts','research-log-title':'log','research-log-note':'note','export-csv':'export','log-time':'time','log-kind':'kind','log-value':'value'}))$(id).textContent=t[key];
+ $('debug-target-effective').textContent=t.effective;
  renderMetrics();
  $('research-counts').replaceChildren(...Object.entries(state.counts).map(([name,count]) => {
   const row=document.createElement('span'),label=document.createElement('span'),value=document.createElement('strong');label.textContent=sound(name);value.textContent=String(count);row.append(label,value);return row;
@@ -44,6 +46,7 @@ function render(){
  $('export-csv').disabled = !state.records.length;
 }
 if($('research-dashboard')){
+ requireElements(document, RESEARCH_IDS, 'Research dashboard');
  window.addEventListener('tsg:capture',event => {
   clearInterval(timer);timer=null;
   if(event.detail?.active){state.start(Date.now(),performance.now());timer=setInterval(renderMetrics,1000);}
