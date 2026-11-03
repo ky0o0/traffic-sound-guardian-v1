@@ -1,15 +1,21 @@
-// iPad-only output test. No microphone, AI inference, alarm state, or user data.
-// Matches the production two-beep pattern in app.js: 740 Hz sine, two 110 ms
-// beeps with an 85 ms gap, and 0.045 peak gain. No automatic audio playback.
+// Output-only settings preview on both pages. Never starts microphone or AI.
+// Matches app.js' two 740Hz / 110ms beeps and the user-selected gain preset.
 const button = document.getElementById('alert-preview-button');
 const note = document.getElementById('alert-preview-note');
 const status = document.getElementById('alert-preview-status');
 const labels = {
-  ja: ['通知音を試聴', '実際の通知音を再生します。マイクとAIは起動しません。', '再生中…', '再生完了', 'この端末では再生できません。'],
-  en: ['Play alert sound', 'Play the real alert beeps. Does not start microphone or AI.', 'Playing…', 'Played', 'Audio unavailable on this device.'],
-  'zh-CN': ['试听提示音', '播放实际提示音，不启动麦克风或 AI。', '播放中…', '播放完成', '此设备无法播放提示音。']
+  ja: ['通知音を試聴', '選択した音量の通知音を再生します。マイクとAIは起動しません。', '再生中…', '再生完了', 'この端末では再生できません。'],
+  en: ['Play alert sound', 'Plays the alert at the selected level. Does not start microphone or AI.', 'Playing…', 'Played', 'Audio unavailable on this device.'],
+  'zh-CN': ['试听提示音', '按所选音量试听提示音，不启动麦克风或 AI。', '播放中…', '播放完成', '此设备无法播放提示音。']
 };
 const words = () => labels[document.documentElement.lang] ?? labels.ja;
+const gains = Object.freeze({soft:0.045, normal:0.09, clear:0.15});
+let volumeLevel = 'normal';
+try {
+  const value = window.localStorage?.getItem('trafficSoundGuardian.alertVolume');
+  if (Object.prototype.hasOwnProperty.call(gains,value)) volumeLevel = value;
+} catch {}
+
 let active = null;
 let statusIndex = null;
 function showStatus(index) {
@@ -51,6 +57,7 @@ function playPreview() {
     showStatus(2);
     // Browser may begin suspended; schedule immediately within the same gesture.
     const resume = context.resume();
+    const peak = gains[volumeLevel];
     const start = context.currentTime + 0.02;
     const finalEnd = start + 0.195 + 0.11;
     for(let i=0; i<2; i++){
@@ -60,8 +67,8 @@ function playPreview() {
       osc.type = 'sine';
       osc.frequency.value = 740;
       gain.gain.setValueAtTime(0,at);
-      gain.gain.linearRampToValueAtTime(0.045,at+0.015);
-      gain.gain.setValueAtTime(0.045,end-0.03);
+      gain.gain.linearRampToValueAtTime(peak,at+0.015);
+      gain.gain.setValueAtTime(peak,end-0.03);
       gain.gain.linearRampToValueAtTime(0,end);
       osc.connect(gain);
       gain.connect(context.destination);
@@ -101,6 +108,10 @@ function playPreview() {
 if (button && note && status) {
   button.addEventListener('click',playPreview);
   window.addEventListener('tsg:language',announcePreview);
+  window.addEventListener('tsg:alert-volume',event => {
+    const value = event?.detail?.level;
+    if (Object.prototype.hasOwnProperty.call(gains,value)) volumeLevel = value;
+  });
   window.addEventListener('pagehide',() => { endPreview(); showStatus(null); });
   document.addEventListener('visibilitychange',() => {
     if (document.hidden) { endPreview(); showStatus(null); }
