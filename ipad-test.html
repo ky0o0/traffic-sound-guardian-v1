@@ -21,16 +21,16 @@
 <meta content="Sound Guardian" name="apple-mobile-web-app-title"/>
 <link href="./icon.svg" rel="icon" type="image/svg+xml"/>
 <link href="./apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="./manifest.webmanifest?v=1.7.1" rel="manifest"/>
-<script defer="" src="./theme.js?v=1.7.1"></script>
-<title>Traffic Sound Guardian — Test (V1.7.1)</title>
-<link href="./guardian.css?v=1.7.1" rel="stylesheet"/><link href="./ipad-test.css?v=1.7.1" rel="stylesheet"/></head>
+<link href="./manifest.webmanifest?v=1.7.2" rel="manifest"/>
+<script defer="" src="./theme.js?v=1.7.2"></script>
+<title>Traffic Sound Guardian — Test (V1.7.2)</title>
+<link href="./guardian.css?v=1.7.2" rel="stylesheet"/><link href="./ipad-test.css?v=1.7.2" rel="stylesheet"/></head>
 <body class="ipad-test" data-mode="test" data-state="stopped">
 <div class="app ipad-dashboard">
 <header class="brand">
 <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"></path><path d="M10 17v3m4-9v14m4-11v8m4-5v3"></path></svg></div>
 <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
-<span class="version">V1.7.1 · TEST</span>
+<span class="version">V1.7.2 · TEST</span>
 </header>
 <main class="ipad-left">
 <div class="mic-source-panel" aria-labelledby="mic-source-label">
@@ -152,41 +152,41 @@
 </section></section>
 <aside class="ipad-right" aria-labelledby="sensitivity-heading">
 <section id="sensitivity-panel" class="sensitivity" aria-labelledby="sensitivity-heading">
-<section class="overall-control"><div class="sensitivity-line"><label id="overall-label" for="overall-sensitivity">全体の感度</label><output id="overall-value" for="overall-sensitivity">1.00×</output></div><input id="overall-sensitivity" max="1.5" min="0.5" step="0.05" type="range" value="1"/></section><h2 id="sensitivity-heading">交通警告音の感度設定</h2>
+<h2 id="sensitivity-heading">交通警告音の感度設定</h2>
 <p id="sensitivity-note" hidden="">1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。</p>
 <div class="sensitivity-list">
 <div class="sensitivity-item">
 <div class="sensitivity-line"><label id="threshold-label-0" for="threshold-input-0">自転車のベル</label><output id="threshold-value-0" for="threshold-input-0">0.10</output></div>
 <input id="threshold-input-0" aria-describedby="sensitivity-note" max="0.50" min="0.01" step="any" type="range" value="0.10"/>
-<div class="effective-line"><output id="threshold-effective-0">→ 0.100</output><button id="threshold-default-0" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
+<div class="effective-line"><button id="threshold-default-0" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
 <div class="sensitivity-item">
 <div class="sensitivity-line"><label id="threshold-label-1" for="threshold-input-1">車のクラクション</label><output id="threshold-value-1" for="threshold-input-1">0.10</output></div>
 <input id="threshold-input-1" aria-describedby="sensitivity-note" max="0.50" min="0.01" step="any" type="range" value="0.10"/>
-<div class="effective-line"><output id="threshold-effective-1">→ 0.100</output><button id="threshold-default-1" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
+<div class="effective-line"><button id="threshold-default-1" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
 <div class="sensitivity-item">
 <div class="sensitivity-line"><label id="threshold-label-2" for="threshold-input-2">サイレン</label><output id="threshold-value-2" for="threshold-input-2">0.10</output></div>
 <input id="threshold-input-2" aria-describedby="sensitivity-note" max="0.50" min="0.01" step="any" type="range" value="0.10"/>
-<div class="effective-line"><output id="threshold-effective-2">→ 0.100</output><button id="threshold-default-2" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
+<div class="effective-line"><button id="threshold-default-2" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
 <div class="sensitivity-item">
 <div class="sensitivity-line"><label id="threshold-label-3" for="threshold-input-3">サイレン（パトカー）</label><output id="threshold-value-3" for="threshold-input-3">0.10</output></div>
 <input id="threshold-input-3" aria-describedby="sensitivity-note" max="0.50" min="0.01" step="any" type="range" value="0.10"/>
-<div class="effective-line"><output id="threshold-effective-3">→ 0.100</output><button id="threshold-default-3" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
+<div class="effective-line"><button id="threshold-default-3" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
 <div class="sensitivity-item">
 <div class="sensitivity-line"><label id="threshold-label-4" for="threshold-input-4">サイレン（救急車）</label><output id="threshold-value-4" for="threshold-input-4">0.10</output></div>
 <input id="threshold-input-4" aria-describedby="sensitivity-note" max="0.50" min="0.01" step="any" type="range" value="0.10"/>
-<div class="effective-line"><output id="threshold-effective-4">→ 0.100</output><button id="threshold-default-4" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
+<div class="effective-line"><button id="threshold-default-4" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
 <div class="sensitivity-item">
 <div class="sensitivity-line"><label id="threshold-label-5" for="threshold-input-5">サイレン（消防車）</label><output id="threshold-value-5" for="threshold-input-5">0.10</output></div>
 <input id="threshold-input-5" aria-describedby="sensitivity-note" max="0.50" min="0.01" step="any" type="range" value="0.10"/>
-<div class="effective-line"><output id="threshold-effective-5">→ 0.100</output><button id="threshold-default-5" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
-<div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-6" for="threshold-input-6">Bell</label><output id="threshold-value-6" for="threshold-input-6">0.10</output></div><input id="threshold-input-6" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><output id="threshold-effective-6">→ 0.100</output><button id="threshold-default-6" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-7" for="threshold-input-7">Chime</label><output id="threshold-value-7" for="threshold-input-7">0.10</output></div><input id="threshold-input-7" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><output id="threshold-effective-7">→ 0.100</output><button id="threshold-default-7" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-8" for="threshold-input-8">Ding</label><output id="threshold-value-8" for="threshold-input-8">0.10</output></div><input id="threshold-input-8" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><output id="threshold-effective-8">→ 0.100</output><button id="threshold-default-8" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-9" for="threshold-input-9">Ping</label><output id="threshold-value-9" for="threshold-input-9">0.10</output></div><input id="threshold-input-9" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><output id="threshold-effective-9">→ 0.100</output><button id="threshold-default-9" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-10" for="threshold-input-10">Doorbell</label><output id="threshold-value-10" for="threshold-input-10">0.10</output></div><input id="threshold-input-10" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><output id="threshold-effective-10">→ 0.100</output><button id="threshold-default-10" class="reset-one" aria-label="Reset" type="button">↺</button></div></div></div>
-<div class="sensitivity-footer"><span id="sensitivity-scale">Base → Effective</span><button id="threshold-reset" type="button">すべて標準に戻す</button></div>
+<div class="effective-line"><button id="threshold-default-5" class="reset-one" aria-label="Reset" type="button">↺</button></div></div>
+<div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-6" for="threshold-input-6">Bell</label><output id="threshold-value-6" for="threshold-input-6">0.10</output></div><input id="threshold-input-6" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><button id="threshold-default-6" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-7" for="threshold-input-7">Chime</label><output id="threshold-value-7" for="threshold-input-7">0.10</output></div><input id="threshold-input-7" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><button id="threshold-default-7" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-8" for="threshold-input-8">Ding</label><output id="threshold-value-8" for="threshold-input-8">0.10</output></div><input id="threshold-input-8" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><button id="threshold-default-8" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-9" for="threshold-input-9">Ping</label><output id="threshold-value-9" for="threshold-input-9">0.10</output></div><input id="threshold-input-9" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><button id="threshold-default-9" class="reset-one" aria-label="Reset" type="button">↺</button></div></div><div class="sensitivity-item"><div class="sensitivity-line"><label id="threshold-label-10" for="threshold-input-10">Doorbell</label><output id="threshold-value-10" for="threshold-input-10">0.10</output></div><input id="threshold-input-10" max="0.50" min="0.01" step="any" type="range" value="0.10"/><div class="effective-line"><button id="threshold-default-10" class="reset-one" aria-label="Reset" type="button">↺</button></div></div></div>
+<div class="sensitivity-footer"><button id="threshold-reset" type="button">すべて標準に戻す</button></div>
 </section>
 </aside>
 <noscript>JavaScriptを有効にして、Safariで開き直してください。 / Enable JavaScript and reopen this page in Safari.</noscript>
 </div>
 <script src="./live-timeline.js?v=1.6.18" type="module"></script>
-<script src="./app.js?v=1.7.1" type="module"></script>
-<script src="./alert-tone-preview.js?v=1.7.1" type="module"></script>
-<script src="./research-dashboard.js?v=1.7.1" type="module"></script></body>
+<script src="./app.js?v=1.7.2" type="module"></script>
+<script src="./alert-tone-preview.js?v=1.7.2" type="module"></script>
+<script src="./research-dashboard.js?v=1.7.2" type="module"></script></body>
 </html>

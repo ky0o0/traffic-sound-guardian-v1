@@ -1,4 +1,13 @@
-# Traffic Sound Guardian V1.7.1
+# Traffic Sound Guardian V1.7.2
+
+## V1.7.2 — Direct warning score thresholds
+
+- Standard now sets one direct score threshold from 0.01 to 0.50 (default 0.10) for all eleven warning categories.
+- Test no longer has a global sensitivity multiplier. All eleven per-category thresholds are used directly; the redundant effective-threshold labels have been removed.
+- Saved per-category Test preferences remain intact. Standard uses a separate stored score threshold; the old global multiplier is no longer applied.
+- Raw YAMNet outputs, warning timing, microphone capture and alert-tone audio processing are not changed.
+- This research prototype cannot guarantee road safety. Physical-device validation and false-positive/false-negative evaluation are still necessary.
+
 
 ## V1.7.1 — Standard microphone visual restoration
 

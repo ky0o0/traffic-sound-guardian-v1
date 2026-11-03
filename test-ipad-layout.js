@@ -8,10 +8,12 @@ const ids = html => [...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 const between = (a,b) => ipad.slice(ipad.indexOf(a),ipad.indexOf(b,ipad.indexOf(a)));
 
 test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
- for(const id of ['mic-control','language-select','alert-tone-toggle','alert-volume-select','alert-preview-button','mic-select','overall-sensitivity','rolling-waveform'])assert.ok(ids(main).includes(id)&&ids(ipad).includes(id),id);
+ for(const id of ['mic-control','language-select','alert-tone-toggle','alert-volume-select','alert-preview-button','mic-select','rolling-waveform'])assert.ok(ids(main).includes(id)&&ids(ipad).includes(id),id);
+ assert.ok(ids(main).includes('standard-threshold'));
+ assert.ok(!ids(ipad).includes('standard-threshold')&&!ids(ipad).includes('overall-sensitivity'));
  for(const markup of [main,ipad])assert.equal(new Set(ids(markup)).size,ids(markup).length);
  for(const id of ['debug-panel','debug-toggle','threshold-input-0'])assert.ok(!ids(main).includes(id)&&ids(ipad).includes(id));
- for(const file of ['app.js?v=1.7.1','live-timeline.js?v=1.6.18','theme.js?v=1.7.1']){assert.ok(main.includes(file));assert.ok(ipad.includes(file));}
+ for(const file of ['app.js?v=1.7.2','live-timeline.js?v=1.6.18','theme.js?v=1.7.2']){assert.ok(main.includes(file));assert.ok(ipad.includes(file));}
  assert.ok(!ipad.includes('id="settings-panel"'));assert.match(main,/id="settings-panel"/);
  assert.doesNotMatch(ipad,/getUserMedia\(|AudioContext\(|MediaRecorder\(/);
 
@@ -25,7 +27,7 @@ test('left control, center live chart plus BOTH detailed classification tables, 
    assert.ok(left.includes('id="'+id+'"'),id+' is in left operations');
  for(const id of ['rolling-current-value','rolling-waveform','rolling-events','debug-panel','debug-model','debug-mic','debug-inference','debug-time','debug-updated','debug-top','debug-target'])
    assert.ok(center.includes('id="'+id+'"'),id+' is in center live/research data');
- for(const id of ['sensitivity-panel','sensitivity-heading','sensitivity-note','sensitivity-scale','threshold-reset'])
+ for(const id of ['sensitivity-panel','sensitivity-heading','sensitivity-note','threshold-reset'])
    assert.ok(right.includes('id="'+id+'"'),id+' is in right threshold settings');
  for(let i=0;i<6;i++){
    assert.ok(right.includes('id="threshold-input-'+i+'"'),'slider '+i);
@@ -33,6 +35,7 @@ test('left control, center live chart plus BOTH detailed classification tables, 
    assert.ok(right.includes('id="threshold-value-'+i+'"'),'current threshold value '+i);
  }
  assert.ok(!center.includes('id="sensitivity-panel"'),'six sliders are no longer mixed with raw Debug output');
+ assert.ok(!right.includes('id="threshold-effective-0"'));
  assert.ok(!right.includes('id="debug-top"'),'no duplicated AI top score table on right');
  assert.ok(center.indexOf('id="rolling-waveform"')<center.indexOf('class="debug-status"'));
 });

@@ -10,3 +10,6 @@ body.ipad-test .app{max-width:1800px}body.ipad-test .brand{margin-bottom:20px}bo
  body.ipad-test .setting-row{margin-top:12px}body.ipad-test .settings-links{display:none}body.ipad-test .mic-source-panel{font-size:10px}body.ipad-test #description{font-size:11px;margin-bottom:8px}body.ipad-test .control-settings{padding-top:12px}body.ipad-test .visual{margin:12px 0}body.ipad-test #mic-control{min-height:54px}body.ipad-test footer{margin-top:10px;padding:0}
 }
 @media (orientation:portrait),(max-width:819px),(max-height:499px){body.ipad-test .app{max-width:740px}.ipad-left,.ipad-center,.ipad-right{width:100%}}
+
+/* Independent score thresholds: position each reset button on the right. */
+body.ipad-test .effective-line{justify-content:flex-end}

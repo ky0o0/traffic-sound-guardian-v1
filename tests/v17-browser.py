@@ -14,21 +14,27 @@ with sync_playwright() as pw:
  def open_page(entry):
   page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.goto(a.base_url.rstrip('/')+'/'+entry+'?lang=en');page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'");return page
  standard=open_page('index.html')
- standard.evaluate("localStorage.setItem('trafficSoundGuardian.soundThresholds',JSON.stringify({'Bicycle bell':.03,Siren:.23}));localStorage.removeItem('trafficSoundGuardian.overallSensitivity')")
+ standard.evaluate("localStorage.setItem('trafficSoundGuardian.soundThresholds',JSON.stringify({'Bicycle bell':.03,Siren:.23}));localStorage.removeItem('trafficSoundGuardian.standardThreshold')")
  standard.reload();standard.locator('#settings-toggle').click()
  assert standard.locator('#debug-panel,#debug-toggle,[id^=threshold-input-]').count()==0
- standard.locator('#overall-sensitivity').fill('1.5');standard.locator('#overall-sensitivity').dispatch_event('input')
- test=open_page('ipad-test.html');assert test.locator('#overall-value').inner_text()=='1.50×'
- assert test.locator('#threshold-value-0').inner_text()=='0.03';assert test.locator('#threshold-value-2').inner_text()=='0.23'
- for i in range(6,11):assert test.locator(f'#threshold-value-{i}').inner_text()=='0.10';assert test.locator(f'#threshold-effective-{i}').inner_text()=='→ 0.067'
- test.locator('#overall-sensitivity').fill('0.5');test.locator('#overall-sensitivity').dispatch_event('input')
- standard.wait_for_function("document.getElementById('overall-value').textContent==='0.50×'")
- test.locator('#threshold-input-6').fill('0.2');test.locator('#threshold-input-6').dispatch_event('input');assert test.locator('#threshold-effective-6').inner_text()=='→ 0.400'
- test.locator('#threshold-default-6').click();assert test.locator('#threshold-effective-6').inner_text()=='→ 0.200'
+ assert standard.locator('#standard-threshold-value').inner_text()=='0.10'
+ standard.locator('#standard-threshold').fill('0.05');standard.locator('#standard-threshold').dispatch_event('input')
+ assert standard.locator('#standard-threshold-value').inner_text()=='0.05'
+ test=open_page('ipad-test.html')
+ assert test.locator('#standard-threshold,#overall-sensitivity,#overall-value').count()==0
+ assert test.locator('[id^=threshold-input-]').count()==11
+ assert test.locator('#threshold-value-0').inner_text()=='0.03'
+ assert test.locator('#threshold-value-2').inner_text()=='0.23'
+ for i in range(6,11):assert test.locator(f'#threshold-value-{i}').inner_text()=='0.10'
+ test.locator('#threshold-input-6').fill('0.2');test.locator('#threshold-input-6').dispatch_event('input')
+ assert test.locator('#threshold-value-6').inner_text()=='0.20'
+ assert standard.locator('#standard-threshold-value').inner_text()=='0.05'
+ test.locator('#threshold-default-6').click();assert test.locator('#threshold-value-6').inner_text()=='0.10'
  standard.locator('#theme-select').select_option('dark');test.wait_for_function("document.documentElement.dataset.theme==='dark'")
- test.locator('#threshold-reset').click();standard.wait_for_function("document.getElementById('overall-value').textContent==='1.00×'")
+ test.locator('#threshold-reset').click()
  assert test.locator('[id^=threshold-value-]').all_text_contents()==['0.10']*11
- cases.append({'case':'two-tab-shared-settings-migration-eleven-controls-and-reset','passed':True})
+ assert standard.locator('#standard-threshold-value').inner_text()=='0.05'
+ cases.append({'case':'independent-standard-and-test-direct-thresholds-eleven-controls-and-reset','passed':True})
  for page,entry in [(standard,'index.html'),(test,'ipad-test.html')]:
   page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=false)')
   page.locator('#mic-control').click();page.wait_for_function('probe.workers[0]?.results.length>=3',timeout=60000)

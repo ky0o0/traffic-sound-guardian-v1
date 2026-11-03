@@ -57,7 +57,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   emit(data){this.onmessage?.({data});}
  }
  // Match the real page: missing HTML IDs must fail instead of being fabricated.
- const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:id=>(standard?standardIds:pageIds).has(id)?element(id):null,addEventListener(name,fn){events[name]=fn;}};
+ const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{mode:standard?'standard':'test'}},getElementById:id=>(standard?standardIds:pageIds).has(id)?element(id):null,addEventListener(name,fn){events[name]=fn;}};
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
@@ -272,7 +272,7 @@ test('V1.6.17 page, release assets and refreshed classifier cache agree',async()
  assert.match(html,/V1\.7\.0/);assert.match(html,/app\.js\?v=1\.7\.0/);assert.match(html,/guardian\.css\?v=1\.7\.0/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.0/);
  }
  assert.match(source,/classifier-worker\.js\?v=1\.7\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.1');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.2');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  for(const [file,selected] of [['index.html','version-standard'],['ipad-test.html','version-ipad']]) {
@@ -852,7 +852,7 @@ test('V1.6.3: no label, permission denial and restricted enumeration remain trut
 test('V1.6.6 Settings includes tone, language, theme, feedback and two tests; Debug outside',async()=>{
  const standard=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
  const menu=standard.slice(standard.indexOf('id="settings-content"'),standard.indexOf('</details>'));
- for(const id of ['language-select','alert-tone-toggle','feedback','ai-test-link','microphone-test-link','overall-sensitivity'])assert.ok(menu.includes('id="'+id+'"'),id);
+ for(const id of ['language-select','alert-tone-toggle','feedback','ai-test-link','microphone-test-link','standard-threshold'])assert.ok(menu.includes('id="'+id+'"'),id);
  for(const id of ['debug-toggle','debug-panel','threshold-input-0'])assert.ok(!standard.includes('id="'+id+'"'));
  assert.ok(!page.includes('id="settings-panel"'),'Test controls are direct');
  const h=await harness({autoStart:false});const bell=h.elements.get('threshold-input-0');bell.value='.05';bell.input();assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');h.stop();
@@ -1017,13 +1017,13 @@ test('volume selector stores one of three finite presets and never restarts dete
  h.stop();
 });
 
-test('V1.7 Standard starts genuine capture without debug UI and overall sensitivity changes the next decision',async()=>{
+test('V1.7.2 Standard direct threshold changes the next warning decision',async()=>{
  const h=await harness({standard:true});assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.run('debugEnabled'),false);
  h.frame(1);h.emit(1,null,{trafficScores:{Bell:.08}});assert.equal(h.document.body.dataset.state,'listening');
- const slider=h.elements.get('overall-sensitivity');slider.value='1.5';slider.input();
+ const slider=h.elements.get('standard-threshold');slider.value='0.05';slider.input();
  h.frame(2);assert.equal(h.workers[0].sent.at(-1).debug,false);
  h.emit(2,null,{trafficScores:{Bell:.08}});assert.equal(h.document.body.dataset.state,'warning');assert.equal(h.contexts.length,1);
- assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.overallSensitivity');h.stop();
+ assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.standardThreshold');h.stop();
 });
 test('V1.7 preserves legacy six preferences, defaults new five and permits independent new bell controls',async()=>{
  const h=await harness({autoStart:false,storedSettings:JSON.stringify({'Bicycle bell':.03,'Siren':.23})});

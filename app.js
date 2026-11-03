@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.7.0';
+import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.7.2';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js?v=1.6.2';
 import { debugCategoryName } from './debug.js?v=1.6.15';
@@ -464,30 +464,38 @@ function loadThresholds() {
   return initial;
 }
 let soundThresholds = loadThresholds();
-const OVERALL_STORAGE_KEY = 'trafficSoundGuardian.overallSensitivity';
-function loadOverallSensitivity() {
+// Standard uses one direct threshold; Test retains eleven stored category thresholds.
+const STANDARD_THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.standardThreshold';
+function loadStandardThreshold() {
   try {
-    const value = Number(window.localStorage?.getItem(OVERALL_STORAGE_KEY));
-    return Number.isFinite(value) && value >= 0.5 && value <= 1.5 ? value : 1;
-  } catch { return 1; }
+    const raw = window.localStorage?.getItem(STANDARD_THRESHOLD_STORAGE_KEY);
+    if (raw === null || raw === undefined || raw === '') return DEFAULT_THRESHOLD;
+    const value = Number(raw);
+    return Number.isFinite(value) && value >= 0.01 && value <= 0.50 ? Math.round(value * 100) / 100 : DEFAULT_THRESHOLD;
+  } catch { return DEFAULT_THRESHOLD; }
 }
-let overallSensitivity = loadOverallSensitivity();
-function renderOverallSensitivity() {
-  const input = $('overall-sensitivity');
-  if (input) {
-    input.value = String(overallSensitivity);
-    input.setAttribute('aria-valuetext', overallSensitivity.toFixed(2) + '×');
-    $('overall-value').textContent = overallSensitivity.toFixed(2) + '×';
-    $('overall-label').textContent = {ja:"全体の感度", en:'Overall Sensitivity', 'zh-CN':"总体灵敏度"}[language];
-  }
+let standardThreshold = loadStandardThreshold();
+function activeThresholds() {
+  return document.body.dataset.mode === 'standard'
+    ? Object.fromEntries(Object.keys(WARNING_TARGETS).map(name => [name, standardThreshold]))
+    : soundThresholds;
 }
-function setOverallSensitivity(value) {
+function renderStandardThreshold() {
+  const input = $('standard-threshold');
+  if (!input) return;
+  input.value = standardThreshold.toFixed(2);
+  input.setAttribute('aria-valuetext', standardThreshold.toFixed(2));
+  $('standard-threshold-value').textContent = standardThreshold.toFixed(2);
+  $('standard-threshold-label').textContent = {
+    ja:'警告音の共通しきい値', en:'Warning score threshold', 'zh-CN':'统一警告阈值'
+  }[language];
+}
+function setStandardThreshold(value) {
   const parsed = Number(value);
-  if (!Number.isFinite(parsed) || parsed < 0.5 || parsed > 1.5) return;
-  overallSensitivity = parsed;
-  try { window.localStorage?.setItem(OVERALL_STORAGE_KEY, String(parsed)); } catch {}
-  renderThresholds();
-  renderDebug();
+  if (!Number.isFinite(parsed) || parsed < 0.01 || parsed > 0.50) return;
+  standardThreshold = Math.round(parsed * 100) / 100;
+  try { window.localStorage?.setItem(STANDARD_THRESHOLD_STORAGE_KEY, standardThreshold.toFixed(2)); } catch {}
+  renderStandardThreshold();
 }
 
 // A separate 0.01 minimum followed by 0.05-spaced choices. Using native
@@ -498,7 +506,7 @@ function nearestThreshold(value) {
     Math.abs(step - value) < Math.abs(best - value) ? step : best, THRESHOLD_STOPS[0]);
 }
 function renderThresholds() {
-  renderOverallSensitivity();
+  renderStandardThreshold();
   for (const row of thresholdRows) {
     const value = soundThresholds[row.name].toFixed(2);
     row.label.textContent = t(row.info.label);
@@ -510,8 +518,6 @@ function renderThresholds() {
     row.input.value = value;
     row.input.setAttribute('aria-valuetext', value);
     row.output.textContent = value;
-    const effective = $('threshold-effective-' + Object.keys(WARNING_TARGETS).indexOf(row.name));
-    if (effective) effective.textContent = '→ ' + effectiveThreshold(soundThresholds[row.name], overallSensitivity).toFixed(3);
     const reset = $('threshold-default-' + Object.keys(WARNING_TARGETS).indexOf(row.name));
     if (reset) reset.setAttribute('aria-label', ({ja:"初期値に戻す: ", en:'Reset: ', 'zh-CN':"恢复默认："}[language]) + t(row.info.label));
   }
@@ -529,7 +535,6 @@ function changeThreshold(name, inputValue) {
   renderDebug();
 }
 function resetThresholds() {
-  setOverallSensitivity(1);
   for (const name of Object.keys(WARNING_TARGETS)) soundThresholds[name] = DEFAULT_THRESHOLD;
   renderThresholds();
   saveThresholds();
@@ -562,7 +567,7 @@ function renderDebugRows(container, rows) {
     row.append(label, score);
     if (container === ui['debug-target']) {
       const threshold = document.createElement('td');
-      threshold.textContent = effectiveThreshold(soundThresholds[category.categoryName], overallSensitivity).toFixed(3);
+      threshold.textContent = effectiveThreshold(soundThresholds[category.categoryName]).toFixed(3);
       row.append(threshold);
     }
     fragment.append(row);
@@ -772,7 +777,6 @@ function setLanguage(next) {
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
     'sensitivity-heading': '交通警告音の感度設定',
     'sensitivity-note': '1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。',
-    'sensitivity-scale': 'Base → Effective',
     'threshold-reset': 'すべて標準に戻す',
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
   })) { if (ui[id]) ui[id].textContent = t(text); }
@@ -993,8 +997,8 @@ function receiveResult(s, data) {
   clearTimeout(s.startTimeout);
   // Check eleven unchanged raw scores against effective per-category thresholds.
   // Legacy test fixtures without trafficScores keep the prior default behaviour.
-  const target = data.trafficScores ? chooseTarget(data.trafficScores, soundThresholds, overallSensitivity) : data.target;
-  const threshold = target?.name ? effectiveThreshold(soundThresholds[target.name] ?? DEFAULT_THRESHOLD, overallSensitivity) : DEFAULT_THRESHOLD;
+  const target = data.trafficScores ? chooseTarget(data.trafficScores, activeThresholds()) : data.target;
+  const threshold = target?.name ? effectiveThreshold(activeThresholds()[target.name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
   // Only the inactive -> active transition counts as a NEW warning.
   // A late JavaScript timer must not make an expired warning look continuous.
   const wasActive = s.gate.active && now - s.gate.lastPositive < WARNING_HOLD_MS;
@@ -1006,7 +1010,7 @@ function receiveResult(s, data) {
     at:Date.now(), monotonicMs:now, inferenceMs:diagnostics.inferenceMs,
     topCategory:data.topCategory ?? null, top5:data.debug?.top5 ?? null,
     scores:data.trafficScores ?? null,
-    thresholds:Object.fromEntries(Object.keys(WARNING_TARGETS).map(name => [name,effectiveThreshold(soundThresholds[name],overallSensitivity)])),
+    thresholds:{ ...activeThresholds() },
     warning:newWarning ? target?.name : null,
     inputSampleRate:s.stream?.getAudioTracks()[0]?.getSettings?.()?.sampleRate ?? null,
     contextSampleRate:s.context.sampleRate,
@@ -1236,15 +1240,15 @@ async function start() {
   } catch (error) { fail(s, error); }
 }
 
-$('overall-sensitivity')?.addEventListener('input', () => setOverallSensitivity($('overall-sensitivity').value));
+$('standard-threshold')?.addEventListener('input', () => setStandardThreshold($('standard-threshold').value));
 for (const [i, name] of Object.keys(WARNING_TARGETS).entries()) {
   $('threshold-default-' + i)?.addEventListener('click', () => {
     soundThresholds[name] = DEFAULT_THRESHOLD; renderThresholds(); saveThresholds(); renderDebug();
   });
 }
 window.addEventListener('storage', event => {
-  if (!event.key || [THRESHOLD_STORAGE_KEY, OVERALL_STORAGE_KEY].includes(event.key)) {
-    soundThresholds = loadThresholds(); overallSensitivity = loadOverallSensitivity(); renderThresholds(); renderDebug();
+  if (!event.key || [THRESHOLD_STORAGE_KEY, STANDARD_THRESHOLD_STORAGE_KEY].includes(event.key)) {
+    soundThresholds = loadThresholds(); standardThreshold = loadStandardThreshold(); renderThresholds(); renderDebug();
   }
   if (!event.key || event.key === ALERT_VOLUME_STORAGE_KEY) {
     alertVolume = loadAlertVolume(); ui['alert-volume-select'].value = alertVolume;

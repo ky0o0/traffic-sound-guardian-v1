@@ -57,23 +57,20 @@ export function targetScores(results) {
   return scores;
 }
 
-/** Apply preferences only to decision thresholds, never to model scores.
- * Default 1 preserves every existing threshold, including legacy 0.01 values.
- * UI sensitivity 0.5..1.5 gives a multiplier 2..2/3; clamp avoids extremes. */
-export function effectiveThreshold(base = DEFAULT_THRESHOLD, sensitivity = 1) {
+/** Clamp direct warning thresholds without modifying model scores. */
+export function effectiveThreshold(base = DEFAULT_THRESHOLD) {
   const validBase = Number.isFinite(base) && base >= 0.01 && base <= 0.50 ? base : DEFAULT_THRESHOLD;
-  const validSensitivity = Number.isFinite(sensitivity) && sensitivity >= 0.5 && sensitivity <= 1.5 ? sensitivity : 1;
-  return Math.max(0.01, Math.min(0.50, validBase / validSensitivity));
+  return validBase;
 }
 /** Original six traffic categories retain display priority over generic bells. */
-export function chooseTarget(scores, thresholds = {}, sensitivity = 1) {
+export function chooseTarget(scores, thresholds = {}) {
   const choose = targets => {
     let best = null;
     for (const [name, target] of Object.entries(targets)) {
       const score = scores?.[name];
       const base = thresholds?.[name] ?? DEFAULT_THRESHOLD;
       if (!Number.isFinite(base) || base < 0.01 || base > 0.50) continue;
-      const threshold = effectiveThreshold(base, sensitivity);
+      const threshold = effectiveThreshold(base);
       if (!Number.isFinite(score) || score < 0 || score > 1 ||
           !Number.isFinite(threshold) || threshold < 0.01 || threshold > 0.50 ||
           score < threshold) continue;

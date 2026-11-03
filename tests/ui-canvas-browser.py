@@ -107,9 +107,9 @@ with sync_playwright() as p:
                         assert page.locator('[id^=threshold-value-]').all_text_contents()==['0.10']*11
                     else:
                         page.locator('#settings-panel').evaluate('(e)=>e.open=true')
-                        page.locator('#overall-sensitivity').press('End')
-                        assert page.locator('#overall-value').inner_text()=='1.50×'
-                        page.locator('#overall-sensitivity').fill('1');page.locator('#overall-sensitivity').dispatch_event('input')
+                        page.locator('#standard-threshold').press('End')
+                        assert page.locator('#standard-threshold-value').inner_text()=='0.50'
+                        page.locator('#standard-threshold').fill('0.10');page.locator('#standard-threshold').dispatch_event('input')
                         page.locator('#settings-panel').evaluate('(e)=>e.open=false')
                     # Return to the top without changing microphone/session state.
                     page.evaluate('scrollTo(0,0)')
