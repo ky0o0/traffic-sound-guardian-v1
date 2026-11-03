@@ -18,7 +18,7 @@ function apply() {
   document.documentElement.style.colorScheme = active;
   const themeColor = document.querySelector('meta[name="theme-color"]');
   if (themeColor && document.body?.dataset.state !== 'warning') {
-    themeColor.setAttribute('content', active === 'light' ? '#f5f7fb' : '#101a2c');
+    themeColor.setAttribute('content', active === 'light' ? '#f3f6fa' : '#17191c');
   }
   const select = document.getElementById('theme-select');
   if (select && select.value !== selected) select.value = selected;
