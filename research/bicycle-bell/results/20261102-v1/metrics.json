@@ -1,0 +1,256 @@
+{
+  "status": "real_training_and_locked_test_completed",
+  "selection_feasible_on_validation": true,
+  "selected": {
+    "model": "mlp64_l2_0.001",
+    "config": {
+      "name": "mlp64_l2_0.001",
+      "hidden": 64,
+      "l2": 0.001
+    },
+    "hop_seconds": 0.24,
+    "stride": 1,
+    "validation_average_precision": 0.8994598978928992,
+    "epochs": 32,
+    "early_stopped": true,
+    "threshold": 0.7501617074012756,
+    "feasible": true,
+    "tp": 20,
+    "fp": 2,
+    "fn": 4,
+    "tn": 149,
+    "precision": 0.9090909090909091,
+    "recall": 0.8333333333333334,
+    "f1": 0.8695652173913043,
+    "fpr": 0.013245033112582781,
+    "confusion_matrix": [
+      [
+        149,
+        2
+      ],
+      [
+        4,
+        20
+      ]
+    ]
+  },
+  "test_clips": 216,
+  "test_positive": 41,
+  "test_negative": 175,
+  "test_average_precision": 0.839599728994044,
+  "policies": {
+    "trained_selected": {
+      "tp": 26,
+      "fp": 5,
+      "fn": 15,
+      "tn": 170,
+      "precision": 0.8387096774193549,
+      "recall": 0.6341463414634146,
+      "f1": 0.7222222222222222,
+      "fpr": 0.02857142857142857,
+      "confusion_matrix": [
+        [
+          170,
+          5
+        ],
+        [
+          15,
+          26
+        ]
+      ]
+    },
+    "trained_same_480ms_hop": {
+      "tp": 24,
+      "fp": 4,
+      "fn": 17,
+      "tn": 171,
+      "precision": 0.8571428571428571,
+      "recall": 0.5853658536585366,
+      "f1": 0.6956521739130435,
+      "fpr": 0.022857142857142857,
+      "confusion_matrix": [
+        [
+          171,
+          4
+        ],
+        [
+          17,
+          24
+        ]
+      ]
+    },
+    "v1615_bicycle_raw_0.10": {
+      "tp": 36,
+      "fp": 15,
+      "fn": 5,
+      "tn": 160,
+      "precision": 0.7058823529411765,
+      "recall": 0.8780487804878049,
+      "f1": 0.782608695652174,
+      "fpr": 0.08571428571428572,
+      "confusion_matrix": [
+        [
+          160,
+          15
+        ],
+        [
+          5,
+          36
+        ]
+      ]
+    },
+    "v1615_displayed_bicycle_exact_rule": {
+      "tp": 36,
+      "fp": 15,
+      "fn": 5,
+      "tn": 160,
+      "precision": 0.7058823529411765,
+      "recall": 0.8780487804878049,
+      "f1": 0.782608695652174,
+      "fpr": 0.08571428571428572,
+      "confusion_matrix": [
+        [
+          160,
+          15
+        ],
+        [
+          5,
+          36
+        ]
+      ]
+    },
+    "v1615_any_of_11_warning_classes": {
+      "tp": 40,
+      "fp": 66,
+      "fn": 1,
+      "tn": 109,
+      "precision": 0.37735849056603776,
+      "recall": 0.975609756097561,
+      "f1": 0.54421768707483,
+      "fpr": 0.37714285714285717,
+      "confusion_matrix": [
+        [
+          109,
+          66
+        ],
+        [
+          1,
+          40
+        ]
+      ]
+    }
+  },
+  "negative_and_positive_category_breakdown": {
+    "beep": {
+      "clips": 21,
+      "positive_predictions": 0,
+      "actual_positive": 0
+    },
+    "bicycle_bell": {
+      "clips": 41,
+      "positive_predictions": 26,
+      "actual_positive": 41
+    },
+    "chime": {
+      "clips": 20,
+      "positive_predictions": 2,
+      "actual_positive": 0
+    },
+    "ding": {
+      "clips": 9,
+      "positive_predictions": 0,
+      "actual_positive": 0
+    },
+    "doorbell": {
+      "clips": 17,
+      "positive_predictions": 0,
+      "actual_positive": 0
+    },
+    "environment": {
+      "clips": 52,
+      "positive_predictions": 0,
+      "actual_positive": 0
+    },
+    "music": {
+      "clips": 33,
+      "positive_predictions": 1,
+      "actual_positive": 0
+    },
+    "other_bell": {
+      "clips": 23,
+      "positive_predictions": 2,
+      "actual_positive": 0
+    }
+  },
+  "timing": {
+    "head_inference_ms": {
+      "n": 6917,
+      "mean": 0.008896891137937502,
+      "p50": 0.008216000026095571,
+      "p95": 0.01068020000047909,
+      "max": 0.06321799997976996
+    },
+    "export_max_abs_error": 2.682209014892578e-07,
+    "trained_file_start_to_first_positive_seconds": {
+      "n": 26,
+      "mean": 2.1749886621315193,
+      "p50": 1.0949886621315192,
+      "p95": 5.714988662131519,
+      "max": 9.85498866213152
+    },
+    "baseline_file_start_to_first_positive_seconds": {
+      "n": 36,
+      "mean": 1.8149886621315194,
+      "p50": 0.9749886621315192,
+      "p95": 3.2549886621315194,
+      "max": 16.81498866213152
+    },
+    "event_onset_latency": null,
+    "hardware_microphone_latency": null,
+    "note": "The two file-start distributions may cover different detected clips; neither measures onset latency."
+  },
+  "encoder": {
+    "original_sha256": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+    "encoder_sha256": "3ffb27df92bc2707c04b9313e871a673c0cfae53b71f3d7b6d3e1577e996d5d4",
+    "feature_tensor": 115,
+    "feature_name": "tower0/network/layer28/reduce_mean",
+    "quantization": [
+      0.022328350692987442,
+      -128
+    ],
+    "baseline_output_max_abs_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "encoder_inference_ms": {
+      "n": 30412,
+      "mean": 1.6439686928844326,
+      "p50": 1.6307795000045644,
+      "p95": 1.7098774499913816,
+      "max": 4.07970399999158
+    },
+    "original_inference_ms_small_parity_sample": {
+      "n": 8,
+      "mean": 1.591333874998213,
+      "p50": 1.5767430000153126,
+      "p95": 1.6758828499888523,
+      "max": 1.7222609999976157
+    }
+  },
+  "false_positive_count": 5,
+  "false_negative_count": 15,
+  "limitations": [
+    "Custom uploader-disjoint subset, not official FSD50K benchmark split.",
+    "FSD50K human clip tags are weak labels; absence of a bicycle tag does not prove absence of an audible bicycle.",
+    "Uploader grouping plus byte and normalized PCM hashes reduces leakage but cannot rule out all cross-uploader re-recordings.",
+    "Public pretrained YAMNet training-data independence is not certified.",
+    "No precise event timestamps, real microphone latency, iPad Safari performance or road-environment accuracy measured.",
+    "The full-site 11-class warning metric counts legitimate non-bicycle warnings as positive outputs and is context only, not a bicycle-specific classifier."
+  ]
+}

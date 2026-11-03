@@ -1,0 +1,50 @@
+name: Bicycle bell round 2 development (no deployment)
+on:
+  push:
+    branches: [research/bicycle-bell-transfer-20261102]
+    paths: [research/bicycle-bell/followup/**, .github/workflows/bicycle-bell-round2.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  development:
+    if: github.ref == 'refs/heads/research/bicycle-bell-transfer-20261102'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      TF_CPP_MIN_LOG_LEVEL: '2'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/bell-cache
+          key: bell-fsd-v1-${{ hashFiles('research/bicycle-bell/protocol.json', 'yamnet.tflite') }}
+      - run: python -m pip install -r research/bicycle-bell/requirements.txt
+      - name: Verify existing evidence without retraining v1
+        run: python research/bicycle-bell/verify_results.py
+      - name: Train new heads, compare validation strategies and audit new data
+        run: python -u research/bicycle-bell/followup/run.py 2>&1 | tee round2.log
+        shell: bash
+      - name: Archive complete execution evidence even on failure
+        if: always()
+        run: mkdir -p bell-round2 && cp round2.log bell-round2/runner.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bicycle-bell-round2-${{ github.run_id }}
+          path: bell-round2
+          retention-days: 90
+      - name: Permanently preserve real research outputs on research branch only
+        if: always()
+        run: |
+          mkdir -p research/bicycle-bell/results/20261102-v2
+          cp -a bell-round2/. research/bicycle-bell/results/20261102-v2/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/bicycle-bell/results/20261102-v2
+          git commit -m 'research: preserve round2 actual development results and execution log'
+          git push origin HEAD:refs/heads/research/bicycle-bell-transfer-20261102

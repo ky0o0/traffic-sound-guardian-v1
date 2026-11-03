@@ -1,0 +1,49 @@
+name: Preserve verified bicycle research artifacts on research branch
+on:
+  push:
+    branches: [research/bicycle-bell-transfer-20261102]
+    paths: [.github/workflows/bicycle-bell-publish-results.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve:
+    if: github.ref == 'refs/heads/research/bicycle-bell-transfer-20261102'
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TRAINING_RUN: '41402862753'
+      TRAINING_HEAD: '12a5ddc3be52903f8ce51e28f72b03af05f263bf'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for actual training, verify its source, and download its own artifact
+        run: |
+          test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$TRAINING_RUN" --jq .head_sha)" = "$TRAINING_HEAD"
+          gh run watch "$TRAINING_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+          gh run download "$TRAINING_RUN" --repo "$GITHUB_REPOSITORY" --name "bicycle-bell-research-$TRAINING_RUN" --dir research-artifact
+      - name: Verify model and metrics checksums before preservation
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,os
+          root=pathlib.Path('research-artifact')
+          reproduction=json.loads((root/'reproduction.json').read_text())
+          assert reproduction['git_commit']==os.environ['TRAINING_HEAD']
+          metrics=json.loads((root/'metrics.json').read_text())
+          assert metrics['status']=='real_training_and_locked_test_completed'
+          for name,expected in json.loads((root/'SHA256SUMS.json').read_text()).items():
+              assert pathlib.Path(name).name==name
+              assert hashlib.sha256((root/name).read_bytes()).hexdigest()==expected,name
+          assert (root/'bicycle_bell_head.tflite').stat().st_size>0
+          print('Verified genuine model, locked metrics and every artifact checksum')
+          PY
+      - name: Commit only research deliverables to the same research branch
+        run: |
+          mkdir -p research/bicycle-bell/results/20261102-v1
+          cp -a research-artifact/. research/bicycle-bell/results/20261102-v1/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/bicycle-bell/results/20261102-v1
+          git commit -m 'research: preserve real trained bicycle model and locked test evidence'
+          git push origin HEAD:refs/heads/research/bicycle-bell-transfer-20261102

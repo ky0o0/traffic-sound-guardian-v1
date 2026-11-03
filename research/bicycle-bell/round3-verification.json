@@ -1,0 +1,71 @@
+{
+  "checksummed_artifacts": 15,
+  "train_validation_disjoint_keys": [
+    "uploader",
+    "sha256",
+    "pcm_group"
+  ],
+  "old_test_clips_excluded": 216,
+  "sealed_candidates_excluded": 5,
+  "recomputed_new_head_confusion_matrix": [
+    [
+      144,
+      7
+    ],
+    [
+      3,
+      25
+    ]
+  ],
+  "positive_uploader_macro": {
+    "new_speakers_mil": {
+      "recall": 0.8894736842105264,
+      "per_author": {
+        "newagesoup": [
+          17,
+          19
+        ],
+        "pallen33": [
+          1,
+          1
+        ],
+        "nikiforov5000": [
+          1,
+          1
+        ],
+        "AntumDeluge": [
+          1,
+          1
+        ],
+        "escortmarius": [
+          0,
+          1
+        ],
+        "LukeUPF": [
+          1,
+          1
+        ],
+        "Hockinfinger": [
+          1,
+          1
+        ],
+        "cdrk": [
+          1,
+          1
+        ],
+        "gis_sweden": [
+          1,
+          1
+        ],
+        "vollkornbrot": [
+          1,
+          1
+        ]
+      }
+    }
+  },
+  "website_tests": {
+    "passed": 199,
+    "failed": 0
+  }
+}

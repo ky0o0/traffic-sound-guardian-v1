@@ -1,0 +1,17 @@
+{
+  "bicycle_bell_head_weights.npz": "4df78b83080f1a685f4656defa6a01b923757eab9a9d28d53e7f39989c1bff19",
+  "training-history.json": "c56c9926e2943c421f9f8d58e9ec68cc5262f6d421901061fadf18c592269101",
+  "new-data-allocation-before-inference.json": "0cdb602c3eca9850fc20a4b5d9bcfd113dd58b8d027db0054839e570cdd2fb87",
+  "encoder-check.json": "d1993e78f4c0718f46d07ebdacd446a5e24a0bac11f3ff93bcfeafb95997b280",
+  "development-manifest.json": "e01366ff731f295c7cc1aaaaab91de856c251c56b95ccd5391bef07aac694208",
+  "selection-locked-before-test.json": "8f645868b451b16861e80207e049671bb79b161b22a1a021e71a2076ad22ba0d",
+  "download-failures.json": "f197c90663446d29551cad4a1ab730865449796ed3f1f96b1394eaca76d785fc",
+  "bicycle_bell_head.tflite": "a3200f6819751719bd748e307b5e84048c21828f3d78af050dd59adc62e7cc13",
+  "protocol.json": "b27decce970d88fb21e25131f27378e63c095ac56e6fb88430c7421a7629995a",
+  "validation-candidates.json": "7dfbfd29b64c5919cce044c2846b539f821bebe3913dc63671a62cc162baf6a4",
+  "status.json": "e0d6a0263270bde539d2046c943e336df1ee4ae9454ffd351fb0672834ae784a",
+  "validation-comparison.json": "ac16125b7bba87c83da1a7ab1b43e5eba35942bfc97021fd925feca1052eb175",
+  "bicycle_bell_head.keras": "7d732fe72af697455d507579ee711ddb8c6a1d6de41357cc96479dfe53af2bea",
+  "validation-scores.json": "4237f2517e7cd5ee4441b81d3733407d029c584521e2315d377ec1f314fb94b4",
+  "yamnet_features.tflite": "3ffb27df92bc2707c04b9313e871a673c0cfae53b71f3d7b6d3e1577e996d5d4"
+}

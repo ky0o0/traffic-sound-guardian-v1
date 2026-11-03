@@ -1,0 +1,776 @@
+[
+  {
+    "id": "9218",
+    "uploader": "melack",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383595",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78970",
+    "uploader": "RoofDog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "434818",
+    "uploader": "dersuperanton",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78984",
+    "uploader": "RoofDog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383629",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "168709",
+    "uploader": "qubodup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "364805",
+    "uploader": "RutgerMuller",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "364806",
+    "uploader": "RutgerMuller",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158500",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158501",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158502",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158503",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158504",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158505",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158507",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158509",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323122",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323123",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323125",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323126",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323127",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323128",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323129",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323130",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323131",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "323132",
+    "uploader": "geraldfiebig",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158517",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "158519",
+    "uploader": "HBSA",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383593",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383594",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383596",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383597",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383598",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383599",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383600",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383601",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383602",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "193395",
+    "uploader": "qubodup",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "328823",
+    "uploader": "magedu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78968",
+    "uploader": "RoofDog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "328825",
+    "uploader": "magedu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "328826",
+    "uploader": "magedu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "328824",
+    "uploader": "magedu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78969",
+    "uploader": "RoofDog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "328827",
+    "uploader": "magedu",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "267900",
+    "uploader": "ChemiCatz",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "267901",
+    "uploader": "ChemiCatz",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383623",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383624",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78985",
+    "uploader": "RoofDog",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383626",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383627",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383628",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383630",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383631",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "383625",
+    "uploader": "newagesoup",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "265644",
+    "uploader": "YleArkisto",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "326353",
+    "uploader": "Corsica_S",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "156121",
+    "uploader": "JL_barrett",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "156122",
+    "uploader": "JL_barrett",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "156123",
+    "uploader": "JL_barrett",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "156124",
+    "uploader": "JL_barrett",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "156125",
+    "uploader": "JL_barrett",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "156126",
+    "uploader": "JL_barrett",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "318193",
+    "uploader": "Robinhood76",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "262648",
+    "uploader": "iut_Paris8",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "404098",
+    "uploader": "davilcol",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "404099",
+    "uploader": "davilcol",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "404100",
+    "uploader": "davilcol",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "173000",
+    "uploader": "KeyKrusher",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "173001",
+    "uploader": "KeyKrusher",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "360842",
+    "uploader": "sjpicket2",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "348325",
+    "uploader": "BlackNeon1234",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78958",
+    "uploader": "plivesey",
+    "license": "http://creativecommons.org/licenses/sampling+/1.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "219355",
+    "uploader": "ptp8ss",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "101746",
+    "uploader": "cloudform",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "330956",
+    "uploader": "nikiforov5000",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "189755",
+    "uploader": "jiserte",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "367744",
+    "uploader": "altazor80",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "275353",
+    "uploader": "sonsbcnintercultural",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "232963",
+    "uploader": "ArnyDnD",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "378354",
+    "uploader": "13GPanska_Lakota_Jan",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "189764",
+    "uploader": "jiserte",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "189765",
+    "uploader": "jiserte",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "189754",
+    "uploader": "jiserte",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "189766",
+    "uploader": "jiserte",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "152953",
+    "uploader": "peasoperro",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "206080",
+    "uploader": "Soundscape_Leuphana",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "152595",
+    "uploader": "OTBTechno",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "89946",
+    "uploader": "mwirth",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "405627",
+    "uploader": "pallen33",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "378911",
+    "uploader": "13gkopeckak",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "138037",
+    "uploader": "escortmarius",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "88528",
+    "uploader": "olo81",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "378912",
+    "uploader": "13gkopeckak",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "423626",
+    "uploader": "badiyev",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "210270",
+    "uploader": "Soundscape_Leuphana",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "124501",
+    "uploader": "stereostereo",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "131989",
+    "uploader": "jaqcore",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "120010",
+    "uploader": "kklab5050",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "32320",
+    "uploader": "UncleSigmund",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "417076",
+    "uploader": "Garuda1982",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "81875",
+    "uploader": "bsumusictech",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "378908",
+    "uploader": "13gkopeckak",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "431320",
+    "uploader": "Kinoton",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "210262",
+    "uploader": "Soundscape_Leuphana",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "206081",
+    "uploader": "Soundscape_Leuphana",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "188032",
+    "uploader": "AntumDeluge",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "185056",
+    "uploader": "justeluis",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "191901",
+    "uploader": "BiblicalBricksProductions",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "405572",
+    "uploader": "lechufly",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "415298",
+    "uploader": "Yin_Yang_Jake007",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "156064",
+    "uploader": "marcolo91",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "120493",
+    "uploader": "lth_stp",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "153054",
+    "uploader": "Xampi8",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "206082",
+    "uploader": "Soundscape_Leuphana",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "186096",
+    "uploader": "marcel_farres",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "78957",
+    "uploader": "plivesey",
+    "license": "http://creativecommons.org/licenses/sampling+/1.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "372893",
+    "uploader": "urupin",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "134688",
+    "uploader": "OTBTechno",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "400695",
+    "uploader": "dm103",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "210269",
+    "uploader": "Soundscape_Leuphana",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "29623",
+    "uploader": "Pfujimoto",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "32321",
+    "uploader": "UncleSigmund",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "124502",
+    "uploader": "stereostereo",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "120501",
+    "uploader": "lth_stp",
+    "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+    "used_in_v1": false
+  },
+  {
+    "id": "233062",
+    "uploader": "LukeUPF",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "used_in_v1": true
+  },
+  {
+    "id": "90649",
+    "uploader": "metamorphmuses",
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "used_in_v1": true
+  }
+]

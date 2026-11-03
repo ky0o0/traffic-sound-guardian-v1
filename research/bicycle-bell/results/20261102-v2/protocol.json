@@ -1,0 +1,54 @@
+{
+  "experiment": "bicycle-bell-20261102-round2-development",
+  "seed": 20261102,
+  "website_baseline_commit": "3a3e96b16bb78fa4d5ed006b44c18701e414fb40",
+  "yamnet_sha256": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+  "dataset_repo": "Fhrozen/FSD50k",
+  "dataset_revision": "ccf1acaff12f3f4a4c10052dddafbb6d22152c9b",
+  "licenses": [
+    "CC0-1.0",
+    "CC-BY"
+  ],
+  "positive_limit": 250,
+  "negative_limits": {
+    "doorbell": 100,
+    "chime": 100,
+    "ding": 100,
+    "beep": 100,
+    "other_bell": 100,
+    "music": 150,
+    "environment": 250
+  },
+  "max_seconds": 30,
+  "split": "Custom pooled dev/eval, uploader and exact/normalized-PCM duplicate groups, deterministic 5-fold outer test and 4-fold inner validation; not the official FSD50K split",
+  "window_seconds": 0.975,
+  "feature_hop_seconds": 0.24,
+  "comparison_hops_seconds": [
+    0.48,
+    0.24
+  ],
+  "short_audio": "Right-pad only clips shorter than one window with zeros; omit incomplete final windows of longer clips",
+  "feature_tensor": 115,
+  "feature_dimension": 1024,
+  "validation_min_precision": 0.0,
+  "validation_max_fpr": 0.049,
+  "selection": "Maximize validation clip recall subject to precision>=0.90 and FPR<=0.02; then F1, smaller FPR and larger hop. If infeasible disclose fallback, never claim deployment readiness.",
+  "max_epochs": 120,
+  "early_stop_evaluations": 6,
+  "evaluate_every_epochs": 4,
+  "batch_clips": 16,
+  "candidates": [
+    {
+      "name": "linear_recall_l2_0.001",
+      "hidden": 0,
+      "l2": 0.001
+    },
+    {
+      "name": "mlp64_recall_l2_0.001",
+      "hidden": 64,
+      "l2": 0.001
+    }
+  ],
+  "test_policy": "Fit scaling on train only; select model, checkpoint, threshold and hop on validation only; save selection before computing a single locked test report. No optimization after inspecting test errors.",
+  "latency_policy": "Measure actual CPU inference separately. File-start-to-first-positive is not event-onset latency; no precise event timestamps or hardware microphone latency are available."
+}

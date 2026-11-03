@@ -1,0 +1,134 @@
+[
+  {
+    "model": "linear_recall_l2_0.001",
+    "config": {
+      "name": "linear_recall_l2_0.001",
+      "hidden": 0,
+      "l2": 0.001
+    },
+    "hop_seconds": 0.48,
+    "stride": 2,
+    "validation_average_precision": 0.8652990930563471,
+    "epochs": 28,
+    "early_stopped": true,
+    "threshold": 0.7129685878753662,
+    "feasible": true,
+    "tp": 22,
+    "fp": 5,
+    "fn": 2,
+    "tn": 146,
+    "precision": 0.8148148148148148,
+    "recall": 0.9166666666666666,
+    "f1": 0.8627450980392157,
+    "fpr": 0.033112582781456956,
+    "confusion_matrix": [
+      [
+        146,
+        5
+      ],
+      [
+        2,
+        22
+      ]
+    ]
+  },
+  {
+    "model": "linear_recall_l2_0.001",
+    "config": {
+      "name": "linear_recall_l2_0.001",
+      "hidden": 0,
+      "l2": 0.001
+    },
+    "hop_seconds": 0.24,
+    "stride": 1,
+    "validation_average_precision": 0.8441610760953102,
+    "epochs": 28,
+    "early_stopped": true,
+    "threshold": 0.728467583656311,
+    "feasible": true,
+    "tp": 22,
+    "fp": 5,
+    "fn": 2,
+    "tn": 146,
+    "precision": 0.8148148148148148,
+    "recall": 0.9166666666666666,
+    "f1": 0.8627450980392157,
+    "fpr": 0.033112582781456956,
+    "confusion_matrix": [
+      [
+        146,
+        5
+      ],
+      [
+        2,
+        22
+      ]
+    ]
+  },
+  {
+    "model": "mlp64_recall_l2_0.001",
+    "config": {
+      "name": "mlp64_recall_l2_0.001",
+      "hidden": 64,
+      "l2": 0.001
+    },
+    "hop_seconds": 0.48,
+    "stride": 2,
+    "validation_average_precision": 0.878587472774617,
+    "epochs": 28,
+    "early_stopped": true,
+    "threshold": 0.45079877972602844,
+    "feasible": true,
+    "tp": 21,
+    "fp": 5,
+    "fn": 3,
+    "tn": 146,
+    "precision": 0.8076923076923077,
+    "recall": 0.875,
+    "f1": 0.84,
+    "fpr": 0.033112582781456956,
+    "confusion_matrix": [
+      [
+        146,
+        5
+      ],
+      [
+        3,
+        21
+      ]
+    ]
+  },
+  {
+    "model": "mlp64_recall_l2_0.001",
+    "config": {
+      "name": "mlp64_recall_l2_0.001",
+      "hidden": 64,
+      "l2": 0.001
+    },
+    "hop_seconds": 0.24,
+    "stride": 1,
+    "validation_average_precision": 0.885074234888718,
+    "epochs": 28,
+    "early_stopped": true,
+    "threshold": 0.5509979128837585,
+    "feasible": true,
+    "tp": 21,
+    "fp": 4,
+    "fn": 3,
+    "tn": 147,
+    "precision": 0.84,
+    "recall": 0.875,
+    "f1": 0.8571428571428571,
+    "fpr": 0.026490066225165563,
+    "confusion_matrix": [
+      [
+        147,
+        4
+      ],
+      [
+        3,
+        21
+      ]
+    ]
+  }
+]

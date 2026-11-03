@@ -1,0 +1,23 @@
+{
+  "status": "stopped_at_independent_test_data_acceptance",
+  "target_achieved": false,
+  "active_training_jobs": false,
+  "round2_run": 41445169339,
+  "round3_run": 41445850349,
+  "new_final_test_executed": false,
+  "sealed_positive_candidates": 5,
+  "sealed_candidates_audio_downloaded": false,
+  "production_changed": false,
+  "merge_authorized": false,
+  "do_not_retrain_v1": true,
+  "old_test_do_not_use_as_fresh_final": "results/20261102-v1/manifest.json split=test",
+  "report": "ROUND2-3-REPORT.zh-CN.md",
+  "next_evidence_needed": [
+    "More genuine bicycle recordings from new uploaders, sessions, bell types and real noise conditions",
+    "Reliable candidate labels and transformed-duplicate review; preserve sealed test before scoring",
+    "Disjoint difficult-negative final test cohort",
+    "Calibrate exact exported inference thresholds with numerical margin on development data",
+    "One final evaluation only after the strategy and thresholds are locked; retain any failure"
+  ],
+  "known_limit": "No new final metrics, event timing, hourly false alarms or device reliability verified"
+}

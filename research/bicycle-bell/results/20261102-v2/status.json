@@ -1,0 +1,10 @@
+{
+  "status": "development_completed_no_fresh_final_test",
+  "fresh_license_permitted_positives_in_pinned_source": 0,
+  "additional_negative_clips": 222,
+  "target_achieved": false,
+  "reason": "All CC0/CC-BY bicycle positives in this pinned source were already consumed in v1. No unseen final-positive cohort available. Validation results cannot establish success.",
+  "event_level_metrics": null,
+  "event_reason": "No reliable onset/offset annotations or continuous background timeline.",
+  "source_commit": "c4c6fa30ae2d599f4a6803506a7674ca39d3511c"
+}
