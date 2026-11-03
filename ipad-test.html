@@ -31,7 +31,36 @@
 <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 36"><path d="M16 2 29 7v10c0 8-6 13-13 17C9 30 3 25 3 17V7Z"></path><path d="M10 17v3m4-9v14m4-11v8m4-5v3"></path></svg></div>
 <div class="wordmark">TRAFFIC SOUND<span>Guardian</span></div>
 <span class="version">V1.7.4 · TEST</span>
+<nav id="test-header-nav" class="test-header-nav" aria-label="Page navigation">
+<a href="./index.html" data-page="standard">Standard</a>
+<a href="./ipad-test.html" data-page="test" aria-current="page">Test</a>
+<a href="./ai-test.html?v=1.7.4" data-page="ai">AI Test</a>
+<a href="./microphone-test.html?v=1.7.4" data-page="microphone">Microphone Test</a>
+</nav>
 </header>
+<script>
+(() => {
+  const nav = document.getElementById('test-header-nav');
+  const links = [...nav.querySelectorAll('a')];
+  const labels = {
+    ja: ['Standard', 'Test', 'AIテスト', 'マイクテスト'],
+    en: ['Standard', 'Test', 'AI Test', 'Microphone Test'],
+    'zh-CN': ['Standard', 'Test', 'AI 测试', '麦克风测试']
+  };
+  const ariaLabels = { ja: 'ページ切替', en: 'Page navigation', 'zh-CN': '页面导航' };
+  const paths = ['index.html', 'ipad-test.html', 'ai-test.html?v=1.7.4', 'microphone-test.html?v=1.7.4'];
+  function syncNavigation() {
+    const lang = labels[document.documentElement.lang] ? document.documentElement.lang : 'ja';
+    nav.setAttribute('aria-label', ariaLabels[lang]);
+    links.forEach((link, i) => {
+      link.textContent = labels[lang][i];
+      link.href = './' + paths[i] + (paths[i].includes('?') ? '&' : '?') + 'lang=' + lang;
+    });
+  }
+  syncNavigation();
+  window.addEventListener('tsg:language', syncNavigation);
+})();
+</script>
 <main class="ipad-left">
 <div class="mic-source-panel" aria-labelledby="mic-source-label">
 <svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="17"><rect height="13" rx="3" width="6" x="9" y="2"></rect><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8"></path></svg>
