@@ -2,7 +2,7 @@ import {
   TARGETS,
   chooseTarget,
   WarningGate
-} from './detection.js?v=1.6.0';
+} from './detection.js?v=1.7.4';
 
 export const IDS = ['bell', 'horn', 'siren', 'police', 'ambulance', 'fire'];
 export const NAMES = Object.keys(TARGETS);

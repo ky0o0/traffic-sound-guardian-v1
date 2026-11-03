@@ -174,12 +174,12 @@ export const TEXT = {
   locked: ['最終テストを表示済み。このデータセットでの再最適化は停止しました。新たな研究には独立したテストデータを用意してください。',
     'Final test revealed. Further tuning on this dataset is locked. Use independent test data for a new study.'
   ],
-  applyLive: ['この6値をリアルタイム検知へ適用…', 'Apply these six values to live detection…'],
-  applyConfirm: ['リアルタイム検知に保存された6つのしきい値を、この画面の値に置き換えますか？',
-    'Replace the six saved live detection thresholds with the values shown here?'
+  applyLive: ['この6値をTestの検知へ適用…', 'Apply these six values to Test detection…'],
+  applyConfirm: ['Testの該当6種類のみ置き換えますか？他の5種類とStandardの値は維持します。',
+    'Replace the corresponding six Test thresholds? Keep the other five and Standard unchanged.'
   ],
-  applied: ['設定を保存しました。リアルタイム検知ページを開き直すと反映されます。',
-    'Settings saved. Reopen the live detection page to use them.'
+  applied: ['Testの6値を保存しました。ほかの5種類とStandardは変更していません。',
+    'Test thresholds saved. Standard and the other five Test categories are unchanged.'
   ],
   storageError: ['ブラウザが設定の保存を許可していません。', 'Your browser did not allow settings to be saved.'],
   exportNote: ['JSONは窓ごとの全データ、設定、標注、分割と統計を含みます。CSVはファイル・窓・統計の行を含みます。音声ファイルは含みません。',
@@ -340,9 +340,9 @@ export const ZH = Object.freeze({
   "finalTest": "固定设置并查看最终测试结果",
   "finalConfirm": "查看最终测试结果后，本数据集的标签、阈值和优化设置将被锁定。确定继续吗？",
   "locked": "最终测试结果已经显示，本数据集不能继续调整阈值。新的研究需要另备独立测试数据。",
-  "applyLive": "将这六个阈值应用到实时检测…",
-  "applyConfirm": "确定将实时检测保存的六个阈值替换为当前页面的设置吗？",
-  "applied": "设置已保存。重新打开实时检测页面后生效。",
+  "applyLive": "将这六个阈值应用到 Test 检测…",
+  "applyConfirm": "确定替换 Test 中对应的六个阈值吗？其他五类及 Standard 的设置保持不变。",
+  "applied": "已保存 Test 对应六类阈值，其他五类及 Standard 保持不变。",
   "storageError": "浏览器不允许保存这些设置。",
   "exportNote": "JSON 包含所有分析窗口、设置、时间标注、数据划分和统计结果；CSV 包含文件、窗口及汇总数据。导出文件不包含音频本身。",
   "summary": "测试结果摘要",

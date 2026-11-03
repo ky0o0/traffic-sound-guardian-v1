@@ -1,0 +1,8 @@
+{
+  "tool": "actionlint",
+  "version": "1.7.7",
+  "official_archive_sha256": "023070a287cd8cccd71515fedc843f1985bf96c436b7effaecce67290e7e0757",
+  "command": "actionlint .github/workflows/v16-web-ci.yml",
+  "exit_code": 0,
+  "diagnostics": []
+}

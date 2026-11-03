@@ -19,10 +19,10 @@ with sync_playwright() as pw:
  def open_page(entry,mode='',base=None):
   context=browser.new_context(permissions=['microphone'],viewport={'width':1024,'height':768})
   context.add_init_script(PROBE.replace('MODE',json.dumps(mode)))
-  page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append({'url':r.url,'method':r.method}))
+  page=context.new_page();page.on('pageerror',lambda e:errors.append({'message':e.message,'stack':e.stack}));page.on('request',lambda r:requests.append({'url':r.url,'method':r.method}))
   page.goto((base or a.base_url).rstrip('/')+'/'+entry+'?lang=en');
   if entry in ['index.html','ipad-test.html']:page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'")
-  else:page.wait_for_function("document.title.includes('V1.7.3')")
+  else:page.wait_for_function("document.title.includes('V1.7.4')")
   return context,page
  def stopped(page):
   page.wait_for_function("document.body.dataset.state==='stopped'")
@@ -70,7 +70,7 @@ with sync_playwright() as pw:
  page.wait_for_function("audit.streams.every(s=>s.getTracks().every(t=>t.readyState==='ended'))")
  cases.append({'case':'diagnostic-audio-interruption','resources':page.evaluate('resources()')});context.close()
  context,page=open_page('ai-test.html');page.evaluate("""async()=>{
- const {mountAnnotationEditor}=await import('./annotation-editor.js?v=1.6.16');const host=document.createElement('div');document.body.append(host);
+ const {mountAnnotationEditor}=await import('./annotation-editor.js?v=1.7.4');const host=document.createElement('div');document.body.append(host);
  const controller=new AbortController();let release;const clip={file:{size:16,arrayBuffer:()=>new Promise(r=>release=r)}};
  const pending=mountAnnotationEditor(host,clip,{signal:controller.signal});controller.abort();release(new ArrayBuffer(16));await pending;
  if(host.childElementCount)throw Error('Aborted editor remained attached');

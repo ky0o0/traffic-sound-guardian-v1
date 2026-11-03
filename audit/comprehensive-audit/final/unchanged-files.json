@@ -1,0 +1,67 @@
+{
+  "yamnet.tflite": {
+    "sha256": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+    "identical_to_v173": true,
+    "bytes": 4126810
+  },
+  "audio_bundle.mjs": {
+    "sha256": "ea4cc2b0f41e915901e1a904eb99d79b3e238c19b3f9fb43e94e7f1586260f1c",
+    "identical_to_v173": true,
+    "bytes": 51989
+  },
+  "audio_wasm_internal.js": {
+    "sha256": "9f8d59a241abaa0d3b69dad5a094b843e9f0fdf6d2b7349d3d40541e9679725e",
+    "identical_to_v173": true,
+    "bytes": 161733
+  },
+  "audio_wasm_internal.wasm": {
+    "sha256": "a57c300fa8fe6756396c1718ddbe4d134e1361e973087ce192bcdab3eea528d1",
+    "identical_to_v173": true,
+    "bytes": 6004523
+  },
+  "audio_wasm_nosimd_internal.js": {
+    "sha256": "b9cd5366d4b460d58f151b02ce0ec5784e13130ffb67396cbb532a52ad14c966",
+    "identical_to_v173": true,
+    "bytes": 161586
+  },
+  "audio_wasm_nosimd_internal.wasm": {
+    "sha256": "cdd5c603a5225d85dbb30944fa1e66c46a76790ec246682c4f3d88c571b5a3a6",
+    "identical_to_v173": true,
+    "bytes": 5877856
+  },
+  "yamnet_class_map.csv": {
+    "sha256": "cdf24d193e196d9e95912a2667051ae203e92a2ba09449218ccb40ef787c6df2",
+    "identical_to_v173": true,
+    "bytes": 14096
+  },
+  "audio-window.js": {
+    "sha256": "befa5b3544aa1a8fa6e127c79f68aac65408c326ce809ed5ecca4ef31f8c115c",
+    "identical_to_v173": true,
+    "bytes": 1508
+  },
+  "resample.js": {
+    "sha256": "38e486ddb4474359a12f53ba1196f9d7c2afd7a2d636c3dd99dc4ec1c5c47cc5",
+    "identical_to_v173": true,
+    "bytes": 2192
+  },
+  "capture-worklet.js": {
+    "sha256": "f27ad820f26ca0a3884a10442f1ba2127d561c2c2f981bdafbf1c99036e26128",
+    "identical_to_v173": true,
+    "bytes": 871
+  },
+  "live-timeline.js": {
+    "sha256": "ccd0d62a20160c12ae139c5da36b533207113e5e1c2dcab6d035953c674584fa",
+    "identical_to_v173": true,
+    "bytes": 9573
+  },
+  "alert-tone-preview.js": {
+    "sha256": "004b788fc04a1de5e876d241f39f93bead38c4441784fc2ec52043d6b5f3e831",
+    "identical_to_v173": true,
+    "bytes": 8004
+  },
+  "dependency-lock.json": {
+    "sha256": "cce85d964a9db7e483d7f3c093ce0605aa930039b289f6fed915c094a20ee158",
+    "identical_to_v173": true,
+    "bytes": 2292
+  }
+}

@@ -12,7 +12,7 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path=shutil.which('chromium') or shutil.which('google-chrome'),headless=True,args=['--no-sandbox','--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream'])
  c=b.new_context(permissions=['microphone'],viewport={'width':1194,'height':834},accept_downloads=True);c.add_init_script(PROBE)
  def open_page(entry):
-  page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.goto(a.base_url.rstrip('/')+'/'+entry+'?lang=en');page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'");return page
+  page=c.new_page();page.on('pageerror',lambda e:errors.append({'message':e.message,'stack':e.stack}));page.goto(a.base_url.rstrip('/')+'/'+entry+'?lang=en');page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'");return page
  standard=open_page('index.html')
  standard.evaluate("localStorage.setItem('trafficSoundGuardian.soundThresholds',JSON.stringify({'Bicycle bell':.03,Siren:.23}));localStorage.removeItem('trafficSoundGuardian.standardThreshold')")
  standard.reload();standard.locator('#settings-toggle').click()
@@ -45,7 +45,7 @@ with sync_playwright() as pw:
   page.locator('#alert-preview-button').click();assert page.locator('#alert-preview-status').inner_text()=='Stop detection before previewing.'
   after=page.evaluate('({contexts:probe.contexts.length,workers:probe.workers.length,streams:probe.streams.length,oscillators:probe.oscillators.length})');assert all(before[k]==after[k] for k in ['contexts','workers','streams'])
   if entry=='ipad-test.html':
-   data=page.evaluate('probe.research.at(-1)');raw=page.evaluate('probe.workers[0].results.at(-1)')
+   snapshot=page.evaluate('({data:probe.research.at(-1),raw:probe.workers[0].results.at(-1)})');data=snapshot['data'];raw=snapshot['raw']
    assert data['topCategory']==raw['topCategory'];assert data['top5']==raw['debug']['top5'];assert data['scores']==raw['trafficScores']
    assert len(page.locator('#debug-target tr').all())==11
    assert page.locator('#debug-top tr').count()==5

@@ -40,10 +40,10 @@ function boot({audio=true,nav={}}={}){
  return {document,events,docEvents,buttonListeners,nodes,timers,oscillators,contexts};
 }
 test('preview exists only inside Settings on both pages and never starts microphone or inference',async()=>{
- const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./style.css');
+ const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./guardian.css');
  for(const markup of [main,ipad]) {
   assert.match(markup,/id="alert-preview-button"/);
-  assert.match(markup,/<script (?=[^>]*type="module")(?=[^>]*src="\.\/alert-tone-preview\.js\?v=1\.7\.3")[^>]*><\/script>/);
+  assert.match(markup,/<script (?=[^>]*type="module")(?=[^>]*src="\.\/alert-tone-preview\.js\?v=1\.7\.4")[^>]*><\/script>/);
   assert.ok(markup.indexOf('id="alert-preview-button"')>markup.indexOf('id="settings-content"'));
   if (markup === main) assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
   else assert.ok(!markup.includes('id="settings-panel"'));
@@ -54,7 +54,8 @@ test('preview exists only inside Settings on both pages and never starts microph
   const closed=[...markup.matchAll(/<\/script>/gi)].length;
   assert.equal(opened,closed,name+' must close every script tag with a complete </script>');
  }
- assert.match(css,/#alert-preview-button\{[\s\S]*?min-height:44px/);
+ assert.match(css,/button,select\{min-height:44px/);
+ assert.match(css,/\.alert-preview button\{width:100%/);
  assert.doesNotMatch(source,/getUserMedia|AudioWorklet|classifier|tsg:warning|data-state/);
 });
 test('manual user click plays exactly the normal two quiet sine beeps through output only',async()=>{

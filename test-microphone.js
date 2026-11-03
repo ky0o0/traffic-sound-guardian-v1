@@ -77,8 +77,8 @@ function harness({devices=[{kind:'audioinput',deviceId:'mic1',label:'iPhone Micr
 }
 test('V1.6.0 diagnostic is independent and all DOM IDs are present',()=>{
   for(const id of requiredIds)assert.ok(allIds.has(id),id);
-  assert.ok(html.includes('microphone-test.js?v=1.6.16'));
-  assert.ok(html.includes('microphone-test.css?v=1.6.0'));
+  assert.ok(html.includes('microphone-test.js?v=1.7.4'));
+  assert.ok(html.includes('microphone-test.css?v=1.7.4'));
   assert.ok(!app.includes('yamnet.tflite'));
   assert.ok(!app.includes('MediaRecorder'));
   assert.ok(!app.includes('localStorage'));
@@ -170,7 +170,7 @@ test('changing language does not restart audio or erase a selected input',async(
  h.lang('en');assert.equal(h.get('device-select').value,'mic1');
  assert.equal(h.get('status').textContent.includes('Receiving microphone'),true);
  assert.equal(h.calls.length,1);
- assert.equal(h.get('home-link').attributes.href,'./index.html?v=1.6.0&lang=en');
+ assert.equal(h.get('home-link').attributes.href,'./index.html?v=1.7.4&lang=en');
  h.lang('ja');assert.equal(h.get('language').value,'ja');
  h.stop();
 });
@@ -218,4 +218,10 @@ test('diagnostic cannot claim live audio if resume resolves while still suspende
  h.start();await h.flush();
  assert.equal(h.get('status').dataset.status,'otherError');
  assert.equal(h.contexts[0].state,'closed');assert.ok(h.streams[0].getTracks()[0].stopped);
+});
+
+test('unavailable track settings stay unknown in the standalone microphone diagnostic',()=>{
+ const track={label:'Input',readyState:'live',muted:false,getSettings(){throw Error('unavailable')}};
+ assert.equal(microphoneMatch('chosen',track),'unknown');
+ const info=browserTrackInfo(track,[],'chosen');assert.equal(info.sampleRate,null);assert.equal(info.channels,null);assert.equal(info.match,'unknown');assert.equal(info.label,'Input');
 });

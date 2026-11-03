@@ -6,7 +6,7 @@ const file = path => fs.readFileSync(new URL(path,import.meta.url),'utf8');
 test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s visualization',()=>{
  const html=file('./index.html'),app=file('./app.js')+file('./microphone-visualizer.js'),timeline=file('./live-timeline.js');
  assert.match(html,/id="rolling-waveform"/);
- assert.match(html,/live-timeline\.js\?v=1\.6\.18/);
+ assert.match(html,/live-timeline\.js\?v=1\.7\.4/);
  assert.match(app,/tsg:visual/);
  assert.match(app,/tsg:warning/);
  assert.match(app,/completedFrame\.endTime - 0\.975/);
@@ -18,8 +18,8 @@ test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s 
 test('V1.6 theme selector is shared by all three pages, with system preference',()=>{
  const theme=file('./theme.js');
  for(const page of ['index.html','ai-test.html','microphone-test.html']){
-   assert.match(file('./'+page),/theme\.js\?v=1\.7\.3/);
-   assert.match(file('./'+page),page === 'index.html' ? /guardian\.css\?v=1\.7\.3/ : /theme\.css\?v=1\.6\.0/);
+   assert.match(file('./'+page),/theme\.js\?v=1\.7\.4/);
+   assert.match(file('./'+page),page === 'index.html' ? /guardian\.css\?v=1\.7\.4/ : /theme\.css\?v=1\.7\.4/);
  }
  assert.match(theme,/trafficSoundGuardian\.theme/);
  assert.match(theme,/prefers-color-scheme: dark/);

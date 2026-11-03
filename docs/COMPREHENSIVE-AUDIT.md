@@ -37,6 +37,15 @@ navigation/documentation updates.
 | A06 | Integrity checks cover HTML assets on two pages but do not traverse module imports, validate all four entrypoints, or enforce cache-version agreement. Several active imports still use 1.5/1.6/1.7.0 cache keys. | Medium | Low: extend the same integrity gate to local module edges, page IDs/contracts and release cache keys. Preserve pinned runtime bytes. |
 | A07 | README mixes current 1.7.3 instructions with historical global-multiplier and unmerged-candidate claims. style.css has no production HTML consumer but is referenced by historical tests/reports; v1.6.css remains live for offline annotation styles. | Low | Low: publish a current English README, retain the previous README as an immutable root-level history document so its relative links continue to resolve. Preserve legacy CSS with explicit usage classification rather than deleting uncertain history. |
 
+## Additional verified finding during extraction
+
+A08 (medium severity, low remediation risk): AI Test's explicit six-category
+"apply" action overwrites the entire eleven-category Test preference object.
+A saved Bell/Chime/Ding/Ping/Doorbell threshold is consequently lost on the next
+load. Preserve the five unrelated preferences while applying the six requested
+values; keep Standard's separate key untouched and retain explicit confirmation.
+The regression exercises the real offline UI action with pre-existing settings.
+
 ## Staged implementation and verification
 
 1. **Audit checkpoint (this document):** inventory, baseline failures, protected

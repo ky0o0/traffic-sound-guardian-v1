@@ -1,7 +1,7 @@
 name: Web regression
 on:
   push:
-    branches: [main]
+    branches: [main, 'refactor/**']
   pull_request:
     paths:
       - "*.js"
@@ -28,16 +28,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm ci --ignore-scripts
       - name: Require one version increment per update
         if: github.event_name == 'pull_request'
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/check-release-version.mjs "$PR_BASE_SHA"
+      - name: Verify maintenance branch release increment
+        if: startsWith(github.ref, 'refs/heads/refactor/')
+        run: node scripts/check-release-version.mjs "$(git rev-parse origin/main)"
       - name: Check syntax of updated modules
         run: |
           for file in *.js scripts/*.mjs; do node --check "$file"; done
       - name: Verify pinned dependencies, labels and entrypoint resources
         run: node scripts/check-site-integrity.mjs
+      - run: npm run format:check
       - name: Run existing and new unit tests
         run: npm test
 
@@ -64,6 +69,7 @@ jobs:
           python tests/v17-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/v17
           python tests/audio-policy-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/audio-policy
           python tests/stability-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/stability
+          python tests/comprehensive-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/comprehensive
       - uses: actions/upload-artifact@v4
         if: always()
         with:
