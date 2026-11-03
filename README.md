@@ -1,354 +1,111 @@
-# Traffic Sound Guardian V1.7.3
+# Traffic Sound Guardian V1.7.4
 
-## V1.7.3 — Regression and control-stability fixes
+A local, browser-based research prototype for recognizing surrounding traffic
+warning sounds. This maintenance candidate is on `refactor/comprehensive-audit`;
+it is **not merged or deployed**. The published site remains unchanged until the
+owner approves a merge.
 
-- Updated browser and unit regression checks to target the current release assets and direct threshold controls.
-- Standard's circular microphone button no longer changes its hit-target geometry while listening; the surrounding rings and glow still react to microphone RMS levels.
-- No microphone capture, model inference, alert sound, or warning-threshold behavior is changed by this maintenance release.
+Raw YAMNet scores are not accuracy or calibrated probability. This prototype does
+not guarantee road safety. Physical Safari/iPad/AirPods and Apple Music mixing
+have not been verified in this environment.
 
+## Pages and behavior
 
-## V1.7.2 — Direct warning score thresholds
+- **Standard — `index.html`:** stable circular microphone button with two rings
+  responding to real input RMS, reduced-motion support, a red listening indicator,
+  current classification, ten-second symmetric waveform and last warning.
+  Settings include language, theme, microphone selection, alert toggle/level and
+  output-only preview. One direct threshold from **0.01 to 0.50**, default **0.10**,
+  applies to all eleven warning categories.
+- **Test — `ipad-test.html`:** rectangular microphone control, eleven independent
+  direct thresholds, per-category/all reset, genuine Top 1/Top 5/eleven-category
+  scores, model/microphone/sample-rate diagnostics, inference timing and warning
+  statistics. The last 100 metadata records stay in memory and can be filtered
+  and manually exported as CSV. Starting the next session clears those records.
+- **AI Test — `ai-test.html`:** local, labelled-file evaluation, waveform annotation,
+  dataset splits/holdout controls, threshold analysis and CSV/JSON exports. Its
+  explicit six-category apply action updates only the corresponding Test values,
+  preserves the other five, and never overwrites Standard's threshold.
+- **Microphone Test — `microphone-test.html`:** browser-reported input selection,
+  track/context metadata and actual live input level. It does not run the model.
 
-- Standard now sets one direct score threshold from 0.01 to 0.50 (default 0.10) for all eleven warning categories.
-- Test no longer has a global sensitivity multiplier. All eleven per-category thresholds are used directly; the redundant effective-threshold labels have been removed.
-- Saved per-category Test preferences remain intact. Standard uses a separate stored score threshold; the old global multiplier is no longer applied.
-- Raw YAMNet outputs, warning timing, microphone capture and alert-tone audio processing are not changed.
-- This research prototype cannot guarantee road safety. Physical-device validation and false-positive/false-negative evaluation are still necessary.
+All pages retain Japanese, English and Simplified Chinese plus system/light/dark
+themes. Standard and Test use different threshold preference keys. The legacy
+`overallSensitivity` multiplier is never read or applied.
 
+## Architecture
 
-## V1.7.1 — Standard microphone visual restoration
+`app.js` coordinates the realtime lifecycle, user-gesture microphone startup,
+one in-flight/one pending Worker window, warning timing and automatic tone output.
+It delegates presentation without handing audio ownership to a view:
 
-- Restored the prominent circular microphone control and two concentric rings on the Standard page. The ring and button respond to existing real-time audio level data and use the V1.7 light/dark theme colors. The Test page keeps its rectangular microphone button.
-- Restored the pulsing red status indicator next to the listening-status label on both pages. The indicator is static when reduced motion is requested and does not pulse while stopped or during a warning.
-- This is a presentation-only patch. Audio capture, YAMNet classification, warning thresholds, sound output, and microphone routing are unchanged. Real-device Safari/iPad presentation still needs manual verification.
+| Module | Responsibility |
+| --- | --- |
+| `app-i18n.js` | Immutable application catalogs, language selection and translation |
+| `threshold-settings.js` | Independent Standard/Test threshold persistence and legacy migration |
+| `page-elements.js` | Explicit required DOM capabilities per page; useful errors for missing elements |
+| `application-view.js` | Status, button and translated settings rendering |
+| `microphone-view.js` / `mic-source.js` | Browser metadata and source evidence; optional metadata failures stay unavailable |
+| `debug-view.js` | Current Test diagnostic and raw-score tables |
+| `microphone-visualizer.js` / `live-timeline.js` | Read-only real-input visualization and ten-second history |
+| `research.js` / `research-dashboard.js` | Bounded metadata statistics, logs and manual CSV |
+| `classifier-worker.js`, `audio-window.js`, `capture-worklet.js`, `resample.js`, `detection.js` | Protected model/input/window/decision pipeline |
+| `alert-tone-preview.js` | Separate, unchanged output-only preview and existing Safari policy |
 
+The YAMNet model, 521-class output, eleven labels, 0.975-second window, 480ms hop,
+warning priority/hold behavior, capture graph and output waveforms/levels are
+preserved. Tests lock eight coordinator function ASTs, eight protected modules,
+and the eight pinned model/runtime assets. No raw audio is automatically uploaded
+or persisted. Downloaded CSV contains scalar metadata, not PCM or recordings.
 
-## V1.7.0 重构候选：Standard / Test（未合并、未部署）
+## Development and verification
 
-本节描述当前候选，后续章节保留历史版本行为，不能作为 V1.7.0 的功能说明。
-
-- **Standard** (`index.html`)：状态、大型启停按钮、真实当前识别、10 秒上下对称声纹、最近一次警告。设置包含三语言、主题、提示音及音量、纯输出试听、真实麦克风选择、共享总体灵敏度和模式切换；没有 Debug、Top 5、11 类分数表或独立滑杆。
-- **Test** (`ipad-test.html`)：三栏直接操作，11 类基础阈值及有效阈值、逐类及全部恢复默认、真实 Top 1 / Top 5 / 11 类原始 Score、模型与麦克风证据、实际可获取的采样率、推理统计、警告次数与可筛选研究日志。最近 100 条元数据仅保留内存，可手动导出 CSV；不保存或导出原始音频，不自动上传。
-- 共享总体灵敏度范围 **0.50–1.50**，默认 **1.00**；`effective = clamp(base / overall, 0.01, 0.50)`，总体值越高越灵敏。旧六类设置及更早自行车铃设置保留；新增 Bell / Chime / Ding / Ping / Doorbell 基础值仍为 0.10。分数完全不变，也不代表准确率或校准概率。全部恢复默认同时恢复总体 1.00。
-- 试听在创建 AudioContext 前请求并读回 `navigator.audioSession.type = "ambient"`，结束／异常／隐藏时释放并恢复此前策略；关闭未完成时不创建下一个试听 Context。Apple 平台缺少或拒绝该 API 时直接阻止试听并显示限制。其他浏览器使用普通 Web Audio 降级，不保证跨 App 混音。检测启动会取消试听并接管策略，检测期间阻止额外试听；自动提示音继续复用原采集 Context，避免另一音频会话。
-- **尚未完成实体 iPad + Safari + AirPods + Apple Music 验收**。ambient 可写不等于系统保证混音，不能检测或控制 Apple Music 的播放状态；麦克风采集本身仍可能改变 iPadOS 音频会话或蓝牙路由。保留两声 740 Hz / 每声 110 ms / 间隔 85 ms 和三个原音量档，不使用未经验证的音频路由方案。
-- 原模型、521 类识别、Worker classify、重采样、0.975 秒窗／480ms 步长、十秒波形算法及一次结果即警告的时序保留。新视觉以红色状态、警告文字及相关波形强调警告，不填充整张页面或图表的红色背景。
-
-完整中文 [开发与验证报告](V1.7.0-REPORT.zh-CN.md)、[实机验收清单](V1.7.0-DEVICE-ACCEPTANCE.zh-CN.md)、[阶段一证据](audit/v1.7.0/phase1/)、[最终自动化证据与截图](audit/v1.7.0/final/)。本候选不自动合并或部署。
-
-## 本地验证
+The website is static and has no runtime npm dependencies or build step.
+Node development dependencies are exactly pinned in `package-lock.json`:
+Acorn parses verification inputs; Prettier formats the extracted authored modules.
 
 ```sh
-npm test
-node scripts/check-site-integrity.mjs
+npm ci --ignore-scripts
+npm run check
+npm run format:check
+# Run after fetching the target branch:
 node scripts/check-release-version.mjs "$(git rev-parse origin/main)"
+python -m pip install playwright==1.62.0
+python -m playwright install chromium
 python -m http.server 8000 --bind 127.0.0.1
-# 另一个终端，需要 Playwright 与 Chromium：
-python tests/ui-canvas-browser.py --base-url http://127.0.0.1:8000/ --output work/layout
-python tests/stability-browser.py --base-url http://127.0.0.1:8000/ --output work/stability
-python tests/v17-browser.py --base-url http://127.0.0.1:8000/ --output work/integration
-python tests/audio-policy-browser.py --base-url http://127.0.0.1:8000/ --output work/audio-policy
 ```
 
-## 历史记录（描述对应旧版本，不代表当前候选）
-
-
-
-## V1.6.16 全面稳定性审查候选（未合并、未部署）
-
-以 PR #48 为起点，补充修复 Worker 异常与旧回调、采集时间戳、隐藏 Canvas 开销、iPad 试听区 CSS、五种铃声翻译、键盘／无障碍及诊断／标注工具资源释放。模型、11 个类别、阈值、0.975 秒窗口和 480ms 步长保持原设计。候选版本号继续为 1.6.16，符合相对 main 1.6.15 只递增一次的发布门禁。
-
-完整中文 [审查与修复报告](CODE-REVIEW-V1.6.16.zh-CN.md)、[可复核证据](audit/20261103/)、[实体设备验收清单](DEVICE-ACCEPTANCE-V1.6.16.zh-CN.md)。本地 `npm test`；额外静态核验 `node scripts/check-site-integrity.mjs`。浏览器复现命令见报告与 `tests/stability-browser.py`，只使用虚拟麦克风，不能代替实机安全验证。
-
-以下保留此前候选与历史更新说明。
-
-耳机使用与交通安全研究原型。保留 V1.4.4 实时麦克风检测，新增独立的 **AI Test Mode（离线音频研究）**。默认日本語，可用一个下拉菜单切换 English 和简体中文。纯静态网页，无需构建、API Key、登录、数据库或服务器。
-
-**Score 是原始 YAMNet 输出，不是准确率，也不是经过校准的概率。此项目不是经过验证的道路安全保护设备。**
-
-## V1.6.17：提示音可调与麦克风选择（候选版）
-
-- 两种实时页面的设置菜单统一新增提示音音量（小／标准／明显）和试听按钮，iPad 左栏不再单独展示试听。标准档默认 Web Audio 峰值增益 0.09，柔和档 0.045，明显档 0.15；**这些数字不是声压级 dB SPL，也不能保证在 Apple Music 背景音乐中一定听清**。仍为 740 Hz 两声短提示，试听不会启动麦克风或 AI。用户可从低档开始在安全室内环境中调整。保留音量偏好到本地设置。
-- 设置里新增浏览器实际暴露的音频输入选择。默认保持浏览器选定的麦克风；获得权限后通过 `enumerateDevices()` 列出可用输入，选择后重新启动原采集链、向 `getUserMedia()` 发送 `deviceId: {exact:...}`，对比浏览器返回的设备 ID。设备不可用／不匹配时明确报错，不伪造输入切换成功；设备选择不写入持久存储。
-- Safari/iPadOS 可能不提供独立可选的内置／蓝牙麦克风，或不保证音频输出位置；本功能不能强制 AirPods 输出，也不能控制 Apple Music 的系统音量。暂不操作实验性 Audio Session 来压低音乐，避免干扰麦克风和现有播放路由。
-- 原 YAMNet 521 类模型、11 类警告、阈值、音频窗口、步长和推理逻辑保持不变。候选分支不自动合并、发布，需在真实 iPad + AirPods + Apple Music 情况下验收。
-
-## V1.6.16：网页入口与 iPad 试听稳定性修复
-
-- 同步正式手机版与 iPad 横屏测试版的版本标记；两页仍共用原有麦克风、音频窗口和 YAMNet 521 类推理管线，**未修改模型、阈值、真实报警声音或自动报警逻辑**。
-- 补齐 iPad 测试页末尾试听模块的 HTML 关闭标签，消除不完整标记带来的浏览器解析隐患，并刷新试听脚本缓存标识。
-- iPad 手动试听仅在实际第二声 Web Audio 完成（`onended`）后报告「播放完成」；Safari 音频上下文暂停或异常时避免 700ms 定时器过早截断或误报成功。3 秒兜底仅在音频时间实际前进到结束时才承认完成；另处理异步资源释放和切后台遗留状态。
-- 加强自动测试：校验两种网页入口脚本标签完整性、两声播放完成、Safari 暂停与 `onended` 缺失降级。真实 iPad 耳机音频路径和 Safari 回归仍需实体设备验收。
-
-## V1.6.15：11 类警告声音和 iPad 手动试听
-
-- 继续使用原始 YAMNet **521 类**、521 个未经校准的原始分数，不删除任何模型分类。普通声音 Top 1 和 Top 5 显示仍然不受过滤。
-- 原 6 类交通警告音及其 **6 个独立灵敏度滑杆**保持不变；另外将 **Bell、Chime、Ding、Ping、Doorbell** 五类纳入警告。每类单独比较原始 Score 与固定 **0.10** 阈值；任意一次真实推理达标即触发红屏和正常提示音，不需要连续多次结果。多组达标时优先显示原六类具体交通警告名称，不将其他铃声假称为自行车铃。Car、Truck、Motorcycle、Traffic noise 仅作为普通识别结果显示，不触发警告。
-- 原有自动警告音、波形和音频采集链路不变。iPad 测试版左侧新增**手动试听提示音**按钮，播放与真实警告相同的 740 Hz 正弦波两声（各 110ms，间隔 85ms，峰值增益 0.045）；仅由用户点击启动独立输出 AudioContext，不申请麦克风权限、不运行 YAMNet、不触发红屏或伪造分类记录。手动试听不受自动报警音开关影响，离开页面或切入后台释放音频资源。正式版没有这个按钮。
-- 调试信息包含全部 11 个可警告类的分数；不改变六种可调阈值界面。新增泛用铃声可能增加门铃、通知音造成的误报，后续需要独立正负样本测试，不能据此声称真实交通安全已改善。Safari/耳机设备提示音路由与响度仍需实机验证。
-- 代码和页面正式版本统一升级到 **V1.6.15**，受影响的浏览器 JS/CSS 资源也更新独立缓存查询参数。
-
-## V1.6.14：R08 / R09 / R10 修复正式发布
-
-- 将之前合并的 UI 修复（PR #44）正式标记为 **V1.6.14**，同步 `package.json`、主站与 iPad 页面上的版本、浏览器标题、Web App Manifest、README 与版本测试。**未再次修改模型、采样、阈值、报警算法或界面布局。**
-- 资源专用缓存查询参数不等于网站版本：例如 `live-timeline.js?v=1.6.17` 和 `v1.6.css?v=1.6.14` 是资产缓存键，可保持较大或独立的编号；只有已修改的 Manifest 参数同步更新以刷新缓存。
-- **以后每次正式网站代码更新 / 修复都要同步递增补丁版本**（如 V1.6.14 → V1.6.15）。所有用户可见页面、`package.json`、Manifest 和 README 使用同一版本；测试与 PR CI 检查跨文件一致性和相对于基线的版本递增。
-
-## UI 修复：R08 / R09 / R10（发布于 V1.6.14）
-
-- 十秒声纹保留上下对称、原来的 RMS 视觉增益曲线及蓝／红色波形，仅为底部时间文字预留 20 CSS px，并将绘制限制在绘图区；没有 Y 轴，没有改变 RMS 或 AI 判定。
-- Canvas 通过 ResizeObserver、有效主题属性及窗口事件请求一次合并重绘；停止状态也能响应尺寸、布局与系统主题变化，不会启动麦克风、推理或持续动画循环。
-- iPad 右栏恢复默认按钮独占一行，避免三语文字被挤成竖排；设置弹层宽度扣除页面留白及安全区域。原三栏结构、滑杆和全部设置保持不变。
-- 两入口更新 `live-timeline.js?v=1.6.17`、`v1.6.css?v=1.6.14`；iPad CSS 更新为 `?v=6`。应用和模型版本不变。下面各版本说明保留为历史记录。
-- 回归验证见 [UI-R08-R10-TEST-REPORT.md](UI-R08-R10-TEST-REPORT.md)。浏览器回归可在静态服务启动后运行：`python tests/ui-canvas-browser.py --base-url http://127.0.0.1:8000/ --output ../ui-evidence`（需 Python Playwright 及浏览器；`--engine webkit` 可用于已安装 WebKit 的环境）。实体 iPad Safari 仍需验收。
-
-## iPad V3：还原最初的 10 秒声纹（撤销 dBFS 和百分比轴）
-
-- 根据用户反馈，将 iPad 横屏测试版的波形恢复到 V3 最初使用的真实 RMS 上下对称 **蓝色振幅声纹**：没有 Y 轴百分比或 dBFS 刻度，X 轴仍显示 −10s／−5s／Now，警告区间仍只把实际波形变红，不绘制整条红色背景块。
-- 此次直接将 `live-timeline.js` 和 `ipad-test.css` 恢复为 V3 最初的同版本源码（PR #40），去除随后加入的两个实验性 Y 轴和额外图表留白；保留当前的三栏布局及右侧 6 个灵敏度滑杆。
-- 仅 iPad 页更新缓存标识 `live-timeline.js?v=1.6.16` 和 `ipad-test.css?v=5` 以刷新 Safari 缓存。正式首页仍加载旧版 `live-timeline.js?v=1.6.13`，其实际显示逻辑不发生变化。模型、麦克风、阈值与通知完全不修改。
-- 波形按原始视觉增强曲线显示相对 RMS，不代表经校准的声压或百分比响度；实机 iPad Safari 显示仍需要验收。
-
-## iPad 横屏测试布局 V3（三栏控制 / 数据 / 灵敏度）
-
-- iPad 测试版 `ipad-test.html` 重新调整**真实 DOM 位置**，而不是绘制与识别无关的静态假数据：左栏为麦克风来源、检测状态、可点击的圆形启动/停止按钮、警告声音和原本的提示文字；中栏为当前识别类别、10 秒实时声纹、最近警告、AI 模型状态/麦克风输入/最近推论/推论耗时/更新时刻，以及 **Top 5 声音与六种交通警告音的原始识别分数**；右栏为 **六种警告音独立灵敏度滑杆和恢复默认按钮**。
-- 中栏的系统与分类表仍使用原来的 `debug-panel` 和 `debug-* ` ID，AI Debug 开关仍管理详细识别信息。右侧灵敏度独立于长表格显示，滑杆使用已有的默认值、实时阈值和本地偏好，不改变判定逻辑。没有新增模拟的 Score 或准确率。
-- iPad 横屏用占屏三栏布局；下方信息过多时只滚动中栏下半部分类数据或右栏滑杆，不再出现巨大的空白和被裁切的控件。分屏、竖屏和过矮的横屏允许正常纵向滚动以保持可读性。
-- 仅测试页加载新的 `ipad-test.css?v=3`；正式版 `index.html`、应用主逻辑、AI Worker、声音输出、三语言设置及现有阈值均不变。外观布局是试验性质，GitHub Actions 只进行代码/DOM/样式回归检查，iPad Safari 仍需实机验收。
-
-## V1.6.13：只有声纹本身在警告区间变红，设置语言与主题并排
-
-- 十秒声纹图的警告区间不再使用纵贯图表高度的半透明红色背景矩形；只根据同一个警告事件时间标记，**把位于警告窗口内的实际波形线条变红**。没有采集到声音的区域和曲线之外的背景不会染红；仍保留警告标签、时间标记与正常波形颜色。
-- 两个页面的设置菜单中，语言（日本語／English／简体中文）与外观主题（系统／浅色／深色）各占一列，横向并排。使用原有的 `theme.js` 和主题存储键，不会改变外观设置本身或其他独立测试页的原布局。
-- 资源缓存升级到 V1.6.13，保留 iPad 测试版独立 V2 布局；YAMNet 推理、Score 阈值、警告红屏和两声通知、三语翻译、60fps RMS 视图及音频隐私策略完全不变。
-- GitHub 的单元与静态测试不能代替 iPad Safari 实机视觉验收。警告期间**整张网页背景保持原有红屏警告**，这里只调整十秒声纹图表内部的填色，不取消主页面警告红屏。
-
-## V1.6.12：在设置菜单中切换正式版与 iPad 横屏测试版
-
-- **两个入口、同一个网站**：正式页面 `index.html` 和横屏测试页面 `ipad-test.html` 都有「表示バージョン／Page layout／页面版本」控件，可在「通常版／Standard／标准版」与「iPad 横屏测试版」之间自由切换。当前页面高亮显示（`aria-current="page"`）。
-- 切换以当前页内部的相对链接完成，保留 `?lang=ja|en|zh-CN` 参数及原有同站点语言偏好；浅色/深色主题设置也照常共享。跳转会卸载当前页面，原有 `pagehide` 流程停止麦克风与 AI 会话；目标页面不会自动开始收音，需要重新点按麦克风。
-- 新增的布局切换 UI 与导航**不改动** YAMNet、声纹渲染、六类阈值或报警逻辑。iPad 测试版仍使用独立 CSS，常规版依旧保持普通纵向布局。
-- 增加双页面 DOM、三语切换、链接及无重复采集的回归测试；移动 Safari 需要真实设备检查下拉设置的可见性和点击手感。
-
-## iPad 横屏测试版布局修正 V2（仅测试页）
-
-- 新版 iPad CSS 通过 `ipad-test.css?v=2` 发布，刷新后不再使用浏览器缓存的首版布局。**正式版 `index.html` 与 V1.6.12 功能不变**，设置里的双页面切换按钮仍可直接使用。
-- 横屏采用更紧凑的上方同排标题／AI Debug 开关／设置按钮，麦克风来源信息单独在下方。减少不必要的顶部占高，把空间留给检测操作和十秒声纹；顶部重复的返回链接在横屏隐藏（设置里的版本切换仍可用）。
-- 主监测区按操作和实时声纹两列安排，重设按钮／文字／波形比例，减少多余空白；AI Debug 固定在右侧，可**在整个 Debug 面板内滚动**查看原始得分、六类阈值和灵敏度滑杆。标题粘附在面板顶部，不再依赖 Safari 对 `<details>` 内部滚动容器的兼容性。
-- 不再把整张网页锁死为 `overflow:hidden`。横屏视窗高度不足、显示缩放较大或长警告文字时，允许主区域与页面安全滚动，防止元素被剪裁。竖屏或 Split View 窄窗口继续使用原来的纵向布局。
-- 这是尚未在真实 iPad 上验证的布局优化；**不能保证全部 Debug 长表格无须滚动**，但重要按钮、识别文字与波形会尽可能同屏，剩余数据可通过侧栏滚动访问。
-
-## 独立 iPad 横屏测试版（功能与正式版共用）
-
-- 测试入口：[`ipad-test.html`](./ipad-test.html)，部署后可直接打开 `https://ky0o0.github.io/traffic-sound-guardian-v1/ipad-test.html`。点击标题右侧的「← 通常版 / Main」可返回 `index.html`。
-- 横屏、宽度至少 820 CSS px、高度至少 500 CSS px 时，采用**单屏仪表盘**布局：左侧检测操作、状态与麦克风圆圈，中间显示十秒声纹、当前预测及最近警告；右侧显示 AI Debug 信息、六类灵敏度和测试数据。右侧长数据在**面板内部滚动**，不会把所有表格硬挤成难辨认的小字。打开设置菜单仍可切换语言、主题、通知音、反馈和两个测试入口。
-- 在竖屏、Split View 窄窗口或过矮的窗口中回到普通纵向滚动布局，避免剪裁；Debug 开关关闭时横屏扩大主要监测区域。
-- 该版本**复用原 `app.js`、`live-timeline.js`、YAMNet Worker 和全部原有的 86 个控件 ID**，不新增采集、后台麦克风、推理模型、音频记录或新的警告触发逻辑。仅使用独立 `ipad-test.css`，正式 `index.html` 外观完全不变。
-- 这是实验性布局；不同 iPad 尺寸、Safari 顶部/底部工具栏高度、系统字体缩放和分屏比例可能使局部内容需要内部滚动。需在目标 iPad 上实测后再考虑推广到正式首页。
-
-## V1.6.11：当前 AI 声音类别每 2 秒更新；警告声音立即显示
-
-- **普通声音预测类别**：不再要求连续两次分类相同。第一条真实的 YAMNet 结果立即显示，此后每次达到 2 秒更新间隔时，采用当天次推理得到的最新最高分声音类别（即便类别与上次相同，也会推进下一个更新时间）。因实际推理间隔与 Safari 调度，刷新以符合条件的**下一次真实模型结果**为准，不能保证毫秒级准时。
-- **交通警告音优先**：任何满足当前六类阈值的警告结果都会**立即显示**，无需等 2 秒；不同警告类别也立即更新。警告类别至少保留到显示后 2 秒届满且收到新的正常分类结果为止，不改变原有警告红屏与两声提示的触发和持续时间。
-- 保留日语／英语／简体中文类别显示、10 秒声纹目标 60fps、现有音频采集与 YAMNet 推理频率，不新增定时器、模型或存储。测试涵盖 2 秒边界、即时警告、语种切换、相同类别与停止重置。
-
-## V1.6.10：在10秒声纹上显示稳定的当前声音类别，完整三语支持
-
-- 在最近10秒波形上方居中显示 YAMNet 当前最高分的**声音预测类别**（不只是六个交通警告类别）。全部 521 个官方类别都可成为结果。类别来源于 Worker 的真实模型输出，无需开启 AI Debug Mode，也不新增推理或音频采集。
-- 正常类别须连续两次模型输出相同类别才能切换，并且之前显示的类别至少保持2秒；首次正常结果同样需要两次确认。符合已有交通声音阈值的**警告优先立即显示**，不受普通切换门槛限制。保留原警告判定与通知逻辑。
-- 当前类别、波形标题、波形说明及10秒内最近的警告类别均支持日语／英语／简体中文即时切换，无需重启麦克风或重新推理。日语使用现成的521类别映射，英语沿用YAMNet官方标签；中文使用已有常见类别翻译，对于未覆盖的类别明确回退显示官方英文，不猜测翻译。
-- 修复先前切换语言后，波形下方仍显示日语「最近の警告なし」的错误；改为更新所有局部文字及警告名称。浏览器实时显示仍只缓存有限的RMS点、最近警告窗和**当前类别**，不保存录音、不通过网络发送音频，不持久化预测历史。
-- 版本、缓存与测试升级至 V1.6.10。性能和移动 Safari 呈现仍需实机验证；YAMNet Score 不是正确率，也不保证识别结果准确。
-
-## V1.6.9：10 秒实时波形绘制流畅度优化
-
-- 之前主页面的 10 秒波形由 `app.js` 每秒最多 30 次的可视化循环提供 RMS 点，因此 iPad 上可能出现间歇性跳动。现在 **10 秒声纹目标上限 60 FPS**（实际取决于 Safari/硬件与主线程负载）。`tsg:visual` 仍由同一条真实麦克风音轨的 AnalyserNode 输出 RMS，不另加麦克风或 AI 进程。
-- 中央圆圈的旧 PCM 可视化与光效保持最多 30 FPS，以避免连同历史波形一起增加绘图负荷；声纹的 60Hz 取样和该旧绘图解耦，缓冲数上限从 450 扩大到 720，确保完整覆盖 10 秒。
-- 将每帧无变化的最近警告文本 DOM 写入省略，减小无意义重排。保留现有主题配色、振幅公式、10 秒时间范围及音频隐私策略。
-- **不修改** YAMNet 推理频率、采集/重采样音频、阈值、告警状态或检测结果；60 FPS 是显示目标，并非真实设备保证值。建议在 iPad Safari 手动测试流畅性、耗电和发热。
-
-## V1.6.8：首页检测状态无底色、红色指示点统一移位
-
-- 去除主页「停止中／検知中」状态行在浅色主题下的灰蓝色背景，保持状态文字及位置不变。不会改变上方「当前麦克风」来源标签。
-- 删除中央麦克风圆形按钮右上角原有的红色 `listening-indicator` 元素和对应 CSS。检测正常运行（`listening`）时，只在「検知中」文字左侧原有 `status-dot` 位置显示脉动红点；静止时为灰点，危险声音警告红屏时显示白点，确保对比度。
-- 尊重系统“减少动态效果”偏好，关闭红点脉动动画；仅修改视觉表现，警告、识别、音频采集、阈值及状态机都不变。
-- 已更新网页 CSS 缓存版本，待通过自动化回归测试及实际 iPad Safari 视觉验收。
-
-## V1.6.7：首页刷新后回到顶部
-
-- 修复 iPad/iPhone Safari 及其他浏览器刷新主页时，可能自动恢复上次滚动位置、导致直接显示下方 AI Debug 详细结果的问题。现在在 HTML 加载初期设置 `history.scrollRestoration = 'manual'`，在非浏览器后退缓存的新页面 `pageshow` 时确保滚动到顶部；保留返回（bfcache）时原有的滚动位置。
-- 仅在整页重新载入时重置位置。用户正常向下滑动查看 AI Debug 结果不受影响；切换调试开关、警告、页面后台/前台不触发自动回顶部。没有修改模型、麦克风、警告、阈值或视觉布局。
-- 更新版本与回归测试；移动 Safari 需再次人工验收刷新行为。
-
-## V1.6.6：通知声归入设置、声纹低电平优化与麦克风按钮放大
-
-- 将默认开启的两声通知音开关从 AI Debug 内容区移至右上角设置菜单。设置内仍有语言、主题色/模式、反馈问卷、AI Test Mode 和 Microphone Test Mode。保留现有 localStorage 通知偏好及听觉/视觉警告功能。
-- 六类独立 Score 灵敏度继续保留在 AI Debug 面板；面板的独立开关仍位于首页。
-- 10秒波形**外框和画布尺寸不变**。为避免上版 14.4 倍增益让细小背景声看起来过大，改用软限幅 `tanh(rms^0.65 × 11.5)`，静音时振幅为0，降低近静音视觉基底；线条宽度稍收细。仅影响绘制，不修改实际 RMS、PCM、YAMNet、阈值或警告逻辑；图像不是分贝刻度。
-- 中央圆形麦克风触控区域由112×112px扩大至132×132px，警告时136×136px；矮屏版对应114/116px。麦克风图标与加载/警告图标同步放大，点击与运行逻辑保持不变。
-- 更新 V1.6.6 资源版本号；需要 iPhone/iPad Safari 视觉验收。 
-
-## V1.6.5：简化设置菜单并强化波形外观
-
-- 顶部单独显示 **AI Debug Mode** 开关；调试面板内恢复六种声音各自的灵敏度滑杆，并保留提示音开关。现有阈值、提示音开关设置和实时识别行为不变。
-- 右上角设置菜单只包含**语言、显示主题（系统／浅色／深色）、反馈问卷、AI Test Mode 和 Microphone Test Mode**。两个测试页都在菜单内，不再在主页底部显示独立 AI Test 链接。
-- 最近10秒声纹维持原来的 420px 最大外框宽度、104px 画布高度（矮屏84px），只将显示用软限幅增益从 7.2 提高到 14.4，同时增粗绘制线条，让低电平更容易辨认。原始PCM/RMS、YAMNet推理、各类阈值和警告行为完全不变；大声音在视觉上会趋于饱和，不表示实际音量或分贝变化。
-- 新 CSS 和声音时间轴 JS 采用 1.6.5 缓存标记；仅显示调整，不保证 iPhone Safari / Bluetooth 的实际行为。
-
-## V1.6.4：恢复原尺寸的10秒波形外框
-
-- 回退 V1.6.3 的920px宽大外框，恢复原来的420px上限与104px（矮屏84px）画布；波形显示增益从2.4提高至7.2，不改变实际录音或识别。
-
-## V1.6.3 主页排版精简
-
-- **10秒实时声音图**扩展为接近整个浏览器视口宽度（手机端左右仅保留约6px；较大屏幕最长920px），并增高波形画布，方便观察时间轴。这是**现有同一音频数据的绘图调整**，不改变声学分析窗口、YAMNet 分类、报警间隔、模型或保存策略。
-- 新增右上角单一**设置齿轮**。语言、AI Debug Mode 开关、提示音开关、六类灵敏度/阈值滑杆、麦克风诊断页面、反馈入口和主题选择器放入设置菜单；打开/关闭菜单不申请麦克风。设置菜单支持键盘、屏幕阅读器及滚动。**AI Test Mode（离线音频研究）**保留在主页外部明显位置，原有 AI 模型/Debug 结果面板仍位于首页下方，不隐藏已取得的实时分析数据。
-- “当前麦克风”改为单独一行，仅显示从**实时识别用音轨**取得的**浏览器设备名称**（例如 iPhone Microphone / AirPods Pro Microphone）。没有可用名称时才写“无法确定”；停止时显示“未使用麦克风”。不再显示类型推断、重复名称、技术说明。仍不能因此保证对应的物理拾音设备；蓝牙输出名不会被误当作麦克风来源。
-- 正式默认阈值仍为六类均0.10；音乐与 Safari 麦克风兼容性问题**没有**通过此布局修改解决。
-
-## V1.6.2 新增：实时检测使用的麦克风
-
-- 主页“当前麦克风／Current microphone／使用中のマイク”面板显示**同一条实时AI检测音轨**（`getUserMedia()` 返回的 `MediaStreamTrack`）的浏览器提供信息，并非显示声音输出位置。
-- 当音轨名明确提及耳机型号、耳机、AirPods 等，显示“耳机麦克风（浏览器报告）”；明确为 iPhone/iPad 或 Built-in Microphone 时显示“设备内置麦克风（浏览器报告）”。
-- 如果浏览器只报告“Microphone”或不提供名称，显示**“无法确定麦克风类型”**，并尽可能展示原始设备名称。仅当音轨 `getSettings().deviceId` 与 `enumerateDevices()` 的**audioinput**设备ID一致时，才用该输入设备名称补充。绝不根据音频输出设备、已连接蓝牙耳机、或缺少设备标记就推测真实麦克风。
-- 获得麦克风授权后显示；关闭检测或拒绝授权时清除设备信息。运行中监听浏览器的 `devicechange` 和音轨自身可见的变化（浏览器支持时）；如果浏览器不报告变更，依然可能无法判别。信息仅在内存显示，不存储/上传设备标识或音频。
-- 面板提供日语、英语、中文翻译，和原有红屏、两声短促提示音、六类阈值、AI测试模式分离。并**不能证明**物理话筒实际位置，更不能访问耳机内部ANC专用麦克风。
-- iOS Safari 的标签、deviceId 和输入路由信息可能不完整。需要实际 iPhone + 蓝牙耳机的**室内**验证。
-
-## V1.6.1 新增：耳机提示音（两声短促滴滴）
-
-- 检测到**新的一次**危险声音时，除了原有红屏，Web Audio 会在当前输出设备尝试播放两声约110毫秒的温和正弦提示音，中间间隔约85毫秒。
-- 新触发条件：前次警告未活动、当前声音达到对应阈值。原有警告在最后一次有效识别后保持1秒；警告持续或车型变化都**不会**重复响。如果警告结束后发生新的警告，才再响一次。
-- 主页面新增三语（日本語 / English / 简体中文）的 **提示音开关**，默认开启，可随时关闭。选择保存在本机 localStorage，关闭时会立即停止已排定的提示音；关掉声音也不影响红屏和 YAMNet 检测。
-- 提示音由正在运行的同一个、经用户点击启动的 Web Audio Context 生成。**没有使用新的麦克风、没有采集/发送声音、没有外部音频文件**，不需要下载额外音频资源。每次停止检测、切换后台或页面离开时均停止待播放的音符。
-- **Safari / 蓝牙耳机限制**：网页不能确保选中耳机输出设备，实际输出由 iOS / 浏览器的音频路由决定；也不能保证播放被音乐覆盖，或自动降低其他 App 音量。必须在真实 iPhone + AirPods / Sony 等设备上手动测试声音是否可听，以及播放是否改变麦克风路由和音乐音质。
-- 新增功能已经通过自动化模拟音频节点、提示状态转移及后退兼容测试；CI 不等于真实 iPhone/耳机实验。交通安全提醒只作研究用途，不能保证及时或可靠。
-
-**阈值研究备忘：** 研究实验提出自行车铃 0.05 为待验证候选，其余五类暂保留 0.10。V1.6.1 **不调整任何类别的默认阈值（均维持0.10）**。详细出处见 [阈值决策备忘](research/THRESHOLD-DECISION-20261031.zh-CN.md)。
-
-## 实时检测与 V1.5.4 的边界
-
-- 中央麦克风圆圈手动开始／停止；只有真实采集与 AI 推理运行后才显示监听。
-- 六类声音的**默认阈值为 0.10**，界面提供独立的 **0.01 最小档**，其余为 **0.05、0.10、0.15……0.50**（每档相差 0.05）。历史保存的 0.01～0.50 阈值会原样保留，直到用户重新拖动对应滑块；点击“恢复默认”将六类一起设为 0.10。**单次原始分数达到其阈值即触发**，最后一次达标后保持红色警告 **1 秒**（连续检出会延长）。没有恢复旧版两次确认或 0.75 规则。降低阈值可能增加误报。
-- 保留真实波形、声音响应圆环、默认展开的 Debug Mode、Top 5 与六类原始分数、不自动滚动、日英中三语切换。
-- 原有两份 Google Forms 链接不变，不附带音频或识别结果。
-- 模型、类别、MediaPipe/WASM、采集和重采样算法不变。AI Test Mode 使用同一个 `classifier-worker.js`，没有另建分类模型。
-- 测试入口在主页底部；进入独立页面会离开实时检测，不同时占用麦克风。多开浏览器标签页仍会分别占用资源，请一次只运行一个测试页面。
-
-## V1.5.4 Microphone Test Mode（耳机麦克风兼容性诊断）
-
-主页新增独立入口 **マイク接続テスト / Microphone Test Mode / 麦克风测试模式**（`microphone-test.html`）。这是浏览器输入路由诊断页，不加载 YAMNet，不改变 V1.5.3 的六类实时警告阈值、AI Test Mode 或一秒红屏逻辑。
-
-- **用户点击测试按钮后**才通过 HTTPS `getUserMedia({audio:true})` 请求麦克风；无后台自动请求或自动录音。页面初次载入仅尝试 `enumerateDevices()`。
-- 在浏览器允许的范围内列出 `audioinput`，可用 `deviceId:{exact:id}` 尝试选择特定耳机麦克风。Safari 可以隐藏设备名称、设备标识，拒绝切换，或者继续选择手机内建麦克风；这些结果会显示为未知／不匹配，而非虚构成功。
-- 显示 **浏览器报告**的 `MediaStreamTrack.label`、`getSettings().deviceId` 与选择是否匹配、track 采样率／通道数、实际 `AudioContext.sampleRate`、track 状态、可见设备数，以及音量相对值（**dBFS，不是环境分贝 dB SPL**）。名称和 deviceId 不足以证明物理传感器位置，也不能访问耳机内部 ANC 麦克风。
-- 可手动停止；切换设备、切后台或音频轨道结束自动停止。待处理的异步授权即使稍后批准也会立即释放过期 stream。音频只在本机 Web Audio 图中采集、测量，输出接零音量，不播放到耳机，**不存储、不上传、不下载音频**。
-- 日／英／简体中文下拉菜单与现有两页面一致；查询参数 `lang` 用于在页面之间保留所选语言。这个诊断页没有测距、车速、车辆识别或声音位置估计能力。
-- AirPods Pro 3 / Sony WH-1000XM6 的实际麦克风路由、音乐播放音质、Safari 兼容性**尚未在真实 iPhone 上验证**。请在安静室内逐副测试、记录名称、设备匹配状态、采样率、通道数、音乐是否降质；任何浏览器反馈都不代表完整耳机硬件控制权。
-
-### 用 iPhone Safari 验证
-
-1. 在 iPhone 蓝牙设置连接 **AirPods Pro 3**，打开 HTTPS 网站并进入 Microphone Test Mode。
-2. 点击 **测试麦克风**，授予权限，查看轨道名称、输入设备、采样率与音量条。
-3. 如有多个输入选项，选择并重新测试，比较 `deviceId` 是否一致。没有选项不表示耳机不存在，可能是 Safari 不公开。
-4. 手动停止并关闭 AirPods 连接，换 **Sony WH-1000XM6**，重复上述步骤。
-5. 在室内使用短录音，观察变化、记录是否能同时播放音乐。若 Safari 不支持耳机录音，就改用 iPhone 自带麦克风或独立的 iOS 原生 App 验证。**请勿在实际道路上进行危险接近测试。**
-
-## 快速使用
-
-
-1. 从主页进入 **AIテストモード（オフライン研究） / AI Test Mode**。
-2. 在 **音声と正解ラベル / Audio & Ground Truth** 多选音频。每次最多 50 个，每个不超过 20 MiB、120 秒；至少 0.975 秒。支持该浏览器能解码的 WAV / MP3 / M4A 等格式，扩展名本身不保证支持。
-3. 展开每个文件，设置一个或多个真实标签。`No target warning sound` 与目标标签互斥；默认 `Unknown / not sure`，未知文件可以推理但不参与准确度和阈值优化。
-4. 填写原始录音的 **group ID**。同一长录音的裁剪、不同编码、增强或复制版本必须用同一 ID。不要用每段的新文件名制造“独立”样本。
-5. 可选：在高级时间标注中，每行输入 `bell,0.5,2.0`，表示自 0.5 秒到 2.0 秒。支持代码 `bell, horn, siren, police, ambulance, fire`。选择对应文件标签，确认所有目标事件均已标注后勾选完成，并保存。无目标的文件可以用空事件列表并确认完整。没有完整时间标注只计算 clip-level。
-6. 点击 **一括テスト / Run batch**。逐文件、逐窗口处理，查看时长和进度；可取消、删除文件、重试失败／取消的文件。重新测试会替换该文件旧结果。
-7. **AI Detection Results**：选择文件、查看六类峰值与时间曲线；拖动窗口滑块查看该窗口六类完整原始分数、阈值、是否触发、警告保持状态和耗时。
-8. **Performance Analysis**：选择 clip / window / event 和六原始类别／三交通分组。图表与表格来自本次真实推理；缺少计算条件显示 N/A。
-9. **Threshold Optimization**：选择减少漏检、减少误报或平衡 F1，比较 0.01 最小档，加上 0.05～0.50 每档 0.05 的共 11 个阈值；“采用推荐值”只修改本次测试设置，不重复运行模型。
-10. **Charts & Export** 导出 JSON / CSV。仅当主动点击“应用到实时检测”并确认，才替换本机保存的六个实时阈值。之后重新打开主页生效。请先导出，再刷新或离开测试页。
-
-### 准备研究数据
-
-同时收集自行车铃、汽车喇叭、各类警笛和**无目标负例**（人声、音乐、普通交通、相似铃声等），覆盖不同距离、噪声、设备和音量。多标签按实际声音标注，不能根据模型猜测标签。精确时间标注应通过人工听辨或外部音频编辑工具确认，本页不提供自动标注或波形标注编辑器。
-
-尽量使用单声道或双声道、短音频。长录音在外部先分段，并保留相同原始录音 ID。相邻窗口高度重叠，不是独立研究样本。独立性、标签真实性和标注完整性由研究者确认。
-
-## 指标定义
-
-在每个类别和选定统计单位上：TP=正确检出；FP=无此类却检出；FN=存在此类却未检出；TN=无此类且未检出。
-
-| 指标 | 定义 |
-| --- | --- |
-| Precision | TP / (TP + FP) |
-| Recall | TP / (TP + FN) |
-| F1 | 2 TP / (2 TP + FP + FN) |
-| False positive rate | FP / (FP + TN) |
-
-分母为零显示 N/A（JSON 为 `null`）。存在漏检而没有正确检出时 Recall / F1 为 0 是合法结果。总览的 micro 指标先汇总六个类别的计数；不是文件准确率。Exact-match 文件要求所有目标标签集合完全一致，`none` 对应空集合。一个文件可同时含漏检与误报，因此这两个文件数量不能相加当作总文件数。失败、取消和 unknown 不进入准确度分母。
-
-- **Clip-level**：完整音频中，某类至少一个窗口达标则预测该类存在；真实标签来自人工文件标签。未构成完整窗口的尾部被明确显示，尾部真实事件若未检出仍可造成 clip/event 漏检。
-- **Window-level**：仅完整时间标注文件；一个真实事件与窗口有正时长重叠时，窗口真实标签为该类。恰好边界相接不算重叠。预测使用该窗口原始阈值结果，**不把 1 秒红屏保持当作新检出**。
-- **Event-level**：仅完整时间标注文件；同类别连续阳性窗口组成一个检测段，按时间顺序与重叠的真实事件一对一匹配。未匹配检测段为 FP，未匹配事件为 FN。不允许一个持续检出段给多个事件重复记 TP。此重叠匹配衡量“检出”，不自动表示及时；响应时机另行报告。事件级 TN / FPR 没有定义，显示 N/A。
-
-### 警笛重叠
-
-保留所有六类原始 Score。实用分组只有 Bicycle bell、Car horn、Siren group。警笛组为 `Siren OR Police OR Ambulance OR Fire engine`，每类先用自己的阈值，不把原始分数相加。真实标签也按 OR 合并；重叠／相接的同组真实事件合并成一次，因此一次警笛不被计四次。六类统计仍严格按人工选择的原始标签评估，通用警笛与具体警车类别可能语义重叠，研究时应同时报告分组结果及标注规则。
-
-## 阈值选择与最终评估
-
-- 至少 10 个已标注、成功处理的原始录音组且 group ID 完整时，使用确定性组哈希分割，约 70% 的**组**用于验证，其余用于最终测试。同一组不跨集合；组大小不同时文件比例不一定为 70%。无随机模型分数。
-- 批处理结束自动准备分割；标签或组 ID 修改后须重新准备分割。少于 10 组或缺失 ID 时只提供**探索性分析**，不能称为独立测试性能。10 组是 UI 的最低操作门槛，不保证统计充分性。
-- 优化只使用验证集的 clip-level 分数。每类至少两个阳性、两个阴性验证文件才给推荐值，否则 N/A。曲线仍可查看。每类独立选择，没有修改 YAMNet 参数。
-- 平衡目标按 F1、Recall、Precision 排序；减少漏检按 Recall、Precision、F1；减少误报按 Precision、Recall、F1。仍相同则选较高阈值。页面和导出记录目标、支持数、完整曲线及推荐理由。
-- 独立测试集的分数、曲线及统计在确认“固定设置并显示最终测试”之前隐藏，导出相应结果为空并标记 `withheld`。确认后锁定本次数据的标签、阈值与再优化；统计页切换到测试集。
-- 分组不分层，某类别可能在测试集没有阳性，应报告支持数和 N/A。没有置信区间、交叉验证或自动检测录音亲缘关系。不要反复清空、改 ID、重新分割来挑好看的最终结果；需要新实验时另准备独立测试数据。
-
-## 音频方法与速度含义
-
-浏览器 `decodeAudioData` 将文件解码到当前 AudioContext 的采样率；导出 `sampleRate` 是**解码后采样率**，不是源容器的原始采样率。通道取算术平均为 mono，不归一化或放大。复用实时 `AudioWindowBuffer`：约 0.975 秒窗、0.480 秒步进（按实际采样数取整）。不补零到新窗口，末尾不足部分单独列出。原 Worker 用原 `resample.js` 转为 16 kHz / 15,600 样本，再调用原版 MediaPipe YAMNet。
-
-| 名称 | 实际测量／估计 |
-| --- | --- |
-| AI inference time | Worker 内仅 `classifier.classify()` 的耗时，排除解码和重采样 |
-| Worker round trip | 发出完整窗口到收到结果的墙钟耗时，包括 Worker 传输、重采样和推理 |
-| Offline processing time | 各成功文件从读取元数据、解码至最后一窗结束的耗时，含窗口间让出主线程；**不含批次最初的模型加载**。失败文件不进入成功文件速度汇总 |
-| Throughput estimate | 平均 Worker 往返是否 ≤480 ms，另显示每窗达标比例；不是实时不丢帧保证 |
-| Simulated detection latency | 只在有精确时间标注时，按 `ready[i] = max(ready[i-1], windowEnd[i]) + measuredRoundTrip[i]` 模拟顺序处理，匹配检测段首次 ready 减事件开始。事件开始前已在警告的段不计响应样本；同时报告是否在事件结束前响应 |
-| Actual real-world microphone latency | **未测量**。包括实际硬件、麦克风、浏览器、蓝牙、播放设备与道路环境，不能从离线耗时推导 |
-
-离线模拟保留每一窗口；实际实时模式繁忙时会只保留最新待处理窗口，因此两者的排队行为不完全相同。研究报告必须说明这一局限。耗时受设备负载、模型首次预热、温度及浏览器影响，不是 iPhone 性能保证。
-
-## 内存、隐私和导出
-
-最多一个解码中的文件、一个已解码 PCM Buffer、一个模型 Worker、一个推理请求；逐窗处理后仅保存分数和耗时。解码前检查文件体积和媒体元数据时长，解码后限制 PCM 为 96 MiB，结束关闭 AudioContext，批次结束／取消终止 Worker。原文件仅保留 File 引用，清空／删除／离开页面后释放。
-
-浏览器解码 API 不能中途取消；取消发生在解码中时，会等待其完成并丢弃结果，期间禁止另起批次，避免并发分配。浏览器内部临时解码内存无法严格限定，极端多声道、损坏或恶意容器仍可能耗尽设备资源；大录音请先转换为短的单／双声道文件。格式支持和元数据解析依赖浏览器。
-
-仅从当前静态站点加载脚本、模型和 WASM。没有音频上传、Google Forms 自动传送、数据库、遥测、账号、录音或结果持久化。LocalStorage 只在主动确认时写入已有的六阈值设置。刷新清空测试数据；本版未实现项目导入／恢复或 HTML 报告，CSV/JSON 是主动导出的研究数据，不含音频本身。
-
-JSON 包含文件名、时长、标签、时间标注、录音组、分割角色、六类完整窗口分数、初次运行与当前评估阈值、告警重放、推理耗时、指标、模型 Git blob 标识、配置和浏览器条件。CSV 使用 UTF-8 BOM、字段转义及公式注入防护，包含 clip / window / summary 三种 `record` 行。筛选 `record=clip` 看文件，`window` 看逐窗，`summary` 看统计。人工标签代码的对应关系在上方步骤 5。
-
-## 架构和静态部署
-
-| 文件 | 职责 |
-| --- | --- |
-| `index.html`, `app.js`, `style.css` | 原实时界面；新增离线入口，原反馈 URL 原样保留 |
-| `ai-test.html`, `ai-test.css`, `ai-test.js` | 独立响应式离线界面、SVG 图表、交互与下载 |
-| `ai-test-i18n.js` | 所有新增状态、按钮、错误和说明的日英翻译 |
-| `ai-test-runner.js` | 元数据、浏览器解码、逐文件/窗口调度、Worker、取消、限额 |
-| `ai-test-analysis.js` | 纯统计、真实标签、规则重放、分组、验证/测试分割、阈值比较、CSV/JSON |
-| `audio-window.js`, `resample.js`, `detection.js`, `classifier-worker.js` | 实时和离线共用的窗口、重采样、分类与警告规则 |
-| `debug.js`, `capture-worklet.js` | 现有 Debug 与麦克风采集 |
-| `yamnet.tflite`, `audio_bundle.mjs`, `audio_wasm*` | 原版模型和运行资源；本次未改动 |
-| `test-*.js` | Node 内置测试；生产网页不加载任何测试夹具 |
-
-使用仓库现有 GitHub Pages 的根目录静态部署。所有路径相对，支持 `/traffic-sound-guardian-v1/` 子路径；不需要打包器。入口、CSS、控制器、麦克风诊断页面和 Worker 使用 `?v=1.5.4`，manifest 与 package 同步更新，无 Service Worker。已打开的旧标签页须关闭或刷新；资源版本参数不能主动替换已运行的旧 HTML。开发分支与 PR 不代表发布；由仓库所有者确认后合并／部署。
-
-## 开发验证与设备检查
-
-运行 `npm test` 或 `node --test test-*.js`，无需安装项目依赖。测试范围与真实浏览器证据见 [V1.5-TEST-REPORT.md](V1.5-TEST-REPORT.md)。历史 `TEST_REPORT.md` 是旧版记录，以本说明和 V1.5 报告为准。
-
-尚未进行实体 iPhone / iPad Safari 测试。请在确认部署后检查：文件 App 多选 WAV/MP3/M4A、长列表触控和横向表格、取消与重试、语言切换、JSON/CSV 下载到文件 App、切后台后恢复状态、长时间运行温度和内存；再返回主页检查真实麦克风启停、六个阈值、Debug 和红屏恢复。浏览器尺寸检查不是 Apple 设备实测。
-
-第三方原始来源、许可和完整资源哈希继续见 [dependency-lock.json](dependency-lock.json)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 和 [APACHE-2.0.txt](APACHE-2.0.txt)。
+In another terminal, run the browser suites against the served directory:
+
+```sh
+python tests/ui-canvas-browser.py --base-url http://127.0.0.1:8000/ --output work/layout
+python tests/v17-browser.py --base-url http://127.0.0.1:8000/ --output work/integration
+python tests/audio-policy-browser.py --base-url http://127.0.0.1:8000/ --output work/audio-policy
+python tests/stability-browser.py --base-url http://127.0.0.1:8000/ --output work/stability
+python tests/comprehensive-browser.py --base-url http://127.0.0.1:8000/ --output work/comprehensive
+```
+
+CI also serves the actual GitHub Pages repository subpath. It runs on pull
+requests, manual dispatch, main and `refactor/**` pushes; the refactor branch can
+be tested remotely without opening a PR or publishing a release. Version and
+cache checks cover all four public pages and the authored module graph.
+
+## Audit, history and known limits
+
+The audit plan, baseline failures, risk classification and protected boundaries
+are in [docs/COMPREHENSIVE-AUDIT.md](docs/COMPREHENSIVE-AUDIT.md). The final evidence
+and merge assessment are in [docs/REFACTOR-RESULTS.md](docs/REFACTOR-RESULTS.md).
+
+[README-HISTORY.md](README-HISTORY.md) preserves the exact previous README and its
+relative references. Statements about six-only controls, global multipliers or
+old candidate deployment status describe those historical releases. Existing
+reports, research data, Semantic Hearing and other remote research branches remain
+preserved; they are not dead resources merely because the website does not import
+them. `style.css` is legacy history, while `v1.6.css` is still used by the offline
+annotation tools. Neither is deleted in this maintenance change.
+
+The previously reported occasional headphone startup noise is a separate open
+investigation. This refactor does **not** alter audio-session strategy, routing,
+tone waveform or volume parameters to address it. API fault injection and virtual
+microphone tests cannot establish physical Bluetooth routing, acoustic audibility,
+Safari compatibility, road accuracy, energy use or end-to-end acoustic latency.

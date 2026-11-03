@@ -6,7 +6,7 @@ const read = path => readFileSync(new URL('./'+path, import.meta.url), 'utf8');
 const standard = read('index.html');
 const experimental = read('ipad-test.html');
 const css = read('guardian.css');
-const app = read('app.js');
+const app = read('microphone-visualizer.js');
 
 test('V1.7.1 Standard keeps the mic as a sound-responsive circular control', () => {
   assert.match(standard, /data-mode="standard"/);

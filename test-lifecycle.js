@@ -1,3 +1,10 @@
+import { bindApplicationElements } from './page-elements.js';
+import { EN, ZH, LANGUAGE_STORAGE_KEY, allowedLanguage, initialLanguage, translateApp } from './app-i18n.js';
+import { createThresholdSettings, thresholdsForMode, THRESHOLD_STORAGE_KEY, STANDARD_THRESHOLD_STORAGE_KEY, THRESHOLD_STOPS, nearestThreshold } from './threshold-settings.js';
+import { createMicrophoneView } from './microphone-view.js';
+import { createDebugView } from './debug-view.js';
+import { createApplicationView } from './application-view.js';
+import { createMicrophoneVisualizer } from './microphone-visualizer.js';
 // Isolated controller tests with fake browser devices. This file is never imported
 // by index.html; these fixtures do not replace real audio/model code in the app.
 import test from 'node:test';
@@ -7,9 +14,9 @@ import vm from 'node:vm';
 import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
-import { microphoneSourceEvidence } from './mic-source.js';
+import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
- .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
+ .replace(/^import [\s\S]*?;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
 const page=fs.readFileSync(new URL('./ipad-test.html',import.meta.url),'utf8');
 const standardIds=new Set([...fs.readFileSync(new URL('./index.html',import.meta.url),'utf8').matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
@@ -61,7 +68,7 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
+ const context=vm.createContext({bindApplicationElements,EN,ZH,LANGUAGE_STORAGE_KEY,allowedLanguage,initialLanguage,translateApp,createThresholdSettings,thresholdsForMode,THRESHOLD_STORAGE_KEY,STANDARD_THRESHOLD_STORAGE_KEY,THRESHOLD_STOPS,nearestThreshold,createMicrophoneView,createDebugView,createApplicationView,createMicrophoneVisualizer,WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,safeTrackSettings,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
@@ -269,10 +276,10 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
 test('V1.7.3 page, release assets and refreshed classifier cache agree',async()=>{
  for(const file of ['index.html','ipad-test.html']) {
  const html=fs.readFileSync(new URL(file,import.meta.url),'utf8');
- assert.match(html,/V1\.7\.3/);assert.match(html,/app\.js\?v=1\.7\.3/);assert.match(html,/guardian\.css\?v=1\.7\.3/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.3/);
+ assert.match(html,/V1\.7\.4/);assert.match(html,/app\.js\?v=1\.7\.4/);assert.match(html,/guardian\.css\?v=1\.7\.4/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.4/);
  }
- assert.match(source,/classifier-worker\.js\?v=1\.7\.3/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.3');
+ assert.match(source,/classifier-worker\.js\?v=1\.7\.4/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.4');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  for(const [file,selected] of [['index.html','version-standard'],['ipad-test.html','version-ipad']]) {
@@ -450,7 +457,7 @@ test('warning still allows stopping by tapping the circular control',async()=>{
  assert.equal(h.document.body.dataset.state,'stopped');h.stop();
 });
 test('waveform uses soft-limited display amplification without mutating captured frames',async()=>{
- assert.match(source,/Math\.tanh\(samples\[i\] \* 18\)/);
+ assert.match(fs.readFileSync(new URL('./microphone-visualizer.js',import.meta.url),'utf8'),/Math\.tanh\(samples\[i\] \* 18\)/);
  const h=await harness();h.analysers[0].pcm.fill(.08);h.animate(0);
  assert.ok(h.drawing.some(([,y])=>y!==24));
  h.frame(1);assert.equal(h.workers[0].sent.at(-1).sampleRate,48000);
@@ -485,8 +492,9 @@ test('V1.3.1 denied permission after manual click can be retried',async()=>{
 });
 
 test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder sounds',async()=>{
- const css=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
- assert.match(css,/\.wave\{max-width:360px;height:76px/);
+ const css=fs.readFileSync(new URL('./guardian.css',import.meta.url),'utf8');
+ assert.match(css,/#waveform\{display:none!important\}/);
+ assert.match(css,/#rolling-waveform\{display:block;width:100%;height:130px/);
  const h=await harness();
  const pcm=h.analysers[0].pcm;
  pcm.fill(0);h.animate(0);
@@ -617,8 +625,8 @@ test('V1.4.4 website routes feedback to the two owner-confirmed short links',asy
  h.stop();
 });
 test('V1.4.3 first viewport previews Debug panel without scrolling or hiding microphone controls',async()=>{
- const css=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
- assert.match(css,/body\[data-debug="on"\] \.app\{min-height:calc\(100vh - 84px\)/);
+ const css=fs.readFileSync(new URL('./ipad-test.css',import.meta.url),'utf8');
+ assert.match(css,/overflow-y:auto;overflow-x:hidden/);
  assert.doesNotMatch(source,/scrollIntoView\(/);
  const h=await harness({autoStart:false});
  assert.equal(h.elements.get('debug-panel').scrolls.length,0);
@@ -644,7 +652,7 @@ test('V1.6.0 single native selector routes simplified Chinese to English Google 
  assert.equal(h.document.documentElement.lang,'zh-CN');
  assert.equal(h.elements.get('heading').textContent,'检测已停止');
  assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/AkXuRHWwi9Kp95GfA');
- assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.6.0&lang=zh-CN');
+ assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.7.4&lang=zh-CN');
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI 调试模式');
  assert.equal(h.elements.get('sensitivity-heading').textContent,'交通警告音灵敏度设置');
  assert.equal(h.elements.get('threshold-label-0').textContent,'自行车铃');
@@ -869,7 +877,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.18/);
+ assert.match(page,/live-timeline\.js\?v=1\.7\.4/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',async()=>{
  const css=fs.readFileSync(new URL('./guardian.css',import.meta.url),'utf8');
@@ -1033,4 +1041,25 @@ test('V1.7 preserves legacy six preferences, defaults new five and permits indep
   const slider=h.elements.get('threshold-input-'+i);slider.value='.2';slider.input();assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.20');
  }
  assert.equal(Object.keys(JSON.parse(h.storageWrites.at(-1)[1])).length,11);h.stop();
+});
+
+
+test('cleanup continues after a native Worklet port failure and releases capture',async()=>{
+ const h=await harness({worklet:true});h.nodes[0].port.close=()=>{throw Error('injected port failure')};
+ h.stop();assert.equal(h.tracks[0].readyState,'ended');assert.equal(h.contexts[0].state,'closed');
+ assert.equal(h.frames.size,0);assert.equal(h.timers.size,0);assert.equal(h.document.body.dataset.state,'stopped');
+});
+test('cleanup continues after Worker termination and synchronous Context close failures',async()=>{
+ const h=await harness();h.workers[0].terminate=()=>{throw Error('injected worker failure')};
+ h.contexts[0].close=()=>{throw Error('injected close failure')};
+ h.stop();assert.equal(h.tracks[0].readyState,'ended');assert.equal(h.frames.size,0);assert.equal(h.timers.size,0);
+ assert.equal(h.run('session'),null);assert.equal(h.document.body.dataset.state,'stopped');
+});
+test('unavailable browser track settings cannot interrupt inference or device rendering',async()=>{
+ const h=await harness();h.tracks[0].getSettings=()=>{throw Error('settings unavailable')};
+ assert.doesNotThrow(()=>h.run('renderMicChoices()'));
+ h.frame();assert.doesNotThrow(()=>h.emit(1,null,{trafficScores:{Bell:.2},topCategory:{categoryName:'Bell',score:.2}}));
+ assert.equal(h.document.body.dataset.state,'warning');
+ const metadata=h.dispatched.filter(e=>e.type==='tsg:research').at(-1).detail;
+ assert.equal(metadata.inputSampleRate,null);h.stop();assert.equal(h.tracks[0].readyState,'ended');
 });

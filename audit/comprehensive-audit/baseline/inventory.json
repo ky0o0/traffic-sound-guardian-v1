@@ -1,0 +1,1885 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 106,
+    "sha256": "1fd33ee75367d6d19fd51509d49c6a687e82088e4eb32b55d6da47b66f9ce2f4",
+    "category": "application/configuration"
+  },
+  {
+    "path": ".github/workflows/v16-web-ci.yml",
+    "bytes": 2610,
+    "sha256": "03d83b5654f316badf1c56afdc7fb44b05405140c8036a06ea7907cd1552d926",
+    "category": "application/configuration"
+  },
+  {
+    "path": "APACHE-2.0.txt",
+    "bytes": 12331,
+    "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8",
+    "category": "application/configuration"
+  },
+  {
+    "path": "CODE-REVIEW-V1.6.16.zh-CN.md",
+    "bytes": 17657,
+    "sha256": "3ba8dfde4e5f4dfcfc931cfd73142a63eaf356a42418490a2b1a2d36113d955c",
+    "category": "documentation",
+    "headings": [
+      "V1.6.16 全面代码审查与修复报告",
+      "1. 实际基线、范围与边界",
+      "2. 问题、原因、证据与修复",
+      "3. 采集、推理、警告与资源检查",
+      "4. 性能证据与限制",
+      "5. 界面、兼容性、语言与安全",
+      "6. 实际验证、失败记录与发布管理",
+      "7. 剩余事项及合并建议"
+    ]
+  },
+  {
+    "path": "DEBUG-UPDATE.md",
+    "bytes": 7438,
+    "sha256": "86cd686af98920627ab2cda9442041374cec110f0448537a1e996b77b587fee5",
+    "category": "documentation",
+    "headings": [
+      "Traffic Sound Guardian V1.1 — Debug Mode 增量更新",
+      "文件替换清单",
+      "使用方法",
+      "如何定位“波形变化但没有红色警告”",
+      "保持不变",
+      "验证记录"
+    ]
+  },
+  {
+    "path": "DEVICE-ACCEPTANCE-V1.6.16.zh-CN.md",
+    "bytes": 3780,
+    "sha256": "1f81b02ef55e13e1a32339965ac7241c6ec0add6e610283afe7e85e4d5c062f5",
+    "category": "documentation",
+    "headings": [
+      "V1.6.16 发布前实体设备验收"
+    ]
+  },
+  {
+    "path": "README.md",
+    "bytes": 48635,
+    "sha256": "cfdf5c187be3965cfbd402eadccc27f97eda2b85ade5ecf73b7dc9f00af99144",
+    "category": "documentation",
+    "headings": [
+      "Traffic Sound Guardian V1.7.3",
+      "V1.7.3 — Regression and control-stability fixes",
+      "V1.7.2 — Direct warning score thresholds",
+      "V1.7.1 — Standard microphone visual restoration",
+      "V1.7.0 重构候选：Standard / Test（未合并、未部署）",
+      "本地验证",
+      "另一个终端，需要 Playwright 与 Chromium：",
+      "历史记录（描述对应旧版本，不代表当前候选）",
+      "V1.6.16 全面稳定性审查候选（未合并、未部署）",
+      "V1.6.17：提示音可调与麦克风选择（候选版）",
+      "V1.6.16：网页入口与 iPad 试听稳定性修复",
+      "V1.6.15：11 类警告声音和 iPad 手动试听"
+    ]
+  },
+  {
+    "path": "TEST_REPORT.md",
+    "bytes": 7117,
+    "sha256": "01b4487e3442215005a841a694b508d46a750270542588f04692ac43fb2d2079",
+    "category": "documentation",
+    "headings": [
+      "Traffic Sound Guardian V1 — 测试报告",
+      "1. 结论与验证边界",
+      "2. 自动化测试",
+      "3. 真实模型执行",
+      "真实录音测试",
+      "4. 文件与界面检查",
+      "5. 请在真机上完成的验收"
+    ]
+  },
+  {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "bytes": 1540,
+    "sha256": "c1a31a252640697ad2c12c6a7481c2bc81cdc27430970399bab18c6fd53f600d",
+    "category": "documentation",
+    "headings": [
+      "Third-party assets",
+      "MediaPipe Tasks Audio",
+      "YAMNet"
+    ]
+  },
+  {
+    "path": "UI-R08-R10-TEST-REPORT.md",
+    "bytes": 5545,
+    "sha256": "66b3fe4aa52e3205f2505dbd399080b7ac95dd7e25351428cda2e502323fbe36",
+    "category": "documentation",
+    "headings": [
+      "R08 / R09 / R10 UI 修复验证",
+      "根因与修复",
+      "自动化",
+      "浏览器与前后截图",
+      "未改动与验证边界"
+    ]
+  },
+  {
+    "path": "V1.1-UPDATE.md",
+    "bytes": 8405,
+    "sha256": "a14f8bb87ca4efcef67f208b45bd58fa6ab5a7f0c3d12482ffaa06695f12b3f3",
+    "category": "documentation",
+    "headings": [
+      "Traffic Sound Guardian V1.1 — 增量更新说明",
+      "文件替换清单",
+      "用 iPad 手动替换",
+      "Google Forms 配置",
+      "五项功能的具体行为",
+      "本次实际验证",
+      "自动化：44 / 44 通过",
+      "浏览器检查：云端 Chrome",
+      "原功能保留证据",
+      "尚未验证",
+      "依据与来源"
+    ]
+  },
+  {
+    "path": "V1.5-TEST-REPORT.md",
+    "bytes": 7712,
+    "sha256": "b5ce93120f91763af825d661092f15b669554cf091762f6e9c110e16916aae31",
+    "category": "documentation",
+    "headings": [
+      "V1.5 开发验证报告",
+      "自动化测试",
+      "浏览器真实 YAMNet 验证",
+      "未改动范围核对",
+      "已知限制与待验证",
+      "iPhone / iPad Safari 手动验收清单"
+    ]
+  },
+  {
+    "path": "V1.6-PREVIEW.md",
+    "bytes": 3120,
+    "sha256": "49af3961df22fd17cb1ac88349f11d9fbbfaf55637d27dfe9115ce180967e6f5",
+    "category": "documentation",
+    "headings": [
+      "V1.6 independent development preview",
+      "Features",
+      "Developer verification",
+      "Manual acceptance checklist",
+      "Not implemented"
+    ]
+  },
+  {
+    "path": "V1.7.0-DEVICE-ACCEPTANCE.zh-CN.md",
+    "bytes": 4033,
+    "sha256": "1b5102a86135902b1a0e912afc1150d21d320186d5ef9bd57d0db4f6bc69d494",
+    "category": "documentation",
+    "headings": [
+      "V1.7.0 实机验收清单",
+      "A. 纯输出试听（检测停止）",
+      "B. 实时采集与自动警告（独立验收）",
+      "C. 两种模式与可访问性",
+      "放行条件"
+    ]
+  },
+  {
+    "path": "V1.7.0-REPORT.zh-CN.md",
+    "bytes": 10786,
+    "sha256": "2a73859445b55a580680c1d40a8481bbf77252ea3ee5a486e7b196c6c2b8f29f",
+    "category": "documentation",
+    "headings": [
+      "Traffic Sound Guardian V1.7.0 开发与验证报告",
+      "1. 音乐中断：证据、处理与边界",
+      "2. Standard 与 Test 的区别",
+      "3. 总体与独立灵敏度",
+      "4. 真实研究数据与隐私",
+      "5. 自动化结果与复核",
+      "6. 已知限制与验收状态"
+    ]
+  },
+  {
+    "path": "ai-test-analysis.js",
+    "bytes": 16225,
+    "sha256": "d5d316993632267dc537e8178be9a882949da4f50438661761464d0cf65b1ccc",
+    "category": "application/configuration",
+    "imports": [
+      "./detection.js?v=1.6.0"
+    ],
+    "functions": [
+      "snapThreshold",
+      "validThresholds",
+      "setTruth",
+      "validateEvents",
+      "predict",
+      "replay",
+      "metrics",
+      "count",
+      "mergedEvents",
+      "eventMetrics",
+      "analyse",
+      "timing",
+      "splitDataset",
+      "selectionClips",
+      "optimize",
+      "exportData",
+      "csv"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "ai-test-i18n.js",
+    "bytes": 25974,
+    "sha256": "843f6c688530a6afc42ebca1e64b38c39b9435fddf0d1500fc17293b5df05d9e",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "ai-test-runner.js",
+    "bytes": 9702,
+    "sha256": "c8430f481e16b859893f0b615dc48b2b7ab55a0293151d71a3261a9466335c87",
+    "category": "application/configuration",
+    "imports": [
+      "./audio-window.js",
+      "./ai-test-analysis.js?v=1.5.4",
+      "./classifier-worker.js?v=1.5.4"
+    ],
+    "functions": [
+      "checkFile",
+      "checkAudio",
+      "metadata",
+      "decodeFile"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 1,
+      "setInterval": 0,
+      "addEventListener": 1
+    }
+  },
+  {
+    "path": "ai-test.css",
+    "bytes": 4334,
+    "sha256": "c6006a9ac97072e6b7e869e910578804ff73cc22f44556ff5378711849e77bb3",
+    "category": "application/configuration"
+  },
+  {
+    "path": "ai-test.html",
+    "bytes": 706,
+    "sha256": "a539081485048dfbf46ad1d9bd02f6756918f6b93b1f36e1b9379d0c6bd0fbaa",
+    "category": "application/configuration"
+  },
+  {
+    "path": "ai-test.js",
+    "bytes": 29600,
+    "sha256": "5019c4a0c9bc0acb26bb5514494f6877e24be3c52dd3659810efeea436ed008a",
+    "category": "application/configuration",
+    "imports": [
+      "./annotation-editor.js?v=1.6.16",
+      "./ai-test-analysis.js?v=1.6.0",
+      "./ai-test-runner.js?v=1.6.0",
+      "./ai-test-i18n.js?v=1.6.0"
+    ],
+    "functions": [
+      "initialLanguage",
+      "el",
+      "button",
+      "note",
+      "table",
+      "select",
+      "invalidate",
+      "chart",
+      "bars",
+      "thresholdPanel",
+      "fileStatus",
+      "fileCard",
+      "uploadView",
+      "run",
+      "resultsView",
+      "renderWindow",
+      "scopeNote",
+      "metricsView",
+      "optimizeView",
+      "download",
+      "exportView",
+      "render"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 3,
+      "sessionStorage": 2,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 1,
+      "setInterval": 0,
+      "addEventListener": 2
+    }
+  },
+  {
+    "path": "alert-tone-preview.js",
+    "bytes": 8004,
+    "sha256": "004b788fc04a1de5e876d241f39f93bead38c4441784fc2ec52043d6b5f3e831",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "ambientPolicy",
+      "showStatus",
+      "announcePreview",
+      "endPreview",
+      "playPreview"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 1,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 6
+    }
+  },
+  {
+    "path": "annotation-editor.js",
+    "bytes": 11550,
+    "sha256": "2f3a35dadcabbd8e969837d1801278c4594bc4e018aa2698a138ee7db0b4e309",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "mountAnnotationEditor",
+      "close",
+      "draw",
+      "numberInput",
+      "syncInputs",
+      "refreshRows"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 1,
+      "setInterval": 0,
+      "addEventListener": 7
+    }
+  },
+  {
+    "path": "app.js",
+    "bytes": 79862,
+    "sha256": "e8f88daba007d12b541434e399e86930f44130c97953b688136accacf66bac20",
+    "category": "application/configuration",
+    "imports": [
+      "./detection.js?v=1.7.3",
+      "./audio-window.js",
+      "./mic-source.js?v=1.6.2",
+      "./debug.js?v=1.6.15",
+      "./capture-worklet.js?v=1.6.16",
+      "./classifier-worker.js?v=1.7.3"
+    ],
+    "functions": [
+      "initialLanguage",
+      "renderMicSource",
+      "showMicSource",
+      "renderMicChoices",
+      "chooseMicrophone",
+      "refreshMicSource",
+      "loadAlertVolume",
+      "setAlertVolume",
+      "loadAlertToneEnabled",
+      "setAlertToneEnabled",
+      "loadThresholds",
+      "loadStandardThreshold",
+      "activeThresholds",
+      "renderStandardThreshold",
+      "setStandardThreshold",
+      "nearestThreshold",
+      "renderThresholds",
+      "saveThresholds",
+      "changeThreshold",
+      "resetThresholds",
+      "renderDebugRows",
+      "renderDebug",
+      "setDebug",
+      "stopDebug",
+      "stopAlertTones",
+      "playAlertTone",
+      "render",
+      "updateButtons",
+      "feedbackURL",
+      "setLanguage",
+      "drawWaveform",
+      "resetVisuals",
+      "startVisuals",
+      "stop",
+      "errorMessage",
+      "fail",
+      "publicError",
+      "isCurrent",
+      "scheduleWarningEnd",
+      "sendFrame",
+      "receiveFrame",
+      "receiveResult",
+      "connectCapture",
+      "start"
+    ],
+    "io": {
+      "getUserMedia": 3,
+      "fetch\\(": 0,
+      "localStorage": 10,
+      "sessionStorage": 2,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 1,
+      "addEventListener": 20
+    }
+  },
+  {
+    "path": "apple-touch-icon.png",
+    "bytes": 7038,
+    "sha256": "d9fba03d8fb62b81ab71d2f53ecde487edfbc1b0afa102e9ffe08c719d4f51ce",
+    "category": "application/configuration"
+  },
+  {
+    "path": "audio-window.js",
+    "bytes": 1508,
+    "sha256": "befa5b3544aa1a8fa6e127c79f68aac65408c326ce809ed5ecca4ef31f8c115c",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "audio_bundle.mjs",
+    "bytes": 51989,
+    "sha256": "ea4cc2b0f41e915901e1a904eb99d79b3e238c19b3f9fb43e94e7f1586260f1c",
+    "category": "vendor"
+  },
+  {
+    "path": "audio_wasm_internal.js",
+    "bytes": 161733,
+    "sha256": "9f8d59a241abaa0d3b69dad5a094b843e9f0fdf6d2b7349d3d40541e9679725e",
+    "category": "vendor"
+  },
+  {
+    "path": "audio_wasm_internal.wasm",
+    "bytes": 6004523,
+    "sha256": "a57c300fa8fe6756396c1718ddbe4d134e1361e973087ce192bcdab3eea528d1",
+    "category": "vendor"
+  },
+  {
+    "path": "audio_wasm_nosimd_internal.js",
+    "bytes": 161586,
+    "sha256": "b9cd5366d4b460d58f151b02ce0ec5784e13130ffb67396cbb532a52ad14c966",
+    "category": "vendor"
+  },
+  {
+    "path": "audio_wasm_nosimd_internal.wasm",
+    "bytes": 5877856,
+    "sha256": "cdd5c603a5225d85dbb30944fa1e66c46a76790ec246682c4f3d88c571b5a3a6",
+    "category": "vendor"
+  },
+  {
+    "path": "audit/20261103/SHA256SUMS.json",
+    "bytes": 1107,
+    "sha256": "bb5cdcd7d8efb4b48fd6e02e0600495ba37dee5ea9058c1ede01e5fdbdd35413",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/annotation-abort-before.log",
+    "bytes": 1045,
+    "sha256": "808d5c35b14fa274807c35270db77bb52e95b806e48446c1fbae8074ee942c19",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/browser-layout.json",
+    "bytes": 43866,
+    "sha256": "24f324565cf233ee1fa98370e69b8e91b76411eaf11ed39f295e7d5f548fa8de",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/browser-stability.json",
+    "bytes": 17320,
+    "sha256": "da933c1409dc8c4e0864036ddde1d3a78c9b2dc421404b38de6d5eec79ce1094",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/environment.json",
+    "bytes": 386,
+    "sha256": "8d4c908f22585825ec35b7ccd7be16316a5d4d59448363f276b8f58d1979050a",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/github-ci.json",
+    "bytes": 691,
+    "sha256": "4f4a05f2b06bd92a985b50576b966d20e688baafd1c779c680dccbdd401978e6",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/ipad-zh.png",
+    "bytes": 424127,
+    "sha256": "0288e98221817e6d8aca4b6a967418d0d0ccc9dd0e6dc26bba6cb1d4964378c4",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/mobile-zh.png",
+    "bytes": 1111180,
+    "sha256": "15595a1d817b0488f15ae22bdae30d66ba02790f4f185457ffef33fb8348b9b2",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/node-baseline.log",
+    "bytes": 18993,
+    "sha256": "2256cbd610fce4ac15664e1043fc1de1b3cf7bcf55e6f5a95c1364a7fa7f107a",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/node-final.log",
+    "bytes": 21255,
+    "sha256": "adbd0b536982cf65f66823ed2474da6058b644877c6a6d50f35c13a32a9645e1",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/protected-assets.json",
+    "bytes": 525,
+    "sha256": "8dc532635d882cff82831b0ec3ca3b79d1ec647f7f71f2a0d5d2f355852c5545",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/site-integrity.json",
+    "bytes": 83,
+    "sha256": "0c146d336e3c932f286e98548b5aff996be2a89220cab17a0bd123de3689ec0e",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/20261103/worker-faults-before.log",
+    "bytes": 4879,
+    "sha256": "5e46161d00ccec0f1c880540b5cbd6c8d8fb31bd7b4a2060b60f5555cb9b5fc2",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/chromium-audio-policy.json",
+    "bytes": 1614,
+    "sha256": "35be307d940a1ee2bcfc3c764beda97c0bdf89c7ecc5f4967c0b9a26c7f2e274",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/chromium-integration.json",
+    "bytes": 1015,
+    "sha256": "b2620890c09dafc61547743117d81512298533469f30bf98d99c0d4d9d683aa8",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/chromium-layout.json",
+    "bytes": 39482,
+    "sha256": "2c184021296eba401600aeec1cb6bbf5b07742d8038c45e42bd2b3a4e4be95c4",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/chromium-stability.json",
+    "bytes": 13971,
+    "sha256": "e67e726c626f3e91a7f39cbd9668338ae8e9cea06978184c3f6d902ba0117012",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/index.html-1194-dark-idle.png",
+    "bytes": 43838,
+    "sha256": "756c9af221cff2a347b0e7b62c1862c15db470d369990a334e5614a5086051ca",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/index.html-390-light-idle.png",
+    "bytes": 39747,
+    "sha256": "d9da5421b5ac10b0e21d2b626c89e5993b8bb6820efd025afb736cd55f9c0590",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/integrity.log",
+    "bytes": 83,
+    "sha256": "0c146d336e3c932f286e98548b5aff996be2a89220cab17a0bd123de3689ec0e",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/ipad-test.html-1024-dark-idle.png",
+    "bytes": 105999,
+    "sha256": "7aaea7f4ef65293705516946f25b9caa12807955dc57988bbec003c8940fa579",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/ipad-test.html-1194-light-idle.png",
+    "bytes": 130037,
+    "sha256": "d0fbae7142b62fb24376a74038f83ea349cf02e6ff1ee13c142f646e2dd619a6",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/node.log",
+    "bytes": 24232,
+    "sha256": "6e1c58eaff200d830ba2542698746825dd6263cad968fb7897a779f54bad46b8",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/preserved-files.json",
+    "bytes": 1968,
+    "sha256": "fdd3b4752d0678574b6f826cde65f03e8628751cb61c021e29146b75330f03c4",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/real-session.csv",
+    "bytes": 2689,
+    "sha256": "ffc43c5aa3399ab2db1fe56f9444a5c46a53f2c50204fb7ffd0634eee5fa5dd2",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/standard-1194-dark-wave-fixture.png",
+    "bytes": 106092,
+    "sha256": "422f8b25df6e10f49702fbd8f51522bb954d87cecaee49e6c93fe8bab9b7f0dd",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/standard-320-dark-settings.png",
+    "bytes": 95013,
+    "sha256": "167daac4a9ac70b9f6c542b838eb63f3c6a8d856f0b52b08304f7e26a50b8062",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/standard-390-light-wave-fixture.png",
+    "bytes": 88301,
+    "sha256": "89e9b7cc654e94856ca4ff7522a75e16606e69935154fd45a54837bc857b5f5b",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/test-1024-dark-wave-fixture.png",
+    "bytes": 274150,
+    "sha256": "2fe2112a1969c9139b1ce4cbf330ee6e8fe590af937fb262dc5651ebe0d3c2ae",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/test-1194-light-wave-fixture.png",
+    "bytes": 303906,
+    "sha256": "9b2270f6c764181ba170644c7f2a1da3c7b8af1be8cf1e92e3a6c601c544735e",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/test-320-dark-wave-fixture.png",
+    "bytes": 539484,
+    "sha256": "489d9a67bf87af6b4d331c81cc88a9ff27e7628028893c22beb486fd8a0222c1",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/test-live-1194-dark.png",
+    "bytes": 134310,
+    "sha256": "10e159c32ef0c68b635165c12aa01d7aa68840a9de201146d80a7498a8d903ce",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/final/version.log",
+    "bytes": 44,
+    "sha256": "564a93153fe9445f8dd285126809da60ccc74d366e5f2f3af512b129b482e19d",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/phase1/audio.log",
+    "bytes": 1388,
+    "sha256": "44cf943fdb2ec30dbf0c325b378ba3ab538eadb5f6f13fc4981d0de135d9df93",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/phase1/chromium-lifecycle.json",
+    "bytes": 13971,
+    "sha256": "e9e8becfd347ddfd3ddab0fddbd4453d8d363c252888bc26074663d0432f397e",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/phase1/chromium-policy.json",
+    "bytes": 1614,
+    "sha256": "35be307d940a1ee2bcfc3c764beda97c0bdf89c7ecc5f4967c0b9a26c7f2e274",
+    "category": "evidence"
+  },
+  {
+    "path": "audit/v1.7.0/phase1/node.log",
+    "bytes": 22055,
+    "sha256": "a16ade769331455ae0576470e87ed63dd413836cae93b0e8b1e441abd562f47f",
+    "category": "evidence"
+  },
+  {
+    "path": "capture-worklet.js",
+    "bytes": 871,
+    "sha256": "f27ad820f26ca0a3884a10442f1ba2127d561c2c2f981bdafbf1c99036e26128",
+    "category": "application/configuration",
+    "imports": [
+      "./audio-window.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "classifier-worker.js",
+    "bytes": 2680,
+    "sha256": "b189ad216173a9d59f079ad03be74c4c320bd6448ff8dbc819b2cec44fc9c0e5",
+    "category": "application/configuration",
+    "imports": [
+      "./audio_bundle.mjs",
+      "./detection.js?v=1.7.0",
+      "./resample.js",
+      "./debug.js?v=1.6.15",
+      "./",
+      "./yamnet.tflite"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "debug.js",
+    "bytes": 24808,
+    "sha256": "8fbc09179d976973339d8e54533bcdb6ac0f4523d89cc2578c72183340f8ec93",
+    "category": "application/configuration",
+    "imports": [
+      "./detection.js"
+    ],
+    "functions": [
+      "debugCategoryName",
+      "topCategory",
+      "summarizeDebug"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "dependency-lock.json",
+    "bytes": 2292,
+    "sha256": "cce85d964a9db7e483d7f3c093ce0605aa930039b289f6fed915c094a20ee158",
+    "category": "application/configuration"
+  },
+  {
+    "path": "detection.js",
+    "bytes": 4518,
+    "sha256": "4502ef74eee5c379120ca6af0eefcabd29f45f8dfc58ec7b331996694e589758",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "bestTarget",
+      "targetScores",
+      "effectiveThreshold",
+      "chooseTarget"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "guardian.css",
+    "bytes": 15253,
+    "sha256": "411f71a7ea147c816971ec740a4ac614a1d0c6a7a8c0c00f4a3b768c70febf70",
+    "category": "application/configuration"
+  },
+  {
+    "path": "icon.svg",
+    "bytes": 342,
+    "sha256": "43ee1a8646651c2952d81407342ae142b8c396c00e2e6a04f8826c98e2c00bdd",
+    "category": "application/configuration"
+  },
+  {
+    "path": "index.html",
+    "bytes": 9554,
+    "sha256": "cd2870b65e861d43ee7c19c349043317edc1733f916397a16de840efc59a07b4",
+    "category": "application/configuration"
+  },
+  {
+    "path": "ipad-test.css",
+    "bytes": 3094,
+    "sha256": "81d44195cdc4aa162f0a32b2fd366d78c11c94f2ce33d054ae1e2350020500c0",
+    "category": "application/configuration"
+  },
+  {
+    "path": "ipad-test.html",
+    "bytes": 16457,
+    "sha256": "49802d8feea527b72a0c29bd2f9212c897f32195d8809bc502f1cd72a2217354",
+    "category": "application/configuration"
+  },
+  {
+    "path": "live-timeline.js",
+    "bytes": 9573,
+    "sha256": "ccd0d62a20160c12ae139c5da36b533207113e5e1c2dcab6d035953c674584fa",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "scheduleDraw",
+      "cancelScheduledDraw",
+      "lang",
+      "announce",
+      "expire",
+      "draw",
+      "recentEvents",
+      "localized",
+      "renderCurrent",
+      "onClassification",
+      "onVisual",
+      "onWarning",
+      "reset"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 9
+    }
+  },
+  {
+    "path": "manifest.webmanifest",
+    "bytes": 298,
+    "sha256": "105779f636410354f333cd85c07a19cd8e4c1b443914c8702fa41ba8b4d4f752",
+    "category": "application/configuration"
+  },
+  {
+    "path": "mic-source.js",
+    "bytes": 2168,
+    "sha256": "821005460886695c915ba1d917f6616554633506b1f087025a1243eda46ff12d",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "microphoneSourceEvidence"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "microphone-test-core.js",
+    "bytes": 2053,
+    "sha256": "52bb3320f7b40b9e8707ccfeb8165a3da2862885cd1fa37b958d39410c4a2cfe",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "microphoneMatch",
+      "browserTrackInfo",
+      "meterReading",
+      "micErrorCode"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "microphone-test.css",
+    "bytes": 3844,
+    "sha256": "de638ee1387d3b1e08652a96f5f9a5613bb274a6bf9bcc99d2fa1bba6a8b2636",
+    "category": "application/configuration"
+  },
+  {
+    "path": "microphone-test.html",
+    "bytes": 5450,
+    "sha256": "1aef44303287013bfe0370c472772a69e3877e3590d6373af222d73af3621719",
+    "category": "application/configuration"
+  },
+  {
+    "path": "microphone-test.js",
+    "bytes": 19893,
+    "sha256": "77f5519bbc13f52d82c73d654ea1b878105e1944db313447756a1b3e81d90d14",
+    "category": "application/configuration",
+    "imports": [
+      "./microphone-test-core.js?v=1.6.0"
+    ],
+    "functions": [
+      "translate",
+      "controls",
+      "resetMeter",
+      "clearInfo",
+      "closeSession",
+      "stop",
+      "showTrack",
+      "renderDevices",
+      "refreshDevices",
+      "draw",
+      "start"
+    ],
+    "io": {
+      "getUserMedia": 2,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 8
+    }
+  },
+  {
+    "path": "package.json",
+    "bytes": 159,
+    "sha256": "11cc814896d68719e3c6095f024f82b9e42b0b1ff0e7dc99e16d93852a758247",
+    "category": "application/configuration"
+  },
+  {
+    "path": "recent-alert.js",
+    "bytes": 790,
+    "sha256": "54ceda4052b87dae4ea038902010208a848d17411db3ebacd500ec6f81182076",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "render"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 2
+    }
+  },
+  {
+    "path": "resample.js",
+    "bytes": 2192,
+    "sha256": "38e486ddb4474359a12f53ba1196f9d7c2afd7a2d636c3dd99dc4ec1c5c47cc5",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "kernelsFor",
+      "toModelAudio"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "research-dashboard.js",
+    "bytes": 6594,
+    "sha256": "dd355d792ca6552eb639fb84126e2ab2a1ae65a84822f5f0436da8147eb1c13c",
+    "category": "application/configuration",
+    "imports": [
+      "./research.js?v=1.7.0",
+      "./detection.js?v=1.7.0",
+      "./debug.js?v=1.6.15"
+    ],
+    "functions": [
+      "metric",
+      "renderMetrics",
+      "render"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 1,
+      "setInterval": 1,
+      "addEventListener": 6
+    }
+  },
+  {
+    "path": "research.js",
+    "bytes": 3768,
+    "sha256": "3beff9335f379e169fc3b98bd8f4b15543f87c9fda25df43d28eba38efcf569d",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "research/THRESHOLD-DECISION-20261031.zh-CN.md",
+    "bytes": 2846,
+    "sha256": "2c019412339b316f0d06a8bcb461826d1e5835db9504d22ec20c2d1539490a39",
+    "category": "research",
+    "headings": [
+      "阈值研究决定备忘 · 2026-10-31",
+      "决策状态",
+      "复现实验与数据出处",
+      "为什么暂时不下调"
+    ]
+  },
+  {
+    "path": "scripts/check-release-version.mjs",
+    "bytes": 1612,
+    "sha256": "48ac129ad2d53325c5663eaf0c4f86a8d2f080caf50610b5132a6d788d710c2c",
+    "category": "application/configuration",
+    "imports": [
+      "node:fs",
+      "node:child_process",
+      "../package.json"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "scripts/check-site-integrity.mjs",
+    "bytes": 1686,
+    "sha256": "2470484e794a79ff5723bc766b8def6a88837d1896d5f846c2bbdc2fb0e63819",
+    "category": "application/configuration",
+    "imports": [
+      "node:fs",
+      "node:crypto",
+      "node:assert/strict",
+      "../detection.js",
+      "../"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "style.css",
+    "bytes": 15993,
+    "sha256": "c32a9315ffb0b0a77e59719cf339d5527aeb3b389525ab82792df2133bc33a41",
+    "category": "application/configuration"
+  },
+  {
+    "path": "test-ai-analysis.js",
+    "bytes": 13305,
+    "sha256": "ce7181d737a0a4443884bb035e61cac1e12a5e0f9c8c8671ae35ad5b9fd8692b",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./ai-test-analysis.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-ai-language.js",
+    "bytes": 1995,
+    "sha256": "fa2abcf58e7ad32bf1f8dd4299e67ca0ddcaffef4fd1bc1b6326ba8df5f80b4b",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "./ai-test-i18n.js",
+      "./debug.js",
+      "./ai-test.js",
+      "./ai-test.html"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 1,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-ai-runner.js",
+    "bytes": 7966,
+    "sha256": "0796606e0e087b56db1264e4dc3a7178465233ad265af90d7856e27a5d38ad00",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./ai-test-runner.js",
+      "./ai-test-analysis.js"
+    ],
+    "functions": [
+      "harness"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-ai-ui.js",
+    "bytes": 7486,
+    "sha256": "3a78a63ddd7481f37bdda8c70fabdb94b86a3aad3287f71bcb7a17febec32194",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./ai-test-analysis.js",
+      "./ai-test-i18n.js",
+      "./ai-test-runner.js",
+      "./ai-test.js"
+    ],
+    "functions": [
+      "harness"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 1,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 1
+    }
+  },
+  {
+    "path": "test-alert-preview.js",
+    "bytes": 11463,
+    "sha256": "a4a45a4de7d2197cdb1ce44bdbd528e9c44cd1fe9dada6103888aeb4ac22c348",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./alert-tone-preview.js"
+    ],
+    "functions": [
+      "boot"
+    ],
+    "io": {
+      "getUserMedia": 1,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 3
+    }
+  },
+  {
+    "path": "test-annotation-lifecycle.js",
+    "bytes": 1995,
+    "sha256": "55245a6fe822df7ad0833a12833e54289496b7fde8a6968300562f66552f79b2",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./annotation-editor.js"
+    ],
+    "functions": [
+      "harness"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-audio.js",
+    "bytes": 1727,
+    "sha256": "e740be7337b2781c2d8c4cf780c148a461a8c92fc6c46d5fad73e1852c951365",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./audio-window.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-capture-worklet.js",
+    "bytes": 1232,
+    "sha256": "7873d5cc044f5206187db9d8c73aa94766b0cb5267b9428b8ea0881a554148f5",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:vm",
+      "node:fs",
+      "./audio-window.js",
+      "./capture-worklet.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-debug.js",
+    "bytes": 6612,
+    "sha256": "807257bf4fb55ee07a4d187994e22f86ad74e7877126dd20b7e8412b2e812eaa",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./debug.js",
+      "./detection.js",
+      "./yamnet_class_map.csv",
+      "./classifier-worker.js",
+      ", "
+    ],
+    "functions": [
+      "results",
+      "workerHarness"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-detection.js",
+    "bytes": 6128,
+    "sha256": "08fb8dacf85493138111be87e59c49c7de67343118dfb6f683e7c2b1df321b4a",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "./detection.js",
+      "./yamnet_class_map.csv"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-ipad-layout.js",
+    "bytes": 3769,
+    "sha256": "a596c3ad97d6228e4b919bc3cc757916bf42b01205b1bc4628c904fdd0f783b7",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 1,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-ipad-original-waveform.js",
+    "bytes": 3716,
+    "sha256": "615b12f8802e4994b2e5c959ebbf68c42bb87bc5c276c3f2924215f54b34e446",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm"
+    ],
+    "functions": [
+      "init"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 1
+    }
+  },
+  {
+    "path": "test-lifecycle.js",
+    "bytes": 67189,
+    "sha256": "36f57056f1fc09d95045e7b16e547524c825118d8e5e682051679c1f8981acea",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./detection.js",
+      "./debug.js",
+      "./audio-window.js",
+      "./mic-source.js",
+      "./app.js",
+      "./ipad-test.html",
+      "./index.html",
+      "./index.html",
+      "./package.json",
+      "./index.html",
+      "./style.css",
+      "./style.css",
+      "./index.html",
+      "./live-timeline.js",
+      "./guardian.css",
+      "./"
+    ],
+    "functions": [
+      "harness"
+    ],
+    "io": {
+      "getUserMedia": 2,
+      "fetch\\(": 0,
+      "localStorage": 1,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 1,
+      "addEventListener": 6
+    }
+  },
+  {
+    "path": "test-mic-source.js",
+    "bytes": 2259,
+    "sha256": "18732313df23d58ca79c69d858d4a750f30d9e928d2865807c05a11ba421f0fa",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./mic-source.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-microphone.js",
+    "bytes": 11995,
+    "sha256": "91184787b705c749ce5b40365c63dbc5c0813fd09a1097dbf56a5e5c4b331950",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./microphone-test-core.js",
+      "./microphone-test.html",
+      "./microphone-test.js"
+    ],
+    "functions": [
+      "harness"
+    ],
+    "io": {
+      "getUserMedia": 1,
+      "fetch\\(": 1,
+      "localStorage": 1,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 4
+    }
+  },
+  {
+    "path": "test-release-version.js",
+    "bytes": 1547,
+    "sha256": "c98bf51d1c6ee08eb50251debc54ed03d70ea07843beea0f33092ccf96f5bb56",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-resample.js",
+    "bytes": 1237,
+    "sha256": "3797fba87f90d7ba7ce976596804d4e58ec538d933c67a88a976ab54ca19fcba",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./resample.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-secondary-bells.js",
+    "bytes": 3271,
+    "sha256": "0115bb40dc1be11646806a83507c68838947adff8476ff8083b69f536b43a078",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "./detection.js",
+      "./yamnet_class_map.csv"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-timeline-ui-fixes.js",
+    "bytes": 7949,
+    "sha256": "1e3a46147cd8c37ab3f97035a344a030689fe5c30417d5ce31c50d545dcfebf4",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm",
+      "./live-timeline.js",
+      "./",
+      "./"
+    ],
+    "functions": [
+      "harness"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 1
+    }
+  },
+  {
+    "path": "test-v16-ui.js",
+    "bytes": 7647,
+    "sha256": "dc711a2b345d38da8bcf620bda864e4faa33454959b179076a2546d2e40b7625",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "node:vm"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 1,
+      "fetch\\(": 0,
+      "localStorage": 1,
+      "sessionStorage": 1,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 1,
+      "setInterval": 0,
+      "addEventListener": 2
+    }
+  },
+  {
+    "path": "test-v17-research.js",
+    "bytes": 2649,
+    "sha256": "cbce2bdb89f0e8e5368a3fb612e69e48a63fc21dd1239c3b58ff8b48f7440e89",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./research.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-v17-sensitivity.js",
+    "bytes": 886,
+    "sha256": "5e06d4b82e040d6a514b084a0db2628324748285c16d0e0f922232c83b614c47",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "./detection.js"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-v171-visual.js",
+    "bytes": 2385,
+    "sha256": "4e500cd98d8a363ae75d38a50adaf3548d47256465db0dcf7b78ae0973f03df1",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "./"
+    ],
+    "functions": [],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-v172-direct-threshold.js",
+    "bytes": 1740,
+    "sha256": "825fc83dd454639281a9fd0f0a9583c234a09cd1cf9df197121fb96a2d37f5d1",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:fs",
+      "./"
+    ],
+    "functions": [
+      "resetThresholds"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 0
+    }
+  },
+  {
+    "path": "test-waveform-settings-v1613.js",
+    "bytes": 5490,
+    "sha256": "b6bba78df97f34cf1705de40d2dcf99398641c18c24c3b418857a5d01b336d92",
+    "category": "test",
+    "imports": [
+      "node:test",
+      "node:assert/strict",
+      "node:vm",
+      "node:fs"
+    ],
+    "functions": [
+      "element"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 1,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 5
+    }
+  },
+  {
+    "path": "tests/audio-policy-browser.py",
+    "bytes": 2429,
+    "sha256": "0ef8cc4344c57375cfc4e2059584227a5d9f9806cdc92b205b19730da1727b03",
+    "category": "test"
+  },
+  {
+    "path": "tests/stability-browser.py",
+    "bytes": 11113,
+    "sha256": "d6c6dbb9f3f7893f87bdf18dca9cc2ab25a98fbd0e49c145e017d6f0a2f269b6",
+    "category": "test"
+  },
+  {
+    "path": "tests/ui-canvas-browser.py",
+    "bytes": 13718,
+    "sha256": "30f98f1d733478f745b90cbb1aa94e23f2a03b8af9e78c7eda6287a088492565",
+    "category": "test"
+  },
+  {
+    "path": "tests/v17-browser.py",
+    "bytes": 7979,
+    "sha256": "df82004ff632c8715b974506e215bade332a062df0ee96460a0918605be6aa3e",
+    "category": "test"
+  },
+  {
+    "path": "theme.css",
+    "bytes": 4094,
+    "sha256": "581671242e8cf183c57a09f86d6295c589f95053efff13698b46f82e8c76622a",
+    "category": "application/configuration"
+  },
+  {
+    "path": "theme.js",
+    "bytes": 3760,
+    "sha256": "c274e3bbaf482b502e45cf002810428c3f73b7cec6a209fa8c9504ee28d7fdd8",
+    "category": "application/configuration",
+    "imports": [],
+    "functions": [
+      "preference",
+      "apply",
+      "display",
+      "initialize"
+    ],
+    "io": {
+      "getUserMedia": 0,
+      "fetch\\(": 0,
+      "localStorage": 2,
+      "sessionStorage": 0,
+      "innerHTML": 0,
+      "eval\\(": 0,
+      "createObjectURL": 0,
+      "setInterval": 0,
+      "addEventListener": 4
+    }
+  },
+  {
+    "path": "v1.6.css",
+    "bytes": 15725,
+    "sha256": "4b07c9ab54bf47fbfcf2a3d3202f3484f2f51ad1a515aae81572a59d974c023c",
+    "category": "application/configuration"
+  },
+  {
+    "path": "yamnet.tflite",
+    "bytes": 4126810,
+    "sha256": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+    "category": "vendor"
+  },
+  {
+    "path": "yamnet_class_map.csv",
+    "bytes": 14096,
+    "sha256": "cdf24d193e196d9e95912a2667051ae203e92a2ba09449218ccb40ef787c6df2",
+    "category": "application/configuration"
+  }
+]

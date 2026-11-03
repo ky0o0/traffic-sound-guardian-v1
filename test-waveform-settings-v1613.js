@@ -43,17 +43,17 @@ test('warning intervals recolor waveform strokes only, never shade the full canv
 
 test('main and iPad Settings put appearance next to language, keeping shared theme preference',()=>{
  const theme=file('./theme.js');
- const css=file('./v1.6.css');
+ const css=file('./guardian.css');
  for(const pageName of ['index.html','ipad-test.html']){
    const html=file('./'+pageName);
-   assert.match(html,/theme\.js\?v=1\.7\.3/);
-   assert.match(html,/href="\.\/guardian\.css\?v=1\.7\.3"/);
+   assert.match(html,/theme\.js\?v=1\.7\.4/);
+   assert.match(html,/href="\.\/guardian\.css\?v=1\.7\.4"/);
    assert.match(html,/id="settings-content"/);
    assert.match(html,/<div class="settings-group">\s*<div id="language-switch"/);
  }
- assert.match(css,/\.settings-content \.settings-group\{\s*display:grid;grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/);
- assert.match(css,/\.settings-content \.settings-group > \.theme-picker\{/);
- assert.match(css,/\.settings-content \.settings-group \.theme-picker select\{/);
+ assert.match(css,/\.settings-group\{display:grid;grid-template-columns:1fr 1fr/);
+ assert.match(css,/\.language-switch,\.theme-picker\{display:flex;min-width:0/);
+ assert.match(css,/select\{width:100%/);
  assert.match(theme,/if \(settingsRow\) settingsRow\.append\(label\)/);
  assert.match(theme,/else if \(standalone\) host\.insertBefore\(label,host\.firstChild\)/);
  assert.match(theme,/trafficSoundGuardian\.theme/);

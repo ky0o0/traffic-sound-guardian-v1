@@ -63,7 +63,7 @@ with sync_playwright() as p:
     context=browser.new_context(device_scale_factor=2,permissions=['microphone'] if args.engine=='chromium' else [],has_touch=True)
     context.add_init_script(PROBE)
     page=context.new_page();errors=[]
-    page.on('pageerror',lambda e:errors.append(str(e)))
+    page.on('pageerror',lambda e:errors.append({'message':e.message,'stack':e.stack}))
     page.on('console',lambda e:errors.append(e.text) if e.type=='error' and 'ResizeObserver' in e.text else None)
     views=[(1194,834),(1024,768),(1366,1024),(820,500),(390,844),(320,568),(834,1194),(507,768)]
     for entry in ['index.html','ipad-test.html']:

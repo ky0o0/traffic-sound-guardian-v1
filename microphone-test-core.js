@@ -1,13 +1,14 @@
+import { safeTrackSettings } from './mic-source.js?v=1.7.4';
 // Pure helpers used by the optional microphone routing diagnostic.
 // Do not confuse browser-reported track identity with physically verified ANC microphone access.
 export function microphoneMatch(requestedId, track, devices = []) {
   if (!requestedId) return 'automatic';
-  const actual = track?.getSettings?.()?.deviceId;
+  const actual = safeTrackSettings(track).deviceId;
   if (!actual) return 'unknown';
   return actual === requestedId ? 'reported-match' : 'mismatch';
 }
 export function browserTrackInfo(track, devices = [], requestedId = '') {
-  const settings = track?.getSettings?.() || {};
+  const settings = safeTrackSettings(track);
   const matching = devices.find(d => d.kind === 'audioinput' &&
     settings.deviceId && d.deviceId === settings.deviceId);
   const valid = n => typeof n === 'number' && Number.isFinite(n) && n > 0 ? n : null;

@@ -1,9 +1,15 @@
 {
   "name": "traffic-sound-guardian-v1",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test test-*.js"
+    "test": "node --test test-*.js",
+    "check": "node scripts/check-site-integrity.mjs && node --test test-*.js",
+    "format:check": "prettier --check app.js app-i18n.js application-view.js debug-view.js microphone-view.js microphone-visualizer.js threshold-settings.js page-elements.js scripts/source-invariants.mjs"
+  },
+  "devDependencies": {
+    "acorn": "8.15.0",
+    "prettier": "3.6.2"
   }
 }

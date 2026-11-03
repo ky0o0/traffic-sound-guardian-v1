@@ -1,0 +1,418 @@
+{
+  "baseline": "202356db77c1565f9916742dfeec632ce7c80f1d",
+  "deleted": [],
+  "moved": [],
+  "historical_readme_copy": "README-HISTORY.md",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "change": "modified",
+      "reason": "Preserve verbatim historical README whitespace and existing exported CSV line endings; application checks remain strict."
+    },
+    {
+      "path": ".github/workflows/v16-web-ci.yml",
+      "change": "modified",
+      "reason": "Pinned development-only parser/formatter, maintenance release, independent branch CI and temporary-output exclusions."
+    },
+    {
+      "path": ".gitignore",
+      "change": "added",
+      "reason": "Pinned development-only parser/formatter, maintenance release, independent branch CI and temporary-output exclusions."
+    },
+    {
+      "path": ".prettierrc.json",
+      "change": "added",
+      "reason": "Pinned development-only parser/formatter, maintenance release, independent branch CI and temporary-output exclusions."
+    },
+    {
+      "path": "README-HISTORY.md",
+      "change": "added",
+      "reason": "Byte-for-byte copy of V1.7.3 README at the root, retaining historical relative links."
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "Current English architecture, audit, usage and limitations; historical documents preserved."
+    },
+    {
+      "path": "ai-test-analysis.js",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "ai-test-i18n.js",
+      "change": "modified",
+      "reason": "Preserve the other five Test thresholds when explicitly applying six offline values; clarify mode scope."
+    },
+    {
+      "path": "ai-test-runner.js",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "ai-test.html",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "ai-test.js",
+      "change": "modified",
+      "reason": "Preserve the other five Test thresholds when explicitly applying six offline values; clarify mode scope."
+    },
+    {
+      "path": "app-i18n.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    },
+    {
+      "path": "app.js",
+      "change": "modified",
+      "reason": "Retain audio/inference coordination; delegate views/settings and complete teardown after native failures."
+    },
+    {
+      "path": "application-view.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    },
+    {
+      "path": "audit/comprehensive-audit/baseline/cleanup-faults.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/baseline/integration-failure.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/baseline/inventory.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/baseline/node.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/baseline/page-errors.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/baseline/remote-branches.txt",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/audio-policy.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/change-manifest.json",
+      "change": "added",
+      "reason": "New final audit report and complete per-file preservation/change manifest."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/comprehensive.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/dev-dependency-audit.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/format.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/integration.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/layout.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/node-and-integrity.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/offline-synthetic-results.csv",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/realtime-virtual-input.csv",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/runtime-dependency-audit.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/stability.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/standard-320-dark.png",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/standard-real-model-virtual-input.png",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/test-1024-light-drawing-fixture.png",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/test-real-model-virtual-input.png",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/unchanged-files.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/version.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/final/workflow-lint.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/fixes/integration.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/fixes/node.log",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "audit/comprehensive-audit/protected-algorithms.json",
+      "change": "added",
+      "reason": "New audit evidence; prior audit/research evidence retained."
+    },
+    {
+      "path": "classifier-worker.js",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "debug-view.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    },
+    {
+      "path": "docs/COMPREHENSIVE-AUDIT.md",
+      "change": "added",
+      "reason": "Current English architecture, audit, usage and limitations; historical documents preserved."
+    },
+    {
+      "path": "docs/REFACTOR-RESULTS.md",
+      "change": "added",
+      "reason": "New final audit report and complete per-file preservation/change manifest."
+    },
+    {
+      "path": "index.html",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "ipad-test.html",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "manifest.webmanifest",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "mic-source.js",
+      "change": "modified",
+      "reason": "Treat optional track settings as unavailable instead of interrupting capture or diagnostics."
+    },
+    {
+      "path": "microphone-test-core.js",
+      "change": "modified",
+      "reason": "Treat optional track settings as unavailable instead of interrupting capture or diagnostics."
+    },
+    {
+      "path": "microphone-test.html",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "microphone-test.js",
+      "change": "modified",
+      "reason": "Synchronize public release/cache metadata only; no model/algorithm change."
+    },
+    {
+      "path": "microphone-view.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    },
+    {
+      "path": "microphone-visualizer.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    },
+    {
+      "path": "package-lock.json",
+      "change": "added",
+      "reason": "Pinned development-only parser/formatter, maintenance release, independent branch CI and temporary-output exclusions."
+    },
+    {
+      "path": "package.json",
+      "change": "modified",
+      "reason": "Pinned development-only parser/formatter, maintenance release, independent branch CI and temporary-output exclusions."
+    },
+    {
+      "path": "page-elements.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    },
+    {
+      "path": "research-dashboard.js",
+      "change": "modified",
+      "reason": "Remove stale multiplier footer write and validate required dashboard IDs; retain live direct-threshold column."
+    },
+    {
+      "path": "scripts/check-site-integrity.mjs",
+      "change": "modified",
+      "reason": "Traverse four-page resource graph, enforce cache versions/contracts and protect algorithm ASTs."
+    },
+    {
+      "path": "scripts/source-invariants.mjs",
+      "change": "added",
+      "reason": "Traverse four-page resource graph, enforce cache versions/contracts and protect algorithm ASTs."
+    },
+    {
+      "path": "test-ai-language.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-ai-ui.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-alert-preview.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-ipad-layout.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-ipad-original-waveform.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-lifecycle.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-microphone.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-page-elements.js",
+      "change": "added",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-research-dashboard.js",
+      "change": "added",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-source-invariants.js",
+      "change": "added",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-threshold-settings.js",
+      "change": "added",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-timeline-ui-fixes.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-v16-ui.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-v171-visual.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-v172-direct-threshold.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "test-waveform-settings-v1613.js",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "tests/comprehensive-browser.py",
+      "change": "added",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "tests/stability-browser.py",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "tests/ui-canvas-browser.py",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "tests/v17-browser.py",
+      "change": "modified",
+      "reason": "Preserve behavioral assertions, adapt moved-module/cache locations, and strengthen real-page/error-path coverage."
+    },
+    {
+      "path": "threshold-settings.js",
+      "change": "added",
+      "reason": "Extract cohesive responsibilities with explicit dependencies and per-page contracts."
+    }
+  ]
+}

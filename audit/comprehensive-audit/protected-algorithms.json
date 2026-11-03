@@ -1,0 +1,23 @@
+{
+  "reference": "5665b67 (bounded fixes before extraction)",
+  "functions": {
+    "playAlertTone": "9a73cc049ae6b479a4e15478943b48397bd99eee367a326efeb52ad2c7e492e4",
+    "stopAlertTones": "4ed15495df76943f2e805575813ae9fac86ac6ec767250260a83ae4dd3fde2ad",
+    "scheduleWarningEnd": "416d13088b0843fa43c69843318cd7935f35c81c63623012abd3201d5f9e7597",
+    "sendFrame": "4454c03dd30c216a5bb6f707f168ec1b26eced1360cd84f3edb83cf3c33f8eaa",
+    "receiveFrame": "65bc1d090d861b5c12bf451f51402048738ea1baf1a9cf7ba1fa9e99ad0ce2fb",
+    "receiveResult": "2f732689cdf3cf838f28e474394802563346d5758f54aaa857780755c3b835fc",
+    "connectCapture": "e26a1f98914ce37bac8c4a8c629651fa5561e015bc855cf52a31c663a37b9f47",
+    "start": "e65b468b594583f469f62631880b1c22b7a6ffc39bfe59ed6ed5abfa0e7cfa5f"
+  },
+  "files": {
+    "alert-tone-preview.js": "aece8a7c65741f61014b774f9632d3d5c7e438a4af4e1cd734c389890a6796f1",
+    "detection.js": "bbb3899dddff8ff5a54ebf7e3eb309f5fbc6c1a741a9a7c180e2d8d473c4ebb1",
+    "resample.js": "19a6066a9eec53d3121c3a5a9bcee5ae18c00d28457c52cb46464548862764a5",
+    "audio-window.js": "1876596c11e10eab0ef18e701b20d3ad81f0aaf5e21ee87f7ccf59da4b951113",
+    "capture-worklet.js": "eab1c8472e85b0031efb4733e1d9b773b474054e7f0cf1663e6dc7f8f11e821f",
+    "classifier-worker.js": "f1c19bd4f0ac77dd258a5fe1dd8139478be6dfa0c6a8f33b9bbbd908329b1780",
+    "live-timeline.js": "a003d2c96744117638d45d4141ad02d1581950f8cd3fd519d8ee1d4f4206ec36",
+    "debug.js": "4e1e950a78e8adc0085616a6935b7d4a945eab53fee1c5151709e7cb74492e06"
+  }
+}

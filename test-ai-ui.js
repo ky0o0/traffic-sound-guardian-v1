@@ -1,3 +1,4 @@
+import { createThresholdSettings } from './threshold-settings.js';
 // Minimal DOM harness: runs the real UI controller without a browser or AI simulation in production.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -15,7 +16,7 @@ import {
 const source = fs.readFileSync(new URL('./ai-test.js', import.meta.url), 'utf8').replace(/^import [\s\S]*?;\n/gm,
   '');
 
-function harness() {
+function harness(stored = {}) {
   class Node {
     constructor(tag, text = '') {
       this.tagName = tag;
@@ -81,13 +82,14 @@ function harness() {
   }
   const ctx = vm.createContext({
     ...analysis,
+    createThresholdSettings,
     LIMITS,
     checkFile,
     translate,
     document,
     BatchRunner: Runner,
     localStorage: {
-      getItem: () => null,
+      getItem: key => stored[key] ?? null,
       setItem: (k, v) => writes.push([k, v])
     },
     window: {
@@ -222,4 +224,14 @@ test('leaving the page clears File references and bfcache restore shows an empty
   input.files=[{name:'private.wav',size:10}];input.onchange();
   h.events.pagehide();assert.equal(h.run('clips.length'),0);assert.equal(h.root.children.length,0);
   h.events.pageshow();assert.ok(h.root.textContent.includes(translate('empty')));
+});
+
+test('explicit offline threshold application preserves the other five Test preferences and Standard setting',()=>{
+ const h=harness({'trafficSoundGuardian.soundThresholds':JSON.stringify({Bell:.23,Chime:.31,Ding:.07,Ping:.19,Doorbell:.42}),'trafficSoundGuardian.standardThreshold':'0.05'});
+ const picker=h.all().find(n=>n.id==='language-select');picker.value='en';picker.onchange();h.click('Charts & Export');
+ h.run('thresholds[NAMES[0]]=.09');h.confirm(true);h.click(translate('applyLive','en'));
+ assert.equal(h.writes.length,1);assert.equal(h.writes[0][0],'trafficSoundGuardian.soundThresholds');
+ const saved=JSON.parse(h.writes[0][1]);assert.equal(saved[analysis.NAMES[0]],.09);
+ for(const [name,value] of Object.entries({Bell:.23,Chime:.31,Ding:.07,Ping:.19,Doorbell:.42}))assert.equal(saved[name],value);
+ assert.equal(Object.keys(saved).length,11);
 });
