@@ -1,4 +1,4 @@
-// iPad-only manual alert preview lifecycle, with a fake Web Audio output graph.
+// Shared Settings manual alert preview lifecycle, with a fake Web Audio output graph.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -39,18 +39,22 @@ function boot({audio=true}={}){
  vm.runInContext(source,context);
  return {document,events,docEvents,buttonListeners,nodes,timers,oscillators,contexts};
 }
-test('preview exists exclusively on iPad and never starts mic, real warning, or inference',()=>{
- const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./ipad-test.css');
- assert.match(ipad,/id="alert-preview-button"/);
- assert.match(ipad,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.16"><\/script>/);
+test('preview exists only inside Settings on both pages and never starts microphone or inference',()=>{
+ const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./style.css');
+ for(const markup of [main,ipad]) {
+  assert.match(markup,/id="alert-preview-button"/);
+  assert.match(markup,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.17"><\/script>/);
+  assert.ok(markup.indexOf('id="alert-preview-button"')>markup.indexOf('id="settings-content"'));
+  assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
+  assert.equal([...markup.matchAll(/id="alert-preview-button"/g)].length,1);
+ }
  for(const [name,markup] of [['standard',main],['iPad',ipad]]) {
   const opened=[...markup.matchAll(/<script\b/gi)].length;
   const closed=[...markup.matchAll(/<\/script>/gi)].length;
   assert.equal(opened,closed,name+' must close every script tag with a complete </script>');
  }
- assert.doesNotMatch(main,/alert-preview-button|alert-tone-preview\.js/);
- assert.match(css,/#alert-preview-button\{[^}]*min-height:44px/);
- assert.doesNotMatch(source,/getUserMedia|AudioWorklet|classifier|tsg:warning|data-state|localStorage/);
+ assert.match(css,/#alert-preview-button\{[\s\S]*?min-height:44px/);
+ assert.doesNotMatch(source,/getUserMedia|AudioWorklet|classifier|tsg:warning|data-state/);
 });
 test('manual user click plays exactly the normal two quiet sine beeps through output only',()=>{
  const a=boot();
@@ -67,7 +71,7 @@ test('manual user click plays exactly the normal two quiet sine beeps through ou
   assert.equal(osc.frequency.value,740);
   assert.equal(osc.started[0],10+.02+i*.195);
   assert.ok(Math.abs((osc.stopped[0]-osc.started[0])-.11)<1e-10);
-  assert.equal(osc.output.gain.events[1][1],.045);
+  assert.equal(osc.output.gain.events[1][1],.09);
  }
  assert.ok(Math.abs((a.oscillators[1].started[0]-a.oscillators[0].stopped[0])-.085)<1e-10);
  a.buttonListeners.click();assert.equal(a.contexts.length,1,'second click while playing is ignored');
@@ -139,4 +143,18 @@ test('preview cleanup consumes rejected asynchronous context close',async()=>{
  const a=boot();a.buttonListeners.click();a.contexts[0].close=()=>Promise.reject(new Error('interrupted close'));
  a.events.pagehide();await new Promise(r=>setImmediate(r));
  assert.equal(a.nodes['alert-preview-button'].disabled,false);assert.equal(a.nodes['alert-preview-status'].textContent,'');
+});
+
+test('manual preview uses the exact selected gain level without accessing mic',()=>{
+ const a=boot();
+ a.events['tsg:alert-volume']({detail:{level:'clear'}});
+ a.buttonListeners.click();
+ assert.equal(a.oscillators[0].output.gain.events[1][1],.15);
+ assert.equal(a.oscillators[1].output.gain.events[1][1],.15);
+ a.contexts[0].currentTime=11;a.oscillators[1].onended();
+ a.events['tsg:alert-volume']({detail:{level:'soft'}});
+ a.buttonListeners.click();
+ assert.equal(a.oscillators[2].output.gain.events[1][1],.045);
+ assert.equal(a.contexts.length,2);
+ a.events.pagehide();
 });

@@ -22,7 +22,7 @@ with sync_playwright() as pw:
   page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append({'url':r.url,'method':r.method}))
   page.goto((base or a.base_url).rstrip('/')+'/'+entry+'?lang=en');
   if entry in ['index.html','ipad-test.html']:page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'")
-  else:page.wait_for_function("document.title.includes('V1.6.16')")
+  else:page.wait_for_function("document.title.includes('V1.6.17')")
   return context,page
  def stopped(page):
   page.wait_for_function("document.body.dataset.state==='stopped'")
@@ -78,7 +78,7 @@ with sync_playwright() as pw:
  page.wait_for_function("audit.contexts.length===1 && audit.contexts[0].state==='closed'")
  cases.append({'case':'abort-pending-annotation-open','resources':page.evaluate('resources()')});context.close()
  # Output-only playback uses the real browser audio clock; headless output is not an audibility check.
- context,page=open_page('ipad-test.html');page.locator('#alert-preview-button').click()
+ context,page=open_page('ipad-test.html');page.locator('#settings-toggle').click();page.locator('#alert-preview-button').click()
  page.wait_for_function('!document.getElementById("alert-preview-button").disabled',timeout=5000)
  r=page.evaluate('resources()');osc=page.evaluate('audit.oscillators');assert len(osc)==2 and not r['workers'] and not r['tracks'];assert all(s=='closed' for s in r['contexts'])
  assert abs(osc[1]['start'][0]-osc[0]['start'][0]-.195)<1e-8
