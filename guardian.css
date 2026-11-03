@@ -29,3 +29,16 @@ body[data-state=warning] .status-dot{background:var(--red);animation:none}
 @keyframes tsg-status-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgb(229 72 85 / .25)}50%{opacity:.45;box-shadow:0 0 0 5px rgb(229 72 85 / 0)}}
 @media(max-height:740px){body[data-mode=standard] .visual{width:160px;height:160px;margin:12px auto}body[data-mode=standard] .visual::after{inset:20px}body[data-mode=standard] .visual .icon-disc{width:114px;height:114px;min-height:114px}}
 @media(prefers-reduced-motion:reduce){body[data-state=listening] .status-dot{animation:none;opacity:1;box-shadow:none}body[data-mode=standard] .visual::before,body[data-mode=standard] .visual::after,body[data-mode=standard] .visual .icon-disc{transform:none;transition:none}}
+
+/* Standard-only compact header: brand, adjacent release label, right-aligned settings. */
+body[data-mode=standard] .brand{flex-wrap:nowrap;}
+body[data-mode=standard] .brand .version{margin-left:0;flex:none;}
+body[data-mode=standard] .brand .toolbar{margin:0 0 0 auto;flex:none;position:relative;z-index:10;}
+@media(max-width:440px){
+ body[data-mode=standard] .brand{gap:6px;}
+ body[data-mode=standard] .brand-mark{width:26px;}
+ body[data-mode=standard] .wordmark{font-size:8px;letter-spacing:1px;}
+ body[data-mode=standard] .wordmark span{font-size:21px;}
+ body[data-mode=standard] .brand .version{padding:4px 5px;font-size:9px;}
+ body[data-mode=standard] .brand .settings-menu>summary{padding:8px;gap:5px;font-size:12px;}
+}
