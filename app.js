@@ -123,7 +123,24 @@ const EN = Object.freeze({
   "ご意見・ご感想（準備中）": "Feedback (coming soon)",
   "Googleフォームを新しいタブで開く": "Open Google Forms in a new tab",
   "フィードバックフォームは準備中です。": "The feedback form is coming soon.",
-  "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "A research prototype for real-time traffic warning sound recognition, studying headphone use and traffic safety."
+  "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "A research prototype for real-time traffic warning sound recognition, studying headphone use and traffic safety.",
+  "通知音の音量": "Alert volume",
+  "小": "Soft",
+  "標準": "Normal",
+  "はっきり": "Clear",
+  "実際の音圧は端末やイヤホンによって異なります。低い設定から試してください。": "Actual sound level depends on the device and headphones. Start with the softer setting.",
+  "使用するマイク": "Microphone to use",
+  "ブラウザ標準": "Browser default",
+  "利用できる機器はマイクの許可後に表示されます。変更すると検知を再起動します。": "Available inputs appear after microphone permission. Changing inputs restarts detection.",
+  "マイクの許可後に機器一覧を取得します。": "Input devices will appear after microphone permission.",
+  "ブラウザは個別のマイクを表示していません。": "The browser does not expose separately selectable microphones.",
+  "ブラウザが報告したマイクを選択できます。": "You can select microphones reported by the browser.",
+  "選択を要求しましたが、実際のマイクはブラウザから確認できません。": "Input requested; the browser cannot verify the actual microphone.",
+  "ブラウザは選択したマイクを使用中と報告しています。": "The browser reports that the selected microphone is in use.",
+  "マイクを切り替えています…": "Switching microphone…",
+  "選択したマイクを使用できません。標準に戻すか別のマイクを選択してください。": "The chosen microphone is unavailable. Select Browser default or another input.",
+  "ブラウザは選択したマイクと異なる入力を返しました。別の入力を選んでください。": "The browser returned a different input from the one selected. Choose another input.",
+  "音量を変更すると次の通知から反映されます。": "The new level applies to the next alert."
 });
 const ZH = Object.freeze({
   "設定": "设置",
@@ -239,7 +256,24 @@ const ZH = Object.freeze({
   "ご意見・ご感想（準備中）": "意见与反馈（准备中）",
   "Googleフォームを新しいタブで開く": "在新标签页打开 Google 问卷",
   "フィードバックフォームは準備中です。": "反馈问卷尚未开放。",
-  "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "本研究原型围绕耳机使用与交通安全，在本设备上实时识别交通警告音。"
+  "イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。": "本研究原型围绕耳机使用与交通安全，在本设备上实时识别交通警告音。",
+  "通知音の音量": "提示音音量",
+  "小": "低",
+  "標準": "标准",
+  "はっきり": "明显",
+  "実際の音圧は端末やイヤホンによって異なります。低い設定から試してください。": "实际声压取决于设备和耳机，请从较低音量开始试听。",
+  "使用するマイク": "选择麦克风",
+  "ブラウザ標準": "浏览器默认",
+  "利用できる機器はマイクの許可後に表示されます。変更すると検知を再起動します。": "授权麦克风后显示可用设备；切换设备会重新启动检测。",
+  "マイクの許可後に機器一覧を取得します。": "授权麦克风后获取输入设备列表。",
+  "ブラウザは個別のマイクを表示していません。": "浏览器未提供可单独选择的麦克风。",
+  "ブラウザが報告したマイクを選択できます。": "可以选择浏览器报告的麦克风。",
+  "選択を要求しましたが、実際のマイクはブラウザから確認できません。": "已请求所选输入，但浏览器无法确认实际麦克风。",
+  "ブラウザは選択したマイクを使用中と報告しています。": "浏览器报告正在使用所选麦克风。",
+  "マイクを切り替えています…": "正在切换麦克风…",
+  "選択したマイクを使用できません。標準に戻すか別のマイクを選択してください。": "所选麦克风不可用，请选择浏览器默认或其他输入。",
+  "ブラウザは選択したマイクと異なる入力を返しました。別の入力を選んでください。": "浏览器返回的输入与所选麦克风不同，请选择其他输入。",
+  "音量を変更すると次の通知から反映されます。": "音量修改将在下一次提示时生效。"
 });
 const LANGUAGE_STORAGE_KEY = 'trafficSoundGuardian.language';
 const allowedLanguage = code => ['ja', 'en', 'zh-CN'].includes(code) ? code : 'ja';
@@ -263,7 +297,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'version-switch-title', 'version-standard', 'version-ipad', 'mic-source-label', 'mic-source-value', 'mic-source-evidence', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'version-switch-title', 'version-standard', 'version-ipad', 'mic-source-label', 'mic-source-value', 'mic-source-evidence', 'mic-select', 'mic-select-label', 'mic-select-note', 'mic-select-status', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'alert-volume-label', 'alert-volume-select', 'alert-volume-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -293,6 +327,53 @@ function showMicSource(s) {
   micSource = {state: 'active', evidence: microphoneSourceEvidence(track, s.reportedAudioInputs || [])};
   renderMicSource();
 }
+
+let preferredMicId = ''; // Never stored: browser-origin device IDs can change.
+let knownMicrophoneInputs = [];
+let microphoneListReady = false;
+function renderMicChoices() {
+  const select = ui['mic-select'];
+  const list = document.createDocumentFragment();
+  const add = (value, label) => {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label;
+    list.append(option);
+  };
+  add('', t('ブラウザ標準'));
+  const seen = new Set(['', 'default']);
+  for (const item of knownMicrophoneInputs) {
+    if (!item.deviceId || seen.has(item.deviceId)) continue;
+    seen.add(item.deviceId);
+    add(item.deviceId, item.label || t('使用するマイク') + ' ' + seen.size);
+  }
+  // Do not silently pretend that a selected device still exists.
+  if (microphoneListReady && preferredMicId && !seen.has(preferredMicId)) preferredMicId = '';
+  select.replaceChildren(list);
+  select.value = preferredMicId;
+  const activeTrack = session?.stream?.getAudioTracks()[0];
+  const reportedId = activeTrack?.getSettings?.()?.deviceId ?? '';
+  const selected = !!preferredMicId;
+  const status = !microphoneListReady ? 'マイクの許可後に機器一覧を取得します。' :
+    selected && session?.stream && (!reportedId || reportedId === 'default') ?
+      '選択を要求しましたが、実際のマイクはブラウザから確認できません。' :
+    selected && reportedId === preferredMicId ?
+      'ブラウザは選択したマイクを使用中と報告しています。' :
+    seen.size <= 2 ? 'ブラウザは個別のマイクを表示していません。' :
+      'ブラウザが報告したマイクを選択できます。';
+  ui['mic-select-status'].textContent = t(status);
+}
+function chooseMicrophone(id) {
+  const available = id === '' || knownMicrophoneInputs.some(item => item.deviceId === id && !!id);
+  if (!available) { renderMicChoices(); return; }
+  preferredMicId = id;
+  if (session) {
+    // This change event is a user gesture; stop the old capture BEFORE starting
+    // the newly requested device, and let the normal permission/error path run.
+    stop('マイクを切り替えています…');
+    start();
+  } else renderMicChoices();
+}
 async function refreshMicSource(s) {
   if (session !== s || !s.stream) return;
   const token = ++s.micSourceQuery;
@@ -303,10 +384,29 @@ async function refreshMicSource(s) {
   } catch { /* The track label may be all that Safari exposes. */ }
   if (session !== s || token !== s.micSourceQuery) return;
   s.reportedAudioInputs = inputs;
+  knownMicrophoneInputs = inputs;
+  microphoneListReady = true;
+  renderMicChoices();
   showMicSource(s);
 }
 // Preferences only; no PCM, AI results, or inference history are persisted.
 const ALERT_TONE_STORAGE_KEY = 'trafficSoundGuardian.alertToneEnabled';
+const ALERT_VOLUME_STORAGE_KEY = 'trafficSoundGuardian.alertVolume';
+// Browser gain is not dB SPL. The levels stay conservatively below digital full scale.
+const ALERT_VOLUME_GAINS = Object.freeze({ soft: 0.045, normal: 0.09, clear: 0.15 });
+function loadAlertVolume() {
+  try {
+    const saved = window.localStorage?.getItem(ALERT_VOLUME_STORAGE_KEY);
+    return Object.prototype.hasOwnProperty.call(ALERT_VOLUME_GAINS, saved) ? saved : 'normal';
+  } catch { return 'normal'; }
+}
+let alertVolume = loadAlertVolume();
+function setAlertVolume(value) {
+  if (!Object.prototype.hasOwnProperty.call(ALERT_VOLUME_GAINS, value)) return;
+  alertVolume = value;
+  ui['alert-volume-select'].value = value;
+  try { window.localStorage?.setItem(ALERT_VOLUME_STORAGE_KEY, value); } catch {}
+}
 const THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.soundThresholds';
 const LEGACY_BELL_STORAGE_KEY = 'trafficSoundGuardian.bicycleBellThreshold';
 // Default ON even if localStorage is unavailable. Only an explicit 'false' disables it.
@@ -493,7 +593,8 @@ function playAlertTone(s) {
       !context.createOscillator || !context.createGain) return false;
   try {
     // A gentle two-tone sequence (two 110 ms sine beeps, 85 ms gap).
-    // Peak WebAudio gain is deliberately capped at 0.045 (not a dB SPL guarantee).
+    // User-selected gain is not a dB SPL guarantee; never force system volume.
+    const peak = ALERT_VOLUME_GAINS[alertVolume];
     const start = context.currentTime + 0.02;
     for (let i = 0; i < 2; i++) {
       const at = start + i * 0.195;
@@ -505,8 +606,8 @@ function playAlertTone(s) {
       osc.type = 'sine';
       osc.frequency.value = 740;
       gain.gain.setValueAtTime(0, at);
-      gain.gain.linearRampToValueAtTime(0.045, at + 0.015);
-      gain.gain.setValueAtTime(0.045, end - 0.03);
+      gain.gain.linearRampToValueAtTime(peak, at + 0.015);
+      gain.gain.setValueAtTime(peak, end - 0.03);
       gain.gain.linearRampToValueAtTime(0, end);
       osc.connect(gain);
       gain.connect(context.destination);
@@ -592,6 +693,16 @@ function setLanguage(next) {
   ui['alert-tone-note'].textContent = t('新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。');
   ui['alert-tone-toggle'].setAttribute('aria-label', t('通知音を鳴らす'));
   ui['alert-tone-toggle'].checked = alertToneEnabled;
+  ui['alert-volume-label'].textContent = t('通知音の音量');
+  ui['alert-volume-note'].textContent = t('実際の音圧は端末やイヤホンによって異なります。低い設定から試してください。');
+  for (const option of ui['alert-volume-select'].options) {
+    const names = { soft:'小', normal:'標準', clear:'はっきり' };
+    option.textContent = t(names[option.value]);
+  }
+  ui['alert-volume-select'].value = alertVolume;
+  ui['mic-select-label'].textContent = t('使用するマイク');
+  ui['mic-select-note'].textContent = t('利用できる機器はマイクの許可後に表示されます。変更すると検知を再起動します。');
+  renderMicChoices();
   ui['language-select'].setAttribute('aria-label', t('言語'));
   // Both pages share the same controller and language preference. The
   // selected page is marked in HTML; navigating stops capture via pagehide.
@@ -750,6 +861,8 @@ function errorMessage(error) {
       return 'マイクを使用できません。通話や他の録音アプリを終了し、もう一度開始してください。';
     case 'SecurityError':
       return 'マイクを使用できるHTTPSのページをSafariで直接開いてください。';
+    case 'OverconstrainedError':
+      return '選択したマイクを使用できません。標準に戻すか別のマイクを選択してください。';
     default:
       return error?.publicMessage || '音声の解析を開始できませんでした。ページを再読み込みして、もう一度開始してください。';
   }
@@ -950,7 +1063,8 @@ async function start() {
     return;
   }
   const s = { id: ++nextSession, gate: new WarningGate(), connected: false, hasResult: false,
-    pending: null, flight: null, alertToneNodes: new Set(), micSourceQuery: 0, reportedAudioInputs: [] };
+    pending: null, flight: null, alertToneNodes: new Set(), micSourceQuery: 0, reportedAudioInputs: [],
+    requestedMicId: preferredMicId };
   session = s;
   micSource = {state: 'loading', evidence: null};
   renderMicSource();
@@ -961,10 +1075,17 @@ async function start() {
     s.context = new AudioContextType({ latencyHint: 'interactive' });
     // Run resume and getUserMedia before any await, preserving a button's activation.
     const initialResume = s.context.resume().catch(() => {});
-    const microphone = navigator.mediaDevices.getUserMedia({ video: false, audio: {
+    const audioConstraints = {
       channelCount: { ideal: 1 }, echoCancellation: false, noiseSuppression: false, autoGainControl: false
-    } }).then(stream => {
+    };
+    if (s.requestedMicId) audioConstraints.deviceId = {exact:s.requestedMicId};
+    const microphone = navigator.mediaDevices.getUserMedia({ video: false, audio: audioConstraints }).then(stream => {
       if (!isCurrent(s)) { stream.getTracks().forEach(t => t.stop()); throw new DOMException('Stopped', 'AbortError'); }
+      const actualId = stream.getAudioTracks()[0]?.getSettings?.()?.deviceId ?? '';
+      if (s.requestedMicId && actualId && actualId !== 'default' && actualId !== s.requestedMicId) {
+        stream.getTracks().forEach(track => track.stop());
+        throw publicError('ブラウザは選択したマイクと異なる入力を返しました。別の入力を選んでください。');
+      }
       s.stream = stream;
       // The very same track that feeds classifier audio supplies the label.
       // Device enumeration never asks for microphone access a second time.
@@ -1067,6 +1188,8 @@ for (const row of thresholdRows) {
 }
 ui['threshold-reset'].addEventListener('click', resetThresholds);
 ui['alert-tone-toggle'].addEventListener('change', () => setAlertToneEnabled(ui['alert-tone-toggle'].checked));
+ui['alert-volume-select'].addEventListener('change', () => setAlertVolume(ui['alert-volume-select'].value));
+ui['mic-select'].addEventListener('change', () => chooseMicrophone(ui['mic-select'].value));
 ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
 ui['language-select'].addEventListener('change', () => setLanguage(ui['language-select'].value));
@@ -1075,6 +1198,7 @@ ui.feedback.addEventListener('click', event => {
 });
 setLanguage(language);
 ui['alert-tone-toggle'].checked = alertToneEnabled;
+ui['alert-volume-select'].value = alertVolume;
 renderThresholds();
 resetVisuals();
 setDebug(true); // Default ON; changes the diagnostics view only, never starts the microphone.
