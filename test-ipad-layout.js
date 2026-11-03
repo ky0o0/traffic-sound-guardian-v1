@@ -13,7 +13,7 @@ test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
  assert.ok(!ids(ipad).includes('standard-threshold')&&!ids(ipad).includes('overall-sensitivity'));
  for(const markup of [main,ipad])assert.equal(new Set(ids(markup)).size,ids(markup).length);
  for(const id of ['debug-panel','debug-toggle','threshold-input-0'])assert.ok(!ids(main).includes(id)&&ids(ipad).includes(id));
- for(const file of ['app.js?v=1.7.2','live-timeline.js?v=1.6.18','theme.js?v=1.7.2']){assert.ok(main.includes(file));assert.ok(ipad.includes(file));}
+ for(const file of ['app.js?v=1.7.3','live-timeline.js?v=1.6.18','theme.js?v=1.7.3']){assert.ok(main.includes(file));assert.ok(ipad.includes(file));}
  assert.ok(!ipad.includes('id="settings-panel"'));assert.match(main,/id="settings-panel"/);
  assert.doesNotMatch(ipad,/getUserMedia\(|AudioContext\(|MediaRecorder\(/);
 

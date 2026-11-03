@@ -18,7 +18,7 @@ with sync_playwright() as pw:
  standard.reload();standard.locator('#settings-toggle').click()
  assert standard.locator('#debug-panel,#debug-toggle,[id^=threshold-input-]').count()==0
  assert standard.locator('#standard-threshold-value').inner_text()=='0.10'
- standard.locator('#standard-threshold').fill('0.05');standard.locator('#standard-threshold').dispatch_event('input')
+ standard.locator('#standard-threshold').evaluate("(e)=>{e.value='0.05';e.dispatchEvent(new Event('input',{bubbles:true}))}")
  assert standard.locator('#standard-threshold-value').inner_text()=='0.05'
  test=open_page('ipad-test.html')
  assert test.locator('#standard-threshold,#overall-sensitivity,#overall-value').count()==0

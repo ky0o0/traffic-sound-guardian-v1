@@ -109,7 +109,7 @@ with sync_playwright() as p:
                         page.locator('#settings-panel').evaluate('(e)=>e.open=true')
                         page.locator('#standard-threshold').press('End')
                         assert page.locator('#standard-threshold-value').inner_text()=='0.50'
-                        page.locator('#standard-threshold').fill('0.10');page.locator('#standard-threshold').dispatch_event('input')
+                        page.locator('#standard-threshold').evaluate("(e)=>{e.value='0.10';e.dispatchEvent(new Event('input',{bubbles:true}))}")
                         page.locator('#settings-panel').evaluate('(e)=>e.open=false')
                     # Return to the top without changing microphone/session state.
                     page.evaluate('scrollTo(0,0)')

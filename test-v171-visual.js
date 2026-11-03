@@ -35,3 +35,12 @@ test('V1.7.1 listening pulse exists on both page modes and respects reduced moti
   assert.match(css, /body\[data-state=warning\] \.status-dot\{[^}]*animation:none/);
   assert.match(css, /@media\(prefers-reduced-motion:reduce\)\{[^}]*body\[data-state=listening\] \.status-dot\{animation:none/);
 });
+
+test('animated Standard rings do not continuously move the clickable microphone hit target', () => {
+  const css = read('guardian.css');
+  const buttonRule = css.split('body[data-mode=standard] .visual .icon-disc{')[1]?.split('}')[0];
+  assert.ok(buttonRule);
+  assert.doesNotMatch(buttonRule, /transform:/);
+  assert.ok(css.includes('body[data-mode=standard] .visual::before{inset:0;opacity:.20;transform:scale'));
+  assert.ok(css.includes('body[data-mode=standard] .visual::after{inset:25px;opacity:.38;transform:scale'));
+});

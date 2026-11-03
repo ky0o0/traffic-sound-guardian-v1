@@ -266,13 +266,13 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
  h.debug(false);assert.equal(panel.hidden,true);h.debug(true);assert.equal(panel.hidden,false);
  h.language('en');assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');h.stop();
 });
-test('V1.6.17 page, release assets and refreshed classifier cache agree',async()=>{
+test('V1.7.3 page, release assets and refreshed classifier cache agree',async()=>{
  for(const file of ['index.html','ipad-test.html']) {
  const html=fs.readFileSync(new URL(file,import.meta.url),'utf8');
- assert.match(html,/V1\.7\.0/);assert.match(html,/app\.js\?v=1\.7\.0/);assert.match(html,/guardian\.css\?v=1\.7\.0/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.0/);
+ assert.match(html,/V1\.7\.3/);assert.match(html,/app\.js\?v=1\.7\.3/);assert.match(html,/guardian\.css\?v=1\.7\.3/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.3/);
  }
- assert.match(source,/classifier-worker\.js\?v=1\.7\.0/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.2');
+ assert.match(source,/classifier-worker\.js\?v=1\.7\.3/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.3');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  for(const [file,selected] of [['index.html','version-standard'],['ipad-test.html','version-ipad']]) {
@@ -1017,7 +1017,7 @@ test('volume selector stores one of three finite presets and never restarts dete
  h.stop();
 });
 
-test('V1.7.2 Standard direct threshold changes the next warning decision',async()=>{
+test('V1.7.3 Standard direct threshold changes the next warning decision',async()=>{
  const h=await harness({standard:true});assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.run('debugEnabled'),false);
  h.frame(1);h.emit(1,null,{trafficScores:{Bell:.08}});assert.equal(h.document.body.dataset.state,'listening');
  const slider=h.elements.get('standard-threshold');slider.value='0.05';slider.input();

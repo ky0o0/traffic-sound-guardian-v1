@@ -46,8 +46,8 @@ test('main and iPad Settings put appearance next to language, keeping shared the
  const css=file('./v1.6.css');
  for(const pageName of ['index.html','ipad-test.html']){
    const html=file('./'+pageName);
-   assert.match(html,/theme\.js\?v=1\.7\.0/);
-   assert.match(html,/href="\.\/guardian\.css\?v=1\.7\.0"/);
+   assert.match(html,/theme\.js\?v=1\.7\.3/);
+   assert.match(html,/href="\.\/guardian\.css\?v=1\.7\.3"/);
    assert.match(html,/id="settings-content"/);
    assert.match(html,/<div class="settings-group">\s*<div id="language-switch"/);
  }

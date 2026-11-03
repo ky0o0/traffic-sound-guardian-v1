@@ -1,4 +1,11 @@
-# Traffic Sound Guardian V1.7.2
+# Traffic Sound Guardian V1.7.3
+
+## V1.7.3 — Regression and control-stability fixes
+
+- Updated browser and unit regression checks to target the current release assets and direct threshold controls.
+- Standard's circular microphone button no longer changes its hit-target geometry while listening; the surrounding rings and glow still react to microphone RMS levels.
+- No microphone capture, model inference, alert sound, or warning-threshold behavior is changed by this maintenance release.
+
 
 ## V1.7.2 — Direct warning score thresholds
 

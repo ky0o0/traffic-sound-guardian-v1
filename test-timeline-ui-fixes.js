@@ -133,8 +133,8 @@ test('R08–R10: both entrypoints load the revised relative UI assets',()=>{
   for(const name of ['index.html','ipad-test.html']) {
     const html=fs.readFileSync(new URL('./'+name,import.meta.url),'utf8');
     assert.ok(html.includes('live-timeline.js?v=1.6.18'));
-    assert.ok(html.includes('guardian.css?v=1.7.2'));
-    if(name==='ipad-test.html') assert.ok(html.includes('ipad-test.css?v=1.7.2'));
+    assert.ok(html.includes('guardian.css?v=1.7.3'));
+    if(name==='ipad-test.html') assert.ok(html.includes('ipad-test.css?v=1.7.3'));
     for(const [,path] of html.matchAll(/(?:src|href)="\.\/([^"?]+)(?:\?[^\"]*)?"/g)) {
       assert.ok(fs.existsSync(new URL('./'+path,import.meta.url)),`${name}: ${path}`);
     }

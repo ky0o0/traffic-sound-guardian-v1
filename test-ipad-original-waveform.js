@@ -30,8 +30,8 @@ test('iPad and production retain the symmetric waveform without either experimen
  assert.match(src,/c\.moveTo\(x,center-amp\); c\.lineTo\(x,center\+amp\)/);
  assert.match(ipad,/live-timeline\.js\?v=1\.6\.18/);
  assert.match(main,/live-timeline\.js\?v=1\.6\.18/);
- assert.match(ipad,/ipad-test\.css\?v=1\.7\.0/);
- assert.match(ipad,/V1\.7\.0 · TEST/);
+ assert.match(ipad,/ipad-test\.css\?v=1\.7\.3/);
+ assert.match(ipad,/V1\.7\.3 · TEST/);
  const css=read('./ipad-test.css');
  assert.match(css,/#rolling-waveform\{height:104px/);
  assert.match(css,/minmax\(0,1fr\)/);
