@@ -12,7 +12,7 @@ const names = {
  'zh-CN':['自行车铃','汽车喇叭','警笛','警车警笛','救护车警笛','消防车警笛']
 };
 const create = (tag,cls='',text='') => {const e=document.createElement(tag);if(cls)e.className=cls;if(text)e.textContent=text;return e;};
-export async function mountAnnotationEditor(host, clip, {lang='ja',onSave,predictions=[]}) {
+export async function mountAnnotationEditor(host, clip, {lang='ja',onSave,predictions=[],signal}) {
   const t = dict[lang]||dict.ja, name = names[lang]||names.ja;
   const pane = create('section','annotation-editor');
   const heading = create('h3','',t.title);
@@ -21,14 +21,21 @@ export async function mountAnnotationEditor(host, clip, {lang='ja',onSave,predic
   host.replaceChildren(pane);
   let audioContext=null, url=null, disposed=false, audio=null, peaks=null, canvas=null;
   let events=(clip.events||[]).map(e=>({...e})), duration=clip.duration||0;
-  let a=0,b=Math.min(1,duration), zoom=1, offset=0;
+  let a=0,b=Math.min(1,duration), zoom=1, offset=0, raf=0;
   function close() {
+    if(disposed)return;
     disposed=true;
+    signal?.removeEventListener('abort',close);
+    cancelAnimationFrame(raf);
     if(audio){audio.pause();audio.removeAttribute('src');audio.load();}
     if(url) URL.revokeObjectURL(url);
-    if(audioContext && audioContext.state!=='closed') audioContext.close().catch(()=>{});
+    if(audioContext && audioContext.state!=='closed') {
+      try { Promise.resolve(audioContext.close()).catch(()=>{}); } catch {}
+    }
     pane.remove();
   }
+  signal?.addEventListener('abort',close,{once:true});
+  if(signal?.aborted) { close(); return {close}; }
   const bar=create('div','annotation-controls');
   const xButton=(label,fn)=>{const x=create('button','',label);x.type='button';x.onclick=fn;return x;};
   const showError=s=>{status.textContent=s;status.setAttribute('role','alert');};
@@ -93,7 +100,6 @@ export async function mountAnnotationEditor(host, clip, {lang='ja',onSave,predic
         if(px>=0&&px<=width){context.strokeStyle=light?'#b52339':'#ff7788';context.lineWidth=2;context.beginPath();context.moveTo(px,0);context.lineTo(px,height);context.stroke();}
       }
     }
-    let raf=0;
     const tick=()=>{if(disposed)return;draw();if(audio&&!audio.paused)raf=requestAnimationFrame(tick);};
     audio.addEventListener('play',()=>{cancelAnimationFrame(raf);tick();});
     audio.addEventListener('pause',()=>{cancelAnimationFrame(raf);draw();});

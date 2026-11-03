@@ -11,9 +11,9 @@ test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
  assert.deepEqual(ids(ipad).filter(id=>!id.startsWith('alert-preview-')).sort(),[...ids(main)].sort(),'same shared DOM IDs; only iPad adds output-only preview controls');
  assert.equal(new Set(ids(ipad)).size,ids(ipad).length,'no duplicated microphone, threshold or debug IDs');
  assert.match(ipad,/<body class="ipad-test" data-state="stopped">/);
- assert.match(ipad,/href="\.\/ipad-test\.css\?v=7"/);
+ assert.match(ipad,/href="\.\/ipad-test\.css\?v=8"/);
  for(const file of ['app.js','live-timeline.js','theme.js']){
-   const pattern = file === 'app.js' ? /app\.js\?v=1\.6\.15/ : file === 'live-timeline.js' ? /live-timeline\.js\?v=1\.6\.17/ : new RegExp(file.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:13|0)');
+   const pattern = file === 'app.js' ? /app\.js\?v=1\.6\.16/ : file === 'live-timeline.js' ? /live-timeline\.js\?v=1\.6\.18/ : new RegExp(file.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:13|0)');
    assert.match(main,pattern);
    assert.match(ipad,pattern,'same audio and model pipeline; both pages use the symmetric waveform fixes');
  }

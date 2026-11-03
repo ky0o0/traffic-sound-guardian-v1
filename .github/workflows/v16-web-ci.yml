@@ -10,6 +10,8 @@ on:
       - "*.md"
       - "scripts/check-release-version.mjs"
       - "test-*.js"
+      - "tests/**"
+      - "scripts/**"
       - ".github/workflows/v16-web-ci.yml"
   workflow_dispatch:
 jobs:
@@ -31,10 +33,35 @@ jobs:
         run: node scripts/check-release-version.mjs "$PR_BASE_SHA"
       - name: Check syntax of updated modules
         run: |
-          node --check app.js
-          node --check ai-test.js
-          node --check theme.js
-          node --check live-timeline.js
-          node --check annotation-editor.js
+          for file in *.js scripts/*.mjs; do node --check "$file"; done
+      - name: Verify pinned dependencies, labels and entrypoint resources
+        run: node scripts/check-site-integrity.mjs
       - name: Run existing and new unit tests
         run: npm test
+
+  browser:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.62.0
+      - run: python -m playwright install --with-deps chromium
+      - name: Serve exactly the GitHub Pages subpath
+        run: |
+          mkdir -p /tmp/tsg-site/traffic-sound-guardian-v1
+          cp -a . /tmp/tsg-site/traffic-sound-guardian-v1/
+          python -m http.server 8000 --bind 127.0.0.1 --directory /tmp/tsg-site > /tmp/tsg-http.log 2>&1 &
+      - name: Real browser layouts, model lifecycle, error paths and privacy requests
+        run: |
+          python tests/ui-canvas-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/layout
+          python tests/stability-browser.py --base-url http://127.0.0.1:8000/traffic-sound-guardian-v1/ --output browser-evidence/stability
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: browser-evidence

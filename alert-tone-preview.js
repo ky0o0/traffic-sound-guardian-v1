@@ -11,10 +11,17 @@ const labels = {
 };
 const words = () => labels[document.documentElement.lang] ?? labels.ja;
 let active = null;
+let statusIndex = null;
+function showStatus(index) {
+  statusIndex = index;
+  status.textContent = index === null ? '' : words()[index];
+}
 function announcePreview() {
   if (!button) return;
   button.textContent = words()[0];
   note.textContent = words()[1];
+  button.closest?.('section')?.setAttribute('aria-label', words()[0]);
+  if (status) showStatus(statusIndex);
 }
 function endPreview() {
   const current = active;
@@ -26,13 +33,14 @@ function endPreview() {
     try { osc.disconnect(); } catch {}
     try { gain.disconnect(); } catch {}
   }
-  try { current.context.close(); } catch {}
+  // close() is asynchronous in Web Audio; consume rejection on interrupted Safari sessions.
+  try { Promise.resolve(current.context.close()).catch(() => {}); } catch {}
   button.disabled = false;
 }
 function playPreview() {
   if (active || !button) return;
   const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextCtor) { status.textContent = words()[4]; return; }
+  if (!AudioContextCtor) { showStatus(4); return; }
   let context;
   try {
     // Creating and resuming inside the click gesture is essential on iPad Safari.
@@ -40,10 +48,11 @@ function playPreview() {
     const current = {context, nodes:[], timer:null};
     active = current;
     button.disabled = true;
-    status.textContent = words()[2];
+    showStatus(2);
     // Browser may begin suspended; schedule immediately within the same gesture.
     const resume = context.resume();
     const start = context.currentTime + 0.02;
+    const finalEnd = start + 0.195 + 0.11;
     for(let i=0; i<2; i++){
       const at = start + i * 0.195, end = at + 0.11;
       const osc = context.createOscillator(), gain = context.createGain();
@@ -56,30 +65,45 @@ function playPreview() {
       gain.gain.linearRampToValueAtTime(0,end);
       osc.connect(gain);
       gain.connect(context.destination);
+      // The final oscillator ending is evidence that the scheduled beeps completed.
+      // A fixed wall-clock timer alone can falsely report success (or cut sound off)
+      // while Safari's AudioContext is suspended by an OS audio interruption.
+      if (i === 1) osc.onended = () => {
+        if (active !== current) return;
+        const played = context.state === 'running' && context.currentTime >= finalEnd;
+        endPreview();
+        showStatus(played ? 3 : 4);
+      };
       osc.start(at);
       osc.stop(end);
     }
     Promise.resolve(resume).catch(() => {
       if (active === current) {
-        endPreview(); status.textContent = words()[4];
+        endPreview(); showStatus(4);
       }
     });
+    // Safety timeout only: wait for the real audio graph to finish. If the
+    // onended callback is missing, require AudioContext time to have advanced.
     current.timer = setTimeout(() => {
       if (active === current) {
-        endPreview(); status.textContent = words()[3];
+        const played = context.state === 'running' && context.currentTime >= finalEnd;
+        endPreview();
+        showStatus(played ? 3 : 4);
       }
-    }, 700);
+    }, 3000);
   } catch (error) {
     if (active) endPreview();
     else try { context?.close(); } catch {}
-    status.textContent = words()[4];
+    showStatus(4);
     console.warn('[Traffic Sound Guardian] Manual alert preview unavailable:',error);
   }
 }
 if (button && note && status) {
   button.addEventListener('click',playPreview);
   window.addEventListener('tsg:language',announcePreview);
-  window.addEventListener('pagehide',endPreview);
-  document.addEventListener('visibilitychange',() => { if (document.hidden) endPreview(); });
+  window.addEventListener('pagehide',() => { endPreview(); showStatus(null); });
+  document.addEventListener('visibilitychange',() => {
+    if (document.hidden) { endPreview(); showStatus(null); }
+  });
   announcePreview();
 }

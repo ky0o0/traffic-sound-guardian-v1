@@ -6,12 +6,13 @@ class GuardianCapture extends AudioWorkletProcessor {
       // Bound messages if the page thread stalls: don't accumulate audio.
       if (this.waiting) return;
       this.waiting = true;
-      this.port.postMessage({ type: 'window', ...frame, endTime: currentTime }, [frame.samples.buffer]);
+      this.port.postMessage({ type: 'window', ...frame, endTime: currentTime + (frame.endSample - this.blockFirstSample) / sampleRate }, [frame.samples.buffer]);
     });
     this.waiting = false;
     this.port.onmessage = () => { this.waiting = false; };
   }
   process(inputs, outputs) {
+    this.blockFirstSample = this.frames.total;
     this.frames.push(inputs[0] || []);
     for (const output of outputs) for (const channel of output) channel.fill(0);
     return true;

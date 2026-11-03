@@ -18,7 +18,7 @@ function init(){
   'rolling-current-label':{textContent:''},'rolling-current-value':{textContent:'',dataset:{}}
  };
  const document={documentElement:{lang:'ja',dataset:{theme:'light'}},body:{classList:{contains:x=>x==='ipad-test'}},getElementById:id=>nodes[id]||null};
- const window={devicePixelRatio:2,addEventListener(t,fn){events[t]=fn;}};
+ const window={requestAnimationFrame(){return 1;},devicePixelRatio:2,addEventListener(t,fn){events[t]=fn;}};
  class Observer{observe(){}}
  vm.runInNewContext(src,{document,window,MutationObserver:Observer,Math,Number,String});
  return {events,lines,texts,fills,nodes,document};
@@ -28,16 +28,16 @@ test('iPad and production retain the symmetric waveform without either experimen
  assert.match(src,/const center = \(plotTop \+ plotBottom\) \/ 2;/);
  assert.match(src,/const amp = Math\.tanh\(Math\.pow\(p\.rms, 0\.65\) \* 11\.5\) \* maxAmplitude;/);
  assert.match(src,/c\.moveTo\(x,center-amp\); c\.lineTo\(x,center\+amp\)/);
- assert.match(ipad,/live-timeline\.js\?v=1\.6\.17/);
- assert.match(main,/live-timeline\.js\?v=1\.6\.17/);
- assert.match(ipad,/ipad-test\.css\?v=7/);
- assert.match(ipad,/V1\.6\.15 · iPad TEST/);
+ assert.match(ipad,/live-timeline\.js\?v=1\.6\.18/);
+ assert.match(main,/live-timeline\.js\?v=1\.6\.18/);
+ assert.match(ipad,/ipad-test\.css\?v=8/);
+ assert.match(ipad,/V1\.6\.16 · iPad TEST/);
  const css=read('./ipad-test.css');
  assert.match(css,/height:clamp\(205px,36dvh,315px\)/);
  assert.match(css,/minmax\(85px,1fr\)/);
  const a=init();
  assert.equal(a.texts.filter(x=>x==='dBFS'||x==='100%'||x==='50%'||x==='0%').length,0);
- assert.ok(a.texts.includes('-10s')&&a.texts.includes('-5s')&&a.texts.includes('Now'));
+ assert.ok(a.texts.includes('-10s')&&a.texts.includes('-5s')&&a.texts.includes('今'));
  assert.match(a.nodes['rolling-note'].textContent,/音声は保存しません/);
 });
 test('restored waveform draws the real symmetric amplitude with warning-only red strokes and no filled bands',()=>{

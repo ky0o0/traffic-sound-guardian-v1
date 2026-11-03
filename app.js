@@ -11,6 +11,13 @@ const FEEDBACK_FORM_URLS = Object.freeze({
 });
 const EN = Object.freeze({
   "設定": "Settings",
+  "鐘・ベル": "Bell",
+  "チャイム": "Chime",
+  "チンという音": "Ding",
+  "ピーンという音": "Ping",
+  "ドアベル": "Doorbell",
+  "補助メニュー": "Additional pages",
+  "音声とAI識別": "Audio and AI classification",
   "マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。": "Device type and name are reported by the browser, not proof of the physical microphone.",
   "ブラウザの機器名：": "Browser device name: ",
   "マイクの種類を確認できません": "Microphone type unknown",
@@ -120,6 +127,13 @@ const EN = Object.freeze({
 });
 const ZH = Object.freeze({
   "設定": "设置",
+  "鐘・ベル": "钟／铃声",
+  "チャイム": "提示铃声",
+  "チンという音": "叮声",
+  "ピーンという音": "清脆提示声",
+  "ドアベル": "门铃",
+  "補助メニュー": "辅助页面",
+  "音声とAI識別": "声音与 AI 识别",
   "マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。": "麦克风类型及名称来自浏览器报告，无法保证实际使用的物理麦克风位置。",
   "ブラウザの機器名：": "浏览器设备名称：",
   "マイクの種類を確認できません": "无法确定麦克风类型",
@@ -249,7 +263,7 @@ const $ = id => document.getElementById(id);
 const ui = Object.fromEntries(['heading', 'description', 'status-label', 'warning-details', 'sound-type',
   'score', 'cancel', 'mic-control', 'theme-color', 'visual', 'waveform',
   'sensitivity-heading', 'sensitivity-note', 'sensitivity-scale', 'threshold-reset',
-  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'version-switch-title', 'version-standard', 'version-ipad', 'mic-source-label', 'mic-source-value', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
+  'language-switch', 'language-select', 'language-select-label', 'settings-toggle', 'settings-title', 'version-switch-title', 'version-standard', 'version-ipad', 'mic-source-label', 'mic-source-value', 'mic-source-evidence', 'alert-tone-toggle', 'alert-tone-label', 'alert-tone-note', 'score-label', 'privacy', 'research', 'feedback', 'ai-test-link', 'microphone-test-link', 'page-description',
   'debug-toggle', 'debug-toggle-label', 'debug-panel', 'debug-summary', 'debug-note',
   'debug-model-label', 'debug-mic-label', 'debug-inference-label', 'debug-time-label', 'debug-updated-label',
   'debug-model', 'debug-mic', 'debug-inference', 'debug-time', 'debug-updated', 'debug-timing-note',
@@ -266,8 +280,12 @@ function renderMicSource() {
   const name = micSource.state === 'stopped' ? t('マイクを使用していません') :
     micSource.state === 'loading' ? t('マイク情報を取得中…') :
     micSource.evidence?.label || t('マイクの種類を確認できません');
-  ui['mic-source-label'].textContent = t('使用中のマイク');
-  ui['mic-source-value'].textContent = name;
+  const label = t('使用中のマイク');
+  if (ui['mic-source-label'].textContent !== label) ui['mic-source-label'].textContent = label;
+  if (ui['mic-source-value'].textContent !== name) ui['mic-source-value'].textContent = name;
+  ui['mic-source-value'].setAttribute('title', t('マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。'));
+  const evidence = t('マイクの種類と機器名はブラウザの申告です。実際の集音位置は保証されません。');
+  if (ui['mic-source-evidence'].textContent !== evidence) ui['mic-source-evidence'].textContent = evidence;
 }
 function showMicSource(s) {
   if (session !== s || !s.stream) return;
@@ -523,11 +541,13 @@ function render(state, description = '') {
     listening: ['周囲の音を検知中...', '検知中', '交通警告音を検知すると、\n画面が赤く変わります。'],
     warning: ['警告音を検知しました', '周囲を確認してください', '']
   }[state];
-  ui.heading.textContent = t(texts[0]);
-  ui['status-label'].textContent = t(texts[1]);
-  ui.description.textContent = t(texts[2]);
+  // Repeated raw-score updates must not reannounce an identical live heading.
+  for (const [node, value] of [[ui.heading,t(texts[0])], [ui['status-label'],t(texts[1])], [ui.description,t(texts[2])]]) {
+    if (node.textContent !== value) node.textContent = value;
+  }
   if (warning && session?.gate.target) {
-    ui['sound-type'].textContent = t(session.gate.target.label);
+    const name = t(session.gate.target.label);
+    if (ui['sound-type'].textContent !== name) ui['sound-type'].textContent = name;
     ui.score.textContent = session.gate.target.score.toFixed(2);
   }
   updateButtons();
@@ -562,6 +582,10 @@ function setLanguage(next) {
   window.dispatchEvent?.(new CustomEvent('tsg:language', { detail: { language } }));
   ui['language-select'].value = language;
   ui['settings-title'].textContent = t('設定');
+  $('settings-links').setAttribute('aria-label', t('補助メニュー'));
+  const back = document.querySelector?.('.ipad-back');
+  if (back) { back.textContent = '← ' + t('通常版'); back.setAttribute('aria-label', t('通常版')); }
+  document.querySelector?.('.ipad-center')?.setAttribute('aria-label', t('音声とAI識別'));
   ui['settings-toggle'].setAttribute('aria-label', t('設定'));
   ui['language-select-label'].textContent = t('言語');
   ui['alert-tone-label'].textContent = t('通知音を鳴らす');
@@ -602,6 +626,9 @@ function setLanguage(next) {
 
 function drawWaveform(samples) {
   const canvas = ui.waveform;
+  // The legacy canvas is hidden in both layouts. Keep it available without
+  // computing 2,048 display samples on every frame when it cannot be seen.
+  if (canvas.getClientRects && !canvas.getClientRects().length) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   const width = canvas.clientWidth || 300;
@@ -759,8 +786,10 @@ function sendFrame(s, frame) {
     return;
   }
   s.flight = frame;
-  s.worker.postMessage({ type: 'classify', sequence: frame.sequence, samples: frame.samples,
-    sampleRate: s.context.sampleRate, debug: debugEnabled }, [frame.samples.buffer]);
+  try {
+    s.worker.postMessage({ type: 'classify', sequence: frame.sequence, samples: frame.samples,
+      sampleRate: s.context.sampleRate, debug: debugEnabled }, [frame.samples.buffer]);
+  } catch (error) { fail(s, error); }
 }
 function receiveFrame(s, frame) {
   if (!isCurrent(s) || !s.connected) return;
@@ -825,8 +854,8 @@ function receiveResult(s, data) {
   }
   const state = s.gate.active ? 'warning' : 'listening';
   if (view !== state || s.gate.active) render(state);
+  else renderDebug(); // render() already refreshed diagnostics on state/warning updates.
   scheduleWarningEnd(s);
-  renderDebug();
   if (s.pending) {
     const pending = s.pending;
     s.pending = null;
@@ -841,14 +870,15 @@ async function connectCapture(s) {
   s.silent.gain.value = 0;
   if (context.audioWorklet && typeof AudioWorkletNode !== 'undefined') {
     try {
-      await context.audioWorklet.addModule(new URL('./capture-worklet.js', import.meta.url));
+      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.6.16', import.meta.url));
       if (!isCurrent(s)) return;
       s.node = new AudioWorkletNode(context, 'guardian-capture', {
         numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [1]
       });
       s.node.port.onmessage = ({ data }) => {
-        s.node.port.postMessage('ack');
-        receiveFrame(s, data);
+        if (!isCurrent(s) || !s.connected) return;
+        try { s.node.port.postMessage('ack'); receiveFrame(s, data); }
+        catch (error) { fail(s, error); }
       };
       s.node.onprocessorerror = () => fail(s, publicError('マイクの音声処理が停止しました。もう一度開始してください。'));
     } catch (error) {
@@ -987,6 +1017,10 @@ async function start() {
         fail(s, error);
       };
     });
+    // postMessage(init) can throw before Promise.all attaches its handlers.
+    // stop() rejects ready as well, so consume that rejection immediately.
+    ready.catch(() => {});
+    s.worker.addEventListener('messageerror', s.worker.onerror);
     s.context.onstatechange = () => {
       if (!isCurrent(s)) return;
       if (s.connected && s.context.state !== 'running') stop('音声処理が中断しました。もう一度開始してください。');
@@ -1056,3 +1090,15 @@ document.addEventListener('visibilitychange', () => {
 });
 window.addEventListener('pagehide', () => stop());
 // No background or lock-screen operation. Start only on a deliberate microphone tap.
+
+const settingsPanel = $('settings-panel');
+document.addEventListener('click', event => {
+  if (settingsPanel.open && !settingsPanel.contains(event.target)) settingsPanel.open = false;
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && settingsPanel.open) {
+    settingsPanel.open = false;
+    ui['settings-toggle'].focus();
+    event.preventDefault();
+  }
+});

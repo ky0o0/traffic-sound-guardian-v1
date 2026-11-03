@@ -1,0 +1,12 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "node": "v24.19.0",
+  "python": "3.12.14",
+  "playwright": "1.62.0",
+  "browser": "Chromium 154.0.8037.57",
+  "baseline_main": "3a3e96b16bb78fa4d5ed006b44c18701e414fb40",
+  "baseline_pr48": "695d3985fb8fb3f1779af7ad3ff0fadf21d45c3d",
+  "virtual_microphone": true,
+  "physical_devices_tested": false,
+  "webkit_installed": false
+}

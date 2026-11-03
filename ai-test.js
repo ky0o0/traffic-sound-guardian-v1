@@ -1,4 +1,4 @@
-import { mountAnnotationEditor } from './annotation-editor.js?v=1.6.0';
+import { mountAnnotationEditor } from './annotation-editor.js?v=1.6.16';
 import {
   IDS,
   NAMES,
@@ -52,7 +52,8 @@ let language = initialLanguage(),
   groups = false,
   message = '',
   progress = [0, 0],
-  activeAnnotationEditor = null;
+  activeAnnotationEditor = null,
+  annotationAbort = null;
 try {
   const saved = localStorage.getItem('trafficSoundGuardian.soundThresholds');
   if (saved) thresholds = validThresholds(JSON.parse(saved));
@@ -417,6 +418,9 @@ function fileCard(c, openIds) {
   const editorLabel = ({ ja: '波形で標注', en: 'Visual waveform annotations', 'zh-CN': '波形标注' })[language];
   const editorOpen = el('button', editorLabel, { type: 'button', disabled: locked() });
   editorOpen.onclick = async () => {
+    annotationAbort?.abort();
+    const controller = new AbortController();
+    annotationAbort = controller;
     if (activeAnnotationEditor) {
       activeAnnotationEditor.close();
       activeAnnotationEditor = null;
@@ -428,7 +432,7 @@ function fileCard(c, openIds) {
         label, start: w.start, end: w.end
       }))) : [];
     const instance = await mountAnnotationEditor(editorMount, c, {
-      lang: language, predictions,
+      lang: language, predictions, signal: controller.signal,
       onSave: ({ events, complete, duration }) => {
         c.events = events;
         c.eventText = events.map(e => [e.label, e.start, e.end].join(',')).join('\n');
@@ -439,7 +443,7 @@ function fileCard(c, openIds) {
         render();
       }
     });
-    if (editorMount.isConnected) activeAnnotationEditor = instance;
+    if (!controller.signal.aborted && editorMount.isConnected) activeAnnotationEditor = instance;
     else instance?.close();
   };
   field.append(editorOpen, editorMount);
@@ -825,11 +829,13 @@ function exportView() {
 }
 
 function render() {
+  annotationAbort?.abort();
+  annotationAbort = null;
   activeAnnotationEditor?.close();
   activeAnnotationEditor = null;
   const openIds = new Set([...root.querySelectorAll('details[open][id]')].map(x => x.id));
   document.documentElement.lang = language;
-  document.title = t('title') + ' · Traffic Sound Guardian V1.6.0';
+  document.title = t('title') + ' · Traffic Sound Guardian V1.6.16';
   root.replaceChildren();
   const top = el('div', null, {
     class: 'top'
@@ -852,7 +858,7 @@ function render() {
   };
   langs.append(picker);
   top.append(langs);
-  root.append(top, el('h1', t('title') + ' · V1.6.0'), el('p', t('subtitle'), {
+  root.append(top, el('h1', t('title') + ' · V1.6.16'), el('p', t('subtitle'), {
     class: 'notice'
   }), note('privacy'));
   const tabs = el('nav', null, {
@@ -877,9 +883,11 @@ function render() {
   root.append(thresholdPanel());
   root.append(tab === 'upload' ? uploadView(openIds) : tab === 'results' ? resultsView() : tab ===
     'analysis' ? metricsView() : tab === 'optimize' ? optimizeView() : exportView());
-  root.append(el('footer', 'Traffic Sound Guardian V1.6.0 · YAMNet / MediaPipe · ' + t('scoreNote')));
+  root.append(el('footer', 'Traffic Sound Guardian V1.6.16 · YAMNet / MediaPipe · ' + t('scoreNote')));
 }
 window.addEventListener('pagehide', () => {
+  annotationAbort?.abort();
+  annotationAbort = null;
   activeAnnotationEditor?.close();
   activeAnnotationEditor = null;
   runner.cancel();

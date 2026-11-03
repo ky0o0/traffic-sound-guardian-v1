@@ -6,7 +6,7 @@ const file = path => fs.readFileSync(new URL(path,import.meta.url),'utf8');
 test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s visualization',()=>{
  const html=file('./index.html'),app=file('./app.js'),timeline=file('./live-timeline.js');
  assert.match(html,/id="rolling-waveform"/);
- assert.match(html,/live-timeline\.js\?v=1\.6\.17/);
+ assert.match(html,/live-timeline\.js\?v=1\.6\.18/);
  assert.match(app,/tsg:visual/);
  assert.match(app,/tsg:warning/);
  assert.match(app,/completedFrame\.endTime - 0\.975/);
@@ -46,7 +46,7 @@ test('rolling timeline marks only actual positive results and clears after 10 se
  const labels={textContent:''};
  const nodes={'rolling-waveform':canvas,'rolling-events':labels,'rolling-heading':{textContent:''},'rolling-note':{textContent:''}};
  const document={documentElement:{lang:'en',dataset:{theme:'dark'}},getElementById:id=>nodes[id]||null};
- const window={devicePixelRatio:1,addEventListener(name,cb){events[name]=cb}};
+ const window={requestAnimationFrame(){return 1;},devicePixelRatio:1,addEventListener(name,cb){events[name]=cb}};
  class Observer{observe(){}}
  vm.runInNewContext(file('./live-timeline.js'),{document,window,MutationObserver:Observer,Math,Float32Array,Number,String});
  events['tsg:visual']({detail:{time:10,rms:0.09}});
@@ -69,7 +69,7 @@ test('V1.6.11 ordinary predictions update on 2-second boundaries; warning sound 
  const canvas={width:0,height:0,clientWidth:340,clientHeight:104,getContext(){return ctx},setAttribute(){}};
  elements['rolling-waveform']=canvas;
  const document={documentElement:{lang:'ja',dataset:{theme:'light'}},getElementById:id=>elements[id]??null};
- const window={devicePixelRatio:1,addEventListener(name,callback){events[name]=callback;}};
+ const window={requestAnimationFrame(){return 1;},devicePixelRatio:1,addEventListener(name,callback){events[name]=callback;}};
  class Observer{observe(){}}
  vm.runInNewContext(file('./live-timeline.js'),{document,window,MutationObserver:Observer,Math,Number,String});
  const send=(categoryName,timeMs,labels,warningName=null,warningLabels=null)=>

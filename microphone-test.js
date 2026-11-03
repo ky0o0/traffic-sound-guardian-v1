@@ -175,7 +175,10 @@ function closeSession(s) {
   try {s.source?.disconnect();}catch {}
   try {s.analyser?.disconnect();}catch {}
   try {s.silent?.disconnect();}catch {}
-  if(s.context) Promise.resolve(s.context.close()).catch(()=>{});
+  if(s.context) {
+    s.context.onstatechange=null;
+    try { Promise.resolve(s.context.close()).catch(()=>{}); } catch {}
+  }
 }
 function stop(reason='stopped') {
   generation++;
@@ -278,6 +281,7 @@ async function start() {
     s.stream=stream;
     const resumeError=await resumed;
     if(resumeError)throw resumeError;
+    if(s.context.state!=='running')throw new Error('AudioContext did not resume');
     if(token!==generation||active!==s)return;
     const track=stream.getAudioTracks()[0];
     if(!track)throw {name:'NotFoundError'};
@@ -294,6 +298,9 @@ async function start() {
     track.onended=()=>{if(active===s)stop('ended');};
     track.onmute=()=>{if(active===s)showTrack(s);};
     track.onunmute=()=>{if(active===s)showTrack(s);};
+    s.context.onstatechange=()=>{
+      if(active===s && s.context.state!=='running')stop('otherError');
+    };
     state('listening');showTrack(s);
     s.raf=requestAnimationFrame(()=>draw(s));
     void refreshDevices();

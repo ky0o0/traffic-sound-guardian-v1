@@ -132,11 +132,33 @@ test('R09: resize fallback works without ResizeObserver',()=>{
 test('R08–R10: both entrypoints load the revised relative UI assets',()=>{
   for(const name of ['index.html','ipad-test.html']) {
     const html=fs.readFileSync(new URL('./'+name,import.meta.url),'utf8');
-    assert.ok(html.includes('live-timeline.js?v=1.6.17'));
+    assert.ok(html.includes('live-timeline.js?v=1.6.18'));
     assert.ok(html.includes('v1.6.css?v=1.6.14'));
-    if(name==='ipad-test.html') assert.ok(html.includes('ipad-test.css?v=7'));
+    if(name==='ipad-test.html') assert.ok(html.includes('ipad-test.css?v=8'));
     for(const [,path] of html.matchAll(/(?:src|href)="\.\/([^"?]+)(?:\?[^\"]*)?"/g)) {
       assert.ok(fs.existsSync(new URL('./'+path,import.meta.url)),`${name}: ${path}`);
     }
   }
+});
+
+
+test('localized time axis redraws on language change without starting audio or a loop',()=>{
+ const h=harness();h.flush();
+ for(const [locale,now] of [['ja','今'],['en','Now'],['zh-CN','现在']]){
+  h.document.documentElement.lang=locale;h.send('tsg:language');h.flush();
+  assert.equal(h.texts.at(-1).text,now);assert.equal(h.frames.size,0);
+  assert.equal(JSON.parse(h.snapshot()).levels.length,0);
+ }
+});
+
+test('rolling visualization stays bounded under a sustained dense event stream and releases history on reset',()=>{
+ const h=harness();
+ for(let i=0;i<1800;i++){
+  const time=i/60;h.send('tsg:visual',{time,rms:.01});
+  if(i%3===0)h.send('tsg:warning',{start:time-.975,end:time,label:i%2?'Siren':'Bell'});
+ }
+ const state=JSON.parse(h.snapshot());
+ assert.ok(state.levels.length<=720);assert.ok(state.marks.length<=80);
+ assert.ok(state.levels[0].time>=state.currentTime-10.2);
+ h.send('tsg:reset');assert.deepEqual(JSON.parse(h.snapshot()),{levels:[],marks:[],currentTime:0});
 });

@@ -41,7 +41,7 @@ def fixture(page, dense=False):
 def check_wave(page):
     data = page.evaluate('''()=>({strokes:uiProbe.strokes,texts:uiProbe.texts,clips:uiProbe.clips,fills:uiProbe.fills,theme:document.documentElement.dataset.theme,height:document.querySelector('#rolling-waveform').clientHeight})''')
     assert data['fills']==0, 'warning background unexpectedly filled'
-    assert [t['text'] for t in data['texts']]==['-10s','-5s','Now']
+    assert [t['text'] for t in data['texts']]==['-10s','-5s',{'ja':'今','en':'Now','zh-CN':'现在'}[page.locator('html').get_attribute('lang')]]
     x,top,w,ph=data['clips'][0]; bottom=top+ph; center=(top+bottom)/2
     assert all(bottom<t['y']-t['ascent'] for t in data['texts']),data
     colors={'light':{'#6887a0','#c5223b'},'dark':{'#91bad0','#ff596b'}}[data['theme']]
