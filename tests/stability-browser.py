@@ -22,7 +22,7 @@ with sync_playwright() as pw:
   page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append({'url':r.url,'method':r.method}))
   page.goto((base or a.base_url).rstrip('/')+'/'+entry+'?lang=en');
   if entry in ['index.html','ipad-test.html']:page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'")
-  else:page.wait_for_function("document.title.includes('V1.6.17')")
+  else:page.wait_for_function("document.title.includes('V1.7.0')")
   return context,page
  def stopped(page):
   page.wait_for_function("document.body.dataset.state==='stopped'")
@@ -78,7 +78,7 @@ with sync_playwright() as pw:
  page.wait_for_function("audit.contexts.length===1 && audit.contexts[0].state==='closed'")
  cases.append({'case':'abort-pending-annotation-open','resources':page.evaluate('resources()')});context.close()
  # Output-only playback uses the real browser audio clock; headless output is not an audibility check.
- context,page=open_page('ipad-test.html');page.locator('#settings-toggle').click();page.locator('#alert-preview-button').click()
+ context,page=open_page('ipad-test.html');page.locator('#alert-preview-button').click()
  page.wait_for_function('!document.getElementById("alert-preview-button").disabled',timeout=5000)
  r=page.evaluate('resources()');osc=page.evaluate('audit.oscillators');assert len(osc)==2 and not r['workers'] and not r['tracks'];assert all(s=='closed' for s in r['contexts'])
  assert abs(osc[1]['start'][0]-osc[0]['start'][0]-.195)<1e-8
@@ -86,12 +86,17 @@ with sync_playwright() as pw:
  cases.append({'case':'real-audio-clock-preview','resources':r,'oscillators':osc});context.close()
  # Actual browser events, keyboard focus and accessibility metadata.
  for entry in ['index.html','ipad-test.html']:
-  context,page=open_page(entry);page.locator('#settings-toggle').click();page.locator('#language-select').focus();page.keyboard.press('Escape')
-  assert not page.locator('#settings-panel').evaluate('(e)=>e.open');assert page.locator('#settings-toggle').evaluate('(e)=>e===document.activeElement')
+  context,page=open_page(entry)
+  if entry=='index.html':
+   page.locator('#settings-toggle').click();page.locator('#language-select').focus();page.keyboard.press('Escape')
+   assert not page.locator('#settings-panel').evaluate('(e)=>e.open');assert page.locator('#settings-toggle').evaluate('(e)=>e===document.activeElement')
+  else:assert page.locator('#settings-panel').count()==0
   for lang in ['ja','en','zh-CN']:
-   page.locator('#settings-toggle').click();page.locator('#language-select').select_option(lang);page.keyboard.press('Escape')
+   if entry=='index.html':page.locator('#settings-toggle').click()
+   page.locator('#language-select').select_option(lang);page.keyboard.press('Escape')
    assert page.locator('#mic-source-evidence').inner_text();assert page.locator('#mic-source-value').get_attribute('aria-describedby')=='mic-source-evidence'
-   for i in range(6):assert page.locator(f'#threshold-input-{i}').bounding_box()['height']>=44
+   if entry=='ipad-test.html':
+    for i in range(11):assert page.locator(f'#threshold-input-{i}').bounding_box()['height']>=44
   page.screenshot(path=str(out/(entry+'-zh.png')),full_page=True)
   cases.append({'case':'keyboard-language-slider-targets','page':entry});context.close()
  assert not errors,errors

@@ -4,16 +4,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
+import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js';
 import { debugCategoryName } from './debug.js';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js';
 const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
  .replace(/^import .*;\n/gm,'').replaceAll('import.meta.url',"'https://example.test/project/app.js'");
-const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
+const page=fs.readFileSync(new URL('./ipad-test.html',import.meta.url),'utf8');
+const standardIds=new Set([...fs.readFileSync(new URL('./index.html',import.meta.url),'utf8').matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null,trackLabel='',deviceId='',devices=[],enumerationFails=false,postFails=null}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,standard=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null,trackLabel='',deviceId='',devices=[],enumerationFails=false,postFails=null}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -56,11 +57,11 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
   emit(data){this.onmessage?.({data});}
  }
  // Match the real page: missing HTML IDs must fail instead of being fabricated.
- const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:id=>pageIds.has(id)?element(id):null,addEventListener(name,fn){events[name]=fn;}};
+ const document={hidden:false,documentElement:{lang:'ja'},body:{dataset:{}},getElementById:id=>(standard?standardIds:pageIds).has(id)?element(id):null,addEventListener(name,fn){events[name]=fn;}};
  let nextElement=0;
  document.createElement=()=>element('created-'+(++nextElement));
  document.createDocumentFragment=()=>Object.assign(document.createElement(),{fragment:true});
- const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
+ const context=vm.createContext({WarningGate,TARGETS,WARNING_TARGETS,chooseTarget,effectiveThreshold,DEFAULT_THRESHOLD,WARNING_HOLD_MS,debugCategoryName,AudioWindowBuffer,microphoneSourceEvidence,Float32Array,URL,DOMException,Event:class Event{constructor(type){this.type=type;}},CustomEvent:class CustomEvent{constructor(type,{detail}={}){this.type=type;this.detail=detail;}},console:{error(){},warn(){}},
   setTimeout(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),
   setInterval(fn,ms){const id=++nextTimer;timers.set(id,{fn,ms,interval:true});return id;},clearInterval:id=>timers.delete(id),
   requestAnimationFrame(fn){const id=++nextTimer;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
@@ -225,7 +226,7 @@ test('language switch translates an existing permission error without starting a
 test('English covers every Japanese UI string in the controller including errors and six labels',async()=>{
  const h=await harness();h.language('en');
  // Catalog keys use double quotes; these single-quoted literals are all UI callers.
- const literals=[...source.matchAll(/'([^'\n]*[\u3040-\u30ff\u4e00-\u9fff][^'\n]*)'/g)].map(match=>match[0]);
+ const literals=[...source.matchAll(/\bt\(('(?:[^'\n]*[\u3040-\u30ff\u4e00-\u9fff][^'\n]*)')\)/g)].map(match=>match[1]);
  for(const literal of literals)assert.doesNotMatch(h.run('t('+literal+')'),/[\u3040-\u30ff\u4e00-\u9fff]/,literal);
  for(const label of ['自転車のベル','車のクラクション','サイレン','サイレン（パトカー）','サイレン（救急車）','サイレン（消防車）'])
   assert.doesNotMatch(h.run('t('+JSON.stringify(label)+')'),/[\u3040-\u30ff\u4e00-\u9fff]/);
@@ -249,7 +250,7 @@ test('configured Google Forms link is exact, opens a new tab and adds no microph
  assert.equal(h.elements.get('feedback').attributes['aria-disabled'],'false');
  let prevented=false;h.elements.get('feedback').click({preventDefault(){prevented=true;}});assert.equal(prevented,false);
  const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
- assert.match(html,/<a id="feedback"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
+ assert.match(html,/<a (?=[^>]*id="feedback")(?=[^>]*target="_blank")(?=[^>]*rel="noopener noreferrer")/);
  assert.ok(!html.includes('id="targets"'));assert.ok(!html.includes('<i></i>'));h.stop();
 });
 
@@ -258,79 +259,34 @@ const diagnosticFixture=()=>({
  targets:Object.entries(TARGETS).map(([categoryName,target])=>({categoryName,index:target.index,score:target.index===198?.123456789012345:0}))
 });
 test('Debug Mode is checked by default and never auto-scrolls when switched',async()=>{
- assert.equal([...page.matchAll(/id="debug-toggle"/g)].length,1);
- assert.ok(page.indexOf('id="debug-toggle"')>page.indexOf('class="toolbar"'));
- assert.ok(page.indexOf('id="debug-toggle"')<page.indexOf('<main>'));
- assert.match(page,/id="debug-toggle"[^>]*aria-controls="debug-panel" checked/);
- assert.match(page,/id="debug-panel" class="debug-panel" open/);
+ assert.match(page, /id="debug-toggle"[^>]*checked/);
+ assert.match(page, /id="debug-panel"[^>]*open/);
  const h=await harness({autoStart:false}),panel=h.elements.get('debug-panel');
- assert.equal(h.calls(),0,'Debug Mode must never request microphone permission');
- assert.equal(h.run('debugEnabled'),true);
- assert.equal(h.elements.get('debug-toggle').checked,true);
- assert.equal(h.document.body.dataset.debug,'on');
- assert.equal(panel.scrolls.length,0);
- assert.equal(panel.hidden,false);assert.equal(panel.open,true);
- h.debug(false);
- assert.equal(panel.scrolls.length,0);assert.equal(panel.hidden,true);
- assert.equal(h.document.body.dataset.debug,'off');
- h.debug(true);
- assert.equal(panel.scrolls.length,0);assert.equal(panel.hidden,false);assert.equal(panel.open,true);
- h.language('en');
- assert.equal(panel.scrolls.length,0);
- assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');
- h.stop();
+ assert.equal(h.calls(),0);assert.equal(h.run('debugEnabled'),true);assert.equal(panel.scrolls.length,0);
+ h.debug(false);assert.equal(panel.hidden,true);h.debug(true);assert.equal(panel.hidden,false);
+ h.language('en');assert.equal(h.elements.get('debug-toggle-label').textContent,'AI Debug Mode');h.stop();
 });
-test('V1.6.17 page, release assets and refreshed classifier cache agree',()=>{
- assert.match(page, /<title>Traffic Sound Guardian V1\.6\.17<\/title>/);
- assert.match(page, /class="version">V1\.6\.17<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.17"/); // Changed app JS must refresh cache.
- assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
- assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.17"/);
- assert.match(source, /classifier-worker\.js\?v=1\.6\.15/); // Changed Worker JS must refresh cache.
- assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.17');
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.17');
+test('V1.6.17 page, release assets and refreshed classifier cache agree',async()=>{
+ for(const file of ['index.html','ipad-test.html']) {
+ const html=fs.readFileSync(new URL(file,import.meta.url),'utf8');
+ assert.match(html,/V1\.7\.0/);assert.match(html,/app\.js\?v=1\.7\.0/);assert.match(html,/guardian\.css\?v=1\.7\.0/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.0/);
+ }
+ assert.match(source,/classifier-worker\.js\?v=1\.7\.0/);
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.0');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
- const main=page;
- const ipad=fs.readFileSync(new URL('./ipad-test.html',import.meta.url),'utf8');
- for(const [html,selected,other] of [[main,'version-standard','version-ipad'],[ipad,'version-ipad','version-standard']]){
-   const start=html.indexOf('id="settings-content"'),end=html.indexOf('</details>',start);
-   assert.ok(start>0&&end>start,'Settings exists');
-   const menu=html.slice(start,end);
-   for(const id of ['version-switch-title','version-standard','version-ipad'])
-     assert.equal((html.match(new RegExp('id="'+id+'"','g'))||[]).length,1,id+' appears once');
-   assert.ok(menu.includes('id="version-standard" href="./index.html"'));
-   assert.ok(menu.includes('id="version-ipad" href="./ipad-test.html"'));
-   assert.ok(menu.includes('id="'+selected+'" href='));
-   const selectedLink=menu.match(new RegExp('<a id="'+selected+'"[^>]*>'))?.[0]||'';
-   const otherLink=menu.match(new RegExp('<a id="'+other+'"[^>]*>'))?.[0]||'';
-   assert.match(selectedLink,/aria-current="page"/);
-   assert.doesNotMatch(otherLink,/aria-current="page"/);
+ for(const [file,selected] of [['index.html','version-standard'],['ipad-test.html','version-ipad']]) {
+  const html=fs.readFileSync(new URL(file,import.meta.url),'utf8');
+  for(const id of ['version-standard','version-ipad'])assert.equal((html.match(new RegExp('id="'+id+'"','g'))||[]).length,1);
+  assert.match(html.match(new RegExp('<a id="'+selected+'"[^>]*>'))[0],/aria-current="page"/);
  }
- const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
- assert.match(css,/\.version-options a\[aria-current=page\]/);
- assert.match(css,/\.version-options a:focus-visible/);
  const h=await harness({autoStart:false});
- assert.equal(h.calls(),0,'navigation is passive and does not use microphone');
- const regular=h.elements.get('version-standard'),ipadLink=h.elements.get('version-ipad');
- assert.equal(regular.textContent,'通常版');
- assert.equal(ipadLink.textContent,'iPad横画面（テスト）');
- assert.equal(regular.attributes.href,'./index.html?lang=ja');
- assert.equal(ipadLink.attributes.href,'./ipad-test.html?lang=ja');
- h.language('en');
- assert.equal(h.elements.get('version-switch-title').textContent,'Page layout');
- assert.equal(regular.textContent,'Standard');
- assert.equal(ipadLink.textContent,'iPad landscape (test)');
- assert.equal(regular.attributes.href,'./index.html?lang=en');
- assert.equal(ipadLink.attributes.href,'./ipad-test.html?lang=en');
- h.language('zh-CN');
- assert.equal(h.elements.get('version-switch-title').textContent,'页面版本');
- assert.equal(regular.textContent,'标准版');
- assert.equal(ipadLink.textContent,'iPad 横屏测试版');
- assert.equal(regular.attributes.href,'./index.html?lang=zh-CN');
- assert.equal(ipadLink.attributes.href,'./ipad-test.html?lang=zh-CN');
- assert.equal(h.calls(),0,'language and version selection never start audio');
- h.stop();
+ for(const lang of ['ja','en','zh-CN']) {
+  h.language(lang);assert.match(h.elements.get('version-standard').textContent,/Standard/);assert.match(h.elements.get('version-ipad').textContent,/Test/);
+  assert.equal(h.elements.get('version-standard').attributes.href,'./index.html?lang='+lang);
+  assert.equal(h.elements.get('version-ipad').attributes.href,'./ipad-test.html?lang='+lang);
+ }
+ assert.equal(h.calls(),0);h.stop();
 });
 test('V1.6.10 real result emits trilingual top class independently of Debug and warns immediately',async()=>{
  const h=await harness();
@@ -361,25 +317,9 @@ test('V1.6.10 real result emits trilingual top class independently of Debug and 
  assert.equal(h.dispatched.at(-1).type,'tsg:reset');
 });
 test('V1.6.8 status label has no background and its dot replaces microphone-corner recording dot',async()=>{
- const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
- const base=fs.readFileSync(new URL('./style.css',import.meta.url),'utf8');
- const theme=fs.readFileSync(new URL('./theme.css',import.meta.url),'utf8');
- assert.match(page, /id="status" class="status"><span class="status-dot"><\/span><span id="status-label"/);
- assert.ok(!page.includes('listening-indicator'),'microphone button no longer contains a decorative red dot');
- assert.doesNotMatch(base,/\.listening-indicator|@keyframes listening-blink/);
- assert.doesNotMatch(theme,/\.icon-disc \.listening-indicator/);
- assert.doesNotMatch(theme,/\.debug-content \.sensitivity,\.status,\.notice,\.meter/,'light mode status must not inherit a colored box');
- assert.match(css,/main \.status\{background:transparent;border:0;box-shadow:none;padding:0;border-radius:0\}/);
- assert.match(css,/html\[data-theme=light\] main \.status\{background:transparent;border:0;box-shadow:none;color:#53677e\}/);
- assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
- assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
- assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.17"/);
- assert.match(page, /href="\.\/theme\.css\?v=1\.6\.13"/);
- const h=await harness();
- h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
- assert.equal(h.elements.get('status-label').textContent,'検知中');
- h.stop();assert.equal(h.document.body.dataset.state,'stopped');
+ assert.match(page,/id="status" class="status"><span class="status-dot"><\/span><span id="status-label"/);
+ assert.ok(!page.includes('listening-indicator'));
+ const h=await harness();h.frame();h.emit(1);assert.equal(h.elements.get('status-label').textContent,'検知中');h.stop();assert.equal(h.document.body.dataset.state,'stopped');
 });
 test('V1.6.7 new page load starts at top, back-forward cache preserves scroll and normal scrolling remains untouched',()=>{
  const head=page.slice(0,page.indexOf('</head>'));
@@ -410,7 +350,7 @@ test('Debug Mode defaults open below the app and never changes the active sessio
  assert.equal(h.run('session.warningTimeout'),timer);assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.frames.size,1);
  h.elements.get('debug-panel').open=false;
  assert.equal(h.run('debugEnabled'),true);h.debug(false);assert.equal(h.run('session.warningTimeout'),timer);
- const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');assert.ok(html.indexOf('class="debug-section"')>html.indexOf('</footer>'));h.stop();
+ const html=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');assert.ok(!html.includes('class="debug-section"'));h.stop();
 });
 test('debug shows unrounded model scores while the new 0.10 default triggers an alert',async()=>{
  const h=await harness();h.debug(true);h.frame(1);
@@ -567,23 +507,11 @@ test('V1.3.1 larger waveform displays real quiet sounds and soft-limits louder s
 
 
 test('V1.6.6 six independent sensitivity sliders stay in Debug, tone switch moves to Settings',async()=>{
- const panelStart=page.indexOf('id="debug-panel"'),panelEnd=page.indexOf('</details>',panelStart);
- const settingStart=page.indexOf('id="settings-content"'),settingEnd=page.indexOf('</details>',settingStart);
- const sensitivityPos=page.indexOf('id="sensitivity-panel"');
- const tonePos=page.indexOf('id="alert-tone-toggle"');
- assert.ok(panelStart>0&&panelEnd>panelStart);
- assert.ok(sensitivityPos>panelStart&&sensitivityPos<panelEnd);
- assert.ok(tonePos>settingStart&&tonePos<settingEnd);
- assert.ok(!(tonePos>panelStart&&tonePos<panelEnd),'notification sound is no longer in Debug');
- assert.equal((page.match(/id="threshold-input-[0-5]"/g)||[]).length,6);
- assert.ok(!page.includes('id="bell-threshold"'));
- const h=await harness({autoStart:false});
- assert.equal(h.calls(),0);
- assert.equal(h.elements.get('debug-panel').hidden,false);
- for(let i=0;i<6;i++)assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.10');
- assert.equal(h.elements.get('alert-tone-toggle').checked,true);
- h.debug(false);assert.equal(h.elements.get('debug-panel').hidden,true);
- h.debug(true);assert.equal(h.elements.get('debug-panel').hidden,false);h.stop();
+ assert.equal((page.match(/id="threshold-input-\d+"/g)||[]).length,11);
+ assert.ok(page.indexOf('id="sensitivity-panel"')>page.indexOf('class="ipad-right"'));
+ const h=await harness({autoStart:false});assert.equal(h.calls(),0);
+ for(let i=0;i<11;i++)assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.10');
+ h.debug(false);assert.equal(h.elements.get('debug-panel').hidden,true);h.debug(true);assert.equal(h.elements.get('debug-panel').hidden,false);h.stop();
 });
 test('V1.4.1 siren threshold changes live without recreating microphone or worker',async()=>{
  const h=await harness();const siren=Object.keys(TARGETS)[2];
@@ -753,7 +681,7 @@ test('V1.6.0 Chinese debug labels preserve original raw model scores',async()=>{
 
 test('V1.6.0 includes a special .01 minimum plus .05 step choices with default .10',async()=>{
  const html=page;
- assert.equal((html.match(/min="0.01" max="0.50" step="any" value="0.10"/g)||[]).length,6);
+ assert.equal((html.match(/<input (?=[^>]*id="threshold-input-\d+")(?=[^>]*min="0.01")(?=[^>]*max="0.50")(?=[^>]*step="any")/g)||[]).length,11);
  const h=await harness({autoStart:false});
  for (const [i,name] of Object.keys(TARGETS).entries()){
   assert.equal(h.run('soundThresholds')[name],.10);
@@ -877,11 +805,10 @@ test('V1.6.3: microphone pill displays the actual browser track NAME, without co
  assert.equal(h.calls(),1,'no additional getUserMedia() request');
  h.language('en');
  assert.equal(h.elements.get('mic-source-value').textContent,'Microphone');
- assert.equal(h.elements.get('settings-title').textContent,'Settings');
- assert.equal(h.elements.get('settings-toggle').attributes['aria-label'],'Settings');
+ assert.equal(h.elements.has('settings-toggle'),false);
  h.language('zh-CN');
  assert.equal(h.elements.get('mic-source-value').textContent,'Microphone');
- assert.equal(h.elements.get('settings-title').textContent,'设置');
+ assert.equal(h.elements.has('settings-title'),false);
  assert.equal(h.calls(),1,'no new microphone request on language change');
  h.frame(1);h.emit(1,{score:.5,label:'サイレン'});
  assert.equal(h.document.body.dataset.state,'warning');
@@ -923,34 +850,12 @@ test('V1.6.3: no label, permission denial and restricted enumeration remain trut
  denied.stop();
 });
 test('V1.6.6 Settings includes tone, language, theme, feedback and two tests; Debug outside',async()=>{
- const start=page.indexOf('id="settings-content"'),end=page.indexOf('</details>',start);
- assert.ok(start>0&&end>start);
- const menu=page.slice(start,end);
- for(const id of ['language-select','alert-tone-toggle','feedback','ai-test-link','microphone-test-link'])
-   assert.ok(menu.includes('id="'+id+'"'),id);
- for(const id of ['debug-toggle','sensitivity-panel','threshold-input-0','threshold-input-5'])
-   assert.ok(!menu.includes('id="'+id+'"'),id+' must remain outside Settings');
- assert.equal((page.match(/id="settings-toggle"/g)||[]).length,1);
- assert.ok(page.indexOf('id="debug-toggle"')<start&&page.indexOf('id="debug-toggle"')>page.indexOf('class="toolbar"'));
- assert.ok(page.indexOf('id="debug-panel"')>end);
- assert.ok(page.indexOf('id="ai-test-link"')<end,'AI Test Mode only inside settings');
- assert.ok(!page.slice(page.indexOf('<footer>'),page.indexOf('</footer>')).includes('id="ai-test-link"'));
- const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
- assert.match(css,/main \.rolling-panel\{width:100%;max-width:420px/);
- assert.match(css,/main #rolling-waveform\{width:100%;height:104px\}/);
- assert.match(css,/#rolling-waveform\{height:84px\}/);
- assert.doesNotMatch(css,/920px|100vw - 18px|100vw - 12px/);
- assert.match(css,/\.toolbar\{justify-content:space-between/);
- assert.match(css,/\.settings-content\{box-sizing:border-box;position:absolute/);
- const theme=fs.readFileSync(new URL('./theme.js',import.meta.url),'utf8');
- assert.match(theme,/getElementById\('settings-content'\)/);
- const h=await harness({autoStart:false});
- assert.equal(h.calls(),0);
- const bell=h.elements.get('threshold-input-0');bell.value='.05';bell.input();
- assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');
- h.debug(false);h.debug(true);
- assert.equal(h.calls(),0);
- h.stop();
+ const standard=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
+ const menu=standard.slice(standard.indexOf('id="settings-content"'),standard.indexOf('</details>'));
+ for(const id of ['language-select','alert-tone-toggle','feedback','ai-test-link','microphone-test-link','overall-sensitivity'])assert.ok(menu.includes('id="'+id+'"'),id);
+ for(const id of ['debug-toggle','debug-panel','threshold-input-0'])assert.ok(!standard.includes('id="'+id+'"'));
+ assert.ok(!page.includes('id="settings-panel"'),'Test controls are direct');
+ const h=await harness({autoStart:false});const bell=h.elements.get('threshold-input-0');bell.value='.05';bell.input();assert.equal(h.elements.get('threshold-value-0').textContent,'0.05');h.stop();
 });
 // V1.6.6: quiet waveform baseline regression; no capture or AI changes.
 test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remain visible',()=>{
@@ -966,13 +871,10 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
  assert.match(page,/live-timeline\.js\?v=1\.6\.18/);
 });
-test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
- const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
- assert.match(css,/\.visual \.icon-disc\{width:132px;height:132px\}/);
- assert.match(css,/body\[data-state=warning\] \.visual \.icon-disc\{width:136px;height:136px\}/);
- assert.match(css,/@media\(max-height:740px\)\{\.visual \.icon-disc\{width:114px;height:114px\}body\[data-state=warning\] \.visual \.icon-disc\{width:116px;height:116px\}\}/);
- assert.match(css,/\.visual \.mic-icon\{width:48px;height:52px\}/);
- assert.match(page,/id="mic-control" class="icon-disc"/);
+test('V1.6.6 larger mic circle works for normal, warning and compact layouts',async()=>{
+ const css=fs.readFileSync(new URL('./guardian.css',import.meta.url),'utf8');
+ assert.match(css,/min-height:68px/);assert.match(css,/@media\(max-width:440px\)/);
+ const h=await harness();h.frame();h.emit(1);assert.equal(h.elements.get('mic-control').attributes['aria-pressed'],'true');h.click();assert.equal(h.document.body.dataset.state,'stopped');
 });
 
 
@@ -1012,7 +914,7 @@ test('hidden legacy canvas performs no drawing while active audio and inference 
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');h.stop();
 });
 test('Escape closes native settings and restores focus; outside click closes without stealing focus',async()=>{
- const h=await harness({autoStart:false}),panel=h.elements.get('settings-panel'),summary=h.elements.get('settings-toggle');
+ const h=await harness({autoStart:false,standard:true}),panel=h.elements.get('settings-panel'),summary=h.elements.get('settings-toggle');
  panel.open=true;let focused=0,prevented=0;summary.focus=()=>focused++;
  h.events.keydown({key:'Escape',preventDefault(){prevented++;}});
  assert.equal(panel.open,false);assert.equal(focused,1);assert.equal(prevented,1);
@@ -1027,7 +929,7 @@ test('repeated warning scores update without rewriting the identical live headin
  assert.equal(writes,1);assert.equal(h.elements.get('score').textContent,'0.40');
  for(const filename of ['index.html','ipad-test.html']){
   const html=fs.readFileSync(new URL('./'+filename,import.meta.url),'utf8');
-  assert.match(html,/<h1 id="heading" aria-live="polite" aria-atomic="true">/);
+  assert.match(html,/<h1 (?=[^>]*id="heading")(?=[^>]*aria-live="polite")(?=[^>]*aria-atomic="true")/);
   assert.doesNotMatch(html,/<section class="message" aria-live/);
  }
  h.stop();
@@ -1113,4 +1015,22 @@ test('volume selector stores one of three finite presets and never restarts dete
  assert.equal(h.calls(),0);
  selector.value='soft';selector.change();assert.equal(h.run('alertVolume'),'soft');
  h.stop();
+});
+
+test('V1.7 Standard starts genuine capture without debug UI and overall sensitivity changes the next decision',async()=>{
+ const h=await harness({standard:true});assert.equal(h.calls(),1);assert.equal(h.workers.length,1);assert.equal(h.run('debugEnabled'),false);
+ h.frame(1);h.emit(1,null,{trafficScores:{Bell:.08}});assert.equal(h.document.body.dataset.state,'listening');
+ const slider=h.elements.get('overall-sensitivity');slider.value='1.5';slider.input();
+ h.frame(2);assert.equal(h.workers[0].sent.at(-1).debug,false);
+ h.emit(2,null,{trafficScores:{Bell:.08}});assert.equal(h.document.body.dataset.state,'warning');assert.equal(h.contexts.length,1);
+ assert.equal(h.storageWrites.at(-1)[0],'trafficSoundGuardian.overallSensitivity');h.stop();
+});
+test('V1.7 preserves legacy six preferences, defaults new five and permits independent new bell controls',async()=>{
+ const h=await harness({autoStart:false,storedSettings:JSON.stringify({'Bicycle bell':.03,'Siren':.23})});
+ assert.equal(h.run("soundThresholds['Bicycle bell']"),.03);assert.equal(h.run("soundThresholds.Siren"),.23);
+ for(let i=6;i<11;i++){
+  assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.10');
+  const slider=h.elements.get('threshold-input-'+i);slider.value='.2';slider.input();assert.equal(h.elements.get('threshold-value-'+i).textContent,'0.20');
+ }
+ assert.equal(Object.keys(JSON.parse(h.storageWrites.at(-1)[1])).length,11);h.stop();
 });

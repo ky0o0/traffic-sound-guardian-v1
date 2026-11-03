@@ -1,4 +1,4 @@
-import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.6.15';
+import { WarningGate, TARGETS, WARNING_TARGETS, chooseTarget, effectiveThreshold, DEFAULT_THRESHOLD, WARNING_HOLD_MS } from './detection.js?v=1.7.0';
 import { AudioWindowBuffer } from './audio-window.js';
 import { microphoneSourceEvidence } from './mic-source.js?v=1.6.2';
 import { debugCategoryName } from './debug.js?v=1.6.15';
@@ -10,6 +10,7 @@ const FEEDBACK_FORM_URLS = Object.freeze({
   en: 'https://forms.gle/AkXuRHWwi9Kp95GfA'
 });
 const EN = Object.freeze({
+  "スコアは正答率や確率ではありません。研究ログはメモリ内にのみ保持します。": "Raw YAMNet Score is not accuracy or probability. Research logs stay in memory only.",
   "設定": "Settings",
   "鐘・ベル": "Bell",
   "チャイム": "Chime",
@@ -75,7 +76,7 @@ const EN = Object.freeze({
   "最初の音声をAIで解析しています。": "AI is analysing the first audio window.",
   "周囲の音を検知中...": "Listening to your surroundings...",
   "検知中": "Listening",
-  "交通警告音を検知すると、\n画面が赤く変わります。": "The screen turns red when a\ntraffic warning sound is detected.",
+  "交通警告音を検知すると、\n警告を表示します。": "A warning appears when a\ntraffic warning sound is detected.",
   "警告音を検知しました": "Warning sound detected",
   "周囲を確認してください": "Check your surroundings",
   "検知を開始": "Start detection",
@@ -143,6 +144,7 @@ const EN = Object.freeze({
   "音量を変更すると次の通知から反映されます。": "The new level applies to the next alert."
 });
 const ZH = Object.freeze({
+  "スコアは正答率や確率ではありません。研究ログはメモリ内にのみ保持します。": "YAMNet 原始分数不是准确率或概率。研究日志仅保留在内存中。",
   "設定": "设置",
   "鐘・ベル": "钟／铃声",
   "チャイム": "提示铃声",
@@ -208,7 +210,7 @@ const ZH = Object.freeze({
   "最初の音声をAIで解析しています。": "AI 正在分析第一段音频。",
   "周囲の音を検知中...": "正在检测周围的声音...",
   "検知中": "检测中",
-  "交通警告音を検知すると、\n画面が赤く変わります。": "检测到交通警告音时，\n屏幕会变成红色。",
+  "交通警告音を検知すると、\n警告を表示します。": "检测到交通警告音时，\n将显示警告。",
   "警告音を検知しました": "检测到警告音",
   "周囲を確認してください": "请注意周围环境",
   "検知を開始": "开始检测",
@@ -351,6 +353,13 @@ function renderMicChoices() {
   if (microphoneListReady && preferredMicId && !seen.has(preferredMicId)) preferredMicId = '';
   select.replaceChildren(list);
   select.value = preferredMicId;
+  const selectedName = knownMicrophoneInputs.find(item => item.deviceId === preferredMicId)?.label ?? '';
+  const fullName = $('mic-selection-name');
+  if (fullName) {
+    fullName.textContent = selectedName;
+    fullName.hidden = !selectedName;
+  }
+  select.setAttribute('title', selectedName || t('ブラウザ標準'));
   const activeTrack = session?.stream?.getAudioTracks()[0];
   const reportedId = activeTrack?.getSettings?.()?.deviceId ?? '';
   const selected = !!preferredMicId;
@@ -424,18 +433,18 @@ function setAlertToneEnabled(next) {
   try { window.localStorage?.setItem(ALERT_TONE_STORAGE_KEY, String(alertToneEnabled)); } catch {}
 }
 
-const thresholdRows = Object.entries(TARGETS).map(([name, info], i) => ({
+const thresholdRows = Object.entries(WARNING_TARGETS).map(([name, info], i) => ({
   name, info, label: $('threshold-label-' + i),
   input: $('threshold-input-' + i), output: $('threshold-value-' + i)
-}));
+})).filter(row => row.input && row.label && row.output);
 function loadThresholds() {
-  const initial = Object.fromEntries(Object.keys(TARGETS).map(name => [name, DEFAULT_THRESHOLD]));
+  const initial = Object.fromEntries(Object.keys(WARNING_TARGETS).map(name => [name, DEFAULT_THRESHOLD]));
   try {
     const raw = window.localStorage?.getItem(THRESHOLD_STORAGE_KEY);
     if (raw) {
       const saved = JSON.parse(raw);
       if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
-        for (const name of Object.keys(TARGETS)) {
+        for (const name of Object.keys(WARNING_TARGETS)) {
           const value = saved[name];
           if (typeof value === 'number' && Number.isFinite(value) &&
               value >= 0.01 && value <= 0.50) initial[name] = Math.round(value * 100) / 100;
@@ -455,6 +464,32 @@ function loadThresholds() {
   return initial;
 }
 let soundThresholds = loadThresholds();
+const OVERALL_STORAGE_KEY = 'trafficSoundGuardian.overallSensitivity';
+function loadOverallSensitivity() {
+  try {
+    const value = Number(window.localStorage?.getItem(OVERALL_STORAGE_KEY));
+    return Number.isFinite(value) && value >= 0.5 && value <= 1.5 ? value : 1;
+  } catch { return 1; }
+}
+let overallSensitivity = loadOverallSensitivity();
+function renderOverallSensitivity() {
+  const input = $('overall-sensitivity');
+  if (input) {
+    input.value = String(overallSensitivity);
+    input.setAttribute('aria-valuetext', overallSensitivity.toFixed(2) + '×');
+    $('overall-value').textContent = overallSensitivity.toFixed(2) + '×';
+    $('overall-label').textContent = {ja:"全体の感度", en:'Overall Sensitivity', 'zh-CN':"总体灵敏度"}[language];
+  }
+}
+function setOverallSensitivity(value) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 0.5 || parsed > 1.5) return;
+  overallSensitivity = parsed;
+  try { window.localStorage?.setItem(OVERALL_STORAGE_KEY, String(parsed)); } catch {}
+  renderThresholds();
+  renderDebug();
+}
+
 // A separate 0.01 minimum followed by 0.05-spaced choices. Using native
 // range step=0.05 with min=0.01 would incorrectly yield 0.01, 0.06, 0.11...
 const THRESHOLD_STOPS = Object.freeze([0.01, ...Array.from({length: 10}, (_, i) => (i + 1) / 20)]);
@@ -463,6 +498,7 @@ function nearestThreshold(value) {
     Math.abs(step - value) < Math.abs(best - value) ? step : best, THRESHOLD_STOPS[0]);
 }
 function renderThresholds() {
+  renderOverallSensitivity();
   for (const row of thresholdRows) {
     const value = soundThresholds[row.name].toFixed(2);
     row.label.textContent = t(row.info.label);
@@ -474,6 +510,10 @@ function renderThresholds() {
     row.input.value = value;
     row.input.setAttribute('aria-valuetext', value);
     row.output.textContent = value;
+    const effective = $('threshold-effective-' + Object.keys(WARNING_TARGETS).indexOf(row.name));
+    if (effective) effective.textContent = '→ ' + effectiveThreshold(soundThresholds[row.name], overallSensitivity).toFixed(3);
+    const reset = $('threshold-default-' + Object.keys(WARNING_TARGETS).indexOf(row.name));
+    if (reset) reset.setAttribute('aria-label', ({ja:"初期値に戻す: ", en:'Reset: ', 'zh-CN':"恢复默认："}[language]) + t(row.info.label));
   }
 }
 function saveThresholds() {
@@ -481,16 +521,19 @@ function saveThresholds() {
 }
 function changeThreshold(name, inputValue) {
   const parsed = Number(inputValue);
-  if (!Object.prototype.hasOwnProperty.call(TARGETS, name) || !Number.isFinite(parsed)) return;
+  if (!Object.prototype.hasOwnProperty.call(WARNING_TARGETS, name) || !Number.isFinite(parsed)) return;
   const next = nearestThreshold(parsed);
   soundThresholds[name] = next;
   renderThresholds();
   saveThresholds();
+  renderDebug();
 }
 function resetThresholds() {
-  for (const name of Object.keys(TARGETS)) soundThresholds[name] = DEFAULT_THRESHOLD;
+  setOverallSensitivity(1);
+  for (const name of Object.keys(WARNING_TARGETS)) soundThresholds[name] = DEFAULT_THRESHOLD;
   renderThresholds();
   saveThresholds();
+  renderDebug();
 }
 
 let debugEnabled = false;
@@ -515,13 +558,19 @@ function renderDebugRows(container, rows) {
     const score = document.createElement('td');
     score.className = 'debug-score';
     // No percent conversion, normalization, rounding or invented zero.
-    score.textContent = Number.isFinite(category.score) ? String(category.score) : '—';
+    score.textContent = Number.isFinite(category.score) ? String(category.score) : 'N/A';
     row.append(label, score);
+    if (container === ui['debug-target']) {
+      const threshold = document.createElement('td');
+      threshold.textContent = effectiveThreshold(soundThresholds[category.categoryName], overallSensitivity).toFixed(3);
+      row.append(threshold);
+    }
     fragment.append(row);
   }
   container.replaceChildren(fragment);
 }
 function renderDebug() {
+  if (!ui['debug-panel']) return;
   for (const [id, text] of Object.entries({
     'debug-toggle-label': 'AIデバッグモード', 'debug-summary': '識別の詳細を表示',
     'debug-model-label': 'AIモデル', 'debug-mic-label': 'マイク入力', 'debug-inference-label': '直近の推論',
@@ -529,16 +578,16 @@ function renderDebug() {
     'debug-top-heading': '上位5種類の音', 'debug-target-heading': '警告対象の音（11種類）',
     'debug-top-name': '音の種類', 'debug-target-name': '音の種類',
     'debug-top-score': '生の識別スコア', 'debug-target-score': '生の識別スコア',
-    'debug-note': '最新の結果のみを表示します。録音や履歴は保存しません。スコアは正答率ではありません。',
+    'debug-note': 'スコアは正答率や確率ではありません。研究ログはメモリ内にのみ保持します。',
     'debug-timing-note': '推論時間はモデルの実行時間です。音声収集・再サンプリング・待ち時間は含みません。'
-  })) ui[id].textContent = t(text);
+  })) { if (ui[id]) ui[id].textContent = t(text); }
   ui['debug-panel'].hidden = !debugEnabled;
   if (!debugEnabled) return;
   ui['debug-model'].textContent = t(diagnostics.model);
   ui['debug-mic'].textContent = t(diagnostics.microphone);
   ui['debug-inference'].textContent = t(diagnostics.inference);
-  ui['debug-time'].textContent = Number.isFinite(diagnostics.inferenceMs) ? diagnostics.inferenceMs.toFixed(2) + ' ms' : '—';
-  ui['debug-updated'].textContent = diagnostics.updatedAt == null ? '—' :
+  ui['debug-time'].textContent = Number.isFinite(diagnostics.inferenceMs) ? diagnostics.inferenceMs.toFixed(2) + ' ms' : 'N/A';
+  ui['debug-updated'].textContent = diagnostics.updatedAt == null ? 'N/A' :
     new Date(diagnostics.updatedAt).toLocaleTimeString(language === 'ja' ? 'ja-JP' : 'en-GB', { hour12: false });
   ui['debug-empty'].hidden = !!diagnostics.scores;
   ui['debug-empty'].textContent = t(session ? '詳細結果を待っています。' : '結果はまだありません。');
@@ -547,7 +596,8 @@ function renderDebug() {
     Object.entries(WARNING_TARGETS).map(([categoryName, info]) => ({ categoryName, index: info.index, score: null })));
 }
 function setDebug(enabled) {
-  debugEnabled = !!enabled;
+  debugEnabled = !!enabled && !!ui['debug-panel'];
+  if (!ui['debug-panel']) return;
   ui['debug-toggle'].checked = debugEnabled;
   diagnostics.scores = null;
   ui['debug-top'].replaceChildren();
@@ -635,12 +685,12 @@ function render(state, description = '') {
   const warning = state === 'warning';
   ui['theme-color'].setAttribute('content', warning ? '#c7263a' : document.documentElement.dataset?.theme === 'light' ? '#f5f7fb' : '#101a2c');
   ui['warning-details'].hidden = !warning;
-  ui.description.hidden = warning;
+  ui.description.hidden = warning || (!!ui['debug-panel'] && state === 'stopped' && !description);
   const texts = {
     stopped: ['検知を停止しました', '停止中', description || '開始すると、周囲の交通警告音を\nこの端末で識別します。'],
     loading: ['AIモデルを読み込み中...', '準備中', description || '初回は読み込みに時間がかかることがあります。\nマイクの使用を許可してください。'],
     priming: ['マイクの音を確認中...', '準備中', '最初の音声をAIで解析しています。'],
-    listening: ['周囲の音を検知中...', '検知中', '交通警告音を検知すると、\n画面が赤く変わります。'],
+    listening: ['周囲の音を検知中...', '検知中', '交通警告音を検知すると、\n警告を表示します。'],
     warning: ['警告音を検知しました', '周囲を確認してください', '']
   }[state];
   // Repeated raw-score updates must not reannounce an identical live heading.
@@ -665,6 +715,7 @@ function updateButtons() {
   ui['mic-control'].disabled = false;
   ui['mic-control'].setAttribute('aria-label', t(label));
   ui['mic-control'].setAttribute('title', t(label));
+  if ($('action-label')) $('action-label').textContent = t(label);
   ui['mic-control'].setAttribute('aria-pressed', String(!!session && session.connected));
   ui.cancel.hidden = !(session && needsTap);
 }
@@ -683,12 +734,12 @@ function setLanguage(next) {
   document.documentElement.lang = language;
   window.dispatchEvent?.(new CustomEvent('tsg:language', { detail: { language } }));
   ui['language-select'].value = language;
-  ui['settings-title'].textContent = t('設定');
+  if (ui['settings-title']) ui['settings-title'].textContent = t('設定');
   $('settings-links').setAttribute('aria-label', t('補助メニュー'));
   const back = document.querySelector?.('.ipad-back');
   if (back) { back.textContent = '← ' + t('通常版'); back.setAttribute('aria-label', t('通常版')); }
   document.querySelector?.('.ipad-center')?.setAttribute('aria-label', t('音声とAI識別'));
-  ui['settings-toggle'].setAttribute('aria-label', t('設定'));
+  ui['settings-toggle']?.setAttribute('aria-label', t('設定'));
   ui['language-select-label'].textContent = t('言語');
   ui['alert-tone-label'].textContent = t('通知音を鳴らす');
   ui['alert-tone-note'].textContent = t('新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。');
@@ -708,8 +759,8 @@ function setLanguage(next) {
   // Both pages share the same controller and language preference. The
   // selected page is marked in HTML; navigating stops capture via pagehide.
   ui['version-switch-title'].textContent = t('表示バージョン');
-  ui['version-standard'].textContent = t('通常版');
-  ui['version-ipad'].textContent = t('iPad横画面（テスト）');
+  ui['version-standard'].textContent = {ja:"Standard（標準版）",en:'Standard', 'zh-CN':"Standard（标准版）"}[language];
+  ui['version-ipad'].textContent = {ja:"Test（テスト版）",en:'Test', 'zh-CN':"Test（测试版）"}[language];
   ui['version-standard'].setAttribute('href', './index.html?lang=' + language);
   ui['version-ipad'].setAttribute('href', './ipad-test.html?lang=' + language);
   try { window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language); } catch {}
@@ -721,10 +772,10 @@ function setLanguage(next) {
     cancel: '読み込みを中止', 'score-label': '識別スコア：',
     'sensitivity-heading': '交通警告音の感度設定',
     'sensitivity-note': '1回のAI識別でスコアが設定値以上なら、すぐに警告します。スコアを下げると誤警告が増える可能性があります。',
-    'sensitivity-scale': '0.01：最高感度 ／ 0.10：初期値 ／ 0.50：低感度',
+    'sensitivity-scale': 'Base → Effective',
     'threshold-reset': 'すべて標準に戻す',
     privacy: '音声は保存・送信されません', research: '研究用プロトタイプ · 安全を保証するものではありません'
-  })) ui[id].textContent = t(text);
+  })) { if (ui[id]) ui[id].textContent = t(text); }
   ui['page-description'].setAttribute('content', t('イヤホンの使用と交通安全をテーマにした、交通警告音のリアルタイム識別研究プロトタイプ。'));
   const url = feedbackURL(FEEDBACK_FORM_URLS[language === 'ja' ? 'ja' : 'en']);
   if (url) ui.feedback.setAttribute('href', url);
@@ -846,6 +897,7 @@ function stop(message = '') {
     stopAlertTones(old); // Discard any scheduled beeps when microphone session ends.
     old.gate.reset();
   }
+  window.dispatchEvent?.(new CustomEvent('tsg:capture', {detail:{active:false}}));
   micSource = {state: 'stopped', evidence: null};
   renderMicChoices();
   resetVisuals();
@@ -939,15 +991,27 @@ function receiveResult(s, data) {
   diagnostics.updatedAt = Date.now();
   diagnostics.scores = debugEnabled ? (data.debug ?? null) : null;
   clearTimeout(s.startTimeout);
-  // Check all six raw sound scores separately against their own thresholds.
+  // Check eleven unchanged raw scores against effective per-category thresholds.
   // Legacy test fixtures without trafficScores keep the prior default behaviour.
-  const target = data.trafficScores ? chooseTarget(data.trafficScores, soundThresholds) : data.target;
-  const threshold = target?.name ? (soundThresholds[target.name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
+  const target = data.trafficScores ? chooseTarget(data.trafficScores, soundThresholds, overallSensitivity) : data.target;
+  const threshold = target?.name ? effectiveThreshold(soundThresholds[target.name] ?? DEFAULT_THRESHOLD, overallSensitivity) : DEFAULT_THRESHOLD;
   // Only the inactive -> active transition counts as a NEW warning.
   // A late JavaScript timer must not make an expired warning look continuous.
   const wasActive = s.gate.active && now - s.gate.lastPositive < WARNING_HOLD_MS;
   s.gate.observe(target, now, threshold);
-  if (!wasActive && s.gate.active) playAlertTone(s);
+  const newWarning = !wasActive && s.gate.active;
+  if (newWarning) playAlertTone(s);
+  // Research receives only real scalar results and browser-reported metadata. No PCM.
+  if (ui['debug-panel']) window.dispatchEvent?.(new CustomEvent('tsg:research', {detail:{
+    at:Date.now(), monotonicMs:now, inferenceMs:diagnostics.inferenceMs,
+    topCategory:data.topCategory ?? null, top5:data.debug?.top5 ?? null,
+    scores:data.trafficScores ?? null,
+    thresholds:Object.fromEntries(Object.keys(WARNING_TARGETS).map(name => [name,effectiveThreshold(soundThresholds[name],overallSensitivity)])),
+    warning:newWarning ? target?.name : null,
+    inputSampleRate:s.stream?.getAudioTracks()[0]?.getSettings?.()?.sampleRate ?? null,
+    contextSampleRate:s.context.sampleRate,
+    microphone:microphoneSourceEvidence(s.stream?.getAudioTracks()[0],s.reportedAudioInputs)
+  }}));
   // The red interval represents a positive YAMNet analysis window, not exact event boundaries.
   // Use capture timestamps rather than delayed Worker response time.
   if (target && Number.isFinite(completedFrame?.endTime)) {
@@ -1068,6 +1132,8 @@ async function start() {
     pending: null, flight: null, alertToneNodes: new Set(), micSourceQuery: 0, reportedAudioInputs: [],
     requestedMicId: preferredMicId };
   session = s;
+  // Preview releases its ambient policy before the capture Context is created.
+  window.dispatchEvent?.(new CustomEvent('tsg:capture', {detail:{active:true}}));
   micSource = {state: 'loading', evidence: null};
   renderMicSource();
   diagnostics.model = '読み込み中';
@@ -1108,7 +1174,7 @@ async function start() {
       if (isCurrent(s)) diagnostics.microphone = ['NotAllowedError', 'PermissionDeniedError'].includes(error?.name) ? 'マイクの許可なし' : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.6.15', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.7.0', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -1170,6 +1236,25 @@ async function start() {
   } catch (error) { fail(s, error); }
 }
 
+$('overall-sensitivity')?.addEventListener('input', () => setOverallSensitivity($('overall-sensitivity').value));
+for (const [i, name] of Object.keys(WARNING_TARGETS).entries()) {
+  $('threshold-default-' + i)?.addEventListener('click', () => {
+    soundThresholds[name] = DEFAULT_THRESHOLD; renderThresholds(); saveThresholds(); renderDebug();
+  });
+}
+window.addEventListener('storage', event => {
+  if (!event.key || [THRESHOLD_STORAGE_KEY, OVERALL_STORAGE_KEY].includes(event.key)) {
+    soundThresholds = loadThresholds(); overallSensitivity = loadOverallSensitivity(); renderThresholds(); renderDebug();
+  }
+  if (!event.key || event.key === ALERT_VOLUME_STORAGE_KEY) {
+    alertVolume = loadAlertVolume(); ui['alert-volume-select'].value = alertVolume;
+    window.dispatchEvent?.(new CustomEvent('tsg:alert-volume', {detail:{level:alertVolume}}));
+  }
+  if (!event.key || event.key === ALERT_TONE_STORAGE_KEY) {
+    alertToneEnabled = loadAlertToneEnabled(); ui['alert-tone-toggle'].checked = alertToneEnabled;
+    if (!alertToneEnabled && session) stopAlertTones(session);
+  }
+});
 for (const row of thresholdRows) {
   row.input.addEventListener('input', () => changeThreshold(row.name, row.input.value));
   // Native range inputs with step='any' have browser-dependent keyboard
@@ -1188,11 +1273,11 @@ for (const row of thresholdRows) {
     changeThreshold(row.name, next);
   });
 }
-ui['threshold-reset'].addEventListener('click', resetThresholds);
+ui['threshold-reset']?.addEventListener('click', resetThresholds);
 ui['alert-tone-toggle'].addEventListener('change', () => setAlertToneEnabled(ui['alert-tone-toggle'].checked));
 ui['alert-volume-select'].addEventListener('change', () => setAlertVolume(ui['alert-volume-select'].value));
 ui['mic-select'].addEventListener('change', () => chooseMicrophone(ui['mic-select'].value));
-ui['debug-toggle'].addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
+ui['debug-toggle']?.addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
 ui['language-select'].addEventListener('change', () => setLanguage(ui['language-select'].value));
 ui.feedback.addEventListener('click', event => {
@@ -1203,7 +1288,7 @@ ui['alert-tone-toggle'].checked = alertToneEnabled;
 ui['alert-volume-select'].value = alertVolume;
 renderThresholds();
 resetVisuals();
-setDebug(true); // Default ON; changes the diagnostics view only, never starts the microphone.
+setDebug(!!ui['debug-panel']); // Research data only on Test; never starts capture.
 
 ui['mic-control'].addEventListener('click', () => {
   // Same callback as the original footer button, moved without changing its logic.
@@ -1219,10 +1304,10 @@ window.addEventListener('pagehide', () => stop());
 
 const settingsPanel = $('settings-panel');
 document.addEventListener('click', event => {
-  if (settingsPanel.open && !settingsPanel.contains(event.target)) settingsPanel.open = false;
+  if (settingsPanel?.open && !settingsPanel.contains(event.target)) settingsPanel.open = false;
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && settingsPanel.open) {
+  if (event.key === 'Escape' && settingsPanel?.open) {
     settingsPanel.open = false;
     ui['settings-toggle'].focus();
     event.preventDefault();

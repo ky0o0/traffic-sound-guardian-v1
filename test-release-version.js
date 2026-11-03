@@ -21,8 +21,8 @@ test('published release version is consistent across package, manifest, all four
       assert.ok(html.includes('<title>'+name+'</title>'));
       assert.ok(html.includes('<span class="version">V'+version+'</span>'));
     } else if (filename === 'ipad-test.html') {
-      assert.ok(html.includes('iPad Landscape Test (V'+version+')'));
-      assert.ok(html.includes('V'+version+' · iPad TEST'));
+      assert.ok(html.includes('Test (V'+version+')'));
+      assert.ok(html.includes('V'+version+' · TEST'));
     }
   }
   assert.ok(read('./ai-test.js').includes('Traffic Sound Guardian V'+version));

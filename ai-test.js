@@ -835,7 +835,7 @@ function render() {
   activeAnnotationEditor = null;
   const openIds = new Set([...root.querySelectorAll('details[open][id]')].map(x => x.id));
   document.documentElement.lang = language;
-  document.title = t('title') + ' · Traffic Sound Guardian V1.6.17';
+  document.title = t('title') + ' · Traffic Sound Guardian V1.7.0';
   root.replaceChildren();
   const top = el('div', null, {
     class: 'top'
@@ -858,7 +858,7 @@ function render() {
   };
   langs.append(picker);
   top.append(langs);
-  root.append(top, el('h1', t('title') + ' · V1.6.17'), el('p', t('subtitle'), {
+  root.append(top, el('h1', t('title') + ' · V1.7.0'), el('p', t('subtitle'), {
     class: 'notice'
   }), note('privacy'));
   const tabs = el('nav', null, {
@@ -883,7 +883,7 @@ function render() {
   root.append(thresholdPanel());
   root.append(tab === 'upload' ? uploadView(openIds) : tab === 'results' ? resultsView() : tab ===
     'analysis' ? metricsView() : tab === 'optimize' ? optimizeView() : exportView());
-  root.append(el('footer', 'Traffic Sound Guardian V1.6.17 · YAMNet / MediaPipe · ' + t('scoreNote')));
+  root.append(el('footer', 'Traffic Sound Guardian V1.7.0 · YAMNet / MediaPipe · ' + t('scoreNote')));
 }
 window.addEventListener('pagehide', () => {
   annotationAbort?.abort();

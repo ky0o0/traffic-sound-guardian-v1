@@ -1,4 +1,34 @@
-# Traffic Sound Guardian V1.6.17
+# Traffic Sound Guardian V1.7.0
+
+## V1.7.0 重构候选：Standard / Test（未合并、未部署）
+
+本节描述当前候选，后续章节保留历史版本行为，不能作为 V1.7.0 的功能说明。
+
+- **Standard** (`index.html`)：状态、大型启停按钮、真实当前识别、10 秒上下对称声纹、最近一次警告。设置包含三语言、主题、提示音及音量、纯输出试听、真实麦克风选择、共享总体灵敏度和模式切换；没有 Debug、Top 5、11 类分数表或独立滑杆。
+- **Test** (`ipad-test.html`)：三栏直接操作，11 类基础阈值及有效阈值、逐类及全部恢复默认、真实 Top 1 / Top 5 / 11 类原始 Score、模型与麦克风证据、实际可获取的采样率、推理统计、警告次数与可筛选研究日志。最近 100 条元数据仅保留内存，可手动导出 CSV；不保存或导出原始音频，不自动上传。
+- 共享总体灵敏度范围 **0.50–1.50**，默认 **1.00**；`effective = clamp(base / overall, 0.01, 0.50)`，总体值越高越灵敏。旧六类设置及更早自行车铃设置保留；新增 Bell / Chime / Ding / Ping / Doorbell 基础值仍为 0.10。分数完全不变，也不代表准确率或校准概率。全部恢复默认同时恢复总体 1.00。
+- 试听在创建 AudioContext 前请求并读回 `navigator.audioSession.type = "ambient"`，结束／异常／隐藏时释放并恢复此前策略；关闭未完成时不创建下一个试听 Context。Apple 平台缺少或拒绝该 API 时直接阻止试听并显示限制。其他浏览器使用普通 Web Audio 降级，不保证跨 App 混音。检测启动会取消试听并接管策略，检测期间阻止额外试听；自动提示音继续复用原采集 Context，避免另一音频会话。
+- **尚未完成实体 iPad + Safari + AirPods + Apple Music 验收**。ambient 可写不等于系统保证混音，不能检测或控制 Apple Music 的播放状态；麦克风采集本身仍可能改变 iPadOS 音频会话或蓝牙路由。保留两声 740 Hz / 每声 110 ms / 间隔 85 ms 和三个原音量档，不使用未经验证的音频路由方案。
+- 原模型、521 类识别、Worker classify、重采样、0.975 秒窗／480ms 步长、十秒波形算法及一次结果即警告的时序保留。新视觉以红色状态、警告文字及相关波形强调警告，不填充整张页面或图表的红色背景。
+
+完整中文 [开发与验证报告](V1.7.0-REPORT.zh-CN.md)、[实机验收清单](V1.7.0-DEVICE-ACCEPTANCE.zh-CN.md)、[阶段一证据](audit/v1.7.0/phase1/)、[最终自动化证据与截图](audit/v1.7.0/final/)。本候选不自动合并或部署。
+
+## 本地验证
+
+```sh
+npm test
+node scripts/check-site-integrity.mjs
+node scripts/check-release-version.mjs "$(git rev-parse origin/main)"
+python -m http.server 8000 --bind 127.0.0.1
+# 另一个终端，需要 Playwright 与 Chromium：
+python tests/ui-canvas-browser.py --base-url http://127.0.0.1:8000/ --output work/layout
+python tests/stability-browser.py --base-url http://127.0.0.1:8000/ --output work/stability
+python tests/v17-browser.py --base-url http://127.0.0.1:8000/ --output work/integration
+python tests/audio-policy-browser.py --base-url http://127.0.0.1:8000/ --output work/audio-policy
+```
+
+## 历史记录（描述对应旧版本，不代表当前候选）
+
 
 
 ## V1.6.16 全面稳定性审查候选（未合并、未部署）

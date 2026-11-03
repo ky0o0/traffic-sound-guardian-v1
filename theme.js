@@ -43,7 +43,7 @@ function initialize() {
   const label = document.createElement('label');
   label.className = standalone ? 'theme-picker standalone' : 'theme-picker';
   const text = document.createElement('span');
-  text.className = settingsRow ? 'sr-only' : (host.id === 'settings-content' ? 'theme-picker-label' : 'sr-only');
+  text.className = settingsRow ? 'theme-picker-label' : (host.id === 'settings-content' ? 'theme-picker-label' : 'sr-only');
   const select = document.createElement('select');
   select.id = 'theme-select';
   for (const key of OPTIONS) {
@@ -69,3 +69,5 @@ apply();
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize);
 else initialize();
 media?.addEventListener?.('change', () => { if (selected === 'system') apply(); });
+
+window.addEventListener('storage', event => { if (!event.key || event.key === KEY) { selected = preference(); apply(); display(); } });

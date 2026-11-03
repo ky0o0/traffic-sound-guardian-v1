@@ -18,8 +18,8 @@ test('V1.6 keeps a single microphone/classifier pipeline and adds read-only 10s 
 test('V1.6 theme selector is shared by all three pages, with system preference',()=>{
  const theme=file('./theme.js');
  for(const page of ['index.html','ai-test.html','microphone-test.html']){
-   assert.match(file('./'+page),page === 'index.html' ? /theme\.js\?v=1\.6\.13/ : /theme\.js\?v=1\.6\.0/);
-   assert.match(file('./'+page),page === 'index.html' ? /theme\.css\?v=1\.6\.13/ : /theme\.css\?v=1\.6\.0/);
+   assert.match(file('./'+page),/theme\.js\?v=1\.7\.0/);
+   assert.match(file('./'+page),page === 'index.html' ? /guardian\.css\?v=1\.7\.0/ : /theme\.css\?v=1\.6\.0/);
  }
  assert.match(theme,/trafficSoundGuardian\.theme/);
  assert.match(theme,/prefers-color-scheme: dark/);

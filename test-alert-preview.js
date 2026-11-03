@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 const source=fs.readFileSync(new URL('./alert-tone-preview.js',import.meta.url),'utf8');
 const html=name=>fs.readFileSync(new URL(name,import.meta.url),'utf8');
-function boot({audio=true}={}){
+function boot({audio=true,nav={}}={}){
  const events={},docEvents={},buttonListeners={},timers=[],oscillators=[],contexts=[];
  const nodes={
   'alert-preview-button':{disabled:false,textContent:'',addEventListener(type,fn){buttonListeners[type]=fn;}},
@@ -31,7 +31,7 @@ function boot({audio=true}={}){
  const document={documentElement:{lang:'ja'},hidden:false,
   getElementById(id){return nodes[id]??null;},
   addEventListener(type,fn){docEvents[type]=fn;}};
- const window={addEventListener(type,fn){events[type]=fn;}};
+ const window={navigator:nav,addEventListener(type,fn){events[type]=fn;}};
  if(audio)window.AudioContext=Context;
  const context=vm.createContext({document,window,console:{warn(){}},
   setTimeout(fn,time){const id={fn,time};timers.push(id);return id;},
@@ -39,13 +39,14 @@ function boot({audio=true}={}){
  vm.runInContext(source,context);
  return {document,events,docEvents,buttonListeners,nodes,timers,oscillators,contexts};
 }
-test('preview exists only inside Settings on both pages and never starts microphone or inference',()=>{
+test('preview exists only inside Settings on both pages and never starts microphone or inference',async()=>{
  const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./style.css');
  for(const markup of [main,ipad]) {
   assert.match(markup,/id="alert-preview-button"/);
-  assert.match(markup,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.17"><\/script>/);
+  assert.match(markup,/<script (?=[^>]*type="module")(?=[^>]*src="\.\/alert-tone-preview\.js\?v=1\.7\.0")[^>]*><\/script>/);
   assert.ok(markup.indexOf('id="alert-preview-button"')>markup.indexOf('id="settings-content"'));
-  assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
+  if (markup === main) assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
+  else assert.ok(!markup.includes('id="settings-panel"'));
   assert.equal([...markup.matchAll(/id="alert-preview-button"/g)].length,1);
  }
  for(const [name,markup] of [['standard',main],['iPad',ipad]]) {
@@ -56,7 +57,7 @@ test('preview exists only inside Settings on both pages and never starts microph
  assert.match(css,/#alert-preview-button\{[\s\S]*?min-height:44px/);
  assert.doesNotMatch(source,/getUserMedia|AudioWorklet|classifier|tsg:warning|data-state/);
 });
-test('manual user click plays exactly the normal two quiet sine beeps through output only',()=>{
+test('manual user click plays exactly the normal two quiet sine beeps through output only',async()=>{
  const a=boot();
  assert.equal(a.contexts.length,0,'must not autoplay');
  assert.equal(a.nodes['alert-preview-button'].textContent,'通知音を試聴');
@@ -77,84 +78,118 @@ test('manual user click plays exactly the normal two quiet sine beeps through ou
  a.buttonListeners.click();assert.equal(a.contexts.length,1,'second click while playing is ignored');
  assert.equal(a.timers[0].time,3000,'watchdog must not stop still-playing Safari audio at a fixed 700ms');
  a.contexts[0].currentTime=10+.02+.195+.11;
- a.oscillators[1].onended();
+ a.oscillators[1].onended(); await new Promise(r=>setImmediate(r));
  assert.equal(a.contexts[0].closed,true,'close temporary output Context after the second oscillator ends');
  assert.equal(a.timers[0].cleared,true,'completion cancels the fallback watchdog');
  assert.equal(a.nodes['alert-preview-button'].disabled,false);
  assert.equal(a.nodes['alert-preview-status'].textContent,'再生完了');
 });
-test('pagehide and background visibility always release preview audio and multilingual labels update',()=>{
+test('pagehide and background visibility always release preview audio and multilingual labels update',async()=>{
  const a=boot();
  a.document.documentElement.lang='zh-CN';a.events['tsg:language']();
  assert.equal(a.nodes['alert-preview-button'].textContent,'试听提示音');
  a.buttonListeners.click();
- a.events.pagehide();
+ a.events.pagehide(); await new Promise(r=>setImmediate(r));
  assert.equal(a.contexts[0].closed,true);
  assert.equal(a.nodes['alert-preview-button'].disabled,false);
  assert.equal(a.nodes['alert-preview-status'].textContent,'','a hidden page cannot claim to be playing');
  a.document.documentElement.lang='en';a.events['tsg:language']();
  assert.equal(a.nodes['alert-preview-button'].textContent,'Play alert sound');
  a.buttonListeners.click();
- a.document.hidden=true;a.docEvents.visibilitychange();
+ a.document.hidden=true;a.docEvents.visibilitychange(); await new Promise(r=>setImmediate(r));
  assert.equal(a.contexts[1].closed,true);
  assert.equal(a.nodes['alert-preview-status'].textContent,'');
 });
-test('missing Web Audio supports graceful failure without permissions or fake playback',()=>{
+test('missing Web Audio supports graceful failure without permissions or fake playback',async()=>{
  const a=boot({audio:false});
  a.buttonListeners.click();
  assert.equal(a.contexts.length,0);
  assert.equal(a.nodes['alert-preview-status'].textContent,'この端末では再生できません。');
 });
 
-test('Safari suspended AudioContext cannot claim successful beep playback',()=>{
+test('Safari suspended AudioContext cannot claim successful beep playback',async()=>{
  const a=boot();
  a.buttonListeners.click();
  a.contexts[0].state='suspended';
- a.timers[0].fn();
+ a.timers[0].fn(); await new Promise(r=>setImmediate(r));
  assert.equal(a.contexts[0].closed,true);
  assert.equal(a.nodes['alert-preview-button'].disabled,false);
  assert.equal(a.nodes['alert-preview-status'].textContent,'この端末では再生できません。');
  assert.equal(a.oscillators[1].onended,null,'cleanup removes stale onended callback');
 });
 
-test('fallback accepts actual elapsed AudioContext time when onended is missing',()=>{
+test('fallback accepts actual elapsed AudioContext time when onended is missing',async()=>{
  const a=boot();
  a.buttonListeners.click();
  a.contexts[0].currentTime=10+.02+.195+.11+0.01;
- a.timers[0].fn();
+ a.timers[0].fn(); await new Promise(r=>setImmediate(r));
  assert.equal(a.contexts[0].closed,true);
  assert.equal(a.nodes['alert-preview-status'].textContent,'再生完了');
 });
 
 
-test('preview status translates during playback and after completion without replaying',()=>{
+test('preview status translates during playback and after completion without replaying',async()=>{
  const a=boot();a.buttonListeners.click();a.document.documentElement.lang='en';a.events['tsg:language']();
  assert.equal(a.nodes['alert-preview-status'].textContent,'Playing…');
- a.contexts[0].currentTime=11;a.oscillators[1].onended();
+ a.contexts[0].currentTime=11;a.oscillators[1].onended(); await new Promise(r=>setImmediate(r));
  a.document.documentElement.lang='zh-CN';a.events['tsg:language']();
  assert.equal(a.nodes['alert-preview-status'].textContent,'播放完成');assert.equal(a.contexts.length,1);
 });
-test('early final callback cannot report success without advancing the audio clock',()=>{
- const a=boot();a.buttonListeners.click();a.oscillators[1].onended();
+test('early final callback cannot report success without advancing the audio clock',async()=>{
+ const a=boot();a.buttonListeners.click();a.oscillators[1].onended(); await new Promise(r=>setImmediate(r));
  assert.equal(a.nodes['alert-preview-status'].textContent,'この端末では再生できません。');
  assert.equal(a.contexts[0].closed,true);
 });
 test('preview cleanup consumes rejected asynchronous context close',async()=>{
  const a=boot();a.buttonListeners.click();a.contexts[0].close=()=>Promise.reject(new Error('interrupted close'));
- a.events.pagehide();await new Promise(r=>setImmediate(r));
+ a.events.pagehide(); await new Promise(r=>setImmediate(r));await new Promise(r=>setImmediate(r));
  assert.equal(a.nodes['alert-preview-button'].disabled,false);assert.equal(a.nodes['alert-preview-status'].textContent,'');
 });
 
-test('manual preview uses the exact selected gain level without accessing mic',()=>{
+test('manual preview uses the exact selected gain level without accessing mic',async()=>{
  const a=boot();
  a.events['tsg:alert-volume']({detail:{level:'clear'}});
  a.buttonListeners.click();
  assert.equal(a.oscillators[0].output.gain.events[1][1],.15);
  assert.equal(a.oscillators[1].output.gain.events[1][1],.15);
- a.contexts[0].currentTime=11;a.oscillators[1].onended();
+ a.contexts[0].currentTime=11;a.oscillators[1].onended(); await new Promise(r=>setImmediate(r));
  a.events['tsg:alert-volume']({detail:{level:'soft'}});
  a.buttonListeners.click();
  assert.equal(a.oscillators[2].output.gain.events[1][1],.045);
  assert.equal(a.contexts.length,2);
- a.events.pagehide();
+ a.events.pagehide(); await new Promise(r=>setImmediate(r));
+});
+
+
+test('ambient policy precedes output Context, restores after close, and never selects transient-solo',async()=>{
+ const audioSession={type:'auto'};const a=boot({nav:{audioSession,userAgent:'iPad'}});
+ a.buttonListeners.click();assert.equal(audioSession.type,'ambient');assert.equal(a.contexts.length,1);
+ a.events.pagehide();assert.equal(a.nodes['alert-preview-button'].disabled,true);
+ a.buttonListeners.click();assert.equal(a.contexts.length,1,'no new Context while native close is pending');
+ await new Promise(r=>setImmediate(r));assert.equal(audioSession.type,'auto');
+});
+test('unsupported or rejected AudioSession on Apple stays silent before Context construction',()=>{
+ for(const nav of [{userAgent:'iPad'},{platform:'MacIntel',maxTouchPoints:5},{userAgent:'iPhone',audioSession:{get type(){return 'auto'},set type(v){throw Error('unsupported')}}}]){
+  const a=boot({nav});a.buttonListeners.click();assert.equal(a.contexts.length,0);assert.match(a.nodes['alert-preview-status'].textContent,/API/);
+ }
+});
+test('capture handoff cancels preview, restores policy and blocks preview during detection',async()=>{
+ const audioSession={type:'auto'};const a=boot({nav:{audioSession}});a.buttonListeners.click();
+ a.events['tsg:capture']({detail:{active:true}});assert.equal(audioSession.type,'auto');
+ await new Promise(r=>setImmediate(r));a.buttonListeners.click();assert.equal(a.contexts.length,1);
+ a.events['tsg:capture']({detail:{active:false}});a.buttonListeners.click();assert.equal(a.contexts.length,2);a.events.pagehide();
+});
+
+test('ignored ambient setter and exclusive sessions stay silent before Context construction',()=>{
+ for(const audioSession of [{get type(){return 'auto'},set type(value){}},{type:'play-and-record'},{type:'playback'}]){
+  const a=boot({nav:{audioSession,userAgent:'iPad'}});a.buttonListeners.click();assert.equal(a.contexts.length,0);
+ }
+});
+test('capture during pending close restores policy immediately and a late close cannot overwrite capture',async()=>{
+ const audioSession={type:'auto'};const a=boot({nav:{audioSession}});a.buttonListeners.click();let resolveClose;
+ a.contexts[0].close=()=>new Promise(resolve=>resolveClose=resolve);
+ a.events.pagehide();assert.equal(audioSession.type,'ambient');
+ a.events['tsg:capture']({detail:{active:true}});assert.equal(audioSession.type,'auto');
+ audioSession.type='play-and-record';resolveClose();await new Promise(r=>setImmediate(r));
+ assert.equal(audioSession.type,'play-and-record');assert.equal(a.contexts.length,1);
 });

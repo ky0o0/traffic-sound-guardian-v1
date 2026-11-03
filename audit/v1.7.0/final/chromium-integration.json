@@ -1,0 +1,40 @@
+{
+  "browser": "154.0.8037.57",
+  "passed": 5,
+  "cases": [
+    {
+      "case": "two-tab-shared-settings-migration-eleven-controls-and-reset",
+      "passed": true
+    },
+    {
+      "case": "real-521-class-data-preview-isolation-csv-and-cleanup",
+      "page": "index.html",
+      "categoryCount": 521,
+      "topCategory": {
+        "categoryName": "Music",
+        "index": 132,
+        "score": 0.19921875
+      }
+    },
+    {
+      "case": "preview-pagehide-cleanup",
+      "page": "index.html"
+    },
+    {
+      "case": "real-521-class-data-preview-isolation-csv-and-cleanup",
+      "page": "ipad-test.html",
+      "categoryCount": 521,
+      "topCategory": {
+        "categoryName": "Plop",
+        "index": 488,
+        "score": 0.19921875
+      }
+    },
+    {
+      "case": "preview-pagehide-cleanup",
+      "page": "ipad-test.html"
+    }
+  ],
+  "errors": [],
+  "limits": "Real production model on a virtual microphone. No physical Safari, Apple Music, AirPods, accuracy or acoustic latency validation."
+}
