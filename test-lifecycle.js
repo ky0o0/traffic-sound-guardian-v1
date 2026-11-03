@@ -13,7 +13,7 @@ const source=fs.readFileSync(new URL('./app.js',import.meta.url),'utf8')
 const page=fs.readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const pageIds=new Set([...page.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]));
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null,trackLabel='',deviceId='',devices=[],enumerationFails=false}={}) {
+async function harness({autoStart=true,deny=false,deferMic=false,suspended=false,worklet=false,formURL=null,deferModel=false,storedThreshold=null,storedSettings=null,storedAlert=null,trackLabel='',deviceId='',devices=[],enumerationFails=false,postFails=null}={}) {
  const elements=new Map(),drawing=[];
  const canvas={setTransform(){},clearRect(){drawing.length=0;},beginPath(){},moveTo(x,y){drawing.push([x,y]);},lineTo(x,y){drawing.push([x,y]);},stroke(){}};
  const element=id=>{
@@ -50,7 +50,8 @@ async function harness({autoStart=true,deny=false,deferMic=false,suspended=false
  }
  class ModelWorker {
   constructor(){workers.push(this);this.sent=[];}
-  postMessage(data){this.sent.push(data);if(data.type==='init'&&!deferModel)queueMicrotask(()=>this.onmessage?.({data:{type:'ready'}}));}
+  postMessage(data){if(data.type===postFails)throw new DOMException('Worker send failed','DataCloneError');this.sent.push(data);if(data.type==='init'&&!deferModel)queueMicrotask(()=>this.onmessage?.({data:{type:'ready'}}));}
+  addEventListener(type,listener){this['on'+type]=listener;}
   terminate(){this.terminated=true;}
   emit(data){this.onmessage?.({data});}
  }
@@ -282,7 +283,7 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
 test('V1.6.16 page, release assets and refreshed classifier cache agree',()=>{
  assert.match(page, /<title>Traffic Sound Guardian V1\.6\.16<\/title>/);
  assert.match(page, /class="version">V1\.6\.16<\/span>/);
- assert.match(page, /src="\.\/app\.js\?v=1\.6\.15"/); // Changed app JS must refresh cache.
+ assert.match(page, /src="\.\/app\.js\?v=1\.6\.16"/); // Changed app JS must refresh cache.
  assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
  assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.16"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.15/); // Changed Worker JS must refresh cache.
@@ -373,7 +374,7 @@ test('V1.6.8 status label has no background and its dot replaces microphone-corn
  assert.match(css,/body\[data-state=listening\] main \.status-dot\{background:#f43f5e;/);
  assert.match(css,/body\[data-state=warning\] main \.status-dot\{background:#fff;/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{body\[data-state=listening\] main \.status-dot\{animation:none;opacity:1\}\}/);
- assert.match(page, /href="\.\/style\.css\?v=1\.6\.13"/);
+ assert.match(page, /href="\.\/style\.css\?v=1\.6\.16"/);
  assert.match(page, /href="\.\/theme\.css\?v=1\.6\.13"/);
  const h=await harness();
  h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');
@@ -963,7 +964,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.6\.17/);
+ assert.match(page,/live-timeline\.js\?v=1\.6\.18/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()=>{
  const css=fs.readFileSync(new URL('./v1.6.css',import.meta.url),'utf8');
@@ -972,4 +973,93 @@ test('V1.6.6 larger mic circle works for normal, warning and compact layouts',()
  assert.match(css,/@media\(max-height:740px\)\{\.visual \.icon-disc\{width:114px;height:114px\}body\[data-state=warning\] \.visual \.icon-disc\{width:116px;height:116px\}\}/);
  assert.match(css,/\.visual \.mic-icon\{width:48px;height:52px\}/);
  assert.match(page,/id="mic-control" class="icon-disc"/);
+});
+
+
+test('worker message transfer failure stops and releases capture without escaping audio callback',async()=>{
+ const h=await harness({postFails:'classify'});
+ assert.doesNotThrow(()=>h.frame());
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.ok(h.tracks[0].stopped);assert.ok(h.workers[0].terminated);
+ assert.equal(h.timers.size,0);
+});
+test('late worklet message after stop never acknowledges a closed port',async()=>{
+ const h=await harness({worklet:true});const callback=h.nodes[0].port.onmessage;
+ h.stop();h.nodes[0].port.postMessage=()=>{throw new Error('closed port');};
+ assert.doesNotThrow(()=>callback({data:{}}));
+ assert.equal(h.document.body.dataset.state,'stopped');
+});
+test('worker message deserialization error immediately releases the session',async()=>{
+ const h=await harness();
+ assert.equal(typeof h.workers[0].onmessageerror,'function');
+ h.workers[0].onmessageerror({});
+ assert.equal(h.document.body.dataset.state,'stopped');assert.ok(h.tracks[0].stopped);
+ assert.equal(h.timers.size,0);
+});
+test('failed initial worker post rejects startup safely and leaves no session resources',async()=>{
+ const h=await harness({postFails:'init'});await flush();
+ assert.equal(h.document.body.dataset.state,'stopped');
+ assert.ok(h.tracks.every(t=>t.stopped));assert.ok(h.workers[0].terminated);
+ assert.equal(h.timers.size,0);
+});
+
+
+test('hidden legacy canvas performs no drawing while active audio and inference continue',async()=>{
+ const h=await harness();h.elements.get('waveform').getClientRects=()=>[];
+ const before=h.drawing.slice();h.animate(0);h.animate(40);h.animate(80);
+ assert.deepEqual(h.drawing,before);
+ assert.equal(h.dispatched.filter(e=>e.type==='tsg:visual').length,3);
+ h.frame(1);h.emit(1);assert.equal(h.document.body.dataset.state,'listening');h.stop();
+});
+test('Escape closes native settings and restores focus; outside click closes without stealing focus',async()=>{
+ const h=await harness({autoStart:false}),panel=h.elements.get('settings-panel'),summary=h.elements.get('settings-toggle');
+ panel.open=true;let focused=0,prevented=0;summary.focus=()=>focused++;
+ h.events.keydown({key:'Escape',preventDefault(){prevented++;}});
+ assert.equal(panel.open,false);assert.equal(focused,1);assert.equal(prevented,1);
+ panel.open=true;panel.contains=x=>x===summary;
+ h.events.click({target:summary});assert.equal(panel.open,true);
+ h.events.click({target:{}});assert.equal(panel.open,false);assert.equal(focused,1);
+});
+test('repeated warning scores update without rewriting the identical live heading',async()=>{
+ const h=await harness();const heading=h.elements.get('heading');let value=heading.textContent,writes=0;
+ Object.defineProperty(heading,'textContent',{get:()=>value,set(x){value=x;writes++;}});
+ for(let i=1;i<=3;i++){h.frame(i);h.emit(i,{name:'Siren',label:'サイレン',score:.1+i*.1});}
+ assert.equal(writes,1);assert.equal(h.elements.get('score').textContent,'0.40');
+ for(const filename of ['index.html','ipad-test.html']){
+  const html=fs.readFileSync(new URL('./'+filename,import.meta.url),'utf8');
+  assert.match(html,/<h1 id="heading" aria-live="polite" aria-atomic="true">/);
+  assert.doesNotMatch(html,/<section class="message" aria-live/);
+ }
+ h.stop();
+});
+test('browser microphone evidence is attached accessibly and translated in all languages',async()=>{
+ const h=await harness({trackLabel:'AirPods Pro Microphone'});
+ for(const lang of ['ja','en','zh-CN']){
+  h.language(lang);const note=h.elements.get('mic-source-evidence').textContent;
+  assert.ok(note.length>10);assert.equal(h.elements.get('mic-source-value').attributes.title,note);
+  assert.equal(h.elements.get('mic-source-value').textContent,'AirPods Pro Microphone');
+ }
+ h.stop();
+});
+
+
+for(const [lang,names] of [['en',['Bell','Chime','Ding','Ping','Doorbell']],['zh-CN',['钟／铃声','提示铃声','叮声','清脆提示声','门铃']]]) {
+ test(`all five fixed-threshold warning labels render in ${lang}`,async()=>{
+  const h=await harness();h.language(lang);
+  for(const [i,name] of ['Bell','Chime','Ding','Ping','Doorbell'].entries()){
+   h.frame(i+1);h.emit(i+1,null,{trafficScores:{[name]:.1}});
+   assert.equal(h.document.body.dataset.state,'warning');
+   assert.equal(h.elements.get('sound-type').textContent,names[i]);
+  }
+  h.stop();
+ });
+}
+
+
+test('each inference refreshes diagnostics once, including warning state transitions',async()=>{
+ const h=await harness();h.run('let debugCalls=0; const originalDebugRender=renderDebug; renderDebug=()=>{debugCalls++;originalDebugRender();}');
+ for(const [i,target] of [[1,null],[2,{name:'Siren',label:'サイレン',score:.5}],[3,{name:'Siren',label:'サイレン',score:.6}]]){
+  h.frame(i);h.run('debugCalls=0');h.emit(i,target);assert.equal(h.run('debugCalls'),1);
+ }
+ h.stop();
 });

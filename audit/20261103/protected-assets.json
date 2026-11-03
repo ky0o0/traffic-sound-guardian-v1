@@ -1,0 +1,8 @@
+{
+  "yamnet.tflite": "4d8b4a53282dc83ef04e3e7dbc4fbc98082e34e44ed798e16c3a0cdd4c584faf",
+  "classifier-worker.js": "4519e4cbeaa2995e6f03285d431c583d385e06b1b4d4d063eb4f2ba985fd816b",
+  "detection.js": "ae11c20de0e4039ead938e97f7d8f43d88bc1c8a245e13f293447a46f8c20955",
+  "resample.js": "38e486ddb4474359a12f53ba1196f9d7c2afd7a2d636c3dd99dc4ec1c5c47cc5",
+  "audio-window.js": "befa5b3544aa1a8fa6e127c79f68aac65408c326ce809ed5ecca4ef31f8c115c",
+  "debug.js": "8fbc09179d976973339d8e54533bcdb6ac0f4523d89cc2578c72183340f8ec93"
+}

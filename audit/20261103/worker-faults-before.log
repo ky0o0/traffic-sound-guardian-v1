@@ -1,0 +1,99 @@
+✖ worker message transfer failure stops and releases capture without escaping audio callback (19.961037ms)
+✖ late worklet message after stop never acknowledges a closed port (9.686751ms)
+✖ worker message deserialization error immediately releases the session (3.661699ms)
+✖ failed initial worker post rejects startup safely and leaves no session resources (2.97151ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.18187
+
+✖ failing tests:
+
+test at test-lifecycle.js:978:1
+✖ worker message transfer failure stops and releases capture without escaping audio callback (19.961037ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "Worker send failed"
+      at TestContext.<anonymous> (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:980:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:53
+      postMessage(data){if(data.type===postFails)throw new DOMException('Worker send failed','DataCloneError');this.sent.push(data);if(data.type==='init'&&!deferModel)queueMicrotask(()=>this.onmessage?.({data:{type:'ready'}}));}
+                                                 ^
+    
+    DataCloneError: Worker send failed
+        at new DOMException (node:internal/per_context/domexception:76:18)
+        at ModelWorker.postMessage (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:53:52)
+        at sendFrame (evalmachine.<anonymous>:758:12)
+        at receiveFrame (evalmachine.<anonymous>:775:8)
+        at evalmachine.<anonymous>:1:1
+        at Script.runInContext (node:vm:149:12)
+        at Object.runInContext (node:vm:301:6)
+        at Object.frame (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:90:121)
+        at file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:980:28
+        at getActual (node:assert:611:5),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at test-lifecycle.js:985:1
+✖ late worklet message after stop never acknowledges a closed port (9.686751ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "closed port"
+      at TestContext.<anonymous> (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:988:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: Error: closed port
+        at h.nodes.<computed>.port.postMessage (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:987:50)
+        at s.node.port.onmessage (evalmachine.<anonymous>:846:21)
+        at file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:988:26
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:988:9)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at test-lifecycle.js:991:1
+✖ worker message deserialization error immediately releases the session (3.661699ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:993:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test-lifecycle.js:998:1
+✖ failed initial worker post rejects startup safely and leaves no session resources (2.97151ms)
+  AbortError: Stopped
+      at new DOMException (node:internal/per_context/domexception:76:18)
+      at stop (evalmachine.<anonymous>:702:23)
+      at fail (evalmachine.<anonymous>:729:3)
+      at start (evalmachine.<anonymous>:1009:21)
+      at Object.click (evalmachine.<anonymous>:1046:81)
+      at harness (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:81:38)
+      at TestContext.<anonymous> (file:///workspace/traffic-sound-guardian-v1/test-lifecycle.js:999:16)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)

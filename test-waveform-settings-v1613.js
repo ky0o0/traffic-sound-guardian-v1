@@ -20,7 +20,7 @@ test('warning intervals recolor waveform strokes only, never shade the full canv
    'rolling-current-label':{textContent:''},'rolling-current-value':{textContent:'',dataset:{}}
  };
  const document={documentElement:{lang:'ja',dataset:{theme:'light'}},getElementById:id=>nodes[id]||null};
- const window={devicePixelRatio:1,addEventListener(name,fn){events[name]=fn;}};
+ const window={requestAnimationFrame(){return 1;},devicePixelRatio:1,addEventListener(name,fn){events[name]=fn;}};
  class Observer{observe(){}}
  vm.runInNewContext(src,{document,window,MutationObserver:Observer,Math,Number,String});
  events['tsg:visual']({detail:{time:9.4,rms:.05}});

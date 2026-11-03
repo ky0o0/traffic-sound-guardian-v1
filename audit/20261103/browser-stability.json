@@ -1,0 +1,822 @@
+{
+  "browser": "Chromium",
+  "version": "154.0.8037.57",
+  "passed": 24,
+  "failed": 0,
+  "cases": [
+    {
+      "case": "real-model-and-hidden-canvas",
+      "revision": "baseline",
+      "page": "index.html",
+      "duration_ms": 3000,
+      "hidden_canvas_points": 184320,
+      "real_results_during_interval": 6,
+      "category_count": 521,
+      "preview_display": null,
+      "cleanup": {
+        "workers": [
+          {
+            "results": 8,
+            "counts": [
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              },
+              {
+                "type": "classify",
+                "sequence": 2
+              },
+              {
+                "type": "classify",
+                "sequence": 3
+              },
+              {
+                "type": "classify",
+                "sequence": 4
+              },
+              {
+                "type": "classify",
+                "sequence": 5
+              },
+              {
+                "type": "classify",
+                "sequence": 6
+              },
+              {
+                "type": "classify",
+                "sequence": 7
+              },
+              {
+                "type": "classify",
+                "sequence": 8
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 284676
+      }
+    },
+    {
+      "case": "real-model-and-hidden-canvas",
+      "revision": "baseline",
+      "page": "ipad-test.html",
+      "duration_ms": 3000,
+      "hidden_canvas_points": 186368,
+      "real_results_during_interval": 6,
+      "category_count": 521,
+      "preview_display": "block",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 8,
+            "counts": [
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              },
+              {
+                "type": "classify",
+                "sequence": 2
+              },
+              {
+                "type": "classify",
+                "sequence": 3
+              },
+              {
+                "type": "classify",
+                "sequence": 4
+              },
+              {
+                "type": "classify",
+                "sequence": 5
+              },
+              {
+                "type": "classify",
+                "sequence": 6
+              },
+              {
+                "type": "classify",
+                "sequence": 7
+              },
+              {
+                "type": "classify",
+                "sequence": 8
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 284676
+      }
+    },
+    {
+      "case": "real-model-and-hidden-canvas",
+      "revision": "candidate",
+      "page": "index.html",
+      "duration_ms": 3000,
+      "hidden_canvas_points": 0,
+      "real_results_during_interval": 6,
+      "category_count": 521,
+      "preview_display": null,
+      "cleanup": {
+        "workers": [
+          {
+            "results": 8,
+            "counts": [
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              },
+              {
+                "type": "classify",
+                "sequence": 2
+              },
+              {
+                "type": "classify",
+                "sequence": 3
+              },
+              {
+                "type": "classify",
+                "sequence": 4
+              },
+              {
+                "type": "classify",
+                "sequence": 5
+              },
+              {
+                "type": "classify",
+                "sequence": 6
+              },
+              {
+                "type": "classify",
+                "sequence": 7
+              },
+              {
+                "type": "classify",
+                "sequence": 8
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "real-model-and-hidden-canvas",
+      "revision": "candidate",
+      "page": "ipad-test.html",
+      "duration_ms": 3000,
+      "hidden_canvas_points": 0,
+      "real_results_during_interval": 6,
+      "category_count": 521,
+      "preview_display": "flex",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 8,
+            "counts": [
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521,
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              },
+              {
+                "type": "classify",
+                "sequence": 2
+              },
+              {
+                "type": "classify",
+                "sequence": 3
+              },
+              {
+                "type": "classify",
+                "sequence": 4
+              },
+              {
+                "type": "classify",
+                "sequence": 5
+              },
+              {
+                "type": "classify",
+                "sequence": 6
+              },
+              {
+                "type": "classify",
+                "sequence": 7
+              },
+              {
+                "type": "classify",
+                "sequence": 8
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "injected-init-throw",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "injected-classify-throw",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "injected-denied",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "worker-deserialization-error",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 1,
+            "counts": [
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "late-permission-during-new-session",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          },
+          {
+            "results": 1,
+            "counts": [
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed",
+          "closed"
+        ],
+        "tracks": [
+          "ended",
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "injected-init-throw",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "injected-classify-throw",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "injected-denied",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "worker-deserialization-error",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 1,
+            "counts": [
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "late-permission-during-new-session",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          },
+          {
+            "results": 1,
+            "counts": [
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed",
+          "closed"
+        ],
+        "tracks": [
+          "ended",
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "blocked-capture-worklet.js*",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 2,
+            "counts": [
+              521,
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              },
+              {
+                "type": "classify",
+                "sequence": 2
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "blocked-yamnet.tflite",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "blocked-capture-worklet.js*",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 2,
+            "counts": [
+              521,
+              521
+            ],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              },
+              {
+                "type": "classify",
+                "sequence": 2
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "blocked-yamnet.tflite",
+      "page": "ipad-test.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "real-watchdog-timeout",
+      "page": "index.html",
+      "cleanup": {
+        "workers": [
+          {
+            "results": 0,
+            "counts": [],
+            "sent": [
+              {
+                "type": "init",
+                "sequence": null
+              },
+              {
+                "type": "classify",
+                "sequence": 1
+              }
+            ],
+            "terminated": true
+          }
+        ],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "diagnostic-audio-interruption",
+      "resources": {
+        "workers": [],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [
+          "ended"
+        ],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "abort-pending-annotation-open",
+      "resources": {
+        "workers": [],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [],
+        "legacyPoints": 0
+      }
+    },
+    {
+      "case": "real-audio-clock-preview",
+      "resources": {
+        "workers": [],
+        "contexts": [
+          "closed"
+        ],
+        "tracks": [],
+        "legacyPoints": 0
+      },
+      "oscillators": [
+        {
+          "start": [
+            0.02
+          ],
+          "stop": [
+            0.13,
+            null
+          ]
+        },
+        {
+          "start": [
+            0.215
+          ],
+          "stop": [
+            0.325,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "case": "keyboard-language-slider-targets",
+      "page": "index.html"
+    },
+    {
+      "case": "keyboard-language-slider-targets",
+      "page": "ipad-test.html"
+    }
+  ],
+  "page_errors": [],
+  "network": {
+    "requests": 490,
+    "nonlocal_requests": 0,
+    "non_get_requests": 0
+  },
+  "limitations": "Virtual microphone and headless output, no physical Safari/iPhone/iPad/AirPods or recognition accuracy validation. Injected errors are deliberate browser API fault tests."
+}

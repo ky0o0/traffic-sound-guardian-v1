@@ -42,7 +42,7 @@ function boot({audio=true}={}){
 test('preview exists exclusively on iPad and never starts mic, real warning, or inference',()=>{
  const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./ipad-test.css');
  assert.match(ipad,/id="alert-preview-button"/);
- assert.match(ipad,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.15\.1"><\/script>/);
+ assert.match(ipad,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.16"><\/script>/);
  for(const [name,markup] of [['standard',main],['iPad',ipad]]) {
   const opened=[...markup.matchAll(/<script\b/gi)].length;
   const closed=[...markup.matchAll(/<\/script>/gi)].length;
@@ -120,4 +120,23 @@ test('fallback accepts actual elapsed AudioContext time when onended is missing'
  a.timers[0].fn();
  assert.equal(a.contexts[0].closed,true);
  assert.equal(a.nodes['alert-preview-status'].textContent,'再生完了');
+});
+
+
+test('preview status translates during playback and after completion without replaying',()=>{
+ const a=boot();a.buttonListeners.click();a.document.documentElement.lang='en';a.events['tsg:language']();
+ assert.equal(a.nodes['alert-preview-status'].textContent,'Playing…');
+ a.contexts[0].currentTime=11;a.oscillators[1].onended();
+ a.document.documentElement.lang='zh-CN';a.events['tsg:language']();
+ assert.equal(a.nodes['alert-preview-status'].textContent,'播放完成');assert.equal(a.contexts.length,1);
+});
+test('early final callback cannot report success without advancing the audio clock',()=>{
+ const a=boot();a.buttonListeners.click();a.oscillators[1].onended();
+ assert.equal(a.nodes['alert-preview-status'].textContent,'この端末では再生できません。');
+ assert.equal(a.contexts[0].closed,true);
+});
+test('preview cleanup consumes rejected asynchronous context close',async()=>{
+ const a=boot();a.buttonListeners.click();a.contexts[0].close=()=>Promise.reject(new Error('interrupted close'));
+ a.events.pagehide();await new Promise(r=>setImmediate(r));
+ assert.equal(a.nodes['alert-preview-button'].disabled,false);assert.equal(a.nodes['alert-preview-status'].textContent,'');
 });

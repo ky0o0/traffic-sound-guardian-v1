@@ -9,6 +9,7 @@ const currentValue = document.getElementById('rolling-current-value');
 const canvasContext = canvas?.getContext('2d');
 const spanSeconds = 10;
 let levels = [], marks = [], currentTime = 0;
+const timeNow = () => ({ja:'今',en:'Now','zh-CN':'现在'}[document.documentElement.lang] ?? '今');
 let redrawFrame = null, pageActive = true;
 // Layout/theme changes need one paint even while stopped, never a new audio loop.
 function scheduleDraw() {
@@ -39,6 +40,7 @@ function announce() {
   heading.textContent = lang()[0];
   foot.textContent = lang()[1];
   canvas?.setAttribute('aria-label',lang()[0]);
+  scheduleDraw(); // Refresh the localized time axis even while stopped.
   recentEvents(); // Refresh Japanese/English/Chinese warning labels immediately.
   renderCurrent();
 }
@@ -90,7 +92,7 @@ function draw() {
   c.font = '11px system-ui,sans-serif';
   c.fillText('-10s',5,h-5);
   c.fillText('-5s',w/2-8,h-5);
-  c.fillText('Now',w-29,h-5);
+  c.fillText(timeNow(),w-29,h-5);
 }
 function recentEvents() {
   if (!list) return;
@@ -109,6 +111,8 @@ function renderCurrent() {
   if (currentLabel && currentLabel.textContent !== words[0]) currentLabel.textContent = words[0];
   const value = currentSound ? localized(currentSound) : hasAudio ? words[2] : words[1];
   if (currentValue && currentValue.textContent !== value) currentValue.textContent = value;
+  const state = document.getElementById('rolling-state');
+  if (state) state.textContent = ({ja:hasAudio?'LIVE · 10秒':'停止中 · 10秒',en:hasAudio?'LIVE · 10s':'Stopped · 10s','zh-CN':hasAudio?'实时 · 10秒':'已停止 · 10秒'}[locale] ?? 'LIVE · 10s');
   if (currentValue) currentValue.dataset.warning = currentSound?.warning ? 'true' : 'false';
 }
 function onClassification(event) {

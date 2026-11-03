@@ -16,7 +16,7 @@ body.ipad-test .ipad-right .sensitivity-list{gap:11px}
 body.ipad-test .ipad-right .sensitivity-line{gap:8px;margin-bottom:4px}
 body.ipad-test .ipad-right .sensitivity-line label{font-size:12px}
 body.ipad-test .ipad-right .sensitivity-line output{font-size:12px}
-body.ipad-test .ipad-right input[type=range]{height:36px;touch-action:pan-y}
+body.ipad-test .ipad-right input[type=range]{height:44px;touch-action:pan-y}
 body.ipad-test .ipad-right .sensitivity-footer{margin-top:14px;gap:7px}
 body.ipad-test .ipad-right #threshold-reset{min-height:44px;flex:1 0 100%;overflow-wrap:normal}
 html[data-theme=light] body.ipad-test .ipad-right .sensitivity{
@@ -201,7 +201,7 @@ body.ipad-test .ipad-left footer{margin-top:10px}
 
 /* V3 original waveform restored; v5 avoids Safari keeping dBFS/percent chart styles. */
 
-// iPad-only output-only sound check; no microphone/AI activation.
+/* iPad-only output-only sound check; no microphone/AI activation. */
 body.ipad-test .alert-preview{display:flex;flex-direction:column;align-items:center;width:100%;max-width:290px;gap:4px;margin:2px auto 4px;padding:0 4px;text-align:center}
 body.ipad-test #alert-preview-button{font:inherit;font-weight:650;font-size:13px;min-height:44px;width:100%;max-width:260px;padding:8px 12px;border:1px solid #74b8b9;border-radius:11px;background:#153d4b;color:#ecfdf9;cursor:pointer;touch-action:manipulation}
 body.ipad-test #alert-preview-button:disabled{opacity:.6;cursor:default}

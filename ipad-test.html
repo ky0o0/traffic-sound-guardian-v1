@@ -21,10 +21,10 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest?v=1.6.16">
-  <link rel="stylesheet" href="./style.css?v=1.6.13">
+  <link rel="stylesheet" href="./style.css?v=1.6.16">
   <link rel="stylesheet" href="./theme.css?v=1.6.13">
   <link rel="stylesheet" href="./v1.6.css?v=1.6.14">
-  <link rel="stylesheet" href="./ipad-test.css?v=7">
+  <link rel="stylesheet" href="./ipad-test.css?v=8">
   <script src="./theme.js?v=1.6.13" defer></script>
   <title>Traffic Sound Guardian — iPad Landscape Test (V1.6.16)</title>
 </head>
@@ -68,7 +68,7 @@
               <a id="version-ipad" href="./ipad-test.html" aria-current="page" >iPad横画面（テスト）</a>
             </div>
           </section>
-          <nav class="settings-links" aria-label="補助メニュー">
+          <nav id="settings-links" class="settings-links" aria-label="補助メニュー">
             <a id="feedback" class="feedback" target="_blank" rel="noopener noreferrer" aria-disabled="false">ご意見・ご感想 ↗</a>
             <a id="ai-test-link" class="feedback" href="./ai-test.html?v=1.6.0">AIテストモード（オフライン研究） ↗</a>
             <a id="microphone-test-link" class="feedback" href="./microphone-test.html?v=1.6.0">マイク接続テスト（イヤホン入力） ↗</a>
@@ -82,7 +82,7 @@
     <div class="mic-source-panel" aria-labelledby="mic-source-label">
       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8"/></svg>
       <span id="mic-source-label" class="sr-only">使用中のマイク</span>
-      <output id="mic-source-value" aria-live="polite">マイクを使用していません</output>
+      <output id="mic-source-value" aria-describedby="mic-source-evidence" aria-live="polite">マイクを使用していません</output><span id="mic-source-evidence" class="sr-only"></span>
     </div>
 
       <div id="status" class="status"><span class="status-dot"></span><span id="status-label">待機中</span></div>
@@ -94,8 +94,8 @@
           <span class="loader" aria-hidden="true"></span>
         </button>
       </div>
-      <section class="message" aria-live="polite" aria-atomic="true">
-        <h1 id="heading">検知を停止しました</h1>
+      <section class="message">
+        <h1 id="heading" aria-live="polite" aria-atomic="true">検知を停止しました</h1>
         <p id="description">開始すると、周囲の交通警告音を<br>この端末で識別します。</p>
         <div id="warning-details" hidden>
           <p id="sound-type"></p>
@@ -116,7 +116,7 @@
     </main>
     <section class="ipad-center" aria-label="Current audio and AI classification">
       <section class="rolling-panel" aria-labelledby="rolling-heading">
-        <div class="rolling-header"><h2 id="rolling-heading">直近10秒の音声</h2><span class="rolling-state">LIVE · 10s</span></div>
+        <div class="rolling-header"><h2 id="rolling-heading">直近10秒の音声</h2><span id="rolling-state" class="rolling-state">LIVE · 10s</span></div>
         <div id="rolling-current" class="rolling-current" aria-live="off">
           <span id="rolling-current-label" class="rolling-current-label">現在のAI識別結果</span>
           <output id="rolling-current-value" class="rolling-current-value">検知開始前</output>
@@ -186,8 +186,8 @@
     </aside>
     <noscript>JavaScriptを有効にして、Safariで開き直してください。 / Enable JavaScript and reopen this page in Safari.</noscript>
   </div>
-  <script type="module" src="./live-timeline.js?v=1.6.17"></script>
-  <script type="module" src="./app.js?v=1.6.15"></script>
-  <script type="module" src="./alert-tone-preview.js?v=1.6.15.1"></script>
+  <script type="module" src="./live-timeline.js?v=1.6.18"></script>
+  <script type="module" src="./app.js?v=1.6.16"></script>
+  <script type="module" src="./alert-tone-preview.js?v=1.6.16"></script>
 </body>
 </html>

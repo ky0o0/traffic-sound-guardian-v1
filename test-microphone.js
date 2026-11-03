@@ -77,7 +77,7 @@ function harness({devices=[{kind:'audioinput',deviceId:'mic1',label:'iPhone Micr
 }
 test('V1.6.0 diagnostic is independent and all DOM IDs are present',()=>{
   for(const id of requiredIds)assert.ok(allIds.has(id),id);
-  assert.ok(html.includes('microphone-test.js?v=1.6.0'));
+  assert.ok(html.includes('microphone-test.js?v=1.6.16'));
   assert.ok(html.includes('microphone-test.css?v=1.6.0'));
   assert.ok(!app.includes('yamnet.tflite'));
   assert.ok(!app.includes('MediaRecorder'));
@@ -203,4 +203,19 @@ test('backgrounding and disconnecting the track stop the stream',async()=>{
  h.streams[1].getAudioTracks()[0].onended();
  assert.equal(h.get('status').dataset.status,'ended');
  assert.equal(h.streams[1].getAudioTracks()[0].stopped,true);
+});
+
+
+test('diagnostic context suspension releases microphone instead of leaving a frozen live meter',async()=>{
+ const h=harness();h.start();await h.flush();
+ h.contexts[0].state='suspended';h.contexts[0].onstatechange();
+ assert.equal(h.get('status').dataset.status,'otherError');
+ assert.equal(h.contexts[0].state,'closed');assert.equal(h.streams[0].getTracks()[0].stopped,true);
+ assert.equal(h.frames.size,0);assert.equal(h.contexts[0].onstatechange,null);
+});
+test('diagnostic cannot claim live audio if resume resolves while still suspended',async()=>{
+ const h=harness();vm.runInContext("window.AudioContext.prototype.resume=function(){return Promise.resolve();}",h.context);
+ h.start();await h.flush();
+ assert.equal(h.get('status').dataset.status,'otherError');
+ assert.equal(h.contexts[0].state,'closed');assert.ok(h.streams[0].getTracks()[0].stopped);
 });
