@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/traffic-sound-guardian-v1/tests/v17-browser.py", line 53, in <module>
+    assert page.locator('#research-log tr').count()>=3
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

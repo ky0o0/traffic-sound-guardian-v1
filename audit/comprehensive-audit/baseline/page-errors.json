@@ -1,0 +1,27 @@
+[
+  {
+    "page": "index.html",
+    "errors": []
+  },
+  {
+    "page": "ipad-test.html",
+    "errors": [
+      {
+        "message": "Cannot set properties of null (setting 'textContent')",
+        "stack": "TypeError: Cannot set properties of null (setting 'textContent')\n    at render (http://127.0.0.1:8000/traffic-sound-guardian-v1/research-dashboard.js?v=1.7.3:33:36)\n    at http://127.0.0.1:8000/traffic-sound-guardian-v1/research-dashboard.js?v=1.7.3:64:2"
+      },
+      {
+        "message": "Cannot set properties of null (setting 'textContent')",
+        "stack": "TypeError: Cannot set properties of null (setting 'textContent')\n    at render (http://127.0.0.1:8000/traffic-sound-guardian-v1/research-dashboard.js?v=1.7.3:33:36)\n    at http://127.0.0.1:8000/traffic-sound-guardian-v1/research-dashboard.js?v=1.7.3:52:38\n    at stop (http://127.0.0.1:8000/traffic-sound-guardian-v1/app.js?v=1.7.3:904:25)\n    at http://127.0.0.1:8000/traffic-sound-guardian-v1/app.js?v=1.7.3:1306:43"
+      }
+    ]
+  },
+  {
+    "page": "ai-test.html",
+    "errors": []
+  },
+  {
+    "page": "microphone-test.html",
+    "errors": []
+  }
+]
