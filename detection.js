@@ -10,9 +10,7 @@ export const TARGETS = Object.freeze({
   'Ambulance (siren)': { index: 318, label: 'サイレン（救急車）' },
   'Fire engine, fire truck (siren)': { index: 319, label: 'サイレン（消防車）' }
 });
-// Five related bell-like YAMNet labels: each uses the fixed raw-score threshold
-// DEFAULT_THRESHOLD (0.10), independently of the six user-adjustable targets.
-// Keep the categories separate: a generic bell must not be called a bicycle bell.
+// Five related bell-like labels stay separate from bicycle bells.
 export const SECONDARY_BELLS = Object.freeze({
   'Bell': { index: 195, label: '鐘・ベル' },
   'Chime': { index: 200, label: 'チャイム' },
@@ -59,16 +57,23 @@ export function targetScores(results) {
   return scores;
 }
 
-/** The six traffic targets keep their adjustable thresholds. Five generic
- * bell-like categories use a fixed 0.10 threshold. Either group triggers on
- * ONE inference; original traffic-specific categories take display priority
- * over generic bell labels, regardless of cross-group raw score. */
-export function chooseTarget(scores, thresholds = {}) {
-  const choose = (targets, adjustable) => {
+/** Apply preferences only to decision thresholds, never to model scores.
+ * Default 1 preserves every existing threshold, including legacy 0.01 values.
+ * UI sensitivity 0.5..1.5 gives a multiplier 2..2/3; clamp avoids extremes. */
+export function effectiveThreshold(base = DEFAULT_THRESHOLD, sensitivity = 1) {
+  const validBase = Number.isFinite(base) && base >= 0.01 && base <= 0.50 ? base : DEFAULT_THRESHOLD;
+  const validSensitivity = Number.isFinite(sensitivity) && sensitivity >= 0.5 && sensitivity <= 1.5 ? sensitivity : 1;
+  return Math.max(0.01, Math.min(0.50, validBase / validSensitivity));
+}
+/** Original six traffic categories retain display priority over generic bells. */
+export function chooseTarget(scores, thresholds = {}, sensitivity = 1) {
+  const choose = targets => {
     let best = null;
     for (const [name, target] of Object.entries(targets)) {
       const score = scores?.[name];
-      const threshold = adjustable ? (thresholds?.[name] ?? DEFAULT_THRESHOLD) : DEFAULT_THRESHOLD;
+      const base = thresholds?.[name] ?? DEFAULT_THRESHOLD;
+      if (!Number.isFinite(base) || base < 0.01 || base > 0.50) continue;
+      const threshold = effectiveThreshold(base, sensitivity);
       if (!Number.isFinite(score) || score < 0 || score > 1 ||
           !Number.isFinite(threshold) || threshold < 0.01 || threshold > 0.50 ||
           score < threshold) continue;
@@ -76,7 +81,7 @@ export function chooseTarget(scores, thresholds = {}) {
     }
     return best;
   };
-  return choose(TARGETS, true) ?? choose(SECONDARY_BELLS, false);
+  return choose(TARGETS) ?? choose(SECONDARY_BELLS);
 }
 
 export class WarningGate {

@@ -30,15 +30,15 @@ const compatibilityWords = () => compatibility[document.documentElement.lang] ??
 function ambientPolicy() {
   const nav = window.navigator ?? {};
   const apple = /iPad|iPhone|iPod|Mac/.test((nav.userAgent ?? '') + (nav.platform ?? ''));
-  let audioSession;
+  let audioSession, previous;
   try {
     audioSession = nav.audioSession;
     if (audioSession && typeof audioSession.type === 'string') {
-      const previous = audioSession.type;
+      previous = audioSession.type;
       // Never overwrite a capture / exclusive session owned by another feature.
       if (!['auto', 'ambient'].includes(previous)) return null;
       audioSession.type = 'ambient'; // Must precede AudioContext construction/resume.
-      if (audioSession.type !== 'ambient') return null;
+      if (audioSession.type !== 'ambient') { try { audioSession.type = previous; } catch {} return null; }
       let owned = true;
       return () => {
         if (!owned) return;
@@ -46,7 +46,10 @@ function ambientPolicy() {
         try { if (audioSession.type === 'ambient') audioSession.type = previous; } catch {}
       };
     }
-  } catch { return null; }
+  } catch {
+    try { if (audioSession && previous !== undefined) audioSession.type = previous; } catch {}
+    return null;
+  }
   return apple ? null : () => {}; // Other engines: ordinary Web Audio, no mixing guarantee.
 }
 let active = null;

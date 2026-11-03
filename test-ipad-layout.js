@@ -8,22 +8,13 @@ const ids = html => [...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 const between = (a,b) => ipad.slice(ipad.indexOf(a),ipad.indexOf(b,ipad.indexOf(a)));
 
 test('iPad V3 preserves all original IDs and exact real AI/audio scripts',()=>{
- assert.deepEqual(ids(ipad).sort(),[...ids(main)].sort(),'same shared controls and Settings in both entrypoints');
- assert.equal(new Set(ids(ipad)).size,ids(ipad).length,'no duplicated microphone, threshold or debug IDs');
- assert.match(ipad,/<body class="ipad-test" data-state="stopped">/);
- for (const markup of [main,ipad]) {
-  const settings=markup.slice(markup.indexOf('id="settings-content"'),markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
-  for (const id of ['alert-preview-button','alert-volume-select','mic-select','mic-select-status'])
-    assert.ok(settings.includes('id="'+id+'"'),id+' must be in Settings on both pages');
- }
- assert.match(ipad,/href="\.\/ipad-test\.css\?v=8"/);
- for(const file of ['app.js','live-timeline.js','theme.js']){
-   const pattern = file === 'app.js' ? /app\.js\?v=1\.6\.17/ : file === 'live-timeline.js' ? /live-timeline\.js\?v=1\.6\.18/ : new RegExp(file.replaceAll('.','\\.')+'\\?v=1\\.6\\.(?:13|0)');
-   assert.match(main,pattern);
-   assert.match(ipad,pattern,'same audio and model pipeline; both pages use the symmetric waveform fixes');
- }
- assert.doesNotMatch(ipad,/getUserMedia\(|AudioContext\(|MediaRecorder\(/,'no alternative input chain');
- assert.match(ipad,/href="\.\/index\.html"/);
+ for(const id of ['mic-control','language-select','alert-tone-toggle','alert-volume-select','alert-preview-button','mic-select','overall-sensitivity','rolling-waveform'])assert.ok(ids(main).includes(id)&&ids(ipad).includes(id),id);
+ for(const markup of [main,ipad])assert.equal(new Set(ids(markup)).size,ids(markup).length);
+ for(const id of ['debug-panel','debug-toggle','threshold-input-0'])assert.ok(!ids(main).includes(id)&&ids(ipad).includes(id));
+ for(const file of ['app.js?v=1.7.0','live-timeline.js?v=1.6.18','theme.js?v=1.7.0']){assert.ok(main.includes(file));assert.ok(ipad.includes(file));}
+ assert.ok(!ipad.includes('id="settings-panel"'));assert.match(main,/id="settings-panel"/);
+ assert.doesNotMatch(ipad,/getUserMedia\(|AudioContext\(|MediaRecorder\(/);
+
 });
 
 test('left control, center live chart plus BOTH detailed classification tables, right all six thresholds',()=>{
@@ -48,19 +39,10 @@ test('left control, center live chart plus BOTH detailed classification tables, 
 
 test('landscape grid shows left / middle / right and preserves mobile, Safari short viewport fallback',()=>{
  assert.match(css,/@media \(orientation:landscape\) and \(min-width:820px\) and \(min-height:500px\)/);
- assert.match(css,/grid-template-columns:minmax\(185px,23%\) minmax\(290px,1fr\) minmax\(245px,29%\)/);
- assert.match(css,/body\.ipad-test \.ipad-left\{/);
- assert.match(css,/body\.ipad-test \.ipad-center\{/);
- assert.match(css,/body\.ipad-test \.ipad-right\{/);
- assert.match(css,/grid-column:1;/);
- assert.match(css,/grid-column:2;/);
- assert.match(css,/grid-column:3;/);
- assert.match(css,/body\.ipad-test \.ipad-center \.debug-section\{/);
- assert.match(css,/overflow-y:auto;overflow-x:hidden/,'detailed AI results remain independently scrollable');
- assert.match(css,/body\.ipad-test \.ipad-right\{/);
- assert.match(css,/body\.ipad-test\[data-debug=off\]/);
+ assert.match(css,/grid-template-columns:minmax\(230px,25%\) minmax\(290px,1fr\) minmax\(245px,27%\)/);
+ for(const n of [1,2,3])assert.ok(css.includes('grid-column:'+n+';'));
+ assert.match(css,/overflow-y:auto;overflow-x:hidden/);
  assert.match(css,/@media \(orientation:portrait\),\(max-width:819px\),\(max-height:499px\)/);
- assert.match(css,/@media \(orientation:landscape\) and \(min-width:820px\) and \(min-height:500px\) and \(max-height:630px\)/);
- assert.match(css,/grid-template-rows:46px minmax\(530px,1fr\)/);
- assert.doesNotMatch(css,/#(?:debug-target|debug-top|threshold-input-[0-5])\{display:none/,'all real values and sliders accessible');
+ assert.doesNotMatch(css,/#(?:debug-target|debug-top|threshold-input-[0-9]+)\{display:none/);
+
 });

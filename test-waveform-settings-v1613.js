@@ -46,8 +46,8 @@ test('main and iPad Settings put appearance next to language, keeping shared the
  const css=file('./v1.6.css');
  for(const pageName of ['index.html','ipad-test.html']){
    const html=file('./'+pageName);
-   assert.match(html,/theme\.js\?v=1\.6\.13/);
-   assert.match(html,/href="\.\/v1\.6\.css\?v=1\.6\.14"/);
+   assert.match(html,/theme\.js\?v=1\.7\.0/);
+   assert.match(html,/href="\.\/guardian\.css\?v=1\.7\.0"/);
    assert.match(html,/id="settings-content"/);
    assert.match(html,/<div class="settings-group">\s*<div id="language-switch"/);
  }
@@ -77,7 +77,7 @@ test('main and iPad Settings put appearance next to language, keeping shared the
    querySelector:()=>({setAttribute(){}}),
    addEventListener(type,fn){listeners[type]=fn;}
  };
- const window={matchMedia:()=>({matches:false,addEventListener(){}})};
+ const window={addEventListener(){},matchMedia:()=>({matches:false,addEventListener(){}})};
  const storage={getItem:()=>null,setItem(k,v){saved.push([k,v]);}};
  class Observer{observe(){}}
  vm.runInNewContext(theme,{document,window,localStorage:storage,MutationObserver:Observer});
@@ -87,7 +87,7 @@ test('main and iPad Settings put appearance next to language, keeping shared the
  const picker=settingsRow.children[0];
  const select=picker.children.find(n=>n.id==='theme-select');
  assert.ok(select,'native theme picker remains accessible');
- assert.equal(picker.children[0].className,'sr-only','theme has an accessible label without adding another line');
+ assert.equal(picker.children[0].className,'theme-picker-label','theme has an accessible label without adding another line');
  assert.equal(select.options.length,3);
  select.value='dark'; select.change();
  assert.equal(document.documentElement.dataset.theme,'dark');

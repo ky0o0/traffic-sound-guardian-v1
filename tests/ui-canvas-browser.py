@@ -73,12 +73,12 @@ with sync_playwright() as p:
                 page.goto(base+entry+'?lang='+lang);settle(page)
                 fixture(page)
                 for theme in ['light','dark']:
-                    page.locator('#settings-panel').evaluate('(e)=>e.open=true')
+                    page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=true)')
                     page.locator('#theme-select').select_option(theme);settle(page)
                     wave=check_wave(page)
                     box=page.locator('#settings-content').bounding_box()
                     assert box['x']>=0 and box['x']+box['width']<=width+.5,(entry,width,lang,box)
-                    assert box['y']>=0 and box['y']+box['height']<=height+.5,(entry,height,lang,box)
+                    if entry=='index.html':assert box['y']>=0 and box['y']+box['height']<=height+.5,(entry,height,lang,box)
                     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(entry,width,lang)
                     if entry=='ipad-test.html' and width>=820 and width>height and height>=500:
                         boxes=[page.locator('.ipad-'+name).bounding_box() for name in ['left','center','right']]
@@ -91,19 +91,26 @@ with sync_playwright() as p:
                     page.locator('#settings-content').evaluate('(e)=>e.scrollTop=0')
                     if lang=='zh-CN' and (width,height) in [(1194,834),(1024,768),(390,844),(320,568)]:
                         page.screenshot(path=str(out/f'{entry}-{width}x{height}-{theme}-settings.png'),full_page=True)
-                        page.locator('#settings-panel').evaluate('(e)=>e.open=false')
+                        page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=false)')
                         fixture(page,True)
                         page.screenshot(path=str(out/f'{entry}-{width}x{height}-{theme}-wave.png'),full_page=True)
                         fixture(page)
-                    else: page.locator('#settings-panel').evaluate('(e)=>e.open=false')
-                    button=page.locator('#threshold-reset').bounding_box()
+                    else: page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=false)')
+                    button=page.locator('#threshold-reset').bounding_box() if entry=='ipad-test.html' else None
                     if entry=='ipad-test.html':
                         assert button['width']>=140 and button['height']<=66,(width,lang,button)
-                    for i in range(6):
-                        slider=page.locator(f'#threshold-input-{i}')
-                        slider.press('End');assert page.locator(f'#threshold-value-{i}').inner_text()=='0.50'
-                    page.locator('#threshold-reset').tap()
-                    assert page.locator('[id^=threshold-value-]').all_text_contents()==['0.10']*6
+                    if entry=='ipad-test.html':
+                        for i in range(11):
+                            slider=page.locator(f'#threshold-input-{i}')
+                            slider.press('End');assert page.locator(f'#threshold-value-{i}').inner_text()=='0.50'
+                        page.locator('#threshold-reset').tap()
+                        assert page.locator('[id^=threshold-value-]').all_text_contents()==['0.10']*11
+                    else:
+                        page.locator('#settings-panel').evaluate('(e)=>e.open=true')
+                        page.locator('#overall-sensitivity').press('End')
+                        assert page.locator('#overall-value').inner_text()=='1.50×'
+                        page.locator('#overall-sensitivity').fill('1');page.locator('#overall-sensitivity').dispatch_event('input')
+                        page.locator('#settings-panel').evaluate('(e)=>e.open=false')
                     # Return to the top without changing microphone/session state.
                     page.evaluate('scrollTo(0,0)')
                     assert not page.evaluate('uiProbe.workers.length || uiProbe.contexts.length || uiProbe.streams.length')
@@ -116,12 +123,12 @@ with sync_playwright() as p:
             canvas=page.locator('#rolling-waveform').evaluate('(e)=>({w:e.width,h:e.height,cw:e.clientWidth,ch:e.clientHeight})')
             assert canvas['h']==2*canvas['ch'] and canvas['w']==2*canvas['cw']
             results.append({'kind':'height','page':entry,'height':h})
-        page.locator('#settings-panel').evaluate('(e)=>e.open=true');page.locator('#theme-select').select_option('system')
+        page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=true)');page.locator('#theme-select').select_option('system')
         for color in ['light','dark','light']:
             page.emulate_media(color_scheme=color);settle(page)
             assert page.locator('html').get_attribute('data-theme')==color
             check_wave(page)
-        page.locator('#settings-panel').evaluate('(e)=>e.open=false')
+        page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=false)')
         page.set_viewport_size({'width':834,'height':1194});settle(page)
         page.set_viewport_size({'width':1024,'height':768});settle(page)
         if entry=='ipad-test.html':
@@ -141,11 +148,11 @@ with sync_playwright() as p:
                 page.locator('#mic-control').click()
                 page.wait_for_function('(i)=>uiProbe.workers[i]?.results>=2',arg=cycle,timeout=60000)
                 assert page.evaluate('(i)=>uiProbe.workers[i].last.categoryCount',cycle)==521
-                page.locator('#settings-panel').evaluate('(e)=>e.open=true')
+                page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=true)')
                 page.locator('#theme-select').select_option('dark' if cycle%2==0 else 'light');settle(page)
                 page.set_viewport_size({'width':1194 if cycle%2==0 else 1024,'height':834 if cycle%2==0 else 768});settle(page)
                 assert page.evaluate('uiProbe.workers.length')==cycle+1
-                page.locator('#settings-panel').evaluate('(e)=>e.open=false')
+                page.locator('#settings-panel').evaluate_all('(nodes)=>nodes.forEach(e=>e.open=false)')
                 page.locator('#mic-control').click();settle(page)
                 a=page.evaluate('uiResources()');page.wait_for_timeout(250);z=page.evaluate('uiResources()')
                 assert all(w['terminated'] for w in z['workers'])

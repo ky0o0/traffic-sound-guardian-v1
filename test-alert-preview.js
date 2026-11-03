@@ -43,9 +43,10 @@ test('preview exists only inside Settings on both pages and never starts microph
  const main=html('./index.html'),ipad=html('./ipad-test.html'),css=html('./style.css');
  for(const markup of [main,ipad]) {
   assert.match(markup,/id="alert-preview-button"/);
-  assert.match(markup,/<script type="module" src="\.\/alert-tone-preview\.js\?v=1\.6\.17"><\/script>/);
+  assert.match(markup,/<script (?=[^>]*type="module")(?=[^>]*src="\.\/alert-tone-preview\.js\?v=1\.7\.0")[^>]*><\/script>/);
   assert.ok(markup.indexOf('id="alert-preview-button"')>markup.indexOf('id="settings-content"'));
-  assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
+  if (markup === main) assert.ok(markup.indexOf('id="alert-preview-button"')<markup.indexOf('</details>',markup.indexOf('id="settings-content"')));
+  else assert.ok(!markup.includes('id="settings-panel"'));
   assert.equal([...markup.matchAll(/id="alert-preview-button"/g)].length,1);
  }
  for(const [name,markup] of [['standard',main],['iPad',ipad]]) {
@@ -177,4 +178,18 @@ test('capture handoff cancels preview, restores policy and blocks preview during
  a.events['tsg:capture']({detail:{active:true}});assert.equal(audioSession.type,'auto');
  await new Promise(r=>setImmediate(r));a.buttonListeners.click();assert.equal(a.contexts.length,1);
  a.events['tsg:capture']({detail:{active:false}});a.buttonListeners.click();assert.equal(a.contexts.length,2);a.events.pagehide();
+});
+
+test('ignored ambient setter and exclusive sessions stay silent before Context construction',()=>{
+ for(const audioSession of [{get type(){return 'auto'},set type(value){}},{type:'play-and-record'},{type:'playback'}]){
+  const a=boot({nav:{audioSession,userAgent:'iPad'}});a.buttonListeners.click();assert.equal(a.contexts.length,0);
+ }
+});
+test('capture during pending close restores policy immediately and a late close cannot overwrite capture',async()=>{
+ const audioSession={type:'auto'};const a=boot({nav:{audioSession}});a.buttonListeners.click();let resolveClose;
+ a.contexts[0].close=()=>new Promise(resolve=>resolveClose=resolve);
+ a.events.pagehide();assert.equal(audioSession.type,'ambient');
+ a.events['tsg:capture']({detail:{active:true}});assert.equal(audioSession.type,'auto');
+ audioSession.type='play-and-record';resolveClose();await new Promise(r=>setImmediate(r));
+ assert.equal(audioSession.type,'play-and-record');assert.equal(a.contexts.length,1);
 });

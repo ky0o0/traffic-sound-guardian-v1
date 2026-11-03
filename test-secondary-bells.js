@@ -42,13 +42,13 @@ test('secondary bells below .10 do not warn; invalid and unrelated scores never 
  }
  assert.equal(chooseTarget({'Music':1,'Speech':1}),null);
 });
-test('generic bell thresholds stay fixed at .10 while six traffic sliders remain independently adjustable',()=>{
+test('all eleven base thresholds are independently adjustable with unchanged defaults',()=>{
  const [original]=Object.keys(TARGETS);
  assert.equal(chooseTarget({[original]:.06},{[original]:.05})?.name,original);
  assert.equal(chooseTarget({[original]:.06},{[original]:.10}),null);
  for(const name of Object.keys(SECONDARY_BELLS)){
-   assert.equal(chooseTarget({[name]:.06},{[name]:.01}),null,'user thresholds cannot silently lower generic bell cutoff');
-   assert.equal(chooseTarget({[name]:.10},{[name]:.50})?.name,name);
+   assert.equal(chooseTarget({[name]:.06},{[name]:.01})?.name,name,'generic bell cutoff is adjustable in Test');
+   assert.equal(chooseTarget({[name]:.10},{[name]:.50}),null);
  }
 });
 test('traffic-specific labels always take display priority over more highly scored generic bell labels',()=>{
