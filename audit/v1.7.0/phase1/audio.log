@@ -1,0 +1,21 @@
+✔ preview exists only inside Settings on both pages and never starts microphone or inference (2.180847ms)
+✔ manual user click plays exactly the normal two quiet sine beeps through output only (4.996602ms)
+✔ pagehide and background visibility always release preview audio and multilingual labels update (1.252869ms)
+✔ missing Web Audio supports graceful failure without permissions or fake playback (0.676319ms)
+✔ Safari suspended AudioContext cannot claim successful beep playback (1.164135ms)
+✔ fallback accepts actual elapsed AudioContext time when onended is missing (1.064745ms)
+✔ preview status translates during playback and after completion without replaying (0.828499ms)
+✔ early final callback cannot report success without advancing the audio clock (0.850482ms)
+✔ preview cleanup consumes rejected asynchronous context close (0.872025ms)
+✔ manual preview uses the exact selected gain level without accessing mic (1.228662ms)
+✔ ambient policy precedes output Context, restores after close, and never selects transient-solo (0.879456ms)
+✔ unsupported or rejected AudioSession on Apple stays silent before Context construction (1.396555ms)
+✔ capture handoff cancels preview, restores policy and blocks preview during detection (0.930783ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.974881

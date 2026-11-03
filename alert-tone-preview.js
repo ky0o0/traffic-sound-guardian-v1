@@ -16,23 +16,58 @@ try {
   if (Object.prototype.hasOwnProperty.call(gains,value)) volumeLevel = value;
 } catch {}
 
+// Apple platforms without a confirmed mixable policy must stay silent.
+// navigator.audioSession is optional and Safari only implements a subset.
+let captureActive = false;
+let closing = false;
+let closingPreview = null;
+const compatibility = {
+  ja: ['混音API未対応：Apple端末の試聴を停止しました。', '検知を停止してから試聴してください。', '他の音楽との同時再生は端末で確認が必要です。'],
+  en: ['Mixing API unavailable: preview blocked on this Apple device.', 'Stop detection before previewing.', 'Music mixing requires verification on your device.'],
+  'zh-CN': ['混音 API 不可用：已阻止此 Apple 设备试听。', '请先停止检测再试听。', '与音乐同时播放仍需在您的设备上验证。']
+};
+const compatibilityWords = () => compatibility[document.documentElement.lang] ?? compatibility.ja;
+function ambientPolicy() {
+  const nav = window.navigator ?? {};
+  const apple = /iPad|iPhone|iPod|Mac/.test((nav.userAgent ?? '') + (nav.platform ?? ''));
+  let audioSession;
+  try {
+    audioSession = nav.audioSession;
+    if (audioSession && typeof audioSession.type === 'string') {
+      const previous = audioSession.type;
+      // Never overwrite a capture / exclusive session owned by another feature.
+      if (!['auto', 'ambient'].includes(previous)) return null;
+      audioSession.type = 'ambient'; // Must precede AudioContext construction/resume.
+      if (audioSession.type !== 'ambient') return null;
+      let owned = true;
+      return () => {
+        if (!owned) return;
+        owned = false;
+        try { if (audioSession.type === 'ambient') audioSession.type = previous; } catch {}
+      };
+    }
+  } catch { return null; }
+  return apple ? null : () => {}; // Other engines: ordinary Web Audio, no mixing guarantee.
+}
 let active = null;
 let statusIndex = null;
 function showStatus(index) {
   statusIndex = index;
-  status.textContent = index === null ? '' : words()[index];
+  status.textContent = index === null ? '' : index >= 5 ? compatibilityWords()[index - 5] : words()[index];
 }
 function announcePreview() {
   if (!button) return;
   button.textContent = words()[0];
-  note.textContent = words()[1];
+  note.textContent = compatibilityWords()[2];
   button.closest?.('section')?.setAttribute('aria-label', words()[0]);
   if (status) showStatus(statusIndex);
 }
-function endPreview() {
+function endPreview(handoff = false) {
   const current = active;
-  if (!current) return;
+  if (!current) { if (handoff) closingPreview?.releasePolicy(); return; }
   active = null;
+  closingPreview = current;
+  closing = true;
   clearTimeout(current.timer);
   for (const {osc, gain} of current.nodes) {
     try { osc.onended = null; osc.stop(); } catch {}
@@ -40,18 +75,23 @@ function endPreview() {
     try { gain.disconnect(); } catch {}
   }
   // close() is asynchronous in Web Audio; consume rejection on interrupted Safari sessions.
-  try { Promise.resolve(current.context.close()).catch(() => {}); } catch {}
-  button.disabled = false;
+  // A capture handoff restores the policy synchronously, before its Context exists.
+  if (handoff) current.releasePolicy();
+  const done = () => { current.releasePolicy(); closingPreview = null; closing = false; button.disabled = false; };
+  try { Promise.resolve(current.context.close()).catch(() => {}).then(done); } catch { done(); }
 }
 function playPreview() {
-  if (active || !button) return;
+  if (active || closing || !button) return;
+  if (captureActive) { statusIndex = 6; status.textContent = compatibilityWords()[1]; return; }
   const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
   if (!AudioContextCtor) { showStatus(4); return; }
+  const releasePolicy = ambientPolicy();
+  if (!releasePolicy) { statusIndex = 5; status.textContent = compatibilityWords()[0]; return; }
   let context;
   try {
     // Creating and resuming inside the click gesture is essential on iPad Safari.
     context = new AudioContextCtor();
-    const current = {context, nodes:[], timer:null};
+    const current = {context, nodes:[], timer:null, releasePolicy};
     active = current;
     button.disabled = true;
     showStatus(2);
@@ -100,7 +140,7 @@ function playPreview() {
     }, 3000);
   } catch (error) {
     if (active) endPreview();
-    else try { context?.close(); } catch {}
+    else { releasePolicy(); try { Promise.resolve(context?.close()).catch(() => {}); } catch {} }
     showStatus(4);
     console.warn('[Traffic Sound Guardian] Manual alert preview unavailable:',error);
   }
@@ -108,6 +148,10 @@ function playPreview() {
 if (button && note && status) {
   button.addEventListener('click',playPreview);
   window.addEventListener('tsg:language',announcePreview);
+  window.addEventListener('tsg:capture',event => {
+    captureActive = !!event.detail?.active;
+    if (captureActive) { endPreview(true); showStatus(null); }
+  });
   window.addEventListener('tsg:alert-volume',event => {
     const value = event?.detail?.level;
     if (Object.prototype.hasOwnProperty.call(gains,value)) volumeLevel = value;

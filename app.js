@@ -846,6 +846,7 @@ function stop(message = '') {
     stopAlertTones(old); // Discard any scheduled beeps when microphone session ends.
     old.gate.reset();
   }
+  window.dispatchEvent?.(new CustomEvent('tsg:capture', {detail:{active:false}}));
   micSource = {state: 'stopped', evidence: null};
   renderMicChoices();
   resetVisuals();
@@ -1068,6 +1069,8 @@ async function start() {
     pending: null, flight: null, alertToneNodes: new Set(), micSourceQuery: 0, reportedAudioInputs: [],
     requestedMicId: preferredMicId };
   session = s;
+  // Preview releases its ambient policy before the capture Context is created.
+  window.dispatchEvent?.(new CustomEvent('tsg:capture', {detail:{active:true}}));
   micSource = {state: 'loading', evidence: null};
   renderMicSource();
   diagnostics.model = '読み込み中';
