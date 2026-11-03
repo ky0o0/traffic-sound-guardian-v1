@@ -406,6 +406,7 @@ function setAlertVolume(value) {
   alertVolume = value;
   ui['alert-volume-select'].value = value;
   try { window.localStorage?.setItem(ALERT_VOLUME_STORAGE_KEY, value); } catch {}
+  window.dispatchEvent?.(new CustomEvent('tsg:alert-volume', {detail:{level:value}}));
 }
 const THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.soundThresholds';
 const LEGACY_BELL_STORAGE_KEY = 'trafficSoundGuardian.bicycleBellThreshold';
@@ -695,7 +696,7 @@ function setLanguage(next) {
   ui['alert-tone-toggle'].checked = alertToneEnabled;
   ui['alert-volume-label'].textContent = t('通知音の音量');
   ui['alert-volume-note'].textContent = t('実際の音圧は端末やイヤホンによって異なります。低い設定から試してください。');
-  for (const option of ui['alert-volume-select'].options) {
+  for (const option of ui['alert-volume-select'].options ?? []) {
     const names = { soft:'小', normal:'標準', clear:'はっきり' };
     option.textContent = t(names[option.value]);
   }
@@ -846,6 +847,7 @@ function stop(message = '') {
     old.gate.reset();
   }
   micSource = {state: 'stopped', evidence: null};
+  renderMicChoices();
   resetVisuals();
   window.dispatchEvent?.(new Event('tsg:reset'));
   render('stopped', message);
