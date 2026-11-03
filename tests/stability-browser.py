@@ -22,7 +22,7 @@ with sync_playwright() as pw:
   page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append({'url':r.url,'method':r.method}))
   page.goto((base or a.base_url).rstrip('/')+'/'+entry+'?lang=en');
   if entry in ['index.html','ipad-test.html']:page.wait_for_function("document.getElementById('heading').textContent==='Detection stopped'")
-  else:page.wait_for_function("document.title.includes('V1.6.16')")
+  else:page.wait_for_function("document.title.includes('V1.6.17')")
   return context,page
  def stopped(page):
   page.wait_for_function("document.body.dataset.state==='stopped'")
