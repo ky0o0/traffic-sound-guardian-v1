@@ -285,7 +285,7 @@ test('V1.6.17 page, release assets and refreshed classifier cache agree',()=>{
  assert.match(page, /class="version">V1\.6\.17<\/span>/);
  assert.match(page, /src="\.\/app\.js\?v=1\.6\.17"/); // Changed app JS must refresh cache.
  assert.match(page, /href="\.\/v1\.6\.css\?v=1\.6\.14"/);
- assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.16"/);
+ assert.match(page, /href="\.\/manifest\.webmanifest\?v=1\.6\.17"/);
  assert.match(source, /classifier-worker\.js\?v=1\.6\.15/); // Changed Worker JS must refresh cache.
  assert.equal(JSON.parse(fs.readFileSync(new URL('./manifest.webmanifest',import.meta.url))).name,'Traffic Sound Guardian V1.6.17');
  assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.6.17');
