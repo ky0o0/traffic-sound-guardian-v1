@@ -18,14 +18,11 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     ctx.clearRect(0, 0, width, height);
     const lightTheme = canvas.ownerDocument?.documentElement?.dataset?.theme === 'light';
-    ctx.strokeStyle =
-      getView() === 'warning'
-        ? lightTheme
-          ? '#b5233b'
-          : '#ff8795'
-        : lightTheme
-          ? '#177e75'
-          : '#98dacc';
+    if (getView() === 'warning') {
+      ctx.strokeStyle = lightTheme ? '#b5233b' : '#ff8795';
+    } else {
+      ctx.strokeStyle = lightTheme ? '#177e75' : '#98dacc';
+    }
     ctx.lineWidth = 2.1;
     ctx.lineJoin = 'round';
     ctx.beginPath();
