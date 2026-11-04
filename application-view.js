@@ -75,7 +75,9 @@ export function createApplicationView({
     const visualSelect = $('visual-mode-select');
     if (visualSelect) {
       $('visual-mode-label').textContent = t('中央の表示');
-      $('visual-mode-note').textContent = t('マイク入力の波形をリアルタイムで表示します。音声は保存されません。');
+      $('visual-mode-note').textContent = t(
+        'マイク入力の波形をリアルタイムで表示します。音声は保存されません。',
+      );
       for (const option of visualSelect.options ?? []) {
         const key = option.value === 'waveform' ? 'リアルタイム波形' : '円形アニメーション';
         option.textContent = t(key);
