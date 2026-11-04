@@ -914,7 +914,8 @@ const { drawWaveform, resetVisuals, startVisuals } = createMicrophoneVisualizer(
 const VISUAL_MODE_STORAGE_KEY = 'trafficSoundGuardian.standardVisualMode';
 function loadVisualMode() {
   try {
-    return window.localStorage?.getItem(VISUAL_MODE_STORAGE_KEY) === 'waveform' ? 'waveform' : 'circle';
+    const saved = window.localStorage?.getItem(VISUAL_MODE_STORAGE_KEY);
+    return saved === 'waveform' ? 'waveform' : 'circle';
   } catch {
     return 'circle';
   }
@@ -933,9 +934,7 @@ function setVisualMode(next, save = true) {
   }
 }
 setVisualMode(loadVisualMode(), false);
-ui['visual-mode-select']?.addEventListener('change', () =>
-  setVisualMode(ui['visual-mode-select'].value),
-);
+ui['visual-mode-select']?.addEventListener('change', () => setVisualMode(ui['visual-mode-select'].value));
 
 $('standard-threshold')?.addEventListener('input', () => setStandardThreshold($('standard-threshold').value));
 for (const [i, name] of Object.keys(WARNING_TARGETS).entries()) {
