@@ -1,4 +1,4 @@
-import { safeTrackSettings } from './mic-source.js?v=1.7.4';
+import { safeTrackSettings } from './mic-source.js?v=1.7.5';
 // Pure helpers used by the optional microphone routing diagnostic.
 // Do not confuse browser-reported track identity with physically verified ANC microphone access.
 export function microphoneMatch(requestedId, track, devices = []) {
