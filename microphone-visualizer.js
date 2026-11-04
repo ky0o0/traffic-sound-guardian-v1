@@ -18,7 +18,14 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     ctx.clearRect(0, 0, width, height);
     const light = window.document?.documentElement?.dataset?.theme === 'light';
-    ctx.strokeStyle = getView() === 'warning' ? (light ? '#b5233b' : '#ff8795') : light ? '#177e75' : '#98dacc';
+    ctx.strokeStyle =
+      getView() === 'warning'
+        ? light
+          ? '#b5233b'
+          : '#ff8795'
+        : light
+          ? '#177e75'
+          : '#98dacc';
     ctx.lineWidth = 2.1;
     ctx.lineJoin = 'round';
     ctx.beginPath();
