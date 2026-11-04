@@ -1,5 +1,5 @@
-import { createThresholdSettings } from './threshold-settings.js?v=1.7.4';
-import { mountAnnotationEditor } from './annotation-editor.js?v=1.7.4';
+import { createThresholdSettings } from './threshold-settings.js?v=1.7.5';
+import { mountAnnotationEditor } from './annotation-editor.js?v=1.7.5';
 import {
   IDS,
   NAMES,
@@ -18,15 +18,15 @@ import {
   optimize,
   exportData,
   csv
-} from './ai-test-analysis.js?v=1.7.4';
+} from './ai-test-analysis.js?v=1.7.5';
 import {
   BatchRunner,
   LIMITS,
   checkFile
-} from './ai-test-runner.js?v=1.7.4';
+} from './ai-test-runner.js?v=1.7.5';
 import {
   translate
-} from './ai-test-i18n.js?v=1.7.4';
+} from './ai-test-i18n.js?v=1.7.5';
 
 const root = document.getElementById('test-app'),
   runner = new BatchRunner();
@@ -837,13 +837,13 @@ function render() {
   activeAnnotationEditor = null;
   const openIds = new Set([...root.querySelectorAll('details[open][id]')].map(x => x.id));
   document.documentElement.lang = language;
-  document.title = t('title') + ' · Traffic Sound Guardian V1.7.4';
+  document.title = t('title') + ' · Traffic Sound Guardian V1.7.5';
   root.replaceChildren();
   const top = el('div', null, {
     class: 'top'
   });
   top.append(el('a', t('back'), {
-    href: './index.html?v=1.7.4&lang=' + language
+    href: './index.html?v=1.7.5&lang=' + language
   }));
   const langs = el('div', null, { class: 'language-switch' });
   const picker = el('select', null, { id: 'language-select' });
@@ -860,7 +860,7 @@ function render() {
   };
   langs.append(picker);
   top.append(langs);
-  root.append(top, el('h1', t('title') + ' · V1.7.4'), el('p', t('subtitle'), {
+  root.append(top, el('h1', t('title') + ' · V1.7.5'), el('p', t('subtitle'), {
     class: 'notice'
   }), note('privacy'));
   const tabs = el('nav', null, {
@@ -885,7 +885,7 @@ function render() {
   root.append(thresholdPanel());
   root.append(tab === 'upload' ? uploadView(openIds) : tab === 'results' ? resultsView() : tab ===
     'analysis' ? metricsView() : tab === 'optimize' ? optimizeView() : exportView());
-  root.append(el('footer', 'Traffic Sound Guardian V1.7.4 · YAMNet / MediaPipe · ' + t('scoreNote')));
+  root.append(el('footer', 'Traffic Sound Guardian V1.7.5 · YAMNet / MediaPipe · ' + t('scoreNote')));
 }
 window.addEventListener('pagehide', () => {
   annotationAbort?.abort();
