@@ -4,8 +4,7 @@ export const EN = Object.freeze({
     'Raw YAMNet Score is not accuracy or probability. Research logs stay in memory only.',
   設定: 'Settings',
   'リアルタイム波形を表示': 'Show live waveform',
-  'マイク入力の波形です。AIの判定スコアではありません。':
-    'Shows microphone audio amplitude, not the AI recognition score.',
+  'マイク入力の波形です。AIの判定スコアではありません。': 'Mic amplitude, not an AI score.',
   'マイク入力のリアルタイム波形': 'Live microphone waveform',
   '鐘・ベル': 'Bell',
   チャイム: 'Chime',
@@ -181,8 +180,7 @@ export const ZH = Object.freeze({
     'YAMNet 原始分数不是准确率或概率。研究日志仅保留在内存中。',
   設定: '设置',
   'リアルタイム波形を表示': '显示实时波形',
-  'マイク入力の波形です。AIの判定スコアではありません。':
-    '显示麦克风输入的声音振幅，不代表 AI 识别分数。',
+  'マイク入力の波形です。AIの判定スコアではありません。': '麦克风声音振幅，不是 AI 评分。',
   'マイク入力のリアルタイム波形': '麦克风实时波形',
   '鐘・ベル': '钟／铃声',
   チャイム: '提示铃声',
