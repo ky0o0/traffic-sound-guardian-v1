@@ -6,7 +6,8 @@ export const EN = Object.freeze({
   中央の表示: 'Center display',
   円形アニメーション: 'Circular animation',
   リアルタイム波形: 'Live waveform',
-  'マイク入力の波形をリアルタイムで表示します。音声は保存されません。': 'Show the live microphone waveform. Audio is not saved.',
+  'マイク入力の波形をリアルタイムで表示します。音声は保存されません。':
+    'Show the live microphone waveform. Audio is not saved.',
   リアルタイムのマイク波形: 'Live microphone waveform',
   '鐘・ベル': 'Bell',
   チャイム: 'Chime',
@@ -184,7 +185,8 @@ export const ZH = Object.freeze({
   中央の表示: '中央显示',
   円形アニメーション: '圆形动画',
   リアルタイム波形: '实时音频波形',
-  'マイク入力の波形をリアルタイムで表示します。音声は保存されません。': '实时显示麦克风输入波形，不会保存音频。',
+  'マイク入力の波形をリアルタイムで表示します。音声は保存されません。':
+    '实时显示麦克风输入波形，不会保存音频。',
   リアルタイムのマイク波形: '实时麦克风波形',
   '鐘・ベル': '钟／铃声',
   チャイム: '提示铃声',
