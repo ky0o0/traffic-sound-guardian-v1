@@ -1,4 +1,4 @@
-import { LANGUAGE_STORAGE_KEY } from './app-i18n.js?v=1.7.4';
+import { LANGUAGE_STORAGE_KEY } from './app-i18n.js?v=1.7.5';
 export function createApplicationView({
   ui,
   document,
@@ -72,6 +72,12 @@ export function createApplicationView({
     document.querySelector?.('.ipad-center')?.setAttribute('aria-label', t('音声とAI識別'));
     ui['settings-toggle']?.setAttribute('aria-label', t('設定'));
     ui['language-select-label'].textContent = t('言語');
+    if (ui['waveform-toggle']) {
+      $('waveform-toggle-label').textContent = t('リアルタイム波形を表示');
+      $('waveform-toggle-note').textContent = t('マイク入力の波形です。AIの判定スコアではありません。');
+      ui['waveform-toggle'].setAttribute('aria-label', t('リアルタイム波形を表示'));
+      ui.waveform.setAttribute('aria-label', t('マイク入力のリアルタイム波形'));
+    }
     ui['alert-tone-label'].textContent = t('通知音を鳴らす');
     ui['alert-tone-note'].textContent = t(
       '新しい警告時に短い音を2回再生します。出力先は端末の設定によって異なります。',
@@ -109,8 +115,8 @@ export function createApplicationView({
     try {
       window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language);
     } catch {}
-    ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.7.4&lang=' + language);
-    ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.7.4&lang=' + language);
+    ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.7.5&lang=' + language);
+    ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.7.5&lang=' + language);
     for (const [id, text] of Object.entries({
       'ai-test-link': 'AIテストモード（オフライン研究） ↗',
       'microphone-test-link': 'マイク接続テスト（イヤホン入力） ↗',

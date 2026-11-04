@@ -47,7 +47,7 @@ export const COMMON_IDS = Object.freeze([
   'microphone-test-link',
   'page-description',
 ]);
-export const STANDARD_IDS = Object.freeze(['settings-toggle', 'settings-title']);
+export const STANDARD_IDS = Object.freeze(['settings-toggle', 'settings-title', 'waveform-toggle', 'waveform-toggle-label', 'waveform-toggle-note']);
 export const TEST_IDS = Object.freeze([
   'sensitivity-heading',
   'sensitivity-note',

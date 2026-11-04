@@ -1,5 +1,5 @@
-import { bindApplicationElements } from './page-elements.js?v=1.7.4';
-import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.4';
+import { bindApplicationElements } from './page-elements.js?v=1.7.5';
+import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.5';
 import {
   createThresholdSettings,
   thresholdsForMode,
@@ -7,11 +7,11 @@ import {
   STANDARD_THRESHOLD_STORAGE_KEY,
   THRESHOLD_STOPS,
   nearestThreshold,
-} from './threshold-settings.js?v=1.7.4';
-import { createMicrophoneView } from './microphone-view.js?v=1.7.4';
-import { createDebugView } from './debug-view.js?v=1.7.4';
-import { createApplicationView } from './application-view.js?v=1.7.4';
-import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.4';
+} from './threshold-settings.js?v=1.7.5';
+import { createMicrophoneView } from './microphone-view.js?v=1.7.5';
+import { createDebugView } from './debug-view.js?v=1.7.5';
+import { createApplicationView } from './application-view.js?v=1.7.5';
+import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.5';
 import {
   WarningGate,
   WARNING_TARGETS,
@@ -19,10 +19,10 @@ import {
   effectiveThreshold,
   DEFAULT_THRESHOLD,
   WARNING_HOLD_MS,
-} from './detection.js?v=1.7.4';
+} from './detection.js?v=1.7.5';
 import { AudioWindowBuffer } from './audio-window.js';
-import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.7.4';
-import { debugCategoryName } from './debug.js?v=1.7.4';
+import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.7.5';
+import { debugCategoryName } from './debug.js?v=1.7.5';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -106,6 +106,25 @@ async function refreshMicSource(s) {
 // Preferences only; no PCM, AI results, or inference history are persisted.
 const ALERT_TONE_STORAGE_KEY = 'trafficSoundGuardian.alertToneEnabled';
 const ALERT_VOLUME_STORAGE_KEY = 'trafficSoundGuardian.alertVolume';
+const VISUAL_STYLE_STORAGE_KEY = 'trafficSoundGuardian.standardVisualStyle';
+function savedWaveformEnabled() {
+  try {
+    return window.localStorage?.getItem(VISUAL_STYLE_STORAGE_KEY) === 'waveform';
+  } catch {
+    return false;
+  }
+}
+function showWaveform(enabled, persist = false) {
+  if (document.body.dataset.mode !== 'standard') return;
+  document.body.dataset.visualization = enabled ? 'waveform' : 'circle';
+  ui['waveform-toggle'].checked = !!enabled;
+  if (persist) {
+    try {
+      window.localStorage?.setItem(VISUAL_STYLE_STORAGE_KEY, enabled ? 'waveform' : 'circle');
+    } catch {}
+  }
+  if (enabled && !session?.connected) drawWaveform(null);
+}
 // Browser gain is not dB SPL. The levels stay conservatively below digital full scale.
 const ALERT_VOLUME_GAINS = Object.freeze({ soft: 0.045, normal: 0.09, clear: 0.15 });
 function loadAlertVolume() {
@@ -630,7 +649,7 @@ async function connectCapture(s) {
   s.silent.gain.value = 0;
   if (context.audioWorklet && typeof AudioWorkletNode !== 'undefined') {
     try {
-      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.7.4', import.meta.url));
+      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.7.5', import.meta.url));
       if (!isCurrent(s)) return;
       s.node = new AudioWorkletNode(context, 'guardian-capture', {
         numberOfInputs: 1,
@@ -808,7 +827,7 @@ async function start() {
           : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.7.4', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.7.5', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -902,7 +921,7 @@ const applicationView = createApplicationView({
   feedbackURL,
   renderMicChoices,
 });
-const { resetVisuals, startVisuals } = createMicrophoneVisualizer({
+const { drawWaveform, resetVisuals, startVisuals } = createMicrophoneVisualizer({
   ui,
   window,
   requestAnimationFrame,
@@ -930,6 +949,9 @@ window.addEventListener('storage', (event) => {
     alertVolume = loadAlertVolume();
     ui['alert-volume-select'].value = alertVolume;
     window.dispatchEvent?.(new CustomEvent('tsg:alert-volume', { detail: { level: alertVolume } }));
+  }
+  if ((!event.key || event.key === VISUAL_STYLE_STORAGE_KEY) && ui['waveform-toggle']) {
+    showWaveform(savedWaveformEnabled());
   }
   if (!event.key || event.key === ALERT_TONE_STORAGE_KEY) {
     alertToneEnabled = loadAlertToneEnabled();
@@ -961,6 +983,7 @@ ui['alert-tone-toggle'].addEventListener('change', () =>
 );
 ui['alert-volume-select'].addEventListener('change', () => setAlertVolume(ui['alert-volume-select'].value));
 ui['mic-select'].addEventListener('change', () => chooseMicrophone(ui['mic-select'].value));
+ui['waveform-toggle']?.addEventListener('change', () => showWaveform(ui['waveform-toggle'].checked, true));
 ui['debug-toggle']?.addEventListener('change', () => setDebug(ui['debug-toggle'].checked));
 
 ui['language-select'].addEventListener('change', () => setLanguage(ui['language-select'].value));
@@ -968,6 +991,7 @@ ui.feedback.addEventListener('click', (event) => {
   if (!feedbackURL(FEEDBACK_FORM_URLS[language === 'ja' ? 'ja' : 'en'])) event.preventDefault();
 });
 setLanguage(language);
+showWaveform(savedWaveformEnabled());
 ui['alert-tone-toggle'].checked = alertToneEnabled;
 ui['alert-volume-select'].value = alertVolume;
 renderThresholds();
