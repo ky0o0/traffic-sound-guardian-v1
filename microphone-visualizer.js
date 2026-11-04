@@ -1,8 +1,8 @@
 export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, getView, isCurrent }) {
   function drawWaveform(samples) {
     const canvas = ui.waveform;
-    // The legacy canvas is hidden in both layouts. Keep it available without
-    // computing 2,048 display samples on every frame when it cannot be seen.
+    // Only draw the live PCM waveform when the canvas is visible.
+    // The read-only analyzer never changes inference or persists audio.
     if (canvas.getClientRects && !canvas.getClientRects().length) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -17,7 +17,12 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
     }
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = getView() === 'warning' ? '#ffffff' : '#98dacc';
+    const lightTheme = canvas.ownerDocument?.documentElement?.dataset?.theme === 'light';
+    if (getView() === 'warning') {
+      ctx.strokeStyle = lightTheme ? '#b5233b' : '#ff8795';
+    } else {
+      ctx.strokeStyle = lightTheme ? '#177e75' : '#98dacc';
+    }
     ctx.lineWidth = 2.1;
     ctx.lineJoin = 'round';
     ctx.beginPath();

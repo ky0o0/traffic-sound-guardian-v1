@@ -1,9 +1,8 @@
-# Traffic Sound Guardian V1.7.4
+# Traffic Sound Guardian V1.7.5
 
 A local, browser-based research prototype for recognizing surrounding traffic
-warning sounds. This maintenance candidate is on `refactor/comprehensive-audit`;
-it is **not merged or deployed**. The published site remains unchanged until the
-owner approves a merge.
+warning sounds. The website is published on GitHub Pages. Standard supports the original circular
+microphone and an optional live PCM waveform, selectable under Settings.
 
 Raw YAMNet scores are not accuracy or calibrated probability. This prototype does
 not guarantee road safety. Physical Safari/iPad/AirPods and Apple Music mixing

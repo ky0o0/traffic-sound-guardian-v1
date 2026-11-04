@@ -1,5 +1,5 @@
-import { bindApplicationElements } from './page-elements.js?v=1.7.4';
-import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.4';
+import { bindApplicationElements } from './page-elements.js?v=1.7.5';
+import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.5';
 import {
   createThresholdSettings,
   thresholdsForMode,
@@ -7,11 +7,11 @@ import {
   STANDARD_THRESHOLD_STORAGE_KEY,
   THRESHOLD_STOPS,
   nearestThreshold,
-} from './threshold-settings.js?v=1.7.4';
-import { createMicrophoneView } from './microphone-view.js?v=1.7.4';
-import { createDebugView } from './debug-view.js?v=1.7.4';
-import { createApplicationView } from './application-view.js?v=1.7.4';
-import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.4';
+} from './threshold-settings.js?v=1.7.5';
+import { createMicrophoneView } from './microphone-view.js?v=1.7.5';
+import { createDebugView } from './debug-view.js?v=1.7.5';
+import { createApplicationView } from './application-view.js?v=1.7.5';
+import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.5';
 import {
   WarningGate,
   WARNING_TARGETS,
@@ -19,10 +19,10 @@ import {
   effectiveThreshold,
   DEFAULT_THRESHOLD,
   WARNING_HOLD_MS,
-} from './detection.js?v=1.7.4';
+} from './detection.js?v=1.7.5';
 import { AudioWindowBuffer } from './audio-window.js';
-import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.7.4';
-import { debugCategoryName } from './debug.js?v=1.7.4';
+import { microphoneSourceEvidence, safeTrackSettings } from './mic-source.js?v=1.7.5';
+import { debugCategoryName } from './debug.js?v=1.7.5';
 
 // Confirmed Japanese and English Google Forms short links, supplied directly by the form owner.
 // Navigation sends neither microphone samples nor recognition scores.
@@ -630,7 +630,7 @@ async function connectCapture(s) {
   s.silent.gain.value = 0;
   if (context.audioWorklet && typeof AudioWorkletNode !== 'undefined') {
     try {
-      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.7.4', import.meta.url));
+      await context.audioWorklet.addModule(new URL('./capture-worklet.js?v=1.7.5', import.meta.url));
       if (!isCurrent(s)) return;
       s.node = new AudioWorkletNode(context, 'guardian-capture', {
         numberOfInputs: 1,
@@ -808,7 +808,7 @@ async function start() {
           : '入力エラー';
       fail(s, error);
     });
-    s.worker = new Worker(new URL('./classifier-worker.js?v=1.7.4', import.meta.url));
+    s.worker = new Worker(new URL('./classifier-worker.js?v=1.7.5', import.meta.url));
     const ready = new Promise((resolve, reject) => {
       s.rejectReady = reject;
       s.worker.onmessage = ({ data }) => {
@@ -902,13 +902,39 @@ const applicationView = createApplicationView({
   feedbackURL,
   renderMicChoices,
 });
-const { resetVisuals, startVisuals } = createMicrophoneVisualizer({
+const { drawWaveform, resetVisuals, startVisuals } = createMicrophoneVisualizer({
   ui,
   window,
   requestAnimationFrame,
   getView: () => view,
   isCurrent,
 });
+
+// Standard-only display preference. This changes presentation, never the audio or AI pipeline.
+const VISUAL_MODE_STORAGE_KEY = 'trafficSoundGuardian.standardVisualMode';
+function loadVisualMode() {
+  try {
+    const saved = window.localStorage?.getItem(VISUAL_MODE_STORAGE_KEY);
+    return saved === 'waveform' ? 'waveform' : 'circle';
+  } catch {
+    return 'circle';
+  }
+}
+function setVisualMode(next, save = true) {
+  const select = ui['visual-mode-select'];
+  if (!select) return; // Do not alter iPad Test.
+  const mode = next === 'waveform' ? 'waveform' : 'circle';
+  select.value = mode;
+  document.body.dataset.visualization = mode;
+  if (mode === 'waveform' && !session) drawWaveform(null);
+  if (save) {
+    try {
+      window.localStorage?.setItem(VISUAL_MODE_STORAGE_KEY, mode);
+    } catch {}
+  }
+}
+setVisualMode(loadVisualMode(), false);
+ui['visual-mode-select']?.addEventListener('change', () => setVisualMode(ui['visual-mode-select'].value));
 
 $('standard-threshold')?.addEventListener('input', () => setStandardThreshold($('standard-threshold').value));
 for (const [i, name] of Object.keys(WARNING_TARGETS).entries()) {
@@ -926,6 +952,7 @@ window.addEventListener('storage', (event) => {
     renderThresholds();
     renderDebug();
   }
+  if (!event.key || event.key === VISUAL_MODE_STORAGE_KEY) setVisualMode(loadVisualMode(), false);
   if (!event.key || event.key === ALERT_VOLUME_STORAGE_KEY) {
     alertVolume = loadAlertVolume();
     ui['alert-volume-select'].value = alertVolume;
