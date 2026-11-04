@@ -1,4 +1,4 @@
-# Traffic Sound Guardian V1.7.4
+# Traffic Sound Guardian V1.7.5
 
 A local, browser-based research prototype for recognizing surrounding traffic
 warning sounds. This maintenance candidate is on `refactor/comprehensive-audit`;
