@@ -1,4 +1,4 @@
-import { WARNING_TARGETS, DEFAULT_THRESHOLD } from './detection.js?v=1.7.4';
+import { WARNING_TARGETS, DEFAULT_THRESHOLD } from './detection.js?v=1.7.5';
 export const THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.soundThresholds';
 export const LEGACY_BELL_STORAGE_KEY = 'trafficSoundGuardian.bicycleBellThreshold';
 export const STANDARD_THRESHOLD_STORAGE_KEY = 'trafficSoundGuardian.standardThreshold';
