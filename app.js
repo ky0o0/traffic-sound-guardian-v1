@@ -926,10 +926,7 @@ function setVisualMode(next, save = true) {
   const mode = ['circle', 'bars', 'waveform'].includes(next) ? next : 'circle';
   select.value = mode;
   document.body.dataset.visualization = mode;
-  ui.waveform?.setAttribute(
-    'aria-label',
-    t(mode === 'bars' ? 'スクロール波形' : 'リアルタイムのマイク波形'),
-  );
+  ui.waveform?.setAttribute('aria-label', t(mode === 'bars' ? 'スクロール波形' : 'リアルタイムのマイク波形'));
   if (mode !== 'circle') drawWaveform(null);
   if (save) {
     try {
