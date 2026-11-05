@@ -279,7 +279,7 @@ test('V1.7.3 page, release assets and refreshed classifier cache agree',async()=
  assert.match(html,/V1\.7\.5/);assert.match(html,/app\.js\?v=1\.7\.5/);assert.match(html,/guardian\.css\?v=1\.7\.5/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.5/);
  }
  assert.match(source,/classifier-worker\.js\?v=1\.7\.5/);
- assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.5');
+ assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.6');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
  for(const [file,selected] of [['index.html','version-standard'],['ipad-test.html','version-ipad']]) {
@@ -652,7 +652,7 @@ test('V1.6.0 single native selector routes simplified Chinese to English Google 
  assert.equal(h.document.documentElement.lang,'zh-CN');
  assert.equal(h.elements.get('heading').textContent,'检测已停止');
  assert.equal(h.elements.get('feedback').attributes.href,'https://forms.gle/AkXuRHWwi9Kp95GfA');
- assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.7.5&lang=zh-CN');
+ assert.equal(h.elements.get('ai-test-link').attributes.href,'./ai-test.html?v=1.7.6&lang=zh-CN');
  assert.equal(h.elements.get('debug-toggle-label').textContent,'AI 调试模式');
  assert.equal(h.elements.get('sensitivity-heading').textContent,'交通警告音灵敏度设置');
  assert.equal(h.elements.get('threshold-label-0').textContent,'自行车铃');
