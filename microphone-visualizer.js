@@ -29,11 +29,12 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
     if (canvas.ownerDocument?.body?.dataset?.visualization === 'bars') {
       const step = width / BAR_COUNT;
       ctx.fillStyle = ctx.strokeStyle;
-      for (let i = 0; i < BAR_COUNT; i++) {
-        const rms = bars[i] || 0;
+      const offset = BAR_COUNT - bars.length;
+      for (let i = 0; i < bars.length; i++) {
+        const rms = bars[i];
         const amplitude = Math.min(1, Math.sqrt(rms) * 2.4);
         const halfHeight = Math.max(1, amplitude * height * 0.45);
-        ctx.fillRect(i * step + step * 0.2, height / 2 - halfHeight, Math.max(1, step * 0.6), halfHeight * 2);
+        ctx.fillRect((i + offset) * step + step * 0.2, height / 2 - halfHeight, Math.max(1, step * 0.6), halfHeight * 2);
       }
       return;
     }
