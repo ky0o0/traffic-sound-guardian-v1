@@ -79,10 +79,10 @@ export function createApplicationView({
         'マイク入力の波形をリアルタイムで表示します。音声は保存されません。',
       );
       for (const option of visualSelect.options ?? []) {
-        const key = option.value === 'waveform' ? 'リアルタイム波形' : '円形アニメーション';
+        const key = { circle: '円形アニメーション', bars: 'スクロール波形', waveform: 'リアルタイム波形' }[option.value];
         option.textContent = t(key);
       }
-      ui.waveform.setAttribute('aria-label', t('リアルタイムのマイク波形'));
+      ui.waveform.setAttribute('aria-label', t(visualSelect.value === 'bars' ? 'スクロール波形' : 'リアルタイムのマイク波形'));
     }
     ui['alert-tone-label'].textContent = t('通知音を鳴らす');
     ui['alert-tone-note'].textContent = t(
