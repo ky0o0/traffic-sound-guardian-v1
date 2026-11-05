@@ -11,6 +11,7 @@ test('Standard has one optional live waveform, preserving the circular default a
   assert.match(html, /id="visual-mode-select"/);
   assert.match(html, /<option value="circle">円形アニメーション<\/option>/);
   assert.match(html, /<option value="waveform">リアルタイム波形<\/option>/);
+  assert.match(html, /<option value="bars">スクロール波形<\/option>/);
   assert.equal((html.match(/id="waveform"/g) ?? []).length, 1);
   assert.match(html, /<div id="visual" class="visual">\s*<canvas id="waveform"[\s\S]*?<button id="mic-control"/);
   assert.match(html, /id="rolling-waveform"/);
@@ -27,13 +28,15 @@ test('Standard waveform mode has CSS-only display changes and a usable start/sto
   assert.match(controller, /setVisualMode\(loadVisualMode\(\), false\)/);
   assert.match(controller, /ui\['visual-mode-select'\]\?\.addEventListener\('change'/);
   assert.match(controller, /if \(!select\) return;/);
-  assert.match(controller, /if \(mode === 'waveform' && !session\) drawWaveform\(null\)/);
+  assert.match(controller, /if \(mode !== 'circle'\) drawWaveform\(null\)/);
   assert.match(read('./microphone-visualizer.js'), /s\.analyser\.getFloatTimeDomainData\(samples\)/);
 });
 
 test('Standard waveform settings have localized English and Chinese labels', () => {
   assert.equal(translateApp('リアルタイム波形', 'en'), 'Live waveform');
   assert.equal(translateApp('リアルタイム波形', 'zh-CN'), '实时音频波形');
+  assert.equal(translateApp('スクロール波形', 'en'), 'Scrolling waveform');
+  assert.equal(translateApp('スクロール波形', 'zh-CN'), '滚动声波柱');
   assert.equal(translateApp('円形アニメーション', 'en'), 'Circular animation');
   assert.equal(translateApp('円形アニメーション', 'zh-CN'), '圆形动画');
 });
