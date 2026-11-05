@@ -1,5 +1,5 @@
 import { bindApplicationElements } from './page-elements.js?v=1.7.5';
-import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.5';
+import { allowedLanguage, initialLanguage, translateApp } from './app-i18n.js?v=1.7.5-visual3';
 import {
   createThresholdSettings,
   thresholdsForMode,
@@ -10,8 +10,8 @@ import {
 } from './threshold-settings.js?v=1.7.5';
 import { createMicrophoneView } from './microphone-view.js?v=1.7.5';
 import { createDebugView } from './debug-view.js?v=1.7.5';
-import { createApplicationView } from './application-view.js?v=1.7.5';
-import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.5';
+import { createApplicationView } from './application-view.js?v=1.7.5-visual3';
+import { createMicrophoneVisualizer } from './microphone-visualizer.js?v=1.7.5-visual3';
 import {
   WarningGate,
   WARNING_TARGETS,
@@ -915,7 +915,7 @@ const VISUAL_MODE_STORAGE_KEY = 'trafficSoundGuardian.standardVisualMode';
 function loadVisualMode() {
   try {
     const saved = window.localStorage?.getItem(VISUAL_MODE_STORAGE_KEY);
-    return saved === 'waveform' ? 'waveform' : 'circle';
+    return ['circle', 'bars', 'waveform'].includes(saved) ? saved : 'circle';
   } catch {
     return 'circle';
   }
@@ -923,10 +923,11 @@ function loadVisualMode() {
 function setVisualMode(next, save = true) {
   const select = ui['visual-mode-select'];
   if (!select) return; // Do not alter iPad Test.
-  const mode = next === 'waveform' ? 'waveform' : 'circle';
+  const mode = ['circle', 'bars', 'waveform'].includes(next) ? next : 'circle';
   select.value = mode;
   document.body.dataset.visualization = mode;
-  if (mode === 'waveform' && !session) drawWaveform(null);
+  ui.waveform?.setAttribute('aria-label', t(mode === 'bars' ? 'スクロール波形' : 'リアルタイムのマイク波形'));
+  if (mode !== 'circle') drawWaveform(null);
   if (save) {
     try {
       window.localStorage?.setItem(VISUAL_MODE_STORAGE_KEY, mode);
