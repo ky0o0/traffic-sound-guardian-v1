@@ -1,4 +1,4 @@
-import { LANGUAGE_STORAGE_KEY } from './app-i18n.js?v=1.7.5';
+import { LANGUAGE_STORAGE_KEY } from './app-i18n.js?v=1.7.6';
 export function createApplicationView({
   ui,
   document,
@@ -79,10 +79,17 @@ export function createApplicationView({
         'マイク入力の波形をリアルタイムで表示します。音声は保存されません。',
       );
       for (const option of visualSelect.options ?? []) {
-        const key = option.value === 'waveform' ? 'リアルタイム波形' : '円形アニメーション';
+        const key = {
+          circle: '円形アニメーション',
+          bars: 'スクロール波形',
+          waveform: 'リアルタイム波形',
+        }[option.value];
         option.textContent = t(key);
       }
-      ui.waveform.setAttribute('aria-label', t('リアルタイムのマイク波形'));
+      ui.waveform.setAttribute(
+        'aria-label',
+        t(visualSelect.value === 'bars' ? 'スクロール波形' : 'リアルタイムのマイク波形'),
+      );
     }
     ui['alert-tone-label'].textContent = t('通知音を鳴らす');
     ui['alert-tone-note'].textContent = t(
@@ -121,8 +128,8 @@ export function createApplicationView({
     try {
       window.sessionStorage?.setItem(LANGUAGE_STORAGE_KEY, language);
     } catch {}
-    ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.7.5&lang=' + language);
-    ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.7.5&lang=' + language);
+    ui['ai-test-link'].setAttribute('href', './ai-test.html?v=1.7.6&lang=' + language);
+    ui['microphone-test-link'].setAttribute('href', './microphone-test.html?v=1.7.6&lang=' + language);
     for (const [id, text] of Object.entries({
       'ai-test-link': 'AIテストモード（オフライン研究） ↗',
       'microphone-test-link': 'マイク接続テスト（イヤホン入力） ↗',

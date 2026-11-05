@@ -1,7 +1,7 @@
-import { requireElements, RESEARCH_IDS } from './page-elements.js?v=1.7.5';
-import { ResearchSession } from './research.js?v=1.7.5';
-import { WARNING_TARGETS } from './detection.js?v=1.7.5';
-import { debugCategoryName } from './debug.js?v=1.7.5';
+import { requireElements, RESEARCH_IDS } from './page-elements.js?v=1.7.6';
+import { ResearchSession } from './research.js?v=1.7.6';
+import { WARNING_TARGETS } from './detection.js?v=1.7.6';
+import { debugCategoryName } from './debug.js?v=1.7.6';
 const $ = id => document.getElementById(id);
 const state = new ResearchSession(Object.keys(WARNING_TARGETS));
 const dictionaries = {

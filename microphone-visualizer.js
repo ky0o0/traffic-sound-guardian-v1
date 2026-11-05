@@ -1,4 +1,7 @@
 export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, getView, isCurrent }) {
+  // Independent, bounded three-second visual-only RMS history.
+  const bars = [];
+  const BAR_COUNT = 90;
   function drawWaveform(samples) {
     const canvas = ui.waveform;
     // Only draw the live PCM waveform when the canvas is visible.
@@ -23,6 +26,23 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
     } else {
       ctx.strokeStyle = lightTheme ? '#177e75' : '#98dacc';
     }
+    if (canvas.ownerDocument?.body?.dataset?.visualization === 'bars') {
+      const step = width / BAR_COUNT;
+      ctx.fillStyle = ctx.strokeStyle;
+      const offset = BAR_COUNT - bars.length;
+      for (let i = 0; i < bars.length; i++) {
+        const rms = bars[i];
+        const amplitude = Math.min(1, Math.sqrt(rms) * 2.4);
+        const halfHeight = Math.max(1, amplitude * height * 0.45);
+        ctx.fillRect(
+          (i + offset) * step + step * 0.2,
+          height / 2 - halfHeight,
+          Math.max(1, step * 0.6),
+          halfHeight * 2,
+        );
+      }
+      return;
+    }
     ctx.lineWidth = 2.1;
     ctx.lineJoin = 'round';
     ctx.beginPath();
@@ -44,6 +64,7 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
   }
   function resetVisuals() {
     ui.visual.style.setProperty('--audio-level', '0');
+    bars.length = 0;
     drawWaveform(null);
   }
   function startVisuals(s) {
@@ -80,6 +101,8 @@ export function createMicrophoneVisualizer({ ui, window, requestAnimationFrame, 
           const target = Math.min(1, Math.sqrt(rms) * 2.4);
           level += (target - level) * (1 - Math.exp(-elapsed / (target > level ? 55 : 160)));
           if (level < 0.001) level = 0;
+          bars.push(rms);
+          if (bars.length > BAR_COUNT) bars.shift();
           drawWaveform(samples);
           ui.visual.style.setProperty('--audio-level', level.toFixed(4));
         }
