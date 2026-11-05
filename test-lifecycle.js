@@ -276,9 +276,9 @@ test('Debug Mode is checked by default and never auto-scrolls when switched',asy
 test('V1.7.3 page, release assets and refreshed classifier cache agree',async()=>{
  for(const file of ['index.html','ipad-test.html']) {
  const html=fs.readFileSync(new URL(file,import.meta.url),'utf8');
- assert.match(html,/V1\.7\.5/);assert.match(html,/app\.js\?v=1\.7\.5/);assert.match(html,/guardian\.css\?v=1\.7\.5/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.5/);
+ assert.match(html,/V1\.7\.6/);assert.match(html,/app\.js\?v=1\.7\.6/);assert.match(html,/guardian\.css\?v=1\.7\.6/);assert.match(html,/manifest\.webmanifest\?v=1\.7\.6/);
  }
- assert.match(source,/classifier-worker\.js\?v=1\.7\.5/);
+ assert.match(source,/classifier-worker\.js\?v=1\.7\.6/);
  assert.equal(JSON.parse(fs.readFileSync(new URL('./package.json',import.meta.url))).version,'1.7.6');
 });
 test('V1.6.13 Settings switch links both layouts and localizes all choices without extra capture',async()=>{
@@ -877,7 +877,7 @@ test('V1.6.6 quiet waveform has lower near-silence baseline, larger levels remai
  assert.ok(gain(.001,104)>1,'subtle real sound stays visible');
  assert.ok(gain(.01,104)>gain(.001,104),'stronger real sound increases height');
  for(const rms of [0,.0001,.01,.25,1,100])assert.ok(gain(rms,104)<=104*.45);
- assert.match(page,/live-timeline\.js\?v=1\.7\.5/);
+ assert.match(page,/live-timeline\.js\?v=1\.7\.6/);
 });
 test('V1.6.6 larger mic circle works for normal, warning and compact layouts',async()=>{
  const css=fs.readFileSync(new URL('./guardian.css',import.meta.url),'utf8');
